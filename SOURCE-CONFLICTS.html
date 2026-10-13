@@ -34,5 +34,32 @@
 <li><strong>T3 không có một nghĩa toàn cục.</strong> PDF005: T3 ngoài Ø6@300 gọi thép buộc; T3 trong Ø10@150 thuộc nhóm khác và có T4. Không suy shape/Ø/spacing từ SH đơn lẻ. Key phải có component/tường/mặt-lớp/role; ý nghĩa hình học đầy đủ của T3/T4 trong còn phải ghép hình uốn đúng G500-2.</li>
 <li><strong>Alias ở PDF004 chưa được phép tự sửa nguồn.</strong> Nhãn BB <code>685CE</code> đọc SH=1, Ø8, có candidate tương ứng 1A; <code>685D5</code> đọc SH=2, Ø10, candidate 2A. Phải kiểm target, view và nhóm native trước khi chốt alias; endpoint không trùng trực tiếp không chứng minh thiếu nhãn. Xem PDF004 và block map.</li>
 <li><strong>Lỗi mô tả tên Model trong nghiên cứu đã sửa.</strong> PDF002=Model-10, PDF003=Model-11; hai đoạn văn trước ghi nhầm Model-2/3. Ledger/hash luôn giữ Model-10/11. PDF005=Model-2, G500-2; không dùng bảng G800-1 của PDF002 cho nhóm số liệu PDF005.</li>
-<li><strong>Scope nhãn nguồn và membership vật lý là hai mức bằng chứng.</strong> 47 tuyến kết thúc tại 47 block của PDF005 chứng minh association tuyến–nhãn. Không chứng minh đã biết từng SegmentOccurrenceId hoặc mean. Không được tự điền DAI từ chiều dài collector hoặc số Gach. Quyết định bốn vùng/mean của chủ nhiệm có ưu tiên; phần nội suy các nhóm khác phải giữ trạng thái NeedsRule cho tới khi đủ bằng chứng.</li>
+<li>
+<p><strong>Scope nhãn nguồn và membership vật lý là hai mức bằng chứng.</strong> 47 tuyến kết thúc tại 47 block của PDF005 chứng minh association tuyến–nhãn. Không chứng minh đã biết từng SegmentOccurrenceId hoặc mean. Không được tự điền DAI từ chiều dài collector hoặc số Gach. Quyết định bốn vùng/mean của chủ nhiệm có ưu tiên; phần nội suy các nhóm khác phải giữ trạng thái NeedsRule cho tới khi đủ bằng chứng.</p>
+</li>
+<li>
+<p><strong>Nét magenta không đồng nghĩa đường tim.</strong> PDF006/native layer VHG-Thep3 dùng ACI6/DASHED và biểu diễn thép khuất/phụ trong recipe; không chuyển thành CENTER chỉ vì màu. Lineweight layer=-3 là Default, không chứng minh nét in0.50/0.35/0.15. Phân loại bằng layer+role+view và plot evidence, không màu riêng lẻ.</p>
+</li>
+<li><strong>Collector qua khoảng trống không phải thanh xuyên lỗ.</strong> PDF006 N2 có tuyến annotation ngang đi qua vùng lỗ trước khi ra nhãn. Cấm thép hoặc Gach giả trong lỗ; không áp lệnh cắt tất cả LINE VHG-Dim theo void vì sẽ phá topology mẫu. Chỉ trim/cắt annotation nếu recipe yêu cầu, giữ tránh chữ/nhãn/dim. Đường thép vật lý vẫn phải cắt theo lỗ thật.</li>
+<li>
+<p><strong>Hook policy không chung giữa các cấu kiện/lớp.</strong> PDF007/006: tường ngoài TK.L2M, trong TK.L0M; trần trên TK.L0M, dưới TK.L2M. Không đặt một rule Top=hook hoặc Outside=hook cho toàn dự án. Số móc90 và offset180 là fixture, không là hằng số gia công mọi ga.</p>
+</li>
+<li>
+<p><strong>Clear radius, concrete cutout và rebar exclusion là ba kích thước khác nhau.</strong> Source72đoạn cắt kết thúcR320/375, khôngR200/250. Các vòng khácR255/310 vàR305/360 phải truy nghĩa vật liệu/input. Codeclipper đã có q=covertohole+Ø/2, nhưng caller WallRebarPlanner đang truyền wallcover; source coverrule chưa chốt, xemSTD21. Không tự đặt10/15 hoặc sửa công thứcclip để khớp một hình.</p>
+</li>
+<li>
+<p><strong>LINE lưới ngoài không chứa móc dù bảng dùng2M.</strong> 16nhóm mean khớp khi cộngLT/LP nguồn vào meanLINE rồi rounding; không coiLINE là đường gia công3D đầyđủ. Domain đã cóhook thì không cộnglại; nếu ScheduleLength vàFabricationLength khácbasis phải ghi rõ, không âm thầm thay invariant hay nắn path cho khớp số.</p>
+</li>
+<li>
+<p><strong>Input lỗ đã xác định nhưng offset convention chưa khớp.</strong> Ba workbook có Protect.H riêngH17/H19; Loại1/2=15, Loại3=10; wallcoverD17/D19=30. Source G500-2 nominalmargin15, domain surfacecover15+Ø10/2=20. Giữ xungđột workbook/CAD/version/basis, không suy sourceinputphải10 hoặc tuyênbố côngthứcdomain sai. Consumer accessory đãđọcProtect.H, mainclip caller dùngwallcover; STD21 ghi cụ thểhai vấnđề riêng.</p>
+</li>
+<li>
+<p><strong>Font thực của template khác khẳng định “mọi Regular là Arial” trong báo cáo cũ.</strong> Catalog <code>acad-original/symbols.json</code> ghi VHG-Unicode.Regular dùng <code>viet buddy.shx</code>, width0.8; Bold dùng <code>arial.ttf</code>. VhgTemplateRoles hiện cũng yêu cầu Regular SHX. Giữ signature nguồn; nếu cần font Unicode thay thế, khai báo FontPolicy/alias và kiểm native ink/PDF. Không sửa shared style âm thầm hoặc gọi substitution là giữ nguyên template.</p>
+</li>
+<li>
+<p><strong>Phạm vi nghiên cứu PDF đã được chủ nhiệm điều chỉnh.</strong> Dùng tám PDF001–008 đã phân tích cùng toàn bộ template, Excel notes và code để chuẩn hóa quy trình. Không mở rộng phân tích sâu63PDF còn lại như điều kiện trước sửa. Tổng quan71PDF vẫn được giữ; không đổi trạng thái chưa kiểm glyph thành đạt. PDF009 vừa ghi là bằng chứng bổ sung, không tạo điều kiện nghiên cứu mới.</p>
+</li>
+<li>
+<p><strong>PDF009 có hai cặp leader nguồn trùng tuyến nhưng khác nội dung TEXT.</strong> 660D5/660D7 và6639B/6639D lần lượt gọi cổ và vật liệu. Giữ bằng chứng; bundle nhiều dòng có thể dùng một stroke chung nếu đúng target association. Không xóa một dòng chữ vì route trùng, cũng không áp luật mọi leader bắt buộc khác tọa độ. Chưa kết luận DBTool hiện tái hiện trường hợp này.</p>
+</li>
 </ol></main></html>

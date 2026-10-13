@@ -1,0 +1,137 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CAU-TAO-UNION-CHOT-VAT-CUA-THU</title><style>body{font:16px/1.6 Segoe UI,Arial;max-width:1200px;margin:25px auto;padding:20px}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bccfd7;padding:8px;vertical-align:top}img{max-width:100%}pre{white-space:pre-wrap}</style><a href="INDEX.html">Trang tổng</a><h1>Audit cấu tạo: hợp nhất bê tông, thép vạt góc, chốt–lỗ chờ và cửa thu</h1>
+<p>Tài liệu tiếp nối quy trình S0–S11, dùng tám PDF đã chốt và code hiện tại. Không sửa renderer/domain trong đợt nghiên cứu. Các kết luận dưới đây phân biệt rõ: hành vi đã chạy bằng probe thuần, nhánh code đã xác nhận caller, phần chưa có native reproducer và quy tắc cấu tạo chưa được chứng nhận.</p>
+<h2>1. Bản đồ luồng thực và điểm đứt</h2>
+<table>
+<thead>
+<tr>
+<th>Hạng mục</th>
+<th>Chuỗi hiện tại</th>
+<th>Kết luận và việc phải làm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hợp nhất mặt cắt</td>
+<td>SectionProjector → SheetOneHatchRegions.Build(profile, monolithic) → ViewBuilder → SectionOutlinePolicy → CadRenderer</td>
+<td>Đã có union dùng cho cả outline/hatch ở nhánh VHG; không viết lại chỉ vì thấy file component còn tách. Kiểm outer và inner loops cùng joint.</td>
+</tr>
+<tr>
+<td>Thép vạt</td>
+<td>FullRebarStage → HaunchRebarPlanner → StructuralRebarProjector</td>
+<td>Đã có occurrence cho đáy/trần, nhưng chủ động NeedsRule và không có fabrication length. Không báo thiếu hoàn toàn; cũng không đổi Known để qua gate.</td>
+</tr>
+<tr>
+<td>Chốt</td>
+<td>AccessoryInputMapper → FullRebarStage sau NominalHookPlanner → DowelPlanner.PlanVhg</td>
+<td>Có chốt thẳng, station theo tường và kiểm cống. Khi CatchBasinSpec khác null, planner chặn trước khi xét từng vị trí.</td>
+</tr>
+<tr>
+<td>Lỗ chờ trần</td>
+<td>RoofJointDowelProjection → SheetThreeRoofDetailer → DrawingPackageValidator</td>
+<td>Probe xác nhận lỗ vẫn được roof detailer giữ. Role Geometry/DowelHole không resolve trong SemanticRoleRegistry hiện tại; cổng CAD có thể chặn khi manifest không có mapping riêng.</td>
+</tr>
+<tr>
+<td>Cửa thu vật lý</td>
+<td>ManholeValidator tạo CatchBasinSpec; có CatchBasinBuilder và CatchBasinRebarPlanner riêng</td>
+<td>Tìm caller C# hiện tại chỉ thấy unit tests gọi hai builder này. GeometryStageAdapter/FullRebarStage chưa compose chúng. Bản vẽ cửa thu tĩnh không thay cho geometry/occurrences bị thiếu.</td>
+</tr>
+</tbody>
+</table>
+<h2>2. STD-23: lỗ chờ chưa có style contract; ghi chú chốt chưa biến thiên theo tỷ lệ</h2>
+<h3>Bằng chứng có thể chạy lại</h3>
+<p>Chạy tại workspace:</p>
+<pre><code class="language-powershell">dotnet run --project tools/vhg_structure_boundary_probe/vhg_structure_boundary_probe.csproj -- 'C:/Users/DucBao/Desktop/Dbtool/Ver 1'
+</code></pre>
+<p>Kết quả lưu ở <a href="cad/structure-boundary-probe.json">structure-boundary-probe.json</a>, có hash nguồn. Một chốt D18 dài500 tạo đúng một circle lỗ Ø25. <code>SemanticRoleRegistry.Resolve("Geometry/DowelHole")</code> trả null. <code>CadRenderer.Preflight</code> chặn role không resolve, trừ khi manifest có layer asset Role=<code>Layer:Geometry/DowelHole</code> hoặc Name đúng role. VhgTemplateRoles hiện khai báo layer theo tên VHG, không có alias đó. <strong>Đây là thiếu mapping được chứng minh ở pure code; chưa chạy một native ca chốt mới để khẳng định mọi manifest đều bị chặn.</strong></p>
+<p>Probe cũng xác nhận roof detailer giữ circle. Không sửa bằng cách thêm lại một lỗ thứ hai sau roof detailer; validator đang yêu cầu đúng một lỗ/OccurrenceId.</p>
+<p><code>RoofJointDowelProjection.Build</code> hiện tạo text cao60 và offset180/180, không nhận tỷ lệ. Ở tỷ lệ1:40, chữ còn1.5mm giấy thay vì2mm của baseline1:30; đây là đường đi đã đo. Lỗ vật lý vẫn Ø25, không được nhân tỷ lệ theo chữ.</p>
+<h3>Cách sửa cho junior</h3>
+<ol>
+<li>Khai báo semantic role riêng cho lỗ chờ trong policy/manifest, ánh xạ tới layer và linetype được đối chiếu từ template/source. Ghi rõ đây là lỗ hình học, không phải chấm thép <code>NotThep</code>. Không fallback layer0 hoặc tắt preflight.</li>
+<li>Thêm profile/denominator vào projector hoặc chuyển ghi chú sang AnnotationPlanner. Chữ dùng paperHeight×S, offset/lane/stub dùng paperOffset×S. Circle dùng holeDiameter/2 bằng mm thật, không dùng S.</li>
+<li>Target phải là HoleId/OccurrenceId thật. Một nhóm chốt cùng cấu tạo dùng một ghi chú nhóm tại vùng trống hợp lệ; giữ ánh xạ mọi chốt. Không lấy <code>group.First()</code> rồi cộng180/180 làm bố cục cuối.</li>
+<li>Chỉ sửa role/annotation phải giữ nguyên path, station, diameter và length của chốt. Xác nhận hash hình học không đổi.</li>
+<li>Kiểm managed: hole count1/chốt, đường kính lớn hơn chốt, tâm khớp XY, style resolve. Kiểm native: INSERT/circle layer/linetype đúng, text2mm giấy ở1:20/30/40, không trùng dim và lỗ. Save/reopen/readback; không chỉ kiểm số primitive.</li>
+</ol>
+<h2>3. STD-24: cửa thu chưa được compose vào pipeline vật lý; gate chốt loại3 còn chặn toàn bộ</h2>
+<h3>Tại sao các test riêng không đủ</h3>
+<p><code>CatchBasinBuilder.Build</code> có output OccupiedUnion, OpeningOwnedChildren, ExteriorFaces, ContactPatches, OpeningRevealPatches và datum. <code>CatchBasinRebarPlanner.PlanCatch</code> có thể trả occurrences. Nhưng tìm caller hiện tại chỉ thấy tests. <code>GeometryStageAdapter.Build</code> dựng chamber rồi gắn pipe openings; <code>ChamberGeometryBuilder</code> chưa thêm catch assembly; <code>FullRebarStage</code> chưa gọi PlanCatch. <code>ViewBuilder</code> vẫn có thể tạo ba hình static theo Profile loại3 (STD-22). Vì vậy có hình cửa thu trên giấy không chứng minh tồn tại cửa thu vật lý hoặc thép tương ứng.</p>
+<p>Thêm nữa, <code>FeatureSupportValidator.ValidateS2Rebar</code> đánh Supported cho Dowels khi là loại2/3 và có payload/cover, trong khi <code>DowelPlanner.PlanVhg</code> chặn mọi CatchBasinSpec bằng <code>DOWEL_CATCH_VOID_UNAVAILABLE</code>. Đây là bất nhất capability với consumer, không phải permission để bỏ kiểm va chạm.</p>
+<h3>Thứ tự nối và sửa</h3>
+<ol>
+<li><strong>Resolve input trước:</strong> giữ Owner Body/Neck, WallId, Left/Center/Right, offset, opening dimensions, chamber dimensions, wall/base thickness và SourceRefs. Không gán cả loại3 về T1 hoặc cổ giữa. Khả năng Neck chỉ hỗ trợ Center hiện phải được công khai, không đổi yêu cầu user thành Center để qua test.</li>
+<li><strong>Geometry composition:</strong> sau chamber, gọi CatchBasinBuilder khi feature ON. Trước khi attach, kiểm giao với cống/roof opening và ownership. Chuyển OccupiedUnion cùng face patches thành component(s) có ID ổn định, đăng ký OpeningOwnedChildren vào cùng mô hình void/ownership mà projector và clipper dùng. Không chỉ lưu object trong biến rồi bỏ mất; không trừ lỗ hai lần. Thứ tự attach catch/pipe phải cho kết quả nhất quán hoặc phát hiện xung đột rõ ràng.</li>
+<li><strong>Transform đầy đủ:</strong> lưu WallFrame và local-to-global của buồng thu. Plan/AA/BB/1-1/2-2, chốt, thép và nhãn dùng chung transform. Không tự đảo X/Y mỗi tầng.</li>
+<li><strong>Rebar composition:</strong> tạo typed CatchRebarSpec từ input/note và nguồn; chưa đủ rule thì Partial. Planner hiện có AddOptionalFamily tạo một đoạn ngang cho cả side-vertical, không phân bố đầy đủ; đây là prototype chưa được nối, <strong>không nối nguyên trạng rồi báo hoàn tất</strong>. Phải dựng từng mặt/thanh theo support, chuyển sang world frame, clip đúng opening, tạo IDs có ManholeId/host/face/layer/family/station và canonical schedule.</li>
+<li><strong>Chốt và cửa thu:</strong> đưa catch void/collision envelope đã đăng ký vào joint model. Thay blanket block bằng kiểm từng station/hole envelope. Chốt hợp lệ phải giữ; station va cửa thu phải báo có ID, vị trí và SourceRef. Nếu chưa có rule dời station, báo Block/NeedsRule, không tự bỏ chốt hoặc ép chốt xuyên lỗ. Không dùng riêng pipe openings để tuyên bố đã kiểm cửa thu.</li>
+<li><strong>Capability contract:</strong> Supported chỉ khi tổ hợp owner/location/profile/spec có consumer hoàn chỉnh và collision model cần thiết. Phân biệt RequestNotPresent, Supported, NeedsRule, Unsupported; không dùng N/A cho cửa thu bắt buộc loại3 chưa làm.</li>
+<li><strong>Drawing và schedule:</strong> thay STD-22 bằng projection của assembly thật; cùng GroupRegistry cung cấp BLT, TK.CT.N/TK.CT.T và summary cửa thu khi schema/role đã được đối chiếu. Không bịa thông số còn thiếu từ nhãn tĩnh Ø10@150.</li>
+<li><strong>Kiểm đóng:</strong> case loại3 có cửa ở Body/Neck và các WallId/hướng được hỗ trợ; đổi vị trí và kích thước độc lập. Kiểm số component, void ownership, occurrences, chốt và lỗ chờ, map nhóm, cả native sheet và ATT. Ca chưa hỗ trợ phải Failed/Partial có lý do; không chuyển thành ca loại2 và vẫn gắn tên loại3.</li>
+</ol>
+<h2>4. STD-25: mặt cắt thép chỉ phát outer, có nguy cơ mất inner boundary sau union</h2>
+<p>Probe dựng tiết diện bê tông hợp lệ gồm đáy, hai tường và trần kín. <code>SheetOneHatchRegions.Build(profile,true)</code> trả một region với <strong>một inner loop</strong> là lòng rỗng; false trả hai vùng để giữ joint. Kết quả này cho thấy union hiện đã làm được công việc hữu ích.</p>
+<p>Trong nhánh SteelAA/SteelBB của ViewBuilder, code thêm polyline từ <code>region.Footprint.Outer</code> nhưng không duyệt <code>region.Footprint.InnerLoops</code>. Các <code>profile.Voids</code> phát sau đó là lỗ được đăng ký riêng, không được mặc định là mọi vòng rỗng sinh từ union. Nhánh AddProfile cho hình cấu tạo đã có vòng duyệt inner loop; cần thống nhất hai nhánh. <strong>Finding có điều kiện: vùng union thực tế có inner loop chưa được void boundary đại diện. Probe đã chứng minh topology đó tồn tại ở pure layer; chưa xác nhận một workbook/native ca cụ thể bị mất nét.</strong></p>
+<p>Sửa theo thứ tự:</p>
+<ol>
+<li>Tách hàm phát boundary chung nhận MaterialRegion và ProjectedVoids. Phát outer và từng inner loop; giữ loop index/role/stable semantic ID. Đừng chỉ thêm rectangle từ bbox.</li>
+<li>Dedup nếu một loop đã có projected void thực sự biểu diễn cùng biên, theo tolerance policy và role; không so bbox hoặc chỉ số điểm. Giữ một đường bao đúng, không vẽ đôi.</li>
+<li>Hatch và outline cùng dùng một topology record theo pour/assembly. Hình thép có thể không hatch concrete theo style nguồn, nhưng phải giữ biên trong bê tông.</li>
+<li>Kiểm monolithic kín, access hole xuyên trần/cổ, tiết diện không đi qua access hole, nhiều cống, vạt ON/OFF, chân ON/OFF, joint vữa loại2/3. Kiểm diện tích lòng rỗng và exposed edges, không chỉ số polyline.</li>
+<li>Native readback kiểm đường nhìn thấy ở lòng tường/đáy/trần và không seam tại mối liền khối. Không bắt mọi cấu tạo phải là duy nhất một CAD entity: vùng có lỗ cần outer+inner loops, và mối lắp ghép thật phải có nét.</li>
+</ol>
+<h2>5. Thép vạt: phần đã có, phần vẫn thiếu và cách hoàn thiện</h2>
+<p><code>HaunchRebarPlanner</code> đã dựng thanh xiên ba đoạn và thanh phân bố cho bốn phía; trần dùng mirror Z=H−Z. FullRebarStage gọi khi base/top haunch ON, cộng occurrences đúng một lần. Mọi thanh còn LengthStatus.NeedsRule, FabricationLengthMm=null; planner phát HAUNCH_REINFORCEMENT_NEEDS_RULE. Unit test HaunchCompositionTests cũng xác nhận trạng thái Partial. Đây là giữ trung thực rule chưa chứng nhận, không phải lỗi cần xóa diagnostic.</p>
+<p>Các đầu việc phải hoàn thiện:</p>
+<ul>
+<li>Chốt typed HaunchRebarSpec theo nguồn: mesh, distribution diameter, anchorage, hook/bend convention và MeasurementBasis. Các giá trị đề xuất Ø10/Ø8/neo trong code không được biến thành tiêu chuẩn kết cấu chung.</li>
+<li>Planner nhận geometry nhưng hiện dựng chủ yếu theo L/B/H/haunch input. Cần kiểm toàn đường thanh và cover envelope trong <strong>union support thật</strong> (slab+haunch+wall), void/pipe/catch, chân/corner ownership và cả anchor legs. Không chỉ kiểm đường xiên ở giữa vạt.</li>
+<li>Mirror trần phải được kiểm với underside roof datum, mortar/joint loại2/3 và physical support; không mặc định mọi mirror đều hợp lệ khi assembly thay đổi.</li>
+<li>Thép phân bố offset pháp tuyến phải kiểm khoảng hở với lớp xiên, cover và giao góc; không chuyển một thanh giữa vạt thành “đủ lưới phân bố” nếu nguồn yêu cầu nhiều station.</li>
+<li>Khi không đủ span, giữ HAUNCH_SIDE_NO_ROOM và chỉ rõ phía; không im lặng bỏ rồi ghi Complete. Khi spec đã được chứng nhận, tính fabrication length theo convention và kiểm lại gate; không gán Known bằng nominal polyline sum tùy tiện.</li>
+<li>Projection, BLT/Gach, bảng TK.VG hoặc asset khác phải theo <strong>shape/role thật</strong>, không theo prefix Haunch. ThepGocLoi/Lom không thay được thanh này. Giữ raw shape/IDs và nhóm hiển thị từ cùng registry.</li>
+</ul>
+<h2>6. Những đường đúng cần giữ để tránh sửa lùi</h2>
+<ol>
+<li>Dowel được compose <strong>sau</strong> NominalHookPlanner để wall hook policy không bẻ chốt thẳng. Giữ thứ tự hoặc tách policy theo family rõ ràng.</li>
+<li>Roof detailer giữ projected circles; không nhân đôi lỗ chờ vì đoán nó bị xóa.</li>
+<li>Union vùng theo monolithic/separate đã có; giữ mối vữa và void. RectangularSolidUnion.Measure là hàm đo thể tích extrusions chữ nhật, <strong>không phải thuật toán phát outline mặt cắt</strong>, không dùng thay polygon boundary union.</li>
+<li>Không nới gate để tuyên bố loại3/haunch hoàn tất. Nội dung bảng, nhãn và physical occurrences phải cùng có bằng chứng.</li>
+</ol>
+<h2>7. Ma trận kiểm riêng trước khi nhập ma trận chung</h2>
+<table>
+<thead>
+<tr>
+<th>Nhóm</th>
+<th>Trường hợp phải kiểm</th>
+<th>Bằng chứng bắt buộc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Union</td>
+<td>Loại1/2/3; chân/vạt ON/OFF; có/không vòng rỗng; cửa và nhiều cống</td>
+<td>Outer+inner loops, area/edge comparison, native visible/joint lines</td>
+</tr>
+<tr>
+<td>Chốt</td>
+<td>Loại2 và3; chiều dài/bước/Ø/lỗ biến thiên; có/không va cống/cửa thu</td>
+<td>Occurrences, station map, hole1:1, collision diagnostics, native layer/style</td>
+</tr>
+<tr>
+<td>Tỷ lệ chốt</td>
+<td>1:20/30/40</td>
+<td>Lỗ mm thật không đổi; chữ/offset mm giấy ổn định</td>
+</tr>
+<tr>
+<td>Cửa thu</td>
+<td>Body/Neck; hướng/position/offset/dim biến thiên; OFF</td>
+<td>Geometry components+ownership, complete feature ledger, native three views, schedule rows</td>
+</tr>
+<tr>
+<td>Vạt</td>
+<td>Đáy/trần/both/OFF; rộng/cao không bằng nhau; span nhỏ; lỗ sát vạt</td>
+<td>Full path/support collision, source rule/version, anchors, fabrication status và projection</td>
+</tr>
+</tbody>
+</table>
+<p>Đây là các nhánh kiểm bổ sung, không thay 216 core+40 edge của hồ sơ. Probe thuần đã chạy thành công chỉ chứng minh những giá trị đã ghi trong JSON; chưa phải kiểm batch, AutoCAD hay toàn bộ workbook.</p></html>
