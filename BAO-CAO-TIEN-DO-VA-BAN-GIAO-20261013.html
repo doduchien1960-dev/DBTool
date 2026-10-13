@@ -1,0 +1,336 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BAO-CAO-TIEN-DO-VA-BAN-GIAO-20261013</title><style>body{font:16px/1.65 Segoe UI,Arial;margin:0;color:#183449;background:#edf2f5}main{max-width:1180px;margin:auto;padding:28px;background:white}nav{padding:12px;background:#15384b}nav a{color:white;margin-right:20px}a{color:#096e85}h1,h2,h3{color:#146d78}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{border:1px solid #bccfd7;padding:8px;vertical-align:top}th{background:#e4f0f2}pre{padding:14px;white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f5f7}img{max-width:100%}</style><nav><a href="INDEX.html">Trang tổng</a><a href="CATALOG-TEMPLATE.html">Catalog</a><a href="PDF-71-OVERVIEW.html">71 PDF</a><a href="KE-HOACH-SUA-CHO-JUNIOR.html">J00–J08</a></nav><main><h1>Báo cáo tiến độ và bàn giao toàn bộ trạng thái nghiên cứu VHGpro → DBTool</h1>
+<p><strong>Mốc cập nhật: 06:39 ngày13/10/2026, giờ Việt Nam. Trạng thái mục tiêu: Active / chưa hoàn tất.</strong></p>
+<p>Tài liệu này là điểm bắt đầu đọc tại checkpoint hiện tại. Nó tổng hợp kết quả, giới hạn, quyết định và thứ tự tiếp tục; các bảng dữ liệu/ảnh/receipt liên kết bên dưới là thành phần của báo cáo, không phải tài liệu phụ có thể bỏ qua. Chưa có căn cứ gọi DBTool đã đạt toàn bộ yêu cầu, chưa bàn giao prompt final hay chứng nhận nghiệm thu. Lượt này không sửa renderer sản xuất; đã bổ sung công cụ nghiên cứu, batch diagnostic và tài liệu.</p>
+<h2>1. Mục tiêu giữ nguyên</h2>
+<p>Chuẩn hóa catalog template đầy đủ, đọc comment Excel và PDF hướng dẫn, phân tích từng PDF/DWG mẫu, audit code hiện tại và các hồi quy, rồi viết hướng dẫn đủ cụ thể cho junior. Đích sản phẩm là DWG/PDF đúng cấu tạo và recipe VHGpro với input biến thiên; thêm batch5–10ga trong một DWG và in tất cả khung trong một phiên host.</p>
+<p>Không thay mục tiêu bằng việc vẽ đẹp một ga, copy/store hình tĩnh, đạt unit tests hoặc có filePDF. Không ưu tiên xuất khối lượng ra Excel; <strong>bảng TK xuất hiện trên bản vẽ vẫn thuộc phạm vi</strong>. Ma trận phải đủ3loại, chân/vạt/size/cống và ca biên; trường hợp chưa chạy giữ NotRun.</p>
+<h2>2. Tiến độ theo đầu ra có bằng chứng</h2>
+<table>
+<thead>
+<tr>
+<th>Hạng mục</th>
+<th>Đã thực hiện</th>
+<th>Chưa được suy rộng thành</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Catalog template</td>
+<td>3bộ DXF inventory;104block có tên,165ATTDEF, preview; symbol/layer/textstyle/dimstyle; kế thừa19mã nắp có provenance,57block sản phẩm theo3hình</td>
+<td>Mọiblock đã được dùng đúng trong DBTool; block TK chắc chắn có dynamic stretch</td>
+</tr>
+<tr>
+<td>NativeCAD nguồn</td>
+<td>4DWG đã inspect/exportDXF, receipt zeroerrors;87khung CAD; hash nguồn giữ nguyên</td>
+<td>87khung đều cóPDF tương ứng hoặc mọi liên kết đều chắc chắn</td>
+</tr>
+<tr>
+<td>PDF nguồn</td>
+<td>71PDF render, text spans/vector paths/rotation matrices; ledger riêng từngtrang, block/attrs/dim/hatch/layer/tọa độcục bộ và CSVentity;71ảnh full-page đã mở riêng, ghi quan sát</td>
+<td>Đã kiểm từngglyph, mọi endpoint/giao collector hay mọi nét đứt</td>
+</tr>
+<tr>
+<td>GhépCAD–PDF</td>
+<td>Máy62coordinate/geometrymatched cần visual;9trang cần kiểm. Đã in lại10khung/3DWG/3host, xem9cặp và sửa2liên kết sai;2trang còn equiv</td>
+<td>Tất cả9 đã exactmatch. Hai correction còn phải fit lại tọa độPDF</td>
+</tr>
+<tr>
+<td>Excel</td>
+<td>3workbook gốc có528comment nguyên văn,191nội dung riêng; rawOOXML; dữ liệu5workbook kể cả2bảngKL; mapping528note→ô/field ứng viên</td>
+<td>528note đã nối consumer đầy đủ. Mappingaddress không chứng minh hàm vẽ dùng đúng</td>
+</tr>
+<tr>
+<td>Consumercode</td>
+<td>Index161key trên545fileC#;8chuỗi quan trọng kiểm trực tiếp;17phát hiện STD được ghi</td>
+<td>Đã đọc hết545file. 72key không có exactliteral không đồng nghĩa72feature thiếu</td>
+</tr>
+<tr>
+<td>Batchgenerate</td>
+<td>5/5row diagnostic,42frames,5geometryhash khác nhau; probeidentity mới native đọc đúngG500-2</td>
+<td>Batch5 đã Final: batch lịch sử còn lỗi tên;10/10 chưa đạt, cả3family chưa nghiệm thu</td>
+</tr>
+<tr>
+<td>Batchplot</td>
+<td>27khung nguồn trong1host,29.265giây;42khung batchgenerated trong1host,39.328giây, vectorA3, transcript sạch ởrunpolicy-v2</td>
+<td>Nội dung/visualPDF đạt; cập nhật DWG/repository nhiều ga đã hoàn chỉnh</td>
+</tr>
+<tr>
+<td>Kiểmtools/tài liệu</td>
+<td>19unit tests tools tại log checkpoint;10kiểm dữliệu/tài liệu hiệnpassed, gồm nguồnunchanged và correctionkhông giữoverlay sai</td>
+<td>1453test/830IDs của junior chứng minh bản vẽ đạt</td>
+</tr>
+<tr>
+<td>Bàn giao</td>
+<td>Hợp đồngC01–C06, góiJ00–J08, sổ17STD, promptnháp,69checklist,216core+40edge và bộbằngchứng lịch sử</td>
+<td>Promptnháp là final;256ca đã chạy/đạt</td>
+</tr>
+</tbody>
+</table>
+<p>Không tính phần trăm hoàn thành chung: trích xuất và nghiệm thu nét/chữ là các khối lượng khác nhau, một tỷ lệ ước đoán dễ gây hiểu nhầm.</p>
+<h2>3. Các quy tắc đã thống nhất</h2>
+<ol>
+<li><strong>Đơn vị:</strong> geometrymm, cao độm; không tự scale sản phẩm từ INSUNITS sai. Block nắp catalog giữ kích thước thật1:1.</li>
+<li><strong>Nắp/cổ:</strong> chọn nắp khóa lọt lòng cổ theo catalog; bề dày cổ biến thiên. Khung chữ nhật owner yêu cầu dày100mm, phủ bì từngphương=clear+2×t_cổ. Không đổi chiều dày thật của sản phẩm nắp thành100. Cao độ hoàn thiện tại mặt trên nắp, cổ kết thúc dưới khung theo assemblydatums. Quy tắc80mm cũ không dùng để thay rulekhung100 mới.</li>
+<li><strong>Nguồn dữ liệu:</strong> RawWorkbook→EffectiveInput→Geometry→Rebar→Projection→Presentation→SheetPlan→NativeDWG→PDF. Tên ga chỉ ảnh hưởngtext; không chọn geometry theoG400/G500.</li>
+<li><strong>Ba loại:</strong> loại1liền khối; loại2thân+đáy và trần+cổ rời cóchốt/lỗchờ; loại3thêmcửa thu. Union miền cùng cấukiện để xóa seamgiả; giữ lỗ và mối nối lắp ghép thật. Không bắt mọi hình cólỗ thànhmột polyline khônginner rings.</li>
+<li><strong>Thép:</strong> C/U/thang/chốt/vạt/gia cường phải có physicalpath khiinputON. BLTC/names/groupcoverage không thay thanh thật. C có4gócR8 theo owner; C/U biến thiên theo support vàstations. Plannerchưa hỗtrợ thìPartial rõ, khôngtắtinput để quaexport.</li>
+<li><strong>Tên thép:</strong> OccurrenceIdnội bộ,CanonicalMarkhìnhuốn,PresentationGroup/DisplayMarkbảnvẽ táchbiệt. Gomthanh lặp cùngscope/phương/lớp/topology/diameter/pitch; chỉtách khi cấu tạo/vùnglỗ cần. D/T/N/C vàhậu tố phải theo template/config; khôngmỗi occurrence1nhãn. GC/T3/N5 khôngcó mộtmeaningtoàncục cho mọiview.</li>
+<li><strong>Leader:</strong> collector xuyênlưới là có chủý, Gach ởgiao với thanh hiệnhữu, BLTC ởtie thật. Có nhánh45° và ghi chú nội bộ trongmẫu; không áp luật cấm mọiđường xuyênbêtông. Cấm cắtchữ/nhầmđích. Neo theo mép/hole/node/thanh vàoffsetgiấy, đoinkthật; không cộngdelta đồngloạt.</li>
+<li><strong>Assets:</strong> giữ tênblock/dim/layer/textstyle đúngguide. BLT1/2 cóSH/DK/A;BLT3/4 chỉNOTE. Blockannotation cóscalegiấy, không áp sảnphẩm1:1. TKnative dùngtag đúngcatalog; chưa thấydynamicproperties trongprobe, không giả stretch.</li>
+<li><strong>Tỷ lệ/nét:</strong> M15=20 làtỷ lệchi tiết tấmnắp1:20, không20%. Body/panel cóthểkháctỷlệ. NétPDF loại1 đãđo0.72/1.08pt vàhairline; loại2/3cóhairline0. Không coi đềxuất0.5/0.35mm là sốđo nguồn. PSTYLEMODE quyết địnhCTB/STB; exit0khôngđủ.</li>
+<li><strong>Đối chiếu:</strong> nguồnExcel/PDF/DWG cóthểkhôngđồngbộ. Modelordinal khônglàbundle. Snapshotinput/hash/rule/build phải đi cùngrun; khôngvay dữliệu từcasekhác đểchứng minh.</li>
+</ol>
+<p>Chi tiết quyết định vàngoại lệ: <a href="CONTRACT-CHONG-HOI-QUY.html">CONTRACT-CHONG-HOI-QUY</a>, <a href="SOURCE-CONFLICTS.md">SOURCE-CONFLICTS</a>.</p>
+<h2>4. Sổ17phát hiện và hướng xử lý</h2>
+<p>Các mục sau là phát hiện/rủi ro có phạm vi; không đồng nghĩa17bug đều vừa được tái hiện native hoặc đều chưa sửa.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Trạng thái đã biết</th>
+<th>Việc phải làm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STD01</td>
+<td>Headlesssinglemanholeguard còn tồn tại; batchorchestrator diagnostic mới có</td>
+<td>Hoàn tất identity/multirow/package/frames mộtDWG; không chỉxóa guard</td>
+</tr>
+<tr>
+<td>STD02</td>
+<td>Slotreset cũ đã sửa; placement còn sốcứng</td>
+<td>Giữsửa đúng, neo vàđoink ở20/30/40, nhỏ/lớn</td>
+</tr>
+<tr>
+<td>STD03</td>
+<td>HardcodeD/T,pitchliteral,DKfallback10,hậu tốtheoIDorder</td>
+<td>Nối PresentationGroup/config/regionsemantic; thiếuDKphảibáo, khôngbù10</td>
+</tr>
+<tr>
+<td>STD04</td>
+<td>Cổ detailer Scheduleempty, labels2laneleader2điểm</td>
+<td>Khôi phục neck+nativeTK từschedulethật theo recipe</td>
+</tr>
+<tr>
+<td>STD05</td>
+<td>RoundsteelTK chính còn genericgrid/text; AngleSteel đãnative</td>
+<td>Thayđúng planner TKround; giữnhánhangle đangđúng, khôngenumEnglish</td>
+</tr>
+<tr>
+<td>STD06</td>
+<td>SốR cóthểdài, widthtextướcđoán</td>
+<td>DrawingNumberFormatPolicy vànativeink; giữdomainprecision</td>
+</tr>
+<tr>
+<td>STD07</td>
+<td>Tieplannerchỉđạt spacing=2pitchcả2phương</td>
+<td>ChốtstationruleĐều/Lệch,delta,spacingbiên; khôngđổi input đểqua</td>
+</tr>
+<tr>
+<td>STD08</td>
+<td>StageAdaptersWallC/BaseRoofU;Neck/Zchưađủ</td>
+<td>Supportmatrix component×shape, nốiphysical/projection/symbol/TK</td>
+</tr>
+<tr>
+<td>STD09</td>
+<td>Harnessfamily2.1/3.1,scale30,ngưỡnglargecứng</td>
+<td>Entrypoint đủ3loại/scale/input; harnessdiagnostickhônglànghiệmthu</td>
+</tr>
+<tr>
+<td>STD10</td>
+<td>case1-final-v2 vẫnDiagnosticPartial</td>
+<td>Engine/render/plot/semantic/visual trạng thái riêng, khônglấytênfolderFinal</td>
+</tr>
+<tr>
+<td>STD11</td>
+<td>AAoverflowG1250-2/3;largeG1500-1vẫnPlanoverflow</td>
+<td>Fit theoextents/inkmọiview, táchrecipe cóýđồ; khôngcrop/Fitche</td>
+</tr>
+<tr>
+<td>STD12</td>
+<td>Batchlịch sửquênpresentationreceipt→tênG400-1</td>
+<td>Toolmới đãcấp; probeG500-2readback đúng. Kiểmmọiframe/nestedfields/batch10 trướcđóng</td>
+</tr>
+<tr>
+<td>STD13</td>
+<td>G1200-2ownershipBlockWall/T3,S12</td>
+<td>Táchlỗiinput vớiownercontouralgorithm; khôngnới gate/gántường tùyý</td>
+</tr>
+<tr>
+<td>STD14</td>
+<td>Panel.CoverRatioPercent semantic sai so noteM14</td>
+<td>1:20chi tiếttấmnắp, truyền scale riêng tới recipe/dim/plot</td>
+</tr>
+<tr>
+<td>STD15</td>
+<td>PDFkếtiếp khôngcùngga/caođộ/kíchthước</td>
+<td>ReferenceBundle theo evidence; khôngghép filenameordinal</td>
+</tr>
+<tr>
+<td>STD16</td>
+<td>NoteD3=0cho phép bỏlót;validator/domain/planbắtbuộcPad</td>
+<td>OptionalPadxuyênsuốt; nozero solid/epsilon; kiểm0/50/100/âm cả3loại</td>
+</tr>
+<tr>
+<td>STD17</td>
+<td>Thiếucatalogcống thì tựđoán thickness/chamfer từtên</td>
+<td>Catalogcónguồn/typedextension hoặcBlock;1resolvedprofile dùngchungmọiview</td>
+</tr>
+</tbody>
+</table>
+<p><a href="CURRENT-CODE-FINDINGS.html">CURRENT-CODE-FINDINGS</a> chứa file/symbol vàđiều kiệnđóng. <a href="EXCEL-CONSUMER-AUDIT.html">EXCEL-CONSUMER-AUDIT</a> chứa8chuỗi đãđọc vàhướngsửa STD16/17từngbước. Dòngcodephảichụphash lại trướcsửa vìworkspacecóthểđượcAIkhác thayđổi.</p>
+<h2>5. Phát hiện mới nhất về mẫu tham chiếu</h2>
+<p>Trong9joincầnkiểm, đã phát hiện <strong>côngcụnghiêncứu ghép ngược PDF056/064</strong>, khôngquy thànhlỗiDBTool:</p>
+<ul>
+<li>PDF056 đúngCAD-3-F024: TK.L2M handle802B2,D1L1490/DAI1670/SL14; D2L1790.</li>
+<li>PDF064 đúngCAD-3-F031: handle83C6B,D1L1540/DAI1720/SL15; D2L1890.</li>
+<li>Ledger/CSV đã sửa inventory; transformPDFsai bịnull, khônggiữoverlaycũ. Originalautoresult/ảnhsai vẫn lưu.</li>
+<li>PDF051/058có2khungF026/F033 với16TKinstances cùngorderedblock/tag/value. Chỉchứngminhtableequivalence, chưauniqueManholeId hoặcfullgeometryequivalence.</li>
+<li>5trang002/007/024/031/038 được nội dung native hỗtrợ, exactglyph/endpoint vẫnpending.</li>
+<li>SourcePDFcótextoutline:7span vs909span replot khôngđồngnghĩathêm902nhãn. FontphảiđọcSTYLECAD. Nétmờ/đậm củareplotdiagnostickhônglàplotpolicynguồn.</li>
+<li>PDFnguồncũngcókhuyếtđiểm: một sốlabelcổchồng, decimaldài, TKtràn/crop; họcrecipe vàsửa khuyếtđiểm, khôngcopylỗi. Source056/nativeF024 cònkhác một sốquantitycells thấp; giữchênhlệch, khôngtuyênbốidentical.</li>
+</ul>
+<p><a href="CAD-PDF-JOIN-REVIEW.html">CAD-PDF-JOIN-REVIEW</a> liênkết9cặpảnh,quyếtđịnh,hash,receipts vàhandles.</p>
+<h2>6. Batch: kết quả thực, lỗi và giới hạn</h2>
+<table>
+<thead>
+<tr>
+<th>Run</th>
+<th>Kết quả</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vhg-standard-batch5</td>
+<td>5/5DiagnosticPartial,42frames,5geometryhash</td>
+<td>Biếnthiênthật; nhưng lịch sửthiếureceipt khiến texttêncácga cóthểG400-1, khôngđạtidentity</td>
+</tr>
+<tr>
+<td>batch10first</td>
+<td>9/10,81frames;G1200-2row12Blockownership</td>
+<td>Khônggán10/10hoặcbỏrowlỗiimlặng</td>
+</tr>
+<tr>
+<td>batch10selected</td>
+<td>9/10;G1250-2AAoverflow</td>
+<td>Widththresholdkhôngđủquyếtđịnhfit</td>
+</tr>
+<tr>
+<td>batch10selected-v2</td>
+<td>9/10;G1250-3AAoverflow</td>
+<td>Thaycasekhônggiảiquyếtlayoutgốc</td>
+</tr>
+<tr>
+<td>identity-large-probe</td>
+<td>row18G1500-1,722occurrences,isLarge=true;Planoverflow</td>
+<td>Nhánhlớncũngcầnđoink/layout</td>
+</tr>
+<tr>
+<td>identity-row5-probe</td>
+<td>1/1DiagnosticPartial,8frames;nativeTenMC/TIEUDE handle57EFB=G500-2</td>
+<td>Bảnváidentityprototypecóreadback; chưađóngmọiframe/nestedtext/batch</td>
+</tr>
+</tbody>
+</table>
+<p>Batchtool giữinput/template, lỗirowghi receipt vàtiếprowkhác. 10testbatchcótimeout/hashmismatch; combineexception/fullnative recovery chưađượcchứngnhận. WblockCloneObjects tronghostdiagnosticghépclone, khôngchứngminh repository/NOD/XDataupdate nhiều ga trongproduction; regenerationcảbatchlàphạmvi đangcó.</p>
+<p>Plottool phát hiệnCTB/STBmismatch ởrunthửđầu; runfixv2 chọn theoPSTYLEMODE hếtcảnhbáo. Đây làlỗiprofilenghiêncứu đãgiữtranscript, khôngđổcho case1-final-v2khi chưađối chiếu chínhrunđó. In42khunggeneratedmộthostđãchạy; nội dungstillNotAccepted.</p>
+<p>Hướngdẫncommands,guards,manifests vàgiớihạn: <a href="BATCH-PLOT-README.html">BATCH-PLOT-README</a>. Receipt chi tiết từngrow: <a href="batch-generation-audit.json">batch-generation-audit.json</a>.</p>
+<h2>7. Danh mục tài liệu và dữ liệu phải giữ</h2>
+<table>
+<thead>
+<tr>
+<th>Nhóm</th>
+<th>Điểm vào</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Catalogassets/nắp/style/layer</td>
+<td><a href="CATALOG-TEMPLATE.html">CATALOG-TEMPLATE</a>,catalog/<em>,native/</em></td>
+</tr>
+<tr>
+<td>528commentraw +meaning</td>
+<td><a href="EXCEL-NOTES.html">EXCEL-NOTES</a>,<a href="EXCEL-RULES-REVIEW.md">EXCEL-RULES-REVIEW</a>,excel/author-notes-verbatim.json,excel/raw-workbook-parts/*</td>
+</tr>
+<tr>
+<td>Fieldmap/consumer</td>
+<td>excel/author-notes-field-map.json/.csv,current-schema-runtime.json,field-consumer-index.json,<a href="EXCEL-CONSUMER-AUDIT.html">consumer audit</a></td>
+</tr>
+<tr>
+<td>71PDF</td>
+<td><a href="PDF-ATLAS.html">PDF-ATLAS</a>,<a href="PDF-71-OVERVIEW.html">71overview</a>,<a href="pages/FULL-PAGE-FEATURE-REVIEW.html">71full-pagefeatures</a>,<a href="pages/INDEX.html">ledger</a>,pdf/<em>,pages/</em></td>
+</tr>
+<tr>
+<td>NguồnCAD vàghép</td>
+<td>cad/source-<em>-entities.json,source-</em>-frames.json,frame-index.json,pdf/cad-frame-join.json,cad/join-replot/*</td>
+</tr>
+<tr>
+<td>Rules/code/handoff</td>
+<td><a href="CONTRACT-CHONG-HOI-QUY.html">Contract</a>,<a href="CURRENT-CODE-FINDINGS.html">17STD</a>,<a href="KE-HOACH-SUA-CHO-JUNIOR.html">J00–J08</a>,<a href="PROMPT-THUC-THI-CHUAN-HOA-DRAFT.html">Promptnháp</a></td>
+</tr>
+<tr>
+<td>Nétin</td>
+<td><a href="PLOT-POLICY-OBSERVED.html">PLOT-POLICY-OBSERVED</a>,pdf/plot-policy-observed.json</td>
+</tr>
+<tr>
+<td>Báocáohồiquytrước</td>
+<td><a href="../research-vhgpro-regression-20261012/BAO-CAO-DIEU-TRA-HOI-QUY.html">BAO-CAO-DIEU-TRA-HOI-QUY</a>,ISSUE-REGISTER-29.json,CHECKLIST-69-ITEMS.json,CHECKLIST-TUNG-TO.md</td>
+</tr>
+<tr>
+<td>Matrixchưanghiệmthu</td>
+<td><a href="../research-vhgpro-regression-20261012/ACCEPTANCE-CORE-216.csv">216core</a>,<a href="../research-vhgpro-regression-20261012/ACCEPTANCE-EDGE-40.csv">40edge</a></td>
+</tr>
+<tr>
+<td>Bằngchứnglịch sử</td>
+<td>docs/research-vhgpro-regression-20261012/{FROZEN-EVIDENCE-MANIFEST,RUN-COMPARISON,JUNIOR-ACCEPTANCE-ADJUDICATION,DEEP-RUN-EVIDENCE,UNIT-RESULTS}.json vàsnapshotpackageđãcó</td>
+</tr>
+<tr>
+<td>Kiểmcheckpoint</td>
+<td><a href="PROGRESS.json">PROGRESS.json</a>,<a href="CHECKPOINT-VERIFICATION.json">CHECKPOINT-VERIFICATION</a>,<a href="CHECKPOINT-DOCUMENT-HASHES.json">hashes</a>,TOOLS-TEST-20261013.log</td>
+</tr>
+</tbody>
+</table>
+<p>Cácrawdata lớnđượcgiữriêngcóhash thayvìchép hàngtriệu dòngvàotextbáocáo. Mọiảnh/bảng/receipt nêutrênlàthànhphần bằngchứng của checkpoint. Khôngsửa rawbằngchứng đểlàmđẹpstatus.</p>
+<h2>8. Phần còn lại và thứ tự tiếp tục cụ thể</h2>
+<ol>
+<li><strong>Khóa nguồn tham chiếu:</strong> fitlạiPDF056/064 đúngframe; kiểmgeometry/glyph9trang đãreplot; giữequivalence051/058. Thêmreject fitngoàitrang/thiếudiscriminatingattributes. Khôngxóaautoresult.</li>
+<li><strong>Reviewzoom71PDF:</strong> lậpcrop theo từngview/table; xácnhậntextliteral/mark/leader/Gach/BLTC/hatch/hiddenline bằngCADnativevàPDF. Điềnvịtrí,role,offsetgiấy,triggerbiếnthiên vàevidence. 71full-pagefeaturekhôngthaybướcnày.</li>
+<li><strong>NốiExcel đầyđủ:</strong> narrowgroupheuristic; field→parser→effectiveinput→domain/view/TK; hoàn tất prefix/noteStyle/pitch/material/hatch/elevation/panel-scale. Giữrawsource vàownerOverride riêng. TrườngkhôngcóconsumerphảighiNeedsImplementation, khônggắnMappedCompleted.</li>
+<li><strong>Auditcode/baselines:</strong> cover/neckbuilders,openingownership/transforms/clip,concreteunion,haunch,dowels,catch,actualC/U/ladderprojection vàTK. Chụphash, kiểmreachability; khôngcoi deadstoređangactive. So case2-gen-v7/case3-gen-v5/case5-generate-run/case1-final-v2 theoinputđồngnhất.</li>
+<li><strong>Hợpnhấtgóijunior:</strong> mỗiIDcóreproducer,input,sourcefile/symbol,thuậttoán,sửa/thêm/bỏ,chốnghồiquy vànativeDoneCriteria. Tíchhợp STD16/17 vàmanualjoincorrection; khôngquaylạilỗislotresetđãsửa.</li>
+<li><strong>Hoàn tấtbatch:</strong> đủ10/10inputhợplệ,đủ3family,identitymọiframe,nativeexceptionrecovery,overflow vàrepository/updatecontract. MộtDWG/chỉmộthostplot; khôngtắtfeature/đổiinputđểqua.</li>
+<li><strong>Nghiệmthuđầyđủ:</strong>216core+40edge, cả3loại,có/khôngchân,vạt,size/cốngtròn/hộp/đôi/no-cống,offset±/nhiềuhướng,cổlệch,nắpchữnhật/xoay,thickness/height/scale20/30/40,ON/OFFC/U/thang/chốt/catch. Invalid/N/Acólýdo; chưa chạyNotRun. Chỉsauđómớibáocáo/promptfinal vàpackagefinal.</li>
+</ol>
+<p>Nếu quota hết, phiênsauđọcfile này→PROGRESS→manualreview→J00–J08. Đầu tiênrevalidatecurrentfile/hash/process, khôngchạylạitấtcảtríchxuất vàkhôngghiđèbằngchứnglịch sử. Cácjobnative/replot/verificationcủacheckpointnàyđãterminal; khôngcójobsốngcầnđợiđượckhẳngđịnhởđây.</p>
+<h2>9. Quota và tình trạng kết thúc checkpoint</h2>
+<p>Usage đọc tại thờiđiểmcậpnhật: cửa sổ5giờđãdùng26% (<strong>còn74%</strong>), tuầnđãdùng92% (<strong>còn8%</strong>). Đây làquota tài khoản, khôngphầntiếnđộdựán; cóthểthayđổi sauđó. Khôngredeemreset. MụctiêuvẫngiữActive; yêu cầu cậpnhậtbáocáokhôngđượchiểulàcho phép đánhComplete hoặcPause.</p>
+<p>Checkpoint cómốc thờigian vàtài liệuđểtiếptục. <strong>Khôngphảibáocáohoànthànhsảnphẩm.</strong></p>
+<h2>10. Bản đóng băng để tiếp tục công việc</h2>
+<h3>Bổ sung cách sửa và bằng chứng sau checkpoint</h3>
+<p>Đã bổ sung <a href="SO-TAY-CACH-SUA-CHI-TIET-20261013.html">Sổ tay cách sửa chi tiết cho junior</a>, bản <a href="SO-TAY-CACH-SUA-CHI-TIET-20261013.md">Markdown</a>, và sửa cấu trúc prompt P5 bị đứt tiêu đề. Sổ tay có quy trình từng ticket, optional Pad, catalog cống, chuỗi datum nắp/cổ, opening/union, physical C/U/thang/chốt/vạt, grouping/anchor/collector, TK native, layout/batch và điều kiện đóng theo P0–P7. Đây là chỉ dẫn thực thi, chưa phải thay đổi production code.</p>
+<p>Phép fit tham chiếu độc lập mới: PDF056→CAD-3-F024 khớp1040/1060 đoạn đủ điều kiện; PDF064→CAD-3-F031 khớp1230/1250, tolerance0.8pt. Evidence tại <code>cad/join-replot/corrected-frame-transforms.json</code>. Mapping đo từ viền mực tương đương1:33.8806, không tự đồng nhất với tỷ lệ danh định1:30. Chưa chứng nhận glyph/quantity/curve coverage; ledger056/064 đã tích hợp transform mới với kiểm hash/frame và tạo lại tọa độ block/attributes; glyph/quantity vẫn pending. Không dùng transform ghép sai cũ.</p>
+<p>Các ZIP dưới đây là snapshot trước bổ sung này. Bản hiện hành nằm tại thư mục báo cáo và prompt liên kết; không khẳng định ZIP cũ chứa sổ tay hoặc fit mới.</p>
+<p><strong>Prompt giao AI mới nhất:</strong> <a href="PROMPT-THUC-THI-CAP-NHAT-20261013.html">PROMPT-THUC-THI-CAP-NHAT-20261013</a>, bản <a href="PROMPT-THUC-THI-CAP-NHAT-20261013.md">Markdown để gửi AI</a>. Đã ghi nơi sửa, cách sửa và điều kiện đóng STD01–17 theo P0–P7; tách correction PDF056/064 khỏi lỗi sản phẩm. Prompt cũ giữ làm lịch sử.</p>
+<p>Gói checkpoint: <code>outputs/vhg-handoff-checkpoint-20261013-0639.zip</code>. Đây là bản lưu tài liệu và bằng chứng đang có, không phải bản sản phẩm đã nghiệm thu. Gói gồm thư mục nghiên cứu hiện tại, báo cáo hồi quy trước, snapshot mã nguồn và công cụ, tài liệu/bản vẽ đầu vào, cùng các receipt/log/PDF/DWG thử nghiệm VHG. Loại trừ build binaries và plugin thực thi.</p>
+<p><code>HANDOFF-FROZEN-MANIFEST.json</code> ghi từng đường dẫn, dung lượng và SHA256; có ở gốc ZIP và tại thư mục báo cáo sau khi đóng gói. <code>HANDOFF-ARCHIVE-RECEIPT.json</code> nằm cạnh báo cáo, ghi SHA256 của ZIP và kết quả kiểm CRC. Không diễn giải CRC đạt thành bản vẽ đạt.</p>
+<p>Sau yêu cầu bổ sung cách sửa, prompt và tài liệu mới được đóng riêng tại <code>outputs/vhg-handoff-addendum-20261013-prompt.zip</code>; <code>HANDOFF-ADDENDUM-RECEIPT.json</code> ghi hash và liên kết tới base ZIP. Dùng base rồi chép đè/add các file từ addendum theo <code>ADDENDUM-MANIFEST.json</code>. Base ZIP được giữ nguyên; đọc prompt mới từ addendum hoặc thư mục báo cáo hiện tại, không dùng bản prompt cũ trong base làm bản mới nhất.</p>
+<p>Khi tiếp tục: đọc báo cáo này, kiểm manifest và trạng thái workspace hiện tại, rồi làm theo mục8. Không ghi đè các run lịch sử; mỗi lần thử tiếp theo phải có thư mục và receipt mới. Snapshot được thu từng file, không phải ảnh chụp nguyên tử của toàn hệ thống.</p>
+<h2>Bổ sung audit bảng TK và ước lượng tiến độ</h2>
+<p>Review sâu tiếp theo: <a href="pages/PDF-002-PHAN-TICH-CHI-TIET.html">PDF002 — cổ và bảng ATT</a>, kèm crop cổ độ phân giải cao,88rowTK/14nhóm/2cột và19BLT. Đã bổ sung rule về TK.Tenluoi không chiếm hàng riêng, M.U dùng cả thang, callout nhiều nhánh và scope face/region. Giữ khác biệt nguồn C3/C3A và DAI190 của C schematic công khai; không giả alias/fabrication. PromptP5 và contract đã cập nhật. Chưa chứng nhận mọi glyph/quantity/dimension của tờ.</p>
+<p>Sau checkpoint này đã bổ sung <a href="pages/PDF-001-PHAN-TICH-CHI-TIET.html">PDF001 — phân tích chi tiết6hình/40callout</a>, bảng40đường dẫn/text với coordinates và mục đích. Dữ liệu trích xuất cũ thiếu vertices của entity LEADER; đã đọc bổ sung từ3nativeDXF vào632leader/1896vertices và đưa routes vào71ledger. Không dùng bbox làm đường dẫn. Các native annotation_handle đều0 nên target/text mapping không được coi là có sẵn association; PDF001 đã manualreview vai trò40callout, exact physical IDs/glyphs và các tờ khác cònpending. Nguồn và inventory lịch sử giữ nguyên.</p>
+<p>Đã thêm <a href="THONG-KE-THEP-NATIVE-CACH-SUA.html">Bảng TK native — schema và cách sửa</a>:21asset,1331candidate instances, hash6filecode. STD18 phát hiện code truyền TotalLengthMm vào cột ghi mét mà formatter không convert; cách sửa/test nằm trong prompt P5. Chưa native reproduced, không ghi Fixed.</p>
+<p>Ước lượng quản lý theo toàn phạm vi: khoảng60% đã làm,40% còn lại. Đây không phải tỷ lệ nghiệm thu phần mềm hoặc đếm code. Trọng số catalog15%×90%, PDF30%×50%, Excel20%×60%, code15%×50%, batch10%×60%, tài liệu tích hợp10%×60% =60%. Các mức hoàn thành nhóm là ước lượng; cần tiếp tục zoom/semantic71PDF, consumer528notes, whole-code audit, batch10/10 đủ3loại và bàn giao kiểm chứng. Không có căn cứ cam kết thời gian chính xác từ tỷ lệ này.</p>
+<h2>Cập nhật tiếp: PDF003 và STD-19</h2>
+<p>Đã xem tờhìnhuốn PDF003, trích88MTEXT nguyênvăn,14nhóm/7cột và94đối tượng thép; ghép88/88 với hàngATT PDF002 bằngscope+SH,Ø,DAI. Đã lưu 192 TEXT: 189 gán candidate theo ô, ba chữ150 của đoạn đóng vòng được gán thủ công theo ảnh. Không tuyên bố toàn trang certified. Bằng chứng <a href="pages/PDF-003-PHAN-TICH-CHI-TIET.html">PDF003</a>, <a href="pages/PDF-003-BENDING-MAP.html">88đối chiếu</a>, <code>pages/PDF-003-detail-review.json</code>.</p>
+<p>Phát hiệnSTD-19: nhánhAddSchematicBars chiếuphysical/xếp từngcanonicalmark tựdo, thiếu recipe nhóm/cột/DisplayMark và captionMTEXT nhưnguồn. Nguồn sơhọaD1 ngang900 nhưng ghi1490; Ubuộc/thang cùngfootprint khácØ/legs. Đã bổsung cáchsửa vào prompt/sổtay; chưa sửaproduction hoặc chạy native repro. Tổng19finding code, coverage vẫnPartial. Tiếnđộ60% là ước tính quảnlý trướcđó; không tự tăng vì một tờđã bóctách. HaiZIP đóngbăng cũ không chứa cậpnhật này.</p>
+<h2>Cập nhật yêu cầu chủ nhiệm và PDF004</h2>
+<p>Đã tiếp nhận bốn ảnh Properties: TK.L2M, TK.THKL và TK.GC.H. Lưu bản gốc, ảnhWebP vàhash trongcatalog; bổsung quy tắc owner về nativeATT/tiếngViệt/khôngscaleglyphtheoLi vànhómtrungbình đoạncắt. PhânbiệtPresentationScheduleGroup nhiềuCanonicalMarks vớicanonicalfabricationinvariant. Quyếtđịnh mới nằm ở <a href="OWNER-RULES-THONG-KE-NHOM-20261013.html">tài liệu riêng</a>, được đưa lên đầu prompt để junior không bỏ qua.</p>
+<p>PDF004 đã review sáuhình khung/tấm/mặt cắt, 89block/12TKrow/58DIM, nominal1:20. STD-20 nêu nhánhPanelDetailgeneric vàcáchsửa cótrigger. Đã sửa lỗi OCS/WCS của INSERT trong dữliệunghiêncứu:24lầnhiện trêntrang,20nativeinstances, nguồn gốc khôngđổi;8testledgerđạt. ChưachứngnhậnmọiATTRIB/TEXTcoordinate.</p>
+<p>INDEX được chuẩn hóa theo nhóm: đọc trước, quy tắc/catalog, PDF, Excel, lỗi/bằngchứng, kếtquảthựcthi vàgallery71ảnhthu nhỏ. Kếtquả mới phảiđăng kýWebP/PDF/evidence; gallerydeliveryhiệnrỗng, khônggiảkếtquảđãđạt. KhôngtriểnkhaiVercel.</p>
+<h2>Cập nhật PDF005: lưới đáy và tường có cống tròn</h2>
+<p>Đã phân tích <a href="pages/PDF-005-PHAN-TICH-CHI-TIET.html">PDF005</a>: sáu view G500-2, 47 nhãn có 47 tuyến native kết thúc duy nhất tại điểm chèn, 234 Gach và 32 BLTC. Đã ghi đầy đủ ATT, tọa độ và route handle trong bảng riêng. Đây là evidence nguồn, chưa kiểm xong membership thanh cắt và mean của từng nhóm.</p>
+<p>Phát hiện quan trọng cho hướng sửa: T3 ngoài là buộc Ø6@300 nhưng T3 trong là nhóm khác Ø10@150; phải scope tên theo tường/mặt/lớp/role. D3 chỉ được gọi ở đáy trên trong fixture; view không có X không đồng nghĩa mô hình thiếu U/C. Cần kiểm đồng thời tie instance và chính sách biểu diễn. Prompt đã bổ sung tám bước từ cắt thanh thật → phân vùng → mean không làm tròn → binding native ATT → trace và kiểm collector.</p>
+<p>Đã sửa lỗi tên file trong hai đoạn mô tả: PDF002 thực tế là Model-10, PDF003 là Model-11; ledger/hash và phép ghép nội dung không đổi. PDF005 mới là Model-2. Không được dùng thứ tự catalog làm số Model hoặc ghép TK của G800-1 vào lưới G500-2.</p>
+<p>Tiếp tục còn thiếu: kiểm chi tiết các tờ còn lại, membership/mean theo bộ mẫu tương ứng, consumer của toàn bộ trường Excel, audit toàn code và nghiệm thu đủ ma trận ba loại. Chưa tuyên bố báo cáo cuối hay DBTool đạt.</p></main></html>
