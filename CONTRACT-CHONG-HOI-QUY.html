@@ -1,0 +1,143 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CONTRACT-CHONG-HOI-QUY</title><style>body{font:16px/1.65 Segoe UI,Arial;margin:0;color:#183449;background:#edf2f5}main{max-width:1180px;margin:auto;padding:28px;background:white}nav{padding:12px;background:#15384b}nav a{color:white;margin-right:20px}a{color:#096e85}h1,h2,h3{color:#146d78}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{border:1px solid #bccfd7;padding:8px;vertical-align:top}th{background:#e4f0f2}pre{padding:14px;white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f5f7}img{max-width:100%}</style><nav><a href="INDEX.html">Trang tổng</a><a href="CATALOG-TEMPLATE.html">Catalog</a><a href="PDF-71-OVERVIEW.html">71 PDF</a><a href="KE-HOACH-SUA-CHO-JUNIOR.html">J00–J08</a></nav><main><h1>Hợp đồng chuẩn hóa để tránh sửa bố cục làm hỏng nội dung</h1>
+<p>Ngày 12/10/2026. Tài liệu đang tích hợp, chưa phải chứng nhận toàn bộ DBTool đạt. Áp dụng cùng báo cáo điều tra hồi quy, không thay các bằng chứng nguồn bằng lời khẳng định của báo cáo khác.</p>
+<h2>1. Thứ tự quyết định và nguồn chuẩn</h2>
+<ol>
+<li>Yêu cầu mới của chủ dự án có ưu tiên cao nhất: chọn nắp khóa lọt lòng cổ theo catalog sản phẩm; bề dày cổ vẫn biến thiên; cấu hình khung đỡ được yêu cầu dày 100 mm; cao độ hoàn thiện ở mặt trên nắp. Quy tắc cũ 80 mm không còn dùng cho khung này. Không thay chiều dày thật của block sản phẩm đã có sẵn bằng 100 mm.</li>
+<li>Excel xác định input của ca đang chạy. Comment tác giả giải thích ý nghĩa; giữ nguyên văn và lưu override riêng. Các ca mẫu Excel/DWG/PDF không đồng bộ không được buộc giống tuyệt đối về số liệu.</li>
+<li>Template cung cấp tên block, schema thuộc tính, layer, style, hình sơ đồ và sản phẩm. PDF/DWG mẫu cung cấp recipe trình bày. Không copy thép vật lý của một ga mẫu sang ca mới.</li>
+<li>Code hiện tại và báo cáo junior là đối tượng cần kiểm, không phải nguồn để tự chứng minh đúng. Kết quả unit tests không thay thế việc xem DWG/PDF xuất ra.</li>
+</ol>
+<p><code>usage-guide.json</code> có nguyên văn: “Có thể edit các style trong này, tuy nhiên không được đổi tên các Block, Dim, Layer, Textstyle”. Vì vậy, giữ tên tài sản; thay đổi font/plot phải có profile và kiểm đầu ra, không đổi tên để lách schema.</p>
+<h2>2. Các điều phải sửa trong báo cáo senior cũ</h2>
+<table>
+<thead>
+<tr>
+<th>Mệnh đề cũ</th>
+<th>Quy tắc đúng để junior thực hiện</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100% đúng, không còn mơ hồ</td>
+<td>Mỗi mệnh đề có nguồn, hash, trạng thái Observed/OwnerRule/Proposed/Unverified. Không tự gắn Passed.</td>
+</tr>
+<tr>
+<td>64 nhãn thuộc 6 nhóm trùng điểm</td>
+<td>Trong bảng cũ, 12+13+16+17=58 nhãn ở bốn cụm trùng tọa độ; cổ ga là lỗi cột dài, không phải cùng loại trùng điểm. Kiểm lại JSON gốc và định nghĩa count trước khi dùng tổng 64.</td>
+</tr>
+<tr>
+<td>Mọi leader chỉ được vuông góc ngoài bê tông</td>
+<td>Collector đi xuyên lưới có chủ ý. Leader thép buộc có thể có nhánh xiên 45° trong hình; mặt cắt cũng có nhãn gọi nội bộ. Cấm cắt chữ/nhầm đích; không cấm mọi giao với bê tông hoặc thép.</td>
+</tr>
+<tr>
+<td>T1A/T1B đứng nghĩa đoạn trái/phải</td>
+<td>Thanh đứng bị lỗ cắt thường có đoạn trên/dưới; thanh ngang thường có đoạn trái/phải. Hậu tố phải tra mẫu và topology thực, không suy diễn từ tên.</td>
+</tr>
+<tr>
+<td>T3 luôn có cùng nghĩa</td>
+<td>Trong từng view/lớp, SH có scope riêng. Dùng role và canonical identity riêng, không dùng chuỗi T3 để đoán hình uốn.</td>
+</tr>
+<tr>
+<td>Một polyline cho toàn bộ cấu kiện</td>
+<td>Mặt cắt có lỗ là miền có outer ring và inner rings; union bê tông cùng cấu kiện để xóa seam, giữ biên lỗ và mặt nối thật của loại 2/3.</td>
+</tr>
+<tr>
+<td>Nét thép 0.5, bê tông 0.35 là số đo mẫu</td>
+<td>Layer native hiện có lineweight Default; PDF vector và plot table quyết định mực in. Các số 0.5/0.35 là đề xuất cho đến khi đo/đối chiếu profile.</td>
+</tr>
+<tr>
+<td>Block thống kê dynamic nhập số tự giãn thanh</td>
+<td>Probe native chưa thấy dynamic properties. Điền ATTDEF/ATTRIB và hình sơ đồ là một việc; hình thanh thực là việc khác. Không set property không tồn tại.</td>
+</tr>
+<tr>
+<td>Cứ có PDF hoặc exit 0 là đạt</td>
+<td>Có thể PDF đã xuất nhưng plot style không tương thích. Kiểm transcript, số trang, vector, tỷ lệ, font, bố cục và nội dung.</td>
+</tr>
+<tr>
+<td>BLT luôn scale 0.3</td>
+<td>Với block gốc theo chuẩn 1:100, 0.3 tương ứng 1:30. Tính scale theo chuẩn block và tỷ lệ giấy; không áp cho block nắp 1:1.</td>
+</tr>
+<tr>
+<td>BLT1/2/3/4 đều có SH,DK,A và vòng tròn</td>
+<td>BLT1/2 có SH,DK,A; BLT3/4 chỉ có NOTE và không cùng hình vòng tròn. Chọn schema theo asset thật trong catalog.</td>
+</tr>
+</tbody>
+</table>
+<h2>3. Hợp đồng một nguồn hình học</h2>
+<p>Chuỗi bắt buộc: <code>RawWorkbook -&gt; EffectiveInput -&gt; GeometryModel -&gt; RebarModel -&gt; ViewProjection -&gt; Presentation -&gt; SheetPlan -&gt; NativeDWG -&gt; PDF</code>.</p>
+<p>Mỗi bước xuất receipt có RunId, hash input/template/assembly, số phần tử và issues. Không được chạy lại workbook khác giữa domain và drawing mà giữ chung tên ca. Không được dùng tên G400/G500 để chọn hình học hoặc store thép tĩnh.</p>
+<h3>C01 — Nắp/cổ/cao độ</h3>
+<ul>
+<li>Đọc cover selection trước khi resolve cổ. Tra <code>NativeCoverCatalog</code> lấy clear X/Y, loại/hướng và ba asset MB/AA/BB. Đừng lấy bounding box ngoài block làm clear.</li>
+<li>Lưu <code>RawNeckClear</code>, <code>EffectiveNeckClear</code>, <code>CoverCode</code>, <code>RuleVersion</code>, lý do override. EffectiveNeckClear bằng aperture sản phẩm theo hướng đã chọn. 700×700 không được trở thành 800×800.</li>
+<li>Khung đỡ owner: footprint ngoài = clear + 2×bề dày cổ theo từng phương; chiều cao 100 mm thuộc khung. Cổ kết thúc tại mặt dưới khung; sản phẩm native đặt theo đúng datum lắp đặt. Không cộng 100 mm hai lần.</li>
+<li>SurfaceId riêng: FinishedCoverTop, FrameBottom, NeckTop, RoofTop, BaseTop. CT hoàn thiện trỏ FinishedCoverTop, text m. Khi đổi datum, cả CT, cổ, mặt cắt, dim cùng đổi.</li>
+<li>Điểm vào cần kiểm: <code>Domain/Input/CoverOpeningContract.cs</code>, <code>CoverBlockPlacementResolver.cs</code>, <code>OwnerCoverAssemblyValidator.cs</code>, <code>Domain/Geometry/NeckGeometryBuilder.cs</code>, <code>CoverSectionOutlineBuilder.cs</code>, <code>PurchasedCoverGeometryBuilder.cs</code>, <code>Drawing/SheetOneNeckAssembly*</code> và importer.</li>
+<li>Đóng lỗi: đổi chọn nắp 700×700 sang mã chữ nhật và xoay hướng, đổi dày cổ, đổi cao độ; kiểm clear/footprint/100 mm/điểm CT trong domain lẫn CAD. Giữ native sản phẩm scale 1.</li>
+</ul>
+<h3>C02 — Cống đồng nhất mọi hình chiếu</h3>
+<ul>
+<li>Tạo OpeningId, WallId, shape, center/elevation, offset, kích thước ngoài/trong tại domain. Chỉ một nguồn này cấp cho mặt bằng, tường, mặt cắt và thép cắt lỗ.</li>
+<li><code>OpeningViewMap</code> lưu transform và biên sau chiếu. Không tính lại bên cống theo nhãn tường hoặc lấy abs(offset). Quy ước nhìn từ trong ra ngoài phải được ghi bằng sơ đồ hướng.</li>
+<li>Điểm vào: <code>PipeOpeningBuilder</code>, <code>OpeningOwnershipPartitioner</code>, <code>OpeningClipper</code>, <code>OpeningViewMap</code>, <code>VhgOpeningCompositionPlanner</code> và builders section/plan.</li>
+<li>Đóng lỗi: replay case2-gen-v7 và case3-gen-v5 bằng input đã snapshot; xuất ledger một OpeningId có cùng physical shape/elevation trên mọi view. Thêm offset ±, nhiều cống, tròn/hộp; không thay bằng một lỗ tròn xấp xỉ.</li>
+</ul>
+<h3>C03 — C/U/thang: kiểm input trước khi kết luận mất thanh</h3>
+<ul>
+<li>Có ba trạng thái khác nhau: input OFF hợp lệ; input ON nhưng planner không tạo; planner có nhưng projection/native không vẽ. Report phải chỉ rõ trạng thái nào.</li>
+<li>Các run cũ có thể vẽ dấu X/thang tĩnh dù Excel tắt. Không phục hồi lỗi đó để “giống ảnh”. Tạo fixture ON riêng và OFF riêng, giữ input nguồn.</li>
+<li><code>TiePlanner</code>, <code>LadderPlanner</code>, <code>NeckRebarPlanner</code> tạo thanh vật lý. C/U phải có path, bo/móc, đường kính, spacing, host/layer/OccurrenceId. BLTC là ký hiệu của thanh thật; không phải bằng chứng hình uốn tồn tại.</li>
+<li>Hình C mẫu 5 đoạn và R8 là hình đối chiếu; hình U mẫu 100–90–200–90–100. Phải xác nhận trường Excel nào điều khiển chiều cao/dài và lớp bảo vệ trước khi biến thiên; không tự biến mọi chiều dài thành hằng số hoặc tự co giãn mọi cạnh.</li>
+<li>Thang ON: kiểm vị trí theo cổ, bước/cao độ thanh đầu, số thanh, tránh cống theo policy. Vẽ và ghi “Thang D18” chỉ khi thực có đường kính 18; đổi đường kính phải đổi nhãn.</li>
+<li>Đóng lỗi: ledger nối input -&gt; specs -&gt; occurrence -&gt; projected path -&gt; CAD handles -&gt; ký hiệu/nhãn. ON phải có thật, OFF phải vắng thật. So le cách một nút có index gốc ổn định, clipping không reset pha tùy tiện.</li>
+</ul>
+<h3>C04 — Thép trần, cổ và bảng thống kê</h3>
+<ul>
+<li>Giữ các hình trong bộ trần/cổ theo recipe mẫu trước khi di chuyển làn nhãn. Không thay bằng tập raw lines và bảng tiếng Anh để làm test ID pass.</li>
+<li>Tách OccurrenceId, CanonicalMark và PresentationGroup. Nhóm theo cấu kiện, lớp, phương, topology, vùng lỗ và thông số thật. Một nhóm lặp có một nhãn; một nhóm không được gom hai đường kính hoặc hai hình uốn khác nhau rồi chỉ ghi một bộ số.</li>
+<li>D/T/N/C là default theo mẫu; prefix có thể được Excel cấu hình. Hậu tố A/B phải có bảng ánh xạ từ vùng thực tế. Không in tên nội bộ dài lên giấy.</li>
+<li>Scope nhóm/callout phải có face/region: PDF002 có C1/C1A gọi ở hai bên trong một section, C2/C2A dùng một block với nhiều nhánh. Không ép một canonical mark có duy nhất một nhãn toàn view. Đồng thời cấm sinh mỗi occurrence lặp một nhãn. Annotation LINE/LWPOLYLINE cũng cần truy đích, không chỉ LEADER.</li>
+<li>TK.Tenluoi chèn cùng hàng đầu nhóm, không thêm một hàng generic full-width. TK.M.U còn dùng cho thang D18; chọn asset theo shape và host role. C3/C3A khác nhau trong source PDF002 phải có quyết định alias có bằng chứng, không nối bằng tên gần giống.</li>
+<li><code>ScheduleTablePlanner</code>, <code>ScheduleNativeAttributes</code> chọn block TK theo hình uốn và bind tag schema thật. Các block <code>TK.M.C</code>, <code>TK.M.U</code>, <code>TK.M.Z</code>, <code>TK.L0M/L1M/L2M</code> và các TK khác phải tra catalog, không chọn theo tên gần giống.</li>
+<li>Chưa ưu tiên tính khối lượng không có nghĩa bỏ cấu trúc bảng: giữ đúng tiếng Việt, hình sơ đồ, nhóm và cột theo mẫu. Phần số chưa tính phải có trạng thái rõ, không điền số giả.</li>
+<li>Đóng lỗi: có sheet contract liệt kê bắt buộc từng view/bảng; mọi hàng có canonical mapping và asset/schema receipt. Kiểm có C/U khi ON, không chỉ kiểm tên thanh trong JSON.</li>
+</ul>
+<h3>C05 — Hình học nét, vạt góc và mặt nối</h3>
+<ul>
+<li>Union bê tông theo ComponentId: loại 1 toàn khối; loại 2/3 thân–đáy–vạt liền nhau, trần/cổ là cấu kiện khác. Cửa thu loại 3 có topology riêng. Giữ mặt lắp ghép thật, xóa seam giả trong cùng cấu kiện.</li>
+<li>Vạt góc thay đổi đồng thời boundary, hatch, thanh theo vạt, lớp bảo vệ và projection. Không chỉ thêm một đoạn xiên bê tông rồi coi thép góc đã có.</li>
+<li>Soi linetype hiệu lực: explicit entity -&gt; BYBLOCK/inherited block -&gt; BYLAYER. Layer name đúng không chứng minh nét đứt/đậm đúng. Hatch không được che mất nét thép trong PDF.</li>
+<li>Đóng lỗi: có/không chân, có/không vạt ở cả ba loại; miền bê tông không chồng/đứt, không seam giả, thép vạt liên kết đúng host và không nằm ngoài bê tông.</li>
+</ul>
+<h3>C06 — Neo nhãn và xếp trang biến thiên</h3>
+<ul>
+<li>Thu thập tất cả nhóm trong view trước; một allocator chung quyết định lane và tránh va chạm. Không reset slot giữa family. Đo extents block/attributes sau scale/rotation, kể cả hướng vươn trái/phải.</li>
+<li>Collector giao thanh thật, chèn Gach tại giao hợp lệ; clip vùng lỗ. Tie leader bắt đúng nút thật. Section leader bắt đúng layer/face, không Y cứng.</li>
+<li>Geometry mm, view-local mm, paper offsets mm và sheet placement là bốn tầng riêng. <code>offset_model = offset_paper × denominator</code>; không scale nắp sản phẩm theo denominator.</li>
+<li>Đo ink envelope gồm chữ, nhãn, dim, leader rồi mới xếp trang; giữ thứ tự logic và alignment của bộ hình. Khi không đủ chỗ, thêm trang có chủ ý; không bóp méo cấu kiện hoặc giảm chữ tùy tiện.</li>
+<li>Đóng lỗi: delta X/Y/H, thickness, openings, pitch và đổi tên ga; rename chỉ đổi text. Không có nhãn mất đích, trùng/đè chữ; vị trí không nhảy theo thứ tự duyệt collection.</li>
+</ul>
+<h2>4. Trình tự giao việc — mỗi bước có đầu ra kiểm được</h2>
+<ol>
+<li>Freeze baseline code/build/input/template/candidate DWG/PDF bằng hash; lưu case2/3 cũ và case1 mới cùng dataflow receipt. Xác minh branch/build chạy là build nào.</li>
+<li>Khóa schema/asset catalog và rule owner; thêm test fail tái hiện từng lỗi trước khi sửa. Đừng xóa tests kiểm nội dung để thông qua bố cục.</li>
+<li>Sửa effective input, cover datums, opening single-source, bê tông và thép C/U/thang/vạt/chốt. Chưa sửa presentation để che lỗi domain.</li>
+<li>Khóa view contract và TK table contract. So before/after số view, mark, paths, input flags; mất nội dung là regression dù nhãn đẹp hơn.</li>
+<li>Sửa grouping/collector/labels/layout. Lưu mỗi quyết định neo và group membership để truy ngược.</li>
+<li>In qua plot profile tương thích PSTYLEMODE; kiểm font, linetype, hatch và tỷ lệ thực. Có file PDF không đồng nghĩa đúng.</li>
+<li>Chạy đủ ma trận 216 tổ hợp + 40 ca biên đã lập; mỗi ca có input/run/hash/native/semantic/visual receipt. Tổ hợp không hợp lệ ghi NotApplicable có lý do, không đổi thành Passed.</li>
+<li>Sau đó mới batch 5 và 10 dòng Excel vào một DWG. Mỗi dòng có ManholeId riêng, tất cả khung được in trong một host session; số ca × sheet contract đối chiếu số frame/PDF. Không ghép 10 bản ga tĩnh rồi gọi là generate từ Excel.</li>
+</ol>
+<p>Chỉ đóng lỗi khi cả kiểm dữ liệu và native PDF/DWG đạt. Bất kỳ DiagnosticPartial, missing frame, placeholder, fallback static, thiếu thanh ON, nhầm datum hoặc plot warning đều cấm gọi Final.</p>
+<h2>5. Bằng chứng mới và phạm vi chưa xong</h2>
+<p><strong>Cập nhật:</strong> xem <code>KE-HOACH-SUA-CHO-JUNIOR.md</code>, <code>PDF-71-OVERVIEW.md</code>, <code>batch-generation-audit.json</code>, <code>BATCH-PLOT-README.md</code> và <code>PROGRESS.json</code>. Overview71trang đã ghi; review zoom vẫn Pending. Mapping528note đã xuất nhưng heuristic/consumer còn kiểm. Batch5 đã ghép/in42khung;10dòng còn fail9/10, chưa đạt. Các câu “chưa thực hiện” bên dưới là checkpoint trước, không ghi đè trạng thái mới này.</p>
+<ul>
+<li>104 block có tên, 165 ATTDEF; 528 comment nguyên văn; 71 PDF và 87 khung CAD có inventory.</li>
+<li><code>pages/INDEX.html</code> và <code>pages/PDF-*.json</code> có sổ từng trang với ứng viên CAD, block/attrs/tọa độ/layer/dim/hatch; CSV có từng entity. Trạng thái VisualReview còn Pending. Không dùng các liên kết còn ambiguous như kết luận chắc chắn.</li>
+<li><code>case1-final-v2/generation-result.json</code> vẫn ghi DiagnosticPartial, fixed 1:30. Tên thư mục “final” không thay đổi trạng thái thực.</li>
+<li>Tool batch plot mới đã native thử ba khung trong một phiên, không sửa nguồn. Lần đầu phát hiện CTB/STB mismatch; lần hai chọn đúng mode, xuất đủ ba vector PDF. Tiếp đó đã xuất đủ 27 khung DWG loại 2 trong một phiên, 27 vector PDF A3, khoảng 29 giây, không cảnh báo kiểu nét và giữ nguyên nguồn. Đây là kiểm xuất file, chưa phải nghiệm thu nội dung/visual.</li>
+<li>Chưa hoàn tất: diễn giải/mapping đủ 528 note; review hình chi tiết đủ 71 PDF; audit hết code/build hiện tại; batch generate 5/10 rows; báo cáo/prompt final hợp nhất. Các phần này phải tiếp tục làm, không gắn Passed ở checkpoint này.</li>
+</ul>
+<h2>Override owner ngày13/10: presentation grouping và native ATT</h2>
+<p>Áp dụng <a href="OWNER-RULES-THONG-KE-NHOM-20261013.html">OWNER-RULES-THONG-KE-NHOM-20261013</a>. Nhómtrìnhbày đoạncắt cóthể chứa nhiều chiều dài/mãcanonical tươngthích; DAItrungbình, SLcount, TDAIrawsum/1000, giữ từngpath/IDphysical. BảngTK giữgeometryblockATT vàtiếngViệt; khôngscale/stretchglyph theochiềudài, khônggenericEnglishrow. T1A/B trái/phải, T2A/B trên/dưới theoViewConvention/Scope. Hướngdẫncũmâu thuẫnphảiđượcđọc theocontractnày.</p>
+<p>Saukhihoànthànhsửa, cậpnhậtảnh/PDF/evidence vàoINDEX theo<a href="HUONG-DAN-CAP-NHAT-KET-QUA.html">contractkếtquả</a>; khônggắnPassedtừ ảnhnguồn hoặcchỉunittests.</p></main></html>

@@ -1,0 +1,165 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CURRENT-CODE-FINDINGS</title><style>body{font:16px/1.65 Segoe UI,Arial;margin:0;color:#183449;background:#edf2f5}main{max-width:1180px;margin:auto;padding:28px;background:white}nav{padding:12px;background:#15384b}nav a{color:white;margin-right:20px}a{color:#096e85}h1,h2,h3{color:#146d78}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{border:1px solid #bccfd7;padding:8px;vertical-align:top}th{background:#e4f0f2}pre{padding:14px;white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f5f7}img{max-width:100%}</style><nav><a href="INDEX.html">Trang tổng</a><a href="CATALOG-TEMPLATE.html">Catalog</a><a href="PDF-71-OVERVIEW.html">71 PDF</a><a href="KE-HOACH-SUA-CHO-JUNIOR.html">J00–J08</a></nav><main><h1>Rà soát code hiện tại — các phát hiện đã đọc được, chưa phải toàn bộ audit</h1>
+<p>12/10/2026. Phân biệt <strong>đọc code</strong>, <strong>receipt của build đã chạy</strong> và <strong>hành vi đã tái hiện</strong>. Các file có thể được AI khác sửa đồng thời; trước khi sửa phải chụp hash lại. Không lấy line number của báo cáo trước làm bằng chứng code hiện còn nguyên.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Bằng chứng hiện tại</th>
+<th>Hệ quả / cách xử lý cụ thể</th>
+<th>Cách kiểm đóng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STD-01</td>
+<td><code>DBTool.Headless/Program.cs</code> chặn <code>names.Count != 1</code> bằng S1_SINGLE_MANHOLE_ONLY</td>
+<td>Entrypoint hiện không xử lý nhiều --id. Cần batch orchestrator đọc tất cả dòng hợp lệ, gọi calculator cho từng ManholeIdentity, namespace occurrence/view/semantic ids theo ga, tạo một sheet collection và một DWG. Không chỉ xóa guard rồi dùng output một ga.</td>
+<td>5 và 10 dòng input khác nhau -&gt; đủ 5/10 ManholeId, hash từng input, số sheet/frame/PDF phù hợp; lỗi một dòng có receipt và không bị bỏ im lặng.</td>
+</tr>
+<tr>
+<td>STD-02</td>
+<td><code>SheetTwoCollectorLabels.Apply</code> đã đưa bottomSlot/leftSlot ra ngoài vòng family theo view</td>
+<td>Lỗi slot reset trong báo cáo cũ đã có sửa ở code hiện tại; không giao junior “sửa lại” bằng cách quay về code cũ. Tuy nhiên placement vẫn hardcode 340/315, 420, 150/180 và scale fallback 0.3.</td>
+<td>20/30/40 có paper clearance ổn định; bounds thật không đè; small/large và hole splits không vượt mép sheet.</td>
+</tr>
+<tr>
+<td>STD-03</td>
+<td>Cùng file tạo BaseMark D1/D2/T1/T2 trực tiếp; A/B theo thứ tự SemanticId; DK fallback10, pitch @ literal</td>
+<td>Prefix/kiểu ghi chú Excel chưa được truyền vào hợp đồng này; topology không được chứng minh bởi số collector. Đưa PresentationGroup metadata có display mark/prefix/note style/pitch symbol/region role vào Apply; thiếu dia phải chặn, không bù D10.</td>
+<td>Đổi prefix/ký hiệu hiển thị/kiểu BLT không đổi thanh thật. Hai vùng lỗ được gọi theo region có meaning, reorder IDs không đổi A/B. Missing dia không sinh nhãn giả.</td>
+</tr>
+<tr>
+<td>STD-04</td>
+<td><code>SheetFourNeckDetailer.Build</code> trả tuple Schedule rỗng; AddLabels group ScheduleMark, hai lane trái/phải theo tip đầu và leader hai điểm</td>
+<td>So PDF-033: hình cổ ở cột trái, bảng thống kê ở giữa/phải. Đừng khôi phục store static để lấy lại bảng; tạo native TK rows từ schedule thật rồi đưa cùng sheet contract. Phân recipe nhãn cổ theo role/vùng thay vì chỉ tip.X.</td>
+<td>Có đủ hình cổ + bảng đúng template; không mất thang/chốt phụ khi input ON; leader đúng đích và không xuyên chữ.</td>
+</tr>
+<tr>
+<td>STD-05</td>
+<td><code>ViewBuilder</code> cuối pipeline thay TableRowPrimitive bằng <code>ScheduleTablePlanner.Plan</code>; chỉ footer dùng NativeSummary khi rich</td>
+<td>Bảng chính vẫn generic text/grid, không phải toàn bộ hàng TK native. Có translate header nhưng cell Component/Layer/Axis có thể là enum English. Thay riêng steel schedule bằng planner native TK, giữ generic planner cho scope khác cần nó.</td>
+<td>Mỗi row có asset/tag/readback; không còn enum nội bộ trên bản xuất. Nhóm cấu kiện/lớp bám mẫu. QuantityTable không bị đổi ngoài scope.</td>
+</tr>
+<tr>
+<td>STD-06</td>
+<td><code>ScheduleTablePlanner</code> ghi “Metrics are provisional”; widths từ character length; group fallback <code>Steel</code>. <code>ScheduleNativeAttributes.Format</code> dùng round-trip R</td>
+<td>Unit passing không chứng minh typography. R có thể in số thập phân dài như khuyết điểm nguồn. Tạo DrawingNumberFormatPolicy với precision theo loại số và native ink measurement; giữ số exact trong domain.</td>
+<td>mm/kích thước không lộ 999999999; total m/kg theo precision được chốt; chữ Việt và dấu Ø đủ; table không tràn.</td>
+</tr>
+<tr>
+<td>STD-07</td>
+<td><code>TiePlanner.PlanVhgWallC</code> và <code>PlanVhgSlabU</code> chỉ chạy khi tie spacing bằng hai lần pitch các phương; mismatch trả Partial + TIE_DISTRIBUTION_NEEDS_RULE</td>
+<td>Mẫu @150/@300 chạy không chứng minh bước bất kỳ. HorizontalSpacingDelta khác 0 dễ không thỏa cả hai phương. Cần đặc tả chọn các station thực theo chế độ Đều/Lệch và yêu cầu cách một thanh; không tự thay bước Excel bằng 2×pitch. Nếu cấu hình không có mapping hợp lệ, giữ Partial và nêu rõ rule gap.</td>
+<td>Fixture delta0/delta khác0, các bước buộc khác, spacing lớn -&gt; OFF theo rule; kiểm distribution từ actual stations và không tự sinh phantom tie.</td>
+</tr>
+<tr>
+<td>STD-08</td>
+<td><code>StageAdapters</code> chỉ compose Wall=C, Base/Roof=U; các shape/member khác đưa unsupported và Partial</td>
+<td>Excel có shape cho cổ và C/U/Z. Không được nói “đã đủ mọi thép buộc” khi cổ/Z chưa có consumer. Lập support table cho từng component×shape; implement theo template/rule đã xác minh; chưa hỗ trợ phải báo rõ trước xuất Final.</td>
+<td>ON từng shape/component có physical path+projection+native symbol/nhãn; OFF/N/A rõ. Không chỉ thêm tên mark vào bảng.</td>
+</tr>
+<tr>
+<td>STD-09</td>
+<td><code>Phase6GenerationCommands</code> có constants layout30, largeThreshold2200, decoration 12600×8910; family logic chỉ catch3.1 so với mặc định2.1; script p6_generate ValidateSet chỉ2.1/3.1</td>
+<td>Harness này là diagnostic, không phải entrypoint nghiệm thu cả ba loại/tỷ lệ. Cần thêm Family1 contract và scale từ request xuyên suốt; giải thuật layout phải theo recipe và native ink. Không đổi chuỗi Status thành Final để thông qua gate.</td>
+<td>Loại1/2/3, tỷ lệ20/30/40; không type1 bị layout2.1; rename invariant; full matrix receipts.</td>
+</tr>
+<tr>
+<td>STD-10</td>
+<td><code>case1-final-v2/generation-result.json</code> và receipt cùng ghi DiagnosticPartial; plot manifest đã chọn acad.ctb theo drawing mode</td>
+<td>Tên “final” của folder không chứng minh cuối cùng. Không quy CTB/STB mismatch thử trên DWG nguồn sang run này: phải kiểm transcript chính run. Lưu trạng thái engine/render/plot/semantic/visual riêng.</td>
+<td>Một delivery có Final gate độc lập; warning/missing/NeedsRule dẫn Partial/Failed đúng, không dựa exit0.</td>
+</tr>
+</tbody>
+</table>
+<h2>Điểm cần lưu giữ từ bản cũ</h2>
+<h3>Reachability và plot policy vừa kiểm thêm</h3>
+<ul>
+<li><code>ViewBuilder</code> có lời gọi <code>SheetTwoViews.Build(activeManhole)</code> nhưng nằm trong <code>if(false)</code>, không được kết luận đang thay geometry bằng store chỉ từ kết quảrg. <code>SheetTwoNominalBaseMesh.Apply</code> và <code>SheetTwoNominalWallMesh.Apply</code> hiện là no-op giữ projected paths. <code>SheetTwoRepresentativePaths</code>/NominalAnchorage còn code tọa độ mẫu nhưng có guard nominal roles; phải chứng minh role được producer nào sinh trước khi gọi nó active. Không bật lại nhánh này để “gần PDF”.</li>
+<li><code>CadRenderer.RenderTableRow</code> chỉ roundsteelgrid bằng AppendText; nhánh AngleSteel dùng TK.TG native. Vì vậy phải sửa đúng roundsteelTKplanner, không tuyên bố mọi bảng đều generic hoặc thay nhánhAngleđã có.</li>
+<li><code>CadRenderer.ResolveStyle</code> gán ByLayer và linetype scale120 cho nhiều role, planpipecenter6. Cần hiệu lực native/ltscale/profile theo đúng view; các số này chưa được chứng minh đúng mọi scale20/30/40.</li>
+<li>Nét mẫu đã đo71PDF ở <code>PLOT-POLICY-OBSERVED.md</code>: loại1 có width0.72/1.08pt và0; loại2/3 nguồn cóhairline0. Không biến nhận xét “mọihairline sai” của báo cáo senior thành yêu cầu vá chung.</li>
+</ul>
+<h3>Phát hiện bổ sung từ batch native</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Tái hiện / điểm vào</th>
+<th>Cách xử lý và kiểm đóng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STD-11</td>
+<td>G1250-2 và G1250-3 tính được nhưng native trả SHEET_PLAN_PAGE_OVERFLOW, Actual=AA, isLarge=false. <code>SheetLayoutPlanner.RequiresAdditionalSheets</code> chỉ xét bề rộng X Base trong Plan &gt;2200.</td>
+<td>Quyết định fit từ extents từng view và ink theo recipe, xét cả section height/Y length. Overflow tách nhóm có chủ đích, không crop/scale cheat/đổi ngưỡng chỉ để qua mẫu.</td>
+</tr>
+<tr>
+<td>STD-12</td>
+<td><code>Phase6GenerationCommands</code> default ManholeCode G400-1, chỉ override nếu có presentation-receipt.json. Batch launcher mới chưa cấp receipt nên các row DWG đều tên G400-1 dù geometry hashes khác.</td>
+<td>Lỗi identity boundary của prototype cũng phải ghi. Nối/copy receipt đúng ManholeId/InputHash; native thiếu metadata phải block. Kiểm title/khung/file name/readback từng row, không chỉ hash khác nhau. Không quy đây là mọi production run đều sai nếu receipt hợp lệ.</td>
+</tr>
+<tr>
+<td>STD-13</td>
+<td>G1200-2 row12 diagnostic workbook: OPENING_CROSS_COMPONENT_UNSUPPORTED, Wall/T3, sourceS12.</td>
+<td>Kiểm input contour, ownership và component bounds trước sửa. Không nới gate hay gán tường tùy ý; tái hiện trên fixture lưu hash và so với bản gốc để phân lỗi input với thuật toán.</td>
+</tr>
+<tr>
+<td>STD-14</td>
+<td>Ba note CF.Ga!M14 (NOTE-0060/0232/0405) ghi rõ tỷ lệ bản vẽ chi tiết tấm nắp; M15=20. <code>Vhg32Schema</code> lại đặt <code>Panel.CoverRatioPercent</code>; reader cũ gán cùng tên; <code>DBTool.TestRunner/Program.cs</code> mô tả sai “tỷ lệ bảo vệ”. Không tìm thấy consumer rõ cho tên này trong Application/Domain; native harness cố định30.</td>
+<td>Đổi tên semantic thành PanelDetailScaleDenominator (giữ compatibility input nếu cần); parse20 là1:20. Nối tới recipe chi tiết nắp, text/dim/annotation và plot window của tờ đó. Không biến thành20%, không đổi scale sản phẩm. Test body30/panel20 và body40/panel20 độc lập; native readback và PDF paper size/scale đúng. Chỉ schema-address mapping chưa chứng minh feature được xử lý.</td>
+</tr>
+<tr>
+<td>STD-15</td>
+<td>Full-page PDF039G400CT57.39 nhưng PDF040cổCT58.56; PDF066cổCT57.39. PDF059G800-2 xen giữa các tờ nhỏPDF061. Source filenames/Model sắp xếp không phải bundle ga.</td>
+<td>Tạo ReferenceBundle theo family+native frame/ga/CT/kích thước+sourcehash. Không ghép tờ liên tiếp thành cùngga hoặc coi filenameModelindex làSheetRole cố định. Ambiguous giữ candidate/equivalence, không force match để cho Passed.</td>
+</tr>
+</tbody>
+</table>
+<p>Ngày13/10 bổ sung STD-11: probeG1500-1,row18 vào nhánh <code>isLarge=true</code> vẫn <code>SHEET_PLAN_PAGE_OVERFLOW ActualPlan</code>. Vì vậy sửa điều kiện &gt;2200 chỉ là một phần; layout nhánh lớn cũng cần đo extents/ink theo recipe. Receipt: <code>outputs/P6-candidate/vhg-standard-identity-large-probe/row-018/generation-result.json</code>.</p>
+<p>STD-12 prototype đã được cấp <code>presentation-receipt.json</code> trong tool mới. Probe riêngrow5 trả DiagnosticPartial và sinh <code>G500-2.dwg</code>,8khung. Native readback <code>TenMC/TIEUDE</code>,handle57EFB đọc“MẶT BẰNG HỐ GA G500-2”;không tìmG400-1trongmodelspaceTEXT/MTEXT/directattributes. Receipt <code>outputs/vhg-standard-identity-row5-inspection/identity-readback.json</code>. Chưachứngnhậnmọiframefields/nestedconstanttexts. Các batch5/10 lịch sử không được sửa receipt để che lỗi identity cũ. Recovery tool đã có unit tests cho timeout và mismatchhash; full native failure-recovery chưa được chứng nhận từ hai unit tests này.</p>
+<p>Nguồn: <code>batch-generation-audit.json</code> và từng calculation.log/generation-result.json được liên kết theo row. Các build hash của run đã lưu; vị trí line code không bất biến khi AI khác sửa workspace.</p>
+<p>Các <code>Family21Sheet*Store</code> có thể chứa schema TK, cách chia cột và recipe layout hữu ích. <strong>Không gọi store để lấy geometry/quantity/mark theo tên ga</strong>, nhưng cũng không xóa sạch rồi mất chuẩn trình bày. Trích cấu trúc: vị trí tương đối, order nhóm, tên tài sản/tag/style; điền lại bằng dữ liệu domain. File có tồn tại không chứng minh đang reachable; phải kiểm caller trước khi kết luận fallback còn hoạt động.</p>
+<h2>Thứ tự triển khai cho junior</h2>
+<h3>Hai contract lỗi vừa xác nhận trong audit Excel ngày 13/10</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Bằng chứng</th>
+<th>Hướng sửa và nghiệm thu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STD-16</td>
+<td>NOTE-0017/0183/0356 cho phép CF.Ga!D3=0 để không vẽ lớp lót. Validator và ManholeInput bắt positive; Geometry luôn Add Pad; ViewBuilder bắt buộc Pad; hai planner Single(Pad).</td>
+<td>Sửa xuyên input/domain/optional component/planners/placement, không epsilon. 0/50/100/âm trên3loại; không lớp lót không sinh hatch/dim/CT Pad. Chi tiết <code>EXCEL-CONSUMER-AUDIT.md</code>. Chưa native reproduced.</td>
+</tr>
+<tr>
+<td>STD-17</td>
+<td>ManholeValidator thiếu catalog thì regex tên Round/Box/DoubleBox rồi Math.Clamp suy thickness và chamfer, tự thêm PipeCatalogEntry.</td>
+<td>Catalog hoặc typed extension có nguồn là bắt buộc; không đoán hình vật lý từ tên. Resolve một lần rồi dùng chung OpeningId/transform cho mọi view/clip. Missing catalog phải Block, không tạo contour giả. Chưa native reproduced.</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Chụp version, receipt và input, dựng failing reproducer cho ID cần xử lý.</li>
+<li>STD-03 và STD-05: chuẩn metadata/asset schema trước, không bù số hoặc English fallback.</li>
+<li>C01/C02 trong CONTRACT: khóa effective input và datums/opening transforms để hình học đúng.</li>
+<li>STD-07/08: hoàn tất support table và các ca variable, không chỉ mẫu150/300.</li>
+<li>STD-04/02/06: native TK sheet, grouping/label anchors, font/formatter/envelope.</li>
+<li>STD-09/01: chạy cả ba family, scale đúng, batch generate; batch plot riêng đã có prototype native test27frames.</li>
+<li>Full matrix + visual before/after. Những ca chưa chạy giữ NotRun.</li>
+</ol>
+<p>Danh sách này <strong>chưa phải kết luận đã audit mọi file</strong>. Phần còn lại phải kiểm cover builders/importer, concrete union, opening ownership/clip, haunch reinforcement, dowels/catch và actual candidate PDFs. Không dùng sổ này để tuyên bố 29 lỗi cũ đã đóng.</p>
+<h2>STD-18 — đơn vị tổng chiều dài của bảng generic</h2>
+<p>Đọc code ngày13/10: ViewBuilder truyền NumberCell("TotalLengthMm",row.TotalLengthMm), nhưng header cùng key ghi “Tổng C.Dài (m)”. ScheduleTablePlanner.Display và CadRenderer nhánh RoundSteel chỉ format, không chia1000. Ví dụ total10000mm sẽ hiện10000 dưới headerm theo chuỗi này. Nhánh Angle native đã chia1000, không chia lại. Chưa có native reproducer mới; đây là code-path finding.</p>
+<p>Sửa ở presentation unit adapter: raw domain giữ mm, native TDAI hoặc display TotalLengthM nhận totalLengthMm/1000; DAI/segments giữmm. Không đổi domain invariant và không để formatter suy đơn vị từ header. Kiểm10×1000→10m và3×1250→3.75m, round/native/angle cùng semantic nhưng conversion đúng một lần. Hướng dẫn đầy đủ: <a href="THONG-KE-THEP-NATIVE-CACH-SUA.md">Bảng TK native — cách sửa</a>, schema21assets/1331candidate usages tại <code>catalog/schedule-assets-audit.json</code>.</p>
+<h2>STD-19 — hình uốn chiếu physical path và xếp tự do, thiếu recipe theo nhóm</h2>
+<p>Đọc <code>ViewBuilder.AddSchematicBars</code> và <code>BendingSchematicPlanner.Build</code>: planner giữ canonical shape/consistency có ích; presentation lại tạo View riêng theo canonical mark, origin index*2500,-8000, caption mark+SL+L, dimension mọi đoạn vàR/A mọi cung. Chưa có native reproducer mới; không tuyên bố sản phẩm đã sửa.</p>
+<p>PDF003 có14nhóm/7cột/88caption MTEXT gạch chân;88/88 khớpØ/DAI của ATT PDF002 bằngscope+SH. Schematic D1 vẽ900 nhưng ghi1490; Ubuộc vàthang cùngfootprint nhưng kháclegs/Ø. Sửa bằng scoped presentation adapter + shape normalization + column/group recipe; giữ physical path nguyên vẹn. Chi tiết từng bước và gate: <a href="pages/PDF-003-PHAN-TICH-CHI-TIET.html">PDF003</a>. Không gộp chỉ theoSH toàncục, không lấy chiều dài schematic làm chiều dài vật lý.</p>
+<h2>STD-20 — PanelDetail generic chưa thể hiện recipe khung miệng/tấm nắp</h2>
+<p>Đã đọc ViewBuilder.Build → AddDetailViews: mỗi Panel component tạo view footprint/hatch với componentId và purpose.ToString(), dùng scale chung. PDF004 có ba khung, mặt bằng tấm, AA/BB và bảng ATT, dùng1:20 riêng. Đây là finding có điều kiện khi geometry chứaPanel; chưa chạy native reproducer mới hoặc chứng minh mọi nhánh thay thế đều thiếu. Cách sửa và gate: <a href="pages/PDF-004-PHAN-TICH-CHI-TIET.html">PDF004</a>.</p>
+<p>Bổ sung xuyên STD-03/05/19: quyết định owner ngày13/10 yêu cầu PresentationScheduleGroup chứa các thanh biến chiều dài tương thích, dùng meanDAI và rawsumTDAI; có thể chứa nhiềuCanonicalMarks. Giữ canonical consistency, không phá physical để ép nhóm. Xem <a href="OWNER-RULES-THONG-KE-NHOM-20261013.html">quy tắc bắt buộc</a>.</p></main></html>
