@@ -1,0 +1,183 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Phụ lục 05B. Nguồn công thức và hằng số</title><style>body{margin:0;background:#eff3f5;color:#183345;font:16px/1.6 "Segoe UI",Arial,sans-serif}main{max-width:1380px;margin:auto;background:white;padding:32px}nav{position:sticky;top:0;background:#143e50;color:white;padding:10px 18px;z-index:5}nav a{color:white;margin-right:18px}a{color:#096c7b;overflow-wrap:anywhere}h1,h2,h3{color:#165b66;line-height:1.3;scroll-margin-top:60px}h1{font-size:30px}h2{margin-top:38px;border-bottom:1px solid #cddde3;padding-bottom:8px}p,li{max-width:1100px}table{border-collapse:collapse;width:100%;font-size:14px;margin:20px 0;table-layout:auto}th,td{border:1px solid #c4d4dc;padding:10px;vertical-align:top;overflow-wrap:anywhere}th{background:#e7f1f3;position:sticky;top:44px}td{min-width:90px}tr:nth-child(even){background:#f8fafb}pre{background:#132f40;color:#eff7fb;white-space:pre-wrap;overflow:auto;padding:18px;border-radius:8px;font-size:13px}code{font-family:Consolas,monospace}img{max-width:100%;height:auto;border:1px solid #d6e1e5}blockquote{border-left:4px solid #be862d;background:#fff7e9;padding:8px 20px}.diagram{max-width:1000px;margin:24px auto}.table-wrap{overflow-x:auto}footer{border-top:1px solid #d0dde3;padding-top:18px;color:#57707e;font-size:13px}@media(max-width:800px){main{padding:16px}body{font-size:15px}h1{font-size:25px}table{font-size:13px}nav{position:static}th{position:static}}</style></head><body><nav><a href="INDEX.html">Bàn giao</a><a href="01-KNOWLEDGE.html">Tri thức</a><a href="03-MODULE-MATRIX.html">Modules</a><a href="04-NEEDSRULE.html">NeedsRule</a><a href="05-ARCHITECTURE.html">Kiến trúc</a><a href="06-IMPLEMENTATION-PLAN.html">Kế hoạch</a></nav><main><article><h1 id="phu-luc-05b-nguon-cong-thuc-va-hang-so">Phụ lục 05B. Nguồn công thức và hằng số</h1>
+<p>Không lấy status Experimental/NeedsRule/Observation làm parameter sản xuất đã được duyệt. Mọi số fixture giữ ngoài runtime. Các công thức DerivedSpecification là đặc tả kiến trúc suy trực tiếp từ định nghĩa/note đã ghi; parameter/basis có NR vẫn bị approval gate.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Công thức</th>
+<th>Parameter/constant</th>
+<th>Nguồn</th>
+<th>Status/scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F-UNIT</td>
+<td>mm_to_m = mm/1000; elevationM_to_mm = m*1000</td>
+<td>1000</td>
+<td>K003/K037; source unit contract</td>
+<td>UnitDefinition / All</td>
+</tr>
+<tr>
+<td>F-FRAME</td>
+<td>outerX=EffectiveNeck.ResolvedClear.X+2<em>tNeck;outerY=EffectiveNeck.ResolvedClear.Y+2</em>tNeck;frameHeight=100</td>
+<td>2 sides;100mm</td>
+<td>CONTRACT C01 owner13/10</td>
+<td>OwnerRule / Owner frame uses effective neck clear, not body clear or product thickness</td>
+</tr>
+<tr>
+<td>F-C</td>
+<td>5 segments;4 bends;R8</td>
+<td>5/4/8mm</td>
+<td>PROMPT-THUC-THI-QUY-TRINH-DBTOOL C;owner C rule</td>
+<td>OwnerTopology_BasisNeedsNR02 / C physical</td>
+</tr>
+<tr>
+<td>F-GROUP</td>
+<td>N=count;sum=sumLi;mean=sum/N;TDAI=sum/1000</td>
+<td>No fixture lengths</td>
+<td>OWNER §3/4</td>
+<td>OwnerRule_LengthBasisMustBeApproved / Compatible presentation group</td>
+</tr>
+<tr>
+<td>F-GROUP-LEGS</td>
+<td>mean each segment role separately</td>
+<td>No First()</td>
+<td>OWNER §3/5</td>
+<td>OwnerRule / Shape-compatible groups</td>
+</tr>
+<tr>
+<td>F-PIPE</td>
+<td>innerR=D/2;outerR=innerR+pipeThickness;cutR=outerR+mortar</td>
+<td>2 from diameter definition</td>
+<td>PipeCrossSectionBuilder + catalog + G500 audit</td>
+<td>DerivedFromDefinitions / Round profile</td>
+</tr>
+<tr>
+<td>F-CUT</td>
+<td>u=cu±sqrt(r²-(v-cv)²);removed intervals union</td>
+<td>No R320/R375 runtime constant</td>
+<td>pages/G500-CUT-MEMBERS-AUDIT §2</td>
+<td>AnalyticalDerived_ExclusionBasisNR01 / Round cut in host plane</td>
+</tr>
+<tr>
+<td>F-STATION</td>
+<td>usable=span-2*(cover+Ø/2);ceil/floor by mode</td>
+<td>No fixture pitch</td>
+<td>EX062;BarDistributor algorithm</td>
+<td>DerivedSpecification_StackAndToleranceApprovalRequired / Main mesh</td>
+</tr>
+<tr>
+<td>F-HOOK</td>
+<td>KC=t-2c;DK=n*Ø</td>
+<td>2 cover faces</td>
+<td>EX063/066;HDSD p14</td>
+<td>SourceNominalRule_BendBasisSeparate / Main hooks</td>
+</tr>
+<tr>
+<td>F-LAP</td>
+<td>lap=n*Ø</td>
+<td>n from Ties.I</td>
+<td>EX075;HDSD p15</td>
+<td>SourceRule / Opening/collar loops</td>
+</tr>
+<tr>
+<td>F-LADDER</td>
+<td>zFirst=TopDatum-firstDrop;rung(k)=zFirst-k*pitch</td>
+<td>Input A/B/M/H/B</td>
+<td>EX082/083</td>
+<td>DerivedSpecification_CollisionNR21 / Ladder</td>
+</tr>
+<tr>
+<td>F-PANEL</td>
+<td>usable split span=span-(n+1)*gap;panel=usable/n</td>
+<td>n and gap input</td>
+<td>EX045/046/047;05 S2 derivation</td>
+<td>DerivedSpecification_ClearContractNR23 / BTCT designed panel</td>
+</tr>
+<tr>
+<td>F-JOINT</td>
+<td>WallTop=RoofBottom-BeddingMortar;RoofBottom=E clearHeight</td>
+<td>No 15mm runtime constant</td>
+<td>EX164/173;HDSD;PDF012</td>
+<td>DerivedDatumContract / Type2/3</td>
+</tr>
+<tr>
+<td>F-ANNOTATION</td>
+<td>modelOffset=paperOffset*S;baseline scale=S/100</td>
+<td>100 source asset baseline</td>
+<td>CONTRACT C06;template assets</td>
+<td>SourcePresentationRule / Annotation assets only</td>
+</tr>
+<tr>
+<td>F-TK</td>
+<td>row500/header1000/width12500 native;paper5/10/125mm viaS/100</td>
+<td>500/1000/12500</td>
+<td>catalog/SCHEDULE-ASSET-TABLE + TK sourcebounds</td>
+<td>ScopedObservedRecipe / TK regular rows; actualink may exceed row</td>
+</tr>
+<tr>
+<td>F-TEXT</td>
+<td>title300/note200 native -&gt;3/2mm paper</td>
+<td>300/200</td>
+<td>TenMC/BLT/TieudeMC ATTDEF</td>
+<td>ScopedObservedRecipe / Source annotation policy</td>
+</tr>
+<tr>
+<td>F-BENDING</td>
+<td>column pitch54mm;row13mm;title-caption8mm paper in source1:30</td>
+<td>1620/390/240 source measurements</td>
+<td>PDF003 §4</td>
+<td>ScopedObservationNotUniversalFit / Bending recipe minimums requireNR22</td>
+</tr>
+<tr>
+<td>F-DOWEL</td>
+<td>average spacing rounded50mm</td>
+<td>50mm</td>
+<td>EX167 noteD9</td>
+<td>SourceQuantum_RoundingAndEndpointsNR06 / Type2/3 dowels</td>
+</tr>
+<tr>
+<td>F-SUMMARY</td>
+<td>diameter buckets&lt;=10/&gt;10</td>
+<td>10mm boundary</td>
+<td>Template TK headers;usage-guide</td>
+<td>SourceSchema / TK.THKL/CT/panel summary</td>
+</tr>
+<tr>
+<td>F-MASS</td>
+<td>either D²/162 or density<em>π</em>D²/4/1e6;kg=sumLengthM*unitMass</td>
+<td>162 or density7850 currently experimental</td>
+<td>SteelScheduleCalculator/CalculationPolicy</td>
+<td>NeedsNR14 / Round steel mass</td>
+</tr>
+<tr>
+<td>F-OLD-TOL</td>
+<td>1e-6mm/1e-9kg current numerical settings</td>
+<td>Current code values</td>
+<td>CalculationPolicy</td>
+<td>Experimental_NotAcceptanceUntilNR18 / Software/research calculations</td>
+</tr>
+<tr>
+<td>F-SOURCE-R</td>
+<td>R320/R375 endpoints;R200/R250 clear</td>
+<td>Fixture observations</td>
+<td>G500-CUT-MEMBERS-AUDIT</td>
+<td>NeverProductionConstant / Source evidence</td>
+</tr>
+<tr>
+<td>F-SOURCE-CATCH</td>
+<td>SCR scaleY11/17;NAPCUATHU2 scaleX23/32</td>
+<td>0.6470588235294118;0.71875</td>
+<td>PDF040 native78AC7/78D2D</td>
+<td>SourceConflictNR09_NeverPhysicalStretchDefault / Source illustration</td>
+</tr>
+<tr>
+<td>F-REMOVE</td>
+<td>BaseX&gt;2200;defaultG400/G500;scale30/Symbolic;index*2500</td>
+<td>Existing fixture defaults</td>
+<td>CURRENT-CODE-FINDINGS;PaletteDrawingCalculation;Family21ManholeHelper</td>
+<td>RemoveFromProductionPerMatrix / Old presentation/harness</td>
+</tr>
+</tbody>
+</table></div></article><footer>DBTool · Hồ sơ project leader 13/10/2026 · Nguồn/approval/evidence theo scope. Không chứng nhận phần mềm từ tài liệu hoặc số test.</footer></main></body></html>

@@ -1,0 +1,1244 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Phụ lục 05A. Field Excel: địa chỉ, kiểu, đơn vị, nguồn</title><style>body{margin:0;background:#eff3f5;color:#183345;font:16px/1.6 "Segoe UI",Arial,sans-serif}main{max-width:1380px;margin:auto;background:white;padding:32px}nav{position:sticky;top:0;background:#143e50;color:white;padding:10px 18px;z-index:5}nav a{color:white;margin-right:18px}a{color:#096c7b;overflow-wrap:anywhere}h1,h2,h3{color:#165b66;line-height:1.3;scroll-margin-top:60px}h1{font-size:30px}h2{margin-top:38px;border-bottom:1px solid #cddde3;padding-bottom:8px}p,li{max-width:1100px}table{border-collapse:collapse;width:100%;font-size:14px;margin:20px 0;table-layout:auto}th,td{border:1px solid #c4d4dc;padding:10px;vertical-align:top;overflow-wrap:anywhere}th{background:#e7f1f3;position:sticky;top:44px}td{min-width:90px}tr:nth-child(even){background:#f8fafb}pre{background:#132f40;color:#eff7fb;white-space:pre-wrap;overflow:auto;padding:18px;border-radius:8px;font-size:13px}code{font-family:Consolas,monospace}img{max-width:100%;height:auto;border:1px solid #d6e1e5}blockquote{border-left:4px solid #be862d;background:#fff7e9;padding:8px 20px}.diagram{max-width:1000px;margin:24px auto}.table-wrap{overflow-x:auto}footer{border-top:1px solid #d0dde3;padding-top:18px;color:#57707e;font-size:13px}@media(max-width:800px){main{padding:16px}body{font-size:15px}h1{font-size:25px}table{font-size:13px}nav{position:static}th{position:static}}</style></head><body><nav><a href="INDEX.html">Bàn giao</a><a href="01-KNOWLEDGE.html">Tri thức</a><a href="03-MODULE-MATRIX.html">Modules</a><a href="04-NEEDSRULE.html">NeedsRule</a><a href="05-ARCHITECTURE.html">Kiến trúc</a><a href="06-IMPLEMENTATION-PLAN.html">Kế hoạch</a></nav><main><article><h1 id="phu-luc-05a-field-excel-ia-chi-kieu-on-vi-nguon">Phụ lục 05A. Field Excel: địa chỉ, kiểu, đơn vị, nguồn</h1>
+<p>Schema triển khai kèm 191 hợp đồng EX; không phải danh sách consumer đã nghiệm thu. Field trùng địa chỉ như Protect.C/CoverBottom là alias có chủ đích, không hai nguồn độc lập. Prefix value cùng hàng21/23; InvertT1..4 là relative mm, chỉ BaseElevationM là m. DBTool.Covers là extension tùy chọn có version, không bắt workbook gốc có sheet đó.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Địa chỉ theo profile</th>
+<th>Type / unit</th>
+<th>Validation / source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!B{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!B{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!B{row&gt;=4}</td>
+<td>string / none</td>
+<td>Preserve literal; empty allowed for prefix only; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>Length</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!C{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!C{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!C{row&gt;=4}</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>Width</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!D{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!D{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!D{row&gt;=4}</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>Height</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!E{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!E{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!E{row&gt;=4}</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>BaseThickness</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!F{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!F{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!F{row&gt;=4}</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>BaseBottomMesh</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!G{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!G{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!G{row&gt;=4}</td>
+<td>MeshSpec{int DiameterMm,double RequestedPitchMm} / mm</td>
+<td>Parse DxxAyyy, positive; OFF only explicit rule; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>BaseTopMesh</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!H{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!H{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!H{row&gt;=4}</td>
+<td>MeshSpec{int DiameterMm,double RequestedPitchMm} / mm</td>
+<td>Parse DxxAyyy, positive; OFF only explicit rule; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>WallThickness</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!I{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!I{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!I{row&gt;=4}</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>WallOuterMesh</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!J{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!J{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!J{row&gt;=4}</td>
+<td>MeshSpec{int DiameterMm,double RequestedPitchMm} / mm</td>
+<td>Parse DxxAyyy, positive; OFF only explicit rule; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>WallInnerMesh</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!K{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!K{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!K{row&gt;=4}</td>
+<td>MeshSpec{int DiameterMm,double RequestedPitchMm} / mm</td>
+<td>Parse DxxAyyy, positive; OFF only explicit rule; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>RoofThickness</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!L{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!L{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!L{row&gt;=4}</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>RoofTopMesh</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!M{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!M{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!M{row&gt;=4}</td>
+<td>MeshSpec{int DiameterMm,double RequestedPitchMm} / mm</td>
+<td>Parse DxxAyyy, positive; OFF only explicit rule; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>RoofBottomMesh</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!N{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!N{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!N{row&gt;=4}</td>
+<td>MeshSpec{int DiameterMm,double RequestedPitchMm} / mm</td>
+<td>Parse DxxAyyy, positive; OFF only explicit rule; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>PipeCodeT1</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!O{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!O{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!O{row&gt;=4}</td>
+<td>string? catalogCode / none</td>
+<td>Blank=None; otherwise exact catalog after declared alias; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>InvertT1</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!P{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!P{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!P{row&gt;=4}</td>
+<td>double RelativeInternalInvertMm / mm</td>
+<td>Nonnegative; convert to absolute elevation only using AA/1000 boundary; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>PipeCodeT2</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!Q{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!Q{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!Q{row&gt;=4}</td>
+<td>string? catalogCode / none</td>
+<td>Blank=None; otherwise exact catalog after declared alias; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>InvertT2</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!R{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!R{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!R{row&gt;=4}</td>
+<td>double RelativeInternalInvertMm / mm</td>
+<td>Nonnegative; convert to absolute elevation only using AA/1000 boundary; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>PipeCodeT3</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!S{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!S{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!S{row&gt;=4}</td>
+<td>string? catalogCode / none</td>
+<td>Blank=None; otherwise exact catalog after declared alias; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>InvertT3</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!T{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!T{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!T{row&gt;=4}</td>
+<td>double RelativeInternalInvertMm / mm</td>
+<td>Nonnegative; convert to absolute elevation only using AA/1000 boundary; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>PipeCodeT4</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!U{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!U{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!U{row&gt;=4}</td>
+<td>string? catalogCode / none</td>
+<td>Blank=None; otherwise exact catalog after declared alias; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>InvertT4</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!V{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!V{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!V{row&gt;=4}</td>
+<td>double RelativeInternalInvertMm / mm</td>
+<td>Nonnegative; convert to absolute elevation only using AA/1000 boundary; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>NeckHeight</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!W{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!W{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!W{row&gt;=4}</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>NeckThickness</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!X{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!X{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!X{row&gt;=4}</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>NeckOuterMesh</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!Y{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!Y{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!Y{row&gt;=4}</td>
+<td>MeshSpec{int DiameterMm,double RequestedPitchMm} / mm</td>
+<td>Parse DxxAyyy, positive; OFF only explicit rule; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>NeckInnerMesh</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!Z{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!Z{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!Z{row&gt;=4}</td>
+<td>MeshSpec{int DiameterMm,double RequestedPitchMm} / mm</td>
+<td>Parse DxxAyyy, positive; OFF only explicit rule; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>BaseElevationM</td>
+<td>GaThamLienKhoi: GaThamLienKhoi!AA{row&gt;=4}; GaThamNapRoi: GaThamNapRoi!AA{row&gt;=4}; GaThamThuNapRoi: GaThamThuNapRoi!AA{row&gt;=4}</td>
+<td>decimal? / m</td>
+<td>Required in Absolute; null allowed Symbolic; Vhg32Schema.MainColumns + main header notes</td>
+</tr>
+<tr>
+<td>Anchor</td>
+<td>GaThamLienKhoi: CF.Ga!J11; GaThamNapRoi: CF.Ga!J11; GaThamThuNapRoi: CF.Ga!J11</td>
+<td>AnchorSpec?{int D,double A,double L} / mm</td>
+<td>0=None; parse DxxAyyyLzzz; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>AngleCode</td>
+<td>GaThamLienKhoi: CF.Ga!H11; GaThamNapRoi: CF.Ga!H11; GaThamThuNapRoi: CF.Ga!H11</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>AnglePosition</td>
+<td>GaThamLienKhoi: CF.Ga!I11; GaThamNapRoi: CF.Ga!I11; GaThamThuNapRoi: CF.Ga!I11</td>
+<td>Set<angleposition>{TopConvex,MiddleConcave,InnerConvex} / none</angleposition></td>
+<td>Parse distinct1/2/3 from source, no duplicate frames; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>BaseExpansion</td>
+<td>GaThamLienKhoi: CF.Ga!C5; GaThamNapRoi: CF.Ga!C5; GaThamThuNapRoi: CF.Ga!C5</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>BaseHaunch</td>
+<td>GaThamLienKhoi: CF.Ga!D5; GaThamNapRoi: CF.Ga!D5; GaThamThuNapRoi: CF.Ga!D5</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>BeddingMortar</td>
+<td>GaThamNapRoi: CF.Ga!G9; GaThamThuNapRoi: CF.Ga!G9</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Catch.C</td>
+<td>GaThamThuNapRoi: CF.Ga!C17</td>
+<td>enum CatchBasinOwner Body/Neck / none</td>
+<td>Map Thân ga/Cổ ga; selected host must exist; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Catch.D</td>
+<td>GaThamThuNapRoi: CF.Ga!D17</td>
+<td>CatchLocation{WallId Wall,HorizontalPosition Position} / none</td>
+<td>Parse source direction+position; Neck Center override HDSD p13; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Catch.E</td>
+<td>GaThamThuNapRoi: CF.Ga!E17</td>
+<td>enum CatchType Type1 / none</td>
+<td>Only Kiểu1 sourced; unknown type Unsupported; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Catch.F</td>
+<td>GaThamThuNapRoi: CF.Ga!F17</td>
+<td>Size2Mm{OpeningWidthMm,OpeningHeightMm} / mm</td>
+<td>Both positive, true host cutout dimensions; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Catch.G</td>
+<td>GaThamThuNapRoi: CF.Ga!G17</td>
+<td>Size2Mm{ClearDepthMm,ClearHeightMm} / mm</td>
+<td>Both positive; clearWidth derives from Catch.F.width; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Catch.H</td>
+<td>GaThamThuNapRoi: CF.Ga!H17</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Catch.I</td>
+<td>GaThamThuNapRoi: CF.Ga!I17</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Catch.J</td>
+<td>GaThamThuNapRoi: CF.Ga!J17</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Catch.K</td>
+<td>GaThamThuNapRoi: CF.Ga!K17</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Catch.L</td>
+<td>GaThamThuNapRoi: CF.Ga!L17</td>
+<td>enum ConcreteStructure BTCT/Khác / none</td>
+<td>Khác turns off catch steel only; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Catch.M</td>
+<td>GaThamThuNapRoi: CF.Ga!M17</td>
+<td>MeshSpec{int DiameterMm,double RequestedPitchMm} / mm</td>
+<td>Parse DxxAyyy, positive; OFF only explicit rule; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>CoverBlock</td>
+<td>GaThamLienKhoi: CF.Ga!E13; GaThamNapRoi: CF.Ga!E13; GaThamThuNapRoi: CF.Ga!E13</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>CoverBottom</td>
+<td>GaThamLienKhoi: CF.Ga!C17; GaThamNapRoi: CF.Ga!C17; GaThamThuNapRoi: CF.Ga!C19</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>CoverCatch</td>
+<td>GaThamLienKhoi: CF.Ga!I17; GaThamNapRoi: CF.Ga!I17; GaThamThuNapRoi: CF.Ga!I19</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>CoverHaunchFlag</td>
+<td>GaThamLienKhoi: CF.Ga!F13; GaThamNapRoi: CF.Ga!F13; GaThamThuNapRoi: CF.Ga!F13</td>
+<td>bool / none</td>
+<td>Exact Có/Không; unknown Invalid; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>CoverHaunchSize</td>
+<td>GaThamLienKhoi: CF.Ga!G13; GaThamNapRoi: CF.Ga!G13; GaThamThuNapRoi: CF.Ga!G13</td>
+<td>DimensionTuple{double[] Values,string[] Roles} / mm</td>
+<td>Full tuple parse; role order fixed by EX rules; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>CoverHeight</td>
+<td>GaThamLienKhoi: CF.Ga!D13; GaThamNapRoi: CF.Ga!D13; GaThamThuNapRoi: CF.Ga!D13</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>CoverTop</td>
+<td>GaThamLienKhoi: CF.Ga!E17; GaThamNapRoi: CF.Ga!E17; GaThamThuNapRoi: CF.Ga!E19</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>CoverType</td>
+<td>GaThamLienKhoi: CF.Ga!C13; GaThamNapRoi: CF.Ga!C13; GaThamThuNapRoi: CF.Ga!C13</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>CoverWall</td>
+<td>GaThamLienKhoi: CF.Ga!D17; GaThamNapRoi: CF.Ga!D17; GaThamThuNapRoi: CF.Ga!D19</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Distribution</td>
+<td>GaThamLienKhoi: CF.Ga!K19; GaThamNapRoi: CF.Ga!K19; GaThamThuNapRoi: CF.Ga!K21</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>DowelHoleDia</td>
+<td>GaThamNapRoi: CF.Ga!F9; GaThamThuNapRoi: CF.Ga!F9</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>DowelLength</td>
+<td>GaThamNapRoi: CF.Ga!E9; GaThamThuNapRoi: CF.Ga!E9</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>DowelSpec</td>
+<td>GaThamNapRoi: CF.Ga!D9; GaThamThuNapRoi: CF.Ga!D9</td>
+<td>MeshSpec{int DiameterMm,double RequestedPitchMm} / mm</td>
+<td>Parse DxxAyyy, positive; OFF only explicit rule; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Elevation.C</td>
+<td>GaThamLienKhoi: CF.Ga!C32; GaThamNapRoi: CF.Ga!C32; GaThamThuNapRoi: CF.Ga!C34</td>
+<td>enum Absolute/Symbolic / none</td>
+<td>Tuyệt đối requires AA; Tương đối uses D:I literal symbols; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Elevation.D</td>
+<td>GaThamLienKhoi: CF.Ga!D32; GaThamNapRoi: CF.Ga!D32; GaThamThuNapRoi: CF.Ga!D34</td>
+<td>string SurfaceSymbol / none</td>
+<td>Use literal per datum/opening in Symbolic mode; not a numeric elevation; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Elevation.E</td>
+<td>GaThamLienKhoi: CF.Ga!E32; GaThamNapRoi: CF.Ga!E32; GaThamThuNapRoi: CF.Ga!E34</td>
+<td>string SurfaceSymbol / none</td>
+<td>Use literal per datum/opening in Symbolic mode; not a numeric elevation; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Elevation.F</td>
+<td>GaThamLienKhoi: CF.Ga!F32; GaThamNapRoi: CF.Ga!F32; GaThamThuNapRoi: CF.Ga!F34</td>
+<td>string SurfaceSymbol / none</td>
+<td>Use literal per datum/opening in Symbolic mode; not a numeric elevation; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Elevation.G</td>
+<td>GaThamLienKhoi: CF.Ga!G32; GaThamNapRoi: CF.Ga!G32; GaThamThuNapRoi: CF.Ga!G34</td>
+<td>string SurfaceSymbol / none</td>
+<td>Use literal per datum/opening in Symbolic mode; not a numeric elevation; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Elevation.H</td>
+<td>GaThamLienKhoi: CF.Ga!H32; GaThamNapRoi: CF.Ga!H32; GaThamThuNapRoi: CF.Ga!H34</td>
+<td>string SurfaceSymbol / none</td>
+<td>Use literal per datum/opening in Symbolic mode; not a numeric elevation; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Elevation.I</td>
+<td>GaThamLienKhoi: CF.Ga!I32; GaThamNapRoi: CF.Ga!I32; GaThamThuNapRoi: CF.Ga!I34</td>
+<td>string SurfaceSymbol / none</td>
+<td>Use literal per datum/opening in Symbolic mode; not a numeric elevation; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>HasDowel</td>
+<td>GaThamNapRoi: CF.Ga!C9; GaThamThuNapRoi: CF.Ga!C9</td>
+<td>bool / none</td>
+<td>Exact Có/Không; unknown Invalid; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Hatch.C</td>
+<td>GaThamLienKhoi: CF.Ga!C36; GaThamNapRoi: CF.Ga!C36; GaThamThuNapRoi: CF.Ga!C38</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Hatch.D</td>
+<td>GaThamLienKhoi: CF.Ga!D36; GaThamNapRoi: CF.Ga!D36; GaThamThuNapRoi: CF.Ga!D38</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Hatch.E</td>
+<td>GaThamLienKhoi: CF.Ga!E36; GaThamNapRoi: CF.Ga!E36; GaThamThuNapRoi: CF.Ga!E38</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Hatch.F</td>
+<td>GaThamLienKhoi: CF.Ga!F36; GaThamNapRoi: CF.Ga!F36; GaThamThuNapRoi: CF.Ga!F38</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Hatch.G</td>
+<td>GaThamLienKhoi: CF.Ga!G36; GaThamNapRoi: CF.Ga!G36; GaThamThuNapRoi: CF.Ga!G38</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Hatch.H</td>
+<td>GaThamLienKhoi: CF.Ga!H36; GaThamNapRoi: CF.Ga!H36; GaThamThuNapRoi: CF.Ga!H38</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Hatch.I</td>
+<td>GaThamLienKhoi: CF.Ga!I36; GaThamNapRoi: CF.Ga!I36; GaThamThuNapRoi: CF.Ga!I38</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Hatch.J</td>
+<td>GaThamLienKhoi: CF.Ga!J36; GaThamNapRoi: CF.Ga!J36; GaThamThuNapRoi: CF.Ga!J38</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Hatch.K</td>
+<td>GaThamLienKhoi: CF.Ga!K36; GaThamNapRoi: CF.Ga!K36; GaThamThuNapRoi: CF.Ga!K38</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Hatch.L</td>
+<td>GaThamLienKhoi: CF.Ga!L36; GaThamNapRoi: CF.Ga!L36; GaThamThuNapRoi: CF.Ga!L38</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Hatch.M</td>
+<td>GaThamLienKhoi: CF.Ga!M36; GaThamNapRoi: CF.Ga!M36; GaThamThuNapRoi: CF.Ga!M38</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>HookMode</td>
+<td>GaThamLienKhoi: CF.Ga!L19; GaThamNapRoi: CF.Ga!L19; GaThamThuNapRoi: CF.Ga!L21</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>HookMultiple</td>
+<td>GaThamLienKhoi: CF.Ga!L21; GaThamNapRoi: CF.Ga!L21; GaThamThuNapRoi: CF.Ga!L23</td>
+<td>double HookDiameterMultiple / dimensionless</td>
+<td>&gt;0 when ByDiameter; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>HookPattern.C</td>
+<td>GaThamLienKhoi: CF.Ga!C20; GaThamNapRoi: CF.Ga!C20; GaThamThuNapRoi: CF.Ga!C22</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>HookPattern.D</td>
+<td>GaThamLienKhoi: CF.Ga!D20; GaThamNapRoi: CF.Ga!D20; GaThamThuNapRoi: CF.Ga!D22</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>HookPattern.E</td>
+<td>GaThamLienKhoi: CF.Ga!E20; GaThamNapRoi: CF.Ga!E20; GaThamThuNapRoi: CF.Ga!E22</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>HookPattern.F</td>
+<td>GaThamLienKhoi: CF.Ga!F20; GaThamNapRoi: CF.Ga!F20; GaThamThuNapRoi: CF.Ga!F22</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>HookPattern.G</td>
+<td>GaThamLienKhoi: CF.Ga!G20; GaThamNapRoi: CF.Ga!G20; GaThamThuNapRoi: CF.Ga!G22</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>HookPattern.H</td>
+<td>GaThamLienKhoi: CF.Ga!H20; GaThamNapRoi: CF.Ga!H20; GaThamThuNapRoi: CF.Ga!H22</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>HookPattern.I</td>
+<td>GaThamLienKhoi: CF.Ga!I20; GaThamNapRoi: CF.Ga!I20; GaThamThuNapRoi: CF.Ga!I22</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>HookPattern.J</td>
+<td>GaThamLienKhoi: CF.Ga!J20; GaThamNapRoi: CF.Ga!J20; GaThamThuNapRoi: CF.Ga!J22</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Ladder.C</td>
+<td>GaThamLienKhoi: CF.Ga!C25; GaThamNapRoi: CF.Ga!C25; GaThamThuNapRoi: CF.Ga!C27</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Ladder.D</td>
+<td>GaThamLienKhoi: CF.Ga!D25; GaThamNapRoi: CF.Ga!D25; GaThamThuNapRoi: CF.Ga!D27</td>
+<td>int DiameterMm / mm</td>
+<td>Positive when ladder ON; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Ladder.E</td>
+<td>GaThamLienKhoi: CF.Ga!E25; GaThamNapRoi: CF.Ga!E25; GaThamThuNapRoi: CF.Ga!E27</td>
+<td>DimensionTuple{double[] Values,string[] Roles} / mm</td>
+<td>Full tuple parse; role order fixed by EX rules; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Ladder.F</td>
+<td>GaThamLienKhoi: CF.Ga!F25; GaThamNapRoi: CF.Ga!F25; GaThamThuNapRoi: CF.Ga!F27</td>
+<td>DimensionTuple{double[] Values,string[] Roles} / mm</td>
+<td>Full tuple parse; role order fixed by EX rules; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Ladder.G</td>
+<td>GaThamLienKhoi: CF.Ga!G25; GaThamNapRoi: CF.Ga!G25; GaThamThuNapRoi: CF.Ga!G27</td>
+<td>string / none</td>
+<td>Preserve literal; empty allowed for prefix only; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>LiftingSize</td>
+<td>GaThamNapRoi: CF.Ga!I9; GaThamThuNapRoi: CF.Ga!I9</td>
+<td>DimensionTuple{double[] Values,string[] Roles} / mm</td>
+<td>Full tuple parse; role order fixed by EX rules; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>LiftingSpec</td>
+<td>GaThamNapRoi: CF.Ga!H9; GaThamThuNapRoi: CF.Ga!H9</td>
+<td>LiftingSpec{int Count,int DiameterMm} / count/mm</td>
+<td>Roof type2/3 count allowed0/2/4;0=None; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Material.C</td>
+<td>GaThamLienKhoi: CF.Ga!C34; GaThamNapRoi: CF.Ga!C34; GaThamThuNapRoi: CF.Ga!C36</td>
+<td>string / none</td>
+<td>Preserve literal; empty allowed for prefix only; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Material.D</td>
+<td>GaThamLienKhoi: CF.Ga!D34; GaThamNapRoi: CF.Ga!D34; GaThamThuNapRoi: CF.Ga!D36</td>
+<td>string / none</td>
+<td>Preserve literal; empty allowed for prefix only; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Material.E</td>
+<td>GaThamLienKhoi: CF.Ga!E34; GaThamNapRoi: CF.Ga!E34; GaThamThuNapRoi: CF.Ga!E36</td>
+<td>string / none</td>
+<td>Preserve literal; empty allowed for prefix only; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Material.F</td>
+<td>GaThamLienKhoi: CF.Ga!F34; GaThamNapRoi: CF.Ga!F34; GaThamThuNapRoi: CF.Ga!F36</td>
+<td>string / none</td>
+<td>Preserve literal; empty allowed for prefix only; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>NeckDiaStepDown</td>
+<td>GaThamLienKhoi: CF.Ga!M11; GaThamNapRoi: CF.Ga!M11; GaThamThuNapRoi: CF.Ga!M11</td>
+<td>int / count</td>
+<td>Nonnegative/positive by active rule; no fractional truncation; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>NeckHaunchFlag</td>
+<td>GaThamLienKhoi: CF.Ga!F11; GaThamNapRoi: CF.Ga!F11; GaThamThuNapRoi: CF.Ga!F11</td>
+<td>bool / none</td>
+<td>Exact Có/Không; unknown Invalid; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>NeckHaunchSize</td>
+<td>GaThamLienKhoi: CF.Ga!G11; GaThamNapRoi: CF.Ga!G11; GaThamThuNapRoi: CF.Ga!G11</td>
+<td>DimensionTuple{double[] Values,string[] Roles} / mm</td>
+<td>Full tuple parse; role order fixed by EX rules; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>NeckPosition</td>
+<td>GaThamLienKhoi: CF.Ga!D11; GaThamNapRoi: CF.Ga!D11; GaThamThuNapRoi: CF.Ga!D11</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>NeckPrefix</td>
+<td>GaThamLienKhoi: CF.Ga!K11; GaThamNapRoi: CF.Ga!K11; GaThamThuNapRoi: CF.Ga!K11</td>
+<td>string / none</td>
+<td>Preserve literal; empty allowed for prefix only; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>NeckSize</td>
+<td>GaThamLienKhoi: CF.Ga!E11; GaThamNapRoi: CF.Ga!E11; GaThamThuNapRoi: CF.Ga!E11</td>
+<td>DimensionTuple{double[] Values,string[] Roles} / mm</td>
+<td>Full tuple parse; role order fixed by EX rules; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>NeckSpacingDelta</td>
+<td>GaThamLienKhoi: CF.Ga!L11; GaThamNapRoi: CF.Ga!L11; GaThamThuNapRoi: CF.Ga!L11</td>
+<td>double / mm</td>
+<td>Signed; resulting pitch&gt;0; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>NeckStructure</td>
+<td>GaThamLienKhoi: CF.Ga!C11; GaThamNapRoi: CF.Ga!C11; GaThamThuNapRoi: CF.Ga!C11</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>PadExpansion</td>
+<td>GaThamLienKhoi: CF.Ga!C3; GaThamNapRoi: CF.Ga!C3; GaThamThuNapRoi: CF.Ga!C3</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>PadThickness</td>
+<td>GaThamLienKhoi: CF.Ga!D3; GaThamNapRoi: CF.Ga!D3; GaThamThuNapRoi: CF.Ga!D3</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Panel.AngleAnchorRebar</td>
+<td>GaThamLienKhoi: CF.Ga!J15; GaThamNapRoi: CF.Ga!J15; GaThamThuNapRoi: CF.Ga!J15</td>
+<td>AnchorSpec?{int D,double A,double L} / mm</td>
+<td>0=None; parse DxxAyyyLzzz; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Panel.AngleSteelCode</td>
+<td>GaThamLienKhoi: CF.Ga!H15; GaThamNapRoi: CF.Ga!H15; GaThamThuNapRoi: CF.Ga!H15</td>
+<td>string? ExactAngleCode / none</td>
+<td>Không=None; otherwise exact CF.Data B/C entry, V/Laxbxc; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Panel.AngleSteelQuantity</td>
+<td>GaThamLienKhoi: CF.Ga!I15; GaThamNapRoi: CF.Ga!I15; GaThamThuNapRoi: CF.Ga!I15</td>
+<td>int AngleFrameCount / count</td>
+<td>1=bottom,2=bottom+top; only when angle ON; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Panel.BarSpacingMm</td>
+<td>GaThamLienKhoi: CF.Ga!E15; GaThamNapRoi: CF.Ga!E15; GaThamThuNapRoi: CF.Ga!E15</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Panel.BottomLayerBarDiameter</td>
+<td>GaThamLienKhoi: CF.Ga!C15; GaThamNapRoi: CF.Ga!C15; GaThamThuNapRoi: CF.Ga!C15</td>
+<td>int DiameterMm / mm</td>
+<td>&gt;0 if BTCT panel; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Panel.CoverRatioPercent</td>
+<td>GaThamLienKhoi: CF.Ga!M15; GaThamNapRoi: CF.Ga!M15; GaThamThuNapRoi: CF.Ga!M15</td>
+<td>int PanelDetailScaleDenominator / 1:S</td>
+<td>Positive integer; replace wrong Percent name; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Panel.LiftingHookSize</td>
+<td>GaThamLienKhoi: CF.Ga!L15; GaThamNapRoi: CF.Ga!L15; GaThamThuNapRoi: CF.Ga!L15</td>
+<td>DimensionTuple{double[] Values,string[] Roles} / mm</td>
+<td>Full tuple parse; role order fixed by EX rules; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Panel.LiftingHookSpec</td>
+<td>GaThamLienKhoi: CF.Ga!K15; GaThamNapRoi: CF.Ga!K15; GaThamThuNapRoi: CF.Ga!K15</td>
+<td>LiftingSpec{int Count,int DiameterMm} / count/mm</td>
+<td>Panel count allowed1/2/4; active only BTCT panel; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Panel.TieRebar</td>
+<td>GaThamLienKhoi: CF.Ga!F15; GaThamNapRoi: CF.Ga!F15; GaThamThuNapRoi: CF.Ga!F15</td>
+<td>MeshSpec{int DiameterMm,double RequestedPitchMm} / mm</td>
+<td>Parse DxxAyyy, positive; OFF only explicit rule; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Panel.TieShape</td>
+<td>GaThamLienKhoi: CF.Ga!G15; GaThamNapRoi: CF.Ga!G15; GaThamThuNapRoi: CF.Ga!G15</td>
+<td>enum C/U/Z / none</td>
+<td>Active only two panel layers; unsupported shape RULE_UNAPPROVED; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Panel.TopLayerBarDiameter</td>
+<td>GaThamLienKhoi: CF.Ga!D15; GaThamNapRoi: CF.Ga!D15; GaThamThuNapRoi: CF.Ga!D15</td>
+<td>int DiameterMm / mm</td>
+<td>&gt;=0;0 no top layer; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>PanelCount</td>
+<td>GaThamLienKhoi: CF.Ga!I13; GaThamNapRoi: CF.Ga!I13; GaThamThuNapRoi: CF.Ga!I13</td>
+<td>int / count</td>
+<td>Nonnegative/positive by active rule; no fractional truncation; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>PanelDirection</td>
+<td>GaThamLienKhoi: CF.Ga!K13; GaThamNapRoi: CF.Ga!K13; GaThamThuNapRoi: CF.Ga!K13</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>PanelGap</td>
+<td>GaThamLienKhoi: CF.Ga!J13; GaThamNapRoi: CF.Ga!J13; GaThamThuNapRoi: CF.Ga!J13</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Pipe.C</td>
+<td>GaThamLienKhoi: CF.Ga!C28; GaThamNapRoi: CF.Ga!C28; GaThamThuNapRoi: CF.Ga!C30</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Pipe.D</td>
+<td>GaThamLienKhoi: CF.Ga!D28; GaThamNapRoi: CF.Ga!D28; GaThamThuNapRoi: CF.Ga!D30</td>
+<td>int ReinforcementDiameterMm / mm</td>
+<td>&gt;=0; 0 OFF; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Pipe.E</td>
+<td>GaThamLienKhoi: CF.Ga!E28; GaThamNapRoi: CF.Ga!E28; GaThamThuNapRoi: CF.Ga!E30</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Pipe.F</td>
+<td>GaThamLienKhoi: CF.Ga!F28; GaThamNapRoi: CF.Ga!F28; GaThamThuNapRoi: CF.Ga!F30</td>
+<td>int Multiplicity / count</td>
+<td>Positive when GC ON; per-layer accounting; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Pipe.G</td>
+<td>GaThamLienKhoi: CF.Ga!G28; GaThamNapRoi: CF.Ga!G28; GaThamThuNapRoi: CF.Ga!G30</td>
+<td>double ExtensionMm / mm</td>
+<td>&gt;=0 and support/cover containment; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Pipe.H</td>
+<td>GaThamLienKhoi: CF.Ga!H28; GaThamNapRoi: CF.Ga!H28; GaThamThuNapRoi: CF.Ga!H30</td>
+<td>string / none</td>
+<td>Preserve literal; empty allowed for prefix only; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Pipe.I</td>
+<td>GaThamLienKhoi: CF.Ga!I28; GaThamNapRoi: CF.Ga!I28; GaThamThuNapRoi: CF.Ga!I30</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Pipe.J</td>
+<td>GaThamLienKhoi: CF.Ga!J28; GaThamNapRoi: CF.Ga!J28; GaThamThuNapRoi: CF.Ga!J30</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Pipe.K</td>
+<td>GaThamLienKhoi: CF.Ga!K28; GaThamNapRoi: CF.Ga!K28; GaThamThuNapRoi: CF.Ga!K30</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Pipe.L</td>
+<td>GaThamLienKhoi: CF.Ga!L28; GaThamNapRoi: CF.Ga!L28; GaThamThuNapRoi: CF.Ga!L30</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>PipeMortar</td>
+<td>GaThamLienKhoi: CF.Ga!C28; GaThamNapRoi: CF.Ga!C28; GaThamThuNapRoi: CF.Ga!C30</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>PipeOffsetT1</td>
+<td>GaThamLienKhoi: CF.Ga!I28; GaThamNapRoi: CF.Ga!I28; GaThamThuNapRoi: CF.Ga!I30</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>PipeOffsetT2</td>
+<td>GaThamLienKhoi: CF.Ga!J28; GaThamNapRoi: CF.Ga!J28; GaThamThuNapRoi: CF.Ga!J30</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>PipeOffsetT3</td>
+<td>GaThamLienKhoi: CF.Ga!K28; GaThamNapRoi: CF.Ga!K28; GaThamThuNapRoi: CF.Ga!K30</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>PipeOffsetT4</td>
+<td>GaThamLienKhoi: CF.Ga!L28; GaThamNapRoi: CF.Ga!L28; GaThamThuNapRoi: CF.Ga!L30</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Protect.C</td>
+<td>GaThamLienKhoi: CF.Ga!C17; GaThamNapRoi: CF.Ga!C17; GaThamThuNapRoi: CF.Ga!C19</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Protect.D</td>
+<td>GaThamLienKhoi: CF.Ga!D17; GaThamNapRoi: CF.Ga!D17; GaThamThuNapRoi: CF.Ga!D19</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Protect.E</td>
+<td>GaThamLienKhoi: CF.Ga!E17; GaThamNapRoi: CF.Ga!E17; GaThamThuNapRoi: CF.Ga!E19</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Protect.F</td>
+<td>GaThamLienKhoi: CF.Ga!F17; GaThamNapRoi: CF.Ga!F17; GaThamThuNapRoi: CF.Ga!F19</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Protect.G</td>
+<td>GaThamLienKhoi: CF.Ga!G17; GaThamNapRoi: CF.Ga!G17; GaThamThuNapRoi: CF.Ga!G19</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Protect.H</td>
+<td>GaThamLienKhoi: CF.Ga!H17; GaThamNapRoi: CF.Ga!H17; GaThamThuNapRoi: CF.Ga!H19</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Protect.I</td>
+<td>GaThamLienKhoi: CF.Ga!I17; GaThamNapRoi: CF.Ga!I17; GaThamThuNapRoi: CF.Ga!I19</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>RoofRebar.C</td>
+<td>GaThamLienKhoi: CF.Ga!C30; GaThamNapRoi: CF.Ga!C30; GaThamThuNapRoi: CF.Ga!C32</td>
+<td>int ReinforcementDiameterMm / mm</td>
+<td>&gt;=0;0 OFF; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>RoofRebar.D</td>
+<td>GaThamLienKhoi: CF.Ga!D30; GaThamNapRoi: CF.Ga!D30; GaThamThuNapRoi: CF.Ga!D32</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>RoofRebar.E</td>
+<td>GaThamLienKhoi: CF.Ga!E30; GaThamNapRoi: CF.Ga!E30; GaThamThuNapRoi: CF.Ga!E32</td>
+<td>int SquareMultiplicity / count</td>
+<td>Positive when Square ON; does not multiply ring; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>RoofRebar.F</td>
+<td>GaThamLienKhoi: CF.Ga!F30; GaThamNapRoi: CF.Ga!F30; GaThamThuNapRoi: CF.Ga!F32</td>
+<td>double ExtensionMm / mm</td>
+<td>&gt;=0; cover containment; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>RoofRebar.G</td>
+<td>GaThamLienKhoi: CF.Ga!G30; GaThamNapRoi: CF.Ga!G30; GaThamThuNapRoi: CF.Ga!G32</td>
+<td>string / none</td>
+<td>Preserve literal; empty allowed for prefix only; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Ties.C</td>
+<td>GaThamLienKhoi: CF.Ga!C23; GaThamNapRoi: CF.Ga!C23; GaThamThuNapRoi: CF.Ga!C25</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Ties.D</td>
+<td>GaThamLienKhoi: CF.Ga!D23; GaThamNapRoi: CF.Ga!D23; GaThamThuNapRoi: CF.Ga!D25</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Ties.E</td>
+<td>GaThamLienKhoi: CF.Ga!E23; GaThamNapRoi: CF.Ga!E23; GaThamThuNapRoi: CF.Ga!E25</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Ties.F</td>
+<td>GaThamLienKhoi: CF.Ga!F23; GaThamNapRoi: CF.Ga!F23; GaThamThuNapRoi: CF.Ga!F25</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Ties.G</td>
+<td>GaThamLienKhoi: CF.Ga!G23; GaThamNapRoi: CF.Ga!G23; GaThamThuNapRoi: CF.Ga!G25</td>
+<td>Typed enum/string with source literal / none</td>
+<td>Explicit vocabulary; reject unsupported, no fallback; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Ties.H</td>
+<td>GaThamLienKhoi: CF.Ga!H23; GaThamNapRoi: CF.Ga!H23; GaThamThuNapRoi: CF.Ga!H25</td>
+<td>MeshSpec{int DiameterMm,double RequestedPitchMm} / mm</td>
+<td>Parse DxxAyyy, positive; OFF only explicit rule; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Ties.I</td>
+<td>GaThamLienKhoi: CF.Ga!I23; GaThamNapRoi: CF.Ga!I23; GaThamThuNapRoi: CF.Ga!I25</td>
+<td>double LapDiameterMultiple / dimensionless</td>
+<td>n&gt;=0; LapMm=n*Ø; not tie pitch; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Ties.J</td>
+<td>GaThamLienKhoi: CF.Ga!J23; GaThamNapRoi: CF.Ga!J23; GaThamThuNapRoi: CF.Ga!J25</td>
+<td>double EndHookCMm / mm</td>
+<td>&gt;=0; active C shape; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Ties.K</td>
+<td>GaThamLienKhoi: CF.Ga!K23; GaThamNapRoi: CF.Ga!K23; GaThamThuNapRoi: CF.Ga!K25</td>
+<td>double EndHookZUMm / mm</td>
+<td>&gt;=0; active Z/U; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Ties.L</td>
+<td>GaThamLienKhoi: CF.Ga!L23; GaThamNapRoi: CF.Ga!L23; GaThamThuNapRoi: CF.Ga!L25</td>
+<td>double MiddleUMm / mm</td>
+<td>&gt;0; active U; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>TopHaunch</td>
+<td>GaThamLienKhoi: CF.Ga!C9</td>
+<td>double finite / mm</td>
+<td>Active rule from EX; validate sign and range per field; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>WallDiaStepDown</td>
+<td>GaThamLienKhoi: CF.Ga!D7; GaThamNapRoi: CF.Ga!D7; GaThamThuNapRoi: CF.Ga!D7</td>
+<td>int / count</td>
+<td>Nonnegative/positive by active rule; no fractional truncation; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>WallDimPrefix</td>
+<td>GaThamLienKhoi: CF.Ga!E7; GaThamNapRoi: CF.Ga!E7; GaThamThuNapRoi: CF.Ga!E7</td>
+<td>string / none</td>
+<td>Preserve literal; empty allowed for prefix only; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>WallSpacingDelta</td>
+<td>GaThamLienKhoi: CF.Ga!C7; GaThamNapRoi: CF.Ga!C7; GaThamThuNapRoi: CF.Ga!C7</td>
+<td>double / mm</td>
+<td>Signed; resulting pitch&gt;0; current-schema-runtime.json Config; meaning EX rules</td>
+</tr>
+<tr>
+<td>Annotation.PitchSymbol</td>
+<td>GaThamLienKhoi: CF.Ga!M19; GaThamNapRoi: CF.Ga!M19; GaThamThuNapRoi: CF.Ga!M21</td>
+<td>string / none</td>
+<td>Preserve literal/prefix; schema missing semantic key needs addition; EX-044/064/065/067; author note + actual cells</td>
+</tr>
+<tr>
+<td>Annotation.NoteStyle</td>
+<td>GaThamLienKhoi: CF.Ga!K21; GaThamNapRoi: CF.Ga!K21; GaThamThuNapRoi: CF.Ga!K23</td>
+<td>enum NoteStyle1/2 / none</td>
+<td>Preserve literal/prefix; schema missing semantic key needs addition; EX-044/064/065/067; author note + actual cells</td>
+</tr>
+<tr>
+<td>CoverHatch</td>
+<td>GaThamLienKhoi: CF.Ga!H13; GaThamNapRoi: CF.Ga!H13; GaThamThuNapRoi: CF.Ga!H13</td>
+<td>string / none</td>
+<td>Preserve literal/prefix; schema missing semantic key needs addition; EX-044/064/065/067; author note + actual cells</td>
+</tr>
+<tr>
+<td>Annotation.Prefix.C</td>
+<td>GaThamLienKhoi: CF.Ga!C21; GaThamNapRoi: CF.Ga!C21; GaThamThuNapRoi: CF.Ga!C23</td>
+<td>string / none</td>
+<td>Preserve literal/prefix; schema missing semantic key needs addition; EX-044/064/065/067; author note + actual cells</td>
+</tr>
+<tr>
+<td>Annotation.Prefix.D</td>
+<td>GaThamLienKhoi: CF.Ga!D21; GaThamNapRoi: CF.Ga!D21; GaThamThuNapRoi: CF.Ga!D23</td>
+<td>string / none</td>
+<td>Preserve literal/prefix; schema missing semantic key needs addition; EX-044/064/065/067; author note + actual cells</td>
+</tr>
+<tr>
+<td>Annotation.Prefix.E</td>
+<td>GaThamLienKhoi: CF.Ga!E21; GaThamNapRoi: CF.Ga!E21; GaThamThuNapRoi: CF.Ga!E23</td>
+<td>string / none</td>
+<td>Preserve literal/prefix; schema missing semantic key needs addition; EX-044/064/065/067; author note + actual cells</td>
+</tr>
+<tr>
+<td>Annotation.Prefix.F</td>
+<td>GaThamLienKhoi: CF.Ga!F21; GaThamNapRoi: CF.Ga!F21; GaThamThuNapRoi: CF.Ga!F23</td>
+<td>string / none</td>
+<td>Preserve literal/prefix; schema missing semantic key needs addition; EX-044/064/065/067; author note + actual cells</td>
+</tr>
+<tr>
+<td>Annotation.Prefix.G</td>
+<td>GaThamLienKhoi: CF.Ga!G21; GaThamNapRoi: CF.Ga!G21; GaThamThuNapRoi: CF.Ga!G23</td>
+<td>string / none</td>
+<td>Preserve literal/prefix; schema missing semantic key needs addition; EX-044/064/065/067; author note + actual cells</td>
+</tr>
+<tr>
+<td>Annotation.Prefix.H</td>
+<td>GaThamLienKhoi: CF.Ga!H21; GaThamNapRoi: CF.Ga!H21; GaThamThuNapRoi: CF.Ga!H23</td>
+<td>string / none</td>
+<td>Preserve literal/prefix; schema missing semantic key needs addition; EX-044/064/065/067; author note + actual cells</td>
+</tr>
+<tr>
+<td>Annotation.Prefix.I</td>
+<td>GaThamLienKhoi: CF.Ga!I21; GaThamNapRoi: CF.Ga!I21; GaThamThuNapRoi: CF.Ga!I23</td>
+<td>string / none</td>
+<td>Preserve literal/prefix; schema missing semantic key needs addition; EX-044/064/065/067; author note + actual cells</td>
+</tr>
+<tr>
+<td>Annotation.Prefix.J</td>
+<td>GaThamLienKhoi: CF.Ga!J21; GaThamNapRoi: CF.Ga!J21; GaThamThuNapRoi: CF.Ga!J23</td>
+<td>string / none</td>
+<td>Preserve literal/prefix; schema missing semantic key needs addition; EX-044/064/065/067; author note + actual cells</td>
+</tr>
+<tr>
+<td>Catalog.Pipe.RoundDiameter</td>
+<td>GaThamLienKhoi: CF.Cong!B{row&gt;=4}; GaThamNapRoi: CF.Cong!B{row&gt;=4}; GaThamThuNapRoi: CF.Cong!B{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Inner diameter&gt;0; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Pipe.RoundThickness</td>
+<td>GaThamLienKhoi: CF.Cong!C{row&gt;=4}; GaThamNapRoi: CF.Cong!C{row&gt;=4}; GaThamThuNapRoi: CF.Cong!C{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Thickness&gt;0, keyed with B; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Pipe.BoxWidth</td>
+<td>GaThamLienKhoi: CF.Cong!D{row&gt;=4}; GaThamNapRoi: CF.Cong!D{row&gt;=4}; GaThamThuNapRoi: CF.Cong!D{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Total inner width across both chambers when Double; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Pipe.BoxHeight</td>
+<td>GaThamLienKhoi: CF.Cong!E{row&gt;=4}; GaThamNapRoi: CF.Cong!E{row&gt;=4}; GaThamThuNapRoi: CF.Cong!E{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Inner height&gt;0; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Pipe.BoxThickness</td>
+<td>GaThamLienKhoi: CF.Cong!F{row&gt;=4}; GaThamNapRoi: CF.Cong!F{row&gt;=4}; GaThamThuNapRoi: CF.Cong!F{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Thickness&gt;0; distinct web needs sourced extension; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Pipe.BoxChamfer</td>
+<td>GaThamLienKhoi: CF.Cong!G{row&gt;=4}; GaThamNapRoi: CF.Cong!G{row&gt;=4}; GaThamThuNapRoi: CF.Cong!G{row&gt;=4}</td>
+<td>Size2Mm / mm</td>
+<td>Horizontal/vertical chamfer; contour validity; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Pipe.DoubleFlag</td>
+<td>GaThamLienKhoi: CF.Cong!H{row&gt;=4}; GaThamNapRoi: CF.Cong!H{row&gt;=4}; GaThamThuNapRoi: CF.Cong!H{row&gt;=4}</td>
+<td>bool / none</td>
+<td>Declared two-chamber flag; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Angle.Code</td>
+<td>GaThamLienKhoi: CF.Data!B{row&gt;=4}; GaThamNapRoi: CF.Data!B{row&gt;=4}; GaThamThuNapRoi: CF.Data!B{row&gt;=4}</td>
+<td>string / none</td>
+<td>Exact V/Laxbxc code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Angle.UnitMass</td>
+<td>GaThamLienKhoi: CF.Data!C{row&gt;=4}; GaThamNapRoi: CF.Data!C{row&gt;=4}; GaThamThuNapRoi: CF.Data!C{row&gt;=4}</td>
+<td>double / kg/m</td>
+<td>Positive unit mass, source row pairs with B; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Hatch.Name</td>
+<td>GaThamLienKhoi: CF.Data!D{row&gt;=4}; GaThamNapRoi: CF.Data!D{row&gt;=4}; GaThamThuNapRoi: CF.Data!D{row&gt;=4}</td>
+<td>string / none</td>
+<td>Exact pattern name; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Hatch.Scale</td>
+<td>GaThamLienKhoi: CF.Data!E{row&gt;=4}; GaThamNapRoi: CF.Data!E{row&gt;=4}; GaThamThuNapRoi: CF.Data!E{row&gt;=4}</td>
+<td>double / dimensionless</td>
+<td>Positive source scale; not physical product scale; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Hatch.Description</td>
+<td>GaThamLienKhoi: CF.Data!F{row&gt;=4}; GaThamNapRoi: CF.Data!F{row&gt;=4}; GaThamThuNapRoi: CF.Data!F{row&gt;=4}</td>
+<td>string / none</td>
+<td>Literal description; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Selection.Stage1</td>
+<td>GaThamLienKhoi: CF.Data!G{row&gt;=4}; GaThamNapRoi: CF.Data!G{row&gt;=4}; GaThamThuNapRoi: CF.Data!G{row&gt;=4}</td>
+<td>Formula/string / none</td>
+<td>UI helper only; preserve cache/raw; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Selection.Stage2</td>
+<td>GaThamLienKhoi: CF.Data!H{row&gt;=4}; GaThamNapRoi: CF.Data!H{row&gt;=4}; GaThamThuNapRoi: CF.Data!H{row&gt;=4}</td>
+<td>Formula/string / none</td>
+<td>UI helper only; not physical catalog; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.BaseCode</td>
+<td>GaThamLienKhoi: CF.Data!I{row&gt;=4}; GaThamNapRoi: CF.Data!I{row&gt;=4}; GaThamThuNapRoi: CF.Data!I{row&gt;=4}</td>
+<td>string / none</td>
+<td>Requires exact MB/AA/BB assets; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.Code</td>
+<td>GaThamLienKhoi: DBTool.Covers!A{row&gt;=4}; GaThamNapRoi: DBTool.Covers!A{row&gt;=4}; GaThamThuNapRoi: DBTool.Covers!A{row&gt;=4}</td>
+<td>string / none</td>
+<td>Optional versioned schema DBTool.Schema!B1; no size inference from code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.WidthMm</td>
+<td>GaThamLienKhoi: DBTool.Covers!B{row&gt;=4}; GaThamNapRoi: DBTool.Covers!B{row&gt;=4}; GaThamThuNapRoi: DBTool.Covers!B{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Optional versioned schema DBTool.Schema!B1; no size inference from code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.LengthMm</td>
+<td>GaThamLienKhoi: DBTool.Covers!C{row&gt;=4}; GaThamNapRoi: DBTool.Covers!C{row&gt;=4}; GaThamThuNapRoi: DBTool.Covers!C{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Optional versioned schema DBTool.Schema!B1; no size inference from code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.OffsetX</td>
+<td>GaThamLienKhoi: DBTool.Covers!D{row&gt;=4}; GaThamNapRoi: DBTool.Covers!D{row&gt;=4}; GaThamThuNapRoi: DBTool.Covers!D{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Optional versioned schema DBTool.Schema!B1; no size inference from code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.OffsetY</td>
+<td>GaThamLienKhoi: DBTool.Covers!E{row&gt;=4}; GaThamNapRoi: DBTool.Covers!E{row&gt;=4}; GaThamThuNapRoi: DBTool.Covers!E{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Optional versioned schema DBTool.Schema!B1; no size inference from code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.OffsetZ</td>
+<td>GaThamLienKhoi: DBTool.Covers!F{row&gt;=4}; GaThamNapRoi: DBTool.Covers!F{row&gt;=4}; GaThamThuNapRoi: DBTool.Covers!F{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Optional versioned schema DBTool.Schema!B1; no size inference from code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.RotationDegrees</td>
+<td>GaThamLienKhoi: DBTool.Covers!G{row&gt;=4}; GaThamNapRoi: DBTool.Covers!G{row&gt;=4}; GaThamThuNapRoi: DBTool.Covers!G{row&gt;=4}</td>
+<td>double / degree</td>
+<td>Optional versioned schema DBTool.Schema!B1; no size inference from code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.PlacementDatum</td>
+<td>GaThamLienKhoi: DBTool.Covers!H{row&gt;=4}; GaThamNapRoi: DBTool.Covers!H{row&gt;=4}; GaThamThuNapRoi: DBTool.Covers!H{row&gt;=4}</td>
+<td>enum/string / none</td>
+<td>Optional versioned schema DBTool.Schema!B1; no size inference from code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.Units</td>
+<td>GaThamLienKhoi: DBTool.Covers!I{row&gt;=4}; GaThamNapRoi: DBTool.Covers!I{row&gt;=4}; GaThamThuNapRoi: DBTool.Covers!I{row&gt;=4}</td>
+<td>enum Unit / none</td>
+<td>Optional versioned schema DBTool.Schema!B1; no size inference from code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.MinX</td>
+<td>GaThamLienKhoi: DBTool.Covers!J{row&gt;=4}; GaThamNapRoi: DBTool.Covers!J{row&gt;=4}; GaThamThuNapRoi: DBTool.Covers!J{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Optional versioned schema DBTool.Schema!B1; no size inference from code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.MinY</td>
+<td>GaThamLienKhoi: DBTool.Covers!K{row&gt;=4}; GaThamNapRoi: DBTool.Covers!K{row&gt;=4}; GaThamThuNapRoi: DBTool.Covers!K{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Optional versioned schema DBTool.Schema!B1; no size inference from code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.MaxX</td>
+<td>GaThamLienKhoi: DBTool.Covers!L{row&gt;=4}; GaThamNapRoi: DBTool.Covers!L{row&gt;=4}; GaThamThuNapRoi: DBTool.Covers!L{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Optional versioned schema DBTool.Schema!B1; no size inference from code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.MaxY</td>
+<td>GaThamLienKhoi: DBTool.Covers!M{row&gt;=4}; GaThamNapRoi: DBTool.Covers!M{row&gt;=4}; GaThamThuNapRoi: DBTool.Covers!M{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Optional versioned schema DBTool.Schema!B1; no size inference from code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.ClearMinX</td>
+<td>GaThamLienKhoi: DBTool.Covers!N{row&gt;=4}; GaThamNapRoi: DBTool.Covers!N{row&gt;=4}; GaThamThuNapRoi: DBTool.Covers!N{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Optional versioned schema DBTool.Schema!B1; no size inference from code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.ClearMinY</td>
+<td>GaThamLienKhoi: DBTool.Covers!O{row&gt;=4}; GaThamNapRoi: DBTool.Covers!O{row&gt;=4}; GaThamThuNapRoi: DBTool.Covers!O{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Optional versioned schema DBTool.Schema!B1; no size inference from code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.ClearMaxX</td>
+<td>GaThamLienKhoi: DBTool.Covers!P{row&gt;=4}; GaThamNapRoi: DBTool.Covers!P{row&gt;=4}; GaThamThuNapRoi: DBTool.Covers!P{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Optional versioned schema DBTool.Schema!B1; no size inference from code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.ClearMaxY</td>
+<td>GaThamLienKhoi: DBTool.Covers!Q{row&gt;=4}; GaThamNapRoi: DBTool.Covers!Q{row&gt;=4}; GaThamThuNapRoi: DBTool.Covers!Q{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Optional versioned schema DBTool.Schema!B1; no size inference from code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+<tr>
+<td>Catalog.Cover.MinimumBearingMm</td>
+<td>GaThamLienKhoi: DBTool.Covers!R{row&gt;=4}; GaThamNapRoi: DBTool.Covers!R{row&gt;=4}; GaThamThuNapRoi: DBTool.Covers!R{row&gt;=4}</td>
+<td>double / mm</td>
+<td>Optional versioned schema DBTool.Schema!B1; no size inference from code; Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension</td>
+</tr>
+</tbody>
+</table></div></article><footer>DBTool · Hồ sơ project leader 13/10/2026 · Nguồn/approval/evidence theo scope. Không chứng nhận phần mềm từ tài liệu hoặc số test.</footer></main></body></html>

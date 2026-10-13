@@ -1,0 +1,239 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>6. Kế hoạch triển khai theo dependency</title><style>body{margin:0;background:#eff3f5;color:#183345;font:16px/1.6 "Segoe UI",Arial,sans-serif}main{max-width:1380px;margin:auto;background:white;padding:32px}nav{position:sticky;top:0;background:#143e50;color:white;padding:10px 18px;z-index:5}nav a{color:white;margin-right:18px}a{color:#096c7b;overflow-wrap:anywhere}h1,h2,h3{color:#165b66;line-height:1.3;scroll-margin-top:60px}h1{font-size:30px}h2{margin-top:38px;border-bottom:1px solid #cddde3;padding-bottom:8px}p,li{max-width:1100px}table{border-collapse:collapse;width:100%;font-size:14px;margin:20px 0;table-layout:auto}th,td{border:1px solid #c4d4dc;padding:10px;vertical-align:top;overflow-wrap:anywhere}th{background:#e7f1f3;position:sticky;top:44px}td{min-width:90px}tr:nth-child(even){background:#f8fafb}pre{background:#132f40;color:#eff7fb;white-space:pre-wrap;overflow:auto;padding:18px;border-radius:8px;font-size:13px}code{font-family:Consolas,monospace}img{max-width:100%;height:auto;border:1px solid #d6e1e5}blockquote{border-left:4px solid #be862d;background:#fff7e9;padding:8px 20px}.diagram{max-width:1000px;margin:24px auto}.table-wrap{overflow-x:auto}footer{border-top:1px solid #d0dde3;padding-top:18px;color:#57707e;font-size:13px}@media(max-width:800px){main{padding:16px}body{font-size:15px}h1{font-size:25px}table{font-size:13px}nav{position:static}th{position:static}}</style></head><body><nav><a href="INDEX.html">Bàn giao</a><a href="01-KNOWLEDGE.html">Tri thức</a><a href="03-MODULE-MATRIX.html">Modules</a><a href="04-NEEDSRULE.html">NeedsRule</a><a href="05-ARCHITECTURE.html">Kiến trúc</a><a href="06-IMPLEMENTATION-PLAN.html">Kế hoạch</a></nav><main><article><h1 id="6-ke-hoach-trien-khai-theo-dependency">6. Kế hoạch triển khai theo dependency</h1>
+<p>Ngày 13/10/2026. <strong>Các phase sản phẩm dưới đây chưa chạy trong lượt bàn giao hồ sơ này.</strong> Gate chỉ được đánh đạt từ DWG/PDF do DBTool thực sự sinh ra, có số đo và kiểm nội dung. Số test pass không phải tiêu chí nghiệm thu.</p>
+<h2 id="61-thu-tu-va-quyen-quyet-inh">6.1. Thứ tự và quyền quyết định</h2>
+<pre><code class="language-mermaid">flowchart LR
+ P0 --&gt; P1 --&gt; P2 --&gt; P3 --&gt; P4
+ P4 --&gt; P5 --&gt; P6 --&gt; P7 --&gt; P8
+ P4 --&gt; P6
+ R[Quyết định owner theo feature] --&gt; P2
+ R --&gt; P3
+ R --&gt; P4
+ R --&gt; P5
+ R --&gt; P7
+ R --&gt; P8
+</code></pre>
+<p>23 NeedsRule trong tài liệu04 chỉ chặn feature/case phụ thuộc. Junior vẫn triển khai type, interface, diagnostic và phần đã có căn cứ. Không lấy một quyết định chưa chốt để dừng toàn bộ dự án; không đặt default thay quyết định đó. Approval cần scope, rule version, nguồn và người chốt; version phải đi vào input/output hash trước khi chạy lại case.</p>
+<p>Giữ J00–J08/K0–K7 làm ánh xạ lịch sử. P0–P8 là thứ tự triển khai hợp nhất, không phải pipeline sản phẩm thứ hai.</p>
+<h2 id="62-phase-artifact-va-acceptance-gate">6.2. Phase, artifact và acceptance gate</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Phase / gói cũ</th>
+<th>Dependency</th>
+<th>Công việc và nơi sửa</th>
+<th>Artifact phải lưu</th>
+<th>Gate đo trên DWG/PDF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0 / J00 / K0</td>
+<td>Không</td>
+<td>Chụp hash code/build/template/workbook/run cũ. Chọn ReferenceBundle theo identity/CT/kích thước/frame.</td>
+<td>Baseline manifest; content-before; link DWG/PDF; trạng thái từng case.</td>
+<td>Nguồn/hash/identity khớp; phân biệt InputDifference với regression. Không ghi đè bằng chứng; chưa chạy giữ NotRun.</td>
+</tr>
+<tr>
+<td>P1 / J01 / K1</td>
+<td>P0; NR15/16 cho template Final</td>
+<td>S0/S1: registry/schema/importer/field contracts; request chung UI/CLI; semantic keys prefix/NoteStyle/PitchSymbol/panel scale.</td>
+<td>AssetRegistry; RawInput; field-consumer-map; DWG import/readback và PDF crop font.</td>
+<td>Active field có type/unit/SourceRef; thiếu catalog/version/formula bị chặn. Exact block/tag/dependency; không nhân INSUNITS; chữ Việt trên output đúng.</td>
+</tr>
+<tr>
+<td>P2 / J02–03 / K1</td>
+<td>P1; NR23 cho panel BTCT tự thiết kế; NR09 cho catch product</td>
+<td>S2/S3: cover/cổ/frame100/datums; optional Pad; profile cống; catch assembly/owned void; union.</td>
+<td>Effective input/source diff; surface/opening maps; geometry hash; DWG/PDF MB/AA/BB.</td>
+<td>Native DIM đúng Excel/rules; CT tại FinishedTop; same OpeningId nhất quán; sản phẩm1:1; PadOFF không hình/nhãn; giữ lỗ/joint loại 2/3.</td>
+</tr>
+<tr>
+<td>P3 / J04 / K2</td>
+<td>P2; NR01–08/19–21 theo feature</td>
+<td>S4: mesh/clip/hooks/C-U-Z/thang/chốt-hole/vạt/lifting/panel/catch; compose đúng StageAdapters.</td>
+<td>Occurrence/station/clip/length/support/collision ledgers; native paths/holes; DWG/PDF view required.</td>
+<td>ON có path thật/native handle; OFF vắng path/symbol/TK; cover/void/anchor đúng; pair1:1; basis approved. Thiếu rule giữ Partial với NR-ID.</td>
+</tr>
+<tr>
+<td>P4 / J05 / K3</td>
+<td>P3; NR10–13 theo case</td>
+<td>S5: group trước Drawing; compatibility key/vùng/member lengths/scoped marks; mapper sau vẽ thành validator.</td>
+<td>Presentation groups; canonical/member map; DWG/PDF bốn vùng cắt.</td>
+<td>Mỗi member một primary accounting group; mean/rawsum từ Li; ba output cùng GroupId; rename/reorder không đảo vùng; không fuzzy alias.</td>
+</tr>
+<tr>
+<td>P5 / J06 / K4</td>
+<td>P4; NR02/08/13/14 theo shape/quantity</td>
+<td>S8: nativeTK21schema/schematic recipe; thay round generic route, giữ AngleTK.TG/QuantityTable.</td>
+<td>Intents/bindings/readback; glyph hashes; DWG/PDF TK/bending/panel/catch tables.</td>
+<td>INSERT/ATTRIB exact; TDAI đổi đơn vị một lần; không ATT mẫu; Tenluoi cùng row đầu; caption/Ø/DAI khớp group; glyph không scale theo Li.</td>
+</tr>
+<tr>
+<td>P6 / J05 / K5</td>
+<td>P4/P5; NR16/22 cho font/ink</td>
+<td>S6/S7: targets/collector/Gach/BLTC/shared lanes/DIM/CT/material/cổ/trần/section labels.</td>
+<td>Anchor/target/ink/collision receipts; DWG/PDF view liên quan.</td>
+<td>Không label sai target/face/layer hoặc Gach trong lỗ; paper metrics đúng20/30/40; tuyến không đè chữ/DIM; nội dung không mất; layout-only giữ geometry hash.</td>
+</tr>
+<tr>
+<td>P7 / J07 / K6</td>
+<td>P5/P6; NR18/22</td>
+<td>S9: recipe/fit toàn ink/phân trang/FrameRegistry/panel scale; loại 3 NeckCatch+ScheduleOnly.</td>
+<td>Sheet contract; frame windows; DWG/PDF nhỏ/lớn và overflow lịch sử.</td>
+<td>Đủ required roles hoặc N/A đúng input; ink trong frame; không crop/shrink chữ; fixed scale giữ; MB/AA/BB cùng assembly; đúng bundle nguồn.</td>
+</tr>
+<tr>
+<td>P8 / J08 / K7</td>
+<td>P7; mọi NR ảnh hưởng case đã ký</td>
+<td>S10/S11: production batch/update/save-reopen/plot một host; ma trận và batch5/10.</td>
+<td>Actual DWG/vectorPDF/WebP; native handles; plot/session/update/recovery/comparison/visual receipts; deliveries index.</td>
+<td>Đủ selected row hợp lệ; lỗi row không bị bỏ; identity đúng từng frame; UpdateB không đổi A; DWG đúng Excel/PDF đúng recipe; mỗi gate có evidence của chính case.</td>
+</tr>
+</tbody>
+</table>
+</div><h2 id="63-cach-junior-thuc-hien-mot-ticket">6.3. Cách junior thực hiện một ticket</h2>
+<ol>
+<li>Chọn module03/phase trên, kiểm hash/symbol/caller hiện tại. Workspace đổi thì rebaseline đúng file; không patch theo line number cũ.</li>
+<li>Ghi ticket: ID; rule K/EX/NR; field/unit; call chain; input/build/template hashes; expected/actual; affected views; artifact dùng nghiệm thu.</li>
+<li>Tìm tầng đầu tiên mất/đổi dữ liệu. Giữ native readback/crop trước sửa; sửa tầng đó, không bù tọa độ ở renderer.</li>
+<li>Implement theo 05/05A/05B/<a href="05C-IMPLEMENTATION-CONTRACTS.md">05C</a>. Thiếu approval thì implement typed decision payload và <code>RULE_UNAPPROVED</code> đúng scope; giữ canonical/ownership/feature gates; không đổi ON thành OFF.</li>
+<li>Rebuild project bị ảnh hưởng, kiểm assembly hash host thực load. Managed tests tìm regression logic; nghiệm thu cần actual DWG/PDF.</li>
+<li>Chạy ca lỗi, ca đổi một biến, ca đảo ON/OFF và profile liên quan. Chỉ mở rộng kiểm khi còn nghi vấn hoặc tới P8; không lặp số test để thay bằng chứng.</li>
+<li>Lưu before/after ở raw/effective/geometry/rebar/group/annotation/native/PDF. Migration log ghi sửa/thêm/bỏ và lý do; khác input không tự là regression.</li>
+<li>Đóng ticket khi gate đúng scope có evidence. Thiếu rule ghi NeedsRule; chưa chạy ghi NotRun; code mới không đồng nghĩa Fixed.</li>
+</ol>
+<p>Các câu hỏi domain còn lại đã có đề xuất cụ thể trong04. Junior không tự thiết kế lại hoặc đoán thông số; chủ nhiệm chốt record theo scope.</p>
+<h2 id="64-record-nghiem-thu-bat-buoc">6.4. Record nghiệm thu bắt buộc</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Nhóm</th>
+<th>Fields</th>
+<th>Điều kiện</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identity</td>
+<td>CaseId,RunId,Profile,MainSheet,SelectedRow,ManholeId</td>
+<td>Duy nhất, liên tục tới frame/PDF.</td>
+</tr>
+<tr>
+<td>Provenance</td>
+<td>WorkbookHash,EffectiveInputHash,BuildHash,TemplateBundleHash,RuleVersions</td>
+<td>Khớp bytes/build/rules thực tế.</td>
+</tr>
+<tr>
+<td>Reference</td>
+<td>PDF IDs/source hashes/CAD frame IDs/join status/recipe role</td>
+<td>Không lấy Modelordinal/ga khác làm numerical baseline.</td>
+</tr>
+<tr>
+<td>Check</td>
+<td>Name,SubjectId,SourceRefs,Expected,Actual,Unit,ToleranceRuleId,NativeHandles,EvidencePaths,Verdict</td>
+<td>Passed có expected/actual/evidence; không count test.</td>
+</tr>
+<tr>
+<td>Completeness</td>
+<td>RequiredViews/Tables/Annotations,ActualIds,N/A reasons</td>
+<td>N/A do input/constraint, không do chưa hỗ trợ featureON.</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Input,Geometry,Steel,Projection,Sheet,Native,Plot,Visual</td>
+<td>Gate riêng; không suy Passed từ exit0.</td>
+</tr>
+<tr>
+<td>Review</td>
+<td>Reviewer,RegionsViewed,NeedsRuleIds,SourceDifferences,Notes</td>
+<td>Ghi đúng vùng đã xem và phần chưa kiểm.</td>
+</tr>
+</tbody>
+</table>
+</div><p>Schema example có thể dùng null minh họa cấu trúc; record thật đánh Passed không được thiếu dữ liệu bắt buộc. Số fixture chỉ nhận dạng source, không thay expected từ Excel/rules hiện hành.</p>
+<h2 id="65-bo-ca-phai-nghiem-thu">6.5. Bộ ca phải nghiệm thu</h2>
+<p>Giữ <code>ACCEPTANCE-CORE-216</code> và <code>ACCEPTANCE-EDGE-40</code> như danh sách yêu cầu, không baseline Passed. Core: ba loại × chânON/OFF × vạtON/OFF × nhỏ/vừa/lớn × không cống/tròn/hộp. Rà validity theo effective constraints; N/A có lý do. Variation input có receipt; product không lookup theo tên fixture.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Trục</th>
+<th>Ca cần chạy</th>
+<th>Phép đo/evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X/Y/H</td>
+<td>Đổi độc lập; nhỏ/lớn; AA overflow G1250/Plan overflow G1500 lịch sử.</td>
+<td>Native DIM/path so EffectiveInput; same OpeningId crossview; ink containment.</td>
+</tr>
+<tr>
+<td>Nắp/cổ</td>
+<td>Mã vuông/chữ nhật; hướng0/90; thickness125/150/200 là variation có receipt.</td>
+<td>Clear aperture/footprint formula/frame100/product1:1/CT tại FinishedTop.</td>
+</tr>
+<tr>
+<td>Lót/chân/vạt</td>
+<td>OFF/ON độc lập; Pad0/50/100/âm; vạt đáy/trần/both.</td>
+<td>Không phantom Pad; union outer/inner/joints; thép vạt trong support; input âm bị chặn.</td>
+</tr>
+<tr>
+<td>Cống</td>
+<td>No/round/box/doublebox; offset−/0/+; bốn tường; nhiều lỗ/giao/chồng/tiếp tuyến.</td>
+<td>Contours catalog; endpoints analytic; retained+removed conservation; ownership/frame trace.</td>
+</tr>
+<tr>
+<td>Lưới/móc</td>
+<td>Pitch/delta/Ø/cover/distribution/hook khác nhau.</td>
+<td>Stations/gaps, cover envelope/bend path/basis; không móc giả trong DAI.</td>
+</tr>
+<tr>
+<td>C/U/Z</td>
+<td>Mỗi component; Đều/Lệch; pitch khác2mesh; OFF do pitch vượt span.</td>
+<td>Path/bo/support/station; BLTC nối tie thật; missing rule chặn Final.</td>
+</tr>
+<tr>
+<td>Thang/chốt/lifting</td>
+<td>ON/OFF; Ø/pitch/length/startDrop; va cống/catch.</td>
+<td>Rung/path/hole pair/host/source; không D18 cứng/blanket block loại 3.</td>
+</tr>
+<tr>
+<td>Cửa thu</td>
+<td>Body/Neck; Left/Center/Right cho Body; hướng/size/mesh/pad.</td>
+<td>Cùng assembly MB/1-1/2-2; owned void/product match; shape 1..4/TKCT approved; NeckCenter có source override.</td>
+</tr>
+<tr>
+<td>TK/bending</td>
+<td>C/U/Z/VG/ring/rectangle/panel/lifting/angle/catch; Li biến thiên.</td>
+<td>INSERT/ATTRIB exact; mean/rawsum/units/fixedglyph hash; không gộp sai scope/role.</td>
+</tr>
+<tr>
+<td>Scale/font/OCS</td>
+<td>Body20/30/40, panel20; rotation/mirror/normal−Z.</td>
+<td>Physical geometry không đổi; paper text/ink/underline; native style/PDF crops.</td>
+</tr>
+<tr>
+<td>Naming/config</td>
+<td>Tên bất kỳ; prefix/pitchsymbol/Style2; reorder IDs.</td>
+<td>Geometry/canonical members bất biến; display đúng config; suffix không nhảy.</td>
+</tr>
+<tr>
+<td>Batch/update/recovery</td>
+<td>5row/10row/ba loại;1row lỗi;UpdateB;cancel/timeout/hostexception.</td>
+<td>Row receipts/frame identity; NOD/XData/geometry củaA giữ; rollback; một host plot session khi thành công.</td>
+</tr>
+</tbody>
+</table>
+</div><p>Object/row counts chỉ kiểm đủ nội dung. Kết luận đúng cần số đo subject, target association, native attributes và output regions đã xem.</p>
+<h2 id="66-go-code-va-rollback">6.6. Gỡ code và rollback</h2>
+<ul>
+<li>Sau P4, đổi nguồn groups sang planner trước Drawing; mapper cũ giữ validator/readback.</li>
+<li>Sau P5, chuyển roundsteel sang native planner rồi mới gỡ generic branch trong VHG scope; giữ QuantityTable/AngleTK.TG.</li>
+<li>Sau P6/P7, gỡ static catch khi projector mới đủ ba view. Trích recipe/glyph/schema trước khi loại Family21 stores khỏi production compile; giữ archive hash.</li>
+<li>SheetFourViews/SheetFiveViews/SheetThreeRoofViews còn constants ID phải migrate methods/bounds riêng. Cập nhật mọi caller trong03 và cross-reference tests/tools; compile consumer bị ảnh hưởng, không delete cả file.</li>
+<li>Legacy Core/Cad/IO giữ compatibility island tới shared-use-case parity. No-hit không chứng minh dead/public API bỏ được; reflection/external addin cần migration version.</li>
+<li>Rollback code bằng version control/snapshot có hash; rollback DWG theo transaction/generation ownership. Template migration dùng chung chưa chứng minh không ảnh hưởng ga khác phải bị chặn trước mutation. Workbook nguồn và run lịch sử giữ nguyên.</li>
+</ul>
+<h2 id="67-ieu-kien-ket-thuc-san-pham">6.7. Điều kiện kết thúc sản phẩm</h2>
+<p>P8 đạt khi mọi case hợp lệ thuộc scope có required gates Passed từ actual DWG/PDF của chính case; NR ảnh hưởng đã có approval/version; featureON không bị tắt; native assets/schema/units/identity đúng; provenance liên tục. Partial/Failed/NotRun hoặc N/A thiếu lý do chặn công bố “hoàn chỉnh, zero lỗi”.</p>
+<p>Bước tiếp theo là P0+P1 và trình 23 NeedsRule cho chủ nhiệm. Việc đã rõ như OptionalPad, thiếu catalog, đơn vị TDAI và nativeTK interfaces triển khai theo dependency mà không phải đợi chốt mọi NR. <strong>Bàn giao kiến trúc không phải chứng nhận phần mềm đã đạt.</strong></p></article><footer>DBTool · Hồ sơ project leader 13/10/2026 · Nguồn/approval/evidence theo scope. Không chứng nhận phần mềm từ tài liệu hoặc số test.</footer></main></body></html>
