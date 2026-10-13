@@ -1,0 +1,176 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>pages/PDF-006-PHAN-TICH-CHI-TIET</title><style>body{font:16px/1.65 Segoe UI,Arial;max-width:1200px;margin:auto;padding:24px}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bccfd7;padding:8px;vertical-align:top}img{max-width:100%}pre{white-space:pre-wrap}</style><a href="../INDEX.html">Trang tổng</a><h1>PDF006 — T3/T4 không cống và trần có lỗ thăm lệch</h1>
+<p>Nguồn: <code>1.1.Ga thăm BTCT liền khối-Model-3.pdf</code>, SHA256 <code>030949f0314702d2f465e0cbb4701cfccb8b81934a891ee8ee63d91cda8e34ba</code>, candidate CAD-1-F008/G500-2. Đã xem toàn trang, đọc 29 BLT và truy được 29 tuyến native kết thúc duy nhất tại block. 29 nhóm ghép đúng scope+SH/Ø tới bảng PDF007; đây là đối chiếu nguồn, chưa chứng nhận member vật lý và mọi glyph.</p>
+<p><a href="../pdf/PDF-006-p1.png">Ảnh nguồn</a> · <a href="PDF-006-COLLECTOR-MAP.html">29 nhãn và tuyến đầy đủ</a> · <a href="PDF-006-detail-review.json">JSON gồm paths, bulge, width, layer và code hash</a> · <a href="PDF-007-008-SCHEDULE-BENDING-MAP.html">82 hàng ATT</a>.</p>
+<h2>1. Sáu hình và mục đích của từng vùng</h2>
+<table>
+<thead>
+<tr>
+<th>Hình</th>
+<th>Tâm TenMC local X,Y mm</th>
+<th>Nhãn / Gach / BLTC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T3 ngoài</td>
+<td>2345,8610</td>
+<td>3 /22 /12</td>
+</tr>
+<tr>
+<td>T3 trong</td>
+<td>2345,4430</td>
+<td>4 /32 /0</td>
+</tr>
+<tr>
+<td>T4 ngoài</td>
+<td>5835,8610</td>
+<td>3 /21 /16</td>
+</tr>
+<tr>
+<td>T4 trong</td>
+<td>5835,4430</td>
+<td>4 /32 /0</td>
+</tr>
+<tr>
+<td>Trần trên</td>
+<td>9325,8610</td>
+<td>8 /35 /9</td>
+</tr>
+<tr>
+<td>Trần dưới</td>
+<td>9325,4430</td>
+<td>7 /35 /0</td>
+</tr>
+</tbody>
+</table>
+<p>Ba cột hai hàng giữ thứ tự tường T3→T4→trần, ngoài/trên ở hàng đầu. TenMC scale .3, danh định 1:30. Tổng 29 nhãn, 177 Gach, 37 X. Các count chỉ là fixture G500-2; không áp làm số cố định cho ga khác. T3/T4 không có cống trên tờ này nên không sinh T1A/T1B/T2A/T2B hay GC giả. Khi có cống ở tường này, chuyển sang recipe tường có lỗ từ Opening thực, không dựa vào tên T3/T4 để luôn coi là tường kín.</p>
+<p>Tường ngoài: T1/T2 lưới nguyên và T3 thép C Ø6@300. Tường trong: T1/T2 cùng T3/T4 vạt/góc Ø10@150. Nhãn T3 ở hai lớp có asset/role khác nhau như đã đối chiếu PDF007. Không copy chỉ số bản vẽ làm khóa vật lý toàn cục.</p>
+<h2>2. Phân cấp đường nét — đọc thuộc tính thật, không đoán theo màu</h2>
+<table>
+<thead>
+<tr>
+<th>Layer native</th>
+<th style="text-align: right;">ACI</th>
+<th>Linetype trong nguồn</th>
+<th>Công dụng trong tờ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VHG-BT</td>
+<td style="text-align: right;">4</td>
+<td>Continuous</td>
+<td>Biên bê tông, biên lỗ thăm; không phải tuyến thép</td>
+</tr>
+<tr>
+<td>VHG-Thep</td>
+<td style="text-align: right;">1</td>
+<td>Continuous</td>
+<td>Đường thép chính nhìn thấy; thuộc nhóm cụ thể theo mặt/lớp</td>
+</tr>
+<tr>
+<td>VHG-Thep2</td>
+<td style="text-align: right;">2</td>
+<td>Continuous</td>
+<td>Thép phụ/vạt và ký hiệu buộc qua block theo recipe; màu vàng không tự xác định C hay U</td>
+</tr>
+<tr>
+<td>VHG-Thep3</td>
+<td style="text-align: right;">6</td>
+<td>DASHED</td>
+<td>Biểu diễn thép khuất/phần thép khác lớp; <strong>không phải mặc định đường tim chỉ vì màu magenta</strong></td>
+</tr>
+<tr>
+<td>VHG-Dashed</td>
+<td style="text-align: right;">5</td>
+<td>DASHED</td>
+<td>Ngữ cảnh khuất bê tông/cổ và vùng phía dưới hình chiếu</td>
+</tr>
+<tr>
+<td>VHG-Dim</td>
+<td style="text-align: right;">140</td>
+<td>Continuous</td>
+<td>Tuyến gom, stub, annotation; Gach là block riêng ở giao với thép</td>
+</tr>
+</tbody>
+</table>
+<p>Các layer này trong native đang có lineweight=-3 (Default), không trực tiếp chứng minh nét in 0.50/0.35/0.15 mm. Cần giữ phân biệt <strong>thuộc tính native đã đo</strong> với <strong>plot policy đề xuất/đã kiểm</strong>; không biến đề xuất thành số đo PDF. Paths có linetype/weight từng entity và bulge/width, layer table có trong JSON. Không gộp toàn bộ nét đứt thành một role, cũng không biến nét thép khuất thành đường bao bê tông.</p>
+<h2>3. Trần: kích thước, lỗ lệch và nhóm thanh</h2>
+<p>Trần trên phủ bì 1450×1650, mép trái/dưới local (8600,6060), đỉnh Y7710. Lỗ thăm là polyline kín <code>5F356</code>, x8750..9250, y6210..6910: <strong>500×700</strong>, lệch trái và lệch xuống. Trần dưới có lỗ cùng kích thước dịch theo layout Y−4180. Biên ngoài <code>5F358</code> có closed=false nhưng điểm đầu/cuối bằng nhau; đây là đường bao hình học kín. Không báo hở chỉ vì flag=false; cũng không bỏ kiểm kín hình học khi flag=true.</p>
+<table>
+<thead>
+<tr>
+<th>Nhóm</th>
+<th>Trần trên: chèn local / asset / L, DAI, SL</th>
+<th>Trần dưới: asset / DAI, SL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N1 nguyên</td>
+<td>9155,5910 /TK.L0M /1390,1390,8</td>
+<td>TK.L2M /1570,8</td>
+</tr>
+<tr>
+<td>N1A bên trái lỗ</td>
+<td>8645,5910 /TK.L0M /95,95,5</td>
+<td>TK.L2M /275,5</td>
+</tr>
+<tr>
+<td>N1B bên phải lỗ</td>
+<td>10005,5910 /TK.L0M /745,745,5</td>
+<td>TK.L2M /925,5</td>
+</tr>
+<tr>
+<td>N2 nguyên</td>
+<td>8570,6735 /TK.L0M /1590,1590,8</td>
+<td>TK.L2M /1770,8</td>
+</tr>
+<tr>
+<td>N2A phía trên lỗ</td>
+<td>8570,7605 /TK.L0M /745,745,4</td>
+<td>TK.L2M /925,4</td>
+</tr>
+<tr>
+<td>N2B phía dưới lỗ</td>
+<td>8570,6165 /TK.L0M /95,95,4</td>
+<td>TK.L2M /275,4</td>
+</tr>
+<tr>
+<td>N3 bo lỗ chữ nhật</td>
+<td>8570,6385 /TK.GC.H /550x750,2900,1</td>
+<td>TK.GC.H /2900,1</td>
+</tr>
+<tr>
+<td>N4 buộc U</td>
+<td>10080,6510 /TK.M.U /100-90-200-90-100,580,9</td>
+<td>Không gọi thêm N4 ở view dưới trong mẫu</td>
+</tr>
+</tbody>
+</table>
+<p>Vùng N1A/N1B và N2A/N2B được nhận diện từ vị trí lỗ lệch và bảng/caption cùng bộ. Cần giữ transform trục view khi xoay/lật, không suy A/B từ thứ tự nhóm. <strong>Các caption N của fixture này dùng L, không dùng Ltb</strong> như cut-bar cống tròn; nhóm có thể cùng chiều dài vì lỗ chữ nhật. Policy chọn L/Ltb theo nhóm thực và quyết định trình bày, không theo một chữ A/B.</p>
+<p>Trần trên là thanh thẳng; trần dưới có hai móc90 trong schema TK.L2M, DAI hơn phần thẳng 180 ở fixture. Đây là quy tắc nguồn của cấu hình này, không phải quy tắc chung “mọi lớp trên có móc” hoặc “mọi lớp ngoài không móc”. Khi cấu hình khác, lấy HookPolicy từ domain và recipe đã xác minh, không cộng 180 mặc định.</p>
+<p>N3 là đai/bo hình chữ nhật, SL1 mỗi lớp, tag L=<code>550x750</code>, LT=<code>150x2</code>; không vẽ thành bốn thanh xiên hay ép SL4. Lỗ thông thủy500×700 và kích thước đai550×750 là hai loại kích thước khác nhau. N4 Ø6 là U, bảng SL9 và trần trên có chín X, nhưng vẫn phải chứng minh mỗi X trỏ đúng tie instance trong DBTool.</p>
+<h2>4. Tuyến gom trần và thứ tự các làn</h2>
+<ul>
+<li>N1: <code>5F3FE</code>, (9125,7680)→(9125,6090)→(9125,5910)→(9155,5910). Tuyến đứng trong miền thép nguyên, ra dưới đáy150 rồi stub30.</li>
+<li>N1A/N1B: tuyến đứng ở x8675 và9975, y6885→6285→5910; stub ra hai hướng vào BLT2/BLT1. Không kéo collector qua lỗ rồi đánh Gach trong khoảng trống.</li>
+<li>N2: <code>5F4B5</code>, (10020,6735)→(8630,6735)→(8600,6735)→(8570,6735). Tuyến gom biểu diễn nhóm nguyên và có thể đi qua vùng lỗ trên đường ra nhãn; phần đi qua lỗ không được coi là thanh hoặc thêm Gach. Không cấm mọi đoạn annotation đi qua void; phải kiểm đúng role và tránh chữ.</li>
+<li>N2A/N2B: collector ngang y7605 và6165, gom vùng trên/dưới lỗ; nhãn ra trái.</li>
+<li>N3: <code>5F4ED</code>, (8725,6385)→(8600,6385)→(8570,6385), nhãn bên trái gần vòng bo. ATT A=<code>SL1</code>, không tự biến thành @150.</li>
+<li>N4: <code>5F50C</code>, (9700,6435)→(9775,6510)→(10050,6510)→(10080,6510). Đầu neo tại X thực, đoạn xiên lên45°, đoạn ngang ra phải và stub; không dùng collector lưới chính cho U.</li>
+</ul>
+<p>Trần dưới các tuyến tương ứng dịch layout Y−4180, riêng N4 không lặp. Khi biến thiên phải regenerate mỗi view từ geometry, không áp dịch fixture cho mọi ga. Làn dưới neo minY−gapPaper×S, làn trái/right theo mép và envelope block; vị trí đoạn gom chọn theo miền member còn lại sau lỗ, không theo tỷ lệ phóng toàn trang.</p>
+<h2>5. Đối chiếu code hiện tại và sửa từng bước</h2>
+<p><code>SheetThreeRoofDetailer.cs</code> hiện group theo ScheduleMark, lấy path dài nhất đại diện, dùng dx/dy đầu–cuối để chọn phương, đặt nhãn phải cho ngang/dưới cho đứng và leader hai điểm <code>[tip,end]</code>. SH ghi family.Key, không có recipe N1/N1A/N1B/N2/N2A/N2B/N3/N4 theo nhóm trình bày. Dù nhãn không trùng và kích thước đã deduplicate, logic này vẫn khác tuyến native và không bảo đảm đúng vùng/member.</p>
+<ol>
+<li>Tạo nhóm trần từ RoofOpeningId và lớp/role/region/Ø/shape/hook, dùng chung registry với bảng và hình uốn; đường tâm vòng kín không phân phương bằng hai endpoint trùng nhau. Không lấy path dài nhất đại diện tất cả thành viên.</li>
+<li>Cắt lưới theo InnerLoops thật trước khi grouping. Từ miền segment phân N1 nguyên/A/B, N2 nguyên/A/B; N3 bo và N4 tie là role riêng. Giữ member IDs, actual lengths và hook policy.</li>
+<li>Lập collector intent theo nhóm: N1 ra dưới, N2 ra trái, N3 gần bo lỗ, N4 neo tie ra phải. Chọn nhánh BLT phù hợp hướng vươn, đo envelope native và cấp làn chung view. Chèn Gach chỉ trên giao với segment hiện hữu của nhóm; annotation qua void không sinh thanh/Gach.</li>
+<li>Tạo tie U thật từ support/lưới/stack; symbol đọc tie instance. Chính sách view đại diện trên/dưới rõ ràng, không tạo duplicate tie vì hai view. Khi không có tie theo cấu hình thì không sinh X/nhãn/hàng giả.</li>
+<li>Giữ các geometry/hidden contour và dimension hợp lệ; chuyển offset360/480/180/300/150 trong nhánh nhãn/dim sang recipe mm giấy khi đổi scale, kiểm riêng min/max span. Không xóa cả detailer chỉ để bỏ leader; thay presentation branch có phạm vi.</li>
+<li>Dimension dedup chỉ bỏ cùng measured subject, endpoints, hướng và làn; không bỏ hai chuỗi khác nghĩa vì cùng text hoặc gần nhau. Kiểm lại chain tổng/clear/tường/lỗ và spacing sau biến thiên.</li>
+<li>Bảng native: N trên TK.L0M, N dưới TK.L2M theo HookPolicy, N3 TK.GC.H, N4 TK.M.U ở fixture. Không gom theo asset chỉ vì cùng hình; không đổi blueprint thành dữ liệu thật cho ga khác.</li>
+</ol>
+<p>Gate: thử lỗ lệch trái/phải/trên/dưới, tăng riêng X/Y, đổi clearX/clearY theo cover, đổi thickness/hook/scale và nhiều lỗ nếu được hỗ trợ. So đủ plan/AA/BB, label/group/table/caption và tie instance. Case không thể cấu tạo phải báo lỗi rõ, không cho thép xuyên lỗ hay bỏ nhóm để xuất PDF.</p>
+<p>Chưa đóng: membership từng thanh, mọi target/Gach, thứ tự cut nhóm khi mirror, ý nghĩa từng path phụ và tất cả glyph/line print policy. 29 endpoint/ATT match không thay cho nghiệm thu các phần này.</p></html>

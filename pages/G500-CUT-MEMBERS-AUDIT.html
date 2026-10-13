@@ -1,0 +1,139 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>pages/G500-CUT-MEMBERS-AUDIT</title><style>body{font:16px/1.65 Segoe UI,Arial;max-width:1200px;margin:auto;padding:24px}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bccfd7;padding:8px;vertical-align:top}img{max-width:100%}pre{white-space:pre-wrap}</style><a href="../INDEX.html">Trang tổng</a><h1>G500-2 — truy ngược 16 nhóm Ltb tới 72 đoạn thép nguồn</h1>
+<p><a href="G500-CUT-MEMBERS-AUDIT.json">JSON đủ handle, Gach, tuyến, tọa độ từng đoạn và phép tính</a> · <a href="PDF-005-PHAN-TICH-CHI-TIET.html">Tờ lưới</a> · <a href="PDF-007-PHAN-TICH-CHI-TIET.html">Bảng ATT</a> · <a href="PDF-008-PHAN-TICH-CHI-TIET.html">Hình uốn</a>.</p>
+<p>Đã truy 16 nhóm T1A/T1B/T2A/T2B của hai tường, hai lớp: 72 Gach → 72 entity thép LINE duy nhất. Mỗi Gach nằm trên đúng một đoạn thẳng VHG-Thep; mỗi group có đúng số đoạn SL của ATT. Không ghép group bằng thứ tự file hoặc tên SH toàn cục. 16/16 mean nguồn khớp DAI khi thêm móc danh định của đúng block rồi làm tròn hiển thị.</p>
+<p>Mức xác minh là <strong>member hình học 2D nguồn</strong>, không phải 72 OccurrenceId của DBTool đã đạt. Các nét LINE lưới không chứa hai móc trong hình học entity dù bảng lớp ngoài dùng TK.L2M. Vì vậy không lấy độ dài nét LINE làm nguyên chiều dài gia công của lớp ngoài; cũng không thêm móc hai lần nếu đường domain đã có hook.</p>
+<h2>1. Kết quả đo độc lập từ nét thép</h2>
+<table>
+<thead>
+<tr>
+<th>Tường / vùng</th>
+<th style="text-align: right;">SL mỗi lớp</th>
+<th style="text-align: right;">Mean nét thẳng mm</th>
+<th style="text-align: right;">Lớp trong DAI</th>
+<th style="text-align: right;">Hai móc danh định lớp ngoài</th>
+<th style="text-align: right;">Lớp ngoài DAI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1 / trái T1A</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">427.601735</td>
+<td style="text-align: right;">428</td>
+<td style="text-align: right;">90+90</td>
+<td style="text-align: right;">608</td>
+</tr>
+<tr>
+<td>T1 / phải T1B</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">427.601735</td>
+<td style="text-align: right;">428</td>
+<td style="text-align: right;">90+90</td>
+<td style="text-align: right;">608</td>
+</tr>
+<tr>
+<td>T1 / trên T2A</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">400.685995</td>
+<td style="text-align: right;">401</td>
+<td style="text-align: right;">90+90</td>
+<td style="text-align: right;">581</td>
+</tr>
+<tr>
+<td>T1 / dưới T2B</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">750.685995</td>
+<td style="text-align: right;">751</td>
+<td style="text-align: right;">90+90</td>
+<td style="text-align: right;">931</td>
+</tr>
+<tr>
+<td>T2 / trái T1A</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">495.717852</td>
+<td style="text-align: right;">496</td>
+<td style="text-align: right;">90+90</td>
+<td style="text-align: right;">676</td>
+</tr>
+<tr>
+<td>T2 / phải T1B</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">495.717852</td>
+<td style="text-align: right;">496</td>
+<td style="text-align: right;">90+90</td>
+<td style="text-align: right;">676</td>
+</tr>
+<tr>
+<td>T2 / trên T2A</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">737.522729</td>
+<td style="text-align: right;">738</td>
+<td style="text-align: right;">90+90</td>
+<td style="text-align: right;">918</td>
+</tr>
+<tr>
+<td>T2 / dưới T2B</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">347.522729</td>
+<td style="text-align: right;">348</td>
+<td style="text-align: right;">90+90</td>
+<td style="text-align: right;">528</td>
+</tr>
+</tbody>
+</table>
+<p>Ví dụ T1A trong: bốn đoạn dài khoảng 445.200080, 378.930387, 391.026317, 495.250156 mm; mean khoảng427.601735 → hiển thị428. Lớp ngoài có cùng mean phần thẳng, thêm hai móc90 từ ATT →607.601735 →608. Đây là ví dụ đo nguồn; không hardcode bốn giá trị hoặc180 cho mọi case.</p>
+<p>SL bằng số <strong>đoạn retained</strong>, không luôn bằng số thanh cha trước cắt. Hai phía lỗ có thể xuất phát từ cùng parent; mỗi phía là segment member riêng. Khi nhiều lỗ, giữ SegmentId/ParentId/OpeningIds và tránh đưa một segment vào nhiều nhóm kế toán cùng scope. Các view lặp có thể cùng biểu diễn member nhưng không làm tăng SL vật lý.</p>
+<h2>2. Bán kính cắt và các vòng đồng tâm</h2>
+<table>
+<thead>
+<tr>
+<th>Vị trí</th>
+<th style="text-align: right;">VHG-BT nhỏ</th>
+<th style="text-align: right;">VHG-BT lớn</th>
+<th style="text-align: right;">VHG-150</th>
+<th style="text-align: right;">VHG-Thep2 / bán kính điểm kết thúc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1, mỗi lớp</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">255</td>
+<td style="text-align: right;">305</td>
+<td style="text-align: right;">320</td>
+</tr>
+<tr>
+<td>T2, mỗi lớp</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">310</td>
+<td style="text-align: right;">360</td>
+<td style="text-align: right;">375</td>
+</tr>
+</tbody>
+</table>
+<p>Tất cả 72 đoạn có một đầu nằm trên vòng R320 hoặcR375 tương ứng, sai số radial &lt;1e-6 mm với dữ liệu native. Vì vậy R thông thủy200/250 không đủ để tái tạo cut lengths. Khoảng tăng đo được: +55/+60 từ vòng nhỏ tới vòng BT lớn; +50 tới vòng VHG-150; +15 tới điểm cắt thép. Tên vật liệu và nguồn input cho từng khoảng phải được xác nhận bằng catalog/Excel/hướng dẫn, không suy từ tên layer một mình.</p>
+<p>Code <code>PipeCrossSectionBuilder.BuildRound</code> đã phân biệt InnerCircle, PipeOuterCircle, ConcreteCutoutCircle: inner=D/2; outer=inner+pipeThickness; cut=outer+mortar. <code>OpeningClipper</code> dùng ConcreteCutout và q=CoverToHole+Ø/2. Đây là cấu trúc đúng cần giữ; không thay bằng D/2 để “giống hình”. Source số đo tương thích q15 nhưng <strong>chưa chứng minh CoverToHole=10 là input rule chung</strong>, chỉ là nghiệm số với Ø10.</p>
+<p>Đã truy thêm <a href="../excel/hole-clearance-source-audit.json">ô Excel và consumer</a>: Loại1/2 có CF.Ga!D17=30 (Tường), H17=15 (Lỗ cống); Loại3 chuyển xuống D19=30/H19=10. Note B16/B18 ghi nguyên văn “Chiều dày lớp bê tông ngoài cùng bảo vệ cốt thép.” Schema có riêng Protect.H; AccessoryInputMapper.Opening(false) dùng Protect.H. <strong>Có input riêng cho lỗ là đã xác nhận</strong>, không còn phải đoán ô. Nhưng H17=15 hiện tại khác nghiệm surface-cover10 suy ngược từ native, vì điểm cắt nominal cách vòng VHG-150 đúng15, trong khi domain cộng thêm Ø/2. Có thể khác convention nominal centerline/surface hoặc workbook/CAD khác thời điểm; chưa xác định nguyên nhân cuối. Không lấy một trong hai nguồn làm mặc định rồi âm thầm bỏ Ø/2 trong domain.</p>
+<h3>Công thức đối chiếu cho thanh nằm trong mặt tường</h3>
+<p>Với tâm(cu,cz), bán kính loại trừ r và thanh ngang ở z: <code>u± = cu ± sqrt(r² − (z−cz)²)</code> nếu |z−cz|&lt;r. Phần trái/phải là khoảng từ biên thanh tới u−/u+. Thanh đứng ở u dùng công thức tương tự để tìm z±. Thanh tiếp tuyến, nằm ngoài vòng, quá ngắn hoặc bị nhiều lỗ cắt cần xử lý interval đúng, không dùng một dây cung hoặc chiều dài trung bình cố định.</p>
+<p>Giữ phân biệt clearance bề mặt lỗ với khoảng cách đường tâm. Nếu input c là cover tới bề mặt thanh thì cộng Ø/2 đúng một lần. Không dùng nhầm mortar là cover; không thêm Ø/2 hai lần; không cộng q của thép vòng vào main bar nếu hai đường kính/policy khác nhau. Code3D còn có depth/extrusion; công thức trên chỉ là fixture trong mặt phẳng, không thay thuật toán chiều sâu.</p>
+<h2>3. Khoảng trống rule và vị trí code cần kiểm — STD21</h2>
+<p><code>WallRebarPlanner</code> gọi ClipIfRequired với <code>rebarSpec.CoverMm</code> rồi tạo <code>ClearancePolicy(cover)</code>. Trong khi <code>VhgOpeningCompositionPlanner</code> tạo vòng gia cường với <code>input.Cover+input.Diameter/2</code>. Hai giá trị cover có thể khác nhau. Đã xác minh sự coupling trong code, <strong>chưa chạy native chứng minh nó sai cho một workbook tương ứng</strong>, vì input rule cover-to-hole của main mesh chưa được đối chiếu hết.</p>
+<p>Junior xử lý theo thứ tự:</p>
+<ol>
+<li>Dùng Protect.H đã xác định, giữ SourceRef H17/H19; kiểm PDF hướng dẫn và workbook/CAD đồng bộ để chốt nghĩa centerline/surface và áp dụng cho main bar/vòng. CoverWall là D17/D19, không thay thế Protect.H. Không chọn10 hoặc15 chỉ vì khớp fixture.</li>
+<li>Tạo <code>OpeningClearanceRule</code> rõ ràng theo owner/opening/role/layer/Ø, có provenance và measurement semantics. Chỉ dùng chung wall cover khi nguồn cho phép; nếu không đủ nguồn, để NeedsRule/Partial, không override dữ liệu vật lý bằng tọa độ native.</li>
+<li>Truy rule vào WallRebarPlanner→OpeningClipper; giữ ConcreteCutout/pipe/cutout phân biệt. Không sửa công thức quadratic nếu sai ở input clearance. Giữ union intervals/length conservation, depth và ownership.</li>
+<li>Từ segment thật tạo length theo MeasurementBasis/HookPolicy; giữ StraightRunLength, ScheduleLength và FabricationLength riêng khi khác nhau. Li dùng cho DAI/TDAI phải khai báo cùng một basis được phê chuẩn; không cộng hai móc vào length đã có hooks.</li>
+<li>PresentationGroup tính mean chưa làm tròn, SL member count, TDAI rawsum/1000; định dạng ở exporter. Source cho thấy mean làm tròn khớp, chưa đủ phân biệt mọi thuật toán rounding của VHGpro. Áp rule rawsum của chủ nhiệm; không sao chép lỗi làm tròn giả định từ mẫu.</li>
+<li>Báo trace từng member: SourceRef, OpeningId, cutout radius, q, station, endpoints, role/region, hook policy, length basis, Li, GroupId và boundATT. Readback DWG và kiểm PDF mới, không dùng 72 nét nguồn làm ID giả cho DBTool.</li>
+</ol>
+<h2>4. Kiểm thử có ý nghĩa và điều kiện nghiệm thu</h2>
+<ul>
+<li>Fixture16nhóm: member count4/5, mean/nominal legs/rounded DAI như bảng, endpoint radial đúng; fixture hash giữ nguyên.</li>
+<li>Thay riêng pipe thickness, mortar, hole cover, Øthép và wall cover để xác nhận mỗi tham số ảnh hưởng đúng và không cộnghai lần. Không đổi tên ga làm thay đổi hình học.</li>
+<li>Thử vòng tiếp tuyến, thanh đi qua tâm, thanh ngoài vòng, lỗ lệch, hai lỗ giao/chồng và retained segment ngắn; kiểm tổng chiều dài retained+removed=original trên cùng basis.</li>
+<li>Mirror view giữ physical member IDs và đổi tọa độ theo transform; region labels theo quy ước đã chốt. Không đổi A/B do enumerate.</li>
+<li>Nếu hook không thể đặt do đoạn ngắn/va chạm, báo diagnostics; không giữ DAI có móc nhưng hình học không có móc rồi đánh Passed.</li>
+</ul>
+<p>Chưa đóng: consumer cover-to-hole toàn bộ workbook, rule3D cho hook/cut/depth trong tất cả cấu hình và nghiệm thu DBTool. Kết quả nguồn mới là cơ sở mạnh hơn cho hướng sửa, không phải chứng nhận runtime.</p></html>

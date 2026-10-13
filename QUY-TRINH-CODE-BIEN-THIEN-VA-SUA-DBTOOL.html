@@ -1,0 +1,498 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL</title><style>body{font:16px/1.6 Segoe UI,Arial;max-width:1200px;margin:25px auto;padding:20px}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bccfd7;padding:8px;vertical-align:top}img{max-width:100%}pre{white-space:pre-wrap}</style><a href="INDEX.html">Trang tổng</a><h1>Quy trình chuẩn DBTool: input biến thiên, cấu tạo thật, trình bày VHGpro và bảng ATT native</h1>
+<p><strong>Chỉ đạo cập nhật13/10/2026:</strong> dùng tám PDF đã phân tích sâu PDF001–008, toàn bộ catalog template và ghi chú Excel để triển khai hướng dẫn code. Không tiếp tục phân tích sâu63PDF còn lại như một điều kiện trước khi sửa. Giữ dữ liệu tổng quan71PDF để tham khảo; PDF009 đã ghi thêm là bằng chứng bổ sung. Đây là chuẩn triển khai và audit code, <strong>chưa phải phần mềm đã sửa/đã nghiệm thu</strong>.</p>
+<p>Đọc tài liệu này trước prompt P0–P7. Quyết định trực tiếp của chủ nhiệm và <code>OWNER-RULES-THONG-KE-NHOM-20261013</code> ưu tiên hơn đề xuất cũ. Khi mâu thuẫn nguồn, ghi NeedsRule theo đúng phạm vi; tiếp tục phần độc lập. Không buộc junior tự thiết kế lại domain hoặc đoán số từ ảnh.</p>
+<h2>1. Vì sao các lần sửa mất nội dung dù nhãn đẹp hơn</h2>
+<p><a href="cad/code-flow-current-snapshot.json">Snapshot code</a> hiện giữ hash và symbol của 37 file được chọn tại các biên pipeline và consumer cấu tạo. Phạm vi audit gồm luồng chính, cửa thu, chốt, vạt và union; chưa phải toàn bộ repository hoặc chứng nhận đã đọc từng dòng của mọi file.</p>
+<table>
+<thead>
+<tr>
+<th>Điểm code hiện tại</th>
+<th>Hành vi đã đọc</th>
+<th>Hệ quả và cách sửa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application/CalculationPipeline.CalculateS3Rebar</td>
+<td>Geometry→Rebar→SteelSchedule→Drawing; engine cho phép kết quả Partial có diagnostic</td>
+<td>Giữ thứ tự tính thật; thêm kết quả trình bày dùng chung sau rebar/canonical schedule, không đổi Partial thành Final</td>
+</tr>
+<tr>
+<td>Application/StageAdapters.FullRebarStage</td>
+<td>Ghép base/wall/roof/neck/haunch/ladder/tie/dowel/opening; shape chưa hỗ trợ giữ Partial</td>
+<td>Giữ consumer đúng. Kiểm input ON→consumer→occurrence; không sửa annotation bằng cách bỏ tính feature</td>
+</tr>
+<tr>
+<td>Drawing/ViewBuilder.BuildCore</td>
+<td>Vừa projection vừa tạo row/callout/detail/layout trong một hàm lớn</td>
+<td>Tách từng bước qua record thuần; chuyển dần, mỗi lần giữ geometry hash và content contract</td>
+</tr>
+<tr>
+<td>Drawing/PresentationGroupMapper.Build</td>
+<td>Tìm collectors/ticks/callouts đã vẽ rồi suy ra nhóm; có fallbackmark/Ø</td>
+<td>Group thật phải xác định trước khi vẽ; mapper sau vẽ chỉ kiểm readback, không là nguồn chân lý</td>
+</tr>
+<tr>
+<td>Drawing/ScheduleTablePlanner.Plan</td>
+<td>Tự dựng grid/header/text, rộng theo số ký tự; schema10cột từ canonical row</td>
+<td>Thép tròn đi qua NativeSchedulePlanner với schema TK; giữ generic table cho dữ liệu ngoài VHG khi có nhu cầu, không dùng ở bộ tờ VHG</td>
+</tr>
+<tr>
+<td>AutoCAD/CadRenderer.RenderTableRow</td>
+<td>AngleSteel dùngTK.TG; RoundSteel chạy AppendText từng cell</td>
+<td>Thêm đường native TK cho round. Dịch tiêu đề sang tiếng Việt không sửa được lỗi asset này</td>
+</tr>
+<tr>
+<td>Drawing/SheetFourNeckDetailer.Build</td>
+<td>Trả Plan/AA/BB và Schedule=[]; AddLabels chia2phía theo ScheduleMark</td>
+<td>Khôi phục schedule từ cùng group registry; recipe cổ có3vùng, không mỗi Canonical Mark 1 label</td>
+</tr>
+<tr>
+<td>Drawing/ViewBuilder.AddSchematicBars</td>
+<td>Sơ đồ lấy BendingSchematicPlanner/path; vieworigin index×2500 và bounds theo kích thước thật</td>
+<td>Tờ hình uốn dùng ShapeRecipe schematic cố định + caption số thật. Không scale TK hoặc cố stretch mọi hình theoL</td>
+</tr>
+</tbody>
+</table>
+<p>Nguyên nhân kiến trúc là <strong>nhiều nhánh cùng tự quyết định mark, group, vị trí và hình thống kê</strong>. Sửa nhánh này có thể không tác động nhánh đang xuất thật. Cần một luồng dữ liệu có consumer rõ, kiểm native readback và đủ nội dung mỗi tờ; số unit tests không thay kiểm bản xuất.</p>
+<h2>2. Mười hai bước chuẩn và ranh giới trách nhiệm</h2>
+<p>Tên record/planner mới dưới đây là <strong>đề xuất giao triển khai</strong>, không được báo đã tồn tại. Ưu tiên mở rộng type có sẵn nếu đáp ứng hợp đồng; không tạo framework tổng quát ngoài phạm vi.</p>
+<table>
+<thead>
+<tr>
+<th>Bước</th>
+<th>Đầu vào → đầu ra</th>
+<th>Code hiện có cần nối</th>
+<th>Asset dùng tại bước</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S0 Template</td>
+<td>File nguồn/hash → AssetRegistry và role signatures</td>
+<td>TemplateManifestReader/TemplateAssetImporter/TemplateContractValidator</td>
+<td>Tất cả definition, nested blocks, style/layer/dim/hatch; chưa chèn sản phẩm</td>
+</tr>
+<tr>
+<td>S1 Excel</td>
+<td>Workbook/hash/row → RawInput + SourceRefs</td>
+<td>WorkbookImporter/AccessoryInputMapper/schema</td>
+<td>Không chèn block; ghi nguyên văn note và ô nguồn</td>
+</tr>
+<tr>
+<td>S2 Resolve</td>
+<td>RawInput + catalog → EffectiveInput/AssemblyDatums</td>
+<td>Validator/cover catalog/geometry builders</td>
+<td>Chọn một mã nắp và MB/AA/BB; chưa scale vìin</td>
+</tr>
+<tr>
+<td>S3 Concrete</td>
+<td>EffectiveInput → GeometryModel + openings + joints</td>
+<td>GeometryStageAdapter/ChamberGeometryBuilder/PipeOpeningBuilder</td>
+<td>Không dùng block nhãn thay geometry</td>
+</tr>
+<tr>
+<td>S4 Physical steel</td>
+<td>Geometry + specs → BarOccurrences và canonical schedule</td>
+<td>FullRebarStage/planners/SteelScheduleCalculator</td>
+<td>Không dùng BLTC/TK thay thanh thật</td>
+</tr>
+<tr>
+<td>S5 Groups</td>
+<td>Occurrences + host regions → GroupRegistry</td>
+<td>Mở rộng PresentationGroup model, đổi nguồn của mapper</td>
+<td>Chọn DisplayMark và ShapeRecipe; chưa quyết vị trí block</td>
+</tr>
+<tr>
+<td>S6 Projection</td>
+<td>Geometry/occurrences/groups + view frame → nét2D và targets</td>
+<td>Plan/Section/Component/Structural projectors</td>
+<td>Sản phẩm nắp đúng view1:1; chấm cắt/thep profile theo role</td>
+</tr>
+<tr>
+<td>S7 Annotation</td>
+<td>Targets + groups + recipe → collector/labels/dim</td>
+<td>SheetTwo/Three/Four/SectionRebarLabels/AnnotationPlanner</td>
+<td>BLT1/2/3/4, Gach, BLTC, TenMC, CT, MC1/2 vàconditional markers</td>
+</tr>
+<tr>
+<td>S8 Schedule/bending</td>
+<td>GroupRegistry + quantities → NativeTKRows và schematic captions</td>
+<td>NativeSchedulePlanner mới; ScheduleNativeAttributes mở rộng</td>
+<td>21assetTK theo bảng mục8; không vẽ grid round tự do</td>
+</tr>
+<tr>
+<td>S9 Sheets</td>
+<td>View bundles + ink bounds → SheetPlan/Layout</td>
+<td>SheetLayoutPlanner/recipe resolver</td>
+<td>Khung; thứ tự/tỷ lệ riêng từng view</td>
+</tr>
+<tr>
+<td>S10 Native</td>
+<td>Semantic package + manifest → DWG/handle map</td>
+<td>CadRenderer/CadPrimitiveSink/BlockAttributeWriter</td>
+<td>AppendBlock+ATT, layer/style đúngsignature</td>
+</tr>
+<tr>
+<td>S11 Batch/plot</td>
+<td>Các package + frames →1DWG + đầy đủPDF/receipt</td>
+<td>Orchestrator batch + plottool + productionadapter</td>
+<td>Khung/plotwindows được kiểm; không dự a Modelordinal</td>
+</tr>
+</tbody>
+</table>
+<p>Mỗi bước lưu đầu vào/đầu ra ID/hash/diagnostics. Bước sau không đọc lại Excel hoặc sửa hình học đầu bước trước. Drawing không tính lại số thanh/chiều dài; Native không tự đặt tên thanh. S9 không dịch riêng text mà quên leader/Gach cùng bundle.</p>
+<h2>3. S0–S2: một bộ thông số hiệu lực, không nhiều phiên bản mâu thuẫn</h2>
+<ol>
+<li>Lưu WorkbookHash, sheet,row,CellAddress,RawValue,ParsedValue,RuleId,EffectiveValue,Reason. Note không phải lệnh thực thi; note là căn cứ giải thích ý nghĩa ô.</li>
+<li>Chọn loại bằng enum/profile đã validate, không từ tênG400/NR/LK. Tên chỉ dùng title/khung. Thiếu dữ liệu phải trả diagnostic có ô nguồn.</li>
+<li>Geometry dùng mm; cao độ hiển thịm. Chuyển datum một lần tại input boundary; giữ LocalZMm và DisplayElevationM riêng. Không cộng cao độ tuyệt đối vào kích thước bản dày.</li>
+<li>Chọn nắp→khóa clear cổ theo aperture catalog. Theo hướng quay, hoán đổi X/Y đúng một lần. t_cổ vẫn lấy input. EffectiveInput lưu cả clearraw vàclearresolved để giải thích xung đột.</li>
+<li>Khung đỡ theo quyết định mới: bao từng phương=clear+2t_cổ, dày100. Không tự sửa kích thước native nắp mua sẵn. FinishedTop là mặt trên nắp; NeckTop là mặt dưới khung đúng assembly. Không lấy80cũ áp vào khung100.</li>
+<li>Catalog cống trả inner/outer/cutout/chamfer/mortar riêng. Chưa có code không đoán dày10% hoặc parse tên thaycatalog. Typed extension có provenance hoặc Block rõ; dùng một resolvedprofile xuyên mọi view.</li>
+<li>D3=0 có note cho phép không lót: optionalPad xuyên validator/domain/projection/hatch/label. Không tạo solid0, epsilon giả hoặc vẫn yêu cầuPad ởViewBuilder. Sửa đồng bộ STD16.</li>
+<li>Tỷ lệ tấm nắp từM15=20 là1:20, không20%; body có thể1:30. Đừng sửa width/clear dự a tỷ lệin.</li>
+</ol>
+<p>TemplateRegistry phải giữ nguồn thật: <code>VHG-Unicode.Regular</code> trong catalog hiện dùng <strong>viet buddy.shx</strong>, Bold dùngarial.ttf, width0.8. Hướng dẫn cũ “mọiRegular làarial” không phải quan sát đúng template. Nếu tạo styleUnicode thay thế để chạy trên máy thiếuSHX, khai báo rõ Font Policy/alias, đo ink và soPDF; không đổi sharedstyle âm thầm hoặc coi substitution là đã đúng mẫu.</p>
+<h2>4. S3: cấu tạo bê tông, lỗ và mối nối</h2>
+<table>
+<thead>
+<tr>
+<th>Loại</th>
+<th>Assembly cần giữ</th>
+<th>Mối nối/chốt</th>
+<th>Cách kiểm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Cổ+trần+thành+đáy theo cấu hình liền khối</td>
+<td>Không tự thêm joint trần rời</td>
+<td>Union miền cùng assembly; không cònseam giả ở đáy–vạt–tường</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Thân/thành/đáy mộtassembly;trần+cổ assemblyrời</td>
+<td>Chốt và lỗ chờ1–1 tạiinterface</td>
+<td>Giữjointthật; datum/lỗ chờ khớp trần–thành</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Nhưloại2,cómiệng thu/khung/cửa thu</td>
+<td>Kiểmjoint/chốt tránh cửa thu</td>
+<td>Không táidùngnguyênloại2rồi thêm chữ“cửa thu”</td>
+</tr>
+</tbody>
+</table>
+<p>Concrete union phải xử lý cả vòng ngoài và vòng lỗ. Không hợp nhất các miền khác vật liệu hoặc khác assembly. Hatch và outline cùng đọc một kết quả union; chỉ hợp nhất hatch nhưng giữ outline cũ sẽ còn seam. Kiểm chân ON/OFF, vạt ON/OFF, lỗ gần chân/góc và hai lỗ gần nhau. Mối ghép loại2/3, lớp lót và nét khuất là đường có nghĩa, cần giữ.</p>
+<p>OpeningViewMap giữ OpeningId, host, FrameId, inner/outer/cutout và phép biến đổi world/local. Plan/AA/BB dùng cùng record. Khi mặt cắt không đi qua lỗ, cách biểu diễn nhìn cạnh hoặc nét khuất phải theo recipe và ghi lý do. Tường được nhận dạng từ host, không từ vị trí X trên giấy. Kiểm cả xoay hướng và đổi tên ga.</p>
+<h2>5. S4: đủ thép thật trước khi sửa nhãn</h2>
+<p>Đọc <a href="CAU-TAO-UNION-CHOT-VAT-CUA-THU.html">audit cấu tạo và hướng sửa STD23–25</a> trước gói K2/K5/K6. Probe xác nhận union kín có inner loop; projector lỗ chờ tạo hình đúng nhưng role chưa resolve và ghi chú chốt dùng chiều cao60 cố định. Builder/planner cửa thu chưa được compose vào pipeline chính. Không dùng các hình cửa thu static hoặc số test riêng để thay bằng chứng consumer đã nối.</p>
+<p>Thứ tự composition hiện có cần giữ: lưới chính → cắt theo lỗ → nominal hook theo policy → thép buộc/chốt/gia cường và kiểm duplicate ID, ownership, collision. Không áp hook của thép tường chính vào chốt. Code đã đặt dowel sau nominal hook; giữ cách xử lý này.</p>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Cần kiểm hoặc bổ sung</th>
+<th>Không chấp nhận</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C tường</td>
+<td>Năm đoạn, bốn filletR8; đúng host/lớp/station/thickness/cover</td>
+<td>Chỉ có dấuX, cố định90×30 cho mọi tường, mất C khi đổi bước</td>
+</tr>
+<tr>
+<td>U đáy/trần</td>
+<td>Năm đoạn; chân/nhịp từ typed input, chiều cao từ stack; rải so le</td>
+<td>Đáy cóU nhưng trần mấtU; số dấuX không khớp tie</td>
+</tr>
+<tr>
+<td>Cổ/Z/panel tie</td>
+<td>Ma trận hỗ trợ component×shape; chưa đủ rule thì Partial</td>
+<td>Gọi Complete vì wallC/baseU đã có</td>
+</tr>
+<tr>
+<td>Thang</td>
+<td>Path/rung, host, bước, khoảng hở và collision; nhómTh riêng</td>
+<td>Chỉ text ThangD18; gom vớiU vì hình sơ họa giống</td>
+</tr>
+<tr>
+<td>Chốt/lỗ chờ</td>
+<td>Loại2/3; station ở interface; chốt và lỗ1–1, tránh cửa thu/cống</td>
+<td>Sinh theo tênNR; có ký hiệu nhưng không lỗ vật lý</td>
+</tr>
+<tr>
+<td>Vạt góc</td>
+<td>Thép xiên/phân bố theo spec, đúng support; chỉ sinh khi ON</td>
+<td>Có bê tông vạt nhưng không thép góc</td>
+</tr>
+<tr>
+<td>Gia cường cống/lỗ trần</td>
+<td>Ring, diagonal, border theo scope/Ø/cover</td>
+<td>Dùng GC1 toàn cục cho mọi view hoặc copy ringG500</td>
+</tr>
+</tbody>
+</table>
+<p><code>TiePlanner</code> hiện chỉ hỗ trợ đầy đủ một số trường hợp spacing=2×pitch. Không đổi Excel để vừa khả năng planner. Viết station policy từ input và note; kiểm bố trí đều/lệch, bước hai phương khác nhau. Nếu không dựng được, trả diagnostic có component, input và nguyên nhân.</p>
+<p><strong>STD21 còn NeedsRule:</strong> nhánh cắt thép tường truyền wall cover, trong khi accessory opening có trường Protect.H riêng. Workbook gốc cho wall cover30mm, hole cover15mm ở loại1/2 hoặc10mm ở loại3. Mẫu2D cho thấy offset tới tim thanh15mm trong một trường hợp; chưa chứng minh đó là cover bề mặt15+Ø/2. Nối trường riêng, lưu MeasurementBasis; không tự xóa Ø/2 hoặc ép15mm mọi case. Giữ Partial cho case phụ thuộc rule này, tiếp tục các phần độc lập.</p>
+<h2>6. S5: nhóm ngữ nghĩa dùng chung, không suy ngược từ chữ đã vẽ</h2>
+<p>Đề xuất <code>PresentationGroupRegistry</code> gồm:</p>
+<pre><code class="language-text">GroupId, ManholeId, ComponentId, FaceLayer, DirectionRole,
+OpeningIds, CutRegion, ShapeRecipeId, Diameter, PitchOrQuantity,
+HookPolicy, MeasurementBasis, OccurrenceIds[], CanonicalMarks[],
+DisplayMark, MemberLengthsMm[], MeanSegmentsByRole, RuleId, SourceRefs[]
+</code></pre>
+<p>Thuật toán tuần tự:</p>
+<ol>
+<li>Dùng hệ tọa độ cục bộ của tường để xác định phương, lớp và vùng cắt. Mỗi đoạn sau cắt giữ ParentOccurrenceId, SegmentId, station, OpeningIds và vai trò hai đầu. Không xác định hậu tố A/B bằng thứ tự ID.</li>
+<li>Khóa nhóm gồm Manhole, Component, FaceLayer, DirectionRole, CutRegion, ShapeRecipe tương thích, Ø, HookPolicy, MeasurementBasis và spacing mode. Độ dài khác nhau do cống tròn không bắt buộc tách nhóm trình bày; khác đường kính hoặc khác hình móc thì phải tách.</li>
+<li>T1A=trái, T1B=phải, T2A=trên, T2B=dưới theo wall-view đã chốt. Đây là quy tắc tên do owner yêu cầu. Lưu CutRegion độc lập với tên direction enum. Đổi thứ tự input IDs không được đảo hậu tố A/B.</li>
+<li>Với nhiều cống, giữ OpeningRegionSet; không đếm một đoạn hai lần vì nó liên quan hai lỗ. Đoạn nằm giữa hai cống cần role Middle/MultipleOpenings và quy tắc alias riêng. Nếu chưa có rule đặt tên, ghi NeedsRule cho đúng nhóm; không tự sinh T1C, T1D… theo thứ tự duyệt.</li>
+<li>DisplayMark dùng D/T/N/C/GC hoặc prefix Excel đã validate trong scope đầy đủ. Ví dụ T3 ngoài Ø6 hình C khác T3 trong Ø10 hình VG trong nguồn. Không tra role theo SH toàn cục.</li>
+<li>Tạo registry trước annotation. Collector, nhãn, TK và bending cùng đọc registry. PresentationGroupMapper.Build sau vẽ chuyển thành validator: đối chiếu nhóm/nhãn/ticks đã xuất với registry; không thêm nhóm giả để coverage đạt.</li>
+<li>Mỗi occurrence có một primaryfabricationgroup; có thể xuất hiện nhiều view. Coveragephân biệt physicalmembership và viewrepresentation; không gọi nhiềuviewlàthanhtrùng.</li>
+</ol>
+<p>DAI = trung bình Li; SL = số thành viên; TDAI = tổng Li chưa làm tròn /1000. Ví dụ Li=[300,420,500,420,300] cho DAI388, SL5, TDAI1.94m. Chỉ làm tròn lúc hiển thị; không dùng rounded mean×N. Các tag L/LT/LP lấy trung bình theo vai trò đoạn tương ứng. Không lấy thanh đầu tiên làm đại diện số liệu, không điền mean DAI vào mọi tag. CanonicalMark vẫn phân biệt kích thước chế tạo thật; nhiều CanonicalMarks có thể cùng một nhóm trình bày tương thích.</p>
+<h2>7. S6–S7: chiếu và bố trí động có giới hạn rõ</h2>
+<p>Mỗi View Frame cóWorldToLocal2D, direction/normal,mirror,owningcomponent và scale. Mọi annotation bundle lưu ViewId/GroupId/TargetIds. Bốn không gian tách rõ: physicalmm→viewlocalmm→paper offset mm→sheet position. Công thứ c anchor=geometry anchor+scaleDenominator×paperOffset; không nhângeometriestheoW/W0.</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Chọn target và lane</th>
+<th>Mẫu nguồn, giới hạn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1/T1/N1</td>
+<td>Collector vuông góc phương thanh, dẫn ra lane dưới</td>
+<td>PDF005: ymin−5S, stub1S là baseline, không ép mọi stub bằng1S</td>
+</tr>
+<tr>
+<td>D2/T2/N2</td>
+<td>Collector gom phương còn lại, nhãn mép trái</td>
+<td>PDF005/006; tránh chữ dim, không đánh dấu thanh trong lỗ</td>
+</tr>
+<tr>
+<td>T1A/B, T2A/B</td>
+<td>Gom đúng region, thứ tự lane theo semantic role</td>
+<td>Bốn nhóm/cống/lớp; không mỗi thanh một nhãn</td>
+</tr>
+<tr>
+<td>D3/N4/T3 tie</td>
+<td>Target là tie/node đại diện thật; elbow ra vùng trống</td>
+<td>BLTC đúng node; C/U khác shape và role</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>Border/ring/diagonal đúng spec; dùng vùng trống phù hợp</td>
+<td>Không gom ring và thanh thẳng vào một recipe</td>
+</tr>
+<tr>
+<td>Cổ C1/C2/C3…</td>
+<td>Theo MB/AA/BB: trái/phải/lòng thoáng/gần tie</td>
+<td>PDF002; không tạo hai cột vô tận theo CanonicalMark</td>
+</tr>
+<tr>
+<td>Section labels</td>
+<td>Target là path hoặc chấm cắt đúng lớp</td>
+<td>Không Y60/140/190 cứng; đáy/trần trên/dưới đúng lớp</td>
+</tr>
+<tr>
+<td>Title/CT/material</td>
+<td>Title theo extents; CT theo surface; vật liệu theo region</td>
+<td>Không giảm chữ để né hình</td>
+</tr>
+</tbody>
+</table>
+<p>Thuật toán collector: chọn trục ứng viên trong vùng thép → tính giao với path thành viên đã chiếu → lọc đúng nhóm/lỗ/giao trùng → chèn Gach → đi tuyến tới attachment của BLT. Collector có thể đi qua vùng lỗ như nguồn, nhưng không đặt Gach hoặc thép giả trong khoảng trống. Gach nằm thẳng hàng với collector chưa đủ chứng minh nó giao đúng thanh.</p>
+<p>Một <code>ViewLaneAllocator</code> dùng cho toàn view, không reset theo family. Sắp nhóm theo role/region ổn định. Đo ink gồm ATT thật, vòng tròn, stub và nét; không dùng bbox đối xứng±420. Khi va: dời dọc lane → thử lane dự phòng → thêm elbow → mở extents hoặc tách trang có lý do. Không xóa nhãn, thu nhỏ chữ hoặc đổi SH/Ø để qua gate.</p>
+<p>BLT1/2 nhận SH/DK/A; không vẽ thêm SH chồng vòng tròn. BLT3/4 chỉ nhận NOTE. Gach dùng scale giấy; BLTC có tie ID thật. Annotation scale baseline=S/100; sản phẩm nắp giữ1:1 trong model trước phép biến đổi view. Sau plot hoặc đổi tỷ lệ, kiểm chiều cao chữ trên giấy và vị trí thực, không chỉ đếm block.</p>
+<h2>8. S8: bảng ATT và tờ hình uốn — quy tắc chọn block</h2>
+<p><a href="catalog/ASSET-STAGE-USAGE.html">Toàn bộ 104 definition dùng ở bước nào</a> và <a href="catalog/SCHEDULE-ASSET-TABLE.html">schema 21 TK</a> là phần bắt buộc của chuẩn. Sử dụng toàn bộ thông tin template không có nghĩa chèn tất cả block vào mọi ga. Mỗi asset có điều kiện, vai trò và dependency. <a href="catalog/CONDITIONAL-ASSETS-AUDIT.html">12 block phụ</a> đã xác định vai trò từ hình học và dependency; lựa chọn sản phẩm, hướng chèn và hành vi biến thiên vẫn phải kiểm riêng. Không dùng tên block để đoán cấu tạo.</p>
+<table>
+<thead>
+<tr>
+<th>Block</th>
+<th>Chọn khi</th>
+<th>Tag và lưu ý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TK.Tieude</td>
+<td>Header mỗi cột thống kê</td>
+<td>KhôngATT; giữ chữ tiếng Việt nguồn</td>
+</tr>
+<tr>
+<td>TK.Tenluoi</td>
+<td>Tên nhóm mặt/lớp</td>
+<td>TENLUOI; cùngY hàng đầu nhóm; không chèn row rỗng</td>
+</tr>
+<tr>
+<td>TK.L0M</td>
+<td>Thanh thẳng không móc</td>
+<td>SH,L,D,DAI,SL,TDAI,KL</td>
+</tr>
+<tr>
+<td>TK.L1M</td>
+<td>Một móc, đúng topology</td>
+<td>ThêmLT; không chọn theo chiều dài</td>
+</tr>
+<tr>
+<td>TK.L2M</td>
+<td>Hai móc</td>
+<td>L,LT,LP; các lớp có hook policy khác nhau</td>
+</tr>
+<tr>
+<td>TK.M.C</td>
+<td>Thép buộcC</td>
+<td>L,LT,LP và common; hình sơ họa cố định</td>
+</tr>
+<tr>
+<td>TK.M.U</td>
+<td>U buộc hoặc thang</td>
+<td>L2T,L1T,L3,L1P,L2P và common; role/Ø phải tách</td>
+</tr>
+<tr>
+<td>TK.MC</td>
+<td>Móc cẩu</td>
+<td>KhácTK.M.C; dùng năm tag đoạn</td>
+</tr>
+<tr>
+<td>TK.M.Z</td>
+<td>TieZ</td>
+<td>L,LT,LP và common; chỉ dùng khi component được hỗ trợ</td>
+</tr>
+<tr>
+<td>TK.VG</td>
+<td>Vạt/góc theo recipe</td>
+<td>L,LT,LP và common; có ởT3/T4 trong nguồn</td>
+</tr>
+<tr>
+<td>TK.GC.T</td>
+<td>Ring gia cường tròn</td>
+<td>L/LT theo schema; không lấyπD thay mọi tag</td>
+</tr>
+<tr>
+<td>TK.GC.H</td>
+<td>Khung bo chữ nhật</td>
+<td>L có thể950x950, LT150x2; không parse double</td>
+</tr>
+<tr>
+<td>TK.NG</td>
+<td>Nhóm mắt/ngàm theo catalog</td>
+<td>Role có điều kiện; không làm fallback thanh thẳng</td>
+</tr>
+<tr>
+<td>TK.TG</td>
+<td>Thép góc</td>
+<td>Giữ nhánh angle native; đúng catalog và đơn vị chiều dài</td>
+</tr>
+<tr>
+<td>TK.NA1 / TK.NA2</td>
+<td>Nhóm thép tấm nắp theoPDF004</td>
+<td>L/LT/LP và common; giá trị từ input panel</td>
+</tr>
+<tr>
+<td>TK.CT.N / TK.CT.T</td>
+<td>Nhóm cửa thu loại3</td>
+<td>Theo schema và recipe; chưa đủ chứng cứ thì không tự gán</td>
+</tr>
+<tr>
+<td>TK.THKL</td>
+<td>Tổng đáy/tường/trần/cổ</td>
+<td>TONG,DAY1/2,TUONG1/2,TRAN1/2,CO1/2; bucketØ theo contract</td>
+</tr>
+<tr>
+<td>TK.THKLNAP</td>
+<td>Tổng tấm nắp/thép hình</td>
+<td>TONG,NAP1,NAP2,THEPHINH</td>
+</tr>
+<tr>
+<td>TK.THKL.CT</td>
+<td>Tổng cửa thu</td>
+<td>CUATHU1/CUATHU2; không giả tổng khi NeedsRule</td>
+</tr>
+</tbody>
+</table>
+<p><code>common</code> gồm SH,D,DAI,SL,TDAI,KL, nhưng chỉ bind nếu asset thực có tag đó. So schema từng block; không thêm tag giả và không giữ giá trị mẫu chưa bind. Giá trị chuỗi như950x950 hoặc150x2 dùng formatter riêng, không parse thành một số.</p>
+<p>NativeTKRow đề xuất gồm GroupId, AssetName, Attributes, Insertion, AnnotationScale và SourceIds. RoundSteel đi thẳng sang BlockPrimitive hoặc NativeScheduleRow; renderer không quay lại generic TableRow. Preflight kiểm asset, đủ tag, không tag lạ và hash hình sơ họa. Thiếu asset phải Block có GroupId; cấm fallback sang grid tiếng Anh.</p>
+<p>Pitchrow500×0.3=150,header1000×0.3=300,width12500×0.3=3750 ở mẫu 1:30. Cóassetbboxvượtrowchuẩn(VG,MC…), đo ink thật trước layout. MẫuhaiTK cột ở4500/8550,chênh4050không phảifixedsheetoriginmọiga. Paginationtheogrouprows/extents,bảo toànrowsvàheader,không thêm hàng giả.</p>
+<p>Tờ hình uốnkhácbảngTK: ShapeRecipe2D glyph cố định,chữ kích thước từ registry/segmentroles,groupcaptioncóLtbkhi variable. <code>BendingSchematicPlanner</code> vật lý giữ để validation/đối chiếu;khôngđổreal-sizepathtrực tiếpvàocellTK. Các source glyph U/laddergiốngnhaukhôngchophépgomchungrole.</p>
+<h2>9. S9–S11: native, trang và batch</h2>
+<p>Recipe theo PDF001–008: Structure 6 hình; BaseWalls12; Walls34Roof; NeckAndSchedule; BendingDetails; CoverConstruction. Loại 3 giữ NeckCatch/ScheduleOnly từ overview/catalog. Nhánh hiện tại <code>SheetFourCatchBasinViews</code> đang được gọi nhưng dùng tọa độ, bounds, nhãn và tỷ lệ cố định (STD-22). Thay bằng projector nhận ResolvedCatchAssembly, occurrences và group registry theo <a href="catalog/CONDITIONAL-ASSETS-AUDIT.html">hướng sửa chi tiết</a>. Cần kiểm ca native loại 3 thực tế trước khi đóng lỗi.</p>
+<p>CadRendererchỉrenderintent;CadPrimitiveSinkđangAppendBlockvàBlockAttributeWriterđãSetAttributeFromBlock/AdjustAlignment. Giữ đường này,thêmstrictschemapreflightvà readbackATT. OCS/extrusion/rotation/mirrorphảidùngfull matrix;không lấyrawINSERTX/Ykhi−Z. Nativefont/circleinkkiểmsau formattext.</p>
+<p>Batch: validate các row → tính từng row → ghi receipt từng row → gom package có namespace ManholeId → mộtDWG → liệt kê khung → in trong mộthost. Row lỗi phải ghi Failed; tiếp tục row độc lập nếu database còn hợp lệ. Không bỏ row im lặng. Batch9/10 chưa đạt10/10. Công cụ nghiên cứu ghép clone không chứng minh production repository/NOD/XData đã cập nhật đúng; test sửa gaB không thay gaA.</p>
+<p>Plot window lấy từ Khung hoặc frame đã đăng ký, sort theo ManholeId+SheetRole+PageIndex; chọn CTB/STB theo PSTYLEMODE. Không dùng Model ordinal để ghép bundle ga; không plot extents chung chứa chữ ngoài khung. Exit0 chỉ xác nhận process thành công.</p>
+<h2>10. Thứ tự sửa và đầu ra bắt buộc</h2>
+<table>
+<thead>
+<tr>
+<th>Gói</th>
+<th>Sửa chính</th>
+<th>Điều kiện chuyển bước</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K0</td>
+<td>Đóng băng input, template, code và các run cũ</td>
+<td>Có manifest/hash và content diff; giữ lịch sử</td>
+</tr>
+<tr>
+<td>K1</td>
+<td>EffectiveInput, cổ/nắp, datum, optional Pad, profile cống</td>
+<td>Các view cùng OpeningId, clear và datum; đổi tên ga không đổi hình</td>
+</tr>
+<tr>
+<td>K2</td>
+<td>C/U, thang, chốt, vạt và cửa thu vật lý</td>
+<td>Feature ON có occurrence và projection; ownership/collision đúng</td>
+</tr>
+<tr>
+<td>K3</td>
+<td>SemanticGroupRegistry, chiều dài trung bình theo segment role</td>
+<td>Bốn vùng cắt đúng scope; giữ raw sum và canonical marks</td>
+</tr>
+<tr>
+<td>K4</td>
+<td>NativeTKRow, ShapeRecipe và binding21assets</td>
+<td>Readback block/tag/value; không bảng tiếng Anh, không stretch theoL</td>
+</tr>
+<tr>
+<td>K5</td>
+<td>Collector, BLT, Gach, BLTC, nhãn cổ/trần/mặt cắt</td>
+<td>Đúng nhóm, không va ink; chỉ sửa bố cục thì geometry hash không đổi</td>
+</tr>
+<tr>
+<td>K6</td>
+<td>Recipe, thứ tự hình, tỷ lệ và overflow</td>
+<td>Đủ required roles; không crop; đối chiếu đúng input basis</td>
+</tr>
+<tr>
+<td>K7</td>
+<td>Batch5/10, cả3loại, update và plot mộthost, ma trận</td>
+<td>Đủ case và frames; xử lý failures; semantic và visual đạt</td>
+</tr>
+</tbody>
+</table>
+<p>Không đợi K5 mới phát hiện K2 thiếu C/U. Sau mỗi gói phải có kiểm thử đúng phạm vi, một ca native đại diện và bản xuất xem được. Không viết test chỉ lặp lại hằng số trong implementation. Khi chưa có diff phân tầng, không đồng thời sửa domain và layout rồi kết luận không biết lỗi từ đâu.</p>
+<h2>11. Checklist nghiệm thu không được bỏ</h2>
+<ol>
+<li><strong>Input:</strong> có raw/effective values và cell refs; profile, clear cổ, t_cổ, nắp/hướng, cao độ, cống, lớp lót và tỷ lệ đúng.</li>
+<li><strong>Concrete:</strong> đủ ba loại; đúng assembly/joint, vòng lỗ; outline và hatch cùng union; không seam giả.</li>
+<li><strong>Steel:</strong> lưới chính đúng lớp/hook; đủ C/U/thang/chốt/vạt/GC/cửa thu khi ON. OFF có lý do N/A. Không orphan/phantom.</li>
+<li><strong>Crossviews:</strong> cùng OpeningId có host/tâm/invert nhất quán; clear cổ trên MB/AA/BB đúng hướng; section target đúng lớp.</li>
+<li><strong>Groups:</strong> SH/Ø/pitch/quantity và scope đúng; trái/phải/trên/dưới đúng; mean/raw sum đúng. Lặp hình chiếu không làm tăng SL.</li>
+<li><strong>Native assets:</strong> TK là INSERT có ATT thật, đúng tag và giá trị; không enum tiếng Anh, không thêm path thép thật vào ô TK. Sản phẩm1:1, annotation đúng kích thước giấy.</li>
+<li><strong>Layout:</strong> đủ view, row, caption, dim, vật liệu và CT; font policy, nét liền/khuất đúng; không collision hoặc overflow.</li>
+<li><strong>Batch:</strong> đủ5/10rows; đúng ManholeId mỗi frame; namespace không đụng; update idempotent; in đủ PDF trong mộthost; có input/build/DWG/PDF hashes.</li>
+<li><strong>Ma trận:</strong> giữ216core+40edge: cả3loại, chân ON/OFF, vạt ON/OFF, nhỏ/lớn, cống tròn/hộp, hướng nắp, nhiều cống, không lót, tỷ lệ20/30/40, cửa thu và ties. Case input không hợp lệ có expected validation. Feature chưa hỗ trợ không được đổi thành N/A để né nghiệm thu.</li>
+<li><strong>Bàn giao:</strong> đưa WebP nhẹ mỗi trang và PDF vector đầy đủ từ kết quả DBTool vào portal theo HUONG-DAN-CAP-NHAT-KET-QUA. Trạng thái NotRun/Failed/Partial/Passed phải có bằng chứng; không dùng ảnh VHG làm ảnh kết quả DBTool.</li>
+</ol>
+<p>Chỉ đóng STD khi có evidence đúng phạm vi. Snapshot 37 file, phân luồng 104 asset và dùng 8 PDF là cơ sở giao việc, <strong>không chứng minh DBTool chạy đúng mọi trường hợp</strong>. Các NeedsRule và case chưa chạy phải hiện trong báo cáo cuối; không xóa chúng để gọi Final.</p></html>
