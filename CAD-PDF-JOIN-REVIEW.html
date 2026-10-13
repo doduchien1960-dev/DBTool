@@ -1,0 +1,90 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CAD-PDF-JOIN-REVIEW</title><style>body{font:16px/1.65 Segoe UI,Arial;margin:0;color:#183449;background:#edf2f5}main{max-width:1180px;margin:auto;padding:28px;background:white}nav{padding:12px;background:#15384b}nav a{color:white;margin-right:20px}a{color:#096e85}h1,h2,h3{color:#146d78}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{border:1px solid #bccfd7;padding:8px;vertical-align:top}th{background:#e4f0f2}pre{padding:14px;white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f5f7}img{max-width:100%}</style><nav><a href="INDEX.html">Trang tổng</a><a href="CATALOG-TEMPLATE.html">Catalog</a><a href="PDF-71-OVERVIEW.html">71 PDF</a><a href="KE-HOACH-SUA-CHO-JUNIOR.html">J00–J08</a></nav><main><h1>Rà soát 9 liên kết CAD–PDF — 13/10/2026</h1>
+<p>Đã in lại <strong>10 khung ứng viên từ 3 DWG demo</strong>, mỗi DWG một phiên Core Console; cả3 receipt exit0, không lỗi transcript, nguồn giữ nguyên SHA256, đủ10 PDF vector A3. Đây là bản in chẩn đoán; chính sách nét/màu chưa khớp nguyên bản, không dùng để chứng nhận plot style.</p>
+<p>Đã mở9 ảnh cặp source/native, rồi mở lại2 ảnh sau sửa. Kết quả: <strong>sửa2 liên kết sai</strong>, củng cố5 ứng viên bằng nội dung, giữ2 trang có bảng tương đương chưa xác định khung duy nhất. Chưa chứng nhận từng glyph/endpoint. Kết quả máy lịch sử ở <code>pdf/cad-frame-join.json</code> giữ nguyên; lớp quyết định <code>cad/join-replot/manual-review.json</code> được ledger generator áp dụng.</p>
+<table>
+<thead>
+<tr>
+<th>PDF</th>
+<th>Khung / kết luận</th>
+<th>Chi tiết phân biệt</th>
+<th>Bằng chứng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>002</td>
+<td>CAD-1-F019 được nội dung hỗ trợ</td>
+<td>Cổ1000×800; AA800/BB1000; CT56.74; hai cột TK, có C/U/thang.</td>
+<td><a href="cad/join-replot/PDF-002-comparison.png">Ảnh</a></td>
+</tr>
+<tr>
+<td>007</td>
+<td>CAD-1-F009 được nội dung hỗ trợ</td>
+<td>Cổ800×1000, CT58.51, hai cột TK. Chỉ7 span extract không có nghĩa chỉ7chữ.</td>
+<td><a href="cad/join-replot/PDF-007-comparison.png">Ảnh</a></td>
+</tr>
+<tr>
+<td>024</td>
+<td>CAD-2-F019 được nội dung hỗ trợ</td>
+<td>Cổ1000×800, CT56.74. Source7span và native909span: khác phương thức biểu diễn/extract chữ, không chứng minh sinh thêm902nhãn.</td>
+<td><a href="cad/join-replot/PDF-024-comparison.png">Ảnh</a></td>
+</tr>
+<tr>
+<td>031</td>
+<td>CAD-2-F026 được nội dung phân biệt hỗ trợ</td>
+<td>D1 có đoạn1540,total1720. Runner F015 có1640. Nét lặp cho điểm cao không đủ chọn runner.</td>
+<td><a href="cad/join-replot/PDF-031-comparison.png">Ảnh</a></td>
+</tr>
+<tr>
+<td>038</td>
+<td>CAD-2-F009 được nội dung hỗ trợ</td>
+<td>Cổ750×950, clear500×700, CT58.49. Bảng thấp sát khung; không sao chép overflow.</td>
+<td><a href="cad/join-replot/PDF-038-comparison.png">Ảnh</a></td>
+</tr>
+<tr>
+<td>051</td>
+<td>F026/F033 loại3: chưa chọn duy nhất</td>
+<td>16 instance TK có cùng ordered block/tag/value; GN1/GG1/GT1 V30×30×3. Table equivalence không chứng minh cả geometry hay ManholeId.</td>
+<td><a href="cad/join-replot/PDF-051-comparison.png">Ảnh F026</a></td>
+</tr>
+<tr>
+<td>056</td>
+<td><strong>Sửa F031 → CAD-3-F024</strong></td>
+<td>Handle802B2 TK.L2M: D1 L1490,DAI1670,SL14,TDAI23.38,KL14.41. D2 L1790. F031 là1540/1720/15,D2=1890, trái PDF này.</td>
+<td><a href="cad/join-replot/PDF-056-corrected-comparison.png">Ảnh sửa</a></td>
+</tr>
+<tr>
+<td>058</td>
+<td>F026/F033 loại3: chưa chọn duy nhất</td>
+<td>Cùng recipe khung góc ngoài/giữa/trong, tấm nắp SL2, AA/BB và bảng TK như051; giữ equivalence/provenance.</td>
+<td><a href="cad/join-replot/PDF-058-comparison.png">Ảnh F026</a></td>
+</tr>
+<tr>
+<td>064</td>
+<td><strong>Sửa F024 → CAD-3-F031</strong></td>
+<td>Handle83C6B: D1 L1540,DAI1720,SL15,TDAI25.80,KL15.91. Handle83CFF: D2 L1890,DAI2070,SL13.</td>
+<td><a href="cad/join-replot/PDF-064-corrected-comparison.png">Ảnh sửa</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Sai số nghiên cứu và cách ngăn tái diễn</h2>
+<p>Auto-best056/064 đã chọn ngược. Đây là lỗi ghép của công cụ nghiên cứu, không gán cho DBTool/junior. Fit dựa text chung và segment lặp có thể chọn sai. Một số tọa độ dự đoán của khung sai nằm ngoài trang: phải từ chối overlay, không lấy làm anchor mẫu.</p>
+<p>Ledger056/064 đã lấy inventory đúng khung và áp phép fit mới từ <code>cad/join-replot/corrected-frame-transforms.json</code>, kiểm hash PDF/DXF và frame trước khi chấp nhận. PDF056 khớp1040/1060 đoạn đủ điều kiện; PDF064 khớp1230/1250, tolerance0.8pt. Tọa độ block/attributes trên PDF đã tính lại; transform ghép sai cũ không được dùng. Đây chưa phải chứng nhận glyph/quantity/curve hoặc toàn trang. Quan sát71trang giữ nguyên. Source056 và nativeF024 còn khác một số quantitycells thấp (native có0); không chứng nhận toàn bảng giống nhau. Phần lượng chưa ưu tiên vẫn phải ghi chênh lệch.</p>
+<p>Junior phải thực hiện:</p>
+<ol>
+<li>ReferenceBundle có family/sourcehash/framehandle/ga/cao độ/kích thước/recipe. Filename Model chỉ là locator.</li>
+<li>Trước lấy block/tags/anchors từ frame, kiểm ít nhất hai thông tin phân biệt như dimension/elevation/row attributes. Tiêu đề chung và sốline không đủ.</li>
+<li>Bảng tương đương dùng học schema/tag/order; không lấy sốliệu/ManholeId áp input khác. Cấm hardcode1490/1540 vào production.</li>
+<li>Tách geometry, annotation structure, text extraction và plot appearance. Font gốc đọc STYLE/nativeCAD khi PDF outline; không đoán font từ ảnh hay coi text count là coverage.</li>
+<li>Sau correction tạo lại derivedinventory/localcoordinates/CSV/overlay; giữ autoresult cũ để audit. Không chỉ sửa frame_id rồi giữ transform cũ.</li>
+<li>Exactglyph/endpoint và originalplot policy còn pending; visualfull-page chưa phải Passed toàn trang hay nghiệm thu DBTool.</li>
+</ol>
+<h2>Tập bằng chứng</h2>
+<ul>
+<li><a href="cad/join-replot/manual-review.json">Quyết định9trang</a>.</li>
+<li><a href="cad/join-replot/evidence.json">Receipt/hash/text/ảnh</a>.</li>
+<li>Native receipts ở <code>outputs/vhg-join-replot-source1-20261013/receipt.json</code>, tương tự source2/source3.</li>
+<li>Ảnh auto sai <code>PDF-056-comparison.png</code>, <code>PDF-064-comparison.png</code> vẫn giữ; ảnhcorrected tênriêng.</li>
+<li>Native geometry/attributes: <code>cad/source-03-entities.json</code>, tra802B2/80344/83C6B/83CFF vàframe_membership.</li>
+</ul>
+<p>Đây là sửa mẫu tham chiếu. Renderer sản xuất chưa thay đổi; matrix216+40 chưa được đóng.</p></main></html>

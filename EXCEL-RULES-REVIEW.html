@@ -1,0 +1,57 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EXCEL-RULES-REVIEW</title><style>body{font:16px/1.6 Segoe UI,Arial;max-width:1200px;margin:25px auto;padding:20px}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bccfd7;padding:8px;vertical-align:top}img{max-width:100%}pre{white-space:pre-wrap}</style><a href="INDEX.html">Trang tổng</a><h1>Logic đọc từ toàn bộ nhận xét tác giả — bản rà soát</h1>
+<p>Đã đọc 191 nội dung comment khác nhau trong 528 comment của ba workbook gốc. Nguyên văn, tác giả và địa chỉ nằm trong <code>excel/author-notes-verbatim.json</code>. Các quy tắc dưới đây diễn giải nội dung tác giả, chưa chứng minh importer hiện thực đầy đủ.</p>
+<h2>Dữ liệu đầu vào và hướng</h2>
+<ul>
+<li>Cột C/D là lọt lòng ga theo ngang/đứng mặt bằng, mm. Đừng tráo theo tên Length/Width nếu trục model khác; phải có explicit transform.</li>
+<li>Thép đáy/tường/trần/cổ dùng DxxAyyy. Giá trị đường kính và bước là hai số khác nhau, không lấy nhãn hiển thị làm parser input.</li>
+<li>O/Q/S/U là tường T1/T2/T3/T4 tương ứng 12h/3h/6h/9h. Cống tròn nhập D600…, cống hộp nhập 600x800…; ô trống nghĩa không có cống. Chọn riêng ký tự D hoặc X không phải một loại cống hợp lệ.</li>
+<li>Cột thứ hai của mỗi cống mô tả khoảng từ đáy cống tới đáy ga. Không mặc nhiên hiểu là cao độ tuyệt đối; kết hợp BaseElevationM và mode cao trình. Cao độ đơn vị m, hình học mm; chuyển đúng một lần.</li>
+<li>Offset cống ở CF.Ga là theo nhìn từ trong ra ngoài: trái dương, phải âm; áp dụng toàn bộ dòng ga. Không đọc thành offset riêng từng dòng hoặc dùng cùng dấu world X cho cả bốn tường.</li>
+<li>Chiều cao cổ W là riêng phần BTCT. Note của vữa đệm trần rời nói chiều cao trong ga có bao gồm vữa đệm, KL HG Q3 là chiều cao đã trừ vữa. Phải chọn một contract rõ trước khi dựng surface; không cộng vữa thêm lần nữa.</li>
+</ul>
+<h2>Bê tông, cổ và sản phẩm nắp</h2>
+<ul>
+<li>Mở rộng lót 0 -&gt; không mở rộng; dày lót 0 -&gt; không vẽ lót. Mở rộng đáy 0 -&gt; không chân loe; vạt đáy/trần 0 -&gt; không vạt. Đây là các biến độc lập.</li>
+<li>Cổ kết cấu BTCT -&gt; có cốt thép; Khác -&gt; không cốt thép cổ. Vị trí cổ theo tường/hướng, không chỉ theo tâm ga.</li>
+<li>Note cổ E10 cho phép kích thước B×L nhập tay; owner override mới khóa clear theo nắp lựa chọn. Giữ raw input và ghi rõ effective override.</li>
+<li>Vát cổ và vát nắp là hai cấu hình khác nhau, B×H. Note vát nắp nói phần này trên đỉnh cổ, tương đương giằng/khuôn. Không union hai vát rồi mất surface lắp sản phẩm.</li>
+<li>Thép góc V/L dùng Vaxbxc hoặc Laxbxc, tra CF.Data, không bỏ ký tự x. Chọn Không là OFF. Vị trí 1/2/3 là góc lồi trên/lõm giữa/lồi trong và có thể chọn nhiều vị trí.</li>
+<li>Neo thép góc DxxAyyyLzzz; 0 là OFF. Không lấy móc C/U thay cho neo V.</li>
+<li>Gang/composite: chọn block basecode, thêm MB/AA/BB theo view. BTCT: thiết kế tấm theo số tấm/khe/hướng, không thay bằng sản phẩm gang.</li>
+<li>Cao nắp gang là phần cao bổ sung tới hoàn thiện, có thể là chiều cao giằng. Cao nắp BTCT cộng chiều cao vát cổ khi có vát; ví dụ tác giả 70+50=120. Trường này không đồng nghĩa chiều dày native cover hoặc owner frame 100.</li>
+<li>Nhiều tấm BTCT: số lượng, khe giữa cổ–tấm và tấm–tấm, hướng Ngang/Dọc phải đồng thời quyết định topology. Một tấm không tự có khe chia giữa.</li>
+<li>Thép dưới tấm BTCT luôn có; thép trên nhập 0 thì OFF. Thép buộc tấm chỉ có khi hai lớp. Viền V số lượng 1 là dưới, 2 là cả dưới/trên. Móc nâng tấm cổ chỉ cho 1/2/4; móc nâng tấm trần rời cho 0/2/4. Đừng dùng chung enum không kiểm scope.</li>
+<li>Chi tiết tấm BTCT có tỷ lệ riêng; không áp tỷ lệ chung vào toàn bộ asset khi tỷ lệ chi tiết khác.</li>
+</ul>
+<h2>Thép chính, thép buộc và ghi chú</h2>
+<ul>
+<li>Thép ngang = bước thép đứng + delta nhập. Đường kính ngang giảm theo cấp thép trong catalog, không lấy đường kính đứng trừ 1 mm. Delta có thể làm bước không hợp lệ -&gt; báo lỗi, không clamp im lặng.</li>
+<li>Chia đều: khoảng cách thực không lớn hơn bước nhập. Theo mật độ: giữ bước nhập, chia phần dư đều hai mép. Bảng/nhãn phải phân biệt bước yêu cầu và bước thực khi cần.</li>
+<li>0M/1M/2M là thanh thẳng/móc một đầu/móc hai đầu. Theo KC: móc bằng chiều dày kết cấu trừ hai lớp bảo vệ. Theo ĐK: móc bằng nD. Không áp “t−2c” cho mọi trường hợp có đường kính khác mà thiếu kiểm path/lớp bảo vệ.</li>
+<li>Ký hiệu trước mật độ chỉ để hiển thị; đổi @ sang ký tự khác không thay parser DxxAyyy. Prefix theo lớp là input trình bày; đổi prefix không đổi hình học.</li>
+<li>Kiểu ghi chú 1 dùng BLT1/2 có số hiệu–đường kính–mật độ. Kiểu 2 dùng BLT3/4 không mật độ. Giữ nguyên tên block/tag khi customize.</li>
+<li>Thép buộc có chế độ Đều/Lệch và shape riêng cho đáy/tường/trần/cổ. H là DxxAyyy; J là móc hai đầu C; K là móc hai đầu Z/U; L là đoạn giữa U. Đây là lý do không ép toàn bộ C/U về kích thước mẫu cố định.</li>
+<li>Note tác giả cho phép dùng bước buộc lớn hơn kích thước kết cấu để không vẽ buộc. Không tự sinh tối thiểu một BLTC trong mọi ca vì muốn lấp trang. Ngữ nghĩa nhập 0 cần kiểm parser/spec hiện tại; comment này không tự chứng minh 0 là hợp lệ.</li>
+<li>Chiều nối I=nD áp cho vòng gia cường cống, khung chữ nhật lỗ cổ và đai cổ. Không trộn chiều nối này với móc C/U hoặc móc thanh chính.</li>
+<li>Thang Không là OFF; Theo vị trí cổ chọn tường tương ứng. E=A×B là khoảng đỉnh xuống bậc đầu và bước bậc; F=M×H×B là móc–sâu–rộng. Không đọc cả chuỗi thành một khoảng cách.</li>
+</ul>
+<h2>Cống, lỗ thăm và cửa thu</h2>
+<ul>
+<li>Vữa quanh cống, clear/outer dimensions cống, bo/vát và hình lỗ thép phải cùng một nguồn. Cống hộp đôi: width là khoảng hai mép trong của hai tường ngoài cùng; H bật nét chia khoang. Không nhân width thêm hai lần.</li>
+<li>Cống hộp chỉ có dạng bo cạnh trong note này. Cống tròn có Bo/Xiên/Vuông/Bo+Xiên/Bo+Vuông. Đường kính gia cường 0 -&gt; OFF.</li>
+<li>Số lượng cống hộp 1 -&gt; bốn thanh, 2 -&gt; tám thanh. Cống tròn 1 -&gt; một vòng và bốn thanh xiên/vuông khi chọn; 2 -&gt; vẫn một vòng và tám thanh xiên/vuông. Không nhân mọi loại thanh với cùng hệ số quantity.</li>
+<li>Gia cường lỗ thăm: Bo/Vuông/Bo+Vuông; quantity chỉ áp thanh vuông, vòng bo mặc định một mỗi lưới. Prefix gần như bắt buộc vì số thứ tự đếm lại theo lớp.</li>
+<li>Cửa thu loại 3: vị trí ở thân hoặc cổ; hướng theo nhìn trong ra ngoài; ở cổ mặc định giữa tường cổ. Kích thước khoét F là rộng×cao; chiều dài/cao trong G, bề rộng lấy từ F. Dày tường/đáy/lót và mở rộng lót là riêng. BTCT cửa thu mặc định một lớp thép, không tự dùng hai lớp thành ga.</li>
+<li>Chốt trần rời: Có/Không, đường kính/bước, chiều dài và đường kính lỗ riêng. Note D9 nói bước trung bình làm tròn 50 mm. Chốt và lỗ phải cùng vị trí, không chỉ vẽ nhãn; không áp chốt cho loại 1.</li>
+</ul>
+<h2>Cao trình, vật liệu, hatch, catalog và phần ngoài ưu tiên</h2>
+<ul>
+<li>Tuyệt đối tính theo cao độ đáy; Tương đối dùng ký hiệu cấu hình và có thể bỏ AA. Không biến ô AA rỗng thành 0.00 rồi in lên giấy như cao trình tuyệt đối.</li>
+<li>Vật liệu là text cấu hình, không hardcode mọi ga M250. Hatch lấy tên và scale CF.Data; tác giả có fallback mẫu mặc định nếu thiếu trong CAD. DBTool phải ghi fallback trong receipt, tránh thay im lặng.</li>
+<li>CF.Cong/CF.Data có thể thêm dòng, không dừng ở một vùng hàng cố định khi có thêm catalog. Các cột công thức lọc kích thước là trợ giúp lựa chọn, không thay dữ liệu vật lý gốc. Excel cũ có công thức mảng Ctrl+Shift+Enter, phải giữ formula/cache/raw OOXML.</li>
+<li>VHGpro L2 là version marker không được sửa/xóa trong source.</li>
+<li>KL HG, THKL và comments đào đắp được bảo tồn, ghi DeferredQuantityScope vì chủ dự án chưa ưu tiên tính khối lượng. Không dùng dữ liệu bảng khối lượng chưa đồng bộ để thay geometry main input.</li>
+</ul>
+<h2>Điểm cần khóa trước khi gọi mapping hoàn chỉnh</h2>
+<p>Một số note có nội dung kế thừa tên sheet cũ hoặc nằm trên header khác vị trí dữ liệu. Ví dụ CF.Ga L10 vẫn mô tả “tường” dù ở vùng cổ, note offset nhắc sheet GaThamLienKhoi trong biến thể khác. <strong>Không tự sửa nguyên văn để che sai khác.</strong> Mỗi mapping phải lưu note address, actual input address, header label, merged range, field name của importer và trạng thái xác minh. Chỉ cộng một hàng là chưa đủ để chứng minh map đúng; loại 3 shift +2 chỉ áp các vùng phía dưới cửa thu.</p>
+<p>Đối chiếu code bước đầu: <code>Vhg32Schema.ConfigAddresses</code> có nhóm chốt ở row9, cổ row11, nắp row13, tấm row15; nhóm thấp shift theo profile. <code>S2GeometryConfigAddresses</code> chủ động chưa đưa F11/G11 và F13/G13 vào confirmed geometry. Điều này phải xuất hiện trong issue register như gap cần xử lý, không tuyên bố mọi option Excel đã hoạt động.</p></html>

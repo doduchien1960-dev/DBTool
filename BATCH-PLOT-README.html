@@ -1,0 +1,96 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BATCH-PLOT-README</title><style>body{font:16px/1.65 Segoe UI,Arial;margin:0;color:#183449;background:#edf2f5}main{max-width:1180px;margin:auto;padding:28px;background:white}nav{padding:12px;background:#15384b}nav a{color:white;margin-right:20px}a{color:#096e85}h1,h2,h3{color:#146d78}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{border:1px solid #bccfd7;padding:8px;vertical-align:top}th{background:#e4f0f2}pre{padding:14px;white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f5f7}img{max-width:100%}</style><nav><a href="INDEX.html">Trang tổng</a><a href="CATALOG-TEMPLATE.html">Catalog</a><a href="PDF-71-OVERVIEW.html">71 PDF</a><a href="KE-HOACH-SUA-CHO-JUNIOR.html">J00–J08</a></nav><main><h1>In hàng loạt một DWG trong một phiên AutoCAD</h1>
+<p>Tool: <code>tools/vhg_batch_plot.py</code>. Nhận manifest một DWG và danh sách window khung đã xác minh. Tạo một bản scratch, chạy một Core Console, in nhiều PDF vector. Không sửa nguồn, không dùng Fit, không coi PDF đã xuất là nghiệm thu bản vẽ.</p>
+<p>Ví dụ chạy bằng Python runtime có PyMuPDF:</p>
+<pre><code class="language-powershell">&amp; 'C:/Users/DucBao/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe' -X utf8 tools/vhg_batch_plot.py --manifest scratch/vhg-batch-plot-all27.json --output outputs/my-fresh-batch --timeout 180
+</code></pre>
+<p>Output directory phải mới, dưới <code>outputs</code>; không overwrite run cũ. Mỗi page có id, window [xmin,ymin,xmax,ymax] mm model, scale_denominator. Hiện profile A3 landscape full bleed. Default chọn acad.ctb khi PSTYLEMODE=1 và acad.stb khi =0; có thể chỉ định plot_style_table per-page, nhưng phải tương thích drawing. Không tự ConvertPStyles nguồn. Đây là profile kiểm thử, chưa xác nhận trùng chính xác CTB/STB của PDF tác giả.</p>
+<p>Frame detection đã thực hiện qua native audit <code>VHG_STD_INSPECT</code>: tìm block Khung, lấy các polyline chữ nhật trong block và transform WCS. <code>cad/source-02-frames.json</code> dùng hình chữ nhật ngoài giấy, không lấy viền trong làm paper window. Manifest hiện được tạo từ dữ liệu audit này. Chưa có UI một lệnh tự detect mọi DWG tùy ý và chưa hỗ trợ frame xoay bất kỳ/khung không chữ nhật.</p>
+<p>Kết quả native:</p>
+<table>
+<thead>
+<tr>
+<th>Run</th>
+<th style="text-align: right;">Khung</th>
+<th style="text-align: right;">Host</th>
+<th>Kết quả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vhg-standard-batch-plot-smoke</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td>Bị chặn: CTB/STB mismatch dù exit 0</td>
+</tr>
+<tr>
+<td>vhg-standard-batch-plot-smoke-v2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td>3 vector PDF A3, hết cảnh báo, nguồn giữ nguyên</td>
+</tr>
+<tr>
+<td>vhg-standard-batch-plot-all27</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">1</td>
+<td>27 vector PDF A3, khoảng 29.265 giây, nguồn giữ nguyên</td>
+</tr>
+</tbody>
+</table>
+<p>Receipt nằm trong từng thư mục <code>outputs/</code> ở trên. Năm unit tests đã qua, gồm explicit plot profile và policy lineweight. Kiểm native đã bắt một lỗi của prototype: literal quoted <code>"acad.ctb"</code> làm thoát -PLOT ở host này. Đã sửa thành Lisp string result, lưu run lỗi <code>vhg-standard-batch5-print-policy</code> và run sửa <code>vhg-standard-batch5-print-policy-v2</code>; run sửa in đủ42vectorPDF trong một phiên, 39.328giây, transcript_errors rỗng. Đây là lỗi tool nghiên cứu được công khai, không quy nhầm cho run junior.</p>
+<h2>Sinh nhiều dòng Excel vào một DWG — prototype đã chạy native</h2>
+<p>Tool <code>tools/vhg_batch_generate.py</code> chạy headless tính từng dòng, native render từng ga, sau đó <code>VHG_STD_COMBINE</code> ghép entities mới sinh vào DWG chung bằng WblockCloneObjects/IdMapping. Đây không phải copy hình thép của một mẫu tĩnh. Mỗi row giữ inputhash, occurrencecount, nguồnDWGhash và mapping handle clone; geometry signatures kiểm độc lập tên ga.</p>
+<p>Lệnh tái tạo diagnostic5dòng (đổi output sang thư mục mới):</p>
+<pre><code class="language-powershell">&amp; 'C:/Users/DucBao/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe' -X utf8 tools/vhg_batch_generate.py --input outputs/P6-candidate/GaThamNapRoi-G400-1-graphics-v4.xlsx --profile GaThamNapRoi --sheet GaThamNapRoi --family 2.1 --count 5 --output outputs/P6-candidate/my-new-batch5
+</code></pre>
+<p>Build dependencies nằm ở <code>outputs/vhg-standard-batch-build/{headless,native}</code> và <code>scratch/vhg-standard-host-build/VhgStandardHost.dll</code>. Đây là build private, không tự thay assembly triển khai của người dùng. Tools nhận <code>--build</code>, <code>--combiner</code> nếu build sang thư mục khác.</p>
+<p>Sau generation dùng manifest mới sinh để plot:</p>
+<pre><code class="language-powershell">&amp; 'C:/Users/DucBao/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe' -X utf8 tools/vhg_batch_plot.py --manifest outputs/P6-candidate/my-new-batch5/plot-manifest.json --output outputs/my-new-batch5-print --timeout 180
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Generation run</th>
+<th style="text-align: right;">Dòng chọn / native thành công</th>
+<th style="text-align: right;">Khung trong DWG chung</th>
+<th>Trạng thái</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vhg-standard-batch5</td>
+<td style="text-align: right;">5/5</td>
+<td style="text-align: right;">42</td>
+<td>DiagnosticPartial</td>
+</tr>
+<tr>
+<td>vhg-standard-batch10</td>
+<td style="text-align: right;">10/9</td>
+<td style="text-align: right;">81</td>
+<td>PartialWithFailures; G1200-2 bị chặn ownership lỗ cống</td>
+</tr>
+<tr>
+<td>vhg-standard-batch10-selected</td>
+<td style="text-align: right;">10/9</td>
+<td style="text-align: right;">81</td>
+<td>PartialWithFailures; G1250-2 tràn AA</td>
+</tr>
+<tr>
+<td>vhg-standard-batch10-selected-v2</td>
+<td style="text-align: right;">10/9</td>
+<td style="text-align: right;">81</td>
+<td>PartialWithFailures; G1250-3 tràn AA</td>
+</tr>
+</tbody>
+</table>
+<p><code>batch-generation-audit.json</code> có geometryhash từng dòng, native diagnostics và source/template preservation. Native5dòng có5geometryhash khác nhau. Mỗi run9/10 vẫn có receipt dòng lỗi; tuyệt đối không gọi đủ10. DWG batch5 đã plot42khung với profile lineweights=false kế thừa row manifests. Bản plot42đầu với weights=true giữ làm lịch sử, không thay bằng chứng; bảnpolicy-v2 mới là lần kiểm giữ policy false.</p>
+<h2>Giới hạn phải giữ trong báo cáo nghiệm thu</h2>
+<ul>
+<li>Workbook dùng ở đây là <strong>diagnostic fixture có nhiều featureOFF</strong>, không phải workbook gốc bật đầy đủ. Workbook gốc vẫn bị capability gate chặn feature chưa hỗ trợ. Không chỉnh workbook nguồn hoặc bỏ gates.</li>
+<li>Prototype hiện chỉ nhận family2.1/3.1 theo harness và scale30; chưa chứng minh loại1 hay mọi scale. Generation dùng một native session cho mỗi row; <strong>plot</strong> mới là một session cho toàn bộ khung.</li>
+<li>Batch lịch sử thiếu presentation receipt rơi vềG400-1. Tool mới đã ghi receipt và probeG500-2row5native sinh8khung; DXFreadbackTenMC/TIEUDE đúng“MẶT BẰNG HỐ GA G500-2”, không cóG400-1 ởTEXT/MTEXT/directattributes. Bằng chứng <code>outputs/vhg-standard-identity-row5-inspection/identity-readback.json</code>; chưachứngnhậnmọiframefields/nestedconstanttext. Khôngsửa lại lịch sử đểche lỗi.</li>
+<li>Cloning entities chưa merge GenerationRepository/NOD/XData scopes theo nhiều ga; chưa được dùng làm chứng nhận edit/update/regenerate batch. Regenerate nguyên batch để xem lại trong phạm vi diagnostic.</li>
+<li>Tool đã thêm per-rowcontext/finally lưuOSError/ValueError/TimeoutExpired,tiếptụcdòngsau;10unittests gồm timeout/hashmismatchPassed. Chưa testnativeexceptionrecoverytoànluồng; exceptionởcombine hoặcJSONschemaunexpected vẫn cầnhardening vàfinalreceipt.</li>
+<li><code>default_lineweight_hundredths_mm</code> chưa được batch plot áp vào LWDEFAULT; với plot_lineweights=false không dùng nét default để tuyên bố profile đã khớp mọi mặt. Các option không hỗ trợ phải được kiểm hoặc reject trước production.</li>
+<li>Xuất được vectorPDF không chứng minh đúng font/line/hatch/labels/steel/coverdatums. <code>drawing_acceptance=NotEvaluated</code>; full semantic/visual vẫn cần nghiệm thu riêng.</li>
+</ul>
+<p>API clone đối chiếu <a href="https://help.autodesk.com/cloudhelp/2026/ENU/OARX-ManagedRefGuide/files/OARX-ManagedRefGuide-Autodesk_AutoCAD_DatabaseServices_Database_WblockCloneObjects_ObjectIdCollection_ObjectId_IdMapping_DuplicateRecordCloning__MarshalAsUnmanagedType_U1__bool.html">Autodesk2026 WblockCloneObjects</a>. DuplicateRecordCloning.Ignore chỉ dùng vì các nguồn freshly generated từ cùng prepared template đã hash kiểm; không áp mù cho DWG khác version định nghĩa block.</p></main></html>

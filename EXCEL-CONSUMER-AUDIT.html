@@ -1,0 +1,73 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EXCEL-CONSUMER-AUDIT</title><style>body{font:16px/1.65 Segoe UI,Arial;margin:0;color:#183449;background:#edf2f5}main{max-width:1180px;margin:auto;padding:28px;background:white}nav{padding:12px;background:#15384b}nav a{color:white;margin-right:20px}a{color:#096e85}h1,h2,h3{color:#146d78}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{border:1px solid #bccfd7;padding:8px;vertical-align:top}th{background:#e4f0f2}pre{padding:14px;white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f5f7}img{max-width:100%}</style><nav><a href="INDEX.html">Trang tổng</a><a href="CATALOG-TEMPLATE.html">Catalog</a><a href="PDF-71-OVERVIEW.html">71 PDF</a><a href="KE-HOACH-SUA-CHO-JUNIOR.html">J00–J08</a></nav><main><h1>Kiểm chuỗi Excel → xử lý → bản vẽ — bổ sung ngày 13/10/2026</h1>
+<p>Đây là audit có giới hạn đã nêu rõ, chưa phải chứng nhận đủ mọi consumer. <code>excel/field-consumer-index.json</code> quét 545 file C#, 161 key cấu hình/cột chính. 72 key không có literal chính xác trong Application/Domain/Drawing <strong>không đồng nghĩa 72 tính năng bị thiếu</strong>: code có key động, alias và property đổi tên. Mỗi hit có file, dòng, hash, snippet; hit trong gate không chứng minh có hình vẽ. Không dùng số hit làm tỷ lệ hoàn thành.</p>
+<h2>Chuỗi đã kiểm trực tiếp</h2>
+<table>
+<thead>
+<tr>
+<th>Nguồn / ý nghĩa</th>
+<th>Chuỗi đã đọc</th>
+<th>Kết luận và việc junior phải làm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CF.Ga!D2 note → D3 chiều dày lớp lót, cả 3 loại</td>
+<td>Vhg32Schema.PadThickness → WorkbookImporter → ManholeValidator.Number(...positive:true) → ManholeInput.ContractGuard.Positive → ChamberGeometryBuilder luôn Add Pad → ViewBuilder bắt buộc Pad; AnnotationPlanner và SheetOneDimensionPlanner Single(Pad)</td>
+<td><strong>STD-16, lỗi contract xác nhận bằng code.</strong> Tác giả cho phép 0 nhưng code chặn. Chưa có native reproducer 0. Phải có trạng thái không lớp lót xuyên suốt; không thay 0 bằng epsilon để né gate.</td>
+</tr>
+<tr>
+<td>CF.Ga!E6 note → E7 tiền tố dim chiều cao tường; K10 → K11 tiền tố dim cổ</td>
+<td>Importer đọc raw và typed WallDimPrefix/NeckPrefix. Bản mapping cũ gộp vai trò annotation chung</td>
+<td>Đã sửa mô tả mapping: đây là tiền tố DIM, không phải tên thanh thép. Chưa chứng minh consumer DIM hiện dùng. Cần truyền vào DimensionIntent label riêng; đổi tiền tố không đổi measured value, geometry hay DisplayMark.</td>
+</tr>
+<tr>
+<td>CF.Ga!M14 note → M15=20</td>
+<td>Vhg32Schema <code>Panel.CoverRatioPercent</code>, legacy reader cùng tên, chưa chứng minh consumer typed tới recipe</td>
+<td>STD-14: tỷ lệ CHI TIẾT TẤM NẮP 1:20, không phải phần trăm bảo vệ. Body 1:30 và panel 1:20 phải độc lập; asset sản phẩm vẫn kích thước thật.</td>
+</tr>
+<tr>
+<td>CF.Ga!E11 kích thước cổ và E13 nắp</td>
+<td>ManholeValidator parse E11, kiểm fit trước; sau đó lấy cover OpeningContract/NominalOpening/MeasuredAperture và override roofL/B, có diagnostic COVER_SELECTION_LOCKS_NECK; NeckPositionMap và NeckSpec dùng kích thước effective</td>
+<td>Có triển khai khóa cổ theo nắp, chưa đủ để đóng lỗi. Chuyển kiểm fit authoritative sang sau resolve cover. E11 raw hợp lệ nhưng quá lớn không được chặn nếu cover effective vừa; raw malformed xử lý theo contract import rõ ràng, không âm thầm giả. Đo rotation phải đúng tập góc được hỗ trợ; hiện round(rot/90) nên không coi mọi góc đã hỗ trợ.</td>
+</tr>
+<tr>
+<td>CF.Ga!F11/G11 bậc cổ, F13/G13 vai nắp và D13 chiều cao nắp</td>
+<td>Validator dựng NeckSpec/NeckSeatSpec/CollarSpec/PurchasedCoverSpec; có nhánh nativeVhg cộng capHeight và các validator tương thích</td>
+<td>Không còn đúng khi nói tất cả F/G11/13 chưa có consumer. Giữ phân biệt bậc, vai và khung nắp owner100; đối chiếu datum C01/C02. Kiểm cả has-neck/no-neck, stepped/plain; không đặt cao độ hoàn thiện tại mặt trần thân.</td>
+</tr>
+<tr>
+<td>Ties.H và Ties.C..L; loại3 dịch +2 hàng</td>
+<td>AccessoryInputMapper.Parse meshH, modeC, shapeD/E/F/G, hooksJ/K, middleL; Ties.I dùng lap gia cường opening. StageAdapters/TiePlanner mới hỗ trợ một phần</td>
+<td>Không gán Ties.I cho pitch thép buộc. Lập component×shape support; physical path rồi projection/BLTC rồi nhãn/TK. Bảng có tên C/U chưa chứng minh thanh C/U tồn tại. STD-07/08 còn mở.</td>
+</tr>
+<tr>
+<td>Dowel C9..G9 và lifting H9/I9</td>
+<td>AccessoryInputMapper parse chốt, chiều dài, lỗ&gt;Ø; lifting đếm2/4, hình W×H×foot; FeatureSupportValidator còn chặn lifting active</td>
+<td>Có parser khác với có renderer. LiftingSize I9 chỉ thuộc loại2/3; đã sửa proposed mapping không áp I9 vào loại1. Không tắt tính năng ON để xuất Final.</td>
+</tr>
+<tr>
+<td>PipeCode/Invert O..V từng tường; offset I..L28 hoặc30 loại3</td>
+<td>Validator resolve alias→catalog; thiếu catalog lại regex tên cống rồi tự suy thickness/chamfer; PipeConnectionSpec lưu WallId/offset/invert/Id</td>
+<td><strong>STD-17, nhánh suy diễn kích thước chưa có provenance.</strong> Không dùng guessed contour làm chuẩn đối chiếu PDF. Đọc đủ catalog hoặc typed extension nguồn rõ; thiếu thì báo PIPE_CATALOG_MISSING, giữ raw. Sau resolve tạo OpeningId duy nhất dùng chung MB/MC/tường, không mỗi view resolve lại.</td>
+</tr>
+</tbody>
+</table>
+<h2>Gói sửa STD-16: lớp lót bằng 0</h2>
+<ol>
+<li>Dựng test fail từ input có PadThickness=0, không đổi thép/cống/nắp. Lưu SourceRef CF.Ga!D3 và hash input. Test thứ hai dương, thứ ba âm.</li>
+<li>Validator cho phép <strong>nonnegative</strong> đúng field này; domain constructor cho phép 0. Không đổi chính sách mọi chiều dày thành nonnegative.</li>
+<li>Geometry không tạo solid/interval/hatch Pad zero-thickness. Base vẫn bắt đầu ở -f, không dịch toàn ga vì bỏ lớp lót. PadExpansion khi PadThickness0 là dữ liệu inactive được giữ; không sinh lớp lót ảo.</li>
+<li>ViewBuilder đòi Base/Roof và Pad chỉ khi requested thickness&gt;0. DimensionPlanner và ElevationPlanner dùng optional Pad; bỏ riêng dim/note lớp lót khi OFF. Placement không có pad phải bám đáy Base, không default0 nếu Base nằm -f.</li>
+<li>Tìm mọi consumer <code>Pad</code>, <code>ComponentKind.Pad</code>, <code>PadBottom</code>, feature gate và quantity metadata. Cấm sửa riêng validator rồi để Single(Pad) ném lỗi. Không thay Pad bằng Base trong mọi nơi để giả một cấu kiện khác.</li>
+<li>Nghiệm thu 0/50/100 mm cả ba profile: 0 không nét/hatch/dim/cao độ lớp lót; dương hình đúng và cao độ đáy lớp lót = đáy Base - p; âm block từ input. Test theo hành vi, không snapshot line-count máy móc.</li>
+</ol>
+<h2>Gói sửa STD-17: cống phải có kích thước có nguồn</h2>
+<ol>
+<li>Giữ fixture/catalog chứa đầy đủ Round/Box/DoubleBox; thêm ca tên nhận ra kích thước nhưng không có entry.</li>
+<li>Xóa nhánh Math.Clamp/Math.Round suy bề dày/chamfer từ đường kính hoặc min(width,height) trong ManholeValidator. Parser tên chỉ có thể nhận dạng nominal size; không thay catalog vật lý.</li>
+<li>Nếu cần hỗ trợ mã mới, nhập qua CF.Cong hoặc schema extension có thickness/web/chamfer/units/source; validate profile phù hợp từng PipeKind. Không tạo catalog entry tạm dựa trên tên.</li>
+<li>Một resolved PipeProfile + connection transform là nguồn chung của plan, AA/BB, wall elevation, opening void và reinforcement clipping. Lưu outer/inner contour và invert reference; không trộn đáy trong với đáy ngoài.</li>
+<li>Kiểm cùng mã cống với thickness khác, offset âm/0/dương, tường T1..T4, box đôi/vát. MB và mặt tường phải readback cùng OpeningId và cùng contour sau transform; case thiếu entry phải Block rõ, không xuất hình có vẻ hợp lý.</li>
+</ol>
+<h2>Trạng thái bằng chứng</h2>
+<p>Các phát hiện này là <strong>code-confirmed / chưa native reproduced trên input mới</strong>. Không ghi Fixed hoặc Passed. 528 comment gốc vẫn nguyên văn; mapping chỉ được sửa vai trò và profile ứng viên, không sửa workbook gốc. Các trường Annotation.Prefix/NoteStyle/PitchSymbol và material/hatch/elevation còn phải trace đến actual recipe; chưa được phép tuyên bố toàn bộ Excel đã nối xong.</p></main></html>

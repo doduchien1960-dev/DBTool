@@ -1,0 +1,153 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>pages/PDF-001-PHAN-TICH-CHI-TIET</title><style>body{font:16px/1.65 Segoe UI,Arial;margin:0;color:#183449;background:#edf2f5}main{max-width:1180px;margin:auto;padding:28px;background:white}nav{padding:12px;background:#15384b}nav a{color:white;margin-right:20px}a{color:#096e85}h1,h2,h3{color:#146d78}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{border:1px solid #bccfd7;padding:8px;vertical-align:top}th{background:#e4f0f2}pre{padding:14px;white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f5f7}img{max-width:100%}</style><nav><a href="../INDEX.html">Trang tổng</a><a href="../CATALOG-TEMPLATE.html">Catalog</a><a href="../PDF-71-OVERVIEW.html">71 PDF</a><a href="../KE-HOACH-SUA-CHO-JUNIOR.html">J00–J08</a></nav><main><h1>PDF-001 — cấu tạo loại1, G500-2: bố cục, nhãn và leader</h1>
+<p>Đối chiếu ảnh <code>../pdf/PDF-001-p1.png</code> với CAD-1-F006 và source01DXF. PDF nguồn: <code>1.1.Ga thăm BTCT liền khối-Model-1.pdf</code>. Đã mở ảnh trang riêng và đọc40callout native. Đây là review vai trò/đường dẫn; chưa chứng nhận mọi glyph, curve, endpoint hay physical target ID của nguồn.</p>
+<h2>1. Bố cục chính xác của tờ</h2>
+<p>Sáu hình thành3cột×2hàng. Hàng trên: MB hố ga bên trái, mặt cắtB-B ở giữa, mặt cắt cốt thépA-A bên phải. Hàng dưới: mặt cắtA-A bên trái, MB lưới thép tường giữa, cốt thép mặt cắtB-B bên phải. Không tự đổi vị trí A-A/B-B để tạo thứ tự chữ cái.</p>
+<p>Gốc cục bộ frame = góc dưới trái của outer paper rectangle, đơn vịmm model, X phải/Y lên. Không phải gốc riêng hình chiếu. Tọa độ dưới dùng nghiên cứu layout; production cần neo theo geometry mới.</p>
+<table>
+<thead>
+<tr>
+<th>Hình</th>
+<th>TenMC handle</th>
+<th>Điểm chèn block local mm</th>
+<th>Title attribute handle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MB hố ga G500-2</td>
+<td>5D1A0</td>
+<td>(2345,8610)</td>
+<td>5D1A2</td>
+</tr>
+<tr>
+<td>Mặt cắtB-B</td>
+<td>5D538</td>
+<td>(6335,8610)</td>
+<td>5D53A</td>
+</tr>
+<tr>
+<td>Mặt cắt cốt thépA-A</td>
+<td>5D883</td>
+<td>(10325,8610)</td>
+<td>5D885</td>
+</tr>
+<tr>
+<td>Mặt cắtA-A</td>
+<td>5D2FA</td>
+<td>(2345,4430)</td>
+<td>5D2FC</td>
+</tr>
+<tr>
+<td>MB lưới thép tường</td>
+<td>5D787</td>
+<td>(6335,4430)</td>
+<td>5D789</td>
+</tr>
+<tr>
+<td>Cốt thép mặt cắtB-B</td>
+<td>5DB07</td>
+<td>(10325,4430)</td>
+<td>5DB09</td>
+</tr>
+</tbody>
+</table>
+<p>Khoảng tâm cột mẫu3990mm, khoảng hàng4180mm. Đây là số đo recipe mẫu này, không là ngưỡng fit mọi ga. Title attributes cao90mm/styleVHG-Unicode.Bold; note TEXT cao60mm/styleVHG-Unicode.Regular. Danh định1:30 tương ứng3/2mm giấy. PDF measured transform hiện tương đương1:32.6418: giữ sự phân biệt danh định/annotation/measured plotting; không lấy kích thước chữ từ ảnh rồi scale sản phẩm.</p>
+<h2>2. Nội dung phải giữ ở từng vùng</h2>
+<h3>Trái trên — mặt bằng</h3>
+<p>Thể hiện bao ngoài tường và lòng ga, nét khuất bên trong, nắp lệch về phía dưới trái, hướng cống lên trên và sang phải. Nắp MB là INSERT NapGaCN-MB handle5D2F4, tại(2020,6280), không phải hình chữ nhật dựng mới. Bốn marker mặt cắt dùng MC1/MC2: handle5D2F6/5D2F7 ở trục trên–dưới và5D2F8/5D2F9 ở trục phải–trái. Giữ chữ/hướng marker theo section contract; không dùng một ký hiệu A cho mọi trục.</p>
+<p>Chuỗi dim phân biệt lọt lòng, dày thành, bề rộng ngoài; kích thước tổng MB1650×1850 và lòng1150×1350 trên ảnh này. Cống trên và cống phải khác size; cùngOpeningId mới cần nhất quán qua hình, không ép hai cống bằng nhau. Nét center/mặt khuất không thay bao bê tông.</p>
+<h3>Trái dưới và giữa trên — mặt cắt bê tông</h3>
+<p>AA có phương clear cổ700; BB có phương clear500. Cổ sản phẩm chữ nhật, không phải mâu thuẫn bắt buộc sửa thành700×700. Cao độ hoàn thiện58.51 đặt trên nắp; đáy lòng56.36; cống400có invert57.06, cống500có invert56.64 trong các hình thấy tương ứng. Số liệu này chỉ dùng nhận dạng mẫu, không nhập vào production.</p>
+<p>ThangD18 có rung line thực màuđỏ và dim bước300, nhãn đặt trong lòng ga. VữaXM M100 có leader riêng ở tiếp xúc cống/tường. D400/D500 là text nhận dạng cống; không phải block nhãn thanh thép. Bê tông thân/đáy hatch và lớp lót hatch khác; có hai callout vật liệu ở dưới hình, không chỉ một câu chung.</p>
+<p>AA dùng nắp section NapGaCN-MCD handle5D342; BB dùng NapGaV-MC handle5D581 trong nguồn. Đây là cách tác giả biểu diễn hai phương ở tờ này; khi generate phải resolve product/projection từ catalog và hướng, không chọn nắp vuông vì thấy tênV ở một section. Không scale hoặc thay clear bằng bbox ngoài.</p>
+<h3>Giữa dưới — mặt bằng lưới thép tường</h3>
+<p>Lưới/biên thép phân lớp trong–ngoài bằng đường bao và nét khuất theo layer. T1 phía trên, T3 phía dưới, T4 trái, T2 phải trên hình mẫu này. Có8nhãn TEXT T1..T4×trong/ngoài, mỗi nhãn một LEADER, không mỗi thanh một BLT. Các nhãn trên/dưới bám cạnh tương ứng; nhãn trái/phải dùng khoảng trống bên ngoài/trong theo vị trí lớp.</p>
+<p>Quy tắc biến thiên: wall-role được xác định từ transform host; khi xoay ga hoặc đổi chiều nhìn, không giữ T1 luôn ở phía trên giấy. Nội dung gọi cùng wall/layer cần khớp các section và detail tường.</p>
+<h3>Phải trên/phải dưới — mặt cắt cốt thép</h3>
+<p>Đường thép đỏ và các đoạn uốn/điểm cắt biểu diễn đường thép thật trong bê tông. A-A gọi T3trong/T3ngoài bên trái, T1trong/T1ngoài bên phải. B-B gọi T4trong/T4ngoài bên trái, T2trong/T2ngoài bên phải. Đáytrên/đáydưới và trầntrên/trầndưới có callout riêng; cổga, thang và vật liệu cũng có nhãn.</p>
+<p>Không thay tất cả các text này bằng D1/T1 trong vòng tròn. Tờ này chủ yếu gọi vai trò/lớp; nhãn nhóm Ø/@ dùng ở tờ lưới/detail khác theo recipe. Ledger trang này không có BLT1/2, Gach hay BLTC; điều đó không chứng minh toàn bộ bộ hồ sơ thiếu thép buộc. Phải kiểm physical tie và tờ biểu diễn tương ứng, tránh thêm X bừa lên mọi mặt cắt.</p>
+<h2>3. Toàn bộ40leader — đường đi có nguồn</h2>
+<p>Đã ghi từng leader/text handle, nội dung, vị trí TEXT, ba đỉnh đường dẫn và mục đích trong <a href="PDF-001-CALLOUT-TABLE.html">bảng40callout</a>. JSON truy nguồn: <a href="PDF-001-detail-review.json">PDF-001-detail-review.json</a>. Entity vertices được đọc trực tiếp từ native DXF, không suy từ bbox hoặc pixel.</p>
+<p>Ví dụ cho cách lập hàm:</p>
+<ul>
+<li>Thang ở AA bê tông: leader5D50F bắt(1900,3160)→(1810,3250)→(2170,3250); text5D510 đặt(1810,3270). Nhánhxiên90/90 và đoạn ngang360. Text nhích20mm model so với landingY trong mẫu này, không phải tùy tiệnđặt tại endpoint.</li>
+<li>T3trong ở cốt thépAA:5DAF3 bắt(9620,5730)→(9740,5850)→(10040,5850); text5DAF4 tại(9740,5870). Nhánh45° và landing300mm. Khi ga đổi, bắt thanh thật rồi đặt landing trong vùng trống; không giữ9620/5730.</li>
+<li>T3ngoài ở cốt thépAA:5DAF5 bắt(9530,5740)→(9410,5800)→(9110,5800); text5DAF6 tại(9104,5820). Nhánh120/60 không45°; không ép mọi leader45° hoặc90° để gọi giống mẫu.</li>
+<li>Cổga ở cốt thépAA:5DB03 bắt(9525,7505)→(9405,7565)→(9195,7565); text5DB04 tại(9209.5,7585). Nhãn vật liệu phía dưới dùng leader khác, không nối chung vào cổ.</li>
+</ul>
+<p>Mọi632LEADER trong3nguồn đều chưa có annotation_handle liên kết text hữu dụng (nativevalue0). Vì vậy không thể khẳng định association chỉ từ fieldhandle; mapping40tờ này là review vai trò bằng ảnh+native geometry. Không gán physicalOccurrenceId cho nguồn khi tác giả không lưu.</p>
+<h2>4. Đường nét/layer và mục đích</h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Vai trò đọc từ tờ</th>
+<th>Quy tắc triển khai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VHG-BT</td>
+<td>Bao bê tông/liền khối</td>
+<td>Outline cùng miền với hatch; không thêm seam giữa đáy–vạt–thành</td>
+</tr>
+<tr>
+<td>VHG-Thep</td>
+<td>Thép/rungs hiện trong section</td>
+<td>Projection từ physical path, không dùng nét này cho leader</td>
+</tr>
+<tr>
+<td>VHG-Thep3/Thep4</td>
+<td>Các lớp thép nétDASHED trong MB lưới</td>
+<td>Phân face/layer/visibility; không đổi hết thànhContinuous</td>
+</tr>
+<tr>
+<td>VHG-Dashed</td>
+<td>Nét khuất cấu tạo</td>
+<td>Chỉ nét không nhìn thấy theo view, không tất cả mép trong đều khuất</td>
+</tr>
+<tr>
+<td>VHG-Center</td>
+<td>Tim cống/axes</td>
+<td>LinetypeACAD_ISO10W100 từ template; hiệu lực xem override/LTSCALE</td>
+</tr>
+<tr>
+<td>VHG-Dim</td>
+<td>Dim/leader/marker</td>
+<td>DimstyleVHG1-30 của leader; giữ mảnh và không đè text</td>
+</tr>
+<tr>
+<td>VHG-Text</td>
+<td>Text/attributes</td>
+<td>StyleUnicode, không enumEnglish</td>
+</tr>
+<tr>
+<td>VHG-VL</td>
+<td>Hatch vật liệu</td>
+<td>Pattern/scale theo vật liệu và view, không một hatch chung</td>
+</tr>
+<tr>
+<td>VHG-Cong</td>
+<td>Entities cống trong nguồn demo</td>
+<td>Ledger template lookup hiệnnull; phải đọc layer demo thật, không giả định template có/không hay đoán màu</td>
+</tr>
+<tr>
+<td>VHG-150</td>
+<td>Một số entities phụ/biểu diễn</td>
+<td>Chưa chốt mọi entity-purpose; tra handle, không gán tất cả thành thép</td>
+</tr>
+</tbody>
+</table>
+<p>Nguồn có168DIMENSION,52HATCH,40LEADER,44TEXT,30INSERT cùng entities hình học khác trong frame. Count là inventory, không count vật thể kỹ thuật hoặc chứng minh không thiếu. Lineweight PDF thuộc profile nguồn loại1; không lấy màuCAD làm trực tiếp widthgiấy. Các đường hatch/thép được cắt/ẩn theo view và miền cấu kiện.</p>
+<h2>5. Việc cần sửa/giữ trong DBTool theo tờ này</h2>
+<ol>
+<li>SheetRecipe Structure khóa3×2semanticroles kể trên. Fit theo extents, khi không vừa tách nhóm có trật tự; không đảo hình theo generic packer ngẫu nhiên.</li>
+<li>Tách annotationrole: material, pipe identification, ladder, wall-face, slab-layer, neck, elevation. Mỗi role có anchor contract; không gom chung thành nhãn thanh riêng lẻ.</li>
+<li>Wall-face text dùng Host/Face từ section transform. Thay kích thước/offset/chiều nhìn phải cập nhật leader target; Øcống/CT giữ cùngOpeningId/SurfaceId.</li>
+<li>TextPosition và landing segment là hai đại lượng khác. Đo ink/justification thật, đặt text theo landing/baseline clearance; không gán text position=leaderendpoint cho mọi hướng.</li>
+<li>ThangON cần rung thật và callout; PadOFF bỏ pad geometry/vậtliệu/dim; cống/vữa dịch theo opening. Giữ C/U và các chi tiết còn lại ở đúng tờ/contract, không thêm ký hiệu tùy tiện để đủcount.</li>
+<li>Native output lưu annotationrole/targetID/route/textblockhandles để DBTool có association rõ hơn nguồn. Kiểm leader bắt đúngcomponent/bar và không chạm chữ/dim; không chỉ checkkhôngtrùnginsertpoint.</li>
+<li>Giữ cả title/tỷlệ/dim/vậtliệu/CT/hatch/pipe/cutmarker trong sheet completeness gate. Sửa nhãn thép không được làm mất những mục này.</li>
+</ol>
+<h2>6. Phạm vi kiểm xong và còn lại</h2>
+<p>Đã xem toàn trang, đọc đủ40nativeleader paths và44TEXT inventory, phân vùng6hình, ghi vai trò callout/recipe/anchor. Chưa chứng nhận từngDIMENSION/hatch-edge/curve, hiệu lực override mọi entity, hoặc exacttarget mọi đường thép. Bản ghi này không đóng toàn bộ review71PDF hoặc các lỗi renderer.</p></main></html>

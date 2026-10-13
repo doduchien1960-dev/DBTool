@@ -1,0 +1,146 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>pages/PDF-002-PHAN-TICH-CHI-TIET</title><style>body{font:16px/1.65 Segoe UI,Arial;margin:0;color:#183449;background:#edf2f5}main{max-width:1180px;margin:auto;padding:28px;background:white}nav{padding:12px;background:#15384b}nav a{color:white;margin-right:20px}a{color:#096e85}h1,h2,h3{color:#146d78}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{border:1px solid #bccfd7;padding:8px;vertical-align:top}th{background:#e4f0f2}pre{padding:14px;white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f5f7}img{max-width:100%}</style><nav><a href="../INDEX.html">Trang tổng</a><a href="../CATALOG-TEMPLATE.html">Catalog</a><a href="../PDF-71-OVERVIEW.html">71 PDF</a><a href="../KE-HOACH-SUA-CHO-JUNIOR.html">J00–J08</a></nav><main><h1>PDF002 — cổ ga và bảng thống kê thép</h1>
+<p>Nguồn: <code>1.1.Ga thăm BTCT liền khối-Model-10.pdf</code>. Khung CAD đối chiếu là CAD-1-F019, nội dung G800-1 và cao độ 56.74, đã có bản in lại native và review thủ công. Không ghép với PDF001, vì PDF001 là G500-2 và cao độ 58.51. Đã sửa tên Model trong phần mô tả; danh tính/hash trong ledger vẫn là Model-10, không thay nguồn đối chiếu.</p>
+<p>Đã xem toàn trang và <a href="PDF-002-neck-detail-render.png">crop cổ ga độ phân giải cao</a>, bóc tách 88 hàng TK, 14 nhóm và 19 block BLT. Đây là review nội dung, schema và bố cục; chưa chứng nhận từng glyph, quantity cell hoặc đích vật lý của mọi đường dẫn.</p>
+<h2>1. Bố cục và các điểm neo</h2>
+<p>Ba hình cổ nằm ở cột trái, theo thứ tự mặt bằng → A-A → B-B từ trên xuống. Bảng TK nằm ở hai cột giữa và phải, cùng cao độ đầu bảng. Cuối cột phải có bảng tổng hợp. Giữ đủ cả ba hình cổ và bảng TK trong sheet contract; không thay cả tờ bằng một bảng grid tự do.</p>
+<p>Tọa độ dưới đây là mm model, gốc tại góc dưới trái outer paper frame, X hướng phải và Y hướng lên. Đây là số đo nguồn để học recipe, không phải tọa độ cố định dùng cho mọi ga.</p>
+<table>
+<thead>
+<tr>
+<th>Nội dung</th>
+<th>Handle</th>
+<th>Điểm chèn local mm</th>
+<th>Vai trò</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tiêu đề mặt bằng cổ</td>
+<td>67CD5</td>
+<td>(2345, 8610)</td>
+<td>TenMC, tên hình và tỷ lệ 1:30</td>
+</tr>
+<tr>
+<td>Tiêu đề A-A</td>
+<td>67E62</td>
+<td>(2345, 6190)</td>
+<td>Section theo phương clear 500, outer 800</td>
+</tr>
+<tr>
+<td>Tiêu đề B-B</td>
+<td>67F84</td>
+<td>(2345, 4120)</td>
+<td>Section theo phương clear 700, outer 1000</td>
+</tr>
+<tr>
+<td>Header TK cột giữa</td>
+<td>6640D</td>
+<td>(4500, 8610)</td>
+<td>TK.Tieude, scale 0.3</td>
+</tr>
+<tr>
+<td>Header TK cột phải</td>
+<td>67428</td>
+<td>(8550, 8610)</td>
+<td>TK.Tieude, scale 0.3</td>
+</tr>
+<tr>
+<td>Tổng hợp cuối bảng</td>
+<td>68118</td>
+<td>(8550, 2310)</td>
+<td>TK.THKL; không phải một hàng thép</td>
+</tr>
+</tbody>
+</table>
+<p>Header cao 300 mm model do chiều cao asset gốc 1000 × scale 0.3. Hàng đầu ở Y=8310; khoảng cách hàng là 150 mm model. Hai cột cách nhau 4050 mm; mỗi hàng rộng 3750 mm, chừa khoảng trống 300 mm giữa cột.</p>
+<p>Khoảng cách tiêu đề giữa ba hình cổ lần lượt là 2420 và 2070 mm. Không dùng một khoảng hàng chung cho cả ba hình. Khi biến thiên, dựng extents của từng hình rồi xếp theo recipe.</p>
+<p><strong>TK.Tenluoi được chèn cùng X,Y với hàng đầu của nhóm</strong>, chỉ chiếm cột tên lưới. Nó không chiếm thêm một hàng chạy hết chiều rộng bảng. Generic planner thêm một hàng group riêng sẽ làm bảng cao lên và đổi bố cục.</p>
+<p>Header có 8 cột: tên lưới; số hiệu; hình dạng/kích thước (mm); Ø (mm); dài một thanh; số thanh; tổng dài (m); khối lượng (kg). Không in thêm các cột nội bộ Component, Layer, Axis hoặc UnitMass.</p>
+<h2>2. Hai cột, 14 nhóm và 88 hàng</h2>
+<p>Trong native candidate có 105 INSERT TK: 2 header + 14 tên nhóm + 88 hàng thép + 1 tổng hợp. Xem <a href="PDF-002-SCHEDULE-ROWS.html">88 hàng theo đúng thứ tự</a> và <a href="PDF-002-detail-review.json">JSON có hash nguồn</a>. Count này không có nghĩa từng số trên PDF đã được kiểm chứng.</p>
+<table>
+<thead>
+<tr>
+<th>Cột giữa: 48 hàng</th>
+<th>Cột phải: 40 hàng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Đáy - trên</td>
+<td>T4 - ngoài</td>
+</tr>
+<tr>
+<td>Đáy - dưới</td>
+<td>T4 - trong</td>
+</tr>
+<tr>
+<td>T1 - ngoài</td>
+<td>Trần - trên</td>
+</tr>
+<tr>
+<td>T1 - trong</td>
+<td>Trần - dưới</td>
+</tr>
+<tr>
+<td>T2 - ngoài</td>
+<td>Cổ ga</td>
+</tr>
+<tr>
+<td>T2 - trong</td>
+<td>Thang thép</td>
+</tr>
+<tr>
+<td>T3 - ngoài</td>
+<td>Tổng hợp ở cuối</td>
+</tr>
+<tr>
+<td>T3 - trong</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Giữ thứ tự nhóm, nhưng số cột và điểm ngắt phải tính từ số hàng, bounds và recipe của ca mới. Không ép ga biến thiên có đúng 88 hàng. Nhóm cần chuyển cột/trang phải giữ context rõ ràng.</p>
+<h3>Chọn asset: bằng chứng từ các instance</h3>
+<ul>
+<li>Đáy trên D1/D2 dùng TK.L2M; đáy dưới D1/D2 dùng TK.L0M. Cùng số hiệu D1 chưa đủ chọn asset: cần lớp, topology và canonical spec.</li>
+<li>D3 buộc U dùng TK.M.U, handle 66550. Năm tag đoạn là 100–90–200–90–100; D=6, DAI=580, SL=20. Không copy SL=20 sang ca khác.</li>
+<li>Các nhóm tường ngoài trong mẫu có TK.L2M và nhánh T1A/B, T2A/B quanh lỗ; nhóm tường trong tương ứng có L0M. Đây là recipe có scope, không phải luật mọi lớp ngoài luôn dùng L2M.</li>
+<li>T3 buộc C dùng TK.M.C với LT=50, L=90, LP=50. GC1 quanh cống dùng TK.GC.T, L là chuỗi D1090/D750/D640, LT là 150x2. GC2/GC3 tại đây dùng TK.L0M. Không chọn mọi mark bắt đầu GC thành asset GC.</li>
+<li>Trần trên: N1/N2 và các nhánh dùng L0M; N3 viền lỗ dùng GC.H; N4 buộc U dùng M.U. Trần dưới có nhóm N1/N2 dùng L2M nhưng không lặp một hàng N4. Một tie liên kết hai lớp không bắt buộc có hai hàng TK.</li>
+<li>Cổ ga: C1 dùng L2M (680B2); C1A dùng GC.H (680C2); C2 dùng L0M (680D2); C2A dùng GC.H (680DE); C3A dùng M.C (680EE). Hậu tố A ở cổ có thể mang vai trò ring/hoop; không mặc định luôn là đoạn bị lỗ cắt.</li>
+<li>Thang Th dùng <strong>TK.M.U</strong> (68104), với 150–250–300–250–150, D=18, DAI=1100, SL=5. Asset M.U cũng dùng cho thang, nên không được suy mọi M.U là tie D6 hoặc ép số hiệu D3/N4.</li>
+</ul>
+<h2>3. Mặt bằng cổ: clear 700×500 và 5 nhãn</h2>
+<p>Outer là 1000×800, thành dày 150, clear là 700×500. Theo rule owner của DBTool, clear phải lấy từ catalog nắp đúng hướng. Không khóa mọi mã thành 700×700. Cover 25 và chuỗi bước lưới trên hình là thông số của nguồn, không là giá trị mặc định cho mọi input.</p>
+<p>Năm nhãn mặt bằng: C1A/C1 ở phía trái; C2A/C2 ở vùng lòng bên phải; C3 gần giữa. <a href="PDF-002-NECK-LABELS.html">Bảng 19 nhãn của ba hình</a> ghi handle, block, tag và vị trí.</p>
+<p>Frame này không có entity LEADER. Đường dẫn thực dùng <strong>LINE và LWPOLYLINE</strong>; tool chỉ tìm LEADER sẽ bỏ sót annotation cổ.</p>
+<p>Ví dụ C1A: Gach 67D45 ở (1870, 7435), line 67D46 tới BLT2 tại (1820, 7435). Stub dài 50 mm model, khác stub 30 của một số mẫu đáy. Không ép tất cả callout thành stub 1 mm giấy.</p>
+<p>C3 có polyline 67DCF: (1920, 7301) → (1950, 7241) → (2020, 7241), nối BLT1 ở điểm cuối. Nhánh xiên có delta 30/60, không phải 45°. Giữ topology đúng vai trò, không coi mọi leader khác 45° là lỗi.</p>
+<p>Khi clear hoặc thành tăng, dựng lại thanh/hoop/station và neo label vào chúng. Vùng lòng có thể không đủ chỗ; khi đó dùng làn dự phòng cùng vai trò và kiểm ink collision. Không tiếp tục nhồi chữ vào lòng theo tọa độ nguồn.</p>
+<h2>4. A-A/B-B: nhãn hai bên và collector nhiều nhánh</h2>
+<p>Mỗi section có 7 BLT: C1 trái/phải; C1A trái/phải; C2 ở giữa; C2A ở giữa; C3 dưới hình. Tổng 5+7+7=19 là số block nhãn, không phải số thanh vật lý.</p>
+<p>C1 ở hai bên phục vụ các region/face khác nhau. Không xóa nhãn phải chỉ để ép “một CanonicalMark chỉ có một nhãn trong toàn view”. PresentationGroup phải có scope face/region; schedule row có thể gom canonical members độc lập. Cấm sinh một callout cho từng occurrence lặp, nhưng giữ các placement có lý do kỹ thuật.</p>
+<p>C2/C2A trung tâm gọi hai phía bằng các nhánh collector, không cần nhân đôi block. Polyline 67EA3/67EA4 gọi vùng C2A hai bên A-A; line 67EA5/67EAB nối tới vùng nhãn. Polyline 67F06/67F0C gọi C1A từng bên. B-B có cấu trúc tương tự với width khác; không stretch nguyên hình A-A.</p>
+<p>C3 của A-A dùng line 67F15 từ (2020, 5169.5) xuống (2020, 4660); C3 của B-B dùng line 6803D từ (1920, 3099.5) xuống (1920, 2590). X khác nhau vì support node/station, không phải mọi tie callout phải ở centerX=2345.</p>
+<p>CT=56.74: A-A handle 67E7B ở (2345, 5390); B-B handle 67FA3 ở (2345, 3320). Các ThepGocLoi trong source chèn scale 1, còn BLT/TenMC scale 0.3. Không áp S/100 cho mọi block.</p>
+<p>Crop cho thấy chuỗi dimension bên trái rất chật/chồng. Kế thừa semantic, cấu tạo và recipe; cải thiện khoảng hở theo ink. Không sao collision nguồn chỉ để gọi giống PDF.</p>
+<h2>5. Khác biệt nguồn cần giữ công khai</h2>
+<ol>
+<li>PDF001 và PDF002 không cùng ga dù tên Model liền nhau. ReferenceBundle phải dựa identity, kích thước, cao độ và native frame.</li>
+<li>Callout tie cổ ghi <strong>C3</strong>, hàng TK ghi <strong>C3A</strong>. Chưa đủ chứng cứ để xác định alias có chủ ý hay lỗi nguồn. DBTool cần mapping Occurrence → Canonical → DisplayMark → ScheduleRow và decision log; không ghép theo tên gần giống.</li>
+<li>Wall row TK.M.C có DAI=190 và ba tag 50+90+50. Schema đó không mô tả đủ cạnh của C vật lý 50–30–90–30–50, R8 theo owner. Không lấy 190 làm fabrication length mới hoặc bỏ hai đoạn 30 để khớp bảng. Physical spec và schematic là hai hợp đồng khác nhau; công thức lượng chưa xác minh giữ NeedsRule.</li>
+<li>M.U được dùng cho cả tie và thang D18. Tên asset không quyết định component, đường kính, pitch hay DisplayMark.</li>
+<li>Tên nhóm TK.Tenluoi không chiếm hàng riêng. Sai hợp đồng này đủ làm bảng tràn dù số hàng thép không đổi.</li>
+</ol>
+<h2>6. Cách sửa và phép thử cho junior</h2>
+<ol>
+<li>Native roundsteel planner nhận bending specs, canonical rows và presentation metadata; chọn explicit AssetRecipe. Render hàng bằng ATT, giữ AngleSteel TK.TG và QuantityTable đúng scope cũ.</li>
+<li>Không thêm text số hiệu, vòng tròn hoặc schematic lines trùng ngoài block. TDAI nhận TotalLengthMm/1000 đúng một lần; DAI và các đoạn giữ mm.</li>
+<li>Recipe cổ phải có MB/A-A/B-B và bảng TK. Loại3 dùng recipe riêng. Mọi hình lấy từ cùng physical neck/rebar, tránh clear hoặc steel path khác nhau giữa A-A/B-B.</li>
+<li>Annotation engine hỗ trợ LINE/LWPOLYLINE và collector nhiều nhánh. Lưu label port, collector branch, member/node IDs; mark/note/pitch từ effective input.</li>
+<li>Scope face/region cho C1 hai bên; shared collector cho C2/C2A. Reorder/rename không đổi region hoặc alias. Thiếu rule C3/C3A phải được báo, không ghép âm thầm.</li>
+<li>Thử clear 700×500 và xoay 90°, thành 125/150/200, thay chiều cao cổ và tỷ lệ 20/30/40. Các nhãn bám role thật; sản phẩm và các asset yêu cầu scale 1 vẫn giữ kích thước thật.</li>
+<li>Reference fixture này kiểm 2 header, 14 group labels, 88 steel rows, 1 summary; 5 MB labels, 7 A-A, 7 B-B. Ca biến thiên đếm từ contract/input, không ép các count nguồn. Kiểm tie/thang ON/OFF và ảnh native/PDF.</li>
+</ol>
+<p>Đã ghi schema, thứ tự, anchors và nhánh collector. Chưa chứng nhận mọi glyph, 50 dimensions, 4 hatches, 123 polylines hoặc quantity cells. Không dùng review này đóng toàn bộ 71 PDF hay lỗi production.</p></main></html>
