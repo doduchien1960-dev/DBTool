@@ -1,0 +1,43 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PROMPT-THUC-THI-CHUAN-HOA-DRAFT</title><style>body{font:16px/1.65 Segoe UI,Arial;margin:0;color:#183449;background:#edf2f5}main{max-width:1180px;margin:auto;padding:28px;background:white}nav{padding:12px;background:#15384b}nav a{color:white;margin-right:20px}a{color:#096e85}h1,h2,h3{color:#146d78}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{border:1px solid #bccfd7;padding:8px;vertical-align:top}th{background:#e4f0f2}pre{padding:14px;white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f5f7}img{max-width:100%}</style><nav><a href="INDEX.html">Trang tổng</a><a href="CATALOG-TEMPLATE.html">Catalog</a><a href="PDF-71-OVERVIEW.html">71 PDF</a><a href="KE-HOACH-SUA-CHO-JUNIOR.html">J00–J08</a></nav><main><h1>Prompt thực thi — bản nháp đang chờ hoàn tất audit nguồn</h1>
+<p><strong>Đã có bản giao việc cập nhật hơn:</strong> <a href="PROMPT-THUC-THI-CAP-NHAT-20261013.md">PROMPT-THUC-THI-CAP-NHAT-20261013.md</a>. Dùng bản mới khi giao AI sửa, gồm STD01–17, cách sửa lớp lót/catalog cống và correction CAD–PDF. File này giữ lại để truy lịch sử.</p>
+<p>Bạn là kỹ sư sửa DBTool. Mục tiêu duy nhất: sinh DWG/PDF với cấu tạo và cách trình bày theo VHGpro, dùng thông số biến thiên từ Excel. Không viết lại toàn bộ ứng dụng, không đổi sang hình mẫu tĩnh, không ưu tiên tính khối lượng Excel trong đợt này.</p>
+<h2>Đọc trước khi sửa</h2>
+<p><strong>Điểm bắt đầu giao junior:</strong> <code>KE-HOACH-SUA-CHO-JUNIOR.md</code>, làm đúng J00→J08; dùng quy tắc và phép thử từng gói, không tự thiết kế lại ngoài phạm vi. <code>PDF-71-OVERVIEW.md</code> ghi riêng71trang và tám recipe. Đây là overview, không phải71trang đã kiểm từng glyph. Chỉ gọi bản nghiên cứu Final sau khi các pending source checks liên quan đã có verdict; không dùng chữ Final trong tên file để thay nghiệm thu.</p>
+<p>Đọc thêm <code>PLOT-POLICY-OBSERVED.md</code>: tỷ lệ1:20 có thật ở tờ khung thép góc/tấm nắp, không ép toàn bộ1:30. NétPDF loại1 khác bộloại2/3; hairline nguồn không tự là lỗi cần sửa. Cửa thu có số hiệu1/2/3/4 và cổ có hậu tốA/B/C trong mẫu loại3. Không giới hạn từ vựng bằng bảngsenior cũ.</p>
+<ol>
+<li><code>docs/vhgpro-standard-20261012/CONTRACT-CHONG-HOI-QUY.md</code>: quy tắc ưu tiên, dữ liệu, cover datum, grouping, nội dung từng tờ và gates.</li>
+<li><code>CURRENT-CODE-FINDINGS.md</code>: STD-01..17 đã đọc được trong code/nguồn/diagnostic hiện tại. Đọc lại đúng file/symbol và chụp hash; không áp bản vá cho code cũ chỉ vì báo cáo có line number. Đọc <code>EXCEL-CONSUMER-AUDIT.md</code> cho chuỗi xử lý và các bước sửa STD-16/17; literal index không phải chứng nhận consumer.</li>
+<li><code>EXCEL-RULES-REVIEW.md</code> và <code>excel/author-notes-verbatim.json</code>: giữ note tác giả, map đúng ô input và owner override riêng.</li>
+<li><code>CATALOG-TEMPLATE.html</code>: dùng đúng asset/tag/style/layer. Block sản phẩm nắp giữ mm 1:1; block annotation có scale giấy riêng. TK có attributes không đồng nghĩa dynamic stretch.</li>
+<li><code>pages/INDEX.html</code> và <code>pages/VISUAL-REVIEW-NOTES.md</code>: mỗi PDF có ledger và nguồn; ghép ambiguous không được coi chắc chắn. So PDF-012/032/033/034 cho ga nhỏ loại2; sau đó các ga lớn và loại1/3. Không lấy nguyên mọi tọa độ ga nhỏ cộng delta cho tất cả nhãn.</li>
+<li><code>docs/research-vhgpro-regression-20261012/BAO-CAO-DIEU-TRA-HOI-QUY.md</code>, CHECKLIST-69 và ACCEPTANCE-CORE-216/EDGE-40: đây là yêu cầu/ca thử, không phải danh sách đã pass.</li>
+</ol>
+<p>Đọc <code>pages/FULL-PAGE-FEATURE-REVIEW.md</code>:71ảnh đã mở riêng và ghi feature. Chưa chứng nhận từngglyph/giaonét và9joinambiguous; mappingconsumer528notes/audittoàncode cònpending. Không ghépPDFliềnnhau thànhcùngga. TỷlệM15 làchi tiếttấmnắp, khôngphầntrămbảovệ. C/U cóthểkýhiệu ởviewupperđạidiện;khôngnhânđôiởlower. Batch5 đãghép/in42khung nhưngDiagnosticPartial; batch10chưađủ. Identityprototype mới đãreadbackTenMC G500-2, khôngcònG400-1 ởmodelspacetrựctiếp, chưachứngnhậnmọiframe. Trước khi thay rule chưa xác minh, đối chiếu nguồn liên quan rồi ghi quyết định; giữblockertheoID.</p>
+<h2>Quy trình làm việc bắt buộc</h2>
+<p><strong>Bổ sung source audit13/10:</strong> đọc <code>CAD-PDF-JOIN-REVIEW.md</code> và manual-review.json. Auto-best056/064 đã ghép ngược: đúng056→CAD-3-F024,064→CAD-3-F031. Ledger đã sửa inventory, vô hiệu hóa transform sai; đừng lấy overlay cũ làm anchor. PDF051/058 có hai khung TK tương đương, chưa chứng minh uniqueManholeId. Không so DBTool bằng referencebundle ghép sai.</p>
+<ol>
+<li>Tạo <code>run-manifest.json</code> chứa commit/worktree state, hashes source/build/template/input, selected rows, profile, scale, rule version. Không ghi đè bằng chứng cũ.</li>
+<li>Đọc STD-01..17; lập bảng Active/FixedInCurrentCode/NeedsReproduction. Giữ sửa slot allocator mới đã có, không phục hồi bug cũ. Tạo reproducer fail cho lỗi cần sửa.</li>
+<li>Sửa input/geometry trước: cover clear lock, frame100, cổ kết thúc dưới khung, CT finished top; OpeningId một nguồn trên tất cả view; union bê tông cùng component; seam lắp ghép thật giữ lại.
+   Lớp lót D3=0 là OFF: phải sửa domain và mọi planner bắt buộc Pad, không dựng solid dày epsilon. Cống thiếu catalog: không suy thickness/chamfer theo tỷ lệ10% từ tên; cần nguồn kích thước thật hoặc Block. WallDimPrefix/NeckPrefix là tiền tố DIM, không phải mã thanh thép.</li>
+<li>Hoàn tất C/U/thang/chốt/vạt/cửa thu theo input ON/OFF và support table. Nếu input bật mà planner trả NeedsRule thì chưa đạt. Không thêm nhãn/dấu X thay cho physical path.</li>
+<li>Khôi phục nội dung tờ theo recipe: hình tường/trần/cổ, bảng TK cạnh hình cổ, tờ hình uốn nhóm riêng. Trích asset schema/order/relative placement từ store cũ, tuyệt đối không lấy thanh/số lượng/kích thước theo tên G400/G500.</li>
+<li>Chuẩn PresentationGroup: group scope gồm component, face/layer, direction, topology/region, diameter, pitch và canonical membership. SH hiển thị ngắn theo mẫu/prefix cấu hình, không mỗi occurrence một nhãn. Không gom khác thông số thành một nhãn giả.</li>
+<li>Native TK rows bind đúng tag từ dữ liệu thật; tiếng Việt đầy đủ; formatter hợp lý. Không dùng enum English, số thập phân round-trip dài hoặc grid generic thay hàng TK cho steel sheet.</li>
+<li>Neo collector/labels theo geometry và paper offsets, đo native ink để tránh collision; preserve thứ tự các view. Chữ/dim/leader không bị cắt khi kích thước thay đổi. Đổi tên ga chỉ đổi text.</li>
+<li>Xuất batch từ 5 và 10 dòng workbook khác nhau thành một DWG. Ghi ManholeId/row/inputhash/frame IDs riêng; không merge nhiều bản mẫu tĩnh. Dùng batch plot một host, tất cả frames được in, kiểm transcript và PSTYLEMODE; không dùng Fit che clipping.</li>
+<li>Chạy acceptance đủ ba loại: có/không chân; có/không vạt; nhỏ/vừa/lớn; cống tròn/hộp/không cống theo matrix; thêm cống đôi/offset±/nhiều hướng/cổ lệch/ON-OFF/C-U-Z support/cover chữ nhật và xoay/thickness/height/scale20-30-40. NotApplicable có lý do; không gán Passed khi chưa chạy.</li>
+</ol>
+<h2>Bằng chứng bắt buộc ở mỗi ca</h2>
+<ul>
+<li>Raw và effective input, owner overrides, source-cell links.</li>
+<li>Geometry/rebar counts và mapping OccurrenceId -&gt; PresentationGroup -&gt; view -&gt; native handles.</li>
+<li>OpeningId/surface datums ở mọi view.</li>
+<li>Sheet contract: expected view/table vs actual, số frames và PDF.</li>
+<li>Build/template/input hashes khớp run; warnings và partial diagnostics được giữ.</li>
+<li>DWG, PDF vector, ảnh/crops đối chiếu mẫu, kiểm font/line/hatch/dim/text/leader; không dùng unit tests thay ảnh.</li>
+<li>Before/after cho case2-gen-v7, case3-gen-v5, case5-generate-run và case1-final-v2, phân biệt khác input với regression code.</li>
+</ul>
+<h2>Cấm và điều kiện kết thúc</h2>
+<p>Cấm hardcode ga theo tên; copy thép tĩnh; sửa Excel nguồn hoặc tắt featureON thànhOFF để che lỗi; mặc định D10 khi thiếu metadata; giả số khối lượng; gán gate Final bằng exit0; xóa tests kiểm nội dung; đổi block/tag tùy ý; gắn Passed hàng loạt; bỏ trường hợp vì khó. BLT3/4 chỉ có NOTE, không gán SH/DK/A. Loại3 có recipe cổ+cửa thu và TK riêng; không dùng chung layout loại2. Mất nội dung khi sửa nhãn là regression dù collision test pass.</p>
+<p>Chỉ báo Final khi mọi rule bắt buộc đã có receipt và toàn bộ ca hợp lệ trong matrix đạt native/semantic/visual. Nếu còn lỗi, bàn giao đúng <code>Partial</code>, danh sách ID tồn đọng, đã làm/đã thử/chưa thử và next step rõ. Không viết “đã sửa dứt điểm” khi chỉ có một ga hoặc chỉ grouping JSON.</p></main></html>
