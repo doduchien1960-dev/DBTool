@@ -1,0 +1,1079 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>5. Quy trình kiến trúc triển khai DBTool</title><style>body{margin:0;background:#eff3f5;color:#183345;font:16px/1.6 "Segoe UI",Arial,sans-serif}main{max-width:1380px;margin:auto;background:white;padding:32px}nav{position:sticky;top:0;background:#143e50;color:white;padding:10px 18px;z-index:5}nav a{color:white;margin-right:18px}a{color:#096c7b;overflow-wrap:anywhere}h1,h2,h3{color:#165b66;line-height:1.3;scroll-margin-top:60px}h1{font-size:30px}h2{margin-top:38px;border-bottom:1px solid #cddde3;padding-bottom:8px}p,li{max-width:1100px}table{border-collapse:collapse;width:100%;font-size:14px;margin:20px 0;table-layout:auto}th,td{border:1px solid #c4d4dc;padding:10px;vertical-align:top;overflow-wrap:anywhere}th{background:#e7f1f3;position:sticky;top:44px}td{min-width:90px}tr:nth-child(even){background:#f8fafb}pre{background:#132f40;color:#eff7fb;white-space:pre-wrap;overflow:auto;padding:18px;border-radius:8px;font-size:13px}code{font-family:Consolas,monospace}img{max-width:100%;height:auto;border:1px solid #d6e1e5}blockquote{border-left:4px solid #be862d;background:#fff7e9;padding:8px 20px}.diagram{max-width:1000px;margin:24px auto}.table-wrap{overflow-x:auto}footer{border-top:1px solid #d0dde3;padding-top:18px;color:#57707e;font-size:13px}@media(max-width:800px){main{padding:16px}body{font-size:15px}h1{font-size:25px}table{font-size:13px}nav{position:static}th{position:static}}</style></head><body><nav><a href="INDEX.html">Bàn giao</a><a href="01-KNOWLEDGE.html">Tri thức</a><a href="03-MODULE-MATRIX.html">Modules</a><a href="04-NEEDSRULE.html">NeedsRule</a><a href="05-ARCHITECTURE.html">Kiến trúc</a><a href="06-IMPLEMENTATION-PLAN.html">Kế hoạch</a></nav><main><article><h1 id="5-quy-trinh-kien-truc-trien-khai-dbtool">5. Quy trình kiến trúc triển khai DBTool</h1>
+<p>13/10/2026. Bản đặc tả để triển khai trong solution hiện tại. <strong>Tên type mới bên dưới là đề xuất, chưa phải API đã tồn tại.</strong> Dùng các record/planner hiện có nếu đáp ứng cùng hợp đồng. Không tạo pipeline thứ hai. Các quyết định NR trong tài liệu04 được kiểm bằng gate; junior không tự đặt số thiếu nguồn. Việc còn chờ quyết định có đầu ra lỗi cụ thể, không có nhánh “xử lý sau”.</p>
+<h2 id="51-ranh-gioi-module-va-luong">5.1. Ranh giới module và luồng</h2>
+<div class="diagram"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1080 1000" role="img" aria-label="Pipeline DBTool S0 đến S11, gate sau mỗi bước"><defs><marker id="arrow" markerwidth="10" markerheight="10" refx="8" refy="5" orient="auto"><path d="M0,0L10,5L0,10" fill="#426579"></path></marker></defs><path d="M260,84L520,115" fill="none" stroke="#426579" stroke-width="2" marker-end="url(#arrow)"></path><path d="M780,84L520,115" fill="none" stroke="#426579" stroke-width="2" marker-end="url(#arrow)"></path><path d="M520,179L520,201" fill="none" stroke="#426579" stroke-width="2" marker-end="url(#arrow)"></path><path d="M520,265L520,287" fill="none" stroke="#426579" stroke-width="2" marker-end="url(#arrow)"></path><path d="M520,351L520,373" fill="none" stroke="#426579" stroke-width="2" marker-end="url(#arrow)"></path><path d="M340,233L55,233L55,491L80,491" fill="none" stroke="#426579" stroke-width="2" marker-end="url(#arrow)"></path><path d="M520,437L260,459" fill="none" stroke="#426579" stroke-width="2" marker-end="url(#arrow)"></path><path d="M520,437L780,545" fill="none" stroke="#426579" stroke-width="2" marker-end="url(#arrow)"></path><path d="M260,523L260,545" fill="none" stroke="#426579" stroke-width="2" marker-end="url(#arrow)"></path><path d="M80,52L25,52L25,577L80,577" fill="none" stroke="#426579" stroke-width="2" marker-end="url(#arrow)"></path><path d="M440,52L1000,52L1000,577L960,577" fill="none" stroke="#426579" stroke-width="2" marker-end="url(#arrow)"></path><path d="M260,609L520,645" fill="none" stroke="#426579" stroke-width="2" marker-end="url(#arrow)"></path><path d="M780,609L520,645" fill="none" stroke="#426579" stroke-width="2" marker-end="url(#arrow)"></path><path d="M520,709L520,745" fill="none" stroke="#426579" stroke-width="2" marker-end="url(#arrow)"></path><path d="M520,809L520,845" fill="none" stroke="#426579" stroke-width="2" marker-end="url(#arrow)"></path><rect x="80" y="20" width="360" height="64" rx="9" fill="#eef7f4" stroke="#216c64"></rect><text x="94" y="43" font-family="Segoe UI,Arial" font-size="18" fill="#174b46">S0 · Template / AssetRegistry</text><text x="94" y="67" font-family="Segoe UI,Arial" font-size="14" fill="#4c6373">Gate G0 · Receipt / SourceRefs / Hash</text><rect x="600" y="20" width="360" height="64" rx="9" fill="#eef7f4" stroke="#216c64"></rect><text x="614" y="43" font-family="Segoe UI,Arial" font-size="18" fill="#174b46">S1 · Excel / RawProjectInput</text><text x="614" y="67" font-family="Segoe UI,Arial" font-size="14" fill="#4c6373">Gate G1 · Receipt / SourceRefs / Hash</text><rect x="340" y="115" width="360" height="64" rx="9" fill="#eef7f4" stroke="#216c64"></rect><text x="354" y="138" font-family="Segoe UI,Arial" font-size="18" fill="#174b46">S2 · Resolve / Datums</text><text x="354" y="162" font-family="Segoe UI,Arial" font-size="14" fill="#4c6373">Gate G2 · Receipt / SourceRefs / Hash</text><rect x="340" y="201" width="360" height="64" rx="9" fill="#eef7f4" stroke="#216c64"></rect><text x="354" y="224" font-family="Segoe UI,Arial" font-size="18" fill="#174b46">S3 · Concrete / Openings</text><text x="354" y="248" font-family="Segoe UI,Arial" font-size="14" fill="#4c6373">Gate G3 · Receipt / SourceRefs / Hash</text><rect x="340" y="287" width="360" height="64" rx="9" fill="#eef7f4" stroke="#216c64"></rect><text x="354" y="310" font-family="Segoe UI,Arial" font-size="18" fill="#174b46">S4 · Physical steel / Canonical</text><text x="354" y="334" font-family="Segoe UI,Arial" font-size="14" fill="#4c6373">Gate G4 · Receipt / SourceRefs / Hash</text><rect x="340" y="373" width="360" height="64" rx="9" fill="#eef7f4" stroke="#216c64"></rect><text x="354" y="396" font-family="Segoe UI,Arial" font-size="18" fill="#174b46">S5 · Presentation groups</text><text x="354" y="420" font-family="Segoe UI,Arial" font-size="14" fill="#4c6373">Gate G5 · Receipt / SourceRefs / Hash</text><rect x="80" y="459" width="360" height="64" rx="9" fill="#eef7f4" stroke="#216c64"></rect><text x="94" y="482" font-family="Segoe UI,Arial" font-size="18" fill="#174b46">S6 · Projection / Targets</text><text x="94" y="506" font-family="Segoe UI,Arial" font-size="14" fill="#4c6373">Gate G6 · Receipt / SourceRefs / Hash</text><rect x="80" y="545" width="360" height="64" rx="9" fill="#eef7f4" stroke="#216c64"></rect><text x="94" y="568" font-family="Segoe UI,Arial" font-size="18" fill="#174b46">S7 · Annotation / DIM / Ink</text><text x="94" y="592" font-family="Segoe UI,Arial" font-size="14" fill="#4c6373">Gate G7 · Receipt / SourceRefs / Hash</text><rect x="600" y="545" width="360" height="64" rx="9" fill="#eef7f4" stroke="#216c64"></rect><text x="614" y="568" font-family="Segoe UI,Arial" font-size="18" fill="#174b46">S8 · NativeTK / Bending</text><text x="614" y="592" font-family="Segoe UI,Arial" font-size="14" fill="#4c6373">Gate G8 · Receipt / SourceRefs / Hash</text><rect x="340" y="645" width="360" height="64" rx="9" fill="#eef7f4" stroke="#216c64"></rect><text x="354" y="668" font-family="Segoe UI,Arial" font-size="18" fill="#174b46">S9 · SheetPlan / Frames</text><text x="354" y="692" font-family="Segoe UI,Arial" font-size="14" fill="#4c6373">Gate G9 · Receipt / SourceRefs / Hash</text><rect x="340" y="745" width="360" height="64" rx="9" fill="#eef7f4" stroke="#216c64"></rect><text x="354" y="768" font-family="Segoe UI,Arial" font-size="18" fill="#174b46">S10 · Native DWG / Readback</text><text x="354" y="792" font-family="Segoe UI,Arial" font-size="14" fill="#4c6373">Gate G10 · Receipt / SourceRefs / Hash</text><rect x="340" y="845" width="360" height="64" rx="9" fill="#eef7f4" stroke="#216c64"></rect><text x="354" y="868" font-family="Segoe UI,Arial" font-size="18" fill="#174b46">S11 · Batch / Plot / Verdict</text><text x="354" y="892" font-family="Segoe UI,Arial" font-size="14" fill="#4c6373">Gate G11 · Receipt / SourceRefs / Hash</text></svg></div><details><summary>Sơ đồ Mermaid có thể sao chép</summary><pre><code class="language-mermaid">flowchart TD
+  A[Excel bytes + SourceRefs] --&gt; B[S1 RawProjectInput]
+  T[Template bundle + hashes] --&gt; C[S0 AssetRegistry]
+  R[Approved RuleRegistry] --&gt; D[S2 EffectiveInput + Datums]
+  B --&gt; D
+  C --&gt; D
+  D --&gt; E[S3 Geometry + Assembly + Openings]
+  E --&gt; F[S4 Physical occurrences + CanonicalSchedule]
+  F --&gt; G[S5 PresentationGroupRegistry]
+  E --&gt; H[S6 Projection + Targets]
+  G --&gt; H
+  H --&gt; I[S7 Annotation + Dimensions]
+  G --&gt; J[S8 NativeTK + Bending intents]
+  C --&gt; I
+  C --&gt; J
+  I --&gt; K[S9 SheetPlan + FrameRegistry]
+  J --&gt; K
+  K --&gt; L[S10 Native DWG + Readback]
+  L --&gt; M[S11 Batch / Plot / PDF comparison]
+  M --&gt; N[Semantic + Visual verdict per case]
+</code></pre></details>
+<p>Domain giữ geometry/rebar/canonical quantities thuần .NET. Drawing giữ group trình bày, projection, annotation, native intents và layout; không tính lại geometry từ Excel. Application điều phối, kiểm capability/approval và giữ receipts. Infrastructure.Excel đọc snapshot bytes. AutoCAD chỉ import/render/readback trong host context. UI và Headless tạo cùng request, không có default scale/mode/identity riêng làm đổi kết quả. Project references giữ như ma trận03, không cho Domain tham chiếu Drawing/AutoCAD.</p>
+<p>Mọi phase trả <code>StageResult&lt;T&gt;</code>; chỉ payload đã qua gate được chuyển sang bước phụ thuộc. Preview cho phase độc lập được phép nhưng phải mang trạng thái Partial. Gate Final luôn chặn nếu phase bắt buộc còn unresolved.</p>
+<h2 id="52-hop-ong-du-lieu-chung">5.2. Hợp đồng dữ liệu chung</h2>
+<p>Tên field là tên chuẩn cần giữ giữa JSON và C#. <code>double</code> chỉ dùng số hữu hạn cho hình học; input numeric đọc giữ decimal/raw trước chuyển. Không dùng <code>double.NaN</code>, <code>0</code>, chuỗi rỗng làm dấu “chưa biết”. <code>Option&lt;T&gt;</code> trong mã giả tương đương nullable/record discriminated union; không thêm package chỉ để có kiểu này.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Struct / field</th>
+<th>Type / unit</th>
+<th>Nguồn và invariant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SourceRef.SourceKind, RelativePath, Sha256</td>
+<td>enum, string, string</td>
+<td>Giữ WorkbookCell/PdfPage/SourceCode/SyntheticFixture/RuleDocument/Dxf/Dwg hiện có; mở rộng OwnerDecision/Derived có version. Không đổi giá trị enum cũ</td>
+</tr>
+<tr>
+<td>SourceRef.Sheet, NoteCell, ValueCell, Handle, Section; Page</td>
+<td>string? từng field; Page là int?</td>
+<td>Vị trí nguồn chính xác; note cell khác value cell; PDF handle thuộc CAD candidate kèm join status; chi tiết tại 05C.1</td>
+</tr>
+<tr>
+<td>SourcedValue.Raw, Formula, Cache, Parsed, Effective</td>
+<td>string?, string?, string?, decimal/string?, typed T</td>
+<td>Raw bất biến; derived giữ ParentSourceIds và FormulaRuleId</td>
+</tr>
+<tr>
+<td>SourcedValue.Unit, RuleId, OverrideReason</td>
+<td>enum Unit, string, string?</td>
+<td>Mỗi chuyển đổi/override truy được; không sửa workbook gốc</td>
+</tr>
+<tr>
+<td>StageResult.Payload, Status, Diagnostics</td>
+<td>T?, enum, Diagnostic[]</td>
+<td>Status=Ready/Partial/Blocked/Cancelled; Blocked không có payload dùng cho Final</td>
+</tr>
+<tr>
+<td>StageReceipt.RunId, ManholeId, Stage, InputHash, OutputHash</td>
+<td>string</td>
+<td>ID/hash liên tục; số phần tử chỉ kiểm đầy đủ, không thay verdict</td>
+</tr>
+<tr>
+<td>Diagnostic.Code, Scope, SourceRefs, Expected, Actual, NeedsRuleIds</td>
+<td>string/enum/typed</td>
+<td>Không nuốt lỗi; có case/component/occurrence IDs khi biết</td>
+</tr>
+<tr>
+<td>ApprovedRule.Id, Version, Scope, Formula, Parameters, Sources, Approval</td>
+<td>string, maps, records</td>
+<td>Proposal hoặc approval=null không cấp công thức sản xuất; NR chưa ký trả RULE_UNAPPROVED</td>
+</tr>
+<tr>
+<td>Units.Geometry, Elevation, TotalLength, Mass</td>
+<td>mm, m, m, kg</td>
+<td>K003/K037. mm→m chia1000 đúng một lần; m→localmm tại boundary nhân1000 một lần</td>
+</tr>
+<tr>
+<td>TolerancePolicy.GeometryMm, LengthMm, PaperMm, PdfPoints, AreaMm2, MassKg</td>
+<td>double positive</td>
+<td>NR18 chốt tiêu chí; code hiện 1e-6mm/1e-9kg là ExperimentalSoftwareFixture, không tự nâng thành acceptance standard</td>
+</tr>
+</tbody>
+</table>
+</div><p>Hàm chung:</p>
+<pre><code class="language-text">RequireRule(id, scope):
+    rule = registry.SingleApplicable(id, scope)
+    if none or not approved: Block(RULE_UNAPPROVED, id, scope, sourceRefs)
+    if multiple incompatible: Block(RULE_SCOPE_CONFLICT, ruleIds)
+    return immutable rule
+
+RunStage(stage, payload):
+    require hashes/provenance match this RunId and ManholeId
+    compute; validate stage invariants
+    persist receipt even on error/cancellation
+    do not convert Review/NeedsRule into Passed
+</code></pre>
+<h2 id="53-s0-nap-template-va-registry">5.3. S0 — nạp template và registry</h2>
+<p><strong>Trách nhiệm:</strong> <code>TemplateManifestReader</code>, <code>TemplateAssetImporter</code>, <code>TemplateContractValidator</code>, <code>VhgTemplateRoles</code>; bổ sung <code>AssetRegistry</code>. Giữ nguyên exact names. Template canonical chờ NR15, font chờ NR16; vẫn kiểm inventory/read-only các bundle hiện có.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Input/output</th>
+<th>Field / type / unit</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TemplateBundle input</td>
+<td>path/hash, definitionSource enum, customizationVersion string</td>
+<td>catalog/template-source-index.json; SOURCE-CONFLICTS</td>
+</tr>
+<tr>
+<td>AssetDefinition output</td>
+<td>Name string, DefinitionHandle string, ContentHash string, BasePoint Point3Mm, Bounds Bounds3Mm</td>
+<td>native definitions trong catalog, không đo previewSVG</td>
+</tr>
+<tr>
+<td>AssetDefinition</td>
+<td>Kind enum, RequiredTags AttrSpec[], ChildNames string[], Layer/Style/Dim/Linetype signatures</td>
+<td>104 definitions,165 ATTDEF; inventory không đồng nghĩa mọi feature supported</td>
+</tr>
+<tr>
+<td>AttrSpec</td>
+<td>Tag string, Default string, HeightMm double, WidthFactor double?, Style string, Insert/AlignPoint</td>
+<td>ATTDEF nguồn; default chỉ specimen, không output quantity</td>
+</tr>
+<tr>
+<td>AssetRegistry</td>
+<td>bundleHash, exact-name dictionary, RoleBindings map, FontPolicy, UnitPolicy</td>
+<td>canonical bundle đã duyệt; caller không override theo tên ga</td>
+</tr>
+</tbody>
+</table>
+</div><pre><code class="language-text">LoadAsset(name):
+    if visited[name]: return
+    if visiting[name]: Block(TEMPLATE_DEPENDENCY_CYCLE, stack)
+    definition = exactLookup(name) else Block(TEMPLATE_ASSET_MISSING,name)
+    visiting.add(name)
+    for child in definition.ChildNames: LoadAsset(child)
+    compare same-name destination definition hash
+    if different: require explicit migration version; otherwise Block(TEMPLATE_SIGNATURE_CONFLICT)
+    import symbols/ATTDEF/dependencies; verify parent references
+    visiting.remove(name); visited.add(name)
+</code></pre>
+<p>HTemplate chỉ carrier. EN-124C/34gagw4gs là dependency của sản phẩm, không lựa chọn độc lập. NotThep/MC3/MC4/TieudeMC có role riêng theo bảng01. Chưa có dynamic properties thì không set stretch. Kiểm unit conversion bằng native extents; không sao UnitFactor3.2808/scale0.0914 trong ảnh owner. DWT không có trong bộ nguồn không được giả bằng đổi đuôi DWG.</p>
+<p><strong>Gate G0:</strong> exact asset/schema/signature/dependency resolve; source và destination content hashes; selected product extents không bị nhân INSUNITS; thiếu role/tag chặn trước render. NR15/16 ảnh hưởng Final phải hiện; không trộn font khác phiên bản rồi gọi giữ nguyên template.</p>
+<h2 id="54-s1-oc-excel-snapshot-va-typed-raw-input">5.4. S1 — đọc Excel snapshot và typed raw input</h2>
+<p><strong>Trách nhiệm:</strong> <code>WorkbookImporter</code>, <code>Vhg32Schema</code>, <code>NumericCellReader</code>, <code>CatalogReader</code>, <code>WorkbookPackageValidator</code>. Bảng <strong>05A-INPUT-FIELDS.md</strong> là danh sách field/address/type/unit; bảng EX trong01 là ngữ nghĩa/điều kiện. Chỉ main rows B:AA từ row4 trở đi; row trống bỏ riêng row đó, không dừng toàn bảng. Không suy profile từ tên ga.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type/unit</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RawProjectInput.WorkbookHash, Profile, MainSheet</td>
+<td>SHA256, enum1/2/3, string</td>
+<td>bytes snapshot+request profile, sheet name kiểm exact</td>
+</tr>
+<tr>
+<td>RawManholeRow.RowIndex, Cells</td>
+<td>int, immutable dictionary<string></string></td>
+<td>B:AA từng row; Name/C/D/E/... từ schema</td>
+</tr>
+<tr>
+<td>RawCell.Kind/Text/Number/Formula/CacheKind/Cache</td>
+<td>enum/string/decimal?</td>
+<td>OOXML/ClosedXML; không dùng formula text làm số</td>
+</tr>
+<tr>
+<td>ConfigCells/CatalogCells</td>
+<td>immutable maps</td>
+<td>CF.Ga, CF.Cong, CF.Data; giữ raw address và semantic aliases</td>
+</tr>
+<tr>
+<td>ReadOptions.NumericCulture, SelectedRowIds, Presentation</td>
+<td>typed request</td>
+<td>nguồn UI/CLI request receipt; scale thân là option vẽ VHGpro p24–25, không có cột Excel thì không bịa cell</td>
+</tr>
+</tbody>
+</table>
+</div><pre><code class="language-text">snapshot = ReadAllBytes(path); sourceHash = SHA256(snapshot)
+check required sheets + version marker + matching selected profile
+capture raw/formula/cache/note/source refs
+parse only active numeric fields under NumericPolicy; reject ambiguous/error/nonfinite values
+if required formula cache absent/stale/unverifiable: Block(FORMULA_VALUE_UNRESOLVED, cell)
+for each nonblank data row: read explicit schema columns; missingName -&gt; row error
+read whole catalogs to last populated row; reject duplicate keys with different values
+read configuration using profile-specific address map, not global row shift
+return immutable RawProjectInput with same bytes hash
+</code></pre>
+<p>Mesh grammar: <code>D&lt;diameter&gt;A&lt;pitch&gt;</code>; anchor <code>D&lt;diameter&gt;A&lt;pitch&gt;L&lt;length&gt;</code>; box/tuple <code>a x b [x c]</code>; angle <code>Vaxbxc</code>/<code>Laxbxc</code>; lifting <code>nDdiameter</code>. Whitespace/case normalization chỉ ở parser đã ghi trong receipt, không fuzzy catalog. NumericCulture tường minh; <code>1,234</code> mơ hồ khi không có culture chặn. Prefix/vật liệu/symbol là literal, không normalize làm mất ý nghĩa. Notes không phải mã thực thi.</p>
+<p><code>O:P/Q:R/S:T/U:V</code>: pipe code + <strong>relative invert mm</strong> từ đáy trong ga; AA là elevation m. Blank code + blank invert=None; code+blank invert hoặc blank code+invert=Invalid; D/X đứng riêng Invalid. Không đọc R2 note thành chỉ R/S input. Prefix values cùng row21/23, NoteStyle K21/K23, PitchSymbol M19/M21; header nhóm không đồng nghĩa value ở hàng kế.</p>
+<p><strong>Gate G1:</strong> typed input giữ raw/source/cell; selected row identity duy nhất; catalog key/units đúng; zero có nghĩa theo từng EX, không permissive toàn thickness. Ô inactive giữ raw+InactiveReason, không dùng làm shape.</p>
+<h2 id="55-s2-resolve-mot-effectiveinput-va-datums">5.5. S2 — resolve một EffectiveInput và datums</h2>
+<p><strong>Trách nhiệm:</strong> <code>ManholeValidator</code>, <code>AccessoryInputMapper</code>, cover catalog/contracts/resolvers, <code>OwnerCoverAssemblyValidator</code>, <code>FeatureSupportValidator</code>. Mở rộng <code>ValidatedManholeSpec</code>, không tạo schema riêng không có consumer.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Struct.field</th>
+<th>Type/unit</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EffectiveInput.Id/Profile/ClearX/ClearY/ClearHeight</td>
+<td>string/enum/double mm</td>
+<td>main B/C/D/E</td>
+</tr>
+<tr>
+<td>Base/Wall/Roof/NeckThickness</td>
+<td>double mm</td>
+<td>F/I/L/X; validate riêng positive khi cấu kiện active</td>
+</tr>
+<tr>
+<td>Pad, BaseExpansion, BaseHaunch, TopHaunch</td>
+<td>Option<padspec>, double mm</padspec></td>
+<td>D3/C3/C5/D5/C9 loại 1; zero OFF đúng trường</td>
+</tr>
+<tr>
+<td>EffectiveNeck.RawClear/ResolvedClear, Position, Rotation</td>
+<td>Size2Mm, Size2Mm, position enum, angle rad</td>
+<td>E11 raw; catalog aperture theo owner; request/catalog orientation</td>
+</tr>
+<tr>
+<td>ResolvedCover</td>
+<td>ProductId, MB/AA/BB names, ProductToAssembly matrix, MeasuredAperture, ContactSurfaces, NativeThickness</td>
+<td>cover catalog có provenance; không dùng bbox ngoài hoặc frame100</td>
+</tr>
+<tr>
+<td>OwnerFrame</td>
+<td>OuterX/OuterY/HeightMm: double mm từng field</td>
+<td>EffectiveNeck.ResolvedClear.X+2<em>tNeck, EffectiveNeck.ResolvedClear.Y+2</em>tNeck,100 từ C01/owner13/10; không lấy clear thân ga</td>
+</tr>
+<tr>
+<td>AssemblyDatums</td>
+<td>map<surfaceid>, BaseElevationM?, DisplayMode, Symbols</surfaceid></td>
+<td>geometry/input hợp nhất; FinishedTop,FrameBottom,NeckTop,RoofTop,RoofBottom,WallTop,BaseTop,BaseBottom,PadBottom?</td>
+</tr>
+<tr>
+<td>ResolvedPipeConnection</td>
+<td>OpeningId, WallId, InvertMm, SignedInsideOffsetMm, Profile, HostToWorld</td>
+<td>O:V+CF.Cong+offsetCF.Ga; clear/outer/cutout riêng</td>
+</tr>
+<tr>
+<td>ResolvedCatchAssembly</td>
+<td>Owner Body/Neck, Wall/position/offset, opening W/H, chamber W/depth/H, wall/base/pad thickness, product?, transform</td>
+<td>C17:M17 loại 3 + catalog; note EX175–185, HDSD p13</td>
+</tr>
+<tr>
+<td>EffectiveRebarSpecs</td>
+<td>mesh per component/layer, cover perrole, hooks, ties/lap/ladder/dowel/lifting/panel/catch/haunch</td>
+<td>main/config typed fields + approved rule IDs</td>
+</tr>
+<tr>
+<td>EffectivePresentation</td>
+<td>BodyScaleDenominator, PanelScaleDenominator, prefix map, NoteStyle, PitchSymbol, material/hatch, font/plot profile</td>
+<td>request p24–26; M15; config exact cells; template</td>
+</tr>
+</tbody>
+</table>
+</div><pre><code class="language-text">resolve cover type and selected product/BTCT panel contract
+resolve aperture + supported orientation once
+effective neck clear = selected purchased-cover aperture under owner rule
+store raw/effective diff and OverrideReason=COVER_SELECTION_LOCKS_NECK
+validate effective fit; malformed active raw -&gt; input error, not guessed size
+create frame100 separately from product contact surfaces
+construct datum equations once; detect conflicting/cyclic contact constraints
+for pipe: exact catalog/declared alias -&gt; resolved profile; missing -&gt; PIPE_CATALOG_MISSING
+for catch: resolve owner/frame/input; if Neck rawLeft/Right -&gt; Center with source HDSD p13
+resolve requested feature support with source approvals; unsupported != OFF
+return EffectiveInput; no downstream reread Excel
+</code></pre>
+<p>BaseTop là localZ=0 theo ChamberGeometryBuilder contract; BaseBottom=-baseThickness, PadBottom=BaseBottom-padThickness khi Pad có. Với loại 2/3: <code>RoofBottom=ClearHeight</code>, <code>WallTop=RoofBottom-BeddingMortarThickness</code>; note nói E gồm lớp vữa, không cộng vữa thêm. <code>RoofTop=RoofBottom+RoofThickness</code>; <code>NeckTop</code> và <code>FinishedCoverTop</code> giải từ contact surfaces + height riêng cổ/khung/sản phẩm. Khi source/các ràng buộc không đủ, <code>ASSEMBLY_DATUM_UNRESOLVED</code> nêu SurfaceId và NR; không đặt tùy một product offset. CT absolute=<code>BaseElevationM+LocalZMm/1000</code>; symbolic lấy đúng symbol của surface/cống. Không đổi BaseZ khi Pad OFF.</p>
+<p>Nắp BTCT tự thiết kế phải có selected PanelAssemblyContract/aperture đã chốt theo NR23; không tự lấy E11 làm authoritative để né owner clear lock.</p>
+<p>BTCT panel: hướng chia quyết định axis, số tấm n; usable span trừ <code>(n+1)*gap</code> (hai mép cổ và n−1 khe giữa) rồi chia n theo note EX046/047. Nếu âm/không đủ support chặn <code>PANEL_NO_BEARING</code>; không shrink sản phẩm. Chiều dày panel theo D13+bậc cổ trong cấu hình liên quan, không dùng frame100/roofThickness thay thế. Số lượng thép phải lưu <code>QuantityBasis=PerPanel|TotalAssembly</code>; nhân n đúng một lần trước nhóm thống kê.</p>
+<p><strong>Gate G2:</strong> source/effective diff; shape fit trên input hiệu lực; orientation không hoán X/Y hai lần; same datums cho CT/dim/assembly; feature ON thiếu rule có NR/diagnostic. Chỉ hỗ trợ góc theo capability; góc ngoài tập đã xác minh trả <code>ROTATION_UNSUPPORTED</code>, không round về90°.</p>
+<h2 id="56-s3-concrete-assembly-voids-va-topology">5.6. S3 — concrete assembly, voids và topology</h2>
+<p><strong>Trách nhiệm:</strong> <code>GeometryStageAdapter</code>, <code>ChamberGeometryBuilder</code>, <code>NeckGeometryBuilder</code>, <code>CoverPanelBuilder</code>, <code>PipeOpeningBuilder</code>, <code>CatchBasinBuilder</code>, <code>OpeningOwnershipPartitioner</code>, union hiện có. Giữ <code>RectangularSolidUnion.Measure</code> cho lượng, không dùng thay boundary polygon union.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Output</th>
+<th>Field/type/unit</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Component</td>
+<td>Id,AssemblyId,MaterialId,Kind,Footprint{Outer,InnerLoops}, ZRange mm, FacePatches, SourceRefs</td>
+<td>effective specs + builder; nhiều component có thể cùng pour assembly</td>
+</tr>
+<tr>
+<td>Opening</td>
+<td>Id,OwnerIds,HostFrameId,InnerContour,PipeOuterContour,ConcreteCutout,ExclusionRuleIds, transform</td>
+<td>resolved pipe/catch/roof access từ S2; exclusion steel chưa phải concrete void</td>
+</tr>
+<tr>
+<td>Joint</td>
+<td>Id,LowerAssembly,UpperAssembly,ContactPatches,MortarRegion?,PairPlan</td>
+<td>loại 2/3; giữ physical contact và optional mortar</td>
+</tr>
+<tr>
+<td>GeometryModel</td>
+<td>Components,Openings,Joints,Frames,Datums,TopologyHash</td>
+<td>một nguồn cho mọi view/rebar</td>
+</tr>
+</tbody>
+</table>
+</div><pre><code class="language-text">build chamber slabs/walls/neck under Profile assembly policy
+if padThickness&gt;0: create Pad; else None
+if base/top haunch&gt;0: add concrete haunch to same pour support
+compose catch geometry when requested; register owned voids and frame
+attach pipe/access openings once by stable OpeningId
+partition ownership by real contour/depth, not bbox or nearest wall label
+union only same assembly/material; preserve separate mortar and product
+store outer+inner loops, exposed edges and projected-void identity
+validate closed geometry (flag + endpoint), non-self-intersection, positive area/volume
+</code></pre>
+<p>Round: innerR=D/2, pipeOuterR=innerR+catalogThickness, concreteCutoutR=pipeOuterR+mortar; nguồn công thức builder + catalog. Box/doublebox lấy contour thật với web/chamfer; không circumscribe circle. Nhiều lỗ giao/chồng union voids một lần; hai OpeningIds vẫn giữ trace. Lỗ quá mép/qua nhiều host không tự gán tường; partition được chứng minh thì dùng, thiếu capability trả <code>OPENING_CROSS_COMPONENT_UNSUPPORTED</code> kèm contour/hosts. Catch opening ở đỉnh host theo HDSD p13; dầm người dùng tự thêm trong VHG nguồn không được DBTool tự bịa, request dầm cần typed extension/source.</p>
+<p><strong>Gate G3:</strong> physical shape/dim đúng EffectiveInput; outer/inner loops và void ownership; không seam giả cùng pour, còn joint thật; catch ON có component/ownedopening, không chỉ static sheet. Bản vẽ kiểm hình học ở bước này là preview phát từ model hiện tại, không ảnh VHG thay kết quả.</p>
+<h2 id="57-s4-thanh-that-cat-lo-bend-va-canonical-schedule">5.7. S4 — thanh thật, cắt lỗ, bend và canonical schedule</h2>
+<p><strong>Trách nhiệm:</strong> <code>FullRebarStage</code>, mesh/slab/wall/neck planners, <code>OpeningClipper</code>, <code>NominalHookPlanner</code>, tie/ladder/dowel/haunch/catch/panel/lifting/anchor/angle planners; <code>SteelScheduleCalculator</code> giữ invariant canonical.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Output.field</th>
+<th>Type/unit</th>
+<th>Nguồn/invariant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BarOccurrence.Id,ParentId,SegmentId</td>
+<td>stable strings</td>
+<td>namespace ga/host/face/layer/family/station/retained interval; không mark hiển thị</td>
+</tr>
+<tr>
+<td>ComponentId,AssemblyId,FaceLayer,DirectionRole,FrameId,Surface</td>
+<td>typed IDs/enums</td>
+<td>host/frame thực, không vị trí trên giấy</td>
+</tr>
+<tr>
+<td>DiameterMm,Path{Line,Arc},BendRoles,InnerRadiusMm?</td>
+<td>int mm, analytic 3D path, maps</td>
+<td>mesh/spec+approved bend rules; giữ bulge/arc và handedness</td>
+</tr>
+<tr>
+<td>StationIndex/StationMm,OpeningIds,EndRoles,CutRegion</td>
+<td>int/double mm/sets/enums</td>
+<td>preclip stable grid; clipping không reset index pha ties</td>
+</tr>
+<tr>
+<td>StraightRunLength,ScheduleLength,FabricationLength?,MeasurementBasis</td>
+<td>double mm/double mm/double? mm/enum</td>
+<td>length resolver theo approved policy; chưa biết fabrication giữ null+NeedsRule</td>
+</tr>
+<tr>
+<td>RuleId,SourceRefs,LengthStatus</td>
+<td>IDs/refs/Known-or-NeedsRule</td>
+<td>không đổi status vì renderer muốn xuất</td>
+</tr>
+<tr>
+<td>DowelHolePair</td>
+<td>DowelId,HoleId,JointId,Station,diameter/depth,transforms</td>
+<td>same physical pair; diameter lớn hơn chốt, depth cầnNR06</td>
+</tr>
+<tr>
+<td>CanonicalSchedule</td>
+<td>key shape/Ø/nominal dims/basis/owner etc,memberIDs,quantity,singleLength,total/mass</td>
+<td><code>quantity*singleLength</code> trong canonical row, không mean group thay invariant</td>
+</tr>
+</tbody>
+</table>
+</div><p>Station lưới (EX062 + BarDistributor hiện có, công thức hình học đề xuất từ ngữ nghĩa):</p>
+<pre><code class="language-text">q = surfaceCover + diameter/2          // surface semantics, NR01 riêng hole
+usable = span - 2*q
+if usable&lt;0: Block(DISTRIBUTION_NO_CLEAR_SPAN)
+if usable==0:
+    validate physical bar constructability; return single station at q
+k = Equalized ? ceil(usable/requestedPitch) : floor(usable/requestedPitch)
+if k exceeds supported integer count: Block(DISTRIBUTION_TOO_MANY_BARS)
+if k==0:
+    validate physical bar constructability; return single center station at span/2
+gap = Equalized ? usable/k : requestedPitch
+first = Equalized ? q : q+(usable-k*gap)/2
+emit i=0..k, stationIndex from original host origin
+last Equalized station = span-q; retain requested and actual gaps
+</code></pre>
+<p>Không nhận rounding k tùy tiện vì float; tolerance numerical lấy approved policy, không thêm fixture threshold. Catalog Ø giảm cấp theo danh sách có nguồn. Layer-stack/móc cần NR19 khi code chỉ dùng test-only convention. Hook nominal KC=t−2c hoặc nD theo EX063; shape path, bend allowance và nominal/fabrication basis là việc riêng, không mặc định tổng số trên schematic là length.</p>
+<p>Clip ngang qua circle <code>(cu,cv,r)</code>:</p>
+<pre><code class="language-text">if abs(v-cv)&gt;r: no cut
+if tangent: preserve according to approved topology tolerance; no zero-length removed piece
+otherwise intersections u=cu±sqrt(r*r-(v-cv)^2)
+clip against support and union of opening exclusion intervals, including depth ownership
+retained intervals -&gt; separate SegmentOccurrences, shared ParentId, endpoint opening roles
+assert retained+removed = preclip straight run under same measurement basis
+</code></pre>
+<p>ExclusionR từ concreteCutout+clearance policy, <strong>không hardcode320/375/15</strong>; NR01 chặn khi basis chưa chốt. Với polygon/hộp, dùng segment/contour intersections và union intervals, không bbox. Gắn hooks một lần theo đúng policy của retained segment; nếu đoạn ngắn không đủ hook hoặc va thì <code>HOOK_NO_ROOM</code>, không vẽ thẳng nhưng cộng chiều dài móc.</p>
+<p>Sau lưới/hook compose ties, angles/anchors, ladder, roof/panel lifting, dowels, haunch, catch. Ties dùng stations gốc và approved Đều/Lệch/phase; chưa có arbitrary policy NR03 trả Partial đúng component. OFF theo pitch vượt kích thước được note cho phép, cần receipt suppression reason; không lấy zero tùy tiện làm OFF. C path 5 đoạn/4 bo R8 giữ riêng schematic. Dowel sau hooks; catch collision kiểm từng station; va chưa có relocation rule trả Block NR21. Catch planner phải dựng các mặt và transform, không AddOptionalFamily một đoạn ngang rồi gắn vertical. Haunch hiện có Partial giữ nguyên đến khi NR05 được phê chuẩn.</p>
+<p><strong>Gate G4:</strong> bật feature có physical occurrences/path/support; không duplicates/orphans/phantoms; cover/void/collision kiểm cả anchor legs; chốt-hole 1:1; canonical quantities không nhân qua view; mỗi unknown basis có diagnostic. Dựng được vài shapes không đủ để công bố toàn component×shape Supported.</p>
+<h2 id="58-s5-mot-registry-ngu-nghia-truoc-khi-ve">5.8. S5 — một registry ngữ nghĩa trước khi vẽ</h2>
+<p><strong>Trách nhiệm mới:</strong> <code>PresentationGroupPlanner</code> trong Drawing, Application gọi ngay sau S4/canonical; mở rộng <code>PresentationGroupRecord</code>, <code>DrawingInputs</code>. <code>PresentationGroupMapper.Build(package,occurrences)</code> chuyển thành validator/readback; không còn nguồn nhóm.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>PresentationGroup.field</th>
+<th>Type/unit</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GroupId,ManholeId,ComponentId,FaceLayer,DirectionRole</td>
+<td>IDs/enums</td>
+<td>occurrence metadata</td>
+</tr>
+<tr>
+<td>OpeningRegionSet,RegionRole,ViewConventionId</td>
+<td>immutable IDs, Left/Right/Above/Below/Uncut/Middle/Multiple, string</td>
+<td>clip endpoint roles+approved convention; không ID order</td>
+</tr>
+<tr>
+<td>ShapeRecipeId,DiameterMm,HookPolicyId,MeasurementBasis,SpacingMode</td>
+<td>IDs/intmm/enums</td>
+<td>same-compatible spec; khác thì partition</td>
+</tr>
+<tr>
+<td>MemberIds,CanonicalMarks,MemberLengthsMm,LegValuesByRole</td>
+<td>immutable arrays/maps</td>
+<td>physical/canonical; không đo collector/schematic</td>
+</tr>
+<tr>
+<td>Count,RawSumMm,MeanMm,MinMm,MaxMm,MeanSegmentsByRole</td>
+<td>int/double mm/maps</td>
+<td>từ members chưa format; count0 không tạo row</td>
+</tr>
+<tr>
+<td>DisplayMark,DisplayPrefix,LengthPolicyId,RuleId,SourceRefs</td>
+<td>strings/refs</td>
+<td>owner+prefix và scoped recipe; thiếu alias NR10/11/12</td>
+</tr>
+</tbody>
+</table>
+</div><pre><code class="language-text">for each physical retained/member occurrence:
+    classify physical region in stored wall convention (inside-looking-out)
+    build compatibility key: manhole/component/face/layer/direction/opening-region-set/
+                             topology/diameter/hook/basis/pitch-mode-and-value
+partition deterministically by key; sort stations in host-local coordinates
+for each nonempty partition:
+    require length policy and compatible segment role set
+    N=count(distinct segment IDs); rawSum=sum(member lengths on approved basis)
+    mean=rawSum/N; min/max; mean each segment role separately
+    assign DisplayMark from role/region/prefix rule, never name similarity
+    preserve all CanonicalMarks + MemberIds; assert one primary accounting group/member
+return immutable registry consumed by labels/TK/bending
+</code></pre>
+<p>Một lỗ/tường/lớp: left=T1A,right=T1B,above=T2A,below=T2B theo owner. View mirror chỉ biến đổi projected coordinates; physical region không đổi do enumerate. Mark T1/T2 không tự là global-axis. Multi-opening Middle giữ distinct region key và NR12 nếu chưa có display vocabulary. Cổ C1A có thể hoop; không áp nghĩa cut-cốngA lên cổ. U tie/thang/GC/VG không merge chỉ vì cùng asset/Ø.</p>
+<p>Ví dụ kiểm toán từ owner: Li300/420/500/420/300 -&gt; count5,mean388,rawsum1940,TDAI1.94; Li300/301/301 -&gt; rawsum902,mean300.666…; không dùng301*3. Đây là phép kiểm công thức, không hằng số sinh ga. Số length dùng Schedule hay Fabrication phải lấy approved LengthPolicy; còn NR02 không tự chọn một bên để giống PDF.</p>
+<p><strong>Gate G5:</strong> membership partition/coverage; mean/sum chưa round; scoped marks không collision; Registry hash chung cho ba outputs; reorder IDs/rename không đổi physical membership/regions.</p>
+<h2 id="59-s6-projection-va-target-registry">5.9. S6 — projection và target registry</h2>
+<p><strong>Trách nhiệm:</strong> Plan/Section/Structural/ComponentRebar projectors, <code>OpeningViewMap</code>; mới <code>CatchAssemblyProjector</code>, <code>AssemblyBoundaryEmitter</code>. Giữ roof hole projector hiện có.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Output.field</th>
+<th>Type/unit</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ViewFrame</td>
+<td>ViewId,OwnerId,OriginMm,Axes,Normal,WorldToView Matrix,Mirror,SectionPlane,NominalScale</td>
+<td>same component/frame; recipe required roles</td>
+</tr>
+<tr>
+<td>ProjectedGeometry</td>
+<td>polylines/arcs/regions+visibility,SourceIds,LoopRole</td>
+<td>geometry+voids+section predicate; không enum màu suy role</td>
+</tr>
+<tr>
+<td>ProjectedRebar</td>
+<td>path/dot/profile +OccurrenceId,GroupId,FaceLayer</td>
+<td>physical occurrences; NotThep graphic size không thayØ</td>
+</tr>
+<tr>
+<td>ProjectedTarget</td>
+<td>TargetId,Kind,SourceId,Point/Curve/Region,ViewId,visibility</td>
+<td>Bar/Opening/Surface/Material/TieNode/Joint; annotation chỉ neo vào target này</td>
+</tr>
+<tr>
+<td>OpeningViewRecord</td>
+<td>OpeningId,HostId,FrameId,transformedInner/Outer/Cutout,representationMode</td>
+<td>cùng opening dù section nhìn cạnh/không đi qua</td>
+</tr>
+</tbody>
+</table>
+</div><pre><code class="language-text">for required view role in recipe:
+    derive frame/section plane from resolved assembly, not current sheet position
+    project same geometry/voids/physical paths
+    emit outer and inner boundary loops from shared material regions
+    dedup true same loop with projected void by role+topology+tolerance, not bbox
+    determine Visible/Hidden/Sectioned from view convention
+    register targets and source identity; reject target without source
+</code></pre>
+<p>Chỉ view không cắt lỗ mới chọn side/hidden representation theo recipe; không vẽ một opening độc lập cho từng view. OCS dùng theo loại entity: INSERT full basepoint/scale/rotation/extrusion, LWPOLYLINE vertices thuộc OCS; LINE thường WCS không áp normal của INSERT bên cạnh. Source PDF040 polyline78DD3 normal−Z là evidence; rawX âm không phải vị trí bên trái WCS.</p>
+<p><strong>Gate G6:</strong> inverse-transform cùng OpeningId về host cho tâm/invert/contour khớp model; section contour outer+inner; group/path/dot target có IDs; product physical transform không co theo sheet; Geometry/DowelHole resolve style, holeØ giữ mm thật.</p>
+<h2 id="510-s7-dimension-collector-leader-va-ink">5.10. S7 — dimension, collector, leader và ink</h2>
+<p><strong>Trách nhiệm:</strong> các SheetOne/Two/Three/Four annotation/dimension planners, <code>SectionRebarLabels</code>, <code>ScheduleNativeAttributes</code> metadata; mới <code>AnnotationLaneAllocator</code>. Giữ slot chung view đã sửa; thay hardcode và longest-path representative.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Input/output.field</th>
+<th>Type/unit</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AnnotationRecipe</td>
+<td>Role,AllowedSides,TargetSelector,CollectorOrientation,PaperOffsets,AssetSelector,Priority</td>
+<td>PDF source scoped roles, không X/Y tuyệt đối</td>
+</tr>
+<tr>
+<td>LabelIntent</td>
+<td>Id,ViewId,GroupId,TargetIds,AssetName,BoundAttributes,Port,Insertion,Scale,InkEnvelope</td>
+<td>GroupRegistry+targets+exactschema; actual ink sauformat</td>
+</tr>
+<tr>
+<td>CollectorIntent</td>
+<td>Branches Line/Polyline[],MemberIntersections{MemberId,Point},LabelPort,RouteReason</td>
+<td>projected member paths; intersections cùng group ngoài void</td>
+</tr>
+<tr>
+<td>DimensionIntent</td>
+<td>SubjectId,MeasuredEndpoints,Axis,ValueMm,DisplayPrefix,LabelOverride?,Lane</td>
+<td>model source, prefixDIM từ E7/K11; override không đổi measured value</td>
+</tr>
+<tr>
+<td>AnnotationBundle</td>
+<td>Labels/Routes/Ticks/Dimensions,InkBounds,SourceTrace</td>
+<td>dịch cả bundle, không dịch text một mình</td>
+</tr>
+</tbody>
+</table>
+</div><pre><code class="language-text">collect all view groups before placing any label
+for group in stable role/region order:
+    choose valid collector axis crossing member paths; split branches when needed
+    intersections = geometric crossings with this group's physical projected paths
+    exclude void crossings and duplicate intersection of same member at same point
+    create Gach at valid intersections only
+    tie/lifting/ladder label -&gt; select real support node according to role
+    select BLT1/2 side with SH/DK/A, or BLT3/4 NOTE for Style2
+    format from same group metadata, no fallback Ø10/@150
+    measure full ink using asset + bound values + alignment + rotation + scale
+    try preferred lane; slide interval; next lane; elbow; expand view bounds
+    candidate positions = finite sorted free-interval endpoints from this view ink/obstacles
+    exhaust candidates -&gt; diagnostic; never unbounded trial loop
+    if impossible under approved spacing: LAYOUT_ANNOTATION_NO_FIT with obstacles
+    emit target/route/member/label handles expectation ledger
+</code></pre>
+<p><code>modelOffset=paperOffset*viewDenominator</code>; annotation asset scale from paper height/native height, baseline S/100. Source5mm below/1mmstub chỉ recipe đã có nguồn, không universal. Text position khác leader landing; justification/underline/vòng tròn cần đo. Lines có thể cắt lưới/void theo recipe; chỉ giao với text/ink keepout, sai target hoặc Gach giả mới fail. Nguồn PDF040 một block có thể nằm giữa đoạn collector; không ép endpoint bằng insertpoint. Có thể dùng stroke chung cho hai text cùng target nhưng giữ semantic associations.</p>
+<p>Dims dedup theo SubjectId+endpoints+axis+lane, không chỉ string number. Clear/overall/thickness/spacing chains cùng giá trị vẫn là subjects khác. CT bắt SurfaceId đúng; pipe text D... khác label thép. Material notes từ cấu hình, PadOFF bỏ riêng notePad. LadderON cần rungs trước text.</p>
+<p><strong>Gate G7:</strong> mọi label có member/target trace; Gach intersections đúng; paper heights/offsets theo profile; zero overlap ink đã xác minh; đủ nội dung trước collision. Không làm chữ nhỏ/xóa nhãn/thayØ để qua gate. Chỉ đổi layout phải giữ geometry/rebar hash.</p>
+<h2 id="511-s8-native-tk-summary-va-to-hinh-uon">5.11. S8 — native TK, summary và tờ hình uốn</h2>
+<p><strong>Trách nhiệm mới:</strong> <code>NativeSteelSchedulePlanner</code>, <code>SchematicPresentationPlanner</code>; mở rộng native attrs và keep generic <code>ScheduleTablePlanner</code> chỉ cho QuantityTable ngoài TK.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Output.field</th>
+<th>Type/unit</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NativeTKRow</td>
+<td>RowId,GroupId,AssetName,AttrValues map<string>,TypedValues,SourceIds,QuantityBasis</string></td>
+<td>registry+schema21TK</td>
+</tr>
+<tr>
+<td>ShapeRecipe</td>
+<td>Id,HostRole,Topology,FixedGlyph,SegmentRoleBindings,RequiredTags,ReferenceHandles</td>
+<td>catalog/glyph/source PDF; không tên ga/độ dài chọnasset</td>
+</tr>
+<tr>
+<td>TKLayout</td>
+<td>Header/Tenluoi/Rows/Summary,ColumnIndex,Insertion,Scale,InkBounds</td>
+<td>source row pitch5mm/header10mm/width125mm scoped; asset actual bounds</td>
+</tr>
+<tr>
+<td>BendingIntent</td>
+<td>GroupId,ShapeGlyph,DimensionLabelsByRole,Caption,Underline,Font,ColumnScope</td>
+<td>registry; glyph topology fixed, số chú thích thật</td>
+</tr>
+</tbody>
+</table>
+</div><p>Binding thống nhất:</p>
+<pre><code class="language-text">recipe = exact shape/host-role lookup else Block(NATIVE_SCHEDULE_SHAPE_UNMAPPED)
+SH=group.DisplayMark; D=DiameterMm (TK.TG dùng schema thép hình riêng)
+L/LT/LP or L1T/L2T/L3/L1P/L2P = recipe segment roles from group values
+DAI = group.MeanMm under its approved length basis
+SL = group.Count
+TDAI = group.RawSumMm/1000
+KL = raw mass from approved accounting policy, not rounded mean or formatted cells
+assert requiredTags==boundTags and every value sourced
+emit native row; never TableRowPrimitive round fallback in VHG mode
+</code></pre>
+<p>Asset topology: L0M/1M/2M cho straight/one/two hooks khi verified; M.C C, M.U U và ladder riêngrole, M.Z Z, VG vạt theo recipe, GC.T vòng, GC.H hoop rectangle, MC lifting, NA1/NA2 panel, NG angleanchor, TG angle, CT.N/T catch sauNR08. Header noATT; Tenluoi chỉ TENLUOI; summary theo bảng21 trong01. Chuỗi kích thước có type <code>DiameterText|RectSizeText|LapPairText</code>, formatter không parse thành một length.</p>
+<p>Mỗi group nonempty một TK row theo compatibility; lặp caption/view không cộng quantity. Totals theo rawmass/owner mapping, Ø&lt;=10/&gt;10 là header nguồn; NR14 chốt thang/chốt và mass policy. Nếu quantity/basis chưa đủ, preview Partial không điền số giả/defaultATT; Final bị chặn. Angle branch đã mm→m thì không chia lại.</p>
+<p>TK.Tenluoi chèn cùng row đầu. Source row height500/header1000/width12500 asset, scale S/100 -&gt;5/10/125mm giấy; body1:30 row150mm model là <strong>derived</strong>, không hàng cố định cho mọi scale. VG/MC/M.U ink có thể vượt row height; đo trước pagination. Basepoint TK.THKL.CT xa gốc, không đặt theo bbox-center. Trang mới lặp header/context, không tạo hàng rỗng cho cột cân.</p>
+<p>Bending tờ riêng: order đáy/T1/T2/T3/T4/trần/cổ-thang/catch; top/bottom/inner/outer có scope. Caption underline <code>&lt;mark&gt;-D&lt;Ø&gt;, L=...</code> hoặc <code>Ltb=...</code> từ length policy. Không in SL/R/A đại trà như nhánh cũ. Fixedglyph giữ topology và bend; số cạnh từ MeanSegments/shape spec, không đo nét. <code>BendingSchematicPlanner</code> giữ kiểm canonical consistency cho domain/evidence; không đổ physical-sized paths vào TK cells.</p>
+<p><strong>Gate G8:</strong> cùng GroupId giữa nhãn/TK/caption; exact native assets/tags; mean/rawsum đúng; no retained ATT defaults; changing L1640→95 không đổi glyph hash/row scale; quantities không nhân panel/view hai lần. Native readback và crop TK/bending là bắt buộc để đóng STD05/18/19.</p>
+<h2 id="512-s9-recipe-bo-tri-va-phan-trang">5.12. S9 — recipe, bố trí và phân trang</h2>
+<p><strong>Trách nhiệm:</strong> <code>SheetLayoutPlanner</code>, placement helpers chuyển sang recipe role/extents; <code>VhgSheetDecoration</code>, <code>SheetPlan</code>, <code>FrameRegistry</code>. Loại lookup geometry/layout theo Family21ManholeHelper khỏi production, giữ fixture evidence. RequiredRoles/ConditionalRoles không dựa vào số test/count fixture.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>SheetRecipe.field</th>
+<th>Type/unit</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RecipeId,Profile,RequiredRoles,ConditionalPredicates</td>
+<td>IDs/enum/role[]/predicates</td>
+<td>PDF001–008, PDF012/040 và overview</td>
+</tr>
+<tr>
+<td>Ordering/Alignment,ColumnsMode,ScaleMode</td>
+<td>typed rules,2/3 columns,Fixed/Auto</td>
+<td>source recipe + VHG guide p25 option; không chia theo tênG400</td>
+</tr>
+<tr>
+<td>PaperContentRegion,FrameAsset,ViewGap/SheetGap/ManholeGap</td>
+<td>polygon papermm/name/double papermm</td>
+<td>template Khung+explicit presentation options; chưa nguồn NR22</td>
+</tr>
+<tr>
+<td>SheetPlan</td>
+<td>FrameId,ManholeId,PageRole/PageIndex,ViewBundles,Positions,NominalScales,InkBounds</td>
+<td>calculated placement; mọi translation kéo cả bundle</td>
+</tr>
+</tbody>
+</table>
+</div><pre><code class="language-text">assert required roles complete or justified N/A from inactive input
+group views by recipe semantic order; measure geometry+title+dim+labels+TK ink
+place role groups maintaining alignment; compute scale-specific paper bounds
+if next group doesn't fit: open next page, carry header/context, keep same requested scale
+if single view too large:
+    Fixed -&gt; Block(LAYOUT_SINGLE_VIEW_NO_FIT, required bounds, available bounds)
+    Auto -&gt; try approved scale candidates and recompute annotation/dim/ink; never stretch product
+if none fit -&gt; Block; never crop
+register Khung window and expected page/view roles
+</code></pre>
+<p>Structure3×2: top MB/BB/SteelAA, bottom AA/WallMesh/SteelBB. BaseWalls12: columns Base/T1/T2, upper top/outer, lower bottom/inner. Walls34Roof: T3/T4/Roof. NeckAndSchedule loại 1/2: MB/AA/BB cổ trái, TK giữa/phải. NeckCatch loại 3: cổ trái và cửa thu MB/1-1/2-2 cột tiếp; TK riêng ScheduleOnly. CoverConstruction chỉ requested panel assembly gồm relevant khung/panel/AA/BB+TK, tỷ lệ M15. Bending không thay TK và TK không thay bending. Không ép fixture88rows/6frames khi component inactive; content contract quyết định.</p>
+<p>Một trang có hai scale phải có view transform/viewport contract riêng. Cách đơn giản trong triển khai đầu là tách panel thành trang riêng như source; nếu chọn mixed-scale, cần paper coordinates/viewports, không plotModel window với một tỷ lệ rồi co geometry.</p>
+<p><strong>Gate G9:</strong> đủ roles/tables/dims/material/CT trước fit; tất cả ink trong content region; không crop hoặc giảm cỡ chữ; title/scale/ticks theo cùng view transform; FrameId duy nhất; không hardcode12600×8910 cho mọi scale chỉ vì source1:30.</p>
+<h2 id="513-s10-ghi-native-readback-update-va-rollback">5.13. S10 — ghi native, readback, update và rollback</h2>
+<p><strong>Trách nhiệm:</strong> <code>CadHostDispatcher</code>, <code>CadWriteSession</code>, <code>TemplateAssetImporter</code>, <code>CadRenderer</code>, <code>CadPrimitiveSink</code>, <code>BlockAttributeWriter</code>, <code>CadGenerationWriter</code>, <code>GenerationRepository</code>; mới <code>NativeReadbackVerifier</code>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Output.field</th>
+<th>Type/unit</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NativeHandleMap</td>
+<td>SemanticId→EntityHandle/BlockHandle/ATTRIBHandles</td>
+<td>render intent→database; không tự gán handle nguồn VHG cho thanh DBTool</td>
+</tr>
+<tr>
+<td>NativeReadback</td>
+<td>asset name,tag/value,style/height/width/align,transform,layer/linetype,ink bounds</td>
+<td>actual saved/reopened DWG</td>
+</tr>
+<tr>
+<td>GenerationRecord</td>
+<td>ManholeId,InputHash,Rule/Build/TemplateHashes,Frames,EntityOwnership,NOD/XDataVersion</td>
+<td>production repository</td>
+</tr>
+<tr>
+<td>UpdateReceipt</td>
+<td>before/after B,unchanged A,C hashes,commit/rollback status</td>
+<td>actual update; clone probe không thay được</td>
+</tr>
+</tbody>
+</table>
+</div><pre><code class="language-text">dispatch in CAD document context; lock target document; begin transaction/write session
+preflight all roles/assets/tags/IDs before appending entities
+append native geometry and blocks; create ATTRIB with template style/alignment
+verify generated handle ownership; persist generation record perManholeId
+commit only complete requested write-unit; errors rollback that unit and log
+save working output copy; reopen for readback; compare to intended semantic manifest
+on Update(B): replace only B's owned entities and record atomically
+</code></pre>
+<p>Giữ <code>SetAttributeFromBlock/AdjustAlignment</code> đang có. Không giữ DBObject wrappers qua transaction; receipts giữ handles/IDs để reopen. Mismatch role/tag/default/schema/OCS/unit/style trả native failure, không fallback layer0 hoặc append text giả. Lệnh lặp cùng generation key có update/replace contract, không vẽ đè tạo duplicates. Template definition migration ảnh hưởng ga khác phải được kiểm trước update; nếu chưa an toàn, chặn migration và giữ DWG cũ.</p>
+<p><strong>Gate G10:</strong> save/reopen readback đúng geometry/dims/product1:1/nativeTK/attrs/styles; same IDs/ownership; undo/rollback không làm mất ga khác; geometry hashes bất biến với layout-only/rename/scale-only. Không chứng nhận từ <code>AppendBlock</code> được gọi mà không đọc lại DWG.</p>
+<h2 id="514-s11-batch-plot-oi-chieu-va-ban-giao">5.14. S11 — batch, plot, đối chiếu và bàn giao</h2>
+<p><strong>Trách nhiệm mới:</strong> <code>BatchGenerationOrchestrator</code>, <code>AcceptanceEvidenceAssembler</code>; giữ một-ga calculator và tools plot hiện có, nối production contracts. Cả UI/CLI gọi cùng path, không bỏ single-calculator guard một cách mù quáng.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Output.field</th>
+<th>Type/unit</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BatchRequest</td>
+<td>snapshot hash,profile,selected row IDs,presentation options,targetDWG,anchor</td>
+<td>explicit request; input source immutable</td>
+</tr>
+<tr>
+<td>RowReceipt</td>
+<td>row/ManholeId/status/hash/diagnostics/frames</td>
+<td>tất cả selected rows kể cả failed/cancelled</td>
+</tr>
+<tr>
+<td>PlotReceipt</td>
+<td>hostSessionId,PSTYLEMODE,plotProfile,frameWindow,paper size,nominalScale,actual transform,warnings,PDF hash</td>
+<td>actual host/plot output</td>
+</tr>
+<tr>
+<td>ReferenceBundle</td>
+<td>sourcePDF hash,sourceCAD/frame,identity/CT/dim fingerprint,join status,recipe role</td>
+<td>reviewed sources, không Modelordinal</td>
+</tr>
+<tr>
+<td>ComparisonReceipt</td>
+<td>input dimensions vs native actual,source recipe vs output roles/ink,unresolved source differences</td>
+<td>exact input basis; source outdated numbers không override Excel</td>
+</tr>
+<tr>
+<td>AcceptanceVerdict</td>
+<td>Input/Geometry/Steel/Projection/Sheet/Native/Plot/Visual statuses + evidence/reviewer/regions</td>
+<td>pass mọi required gate của chính case, không đếm test</td>
+</tr>
+</tbody>
+</table>
+</div><pre><code class="language-text">freeze workbook/template/build/rules once for batch
+for each selected row:
+    calculate with unique ManholeId; persist result/diagnostics
+    if blocked: mark rowFailed, continue independent rows
+    if cancelled: record remaining rows Cancelled/NotRun, not silent deletion
+combine Ready packages via production writer with namespaced IDs/repository
+if database invalid/host crashes: abort transaction, keep recovery receipt and source copy
+sort FrameRegistry by ManholeId + SheetRole + PageIndex
+plot all windows in one healthy host session; PSTYLEMODE chooses compatible CTB/STB
+read transcripts, pages, native content, vector PDF, font/dash/hatch/scale/ink
+compare semantic measurements against EffectiveInput, recipe against correct ReferenceBundle
+assemble verdict per row/page; BatchComplete only if all selected valid rows complete
+</code></pre>
+<p>Native exception có rollback được tiếp tục cùng host chỉ sau health check database; không còn host khỏe thì batchFailed có receipt, không khẳng định đã in một phiên. Retry dùng RunId mới hoặc explicit idempotency key và không overwrite evidence lịch sử. Timeout là Failed/Cancelled rõ ràng, không exit0 giả. Missing identity là Block, không defaultG400-1/G500-2.</p>
+<p>PDF nguồn có Fit/rotation/font outline; measured mapping khác nominal không dùng để co geometry. Numeric source khác workbook: báo InputBasisDifference, đối chiếu recipe/semantics thôi; numerical actual phải bằng expected từ Excel/rules đã duyệt. Source collision/glyph question marks không copy. Glyph/curve/collision cần crop/visual region verdict riêng. Test counts/geometry counts/file counts chỉ kiểm completeness và không là kết luận đẹp/đúng.</p>
+<p>Bàn giao sản phẩm sau implement gồm actual DWG, vectorPDF, WebP từ PDF đó, raw/effective receipts, groups/member lengths, native tag/handle readback, sheet/plot/comparison verdict. Đăng deliveries/index.json qua tools/vhg_publish_portal.py theo HUONG-DAN-CAP-NHAT-KET-QUA. Hồ sơ kiến trúc này không điền Passed vào gallery sản phẩm.</p>
+<p><strong>Gate G11:</strong> batch 5 và 10 selected rows khác nhau/đủ 3 loại, identity đúng từng frame; UpdateB không đổi A; plot all frames một host session; đầy đủ semantic+visual của mỗi case hợp lệ. NotRun/Partial/Failed không đổi thành Passed. NR mở trong phạm vi case chặn Final.</p>
+<h2 id="515-edge-cases-bat-buoc-quyet-inh-huu-han">5.15. Edge cases bắt buộc — quyết định hữu hạn</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Trigger</th>
+<th>Xử lý cụ thể</th>
+<th>Phase / evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sheet/profile/version thiếu/sai</td>
+<td>Block input; giữ source bytes và expected sheet</td>
+<td>S1 cell/request receipt</td>
+</tr>
+<tr>
+<td>Formula không cache hoặc Excel error</td>
+<td>FORMULA_VALUE_UNRESOLVED, không parse formula text/đoán</td>
+<td>S1 RawCell</td>
+</tr>
+<tr>
+<td>Duplicate name/identity</td>
+<td>Chặn selection hoặc explicit stable identity schema; không ghép theo tên gần</td>
+<td>S1/S11</td>
+</tr>
+<tr>
+<td>Blank inactive config</td>
+<td>Preserve+InactiveReason; không đọc làm0</td>
+<td>S1/S2</td>
+</tr>
+<tr>
+<td>Active malformed number/tuple</td>
+<td>Invalid tại ô nguồn; không dùng template sample</td>
+<td>S1</td>
+</tr>
+<tr>
+<td>Raw cổ khác aperture sản phẩm</td>
+<td>Effective override có nguồn owner; fit trên effective</td>
+<td>S2</td>
+</tr>
+<tr>
+<td>Raw cổ malformed đang active</td>
+<td>Block parsing; không biến override thành cách che lỗi input</td>
+<td>S1/S2</td>
+</tr>
+<tr>
+<td>Góc nắp ngoài capability</td>
+<td>ROTATION_UNSUPPORTED, không rounding90</td>
+<td>S2</td>
+</tr>
+<tr>
+<td>Product không vừa catch/cover</td>
+<td>PRODUCT_APERTURE_MISMATCH; catalog extension có nguồn hoặc owner rule riêng</td>
+<td>S2 NR09</td>
+</tr>
+<tr>
+<td>Pad/body catchPad zero</td>
+<td>None từng pad độc lập, bỏ hatch/dim/note, giữ base datum</td>
+<td>S3/S7</td>
+</tr>
+<tr>
+<td>Thickness âm hoặc clear không đủ</td>
+<td>Block field/component; không epsilon/clamp</td>
+<td>S2/S3</td>
+</tr>
+<tr>
+<td>No pipe</td>
+<td>NoOpening; không T1A/B/GC giả</td>
+<td>S3/S5</td>
+</tr>
+<tr>
+<td>Missing catalog recognized name</td>
+<td>PIPE_CATALOG_MISSING; không thickness10%</td>
+<td>S2</td>
+</tr>
+<tr>
+<td>Box/doublebox/chamfer</td>
+<td>True contours/web, unsupported payload chặn</td>
+<td>S3 NR20</td>
+</tr>
+<tr>
+<td>Tangent bar / passage through center</td>
+<td>Analytic intersection/interval, không có segment dài 0; tolerance approved</td>
+<td>S4</td>
+</tr>
+<tr>
+<td>Multiple/overlap holes</td>
+<td>Union removed intervals; unique SegmentIds+OpeningRegionSet; missing alias NR12</td>
+<td>S4/S5</td>
+</tr>
+<tr>
+<td>Segment too short for hook</td>
+<td>HOOK_NO_ROOM; không giữ số móc nếu path không có</td>
+<td>S4</td>
+</tr>
+<tr>
+<td>Pitch không hữu hạn/&lt;=0</td>
+<td>Invalid; delta làm pitch&lt;=0 chặn</td>
+<td>S1/S4</td>
+</tr>
+<tr>
+<td>Tie pitch quá span</td>
+<td>Suppressed theo EX-074 với reason; không tối thiểu1X</td>
+<td>S4</td>
+</tr>
+<tr>
+<td>Tie pitch khác2mesh</td>
+<td>NR03, không ép input; feature Partial/Final blocked</td>
+<td>S4</td>
+</tr>
+<tr>
+<td>C/U/Z khác component</td>
+<td>Capability cell riêng; thiếu source NR04</td>
+<td>S4</td>
+</tr>
+<tr>
+<td>C shape/basis chưa chốt</td>
+<td>Giữ 5 đoạn/R8 spec; NR02 không fabricationKnown giả</td>
+<td>S4/S8</td>
+</tr>
+<tr>
+<td>Ladder OFF / phi khác18</td>
+<td>OFF không path/nhãn/TK; ON dùng phi thật</td>
+<td>S4/S7</td>
+</tr>
+<tr>
+<td>Ladder/dowel va opening/catch</td>
+<td>Collision station ID; chưa dời rule Block NR21</td>
+<td>S4</td>
+</tr>
+<tr>
+<td>Haunch spans nhỏ/anchor outside</td>
+<td>HAUNCH_SIDE_NO_ROOM hoặc support collision; không omit rồiComplete</td>
+<td>S4</td>
+</tr>
+<tr>
+<td>Catch OwnerNeck và rawLeft/Right</td>
+<td>Center effective override theo HDSD p13; preserve raw</td>
+<td>S2</td>
+</tr>
+<tr>
+<td>Catch Khác</td>
+<td>Concrete theo cấu hình, steel OFF; không biến loại 3 thành loại 2</td>
+<td>S3/S4</td>
+</tr>
+<tr>
+<td>Summary mass/basis chưa có nguồn</td>
+<td>Partial preview; không số giả/default ATT; Final blocked NR14</td>
+<td>S8</td>
+</tr>
+<tr>
+<td>Group count0</td>
+<td>Không row/caption/label; coverage phân biệt empty với mất featureON</td>
+<td>S5/S8</td>
+</tr>
+<tr>
+<td>Alias C3/C3A/panel unresolved</td>
+<td>Separate identity + NR10/11; không fuzzy join</td>
+<td>S5/S7</td>
+</tr>
+<tr>
+<td>Same SH khác face/Ø/hook</td>
+<td>Group partition riêng; không gộp</td>
+<td>S5</td>
+</tr>
+<tr>
+<td>Mirror/OCS−Z/polyline closed=false</td>
+<td>Matrix từng entity; test geometric closure vàflag; preserve handedness</td>
+<td>S6/S10</td>
+</tr>
+<tr>
+<td>Label giữa collector / duplicate stroke</td>
+<td>Association theo port/segment, stroke dedup giữ semantic; không xóa text</td>
+<td>S7</td>
+</tr>
+<tr>
+<td>Missing asset/tag/font/style</td>
+<td>Preflight Block hoặc font profile đã duyệt tường minh; không layer 0/text fallback</td>
+<td>S0/S10</td>
+</tr>
+<tr>
+<td>View/table lớn hơn page</td>
+<td>Split giữ role/scale; single view Fixed quá lớn Block, Auto chỉ approved candidates</td>
+<td>S9</td>
+</tr>
+<tr>
+<td>Row lỗi trong batch</td>
+<td>Receipt Failed; tiếp tục độc lập, reportPartialWithFailures</td>
+<td>S11</td>
+</tr>
+<tr>
+<td>Host crash/timeout/cancel</td>
+<td>Rollback/recovery receipt, remaining NotRun/Cancelled; source giữ hash</td>
+<td>S10/S11</td>
+</tr>
+<tr>
+<td>SourcePDF khác numeric input</td>
+<td>InputBasisDifference; numerical compare với Excel hiện tại, recipe compare với reviewed source</td>
+<td>S11</td>
+</tr>
+</tbody>
+</table>
+</div><h2 id="516-anh-xa-thao-tac-vhgpro-sang-kien-truc">5.16. Ánh xạ thao tác VHGpro sang kiến trúc</h2>
+<p>Nguồn là <strong>HDSD VHGpro 3.2.pdf</strong>, số trang in trên tài liệu. Đây là mapping hành vi, không tái sử dụng DLL/license của VHGpro.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Bước VHGpro</th>
+<th>Nguồn</th>
+<th>Bước DBTool / owner class / gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chuẩn bị copy workbook theo 3 loại</td>
+<td>p6</td>
+<td>S1 WorkbookImporter/profile; snapshot không sửa nguồn; G1</td>
+</tr>
+<tr>
+<td>Nhập sheet main dimensions/rebar/pipes/neck/elevation</td>
+<td>p6–7</td>
+<td>S1 typed rows → S2 validation → S3/S4; 05A/EX rules; G1–G4</td>
+</tr>
+<tr>
+<td>CF.Ga pad/base/wall/roof/neck/cover</td>
+<td>p8–12</td>
+<td>S2 specs/datums, S3 geometry, S4 mesh/accessories; G2–G4</td>
+</tr>
+<tr>
+<td>CF.Ga catch/cover/hook/ties/ladder/openings/material/hatch</td>
+<td>p13–18</td>
+<td>S2 owner/frame → S3 owned voids → S4 physical → S5 groups → S7/S8; G2–G8</td>
+</tr>
+<tr>
+<td>CF.Cong,CF.Data extend catalog</td>
+<td>p18–20</td>
+<td>S1 CatalogReader/S2 exact profiles/S0 dependencies; G0–G2</td>
+</tr>
+<tr>
+<td>Netload/chạy</td>
+<td>p21–22</td>
+<td>HoGaCommands/HostCompatibilityChecker/Dispatcher; build/host hash; không suy AutoCAD2013 support cho DBTool net8</td>
+</tr>
+<tr>
+<td>Chọn loại → mở Excel → chọn 1/nhiều ga → điểm chèn</td>
+<td>p22–23 B1–B3</td>
+<td>SharedGenerationRequest/BatchOrchestrator, anchor placement S9/S10; G1/G9–G11</td>
+</tr>
+<tr>
+<td>Save CF rồi vẽ lại; đổi main cần reload</td>
+<td>p23 B4</td>
+<td>DBTool luôn snapshot/hash mới; source change detect, updater theo ManholeId; G1/G10</td>
+</tr>
+<tr>
+<td>Vẽ/không vẽ thép</td>
+<td>p24</td>
+<td>Explicit scope request; geometry-only output không quảng bá FullRebarFinal; G4/G9 completeness</td>
+</tr>
+<tr>
+<td>Xuất Excel chiết tính tùy chọn</td>
+<td>p24</td>
+<td>Existing export use cases/writers giữ ngoài ưu tiên; TK trên DWG vẫn bắt buộc tại S8</td>
+</tr>
+<tr>
+<td>Tỷ lệ manual/auto</td>
+<td>p24–25</td>
+<td>PresentationRequest/S9 approved scales; M15 panel riêng; G9/G11</td>
+</tr>
+<tr>
+<td>Nhóm 2/3 cột, spacing/view/sheet/ga, Khung</td>
+<td>p25</td>
+<td>SheetRecipe/InkLayout/FrameRegistry; sourceoptions typed mm, không lookup ga cố định; G9</td>
+</tr>
+<tr>
+<td>Font Unicode/TCVN3/VNI, width factor</td>
+<td>p26</td>
+<td>Versioned FontPolicy/S0/S10 ink readback; NR16; G0/G10/G11</td>
+</tr>
+<tr>
+<td>KL HG/THKL</td>
+<td>p27–28</td>
+<td>Giữ quantity scope/writers; không override geometry từ quantity; EX123–174</td>
+</tr>
+<tr>
+<td>Customize blocks/styles/layers/dims giữ tên/tag</td>
+<td>p29–31</td>
+<td>S0 exact signatures + versioned migration; G0/G10</td>
+</tr>
+<tr>
+<td>Chọn template phù hợp hatch/plot styles</td>
+<td>p32–33</td>
+<td>Host/template/PlotProfile tường minh; PSTYLEMODE; G0/G11</td>
+</tr>
+<tr>
+<td>In hàng loạt ATPPlotter</td>
+<td>p5</td>
+<td>FrameRegistry+batch plot tool một host, actual PDF/transcript; G11</td>
+</tr>
+</tbody>
+</table>
+</div><h2 id="517-source-ledger-va-ieu-kien-trien-khai">5.17. Source ledger và điều kiện triển khai</h2>
+<p><a href="05A-INPUT-FIELDS.md">05A input fields</a>, <a href="05B-FORMULAS.md">05B formula/constant register</a> và <a href="05C-IMPLEMENTATION-CONTRACTS.md">05C interfaces/record quyết định</a> là phụ lục bắt buộc. Trường numeric/enum không được đổi loại bằng heuristic tên field. Giá trị formula cache không có bằng chứng cập nhật không được tự coi fresh chỉ từ file timestamp: required value unresolved thì trả FORMULA_VALUE_UNRESOLVED; literal input hợp lệ tiếp tục bình thường.</p>
+<h3 id="ieu-kien-ac-ta-uoc-trien-khai-ung">Điều kiện đặc tả được triển khai đúng</h3>
+<p>Junior bắt đầu từ phase06, dùng 01 rule IDs, 03 module/caller decisions, 04 approvals, 05A input fields và các invariant G0–G11. Không có bước yêu cầu junior đoán domain. Gặp NR chưa được ký thì implement typed rule port, diagnostic và blocked path theo đặc tả, tiếp tục module độc lập; không tự chọn parameter. Sau chủ nhiệm ký record, rule version đi vào input/output hash và mới chạy acceptance case phụ thuộc. Đây là điều kiện kỹ thuật bắt buộc để giữ mục tiêu zero lỗi; sự tồn tại tài liệu không chứng minh sản phẩm đã đạt.</p></article><footer>DBTool · Hồ sơ project leader 13/10/2026 · Nguồn/approval/evidence theo scope. Không chứng nhận phần mềm từ tài liệu hoặc số test.</footer></main></body></html>
