@@ -1,0 +1,499 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PDF-71-OVERVIEW</title><style>body{font:16px/1.65 Segoe UI,Arial;margin:0;color:#183449;background:#edf2f5}main{max-width:1180px;margin:auto;padding:28px;background:white}nav{padding:12px;background:#15384b}nav a{color:white;margin-right:20px}a{color:#096e85}h1,h2,h3{color:#146d78}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{border:1px solid #bccfd7;padding:8px;vertical-align:top}th{background:#e4f0f2}pre{padding:14px;white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f5f7}img{max-width:100%}</style><nav><a href="INDEX.html">Trang tổng</a><a href="CATALOG-TEMPLATE.html">Catalog</a><a href="PDF-71-OVERVIEW.html">71 PDF</a><a href="KE-HOACH-SUA-CHO-JUNIOR.html">J00–J08</a></nav><main><h1>Sổ 71 PDF — review tổng quan từng tờ</h1>
+<p>Đã xem 12 contact sheets chứa đủ 71 trang nguồn ngày 12/10/2026. Phạm vi này xác nhận cấu trúc và nhóm hình nhìn thấy ở ảnh thu nhỏ; <strong>chưa xác nhận từng glyph, thanh, giao nét, thuộc tính hoặc chính xác mọi CAD/PDF join</strong>. Review chi tiết vẫn Pending. Tọa độ/block bên dưới đến từ ứng viên CAD trong ledger, không suy ngược tên block từ PDF.</p>
+<h2>PDF-001 — VHGpro 3.2/Demo/Cad/1.1.Ga thăm BTCT liền khối-Model-1.pdf</h2>
+<p><strong>Recipe:</strong> <code>Structure</code>. Sáu hình, ba cột × hai hàng: MB/AA trái, BB/lưới tường giữa, cốt thép AA/BB phải. Giữ hướng nhìn/cắt và liên kết cống, cổ, cửa thu theo cấu kiện thực.</p>
+<p><strong>Điểm riêng:</strong> Tên ga đọc được G500-2; không gọi đây là G400 nhỏ nhất loại 1.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-1-F006</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG HỐ GA G500-2; MẶT CẮT A-A; MẶT CẮT B-B; MẶT BẰNG LƯỚI THÉP TƯỜNG; MẶT CẮT  CỐT THÉP A-A; CỐT THÉP MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; NapGaCN-MB: 1; MC1: 2; MC2: 2; CT: 14; NapGaCN-MCD: 2; NapGaV-MC: 2</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-001.json">PDF-001.json</a>, <a href="pages/PDF-001-entities.csv">entity CSV</a>, <a href="pdf/PDF-001-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-002 — VHGpro 3.2/Demo/Cad/1.1.Ga thăm BTCT liền khối-Model-10.pdf</h2>
+<p><strong>Recipe:</strong> <code>NeckAndSchedule</code>. Cổ ga ba hình MB/AA/BB xếp dọc cột trái; bảng thống kê chia cột ở giữa/phải; vùng thang/chốt/tổng hợp thuộc bảng theo ca. Không thay bằng tờ cổ rỗng và bảng generic.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-1-F019</code> — <code>AmbiguousOrSourceDifference_RequiresReview</code>. Hình: MẶT BẰNG THÉP CỔ GA; MẶT CẮT A-A; MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TK.Tieude: 2; TK.Tenluoi: 14; TK.L2M: 29; TK.M.U: 3; TK.L0M: 41; TK.M.C: 5; TK.GC.T: 6; TK.GC.H: 4; TenMC: 3; Gach: 12; BLT2: 8; BLT1: 11; MC1: 2; MC2: 2; ThepGocLoi: 12; CT: 2; TK.THKL: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-002.json">PDF-002.json</a>, <a href="pages/PDF-002-entities.csv">entity CSV</a>, <a href="pdf/PDF-002-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-003 — VHGpro 3.2/Demo/Cad/1.1.Ga thăm BTCT liền khối-Model-11.pdf</h2>
+<p><strong>Recipe:</strong> <code>BendingDetails</code>. Bảy cột nhóm: đáy, T1, T2, T3, T4, trần, cổ. Trong từng cột chia lớp và hình thanh có kích thước; cột cổ có nhóm thang/chốt và cửa thu khi áp dụng. Đây là tờ hình uốn, khác bảng thống kê.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-1-F020</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: Bản đáy - lớp trên; Bản đáy - lớp dưới; Tường T1 - lớp ngoài; Tường T1 - lớp trong; Tường T2 - lớp ngoài; Tường T2 - lớp trong; Tường T3 - lớp ngoài; Tường T3 - lớp trong; Tường T4 - lớp ngoài; Tường T4 - lớp trong; Trần - lớp trên; Trần - lớp dưới; Cổ ga; Thang thép</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TieudeMC: 14</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-003.json">PDF-003.json</a>, <a href="pages/PDF-003-entities.csv">entity CSV</a>, <a href="pdf/PDF-003-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-004 — VHGpro 3.2/Demo/Cad/1.1.Ga thăm BTCT liền khối-Model-12.pdf</h2>
+<p><strong>Recipe:</strong> <code>CoverConstruction</code>. Ba KHUNG THÉP GÓC MIỆNG GA ngoài/giữa/trong xếp trái; CỐT THÉP TẤM NẮP (SL:2) ở trên giữa, AA bên phải, BB dưới giữa; bảng TK phía phải trên. PDF-043 xác nhận tỷ lệ1:20, dimstyleVHG1-20. Chỉ đưa bộ chi tiết này khi cấu hình sản phẩm thực có; không áp cho mọi mã nắp. Kiểm tỷ lệ riêng từng trang, không ép toàn hồ sơ1:30.</p>
+<p><strong>Điểm riêng:</strong> Có bộ chi tiết khung/nắp riêng; catalog sản phẩm không được gộp toàn bộ vào một hình chữ nhật giả.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-1-F021</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: KHUNG THÉP GÓC MIỆNG GA - NGOÀI; KHUNG THÉP GÓC MIỆNG GA - GIỮA; KHUNG THÉP GÓC MIỆNG GA - TRONG; CỐT THÉP TẤM NẮP (SL: 2); MẶT CẮT A-A; MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TK.Tieude: 1; TK.Tenluoi: 2; TenMC: 6; BLT3: 4; TK.TG: 4; BLT1: 17; TK.NG: 2; Gach: 24; TK.NA1: 2; TK.NA2: 2; BLTC: 2; TK.M.Z: 1; TK.MC: 1; MC1: 2; MC2: 2; ThepGocLoi: 8; BLMC: 3; BLT2: 4; TK.THKLNAP: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-004.json">PDF-004.json</a>, <a href="pages/PDF-004-entities.csv">entity CSV</a>, <a href="pdf/PDF-004-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-005 — VHGpro 3.2/Demo/Cad/1.1.Ga thăm BTCT liền khối-Model-2.pdf</h2>
+<p><strong>Recipe:</strong> <code>BaseWalls12</code>. Ba cột: đáy, tường T1, tường T2. Hàng trên: đáy trên/tường ngoài; hàng dưới: đáy dưới/tường trong. Collector ra trái/dưới, lỗ cống cắt đúng lớp lưới.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-1-F007</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: BẢN ĐÁY - LỚP TRÊN; BẢN ĐÁY - LỚP DƯỚI; TƯỜNG T1 - LỚP NGOÀI; TƯỜNG T1 - LỚP TRONG; TƯỜNG T2 - LỚP NGOÀI; TƯỜNG T2 - LỚP TRONG</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 234; BLT1: 27; BLT2: 20; BLTC: 32; CT: 4</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-005.json">PDF-005.json</a>, <a href="pages/PDF-005-entities.csv">entity CSV</a>, <a href="pdf/PDF-005-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-006 — VHGpro 3.2/Demo/Cad/1.1.Ga thăm BTCT liền khối-Model-3.pdf</h2>
+<p><strong>Recipe:</strong> <code>Walls34Roof</code>. Ba cột: tường T3, tường T4, trần. Ngoài/trên ở hàng trên; trong/dưới ở hàng dưới. Lỗ trần lệch theo cổ, nhãn nhóm phân vùng quanh lỗ; chốt của nắp rời phải có nội dung khi áp dụng.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-1-F008</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: TƯỜNG T3 - LỚP NGOÀI; TƯỜNG T3 - LỚP TRONG; TƯỜNG T4 - LỚP NGOÀI; TƯỜNG T4 - LỚP TRONG; TRẦN - LỚP TRÊN; TRẦN - LỚP DƯỚI</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 177; BLT2: 24; BLTC: 37; BLT1: 5</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-006.json">PDF-006.json</a>, <a href="pages/PDF-006-entities.csv">entity CSV</a>, <a href="pdf/PDF-006-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-007 — VHGpro 3.2/Demo/Cad/1.1.Ga thăm BTCT liền khối-Model-4.pdf</h2>
+<p><strong>Recipe:</strong> <code>NeckAndSchedule</code>. Cổ ga ba hình MB/AA/BB xếp dọc cột trái; bảng thống kê chia cột ở giữa/phải; vùng thang/chốt/tổng hợp thuộc bảng theo ca. Không thay bằng tờ cổ rỗng và bảng generic.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-1-F009</code> — <code>AmbiguousOrSourceDifference_RequiresReview</code>. Hình: MẶT BẰNG THÉP CỔ GA; MẶT CẮT A-A; MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TK.Tieude: 2; TK.Tenluoi: 14; TK.L2M: 25; TK.M.U: 3; TK.L0M: 33; TK.M.C: 5; TK.GC.T: 4; TK.VG: 8; TK.GC.H: 4; TenMC: 3; Gach: 12; BLT2: 8; BLT1: 11; MC1: 2; MC2: 2; NapGaCN-MCD: 1; CT: 2; NapGaV-MC: 1; TK.THKL: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-007.json">PDF-007.json</a>, <a href="pages/PDF-007-entities.csv">entity CSV</a>, <a href="pdf/PDF-007-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-008 — VHGpro 3.2/Demo/Cad/1.1.Ga thăm BTCT liền khối-Model-6.pdf</h2>
+<p><strong>Recipe:</strong> <code>BendingDetails</code>. Bảy cột nhóm: đáy, T1, T2, T3, T4, trần, cổ. Trong từng cột chia lớp và hình thanh có kích thước; cột cổ có nhóm thang/chốt và cửa thu khi áp dụng. Đây là tờ hình uốn, khác bảng thống kê.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-1-F010</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: Bản đáy - lớp trên; Bản đáy - lớp dưới; Tường T1 - lớp ngoài; Tường T1 - lớp trong; Tường T2 - lớp ngoài; Tường T2 - lớp trong; Tường T3 - lớp ngoài; Tường T3 - lớp trong; Tường T4 - lớp ngoài; Tường T4 - lớp trong; Trần - lớp trên; Trần - lớp dưới; Cổ ga; Thang thép</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TieudeMC: 14</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-008.json">PDF-008.json</a>, <a href="pages/PDF-008-entities.csv">entity CSV</a>, <a href="pdf/PDF-008-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-009 — VHGpro 3.2/Demo/Cad/1.1.Ga thăm BTCT liền khối-Model-7.pdf</h2>
+<p><strong>Recipe:</strong> <code>Structure</code>. Sáu hình, ba cột × hai hàng: MB/AA trái, BB/lưới tường giữa, cốt thép AA/BB phải. Giữ hướng nhìn/cắt và liên kết cống, cổ, cửa thu theo cấu kiện thực.</p>
+<p><strong>Điểm riêng:</strong> Full-page xác nhận tên G800-1 (sửa ghi nhận G600-1 ở overview cũ). Có nhiều lỗ ở các hướng; cần đối chiếu cùng OpeningId ở MB/AA/BB thay vì ép cả bốn tường giống nhau.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-1-F016</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG HỐ GA G800-1; MẶT CẮT A-A; MẶT CẮT B-B; MẶT BẰNG LƯỚI THÉP TƯỜNG; MẶT CẮT  CỐT THÉP A-A; CỐT THÉP MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; MC1: 2; MC2: 2; CT: 18; ThepGocLoi: 24</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-009.json">PDF-009.json</a>, <a href="pages/PDF-009-entities.csv">entity CSV</a>, <a href="pdf/PDF-009-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-010 — VHGpro 3.2/Demo/Cad/1.1.Ga thăm BTCT liền khối-Model-8.pdf</h2>
+<p><strong>Recipe:</strong> <code>BaseWalls12</code>. Ba cột: đáy, tường T1, tường T2. Hàng trên: đáy trên/tường ngoài; hàng dưới: đáy dưới/tường trong. Collector ra trái/dưới, lỗ cống cắt đúng lớp lưới.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-1-F017</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: BẢN ĐÁY - LỚP TRÊN; BẢN ĐÁY - LỚP DƯỚI; TƯỜNG T1 - LỚP NGOÀI; TƯỜNG T1 - LỚP TRONG; TƯỜNG T2 - LỚP NGOÀI; TƯỜNG T2 - LỚP TRONG</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 208; BLT1: 23; BLT2: 20; BLTC: 47; CT: 4</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-010.json">PDF-010.json</a>, <a href="pages/PDF-010-entities.csv">entity CSV</a>, <a href="pdf/PDF-010-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-011 — VHGpro 3.2/Demo/Cad/1.1.Ga thăm BTCT liền khối-Model-9.pdf</h2>
+<p><strong>Recipe:</strong> <code>Walls34Roof</code>. Ba cột: tường T3, tường T4, trần. Ngoài/trên ở hàng trên; trong/dưới ở hàng dưới. Lỗ trần lệch theo cổ, nhãn nhóm phân vùng quanh lỗ; chốt của nắp rời phải có nội dung khi áp dụng.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-1-F018</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: TƯỜNG T3 - LỚP NGOÀI; TƯỜNG T3 - LỚP TRONG; TƯỜNG T4 - LỚP NGOÀI; TƯỜNG T4 - LỚP TRONG; TRẦN - LỚP TRÊN; TRẦN - LỚP DƯỚI</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 184; BLT2: 24; BLTC: 54; CT: 2; BLT1: 15</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-011.json">PDF-011.json</a>, <a href="pages/PDF-011-entities.csv">entity CSV</a>, <a href="pdf/PDF-011-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-012 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-1.pdf</h2>
+<p><strong>Recipe:</strong> <code>Structure</code>. Sáu hình, ba cột × hai hàng: MB/AA trái, BB/lưới tường giữa, cốt thép AA/BB phải. Giữ hướng nhìn/cắt và liên kết cống, cổ, cửa thu theo cấu kiện thực.</p>
+<p><strong>Điểm riêng:</strong> Full-page G400-1 nguồn không có cống ở MB/AA/BB, còn workbook diagnostic đã thêm cống: khác input chưa phải lỗi projection. Nguồn nhạt hơn loại1; độ nhạt không tự chứng minh lỗi export DBTool.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F001</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG HỐ GA G400-1; MẶT CẮT A-A; MẶT CẮT B-B; MẶT BẰNG LƯỚI THÉP TƯỜNG; MẶT CẮT  CỐT THÉP A-A; CỐT THÉP MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; NapGaV-MB: 1; MC1: 2; MC2: 2; CT: 8; NapGaV-MC: 4</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-012.json">PDF-012.json</a>, <a href="pages/PDF-012-entities.csv">entity CSV</a>, <a href="pdf/PDF-012-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-013 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-10.pdf</h2>
+<p><strong>Recipe:</strong> <code>BendingDetails</code>. Bảy cột nhóm: đáy, T1, T2, T3, T4, trần, cổ. Trong từng cột chia lớp và hình thanh có kích thước; cột cổ có nhóm thang/chốt và cửa thu khi áp dụng. Đây là tờ hình uốn, khác bảng thống kê.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F010</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: Bản đáy - lớp trên; Bản đáy - lớp dưới; Tường T1 - lớp ngoài; Tường T1 - lớp trong; Tường T2 - lớp ngoài; Tường T2 - lớp trong; Tường T3 - lớp ngoài; Tường T3 - lớp trong; Tường T4 - lớp ngoài; Tường T4 - lớp trong; Trần - lớp trên; Trần - lớp dưới; Cổ ga; Thang thép; Chốt thép</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TieudeMC: 15</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-013.json">PDF-013.json</a>, <a href="pages/PDF-013-entities.csv">entity CSV</a>, <a href="pdf/PDF-013-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-014 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-11.pdf</h2>
+<p><strong>Recipe:</strong> <code>Structure</code>. Sáu hình, ba cột × hai hàng: MB/AA trái, BB/lưới tường giữa, cốt thép AA/BB phải. Giữ hướng nhìn/cắt và liên kết cống, cổ, cửa thu theo cấu kiện thực.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F011</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG HỐ GA G600-3; MẶT CẮT A-A; MẶT CẮT B-B; MẶT BẰNG LƯỚI THÉP TƯỜNG; MẶT CẮT  CỐT THÉP A-A; CỐT THÉP MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; NapGaV-MB: 1; MC1: 2; MC2: 2; CT: 18; NapGaV-MC: 4</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-014.json">PDF-014.json</a>, <a href="pages/PDF-014-entities.csv">entity CSV</a>, <a href="pdf/PDF-014-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-015 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-12.pdf</h2>
+<p><strong>Recipe:</strong> <code>BaseWalls12</code>. Ba cột: đáy, tường T1, tường T2. Hàng trên: đáy trên/tường ngoài; hàng dưới: đáy dưới/tường trong. Collector ra trái/dưới, lỗ cống cắt đúng lớp lưới.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F012</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: BẢN ĐÁY - LỚP TRÊN; BẢN ĐÁY - LỚP DƯỚI; TƯỜNG T1 - LỚP NGOÀI; TƯỜNG T1 - LỚP TRONG; TƯỜNG T2 - LỚP NGOÀI; TƯỜNG T2 - LỚP TRONG</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 194; BLT1: 14; BLT2: 17; BLTC: 39; CT: 2</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-015.json">PDF-015.json</a>, <a href="pages/PDF-015-entities.csv">entity CSV</a>, <a href="pdf/PDF-015-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-016 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-13.pdf</h2>
+<p><strong>Recipe:</strong> <code>Walls34Roof</code>. Ba cột: tường T3, tường T4, trần. Ngoài/trên ở hàng trên; trong/dưới ở hàng dưới. Lỗ trần lệch theo cổ, nhãn nhóm phân vùng quanh lỗ; chốt của nắp rời phải có nội dung khi áp dụng.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F013</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: TƯỜNG T3 - LỚP NGOÀI; TƯỜNG T3 - LỚP TRONG; TƯỜNG T4 - LỚP NGOÀI; TƯỜNG T4 - LỚP TRONG; TRẦN - LỚP TRÊN; TRẦN - LỚP DƯỚI</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; CT: 4; Gach: 226; BLT2: 28; BLT1: 28; BLTC: 34</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-016.json">PDF-016.json</a>, <a href="pages/PDF-016-entities.csv">entity CSV</a>, <a href="pdf/PDF-016-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-017 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-14.pdf</h2>
+<p><strong>Recipe:</strong> <code>NeckAndSchedule</code>. Cổ ga ba hình MB/AA/BB xếp dọc cột trái; bảng thống kê chia cột ở giữa/phải; vùng thang/chốt/tổng hợp thuộc bảng theo ca. Không thay bằng tờ cổ rỗng và bảng generic.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F014</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG THÉP CỔ GA; MẶT CẮT A-A; MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TK.Tieude: 2; TK.Tenluoi: 15; TK.L2M: 29; TK.M.U: 3; TK.L0M: 42; TK.M.C: 5; TK.GC.T: 6; TK.VG: 4; TK.GC.H: 4; TK.MC: 1; TenMC: 3; Gach: 12; BLT2: 8; BLT1: 11; MC1: 2; MC2: 2; NapGaV-MC: 2; CT: 2; TK.THKL: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-017.json">PDF-017.json</a>, <a href="pages/PDF-017-entities.csv">entity CSV</a>, <a href="pdf/PDF-017-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-018 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-15.pdf</h2>
+<p><strong>Recipe:</strong> <code>BendingDetails</code>. Bảy cột nhóm: đáy, T1, T2, T3, T4, trần, cổ. Trong từng cột chia lớp và hình thanh có kích thước; cột cổ có nhóm thang/chốt và cửa thu khi áp dụng. Đây là tờ hình uốn, khác bảng thống kê.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F015</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: Bản đáy - lớp trên; Bản đáy - lớp dưới; Tường T1 - lớp ngoài; Tường T1 - lớp trong; Tường T2 - lớp ngoài; Tường T2 - lớp trong; Tường T3 - lớp ngoài; Tường T3 - lớp trong; Tường T4 - lớp ngoài; Tường T4 - lớp trong; Trần - lớp trên; Trần - lớp dưới; Cổ ga; Thang thép; Chốt thép</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TieudeMC: 15</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-018.json">PDF-018.json</a>, <a href="pages/PDF-018-entities.csv">entity CSV</a>, <a href="pdf/PDF-018-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-019 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-16.pdf</h2>
+<p><strong>Recipe:</strong> <code>CoverConstruction</code>. Ba KHUNG THÉP GÓC MIỆNG GA ngoài/giữa/trong xếp trái; CỐT THÉP TẤM NẮP (SL:2) ở trên giữa, AA bên phải, BB dưới giữa; bảng TK phía phải trên. PDF-043 xác nhận tỷ lệ1:20, dimstyleVHG1-20. Chỉ đưa bộ chi tiết này khi cấu hình sản phẩm thực có; không áp cho mọi mã nắp. Kiểm tỷ lệ riêng từng trang, không ép toàn hồ sơ1:30.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F021</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: KHUNG THÉP GÓC MIỆNG GA - NGOÀI; KHUNG THÉP GÓC MIỆNG GA - GIỮA; KHUNG THÉP GÓC MIỆNG GA - TRONG; CỐT THÉP TẤM NẮP (SL: 2); MẶT CẮT A-A; MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TK.Tieude: 1; TK.Tenluoi: 2; TenMC: 6; BLT3: 4; TK.TG: 4; BLT1: 17; TK.NG: 2; Gach: 26; TK.NA1: 2; TK.NA2: 2; BLTC: 3; TK.M.Z: 1; TK.MC: 1; MC1: 2; MC2: 2; ThepGocLoi: 8; BLMC: 3; BLT2: 4; TK.THKLNAP: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-019.json">PDF-019.json</a>, <a href="pages/PDF-019-entities.csv">entity CSV</a>, <a href="pdf/PDF-019-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-020 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-17.pdf</h2>
+<p><strong>Recipe:</strong> <code>Structure</code>. Sáu hình, ba cột × hai hàng: MB/AA trái, BB/lưới tường giữa, cốt thép AA/BB phải. Giữ hướng nhìn/cắt và liên kết cống, cổ, cửa thu theo cấu kiện thực.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F016</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG HỐ GA G800-1; MẶT CẮT A-A; MẶT CẮT B-B; MẶT BẰNG LƯỚI THÉP TƯỜNG; MẶT CẮT  CỐT THÉP A-A; CỐT THÉP MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; MC1: 2; MC2: 2; CT: 18; ThepGocLoi: 24</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-020.json">PDF-020.json</a>, <a href="pages/PDF-020-entities.csv">entity CSV</a>, <a href="pdf/PDF-020-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-021 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-18.pdf</h2>
+<p><strong>Recipe:</strong> <code>BaseWalls12</code>. Ba cột: đáy, tường T1, tường T2. Hàng trên: đáy trên/tường ngoài; hàng dưới: đáy dưới/tường trong. Collector ra trái/dưới, lỗ cống cắt đúng lớp lưới.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F017</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: BẢN ĐÁY - LỚP TRÊN; BẢN ĐÁY - LỚP DƯỚI; TƯỜNG T1 - LỚP NGOÀI; TƯỜNG T1 - LỚP TRONG; TƯỜNG T2 - LỚP NGOÀI; TƯỜNG T2 - LỚP TRONG</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 214; BLT1: 23; BLT2: 20; BLTC: 44; CT: 4</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-021.json">PDF-021.json</a>, <a href="pages/PDF-021-entities.csv">entity CSV</a>, <a href="pdf/PDF-021-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-022 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-19.pdf</h2>
+<p><strong>Recipe:</strong> <code>Walls34Roof</code>. Ba cột: tường T3, tường T4, trần. Ngoài/trên ở hàng trên; trong/dưới ở hàng dưới. Lỗ trần lệch theo cổ, nhãn nhóm phân vùng quanh lỗ; chốt của nắp rời phải có nội dung khi áp dụng.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F018</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: TƯỜNG T3 - LỚP NGOÀI; TƯỜNG T3 - LỚP TRONG; TƯỜNG T4 - LỚP NGOÀI; TƯỜNG T4 - LỚP TRONG; TRẦN - LỚP TRÊN; TRẦN - LỚP DƯỚI</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 184; BLT2: 24; BLTC: 54; CT: 2; BLT1: 16</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-022.json">PDF-022.json</a>, <a href="pages/PDF-022-entities.csv">entity CSV</a>, <a href="pdf/PDF-022-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-023 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-2.pdf</h2>
+<p><strong>Recipe:</strong> <code>BaseWalls12</code>. Ba cột: đáy, tường T1, tường T2. Hàng trên: đáy trên/tường ngoài; hàng dưới: đáy dưới/tường trong. Collector ra trái/dưới, lỗ cống cắt đúng lớp lưới.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F002</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: BẢN ĐÁY - LỚP TRÊN; BẢN ĐÁY - LỚP DƯỚI; TƯỜNG T1 - LỚP NGOÀI; TƯỜNG T1 - LỚP TRONG; TƯỜNG T2 - LỚP NGOÀI; TƯỜNG T2 - LỚP TRONG</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 147; BLT1: 3; BLT2: 14; BLTC: 40</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-023.json">PDF-023.json</a>, <a href="pages/PDF-023-entities.csv">entity CSV</a>, <a href="pdf/PDF-023-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-024 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-20.pdf</h2>
+<p><strong>Recipe:</strong> <code>NeckAndSchedule</code>. Cổ ga ba hình MB/AA/BB xếp dọc cột trái; bảng thống kê chia cột ở giữa/phải; vùng thang/chốt/tổng hợp thuộc bảng theo ca. Không thay bằng tờ cổ rỗng và bảng generic.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F019</code> — <code>AmbiguousOrSourceDifference_RequiresReview</code>. Hình: MẶT BẰNG THÉP CỔ GA; MẶT CẮT A-A; MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TK.Tieude: 2; TK.Tenluoi: 15; TK.L2M: 29; TK.M.U: 3; TK.L0M: 42; TK.M.C: 5; TK.GC.T: 6; TK.GC.H: 4; TK.MC: 1; TenMC: 3; Gach: 12; BLT2: 8; BLT1: 11; MC1: 2; MC2: 2; ThepGocLoi: 12; CT: 2; TK.THKL: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-024.json">PDF-024.json</a>, <a href="pages/PDF-024-entities.csv">entity CSV</a>, <a href="pdf/PDF-024-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-025 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-21.pdf</h2>
+<p><strong>Recipe:</strong> <code>BendingDetails</code>. Bảy cột nhóm: đáy, T1, T2, T3, T4, trần, cổ. Trong từng cột chia lớp và hình thanh có kích thước; cột cổ có nhóm thang/chốt và cửa thu khi áp dụng. Đây là tờ hình uốn, khác bảng thống kê.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F020</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: Bản đáy - lớp trên; Bản đáy - lớp dưới; Tường T1 - lớp ngoài; Tường T1 - lớp trong; Tường T2 - lớp ngoài; Tường T2 - lớp trong; Tường T3 - lớp ngoài; Tường T3 - lớp trong; Tường T4 - lớp ngoài; Tường T4 - lớp trong; Trần - lớp trên; Trần - lớp dưới; Cổ ga; Thang thép; Chốt thép</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TieudeMC: 15</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-025.json">PDF-025.json</a>, <a href="pages/PDF-025-entities.csv">entity CSV</a>, <a href="pdf/PDF-025-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-026 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-22.pdf</h2>
+<p><strong>Recipe:</strong> <code>CoverConstruction</code>. Ba KHUNG THÉP GÓC MIỆNG GA ngoài/giữa/trong xếp trái; CỐT THÉP TẤM NẮP (SL:2) ở trên giữa, AA bên phải, BB dưới giữa; bảng TK phía phải trên. PDF-043 xác nhận tỷ lệ1:20, dimstyleVHG1-20. Chỉ đưa bộ chi tiết này khi cấu hình sản phẩm thực có; không áp cho mọi mã nắp. Kiểm tỷ lệ riêng từng trang, không ép toàn hồ sơ1:30.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F027</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: KHUNG THÉP GÓC MIỆNG GA - NGOÀI; KHUNG THÉP GÓC MIỆNG GA - GIỮA; KHUNG THÉP GÓC MIỆNG GA - TRONG; CỐT THÉP TẤM NẮP (SL: 2); MẶT CẮT A-A; MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TK.Tieude: 1; TK.Tenluoi: 2; TenMC: 6; BLT3: 4; TK.TG: 4; BLT1: 17; TK.NG: 2; Gach: 24; TK.NA1: 2; TK.NA2: 2; BLTC: 2; TK.M.Z: 1; TK.MC: 1; MC1: 2; MC2: 2; ThepGocLoi: 8; BLMC: 3; BLT2: 4; TK.THKLNAP: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-026.json">PDF-026.json</a>, <a href="pages/PDF-026-entities.csv">entity CSV</a>, <a href="pdf/PDF-026-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-027 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-23.pdf</h2>
+<p><strong>Recipe:</strong> <code>Structure</code>. Sáu hình, ba cột × hai hàng: MB/AA trái, BB/lưới tường giữa, cốt thép AA/BB phải. Giữ hướng nhìn/cắt và liên kết cống, cổ, cửa thu theo cấu kiện thực.</p>
+<p><strong>Điểm riêng:</strong> Mặt cắt BB có cống hộp, còn mặt cắt thép AA có lỗ tròn. Khác hình dạng giữa hai hướng có thể hợp lệ; chỉ kết luận lỗi khi cùng OpeningId khác shape.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F022</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG HỐ GA G800-2; MẶT CẮT A-A; MẶT CẮT B-B; MẶT BẰNG LƯỚI THÉP TƯỜNG; MẶT CẮT  CỐT THÉP A-A; CỐT THÉP MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; MC1: 2; MC2: 2; CT: 18; ThepGocLoi: 40; ThepGocLom: 8</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-027.json">PDF-027.json</a>, <a href="pages/PDF-027-entities.csv">entity CSV</a>, <a href="pdf/PDF-027-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-028 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-24.pdf</h2>
+<p><strong>Recipe:</strong> <code>BaseWalls12</code>. Ba cột: đáy, tường T1, tường T2. Hàng trên: đáy trên/tường ngoài; hàng dưới: đáy dưới/tường trong. Collector ra trái/dưới, lỗ cống cắt đúng lớp lưới.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F023</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: BẢN ĐÁY - LỚP TRÊN; BẢN ĐÁY - LỚP DƯỚI; TƯỜNG T1 - LỚP NGOÀI; TƯỜNG T1 - LỚP TRONG; TƯỜNG T2 - LỚP NGOÀI; TƯỜNG T2 - LỚP TRONG</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 176; BLT1: 11; BLT2: 16; BLTC: 57; CT: 2</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-028.json">PDF-028.json</a>, <a href="pages/PDF-028-entities.csv">entity CSV</a>, <a href="pdf/PDF-028-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-029 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-25.pdf</h2>
+<p><strong>Recipe:</strong> <code>Walls34Roof</code>. Ba cột: tường T3, tường T4, trần. Ngoài/trên ở hàng trên; trong/dưới ở hàng dưới. Lỗ trần lệch theo cổ, nhãn nhóm phân vùng quanh lỗ; chốt của nắp rời phải có nội dung khi áp dụng.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F024</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: TƯỜNG T3 - LỚP NGOÀI; TƯỜNG T3 - LỚP TRONG; TƯỜNG T4 - LỚP NGOÀI; TƯỜNG T4 - LỚP TRONG; TRẦN - LỚP TRÊN; TRẦN - LỚP DƯỚI</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; CT: 4; Gach: 238; BLT2: 30; BLT1: 24; BLTC: 46</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-029.json">PDF-029.json</a>, <a href="pages/PDF-029-entities.csv">entity CSV</a>, <a href="pdf/PDF-029-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-030 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-26.pdf</h2>
+<p><strong>Recipe:</strong> <code>NeckAndSchedule</code>. Cổ ga ba hình MB/AA/BB xếp dọc cột trái; bảng thống kê chia cột ở giữa/phải; vùng thang/chốt/tổng hợp thuộc bảng theo ca. Không thay bằng tờ cổ rỗng và bảng generic.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F025</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG THÉP CỔ GA; MẶT CẮT A-A; MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TK.Tieude: 2; TK.Tenluoi: 15; TK.L2M: 29; TK.M.U: 3; TK.L0M: 42; TK.M.C: 5; TK.GC.T: 4; TK.GC.H: 4; TK.MC: 1; TenMC: 3; Gach: 12; BLT2: 8; BLT1: 11; MC1: 2; MC2: 2; ThepGocLoi: 20; ThepGocLom: 4; CT: 2; TK.THKL: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-030.json">PDF-030.json</a>, <a href="pages/PDF-030-entities.csv">entity CSV</a>, <a href="pdf/PDF-030-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-031 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-27.pdf</h2>
+<p><strong>Recipe:</strong> <code>BendingDetails</code>. Bảy cột nhóm: đáy, T1, T2, T3, T4, trần, cổ. Trong từng cột chia lớp và hình thanh có kích thước; cột cổ có nhóm thang/chốt và cửa thu khi áp dụng. Đây là tờ hình uốn, khác bảng thống kê.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F026</code> — <code>AmbiguousOrSourceDifference_RequiresReview</code>. Hình: Bản đáy - lớp trên; Bản đáy - lớp dưới; Tường T1 - lớp ngoài; Tường T1 - lớp trong; Tường T2 - lớp ngoài; Tường T2 - lớp trong; Tường T3 - lớp ngoài; Tường T3 - lớp trong; Tường T4 - lớp ngoài; Tường T4 - lớp trong; Trần - lớp trên; Trần - lớp dưới; Cổ ga; Thang thép; Chốt thép</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TieudeMC: 15</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-031.json">PDF-031.json</a>, <a href="pages/PDF-031-entities.csv">entity CSV</a>, <a href="pdf/PDF-031-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-032 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-3.pdf</h2>
+<p><strong>Recipe:</strong> <code>Walls34Roof</code>. Ba cột: tường T3, tường T4, trần. Ngoài/trên ở hàng trên; trong/dưới ở hàng dưới. Lỗ trần lệch theo cổ, nhãn nhóm phân vùng quanh lỗ; chốt của nắp rời phải có nội dung khi áp dụng.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F003</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: TƯỜNG T3 - LỚP NGOÀI; TƯỜNG T3 - LỚP TRONG; TƯỜNG T4 - LỚP NGOÀI; TƯỜNG T4 - LỚP TRONG; TRẦN - LỚP TRÊN; TRẦN - LỚP DƯỚI</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 159; BLT2: 24; BLTC: 37; BLT1: 4</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-032.json">PDF-032.json</a>, <a href="pages/PDF-032-entities.csv">entity CSV</a>, <a href="pdf/PDF-032-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-033 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-4.pdf</h2>
+<p><strong>Recipe:</strong> <code>NeckAndSchedule</code>. Cổ ga ba hình MB/AA/BB xếp dọc cột trái; bảng thống kê chia cột ở giữa/phải; vùng thang/chốt/tổng hợp thuộc bảng theo ca. Không thay bằng tờ cổ rỗng và bảng generic.</p>
+<p><strong>Điểm riêng:</strong> Bảng TK là thành phần bắt buộc của tờ cổ loại 2 này; giữ riêng với tờ hình uốn PDF-034.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F004</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG THÉP CỔ GA; MẶT CẮT A-A; MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TK.Tieude: 2; TK.Tenluoi: 15; TK.L2M: 17; TK.M.U: 3; TK.L0M: 18; TK.M.C: 5; TK.VG: 4; TK.GC.H: 4; TK.MC: 1; TenMC: 3; Gach: 12; BLT2: 8; BLT1: 11; MC1: 2; MC2: 2; NapGaV-MC: 2; CT: 2; TK.THKL: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-033.json">PDF-033.json</a>, <a href="pages/PDF-033-entities.csv">entity CSV</a>, <a href="pdf/PDF-033-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-034 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-5.pdf</h2>
+<p><strong>Recipe:</strong> <code>BendingDetails</code>. Bảy cột nhóm: đáy, T1, T2, T3, T4, trần, cổ. Trong từng cột chia lớp và hình thanh có kích thước; cột cổ có nhóm thang/chốt và cửa thu khi áp dụng. Đây là tờ hình uốn, khác bảng thống kê.</p>
+<p><strong>Điểm riêng:</strong> Source có chiều dài thập phân dài: không sao chép lỗi formatter của nguồn.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F005</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: Bản đáy - lớp trên; Bản đáy - lớp dưới; Tường T1 - lớp ngoài; Tường T1 - lớp trong; Tường T2 - lớp ngoài; Tường T2 - lớp trong; Tường T3 - lớp ngoài; Tường T3 - lớp trong; Tường T4 - lớp ngoài; Tường T4 - lớp trong; Trần - lớp trên; Trần - lớp dưới; Cổ ga; Thang thép; Chốt thép</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TieudeMC: 15</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-034.json">PDF-034.json</a>, <a href="pages/PDF-034-entities.csv">entity CSV</a>, <a href="pdf/PDF-034-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-035 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-6.pdf</h2>
+<p><strong>Recipe:</strong> <code>Structure</code>. Sáu hình, ba cột × hai hàng: MB/AA trái, BB/lưới tường giữa, cốt thép AA/BB phải. Giữ hướng nhìn/cắt và liên kết cống, cổ, cửa thu theo cấu kiện thực.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F006</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG HỐ GA G500-2; MẶT CẮT A-A; MẶT CẮT B-B; MẶT BẰNG LƯỚI THÉP TƯỜNG; MẶT CẮT  CỐT THÉP A-A; CỐT THÉP MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; NapGaCN-MB: 1; MC1: 2; MC2: 2; CT: 14; NapGaCN-MCD: 2; NapGaV-MC: 2</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-035.json">PDF-035.json</a>, <a href="pages/PDF-035-entities.csv">entity CSV</a>, <a href="pdf/PDF-035-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-036 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-7.pdf</h2>
+<p><strong>Recipe:</strong> <code>BaseWalls12</code>. Ba cột: đáy, tường T1, tường T2. Hàng trên: đáy trên/tường ngoài; hàng dưới: đáy dưới/tường trong. Collector ra trái/dưới, lỗ cống cắt đúng lớp lưới.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F007</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: BẢN ĐÁY - LỚP TRÊN; BẢN ĐÁY - LỚP DƯỚI; TƯỜNG T1 - LỚP NGOÀI; TƯỜNG T1 - LỚP TRONG; TƯỜNG T2 - LỚP NGOÀI; TƯỜNG T2 - LỚP TRONG</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 213; BLT1: 25; BLT2: 20; BLTC: 31; CT: 4</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-036.json">PDF-036.json</a>, <a href="pages/PDF-036-entities.csv">entity CSV</a>, <a href="pdf/PDF-036-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-037 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-8.pdf</h2>
+<p><strong>Recipe:</strong> <code>Walls34Roof</code>. Ba cột: tường T3, tường T4, trần. Ngoài/trên ở hàng trên; trong/dưới ở hàng dưới. Lỗ trần lệch theo cổ, nhãn nhóm phân vùng quanh lỗ; chốt của nắp rời phải có nội dung khi áp dụng.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F008</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: TƯỜNG T3 - LỚP NGOÀI; TƯỜNG T3 - LỚP TRONG; TƯỜNG T4 - LỚP NGOÀI; TƯỜNG T4 - LỚP TRONG; TRẦN - LỚP TRÊN; TRẦN - LỚP DƯỚI</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 165; BLT2: 22; BLTC: 40; BLT1: 6</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-037.json">PDF-037.json</a>, <a href="pages/PDF-037-entities.csv">entity CSV</a>, <a href="pdf/PDF-037-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-038 — VHGpro 3.2/Demo/Cad/2.1.Ga thăm BTCT nắp rời-Model-9.pdf</h2>
+<p><strong>Recipe:</strong> <code>NeckAndSchedule</code>. Cổ ga ba hình MB/AA/BB xếp dọc cột trái; bảng thống kê chia cột ở giữa/phải; vùng thang/chốt/tổng hợp thuộc bảng theo ca. Không thay bằng tờ cổ rỗng và bảng generic.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-2-F009</code> — <code>AmbiguousOrSourceDifference_RequiresReview</code>. Hình: MẶT BẰNG THÉP CỔ GA; MẶT CẮT A-A; MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TK.Tieude: 2; TK.Tenluoi: 15; TK.L2M: 25; TK.M.U: 3; TK.L0M: 34; TK.M.C: 5; TK.GC.T: 4; TK.VG: 4; TK.GC.H: 4; TK.MC: 1; TenMC: 3; Gach: 12; BLT2: 8; BLT1: 11; MC1: 2; MC2: 2; NapGaCN-MCD: 1; CT: 2; NapGaV-MC: 1; TK.THKL: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-038.json">PDF-038.json</a>, <a href="pages/PDF-038-entities.csv">entity CSV</a>, <a href="pdf/PDF-038-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-039 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-1.pdf</h2>
+<p><strong>Recipe:</strong> <code>Structure</code>. Sáu hình, ba cột × hai hàng: MB/AA trái, BB/lưới tường giữa, cốt thép AA/BB phải. Giữ hướng nhìn/cắt và liên kết cống, cổ, cửa thu theo cấu kiện thực.</p>
+<p><strong>Điểm riêng:</strong> Loại 3 mẫu nhỏ chưa thấy cống trong các section ở overview; không ép phải có cống ở mọi ga.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F001</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG HỐ GA G400-1; MẶT CẮT A-A; MẶT CẮT B-B; MẶT BẰNG LƯỚI THÉP TƯỜNG; MẶT CẮT  CỐT THÉP A-A; CỐT THÉP MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; NapGaV-MB: 1; MC1: 2; MC2: 2; SCR960x530: 1; CT: 8; NapGaV-MC: 4; ThepGocLoi: 12; ThepGocLom: 6; NAPCUATHU1: 2</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-039.json">PDF-039.json</a>, <a href="pages/PDF-039-entities.csv">entity CSV</a>, <a href="pdf/PDF-039-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-040 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-10.pdf</h2>
+<p><strong>Recipe:</strong> <code>NeckCatch</code>. Loại 3: cột trái cổ MB/AA/BB; cột giữa cửa thu MB/1-1/2-2. Không ghép vào recipe cổ + bảng của loại 2; bảng TK nằm tờ riêng.</p>
+<p><strong>Điểm riêng:</strong> Cửa thu là một bộ ba hình cùng tờ cổ; bảng thống kê riêng PDF-041. Xem full-page thấy cửa thu dùng số hiệu1/2/3/4; cổ có C1A/B/C, C2A/B/C, C3. Nguồn tự có vùng nhãn cổ chồng ở section: giữ vocabulary/recipe, không sao lỗi collision nguồn.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F010</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG THÉP CỔ GA; MẶT CẮT A-A; MẶT CẮT B-B; MẶT BẰNG CỬA THU ; MẶT CẮT 1-1; MẶT CẮT 2-2</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 17; BLT2: 14; BLT1: 29; MC1: 2; MC2: 2; NapGaV-MC: 2; ThepGocLoi: 6; ThepGocLom: 3; CT: 2; SCR960x530: 1; MC3: 2; MC4: 2; NAPCUATHU1: 1; NAPCUATHU2: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-040.json">PDF-040.json</a>, <a href="pages/PDF-040-entities.csv">entity CSV</a>, <a href="pdf/PDF-040-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-041 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-11.pdf</h2>
+<p><strong>Recipe:</strong> <code>ScheduleOnly</code>. Loại 3: bảng TK chia hai cột dài, thứ tự cấu kiện/lớp; thang/chốt/tổng hợp ở cuối theo ca. Không coi thiếu hình cổ ở tờ này là lỗi: hình cổ và cửa thu nằm tờ liền trước.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F011</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: Không có title view độc lập; đọc headings bảng/nhóm trong ledger.</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TK.Tieude: 2; TK.Tenluoi: 16; TK.L2M: 32; TK.M.U: 3; TK.L0M: 43; TK.M.C: 5; TK.GC.T: 6; TK.VG: 4; TK.GC.H: 4; TK.MC: 1; TK.CT.N: 1; TK.CT.T: 1; TK.L1M: 2; TK.THKL: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-041.json">PDF-041.json</a>, <a href="pages/PDF-041-entities.csv">entity CSV</a>, <a href="pdf/PDF-041-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-042 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-12.pdf</h2>
+<p><strong>Recipe:</strong> <code>BendingDetails</code>. Bảy cột nhóm: đáy, T1, T2, T3, T4, trần, cổ. Trong từng cột chia lớp và hình thanh có kích thước; cột cổ có nhóm thang/chốt và cửa thu khi áp dụng. Đây là tờ hình uốn, khác bảng thống kê.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F012</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: Bản đáy - lớp trên; Bản đáy - lớp dưới; Tường T1 - lớp ngoài; Tường T1 - lớp trong; Tường T2 - lớp ngoài; Tường T2 - lớp trong; Tường T3 - lớp ngoài; Tường T3 - lớp trong; Tường T4 - lớp ngoài; Tường T4 - lớp trong; Trần - lớp trên; Trần - lớp dưới; Cổ ga; Cửa thu; Thang thép; Chốt thép</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TieudeMC: 16</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-042.json">PDF-042.json</a>, <a href="pages/PDF-042-entities.csv">entity CSV</a>, <a href="pdf/PDF-042-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-043 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-13.pdf</h2>
+<p><strong>Recipe:</strong> <code>CoverConstruction</code>. Ba KHUNG THÉP GÓC MIỆNG GA ngoài/giữa/trong xếp trái; CỐT THÉP TẤM NẮP (SL:2) ở trên giữa, AA bên phải, BB dưới giữa; bảng TK phía phải trên. PDF-043 xác nhận tỷ lệ1:20, dimstyleVHG1-20. Chỉ đưa bộ chi tiết này khi cấu hình sản phẩm thực có; không áp cho mọi mã nắp. Kiểm tỷ lệ riêng từng trang, không ép toàn hồ sơ1:30.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F019</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: KHUNG THÉP GÓC MIỆNG GA - NGOÀI; KHUNG THÉP GÓC MIỆNG GA - GIỮA; KHUNG THÉP GÓC MIỆNG GA - TRONG; CỐT THÉP TẤM NẮP (SL: 2); MẶT CẮT A-A; MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TK.Tieude: 1; TK.Tenluoi: 2; TenMC: 6; BLT3: 4; TK.TG: 4; BLT1: 17; TK.NG: 2; Gach: 24; TK.NA1: 2; TK.NA2: 2; BLTC: 2; TK.M.Z: 1; TK.MC: 1; MC1: 2; MC2: 2; ThepGocLoi: 8; BLMC: 3; BLT2: 4; TK.THKLNAP: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-043.json">PDF-043.json</a>, <a href="pages/PDF-043-entities.csv">entity CSV</a>, <a href="pdf/PDF-043-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-044 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-14.pdf</h2>
+<p><strong>Recipe:</strong> <code>Structure</code>. Sáu hình, ba cột × hai hàng: MB/AA trái, BB/lưới tường giữa, cốt thép AA/BB phải. Giữ hướng nhìn/cắt và liên kết cống, cổ, cửa thu theo cấu kiện thực.</p>
+<p><strong>Điểm riêng:</strong> Cửa thu nhô sang phía dưới MB trong khi vị trí cổ khác; cần transform cửa thu có hướng thay vì mặc định bên phải.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F013</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG HỐ GA G600-3; MẶT CẮT A-A; MẶT CẮT B-B; MẶT BẰNG LƯỚI THÉP TƯỜNG; MẶT CẮT  CỐT THÉP A-A; CỐT THÉP MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; MC1: 2; MC2: 2; SCR960x530: 1; CT: 18; ThepGocLoi: 24; NAPCUATHU1: 2</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-044.json">PDF-044.json</a>, <a href="pages/PDF-044-entities.csv">entity CSV</a>, <a href="pdf/PDF-044-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-045 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-15.pdf</h2>
+<p><strong>Recipe:</strong> <code>BaseWalls12</code>. Ba cột: đáy, tường T1, tường T2. Hàng trên: đáy trên/tường ngoài; hàng dưới: đáy dưới/tường trong. Collector ra trái/dưới, lỗ cống cắt đúng lớp lưới.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F014</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: BẢN ĐÁY - LỚP TRÊN; BẢN ĐÁY - LỚP DƯỚI; TƯỜNG T1 - LỚP NGOÀI; TƯỜNG T1 - LỚP TRONG; TƯỜNG T2 - LỚP NGOÀI; TƯỜNG T2 - LỚP TRONG</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 168; BLT1: 13; BLT2: 16; BLTC: 39; CT: 2</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-045.json">PDF-045.json</a>, <a href="pages/PDF-045-entities.csv">entity CSV</a>, <a href="pdf/PDF-045-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-046 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-16.pdf</h2>
+<p><strong>Recipe:</strong> <code>Walls34Roof</code>. Ba cột: tường T3, tường T4, trần. Ngoài/trên ở hàng trên; trong/dưới ở hàng dưới. Lỗ trần lệch theo cổ, nhãn nhóm phân vùng quanh lỗ; chốt của nắp rời phải có nội dung khi áp dụng.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F015</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: TƯỜNG T3 - LỚP NGOÀI; TƯỜNG T3 - LỚP TRONG; TƯỜNG T4 - LỚP NGOÀI; TƯỜNG T4 - LỚP TRONG; TRẦN - LỚP TRÊN; TRẦN - LỚP DƯỚI</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; CT: 4; Gach: 206; BLT2: 30; BLT1: 24; BLTC: 36</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-046.json">PDF-046.json</a>, <a href="pages/PDF-046-entities.csv">entity CSV</a>, <a href="pdf/PDF-046-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-047 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-17.pdf</h2>
+<p><strong>Recipe:</strong> <code>NeckCatch</code>. Loại 3: cột trái cổ MB/AA/BB; cột giữa cửa thu MB/1-1/2-2. Không ghép vào recipe cổ + bảng của loại 2; bảng TK nằm tờ riêng.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F016</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG THÉP CỔ GA; MẶT CẮT A-A; MẶT CẮT B-B; MẶT BẰNG CỬA THU ; MẶT CẮT 1-1; MẶT CẮT 2-2</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 17; BLT2: 14; BLT1: 29; MC1: 2; MC2: 2; ThepGocLoi: 12; CT: 2; SCR960x530: 1; MC3: 2; MC4: 2; NAPCUATHU1: 1; NAPCUATHU2: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-047.json">PDF-047.json</a>, <a href="pages/PDF-047-entities.csv">entity CSV</a>, <a href="pdf/PDF-047-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-048 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-18.pdf</h2>
+<p><strong>Recipe:</strong> <code>ScheduleOnly</code>. Loại 3: bảng TK chia hai cột dài, thứ tự cấu kiện/lớp; thang/chốt/tổng hợp ở cuối theo ca. Không coi thiếu hình cổ ở tờ này là lỗi: hình cổ và cửa thu nằm tờ liền trước.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F017</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: Không có title view độc lập; đọc headings bảng/nhóm trong ledger.</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TK.Tieude: 2; TK.Tenluoi: 16; TK.L2M: 32; TK.M.U: 3; TK.L0M: 43; TK.M.C: 5; TK.GC.T: 6; TK.GC.H: 4; TK.MC: 1; TK.CT.N: 1; TK.CT.T: 1; TK.L1M: 2; TK.THKL: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-048.json">PDF-048.json</a>, <a href="pages/PDF-048-entities.csv">entity CSV</a>, <a href="pdf/PDF-048-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-049 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-19.pdf</h2>
+<p><strong>Recipe:</strong> <code>BendingDetails</code>. Bảy cột nhóm: đáy, T1, T2, T3, T4, trần, cổ. Trong từng cột chia lớp và hình thanh có kích thước; cột cổ có nhóm thang/chốt và cửa thu khi áp dụng. Đây là tờ hình uốn, khác bảng thống kê.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F018</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: Bản đáy - lớp trên; Bản đáy - lớp dưới; Tường T1 - lớp ngoài; Tường T1 - lớp trong; Tường T2 - lớp ngoài; Tường T2 - lớp trong; Tường T3 - lớp ngoài; Tường T3 - lớp trong; Tường T4 - lớp ngoài; Tường T4 - lớp trong; Trần - lớp trên; Trần - lớp dưới; Cổ ga; Cửa thu; Thang thép; Chốt thép</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TieudeMC: 16</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-049.json">PDF-049.json</a>, <a href="pages/PDF-049-entities.csv">entity CSV</a>, <a href="pdf/PDF-049-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-050 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-2.pdf</h2>
+<p><strong>Recipe:</strong> <code>BaseWalls12</code>. Ba cột: đáy, tường T1, tường T2. Hàng trên: đáy trên/tường ngoài; hàng dưới: đáy dưới/tường trong. Collector ra trái/dưới, lỗ cống cắt đúng lớp lưới.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F002</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: BẢN ĐÁY - LỚP TRÊN; BẢN ĐÁY - LỚP DƯỚI; TƯỜNG T1 - LỚP NGOÀI; TƯỜNG T1 - LỚP TRONG; TƯỜNG T2 - LỚP NGOÀI; TƯỜNG T2 - LỚP TRONG</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 147; BLT1: 3; BLT2: 14; BLTC: 40</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-050.json">PDF-050.json</a>, <a href="pages/PDF-050-entities.csv">entity CSV</a>, <a href="pdf/PDF-050-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-051 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-20.pdf</h2>
+<p><strong>Recipe:</strong> <code>CoverConstruction</code>. Ba KHUNG THÉP GÓC MIỆNG GA ngoài/giữa/trong xếp trái; CỐT THÉP TẤM NẮP (SL:2) ở trên giữa, AA bên phải, BB dưới giữa; bảng TK phía phải trên. PDF-043 xác nhận tỷ lệ1:20, dimstyleVHG1-20. Chỉ đưa bộ chi tiết này khi cấu hình sản phẩm thực có; không áp cho mọi mã nắp. Kiểm tỷ lệ riêng từng trang, không ép toàn hồ sơ1:30.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F026</code> — <code>AmbiguousOrSourceDifference_RequiresReview</code>. Hình: KHUNG THÉP GÓC MIỆNG GA - NGOÀI; KHUNG THÉP GÓC MIỆNG GA - GIỮA; KHUNG THÉP GÓC MIỆNG GA - TRONG; CỐT THÉP TẤM NẮP (SL: 2); MẶT CẮT A-A; MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TK.Tieude: 1; TK.Tenluoi: 2; TenMC: 6; BLT3: 4; TK.TG: 4; BLT1: 17; TK.NG: 2; Gach: 25; TK.NA1: 2; TK.NA2: 2; BLTC: 2; TK.M.Z: 1; TK.MC: 1; MC1: 2; MC2: 2; ThepGocLoi: 8; BLMC: 3; BLT2: 4; TK.THKLNAP: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-051.json">PDF-051.json</a>, <a href="pages/PDF-051-entities.csv">entity CSV</a>, <a href="pdf/PDF-051-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-052 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-21.pdf</h2>
+<p><strong>Recipe:</strong> <code>Structure</code>. Sáu hình, ba cột × hai hàng: MB/AA trái, BB/lưới tường giữa, cốt thép AA/BB phải. Giữ hướng nhìn/cắt và liên kết cống, cổ, cửa thu theo cấu kiện thực.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F020</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG HỐ GA G800-1; MẶT CẮT A-A; MẶT CẮT B-B; MẶT BẰNG LƯỚI THÉP TƯỜNG; MẶT CẮT  CỐT THÉP A-A; CỐT THÉP MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; MC1: 2; MC2: 2; SCR960x530: 1; CT: 14; ThepGocLoi: 24; NAPCUATHU1: 2</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-052.json">PDF-052.json</a>, <a href="pages/PDF-052-entities.csv">entity CSV</a>, <a href="pdf/PDF-052-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-053 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-22.pdf</h2>
+<p><strong>Recipe:</strong> <code>BaseWalls12</code>. Ba cột: đáy, tường T1, tường T2. Hàng trên: đáy trên/tường ngoài; hàng dưới: đáy dưới/tường trong. Collector ra trái/dưới, lỗ cống cắt đúng lớp lưới.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F021</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: BẢN ĐÁY - LỚP TRÊN; BẢN ĐÁY - LỚP DƯỚI; TƯỜNG T1 - LỚP NGOÀI; TƯỜNG T1 - LỚP TRONG; TƯỜNG T2 - LỚP NGOÀI; TƯỜNG T2 - LỚP TRONG</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 214; BLT1: 23; BLT2: 20; BLTC: 44; CT: 4</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-053.json">PDF-053.json</a>, <a href="pages/PDF-053-entities.csv">entity CSV</a>, <a href="pdf/PDF-053-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-054 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-23.pdf</h2>
+<p><strong>Recipe:</strong> <code>Walls34Roof</code>. Ba cột: tường T3, tường T4, trần. Ngoài/trên ở hàng trên; trong/dưới ở hàng dưới. Lỗ trần lệch theo cổ, nhãn nhóm phân vùng quanh lỗ; chốt của nắp rời phải có nội dung khi áp dụng.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F022</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: TƯỜNG T3 - LỚP NGOÀI; TƯỜNG T3 - LỚP TRONG; TƯỜNG T4 - LỚP NGOÀI; TƯỜNG T4 - LỚP TRONG; TRẦN - LỚP TRÊN; TRẦN - LỚP DƯỚI</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 162; BLT2: 28; BLTC: 60; BLT1: 4</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-054.json">PDF-054.json</a>, <a href="pages/PDF-054-entities.csv">entity CSV</a>, <a href="pdf/PDF-054-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-055 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-24.pdf</h2>
+<p><strong>Recipe:</strong> <code>NeckCatch</code>. Loại 3: cột trái cổ MB/AA/BB; cột giữa cửa thu MB/1-1/2-2. Không ghép vào recipe cổ + bảng của loại 2; bảng TK nằm tờ riêng.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F023</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG THÉP CỔ GA; MẶT CẮT A-A; MẶT CẮT B-B; MẶT BẰNG CỬA THU ; MẶT CẮT 1-1; MẶT CẮT 2-2</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 15; BLT2: 11; BLT1: 21; MC1: 2; MC2: 2; ThepGocLoi: 12; CT: 2; SCR960x530: 1; MC3: 2; MC4: 2; NAPCUATHU1: 1; NAPCUATHU2: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-055.json">PDF-055.json</a>, <a href="pages/PDF-055-entities.csv">entity CSV</a>, <a href="pdf/PDF-055-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-056 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-25.pdf</h2>
+<p><strong>Recipe:</strong> <code>ScheduleOnly</code>. Loại 3: bảng TK chia hai cột dài, thứ tự cấu kiện/lớp; thang/chốt/tổng hợp ở cuối theo ca. Không coi thiếu hình cổ ở tờ này là lỗi: hình cổ và cửa thu nằm tờ liền trước.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F031</code> — <code>AmbiguousOrSourceDifference_RequiresReview</code>. Hình: Không có title view độc lập; đọc headings bảng/nhóm trong ledger.</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TK.Tieude: 2; TK.Tenluoi: 16; TK.L2M: 37; TK.M.U: 3; TK.L0M: 42; TK.M.C: 5; TK.GC.T: 4; TK.GC.H: 4; TK.MC: 1; TK.L1M: 2; TK.THKL: 1; TK.THKL.CT: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-056.json">PDF-056.json</a>, <a href="pages/PDF-056-entities.csv">entity CSV</a>, <a href="pdf/PDF-056-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-057 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-26.pdf</h2>
+<p><strong>Recipe:</strong> <code>BendingDetails</code>. Bảy cột nhóm: đáy, T1, T2, T3, T4, trần, cổ. Trong từng cột chia lớp và hình thanh có kích thước; cột cổ có nhóm thang/chốt và cửa thu khi áp dụng. Đây là tờ hình uốn, khác bảng thống kê.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F025</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: Bản đáy - lớp trên; Bản đáy - lớp dưới; Tường T1 - lớp ngoài; Tường T1 - lớp trong; Tường T2 - lớp ngoài; Tường T2 - lớp trong; Tường T3 - lớp ngoài; Tường T3 - lớp trong; Tường T4 - lớp ngoài; Tường T4 - lớp trong; Trần - lớp trên; Trần - lớp dưới; Cổ ga; Cửa thu; Thang thép; Chốt thép</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TieudeMC: 16</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-057.json">PDF-057.json</a>, <a href="pages/PDF-057-entities.csv">entity CSV</a>, <a href="pdf/PDF-057-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-058 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-27.pdf</h2>
+<p><strong>Recipe:</strong> <code>CoverConstruction</code>. Ba KHUNG THÉP GÓC MIỆNG GA ngoài/giữa/trong xếp trái; CỐT THÉP TẤM NẮP (SL:2) ở trên giữa, AA bên phải, BB dưới giữa; bảng TK phía phải trên. PDF-043 xác nhận tỷ lệ1:20, dimstyleVHG1-20. Chỉ đưa bộ chi tiết này khi cấu hình sản phẩm thực có; không áp cho mọi mã nắp. Kiểm tỷ lệ riêng từng trang, không ép toàn hồ sơ1:30.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F026</code> — <code>AmbiguousOrSourceDifference_RequiresReview</code>. Hình: KHUNG THÉP GÓC MIỆNG GA - NGOÀI; KHUNG THÉP GÓC MIỆNG GA - GIỮA; KHUNG THÉP GÓC MIỆNG GA - TRONG; CỐT THÉP TẤM NẮP (SL: 2); MẶT CẮT A-A; MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TK.Tieude: 1; TK.Tenluoi: 2; TenMC: 6; BLT3: 4; TK.TG: 4; BLT1: 17; TK.NG: 2; Gach: 25; TK.NA1: 2; TK.NA2: 2; BLTC: 2; TK.M.Z: 1; TK.MC: 1; MC1: 2; MC2: 2; ThepGocLoi: 8; BLMC: 3; BLT2: 4; TK.THKLNAP: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-058.json">PDF-058.json</a>, <a href="pages/PDF-058-entities.csv">entity CSV</a>, <a href="pdf/PDF-058-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-059 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-28.pdf</h2>
+<p><strong>Recipe:</strong> <code>Structure</code>. Sáu hình, ba cột × hai hàng: MB/AA trái, BB/lưới tường giữa, cốt thép AA/BB phải. Giữ hướng nhìn/cắt và liên kết cống, cổ, cửa thu theo cấu kiện thực.</p>
+<p><strong>Điểm riêng:</strong> BB có lỗ hộp, AA có lỗ tròn; không gom theo duy nhất PipeDiameter của ga.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F027</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG HỐ GA G800-2; MẶT CẮT A-A; MẶT CẮT B-B; MẶT BẰNG LƯỚI THÉP TƯỜNG; MẶT CẮT  CỐT THÉP A-A; CỐT THÉP MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; MC1: 2; MC2: 2; SCR960x530: 1; CT: 18; ThepGocLoi: 24; NAPCUATHU1: 2</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-059.json">PDF-059.json</a>, <a href="pages/PDF-059-entities.csv">entity CSV</a>, <a href="pdf/PDF-059-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-060 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-29.pdf</h2>
+<p><strong>Recipe:</strong> <code>BaseWalls12</code>. Ba cột: đáy, tường T1, tường T2. Hàng trên: đáy trên/tường ngoài; hàng dưới: đáy dưới/tường trong. Collector ra trái/dưới, lỗ cống cắt đúng lớp lưới.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F028</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: BẢN ĐÁY - LỚP TRÊN; BẢN ĐÁY - LỚP DƯỚI; TƯỜNG T1 - LỚP NGOÀI; TƯỜNG T1 - LỚP TRONG; TƯỜNG T2 - LỚP NGOÀI; TƯỜNG T2 - LỚP TRONG</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 182; BLT1: 11; BLT2: 22; BLTC: 57; CT: 2</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-060.json">PDF-060.json</a>, <a href="pages/PDF-060-entities.csv">entity CSV</a>, <a href="pdf/PDF-060-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-061 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-3.pdf</h2>
+<p><strong>Recipe:</strong> <code>Walls34Roof</code>. Ba cột: tường T3, tường T4, trần. Ngoài/trên ở hàng trên; trong/dưới ở hàng dưới. Lỗ trần lệch theo cổ, nhãn nhóm phân vùng quanh lỗ; chốt của nắp rời phải có nội dung khi áp dụng.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F003</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: TƯỜNG T3 - LỚP NGOÀI; TƯỜNG T3 - LỚP TRONG; TƯỜNG T4 - LỚP NGOÀI; TƯỜNG T4 - LỚP TRONG; TRẦN - LỚP TRÊN; TRẦN - LỚP DƯỚI</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 159; BLT2: 24; BLTC: 37; BLT1: 4</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-061.json">PDF-061.json</a>, <a href="pages/PDF-061-entities.csv">entity CSV</a>, <a href="pdf/PDF-061-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-062 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-30.pdf</h2>
+<p><strong>Recipe:</strong> <code>Walls34Roof</code>. Ba cột: tường T3, tường T4, trần. Ngoài/trên ở hàng trên; trong/dưới ở hàng dưới. Lỗ trần lệch theo cổ, nhãn nhóm phân vùng quanh lỗ; chốt của nắp rời phải có nội dung khi áp dụng.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F029</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: TƯỜNG T3 - LỚP NGOÀI; TƯỜNG T3 - LỚP TRONG; TƯỜNG T4 - LỚP NGOÀI; TƯỜNG T4 - LỚP TRONG; TRẦN - LỚP TRÊN; TRẦN - LỚP DƯỚI</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; CT: 4; Gach: 234; BLT2: 30; BLT1: 24; BLTC: 48</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-062.json">PDF-062.json</a>, <a href="pages/PDF-062-entities.csv">entity CSV</a>, <a href="pdf/PDF-062-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-063 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-31.pdf</h2>
+<p><strong>Recipe:</strong> <code>NeckCatch</code>. Loại 3: cột trái cổ MB/AA/BB; cột giữa cửa thu MB/1-1/2-2. Không ghép vào recipe cổ + bảng của loại 2; bảng TK nằm tờ riêng.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F030</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG THÉP CỔ GA; MẶT CẮT A-A; MẶT CẮT B-B; MẶT BẰNG CỬA THU ; MẶT CẮT 1-1; MẶT CẮT 2-2</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 15; BLT2: 11; BLT1: 21; MC1: 2; MC2: 2; ThepGocLoi: 12; CT: 2; SCR960x530: 1; MC3: 2; MC4: 2; NAPCUATHU1: 1; NAPCUATHU2: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-063.json">PDF-063.json</a>, <a href="pages/PDF-063-entities.csv">entity CSV</a>, <a href="pdf/PDF-063-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-064 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-32.pdf</h2>
+<p><strong>Recipe:</strong> <code>ScheduleOnly</code>. Loại 3: bảng TK chia hai cột dài, thứ tự cấu kiện/lớp; thang/chốt/tổng hợp ở cuối theo ca. Không coi thiếu hình cổ ở tờ này là lỗi: hình cổ và cửa thu nằm tờ liền trước.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F024</code> — <code>AmbiguousOrSourceDifference_RequiresReview</code>. Hình: Không có title view độc lập; đọc headings bảng/nhóm trong ledger.</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TK.Tieude: 2; TK.Tenluoi: 15; TK.L2M: 32; TK.M.U: 3; TK.L0M: 32; TK.M.C: 4; TK.GC.T: 4; TK.GC.H: 4; TK.MC: 1; TK.L1M: 2; TK.THKL: 1; TK.THKL.CT: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-064.json">PDF-064.json</a>, <a href="pages/PDF-064-entities.csv">entity CSV</a>, <a href="pdf/PDF-064-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-065 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-33.pdf</h2>
+<p><strong>Recipe:</strong> <code>BendingDetails</code>. Bảy cột nhóm: đáy, T1, T2, T3, T4, trần, cổ. Trong từng cột chia lớp và hình thanh có kích thước; cột cổ có nhóm thang/chốt và cửa thu khi áp dụng. Đây là tờ hình uốn, khác bảng thống kê.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F032</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: Bản đáy - lớp trên; Bản đáy - lớp dưới; Tường T1 - lớp ngoài; Tường T1 - lớp trong; Tường T2 - lớp ngoài; Tường T2 - lớp trong; Tường T3 - lớp ngoài; Tường T3 - lớp trong; Tường T4 - lớp ngoài; Tường T4 - lớp trong; Trần - lớp trên; Trần - lớp dưới; Cổ ga; Cửa thu; Thang thép; Chốt thép</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TieudeMC: 16</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-065.json">PDF-065.json</a>, <a href="pages/PDF-065-entities.csv">entity CSV</a>, <a href="pdf/PDF-065-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-066 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-4.pdf</h2>
+<p><strong>Recipe:</strong> <code>NeckCatch</code>. Loại 3: cột trái cổ MB/AA/BB; cột giữa cửa thu MB/1-1/2-2. Không ghép vào recipe cổ + bảng của loại 2; bảng TK nằm tờ riêng.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F004</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG THÉP CỔ GA; MẶT CẮT A-A; MẶT CẮT B-B; MẶT BẰNG CỬA THU ; MẶT CẮT 1-1; MẶT CẮT 2-2</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 17; BLT2: 16; BLT1: 27; MC1: 2; MC2: 2; NapGaV-MC: 2; ThepGocLoi: 6; ThepGocLom: 3; CT: 2; SCR960x530: 1; MC3: 2; MC4: 2; NAPCUATHU1: 1; NAPCUATHU2: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-066.json">PDF-066.json</a>, <a href="pages/PDF-066-entities.csv">entity CSV</a>, <a href="pdf/PDF-066-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-067 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-5.pdf</h2>
+<p><strong>Recipe:</strong> <code>ScheduleOnly</code>. Loại 3: bảng TK chia hai cột dài, thứ tự cấu kiện/lớp; thang/chốt/tổng hợp ở cuối theo ca. Không coi thiếu hình cổ ở tờ này là lỗi: hình cổ và cửa thu nằm tờ liền trước.</p>
+<p><strong>Điểm riêng:</strong> Bảng cột phải ngắn hơn cột trái theo số nhóm thật; không rải hàng giả cho hai cột có cùng chiều cao.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F005</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: Không có title view độc lập; đọc headings bảng/nhóm trong ledger.</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TK.Tieude: 2; TK.Tenluoi: 16; TK.L2M: 20; TK.M.U: 3; TK.L0M: 19; TK.M.C: 5; TK.VG: 4; TK.GC.H: 4; TK.MC: 1; TK.CT.N: 1; TK.CT.T: 1; TK.L1M: 2; TK.THKL: 1; TK.THKL.CT: 1</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-067.json">PDF-067.json</a>, <a href="pages/PDF-067-entities.csv">entity CSV</a>, <a href="pdf/PDF-067-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-068 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-6.pdf</h2>
+<p><strong>Recipe:</strong> <code>BendingDetails</code>. Bảy cột nhóm: đáy, T1, T2, T3, T4, trần, cổ. Trong từng cột chia lớp và hình thanh có kích thước; cột cổ có nhóm thang/chốt và cửa thu khi áp dụng. Đây là tờ hình uốn, khác bảng thống kê.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F006</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: Bản đáy - lớp trên; Bản đáy - lớp dưới; Tường T1 - lớp ngoài; Tường T1 - lớp trong; Tường T2 - lớp ngoài; Tường T2 - lớp trong; Tường T3 - lớp ngoài; Tường T3 - lớp trong; Tường T4 - lớp ngoài; Tường T4 - lớp trong; Trần - lớp trên; Trần - lớp dưới; Cổ ga; Cửa thu; Thang thép; Chốt thép</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TieudeMC: 16</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-068.json">PDF-068.json</a>, <a href="pages/PDF-068-entities.csv">entity CSV</a>, <a href="pdf/PDF-068-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-069 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-7.pdf</h2>
+<p><strong>Recipe:</strong> <code>Structure</code>. Sáu hình, ba cột × hai hàng: MB/AA trái, BB/lưới tường giữa, cốt thép AA/BB phải. Giữ hướng nhìn/cắt và liên kết cống, cổ, cửa thu theo cấu kiện thực.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F007</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: MẶT BẰNG HỐ GA G500-2; MẶT CẮT A-A; MẶT CẮT B-B; MẶT BẰNG LƯỚI THÉP TƯỜNG; MẶT CẮT  CỐT THÉP A-A; CỐT THÉP MẶT CẮT B-B</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; NapGaV-MB: 1; MC1: 2; MC2: 2; SCR960x530: 1; CT: 18; NapGaV-MC: 4; ThepGocLoi: 12; ThepGocLom: 6; NAPCUATHU1: 2</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-069.json">PDF-069.json</a>, <a href="pages/PDF-069-entities.csv">entity CSV</a>, <a href="pdf/PDF-069-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-070 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-8.pdf</h2>
+<p><strong>Recipe:</strong> <code>BaseWalls12</code>. Ba cột: đáy, tường T1, tường T2. Hàng trên: đáy trên/tường ngoài; hàng dưới: đáy dưới/tường trong. Collector ra trái/dưới, lỗ cống cắt đúng lớp lưới.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F008</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: BẢN ĐÁY - LỚP TRÊN; BẢN ĐÁY - LỚP DƯỚI; TƯỜNG T1 - LỚP NGOÀI; TƯỜNG T1 - LỚP TRONG; TƯỜNG T2 - LỚP NGOÀI; TƯỜNG T2 - LỚP TRONG</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 213; BLT1: 25; BLT2: 20; BLTC: 31; CT: 4</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-070.json">PDF-070.json</a>, <a href="pages/PDF-070-entities.csv">entity CSV</a>, <a href="pdf/PDF-070-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p>
+<h2>PDF-071 — VHGpro 3.2/Demo/Cad/3.1.Ga thăm + thu BTCT nắp rời-Model-9.pdf</h2>
+<p><strong>Recipe:</strong> <code>Walls34Roof</code>. Ba cột: tường T3, tường T4, trần. Ngoài/trên ở hàng trên; trong/dưới ở hàng dưới. Lỗ trần lệch theo cổ, nhãn nhóm phân vùng quanh lỗ; chốt của nắp rời phải có nội dung khi áp dụng.</p>
+<p><strong>Điểm riêng:</strong> Dùng kích thước và nhóm thanh riêng của trang này; cùng recipe không đồng nghĩa cùng hình học hoặc số lượng.</p>
+<p><strong>Liên kết CAD:</strong> <code>CAD-3-F009</code> — <code>CoordinateGeometryMatched_RequiresVisualReview</code>. Hình: TƯỜNG T3 - LỚP NGOÀI; TƯỜNG T3 - LỚP TRONG; TƯỜNG T4 - LỚP NGOÀI; TƯỜNG T4 - LỚP TRONG; TRẦN - LỚP TRÊN; TRẦN - LỚP DƯỚI</p>
+<p><strong>Asset ứng viên (số instance):</strong> Khung: 1; TenMC: 6; Gach: 193; BLT2: 27; BLTC: 34; CT: 2; BLT1: 15</p>
+<p><strong>Bằng chứng chi tiết:</strong> <a href="pages/PDF-071.json">PDF-071.json</a>, <a href="pages/PDF-071-entities.csv">entity CSV</a>, <a href="pdf/PDF-071-p1.png">ảnh nguồn</a>. Text/attribute/style/vị trí có trong JSON; LINE/POLYLINE/hatch/dim có handle để truy ngược nguồn.</p>
+<p><strong>Cần kiểm tiếp:</strong> đối chiếu zoom từng vùng nhãn/collector/thép, xác nhận mapping CAD nếu ambiguous; không chuyển trạng thái này thành Passed.</p></main></html>
