@@ -1,0 +1,79 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Audit theo yêu cầu bàn giao</title><style>body{margin:0;background:#eff3f5;color:#183345;font:16px/1.6 "Segoe UI",Arial,sans-serif}main{max-width:1380px;margin:auto;background:white;padding:32px}nav{position:sticky;top:0;background:#143e50;color:white;padding:10px 18px;z-index:5}nav a{color:white;margin-right:18px}a{color:#096c7b;overflow-wrap:anywhere}h1,h2,h3{color:#165b66;line-height:1.3;scroll-margin-top:60px}h1{font-size:30px}h2{margin-top:38px;border-bottom:1px solid #cddde3;padding-bottom:8px}p,li{max-width:1100px}table{border-collapse:collapse;width:100%;font-size:14px;margin:20px 0;table-layout:auto}th,td{border:1px solid #c4d4dc;padding:10px;vertical-align:top;overflow-wrap:anywhere}th{background:#e7f1f3;position:sticky;top:44px}td{min-width:90px}tr:nth-child(even){background:#f8fafb}pre{background:#132f40;color:#eff7fb;white-space:pre-wrap;overflow:auto;padding:18px;border-radius:8px;font-size:13px}code{font-family:Consolas,monospace}img{max-width:100%;height:auto;border:1px solid #d6e1e5}blockquote{border-left:4px solid #be862d;background:#fff7e9;padding:8px 20px}.diagram{max-width:1000px;margin:24px auto}.table-wrap{overflow-x:auto}footer{border-top:1px solid #d0dde3;padding-top:18px;color:#57707e;font-size:13px}@media(max-width:800px){main{padding:16px}body{font-size:15px}h1{font-size:25px}table{font-size:13px}nav{position:static}th{position:static}}</style></head><body><nav><a href="INDEX.html">Bàn giao</a><a href="01-KNOWLEDGE.html">Tri thức</a><a href="03-MODULE-MATRIX.html">Modules</a><a href="04-NEEDSRULE.html">NeedsRule</a><a href="05-ARCHITECTURE.html">Kiến trúc</a><a href="06-IMPLEMENTATION-PLAN.html">Kế hoạch</a></nav><main><article><h1 id="audit-theo-yeu-cau-ban-giao">Audit theo yêu cầu bàn giao</h1>
+<p>Audit này xác minh <strong>hồ sơ</strong>, không chứng nhận sản phẩm đã đúng. Các bằng chứng nghiệp vụ/source chưa đủ đã ghi NeedsRule hoặc gate triển khai; không chuyển scope này thành báo cáo nghiệm thu phần mềm.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Yêu cầu</th>
+<th>Evidence hiện tại</th>
+<th>Kết luận có giới hạn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Đọc A–E đúng thứ tự</td>
+<td>reading-manifest: 32 HTML; nội dung và hash nguồn</td>
+<td>Đã đọc từ filesystem. Browser file:// bị chặn; điều chỉnh cách đọc có giải thích.</td>
+</tr>
+<tr>
+<td>Nhiệm vụ 1: lọc, nguồn, phạm vi, bỏ trùng</td>
+<td>01: 68 K rules, 191 EX contracts, 104 assets, 21 TK schemas; ledger 528 notes</td>
+<td>Đã lập bảng có source/scope; phần chưa đủ quyết định chuyển 04. Không chứng nhận consumer đã chạy đúng.</td>
+</tr>
+<tr>
+<td>Nhiệm vụ 2a: phân tích loại 2/3</td>
+<td>02; PDF012/PDF040 full/crops/native evidence; 38 routes và 43 label traces</td>
+<td>Đã bổ sung hai tờ theo yêu cầu, nguồn/handles/kích thước/OCS/conflicts. Chưa là nghiệm thu fabrication/runtime.</td>
+</tr>
+<tr>
+<td>Nhiệm vụ 2b: 337 notes</td>
+<td>528 raw comments khớp HTML/XLSX; 191 nội dung khác nhau và 337 lần lặp</td>
+<td>Đối soát từng occurrence; giải thích có bằng chứng vì sao không phải 337 nội dung chưa đọc.</td>
+</tr>
+<tr>
+<td>Nhiệm vụ 2c: ma trận toàn module</td>
+<td>03; 290 production files, 14 project definitions, 10 trách nhiệm mới, caller references và API surface</td>
+<td>Đủ inventory và quyết định; phân biệt structural evidence với xác minh thuật toán/runtime.</td>
+</tr>
+<tr>
+<td>Nhiệm vụ 2d: một NeedsRule</td>
+<td>04: 23 quyết định mở, resolution log, disposition sau review từng đoạn của 60 vị trí nguồn</td>
+<td>Đề xuất chưa được tự duyệt. Field cần chốt có typed payload tại 05C.</td>
+</tr>
+<tr>
+<td>Nhiệm vụ 3: structs, units, nguồn, interfaces, pseudocode</td>
+<td>05 S0–S11; 05A input fields; 05B formula register; 05C interfaces và decision records</td>
+<td>Có trách nhiệm/caller/input-output/gate; nhánh thiếu approval có diagnostic và chặn đúng scope.</td>
+</tr>
+<tr>
+<td>Nhiệm vụ 3: sơ đồ/gates/VHG mapping</td>
+<td>05 Mermaid/SVG, G0–G11, mapping các thao tác HDSD p5–33</td>
+<td>Luồng phân nhánh và dependency được ghi; S7/S8 không bị biến thành chuỗi phụ thuộc giả.</td>
+</tr>
+<tr>
+<td>Nhiệm vụ 3: edge cases</td>
+<td>05.15, 05C và variation matrix 06</td>
+<td>Có xử lý active/inactive/invalid/unsupported/collision/overflow/recovery; không để TODO nghiệp vụ.</td>
+</tr>
+<tr>
+<td>Bàn giao 6: dependency và acceptance</td>
+<td>06 P0–P8, mapping J/K, phép đo actual DWG/PDF và record nghiệm thu</td>
+<td>Kế hoạch đã lập; các phase sản phẩm giữ NotRun, không gắn Passed từ tài liệu.</td>
+</tr>
+<tr>
+<td>Cấm fixture/schematic/fuzzy grouping/test counts</td>
+<td>01/04/05/06 contracts và removal matrix</td>
+<td>Số mẫu chỉ ở evidence; không tính chiều dài từ schematic, không ghép C3/C3A gần tên.</td>
+</tr>
+<tr>
+<td>Điều chỉnh phạm vi minh bạch</td>
+<td>02.6; 23 NR; legacy/quantity scope được giữ</td>
+<td>337 là repeat occurrences; thêm 05A/B/C để cụ thể hóa implementation; không sửa product code.</td>
+</tr>
+<tr>
+<td>Nguồn/code không đổi</td>
+<td>Verification hash 32 HTML và 290 C#; PDF hash/XLSX comments đối chiếu nguồn</td>
+<td>Kiểm dữ liệu và hash; không dùng lời khẳng định hoặc số test thay nghiệm thu.</td>
+</tr>
+</tbody>
+</table>
+</div><p>Không chạy production build/generate/plot mới. Không có DWG/PDF DBTool mới để gắn Passed; sourcePDF phục vụ nghiên cứu thôi. HTML được kiểm parse/table/link tĩnh; browser local bị chặn nên không tuyên bố đã kiểm rendering HTML trong browser.</p></article><footer>DBTool · Hồ sơ project leader 13/10/2026 · Nguồn/approval/evidence theo scope. Không chứng nhận phần mềm từ tài liệu hoặc số test.</footer></main></body></html>

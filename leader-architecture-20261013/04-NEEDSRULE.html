@@ -1,0 +1,602 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>4. NeedsRule tổng hợp duy nhất</title><style>body{margin:0;background:#eff3f5;color:#183345;font:16px/1.6 "Segoe UI",Arial,sans-serif}main{max-width:1380px;margin:auto;background:white;padding:32px}nav{position:sticky;top:0;background:#143e50;color:white;padding:10px 18px;z-index:5}nav a{color:white;margin-right:18px}a{color:#096c7b;overflow-wrap:anywhere}h1,h2,h3{color:#165b66;line-height:1.3;scroll-margin-top:60px}h1{font-size:30px}h2{margin-top:38px;border-bottom:1px solid #cddde3;padding-bottom:8px}p,li{max-width:1100px}table{border-collapse:collapse;width:100%;font-size:14px;margin:20px 0;table-layout:auto}th,td{border:1px solid #c4d4dc;padding:10px;vertical-align:top;overflow-wrap:anywhere}th{background:#e7f1f3;position:sticky;top:44px}td{min-width:90px}tr:nth-child(even){background:#f8fafb}pre{background:#132f40;color:#eff7fb;white-space:pre-wrap;overflow:auto;padding:18px;border-radius:8px;font-size:13px}code{font-family:Consolas,monospace}img{max-width:100%;height:auto;border:1px solid #d6e1e5}blockquote{border-left:4px solid #be862d;background:#fff7e9;padding:8px 20px}.diagram{max-width:1000px;margin:24px auto}.table-wrap{overflow-x:auto}footer{border-top:1px solid #d0dde3;padding-top:18px;color:#57707e;font-size:13px}@media(max-width:800px){main{padding:16px}body{font-size:15px}h1{font-size:25px}table{font-size:13px}nav{position:static}th{position:static}}</style></head><body><nav><a href="INDEX.html">Bàn giao</a><a href="01-KNOWLEDGE.html">Tri thức</a><a href="03-MODULE-MATRIX.html">Modules</a><a href="04-NEEDSRULE.html">NeedsRule</a><a href="05-ARCHITECTURE.html">Kiến trúc</a><a href="06-IMPLEMENTATION-PLAN.html">Kế hoạch</a></nav><main><article><h1 id="4-needsrule-tong-hop-duy-nhat">4. NeedsRule tổng hợp duy nhất</h1>
+<p><strong>23 quyết định mở</strong>, chưa tự chốt. Đề xuất dưới đây là phương án cụ thể để chủ nhiệm duyệt; <code>decision=null</code> là dữ liệu có ý nghĩa, không TODO. Khi chưa duyệt, hàm phụ thuộc phải trả <code>RULE_UNAPPROVED</code> chứa NR-ID/SourceRef và chặn Final của case đó. Preview liên quan giữ Partial; không giả số hoặc tắt feature.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Vấn đề/nguồn</th>
+<th>Đề xuất để chốt</th>
+<th>Bước bị chặn/đầu ra quyết định</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NR-01</td>
+<td>Khoảng bảo vệ lỗ: tim hay bề mặt<br>pages/G500-CUT-MEMBERS-AUDIT.html; SOURCE-CONFLICTS.html; excel/hole-clearance-source-audit.json</td>
+<td>Chốt Protect.H là surface cover hoặc nominal centerline riêng. Đề xuất giữ physical surface cover+Ø/2, cho presentation nominal adapter chỉ khi owner xác nhận; không đổi H17=15 về10.</td>
+<td>S4 cut mesh và Li<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-02</td>
+<td>C năm đoạn/R8 và chiều dài thống kê<br>OWNER-RULES-THONG-KE-NHOM-20261013.html; pages/PDF-002-PHAN-TICH-CHI-TIET.html; SOURCE-CONFLICTS.html</td>
+<td>Chốt nominal/tangent/centerline cho 5 cạnh, R8 là inner hay centerline và công thức DAI; đề xuất lưu riêng path fabrication và nominal schedule, không dùng DAI190 thay path.</td>
+<td>S4 C;S8 C quantity<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-03</td>
+<td>Ties Đều/Lệch với pitch bất kỳ<br>EXCEL-NOTES.html; CURRENT-CODE-FINDINGS.html; SO-TAY-CACH-SUA-CHI-TIET-20261013.html</td>
+<td>Chốt quy tắc chọn station khi pitch hai phương khác, pha hàng/cột và tiePitch không bằng2meshPitch. Đề xuất chọn station có ràng buộc maximum pitch, không snapping âm thầm; cần sơ đồ owner phê chuẩn.</td>
+<td>S4 tie station<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-04</td>
+<td>Shape C/U/Z theo đáy/tường/trần/cổ/panel<br>EXCEL-RULES-REVIEW.html; CAU-TAO-UNION-CHOT-VAT-CUA-THU.html</td>
+<td>Chốt bảng cạnh fixed/input/derived cùng lớp đỡ từng component×shape. Đề xuất đầu/giữa lấy J/K/L đúng role, chiều nối lớp lấy stack có cover; shape chưa có nguồn không fallback.</td>
+<td>S4 tie shape;S8 binding<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-05</td>
+<td>Thép vạt và neo phân bố<br>CAU-TAO-UNION-CHOT-VAT-CUA-THU.html</td>
+<td>Cần typed spec Ø/phân bố/neo/bend/basis cho đáy/trần; đề xuất giữ occurrences hiện có Partial và kiểm toàn path trong slab+haunch+wall union trước cấp fabrication length.</td>
+<td>S4 haunch<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-06</td>
+<td>Chốt: tròn50, phân neo và lỗ sâu<br>EXCEL-NOTES.html; CAU-TAO-UNION-CHOT-VAT-CUA-THU.html; PDF-012 source</td>
+<td>Chốt midpoint rounding50, điểm đầu/cuối, chiều neo mỗi assembly và holeDepth. Đề xuất pair station chung, không tự chia length/2 nếu không nguồn; collision trả ID, không tự xóa/dời.</td>
+<td>S4 dowel;S6 hole<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-07</td>
+<td>Móc nâng trần/panel: hình và length basis<br>EXCEL-NOTES.html; EXCEL-CONSUMER-AUDIT.html</td>
+<td>Chốt role A/B/C, bend radii/anchorage cho hai scope; đề xuất roof0/2/4, panel1/2/4 giữ khác nhau; dùng TK.MC khi shape được xác minh, không TK.M.C.</td>
+<td>S4 lifting;S8<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-08</td>
+<td>Cửa thu: physical shape 1..4 và TK.CT<br>PDF-040 source; catalog/SCHEDULE-ASSET-TABLE.html; CAU-TAO-UNION-CHOT-VAT-CUA-THU.html</td>
+<td>Chốt mapping marks1..4 tới floor/side/front, bend và TK.CT.N/T. Đề xuất dựng mesh một lớp theo từng mặt support, annotate theo GroupId; số/Ø/pitch từ M17, không Ø10@150 mẫu.</td>
+<td>S4 catch;S8 CT<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-09</td>
+<td>Sản phẩm cửa thu bị co trong nguồn<br>PDF-040 source; catalog/CONDITIONAL-ASSETS-AUDIT.html</td>
+<td>SCR scale Y=0.6470588235294118, NAPCUATHU2 X=0.71875; đề xuất chọn sản phẩm/catalog extension đúng aperture, giữ1:1. Owner chốt cho source schematic exception nếu muốn; tuyệt đối không tự stretch vật lý.</td>
+<td>S2 catch product;S6<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-10</td>
+<td>C3 ở nhãn, C3A ở TK<br>pages/PDF-002-PHAN-TICH-CHI-TIET.html; pages/PDF-007-PHAN-TICH-CHI-TIET.html; SOURCE-CONFLICTS.html</td>
+<td>Đề xuất alias explicit theo Neck/role/face và source handles sau khi xác nhận cùng members; owner chốt alias hoặc sửa lỗi source. Trước đó giữ hai identities, không fuzzy join.</td>
+<td>S5 neck mark;S8<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-11</td>
+<td>Alias tấm nắp tại685CE/685D5<br>pages/PDF-004-PHAN-TICH-CHI-TIET.html; SOURCE-CONFLICTS.html</td>
+<td>Owner xác nhận target và SH/Ø của hai nhãn BB so với1A/2A. Đề xuất regenerate nhãn từ members/Ø đã resolve, lưu source exception thay sao lỗi hoặc rename toàn cục.</td>
+<td>S7 panel source-equivalence<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-12</td>
+<td>Đoạn giữa nhiều lỗ và suffix mở rộng<br>QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL.html; OWNER-RULES-THONG-KE-NHOM-20261013.html</td>
+<td>Chốt DisplayMark cho Middle/MultipleOpenings và nhiều vùng cùng role. Đề xuất key chứa OpeningRegionSet và ordinal theo tọa độ ổn định, chỉ đặt suffix sau phê chuẩn; không T1C/D tự duyệt.</td>
+<td>S5 multi-opening naming<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-13</td>
+<td>DAI, TDAI, KL: rounding midpoint và precision<br>pages/G500-CUT-MEMBERS-AUDIT.html; THONG-KE-THEP-NATIVE-CACH-SUA.html</td>
+<td>Nguồn chứng minh nhiều DAI nguyên và TDAI/KL hai số lẻ, chưa phân biệt midpoint. Đề xuất mm0, m/kg2, AwayFromZero lúc hiển thị; owner phải chốt, raw sums không đổi.</td>
+<td>S8 final formatting<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-14</td>
+<td>Mass policy và bucket thang/chốt<br>pages/PDF-007-PHAN-TICH-CHI-TIET.html; THONG-KE-THEP-NATIVE-CACH-SUA.html; DBTool.Domain/Policies/CalculationPolicy.cs</td>
+<td>Chốt D²/162 hay density, quantity basis và component bucket của thang/chốt/lifting; header Ø&lt;=10/&gt;10 đã rõ. Đề xuất physical owner bucket, explicit legacy mapping nếu cần nguồn; không cộng formatted cells.</td>
+<td>S8 KL/summaries<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-15</td>
+<td>Template canonical và migration cùng tên<br>SOURCE-CONFLICTS.html; CATALOG-TEMPLATE.html; catalog/template-source-index.json</td>
+<td>Chốt một bundle definition/symbol canonical. Đề xuất acad-original giữ signature gốc và migration version có hash; native-current có khác font/style nên không trộn chỉ vì cùng tên.</td>
+<td>S0 production import<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-16</td>
+<td>Font/encoding và glyph có dấu trong nguồn<br>SOURCE-CONFLICTS.html; CATALOG-TEMPLATE.html; PDF-012 source</td>
+<td>Original Regular SHX, native-current bảng HTML Arial; PDF012 có glyph hiện dấu hỏi. Đề xuất FontPolicy khai báo nguồn/alias/encoding, output Việt đúng literal, đo ink; owner chốt tương đương font thay thế, không âm thầm sửa shared style.</td>
+<td>S0/S10 visual<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-17</td>
+<td>Hatch default khi thiếu pattern<br>EXCEL-NOTES.html; EXCEL-RULES-REVIEW.html</td>
+<td>Note cho fallback nhưng không đặt tên default. Đề xuất chỉ fallback được named trong project profile đã duyệt; thiếu cả default thì Block, log requested/resolved/pattern scale.</td>
+<td>S0/S7 material<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-18</td>
+<td>Plot profile và dung sai nghiệm thu<br>CONTRACT-CHONG-HOI-QUY.html; SOURCE-CONFLICTS.html; pdf/plot-policy-observed.json</td>
+<td>Chốt profile CTB/STB và numerical/visual tolerances theo đơn vị; phân biệt nguồn hairline và profile cải thiện. Đề xuất exact semantic dims theo Excel và numeric policy tách paper glyph/endpoint; chưa ký tolerance không gọi toàn diện Passed.</td>
+<td>S10/S11 acceptance<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-19</td>
+<td>Thứ tự lớp chồng/móc/neo khi va biên<br>DBTool.Domain/Policies/CalculationPolicy.cs; EXCEL-RULES-REVIEW.html</td>
+<td>Policy hiện ghi TwoDirectionsTouchingTestOnly/UniformBaseTestOnly, chưa là rule chủ nhiệm. Đề xuất bảng stack theo component/layer/Ø và mặt đỡ; thiếu không tự thu ngắn hook hoặc đổi cover.</td>
+<td>S4 physical stack<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-20</td>
+<td>Cống đôi: web, contour và overlap assembly<br>EXCEL-NOTES.html; EXCEL-CONSUMER-AUDIT.html; CURRENT-CODE-FINDINGS.html</td>
+<td>CF.Cong cho width/thickness/chamfer/DoubleFlag; khi web khác thickness hoặc opening cắt qua nhiều host cần entry/spec có nguồn. Đề xuất reject thông số chưa đủ và giải ownership theo contour thật, không gán tường tùy ý.</td>
+<td>S2/S3 complex openings<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-21</td>
+<td>Vị trí ladder/chốt va cửa thu hoặc cống<br>CAU-TAO-UNION-CHOT-VAT-CUA-THU.html; EXCEL-CONSUMER-AUDIT.html</td>
+<td>Chốt dời/loại/thay cấu tạo cho station va. Đề xuất Block đúng station+SourceRef cho tới khi có relocation rule; vẫn xử lý stations độc lập, không blanket loại 3 unsupported và không tự bỏ thanh.</td>
+<td>S4 collision<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-22</td>
+<td>Khoảng hở chữ và scale tự chọn<br>CONTRACT-CHONG-HOI-QUY.html; HDSD VHGpro 3.2.pdf p25; pages/PDF-001-PHAN-TICH-CHI-TIET.html</td>
+<td>Source offsets5/1mm chỉ scoped recipe; chốt min ink gap, scale auto candidates và overflow single-view. Đề xuất fixed scale phân trang giữ role, view đơn quá lớn trả LAYOUT_SINGLE_VIEW_NO_FIT, chỉ auto đổi scale khi request cho phép.</td>
+<td>S7/S9 large pages<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+<tr>
+<td>NR-23</td>
+<td>Phạm vi khóa clear cho nắp BTCT tự thiết kế<br>CONTRACT-CHONG-HOI-QUY.html C01; EXCEL-NOTES.html EX039/040/041/045/046</td>
+<td>Owner chốt cách chọn nắp trước khi khóa clear nếu BTCT panel tự thiết kế chưa có sản phẩm/aperture catalog độc lập. Đề xuất selected PanelAssemblyContract có aperture/quantity/support được duyệt; không lấy rawE11 làm authoritative âm thầm để né khóa clear.</td>
+<td>S2 BTCT custom panel<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+</tr>
+</tbody>
+</table>
+</div><h2 id="41-cac-xung-ot-co-quyet-inh-ro-hoac-a-sua-nghien-cuu">4.1. Các xung đột có quyết định rõ hoặc đã sửa nghiên cứu</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Mâu thuẫn</th>
+<th>Kết luận có nguồn</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R-01</td>
+<td>Khung80 so owner100</td>
+<td>Owner13/10 chốt100 cho khung riêng, không sản phẩm</td>
+<td>CONTRACT C01</td>
+</tr>
+<tr>
+<td>R-02</td>
+<td>Một row=một canonical so nhóm mean</td>
+<td>Owner13/10 cho presentation nhiều canonical, giữ invariant fabrication</td>
+<td>OWNER §3/4</td>
+</tr>
+<tr>
+<td>R-03</td>
+<td>T1A/B direction suy luận cũ</td>
+<td>Owner13/10 T1A/B trái/phải,T2A/B trên/dưới theo convention</td>
+<td>OWNER §3</td>
+</tr>
+<tr>
+<td>R-04</td>
+<td>337 notes chưa đọc</td>
+<td>528 occurrence-191 unique=337 duplicate occurrence, không phải 337 rule mới</td>
+<td>EXCEL-NOTES/EXCEL-RULES-REVIEW + full raw equality</td>
+</tr>
+<tr>
+<td>R-05</td>
+<td>12 block phụ từng NeedsRule</td>
+<td>Vai trò/dependency đã được audit; lựa chọn sản phẩm còn NR09/15</td>
+<td>catalog/CONDITIONAL-ASSETS-AUDIT</td>
+</tr>
+<tr>
+<td>R-06</td>
+<td>PDF056/064 ghép ngược</td>
+<td>Sửa research join056→F024,064→F031, giữ glyph pending</td>
+<td>CAD-PDF-JOIN-REVIEW</td>
+</tr>
+<tr>
+<td>R-07</td>
+<td>M15 là phần trăm</td>
+<td>Note rõ tỷ lệ chi tiết1:M15, không phần trăm</td>
+<td>EX-059</td>
+</tr>
+<tr>
+<td>R-08</td>
+<td>Cổ cửa thu Left/Right</td>
+<td>HDSD p13 chốt cổCenter bất kể rawLeft/Right; body vẫnLeft/Center/Right</td>
+<td>HDSD p13;EX-177</td>
+</tr>
+<tr>
+<td>R-09</td>
+<td>Hairline luôn lỗi</td>
+<td>Nguồn loại 2/3 có hairline; profile cải thiện cần chốt riêng NR18</td>
+<td>pdf/plot-policy-observed.json</td>
+</tr>
+<tr>
+<td>R-10</td>
+<td>LWPOLYLINE78DD3 thiếu route trái</td>
+<td>Chuyển OCS theo extrusion riêng cho 43/43 labels trên route; không lỗi renderer DBTool</td>
+<td>PDF040 deep evidence/path_records</td>
+</tr>
+</tbody>
+</table>
+</div><h2 id="42-oi-soat-moi-cho-needsrule-cu">4.2. Đối soát mọi chỗ NeedsRule cũ</h2>
+<p><a href="data/needsrule-source-mentions.json">data/needsrule-source-mentions.json</a> giữ 60 đoạn HTML tìm được với source/element/text, có disposition cho từng đoạn. Các nhắc chung “không gọi Final”, “chưa native reproduced”, “chưa đọc từng glyph” là yêu cầu bằng chứng, không tạo thêm quyết định kết cấu. Nhiệm vụ kiểm Li/membership của nhóm chưa audit thuộc phase06; alias/mass/basis tương ứng NR02/10/14.</p>
+<p>Không dùng bảng này để gắn mọi feature hiện experimental thành approved. Tại runtime, RuleBinding không có source/approval vẫn bị gate kể cả khi NR không nhắc tên riêng đó; phải bổ sung register với case/field khi phát hiện trong implementation. Không được tự đổi ExperimentalSoftwareFixture thành Approved.</p>
+<h2 id="43-disposition-sau-khi-oc-tung-oan-nguon">4.3. Disposition sau khi đọc từng đoạn nguồn</h2>
+<p>60 đoạn là các vị trí nguồn, có đoạn lặp; không phải 60 quyết định mở. Bảng này giải thích cách gom vào register 23 mục phía trên hoặc đưa thành công việc kiểm chứng. Nội dung nguyên văn và vị trí element vẫn ở JSON liên kết trong 4.2. Mapping dưới đây đã được rà theo nghĩa, thay cho candidate từ tìm từ khóa.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Vị trí</th>
+<th>Nguồn</th>
+<th>Register / disposition</th>
+<th>Lý do và công việc tiếp theo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MENTION-001</td>
+<td>BAO-CAO-TIEN-DO-VA-BAN-GIAO-20261013.html</td>
+<td>NR-01, NR-13</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-01, NR-13. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-002</td>
+<td>BAO-CAO-TIEN-DO-VA-BAN-GIAO-20261013.html</td>
+<td>NR-10, NR-14</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-10, NR-14. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-003</td>
+<td>catalog/CONDITIONAL-ASSETS-AUDIT.html</td>
+<td>ResolvedSourceRole_R05</td>
+<td>12 definition đã có audit vai trò; giữ resolution R-05, không tạo câu hỏi owner mới.</td>
+</tr>
+<tr>
+<td>MENTION-004</td>
+<td>CAU-TAO-UNION-CHOT-VAT-CUA-THU.html</td>
+<td>NR-05</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-05. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-005</td>
+<td>CAU-TAO-UNION-CHOT-VAT-CUA-THU.html</td>
+<td>NR-08</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-08. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-006</td>
+<td>CAU-TAO-UNION-CHOT-VAT-CUA-THU.html</td>
+<td>NR-06, NR-21</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-06, NR-21. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-007</td>
+<td>CAU-TAO-UNION-CHOT-VAT-CUA-THU.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Yêu cầu capability có consumer hoàn chỉnh; implementation S2/S4/S6/S8, không parameter kết cấu riêng.</td>
+</tr>
+<tr>
+<td>MENTION-008</td>
+<td>CAU-TAO-UNION-CHOT-VAT-CUA-THU.html</td>
+<td>NR-05</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-05. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-009</td>
+<td>CURRENT-CODE-FINDINGS.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Trạng thái và transcript phải kiểm chính run; acceptance S10/S11, không suy Final từ tên thư mục.</td>
+</tr>
+<tr>
+<td>MENTION-010</td>
+<td>CURRENT-CODE-FINDINGS.html</td>
+<td>NR-01</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-01. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-011</td>
+<td>CURRENT-CODE-FINDINGS.html</td>
+<td>NR-01</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-01. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-012</td>
+<td>EXCEL-CONSUMER-AUDIT.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Hit tĩnh chưa là consumer proof; field-consumer trace tại P1/P3/P6.</td>
+</tr>
+<tr>
+<td>MENTION-013</td>
+<td>OWNER-RULES-THONG-KE-NHOM-20261013.html</td>
+<td>NR-10</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-10. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-014</td>
+<td>pages/G500-CUT-MEMBERS-AUDIT.html</td>
+<td>NR-01</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-01. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-015</td>
+<td>pages/G500-CUT-MEMBERS-AUDIT.html</td>
+<td>NR-13</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-13. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-016</td>
+<td>pages/PDF-001-PHAN-TICH-CHI-TIET.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Entity-purpose VHG-150 cần kiểm handle/role ở S3/S6; đây là research/verification pending, không phải plot tolerance NR-18.</td>
+</tr>
+<tr>
+<td>MENTION-017</td>
+<td>pages/PDF-002-PHAN-TICH-CHI-TIET.html</td>
+<td>NR-10</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-10. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-018</td>
+<td>pages/PDF-002-PHAN-TICH-CHI-TIET.html</td>
+<td>NR-02</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-02. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-019</td>
+<td>pages/PDF-005-COLLECTOR-MAP.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Collector association không chứng minh physical members; kiểm S4/S5/S7, không tự tạo owner rule.</td>
+</tr>
+<tr>
+<td>MENTION-020</td>
+<td>pages/PDF-007-PHAN-TICH-CHI-TIET.html</td>
+<td>NR-10, NR-14</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-10, NR-14. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-021</td>
+<td>PROMPT-THUC-THI-CAP-NHAT-20261013.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Gate chống tắt feature/số giả; đã thành invariant S0–S11.</td>
+</tr>
+<tr>
+<td>MENTION-022</td>
+<td>PROMPT-THUC-THI-CAP-NHAT-20261013.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Issue-status/run-manifest là implementation evidence, không owner parameter.</td>
+</tr>
+<tr>
+<td>MENTION-023</td>
+<td>PROMPT-THUC-THI-CAP-NHAT-20261013.html</td>
+<td>NR-02, NR-10</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-02, NR-10. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-024</td>
+<td>PROMPT-THUC-THI-CAP-NHAT-20261013.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Trạng thái và thứ tự triển khai đã giữ trong 06; không quyết định kết cấu mới.</td>
+</tr>
+<tr>
+<td>MENTION-025</td>
+<td>PROMPT-THUC-THI-CAP-NHAT-20261013.html</td>
+<td>NR-10</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-10. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-026</td>
+<td>PROMPT-THUC-THI-CAP-NHAT-20261013.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Shape-role recipe thiếu phải review glyph/native source tại S8. Quy tắc kết cấu tương ứng dùng NR-02/04/05/07/08 khi có liên quan; không fallback.</td>
+</tr>
+<tr>
+<td>MENTION-027</td>
+<td>PROMPT-THUC-THI-CAP-NHAT-20261013.html</td>
+<td>NR-01, NR-13, NR-19</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-01, NR-13, NR-19. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-028</td>
+<td>PROMPT-THUC-THI-CAP-NHAT-20261013.html</td>
+<td>NR-01</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-01. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-029</td>
+<td>PROMPT-THUC-THI-CAP-NHAT-20261013.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Một registry trước ba exporter là owner rule đã rõ; recipe chưa verify là việc S8, không mặc định câu hỏi C-shape NR-02.</td>
+</tr>
+<tr>
+<td>MENTION-030</td>
+<td>PROMPT-THUC-THI-CAP-NHAT-20261013.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Các phép biến thiên/identity/trace thuộc acceptance matrix 06, không owner parameter mới.</td>
+</tr>
+<tr>
+<td>MENTION-031</td>
+<td>PROMPT-THUC-THI-CHUAN-HOA-DRAFT.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Consumer/code/native/visual/batch còn pending ở source; đã đưa dependency và acceptance 06, không tuyên bố hoàn tất phần mềm.</td>
+</tr>
+<tr>
+<td>MENTION-032</td>
+<td>PROMPT-THUC-THI-CHUAN-HOA-DRAFT.html</td>
+<td>NR-02, NR-03, NR-04, NR-05, NR-06, NR-07, NR-08, NR-19, NR-21</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-02, NR-03, NR-04, NR-05, NR-06, NR-07, NR-08, NR-19, NR-21. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-033</td>
+<td>PROMPT-THUC-THI-QUY-TRINH-DBTOOL.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Tham chiếu asset inventory và TK schema; nguồn đã giữ trong 01, không câu hỏi mới.</td>
+</tr>
+<tr>
+<td>MENTION-034</td>
+<td>PROMPT-THUC-THI-QUY-TRINH-DBTOOL.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Quy tắc nguồn ưu tiên và gate đã có owner; áp dụng 01/04/05.</td>
+</tr>
+<tr>
+<td>MENTION-035</td>
+<td>PROMPT-THUC-THI-QUY-TRINH-DBTOOL.html</td>
+<td>NR-05</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-05. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-036</td>
+<td>PROMPT-THUC-THI-QUY-TRINH-DBTOOL.html</td>
+<td>NR-01</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-01. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-037</td>
+<td>PROMPT-THUC-THI-QUY-TRINH-DBTOOL.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Yêu cầu báo cáo trạng thái thực; 06.4/6.7.</td>
+</tr>
+<tr>
+<td>MENTION-038</td>
+<td>QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Nguồn ưu tiên và xung đột không tự chọn phe; 01/04/05.2.</td>
+</tr>
+<tr>
+<td>MENTION-039</td>
+<td>QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Đây là header bảng assembly, không chứa quyết định mở độc lập.</td>
+</tr>
+<tr>
+<td>MENTION-040</td>
+<td>QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Thứ tự mesh/clip/hook/accessories đã rõ; 05.7 giữ dowel sau hook.</td>
+</tr>
+<tr>
+<td>MENTION-041</td>
+<td>QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL.html</td>
+<td>NR-04</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-04. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-042</td>
+<td>QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL.html</td>
+<td>NR-01</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-01. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-043</td>
+<td>QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL.html</td>
+<td>NR-12</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-12. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-044</td>
+<td>QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL.html</td>
+<td>NR-08, NR-14</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-08, NR-14. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-045</td>
+<td>QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Giới hạn evidence/hồ sơ không chứng minh product; acceptance 06.</td>
+</tr>
+<tr>
+<td>MENTION-046</td>
+<td>SO-TAY-CACH-SUA-CHI-TIET-20261013.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Quy tắc issue-status và tiếp tục việc độc lập; 06.3.</td>
+</tr>
+<tr>
+<td>MENTION-047</td>
+<td>SO-TAY-CACH-SUA-CHI-TIET-20261013.html</td>
+<td>NR-02, NR-04, NR-19</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-02, NR-04, NR-19. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-048</td>
+<td>SO-TAY-CACH-SUA-CHI-TIET-20261013.html</td>
+<td>NR-13</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-13. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-049</td>
+<td>SO-TAY-CACH-SUA-CHI-TIET-20261013.html</td>
+<td>NR-02, NR-10</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-02, NR-10. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-050</td>
+<td>SO-TAY-CACH-SUA-CHI-TIET-20261013.html</td>
+<td>NR-01</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-01. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-051</td>
+<td>SOURCE-CONFLICTS.html</td>
+<td>NR-10</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-10. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-052</td>
+<td>SOURCE-CONFLICTS.html</td>
+<td>NR-02</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-02. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-053</td>
+<td>SOURCE-CONFLICTS.html</td>
+<td>NR-11</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-11. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-054</td>
+<td>SOURCE-CONFLICTS.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Association nguồn không phải physical membership; kiểm S4/S5/S8. Không lấy DAI từ collector/Gach.</td>
+</tr>
+<tr>
+<td>MENTION-055</td>
+<td>SOURCE-CONFLICTS.html</td>
+<td>ImplementationOrVerificationRequirement_NotAdditionalOwnerRule</td>
+<td>Nhắc lại đoạn source cùng nội dung; giữ vị trí gốc, cùng disposition với đoạn trước.</td>
+</tr>
+<tr>
+<td>MENTION-056</td>
+<td>SOURCE-CONFLICTS.html</td>
+<td>NR-01</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-01. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-057</td>
+<td>SOURCE-CONFLICTS.html</td>
+<td>NR-01</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-01. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-058</td>
+<td>THONG-KE-THEP-NATIVE-CACH-SUA.html</td>
+<td>NR-02</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-02. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-059</td>
+<td>THONG-KE-THEP-NATIVE-CACH-SUA.html</td>
+<td>NR-04, NR-05, NR-07, NR-08</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-04, NR-05, NR-07, NR-08. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+<tr>
+<td>MENTION-060</td>
+<td>THONG-KE-THEP-NATIVE-CACH-SUA.html</td>
+<td>NR-02, NR-04, NR-05, NR-07, NR-08</td>
+<td>Quyết định mở đã gom theo đúng topic tại NR-02, NR-04, NR-05, NR-07, NR-08. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
+</tr>
+</tbody>
+</table></div></article><footer>DBTool · Hồ sơ project leader 13/10/2026 · Nguồn/approval/evidence theo scope. Không chứng nhận phần mềm từ tài liệu hoặc số test.</footer></main></body></html>

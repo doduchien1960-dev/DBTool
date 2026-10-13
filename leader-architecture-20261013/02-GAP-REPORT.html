@@ -1,0 +1,599 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2. Báo cáo lấp bốn lỗ hổng</title><style>body{margin:0;background:#eff3f5;color:#183345;font:16px/1.6 "Segoe UI",Arial,sans-serif}main{max-width:1380px;margin:auto;background:white;padding:32px}nav{position:sticky;top:0;background:#143e50;color:white;padding:10px 18px;z-index:5}nav a{color:white;margin-right:18px}a{color:#096c7b;overflow-wrap:anywhere}h1,h2,h3{color:#165b66;line-height:1.3;scroll-margin-top:60px}h1{font-size:30px}h2{margin-top:38px;border-bottom:1px solid #cddde3;padding-bottom:8px}p,li{max-width:1100px}table{border-collapse:collapse;width:100%;font-size:14px;margin:20px 0;table-layout:auto}th,td{border:1px solid #c4d4dc;padding:10px;vertical-align:top;overflow-wrap:anywhere}th{background:#e7f1f3;position:sticky;top:44px}td{min-width:90px}tr:nth-child(even){background:#f8fafb}pre{background:#132f40;color:#eff7fb;white-space:pre-wrap;overflow:auto;padding:18px;border-radius:8px;font-size:13px}code{font-family:Consolas,monospace}img{max-width:100%;height:auto;border:1px solid #d6e1e5}blockquote{border-left:4px solid #be862d;background:#fff7e9;padding:8px 20px}.diagram{max-width:1000px;margin:24px auto}.table-wrap{overflow-x:auto}footer{border-top:1px solid #d0dde3;padding-top:18px;color:#57707e;font-size:13px}@media(max-width:800px){main{padding:16px}body{font-size:15px}h1{font-size:25px}table{font-size:13px}nav{position:static}th{position:static}}</style></head><body><nav><a href="INDEX.html">Bàn giao</a><a href="01-KNOWLEDGE.html">Tri thức</a><a href="03-MODULE-MATRIX.html">Modules</a><a href="04-NEEDSRULE.html">NeedsRule</a><a href="05-ARCHITECTURE.html">Kiến trúc</a><a href="06-IMPLEMENTATION-PLAN.html">Kế hoạch</a></nav><main><article><h1 id="2-bao-cao-lap-bon-lo-hong">2. Báo cáo lấp bốn lỗ hổng</h1>
+<p>13/10/2026. Bàn giao nghiên cứu/kiến trúc. <strong>Không sửa production, không chạy bản sinh DWG mới, không đóng STD hoặc nghiệm thu phần mềm trong lượt này.</strong> Các gate DWG/PDF tại tài liệu06 là công việc triển khai còn phải chạy. Phần hoàn thành của báo cáo là nguồn đã đối soát, phân tích bổ sung, ma trận quyết định và quy trình cụ thể.</p>
+<h2 id="21-gap-a-bo-sung-loai-2-va-loai-3">2.1. Gap (a): bổ sung loại 2 và loại 3</h2>
+<p>Đã chọn PDF-012 (loại 2) và PDF-040 (loại 3) từ 71 nguồn đã có; không nghiên cứu lại tám PDF loại 1. Đã kiểm SHA256 PDF gốc, đọc native entities/blocks/attrs/dims/routes theo đúng frame candidate, render PDF bằng PDFium và xem riêng toàn trang cùng các crop. Join cũ được giữ nguyên trạng thái, review mới có scope, không nâng toàn bộ ledger thành Certified.</p>
+<h3 id="loai2-pdf-012-g400-1-cad-2-f001">Loại2 — PDF-012 / G400-1 / CAD-2-F001</h3>
+<p>Nguồn <code>2.1.Ga thăm BTCT nắp rời-Model-1.pdf</code>, SHA256 <code>f8946eaa2ec712f3e2f76ae01abdb07a64ab6a920e32482d32fbed4fc70db3bb</code>. <a href="PDF-012-review.png">Toàn trang</a>, <a href="PDF-012-joint-AA.png">jointAA</a>, <a href="PDF-012-steel-AA.png">steelAA</a>, <a href="data/PDF-012-deep-evidence.json">evidence đầy đủ</a>.</p>
+<p>Sáu hình theo Structure: top MB/BB/SteelAA; bottom AA/WallMesh/SteelBB. Titles local frame lần lượt X2295/6185/10075, Y8610/4550. Đây là số đo recipe mẫu, không origin của ga mới. Plan clear1000×1250; tường150 -&gt; ngoài thành1300×1550; chân100 -&gt; đáy1500×1750; mở rộng lót100 -&gt; lót1700×1950. Phải phân biệt các đường kích thước theo subject, không gọi mọi rectangle là kích thước thân.</p>
+<p>CT mặt trên nắp57.27, đáy trong55.24. Cổ clear700 theo hai section của mẫu nắp vuông này, thành125; roof150; chiều cao trong nguồn1400, cổ chú thích Ctb480. Mẫu này không chứng minh AA luôn700 hay cổ luôn125. Quyết định mới frame100 và catalog clear hiệu lực vẫn ưu tiên; không ép tổng chiều cao/cover mẫu cũ lên input hiện tại.</p>
+<p>Hai callout <code>Vữa XM M75 / Dày15mm</code> xuất hiện tại joint đỉnh thành–trần, khác vữa cống và khác vật liệu lót. Handle6F9DE → text6F9DF/6F9E0 (AA), 6FBC8 → 6FBC9/6FBCA (BB). Đường joint rời phải còn nét, không union cả roof/body như loại 1. Note Excel G9 nói chiều cao E bao gồm lớp vữa; đây là nguồn cho datum <code>WallTop=RoofBottom−MortarThickness</code>.</p>
+<p>SteelAA có <code>Chốt D18</code> text6FECD, route6FECC; SteelBB text70118, route70117. ThangD18 là đối tượng khác: text70070/route7006F ở SteelAA và6FB8A/6FB89 ở AA cấu tạo. Chốt và thang cùngØ18 không được gộp role hoặc dùng chung quantities. Chốt pair/hole phải dựng vật lý loại 2/3; nguồn tờ này không cung cấp đầy đủ holeDepth/neo hai phía/rounding50, giữ NR06.</p>
+<p>Native frame: 24 INSERT,407LWPOLYLINE,69LINE,134DIMENSION,40HATCH,38LEADER,40TEXT. INSERT gồm Khung1,TenMC6,MC1×2,MC2×2,CT8,NapGaV-MB1,NapGaV-MC4. Không BLT/Gach/BLTC/TK trên tờ cấu tạo; không được kết luận thiếu ties hoặc schedule toàn bộ hồ sơ. Phải có tờ lưới/TK theo recipe khác.</p>
+<p>Hatch có ANSI32 scale120, AR-CONC12, ANSI37 tại joint trong native source. Đây là số đo của template/demo/source scale1:30, không pattern scale chung cho mọi vật liệu/tỷ lệ. Có LINE thép thật và tầng thép/đáy/trần khác nhau; dấu chấm không là bằng chứng toàn fabrication length.</p>
+<p>Đã lưu đủ38routes/40texts và bảng dưới để tìm lại từng callout. Candidate text từ landing được kiểm theo nghĩa role trên full/crops; hai cặp duplicate stroke cổ/vật liệu giữ hai semantic associations. Không tạo fake physical OccurrenceIds cho source.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Route→text</th>
+<th>Nội dung literal</th>
+<th>Role</th>
+<th>Vertices local mm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6F9DE→6F9DF</td>
+<td>Vữa XM M75</td>
+<td>JointMortar</td>
+<td>[[2995.0, 3122.5], [2890.0, 2995.0], [2440.0, 2995.0]]</td>
+</tr>
+<tr>
+<td>6FB80→6FB81</td>
+<td>BTCT M250 đá 1x2</td>
+<td>ConcreteMaterial</td>
+<td>[[1982.5, 1655.0], [1982.5, 1000.0], [2558.5, 1000.0]]</td>
+</tr>
+<tr>
+<td>6FB82→6FB83</td>
+<td>BT lót M100 đá 2x4</td>
+<td>BeddingMaterial</td>
+<td>[[1982.5, 1530.0], [1982.5, 880.0], [2630.5, 880.0]]</td>
+</tr>
+<tr>
+<td>6FB89→6FB8A</td>
+<td>Thang D18</td>
+<td>Ladder</td>
+<td>[[1760.0, 2960.0], [1850.0, 2810.0], [2210.0, 2810.0]]</td>
+</tr>
+<tr>
+<td>6FBC8→6FBC9</td>
+<td>Vữa XM M75</td>
+<td>JointMortar</td>
+<td>[[6760.0, 7192.5], [6655.0, 7065.0], [6205.0, 7065.0]]</td>
+</tr>
+<tr>
+<td>6FD6A→6FD6B</td>
+<td>BTCT M250 đá 1x2</td>
+<td>ConcreteMaterial</td>
+<td>[[5935.0, 5725.0], [5935.0, 5070.0], [6511.0, 5070.0]]</td>
+</tr>
+<tr>
+<td>6FD6C→6FD6D</td>
+<td>BT lót M100 đá 2x4</td>
+<td>BeddingMaterial</td>
+<td>[[5935.0, 5600.0], [5935.0, 4950.0], [6583.0, 4950.0]]</td>
+</tr>
+<tr>
+<td>6FE49→6FE4A</td>
+<td>T1 - ngoài</td>
+<td>WallFaceLayer</td>
+<td>[[5885.0, 3538.0], [5945.0, 3698.0], [6305.0, 3698.0]]</td>
+</tr>
+<tr>
+<td>6FE4C→6FE4D</td>
+<td>T1 - trong</td>
+<td>WallFaceLayer</td>
+<td>[[5885.0, 3412.0], [5945.0, 3292.0], [6305.0, 3292.0]]</td>
+</tr>
+<tr>
+<td>6FE4F→6FE50</td>
+<td>T3 - ngoài</td>
+<td>WallFaceLayer</td>
+<td>[[5885.0, 2012.0], [5945.0, 1792.0], [6305.0, 1792.0]]</td>
+</tr>
+<tr>
+<td>6FE52→6FE53</td>
+<td>T3 - trong</td>
+<td>WallFaceLayer</td>
+<td>[[5885.0, 2138.0], [5945.0, 2198.0], [6305.0, 2198.0]]</td>
+</tr>
+<tr>
+<td>6FE55→6FE56</td>
+<td>T4 - ngoài</td>
+<td>WallFaceLayer</td>
+<td>[[5547.0, 2775.0], [5387.0, 2835.0], [5027.0, 2835.0]]</td>
+</tr>
+<tr>
+<td>6FE58→6FE59</td>
+<td>T4 - trong</td>
+<td>WallFaceLayer</td>
+<td>[[5673.0, 2775.0], [5733.0, 2835.0], [6093.0, 2835.0]]</td>
+</tr>
+<tr>
+<td>6FE5B→6FE5C</td>
+<td>T2 - ngoài</td>
+<td>WallFaceLayer</td>
+<td>[[6787.0, 2625.0], [6625.0, 2565.0], [6265.0, 2565.0]]</td>
+</tr>
+<tr>
+<td>6FE5E→6FE5F</td>
+<td>T2 - trong</td>
+<td>WallFaceLayer</td>
+<td>[[6697.0, 2925.0], [6637.0, 2985.0], [6277.0, 2985.0]]</td>
+</tr>
+<tr>
+<td>6FECC→6FECD</td>
+<td>Chốt D18</td>
+<td>Dowel</td>
+<td>[[9375.0, 7080.0], [9210.0, 7140.0], [8910.0, 7140.0]]</td>
+</tr>
+<tr>
+<td>7006F→70070</td>
+<td>Thang D18</td>
+<td>Ladder</td>
+<td>[[9540.0, 7030.0], [9630.0, 6880.0], [9990.0, 6880.0]]</td>
+</tr>
+<tr>
+<td>70098→70099</td>
+<td>T3 trong</td>
+<td>WallFaceLayer</td>
+<td>[[9420.0, 5850.0], [9540.0, 5970.0], [9840.0, 5970.0]]</td>
+</tr>
+<tr>
+<td>7009A→7009B</td>
+<td>T3 ngoài</td>
+<td>WallFaceLayer</td>
+<td>[[9330.0, 5860.0], [9210.0, 5920.0], [8910.0, 5920.0]]</td>
+</tr>
+<tr>
+<td>7009C→7009D</td>
+<td>T1 trong</td>
+<td>WallFaceLayer</td>
+<td>[[10730.0, 5860.0], [10610.0, 5920.0], [10310.0, 5920.0]]</td>
+</tr>
+<tr>
+<td>7009E→7009F</td>
+<td>T1 ngoài</td>
+<td>WallFaceLayer</td>
+<td>[[10820.0, 5860.0], [10940.0, 5920.0], [11240.0, 5920.0]]</td>
+</tr>
+<tr>
+<td>700A0→700A1</td>
+<td>Đáy trên</td>
+<td>BaseLayer</td>
+<td>[[9642.5, 5770.0], [9702.5, 5860.0], [10002.5, 5860.0]]</td>
+</tr>
+<tr>
+<td>700A2→700A3</td>
+<td>Đáy dưới</td>
+<td>BaseLayer</td>
+<td>[[9478.333333, 5680.0], [9598.333333, 5400.0], [9898.333333, 5400.0]]</td>
+</tr>
+<tr>
+<td>700A4→700A5</td>
+<td>Trần dưới</td>
+<td>RoofLayer</td>
+<td>[[10550.0, 7230.0], [10430.0, 7050.0], [10130.0, 7050.0]]</td>
+</tr>
+<tr>
+<td>700A6→700A7</td>
+<td>Trần trên</td>
+<td>RoofLayer</td>
+<td>[[10550.0, 7320.0], [10670.0, 7440.0], [10970.0, 7440.0]]</td>
+</tr>
+<tr>
+<td>700A8→700A9</td>
+<td>Cổ ga</td>
+<td>Neck</td>
+<td>[[9350.0, 7550.0], [9230.0, 7610.0], [9020.0, 7610.0]]</td>
+</tr>
+<tr>
+<td>700AA→700AB</td>
+<td>BTCT M250 đá 1x2</td>
+<td>ConcreteMaterial</td>
+<td>[[9350.0, 7550.0], [9230.0, 7610.0], [9020.0, 7610.0]]</td>
+</tr>
+<tr>
+<td>70117→70118</td>
+<td>Chốt D18</td>
+<td>Dowel</td>
+<td>[[9500.0, 3010.0], [9335.0, 3070.0], [9035.0, 3070.0]]</td>
+</tr>
+<tr>
+<td>702B3→702B4</td>
+<td>T4 trong</td>
+<td>WallFaceLayer</td>
+<td>[[9545.0, 1780.0], [9665.0, 1900.0], [9995.0, 1900.0]]</td>
+</tr>
+<tr>
+<td>702B5→702B6</td>
+<td>T4 ngoài</td>
+<td>WallFaceLayer</td>
+<td>[[9455.0, 1790.0], [9335.0, 1850.0], [9035.0, 1850.0]]</td>
+</tr>
+<tr>
+<td>702B7→702B8</td>
+<td>T2 trong</td>
+<td>WallFaceLayer</td>
+<td>[[10605.0, 1790.0], [10485.0, 1850.0], [10155.0, 1850.0]]</td>
+</tr>
+<tr>
+<td>702B9→702BA</td>
+<td>T2 ngoài</td>
+<td>WallFaceLayer</td>
+<td>[[10695.0, 1790.0], [10815.0, 1850.0], [11115.0, 1850.0]]</td>
+</tr>
+<tr>
+<td>702BB→702BC</td>
+<td>Đáy trên</td>
+<td>BaseLayer</td>
+<td>[[9705.0, 1700.0], [9765.0, 1790.0], [10095.0, 1790.0]]</td>
+</tr>
+<tr>
+<td>702BD→702BE</td>
+<td>Đáy dưới</td>
+<td>BaseLayer</td>
+<td>[[9561.666667, 1610.0], [9681.666667, 1330.0], [10011.666667, 1330.0]]</td>
+</tr>
+<tr>
+<td>702BF→702C0</td>
+<td>Trần dưới</td>
+<td>RoofLayer</td>
+<td>[[9725.0, 3160.0], [9845.0, 2980.0], [10145.0, 2980.0]]</td>
+</tr>
+<tr>
+<td>702C1→702C2</td>
+<td>Trần trên</td>
+<td>RoofLayer</td>
+<td>[[9725.0, 3250.0], [9605.0, 3370.0], [9305.0, 3370.0]]</td>
+</tr>
+<tr>
+<td>702C3→702C4</td>
+<td>Cổ ga</td>
+<td>Neck</td>
+<td>[[9775.0, 3480.0], [9655.0, 3540.0], [9445.0, 3540.0]]</td>
+</tr>
+<tr>
+<td>702C5→702C6</td>
+<td>BTCT M250 đá 1x2</td>
+<td>ConcreteMaterial</td>
+<td>[[9775.0, 3480.0], [9655.0, 3540.0], [9445.0, 3540.0]]</td>
+</tr>
+</tbody>
+</table>
+</div><h3 id="loai3-pdf-040-g500-2-cad-3-f010">Loại3 — PDF-040 / G500-2 / CAD-3-F010</h3>
+<p>Nguồn <code>3.1.Ga thăm + thu BTCT nắp rời-Model-10.pdf</code>, SHA256 <code>c14f625be67bdae88e19892be6185f2604ed65c00a155742465da2f17d9bdd82</code>. <a href="PDF-040-review.png">Toàn trang</a>, <a href="PDF-040-catch-plan.png">catchplan</a>, <a href="PDF-040-catch-11.png">1-1</a>, <a href="PDF-040-catch-22.png">2-2</a>, <a href="PDF-040-neck-AA.png">neckAA</a>, <a href="data/PDF-040-deep-evidence.json">evidence đủ</a>.</p>
+<p>Đây là NeckCatch: ba hình cổ ở trái, cửa thu MB/1-1/2-2 ở cột kế; TK không ở tờ này. Không lấy PDF039 liền trước làm numerical bundle vì PDF039 CT57.39, PDF040 CT58.56. Source candidate G500-2 phải giữ frame/hash riêng. Muốn kiểm TK.CT cần đúng bundle/source độc lập, không ghép số theo Modelordinal; NR08 vẫn mở cho topology/fabrication binding CT.</p>
+<p>Cổ trên tờ này clear700×700, ngoài950×950, thành125; CT58.56 ởAA/BB. Nhãn cổ có C1/C1A/C1B/C1C,C2/C2A/C2B/C2C,C3 vàGC1. Hậu tốC ở cổ không chứng minh cống sinhT1C. Annotation trong source AA dày/chồng; DBTool giữ semantic và làm sạch ink, không copy va chữ.</p>
+<p>Cửa thu: clear plan500×550, thành125, ngoài750×800; section1-1 clear500 và cao250, đáy125,lót100; section2-2 theo phươngclear550. Dimensions78BCD/78BD1/78BDE là125/500/125, tổng750 ở78BEC;78B8D/78B9B/78BA8 là125/550/125,total800 ở78BB6. Không lấy530/960 trong tên grille làm kích thước lỗclear.</p>
+<p>Marks1..4 trong vùng catch Ø10@150 là dữ liệu mẫu: plan có6BLT (mark1 hai phía,2,3 hai phía,4);1-1 có3BLT(1/2/4);2-2 có4BLT(1/2/4 hai phía). Mẫu thể hiện role theo mặt cắt/nhóm, không mộtmark=toànga hoặc mộtleader/mỗithanh. Đường uốn đỏ/điểm cắt phải từ physical catch mesh một lớp theo M17 và support, không dùng các dots/sourcecoords làm occurrences DBTool. Map hoàn chỉnh shape 1..4 tới TK.CT còn NR08.</p>
+<p>Native frame có91INSERT,219LWPOLYLINE,54LINE,115DIMENSION,3HATCH, không LEADER. 43BLT=29BLT1+14BLT2,17Gach,6TenMC,2CT; không BLTC trong tờ này. Tuyến dẫn dùng LINE/LWPOLYLINE, nhãn có thể đặt giữa tuyến. Đã kiểm43/43 insertion points nằm trên route sau OCS;31/43 trùng endpoint. Đây là chứng minh association2D, chưa là member/path/fabrication proof.</p>
+<p><strong>Phát hiện nguồn mới:</strong> SCR960x530 handle78AC7 scale[1,0.6470588235294118,1],rotation180°. NAPCUATHU1 handle78C05 scale1. NAPCUATHU2 handle78D2D scale[0.71875,1,1]. Native product geometry bị biến dạng theo hai views nguồn; không nhập các hệ số này vào code biến thiên. Bề rộng section2 sauco=960×0.71875=690mm; đó không phải clear550mm. NR09 yêu cầu chọn sản phẩm tương thích/catalog extension có nguồn hoặc chốt ngoại lệ schematic rõ, giữ physical sản phẩm thật.</p>
+<p><strong>Phát hiện nghiên cứu mới:</strong> polyline78DD3 có extrusion≈(0,0,−1); raw X âm nhưng bounds WCS dương. Nếu chỉ sửa INSERT OCStoWCS như audit cũ, tuyến trái của nhãn78DD9 sẽ bị báo mất sai. Đợt này đã chuyển riêng LWPOLYLINE qua ezdxf.OCS khi lập path_records của evidence mới, rawsource không đổi. Handle78DD1/78DD2 là duplicate stroke bên phải, không xóa label4 bên trái; cần dedup stroke nhưng giữ target associations.</p>
+<p>Bảng sau ghi43 label → route và attrs. <code>distance</code> là số đo nguồn đến segment, không là dung sai acceptance tự đặt; cực đại≈7.1e−15mm. 1e−6 trong script chỉ lọc equal-coordinate evidence theo numerical policy hiện có, không trở thành source rule kết cấu.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>BLT handle</th>
+<th>SH / DK / A</th>
+<th>Route / vị trí trên tuyến</th>
+<th>Label local mm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>785FE</td>
+<td>{'A': '@150', 'DK': '%%c10', 'SH': 'C1C'}</td>
+<td>785FD endpoint / error=0.0</td>
+<td>[1845.0, 7235.0]</td>
+</tr>
+<tr>
+<td>78605</td>
+<td>{'SH': 'C2C', 'DK': '%%c10', 'A': '@150'}</td>
+<td>78604 endpoint / error=0.0</td>
+<td>[2020.0, 7235.0]</td>
+</tr>
+<tr>
+<td>7860C</td>
+<td>{'A': '@150', 'DK': '%%c10', 'SH': 'C1B'}</td>
+<td>7860B endpoint / error=0.0</td>
+<td>[2345.0, 6645.0]</td>
+</tr>
+<tr>
+<td>78613</td>
+<td>{'A': '@150', 'DK': '%%c10', 'SH': 'C2B'}</td>
+<td>78612 endpoint / error=0.0</td>
+<td>[2345.0, 7000.0]</td>
+</tr>
+<tr>
+<td>78690</td>
+<td>{'A': '@150', 'DK': '%%c10', 'SH': 'C1'}</td>
+<td>7868F endpoint / error=0.0</td>
+<td>[1854.0, 6935.0]</td>
+</tr>
+<tr>
+<td>78698</td>
+<td>{'SH': 'C3', 'DK': '%%c6', 'A': '@300'}</td>
+<td>78697 endpoint / error=0.0</td>
+<td>[2020.0, 7316.0]</td>
+</tr>
+<tr>
+<td>7870B</td>
+<td>{'SH': 'C1A', 'DK': '%%c10', 'A': '@150'}</td>
+<td>7870A endpoint / error=0.0</td>
+<td>[2645.0, 6645.0]</td>
+</tr>
+<tr>
+<td>78721</td>
+<td>{'SH': 'C2', 'DK': '%%c10', 'A': '@150'}</td>
+<td>78720 endpoint / error=0.0</td>
+<td>[2011.0, 7075.0]</td>
+</tr>
+<tr>
+<td>78731</td>
+<td>{'SH': 'C2A', 'DK': '%%c10', 'A': '@150'}</td>
+<td>78730 endpoint / error=0.0</td>
+<td>[2645.0, 7000.0]</td>
+</tr>
+<tr>
+<td>7875B</td>
+<td>{'A': '@150', 'DK': '%%c10', 'SH': 'C1A'}</td>
+<td>7875A endpoint / error=0.0</td>
+<td>[1810.0, 4715.0]</td>
+</tr>
+<tr>
+<td>78762</td>
+<td>{'SH': 'C1', 'DK': '%%c10', 'A': '@150'}</td>
+<td>78761 endpoint / error=0.0</td>
+<td>[2880.0, 4715.0]</td>
+</tr>
+<tr>
+<td>78769</td>
+<td>{'SH': 'C2A', 'DK': '%%c10', 'A': '@150'}</td>
+<td>78768 endpoint / error=0.0</td>
+<td>[2055.0, 4715.0]</td>
+</tr>
+<tr>
+<td>78770</td>
+<td>{'A': '@150', 'DK': '%%c10', 'SH': 'C2'}</td>
+<td>7876F endpoint / error=0.0</td>
+<td>[2635.0, 4715.0]</td>
+</tr>
+<tr>
+<td>7877B</td>
+<td>{'SH': 'C2B', 'DK': '%%c10', 'A': '@150'}</td>
+<td>7877A endpoint / error=0.0</td>
+<td>[2165.0, 4678.5]</td>
+</tr>
+<tr>
+<td>78787</td>
+<td>{'A': '@150', 'DK': '%%c10', 'SH': 'C2C'}</td>
+<td>78786 interior / error=7.105427357601002e-15</td>
+<td>[2635.0, 4942.25]</td>
+</tr>
+<tr>
+<td>78791</td>
+<td>{'A': '@150', 'DK': '%%c10', 'SH': 'C1B'}</td>
+<td>78790 interior / error=0.0</td>
+<td>[1810.0, 4753.5]</td>
+</tr>
+<tr>
+<td>787FD</td>
+<td>{'SH': 'C1B', 'DK': '%%c10', 'A': '@150'}</td>
+<td>787FC interior / error=0.0</td>
+<td>[2880.0, 4753.5]</td>
+</tr>
+<tr>
+<td>78803</td>
+<td>{'SH': 'C1C', 'DK': '%%c10', 'A': '@150'}</td>
+<td>78802 interior / error=0.0</td>
+<td>[2880.0, 5042.25]</td>
+</tr>
+<tr>
+<td>7880C</td>
+<td>{'SH': 'C3', 'DK': '%%c6', 'A': '@300'}</td>
+<td>7880B endpoint / error=0.0</td>
+<td>[2757.5, 4310.0]</td>
+</tr>
+<tr>
+<td>78813</td>
+<td>{'SH': 'GC1', 'DK': '%%c10', 'A': 'SL2'}</td>
+<td>78811 endpoint / error=0.0</td>
+<td>[2055.0, 4916.0]</td>
+</tr>
+<tr>
+<td>788DE</td>
+<td>{'A': '@150', 'DK': '%%c10', 'SH': 'C1'}</td>
+<td>788DD endpoint / error=0.0</td>
+<td>[1810.0, 2445.0]</td>
+</tr>
+<tr>
+<td>788E5</td>
+<td>{'SH': 'C1', 'DK': '%%c10', 'A': '@150'}</td>
+<td>788E4 endpoint / error=0.0</td>
+<td>[2880.0, 2445.0]</td>
+</tr>
+<tr>
+<td>788EC</td>
+<td>{'SH': 'C2', 'DK': '%%c10', 'A': '@150'}</td>
+<td>788EB endpoint / error=0.0</td>
+<td>[2165.0, 2445.0]</td>
+</tr>
+<tr>
+<td>788FF</td>
+<td>{'SH': 'C2B', 'DK': '%%c10', 'A': '@150'}</td>
+<td>788FE endpoint / error=0.0</td>
+<td>[2165.0, 2408.5]</td>
+</tr>
+<tr>
+<td>7890A</td>
+<td>{'SH': 'C2C', 'DK': '%%c10', 'A': '@150'}</td>
+<td>78909 endpoint / error=0.0</td>
+<td>[2165.0, 2672.25]</td>
+</tr>
+<tr>
+<td>7897C</td>
+<td>{'SH': 'C1B', 'DK': '%%c10', 'A': '@150'}</td>
+<td>7897B interior / error=0.0</td>
+<td>[2880.0, 2483.5]</td>
+</tr>
+<tr>
+<td>78982</td>
+<td>{'A': '@150', 'DK': '%%c10', 'SH': 'C1B'}</td>
+<td>78981 interior / error=0.0</td>
+<td>[1810.0, 2483.5]</td>
+</tr>
+<tr>
+<td>78988</td>
+<td>{'A': '@150', 'DK': '%%c10', 'SH': 'C1C'}</td>
+<td>78987 interior / error=0.0</td>
+<td>[1810.0, 2772.25]</td>
+</tr>
+<tr>
+<td>7898E</td>
+<td>{'SH': 'C1C', 'DK': '%%c10', 'A': '@150'}</td>
+<td>7898D interior / error=0.0</td>
+<td>[2880.0, 2772.25]</td>
+</tr>
+<tr>
+<td>78997</td>
+<td>{'SH': 'C3', 'DK': '%%c6', 'A': '@300'}</td>
+<td>78996 endpoint / error=0.0</td>
+<td>[2757.5, 2040.0]</td>
+</tr>
+<tr>
+<td>78B22</td>
+<td>{'SH': '1', 'DK': '%%c10', 'A': '@150'}</td>
+<td>78B21 endpoint / error=0.0</td>
+<td>[5736.5, 7770.0]</td>
+</tr>
+<tr>
+<td>78B28</td>
+<td>{'SH': '1', 'DK': '%%c10', 'A': '@150'}</td>
+<td>78B27 endpoint / error=0.0</td>
+<td>[5736.5, 6610.0]</td>
+</tr>
+<tr>
+<td>78B75</td>
+<td>{'SH': '2', 'DK': '%%c10', 'A': '@150'}</td>
+<td>78B74 interior / error=0.0</td>
+<td>[6180.0, 7190.0]</td>
+</tr>
+<tr>
+<td>78B7B</td>
+<td>{'SH': '3', 'DK': '%%c10', 'A': '@150'}</td>
+<td>78B7A endpoint / error=0.0</td>
+<td>[6180.0, 7650.0]</td>
+</tr>
+<tr>
+<td>78B81</td>
+<td>{'SH': '3', 'DK': '%%c10', 'A': '@150'}</td>
+<td>78B80 endpoint / error=0.0</td>
+<td>[6180.0, 6730.0]</td>
+</tr>
+<tr>
+<td>78B88</td>
+<td>{'SH': '4', 'DK': '%%c10', 'A': '@150'}</td>
+<td>78B86 endpoint / error=0.0</td>
+<td>[6189.0, 6905.0]</td>
+</tr>
+<tr>
+<td>78CCA</td>
+<td>{'SH': '1', 'DK': '%%c10', 'A': '@150'}</td>
+<td>78CC9 endpoint / error=0.0</td>
+<td>[5736.5, 4275.0]</td>
+</tr>
+<tr>
+<td>78CD1</td>
+<td>{'A': '@150', 'DK': '%%c10', 'SH': '2'}</td>
+<td>78CCF endpoint / error=0.0</td>
+<td>[5995.0, 4805.0]</td>
+</tr>
+<tr>
+<td>78D1F</td>
+<td>{'SH': '4', 'DK': '%%c10', 'A': '@150'}</td>
+<td>78D1E interior / error=0.0</td>
+<td>[6180.0, 4742.5]</td>
+</tr>
+<tr>
+<td>78D31</td>
+<td>{'A': '@150', 'DK': '%%c10', 'SH': '1'}</td>
+<td>78D2F endpoint / error=0.0</td>
+<td>[6110.0, 2800.0]</td>
+</tr>
+<tr>
+<td>78D81</td>
+<td>{'SH': '2', 'DK': '%%c10', 'A': '@150'}</td>
+<td>78D80 endpoint / error=0.0</td>
+<td>[5835.0, 2300.0]</td>
+</tr>
+<tr>
+<td>78DD4</td>
+<td>{'SH': '4', 'DK': '%%c10', 'A': '@150'}</td>
+<td>78DD1 interior / error=0.0</td>
+<td>[6295.0, 2767.5]</td>
+</tr>
+<tr>
+<td>78DD9</td>
+<td>{'A': '@150', 'DK': '%%c10', 'SH': '4'}</td>
+<td>78DD3 interior / error=0.0</td>
+<td>[5375.0, 2767.5]</td>
+</tr>
+</tbody>
+</table>
+</div><h3 id="quy-tac-moi-u-ro-va-phan-van-can-chot">Quy tắc mới đủ rõ và phần vẫn cần chốt</h3>
+<ul>
+<li>Loại2 giữ joint/mortar thật, chốt khác thang, source heights theo datum; thêm required Dowel/Hole roles và cùngpairID.</li>
+<li>Loại3 cần NeckCatch+ScheduleOnly, ownerBody/Neck đúng frame, catch một lớp khi BTCT; không chỉ thêm chữ “cửa thu” vào loại 2.</li>
+<li>Native source/polyline OCS theo entity, annotation có thể ở giữa collector; endpoint-only audit không đầy đủ.</li>
+<li>Distorted catch product là source conflict NR09; full map shape 1..4/TK.CT NR08; chốt length/hole depth NR06; aliases cổ NR10. Không claim các NR đã được giải bởi ảnh.</li>
+</ul>
+<p>Phân tích sâu hai tờ đã bổ sung nội dung triển khai, tọa độ/handles/dims/routes/style và source conflicts theo yêu cầu. Chưa kiểm chứng mọi glyph/vector curve hay toàn bộ fabrication vật lý; những phần đó là acceptance/implementation có gate trong06, không báo software đã đạt.</p>
+<h2 id="22-gap-b-337-excel-notes-con-lai">2.2. Gap (b): “337 Excel notes còn lại”</h2>
+<p>Đã đối soát <code>EXCEL-NOTES.html</code> ↔ <code>author-notes-verbatim.json</code> ↔ <strong>comments trong cả ba XLSX gốc</strong>, 528/528 exact text. Số theo workbook166/173/189. Có191text khác nhau sau Trim;337 occurrence còn lại lặp các text đó, không phải 337 nội dung mới. Đây là điều chỉnh phạm vi theo bằng chứng, không bỏ337 note.</p>
+<p><a href="01-KNOWLEDGE.md">Bảng191 rule và hợp đồng</a>, <a href="data/excel-528-reconciliation.json">ledger528</a>, <a href="data/workbook-comment-verification.json">kiểmcommentgốc</a>. Mỗi occurrence giữ workbook/sheet/note cell/value-cell candidates/old mapping/override/new EX rule. Một text giống nhau có thể khác scope (NeckStructure/CatchStructure), nên triển khai không chỉ dedup text rồi map một field.</p>
+<p>Đã sửa cách hiểu các candidate nguy hiểm: R2 mô tả cả4 cặp O:V, không chỉInvertT2/PipeT3; CF.Ga!L16 loại 3 nói cấu trúc cửa thu dù text copy “cổ”; prefix value cùng row 21/23; type3 chỉ shift vùng dưới Catch thêm 2 hàng; lifting I9 chỉloại 2/3. Toàn191 implementation contracts có trong01; KL HG/THKL giữ quantityscope rõ, không dùng làm authoritygeometry.</p>
+<p><strong>Không tuyên bố consumer của 528 ghi chú đã chạy đúng.</strong> 528 địa chỉ candidate không chứng minh output. 05A xác định field/type/unit/source,03 chỉ module/caller,06 yêu cầu trace đến DWG/PDF. Gap về diễn giải note được lấp; gap implementation được chuyển thành nhiệm vụ có acceptanceartifact cụ thể.</p>
+<h2 id="23-gap-c-toan-bo-module-va-dependencies">2.3. Gap (c): toàn bộ module và dependencies</h2>
+<p>Đã inventory 7 production projects/290 file C#,14 project definitions kể cảverification,10 trách nhiệm mới. <a href="03-MODULE-MATRIX.md">Ma trận4cột</a>, <a href="data/module-matrix.json">JSON</a>, <a href="data/code-inventory.json">code hash/symbol/dependency/callsite index</a>. <code>bin/obj/TestOutput/archive</code> là build/evidence/snapshots, không module runtime mới; giữ nguyên không xóa.</p>
+<p>File được loại khỏi runtime có caller cập nhật, replacement và gate. Constants view IDs còn consumer phải được giữ khi loại storemethods. Legacy Core/Cad/IO giữ compatibility island tới migration parity, không kết luận dead từ một search. Inventory lexical không tự chứng minh runtime reachability hay toàn bộ thuật toán đúng; đường active/dead quan trọng đã đọc trực tiếp và nêu trong03.</p>
+<h2 id="24-gap-d-mot-needsrule-register">2.4. Gap (d): một NeedsRule register</h2>
+<p>Đã hợp nhất <strong>23 quyết định mở</strong> có scope/source/proposal/blockedstage/approvalfields tại <a href="04-NEEDSRULE.md">04-NEEDSRULE</a>, JSON <code>decision=null</code>. Có 60 đoạn HTML nhắc NeedsRule/thiếu rule được đối soát disposition; conflict đã có owner override giữ ở resolution log thay lặp trong openlist. Technical NotRun/native glyph pending không biến thành câu hỏi domain.</p>
+<p>23 mục gồm cover basis, C/bends, arbitrary ties/component shape, haunch, chốt/lifting/catch, source product scale, aliases/multi-openings, rounding/mass/template/font/hatch/plot/stack/complexpipe/collision/layout và scope khóa clear cho BTCT tự thiết kế. Phần quyết định mới phát hiện từ phân tích/coderead được ghi riêng, không tự chốt vì muốn đủ tài liệu.</p>
+<h2 id="25-findings-moi-tu-tiep-nhan-chua-phai-loi-a-sua">2.5. Findings mới từ tiếp nhận, chưa phải lỗi đã sửa</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Bằng chứng hiện tại</th>
+<th>Quyết định kiến trúc/gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PL-01</td>
+<td>Family21ManholeHelper.cs ResolveFromGeometry/ResolveFromPackage/GetSheet* còn suy kích thước/name và tọa độ preset; callers placement trong codeindex</td>
+<td>Loại lookup khỏi runtime theo03; sharedRecipeContext+InkLayout; rename/perturbgeometrygate</td>
+</tr>
+<tr>
+<td>PL-02</td>
+<td>PaletteDrawingCalculation.Presentation fixed30,Symbolic; row error trả fail toàn batch</td>
+<td>Shared request BodyScale/ElevationMode; row receipts, không dùng default để bỏ ExcelAbsolute</td>
+</tr>
+<tr>
+<td>PL-03</td>
+<td>CalculationPolicy tất cả RuleBinding ExperimentalSoftwareFixture, SourceRefs=[] và unresolvedVHG equivalence</td>
+<td>RuleApprovalRegistry+NR19/18; không promote experimental bằng đổi status</td>
+</tr>
+<tr>
+<td>PL-04</td>
+<td>SourcePDF040 SCR/NAPCUATHU2 nonuniform scales;polyline78DD3 OCSnormal−Z</td>
+<td>NR09 product mismatch; research path correction từng entity, không cáo buộc DBTool thiếu route</td>
+</tr>
+<tr>
+<td>PL-05</td>
+<td>Comments 528 exact trong XLSX;191 unique/337 duplicate. Candidate field mapping có quá hẹp/copy text sai scope</td>
+<td>Ledger 528 +contracts 191 +05A; consumerstatus tách khỏi meaning status</td>
+</tr>
+</tbody>
+</table>
+</div><h2 id="26-minh-bach-ieu-chinh-pham-vi">2.6. Minh bạch điều chỉnh phạm vi</h2>
+<ol>
+<li>Đổi “rút 337 rule mới” thành đối soát337 duplicate occurrence và bổ sung191 implementation contracts: nguồn chứng minh337 không phải unique unread.</li>
+<li>Thêm 2 tờ deep loại 2/3 đúng yêu cầu mới; không tái phân tích63 tờ như điều kiện cũ cấm, chỉ hai tờ cần thiết và guide liên quan.</li>
+<li>Thêmfield schema 05A và machine JSON/manifest/callsite ledger để junior có địa chỉ cụ thể. Không thay production code, không phát sinh pipeline sản phẩm thứ hai.</li>
+<li>Giữ quantity Excel writer ngoài ưu tiên nhưng bảo tồn toàn bộ notes và nativeTK quantities; không bỏ góc ngách bằng cách xóa khỏi hồ sơ.</li>
+<li>Thêm NR23 về scope khóa clear cho BTCT tự thiết kế để không tự lấyraw cổ làm authority khi rule owner chọn nắp trước chưa có selected aperture contract.</li>
+<li>Browser file:// bị security policy chặn; đọc HTML nguyên văn từ filesystem theo A–E. Không workaround browser. HTML bàn giao lưu để người dùng tự mở trực tiếp trên máy.</li>
+</ol>
+<p>Không dùng source object count/test count làm nghiệm thu. Hồ sơ này hoàn thành bàn giao kiến trúc/nghiên cứu có NeedsRule công khai; <strong>DBTool chưa được xác nhận zero lỗi</strong>. Chỉ phase06 với actual DWG/PDF/evidence mới đóng sản phẩm.</p></article><footer>DBTool · Hồ sơ project leader 13/10/2026 · Nguồn/approval/evidence theo scope. Không chứng nhận phần mềm từ tài liệu hoặc số test.</footer></main></body></html>
