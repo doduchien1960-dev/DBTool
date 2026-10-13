@@ -1,0 +1,228 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>pages/PDF-004-PHAN-TICH-CHI-TIET</title><style>body{font:16px/1.6 Segoe UI,Arial;max-width:1200px;margin:25px auto;padding:20px}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bccfd7;padding:8px;vertical-align:top}img{max-width:100%}pre{white-space:pre-wrap}</style><a href="../INDEX.html">Trang tổng</a><h1>PDF004 — khung thép góc miệng ga, tấm nắp và hai mặt cắt</h1>
+<p>Nguồn thực tế là <code>1.1.Ga thăm BTCT liền khối-Model-12.pdf</code>, không phải Model-4. Khung CAD đối chiếu CAD-1-F021, context G800-1. Đã mở toàn trang, đọc native DXF và lập <a href="PDF-004-BLOCK-MAP.html">bảng 89 block</a>, <a href="PDF-004-detail-review.json">JSON bằng chứng</a>. Có 58 DIMENSION, 24 Gach, 2 BLTC, 25 block nhãn (17 BLT1 + 4 BLT2 + 4 BLT3), 12 hàng TK. Đây là review nội dung/bố cục, chưa chứng nhận từng glyph, mọi target thép hoặc output DBTool.</p>
+<p><a href="../pdf/PDF-004-p1.png">Ảnh toàn trang</a>.</p>
+<h2>1. Sáu hình và bảng TK phải đi cùng nhau theo recipe</h2>
+<p>Tọa độ local WCS mm, gốc góc dưới trái khung. Mọi tiêu đề TenMC có tỷ lệ1:20 và scale0.2. Không kế thừa cứng1:30 từ sheet thân ga.</p>
+<table>
+<thead>
+<tr>
+<th>Hình</th>
+<th>Tiêu đề / handle</th>
+<th>Local X,Y mm</th>
+<th>Nội dung chính cần giữ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Khung ngoài</td>
+<td>68128</td>
+<td>(1550,5740)</td>
+<td>GN1-V30x30x3; outer760×560, kích thước trong700×500; neo G2 Ø6@150</td>
+</tr>
+<tr>
+<td>Khung giữa</td>
+<td>68211</td>
+<td>(1550,3940)</td>
+<td>GG1-V30x30x3; outer700×500, trong640×440; G2 Ø6@150</td>
+</tr>
+<tr>
+<td>Khung trong</td>
+<td>682F8</td>
+<td>(1550,2140)</td>
+<td>GT1-V30x30x3; outer760×560, trong700×500; G2 Ø6@150</td>
+</tr>
+<tr>
+<td>Mặt bằng tấm nắp</td>
+<td>683EE</td>
+<td>(3450,5740)</td>
+<td>CỐT THÉP TẤM NẮP (SL: 2); ngang800, dọc498; lưới1/1A/2/2A, thép3, móc4, G1, G2, hai dấuX</td>
+</tr>
+<tr>
+<td>Mặt cắt A-A</td>
+<td>68542</td>
+<td>(4850,5740)</td>
+<td>Chiều498, dày100; khung thép góc ở các góc, hai lớp lưới và các thanh phụ</td>
+</tr>
+<tr>
+<td>Mặt cắt B-B</td>
+<td>6859F</td>
+<td>(3450,4122.5)</td>
+<td>Chiều800, dày100; tương ứng phương còn lại của cùng tấm nắp</td>
+</tr>
+<tr>
+<td>TK bên phải</td>
+<td>TK.Tieude68124</td>
+<td>(5700,5740)</td>
+<td>Nhóm Miệng ga4hàng + Nắp ga8hàng; cuối bảng TK.THKLNAP</td>
+</tr>
+</tbody>
+</table>
+<p>Kích thước ở đây là số đo/nhãn của nguồn này, không phải preset cho mọi nắp. Điều kiện áp dụng là loại lắp ghép nắp/miệng có cấu tạo tương ứng; không ép mọi sản phẩm catalog phải có ba khung V30 hoặc hai tấm498×800. Catalog và cấu hình effective quyết định assembly.</p>
+<h2>2. Nhãn và tuyến dẫn theo đúng vai trò</h2>
+<p>Khung ngoài/giữa/trong dùng BLT3 ghi NOTE đầy đủ <code>GN1-V30x30x3</code>, <code>GG1-V30x30x3</code>, <code>GT1-V30x30x3</code>; không bind SH/DK/A cho BLT3. BLT1 riêng gọi G2 và bước150. Trên mặt bằng tấm nắp, BLT3 gọi G1-V50x50x3; BLT1 gọi G2 Ø6@200. <strong>Cùng G2 nhưng khác vùng miệng/nắp và khác bước</strong>: scope là bắt buộc, không gom toàn bộG2 thành một nhãn hoặc một spacing.</p>
+<table>
+<thead>
+<tr>
+<th>Vị trí nhãn mặt bằng tấm</th>
+<th>Handle</th>
+<th>SH / Ø / bước</th>
+<th>Local X,Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trên, lưới lớp1</td>
+<td>68455</td>
+<td>1 / Ø10 / @100</td>
+<td>(3401.25,5365)</td>
+</tr>
+<tr>
+<td>Trên, lưới lớp1A</td>
+<td>68465</td>
+<td>1A / Ø8 / @100</td>
+<td>(3641.25,5365)</td>
+</tr>
+<tr>
+<td>Phải, lưới lớp2</td>
+<td>684D8</td>
+<td>2 / Ø10 / @100</td>
+<td>(3870,5081.25)</td>
+</tr>
+<tr>
+<td>Phải, lưới lớp2A</td>
+<td>684E8</td>
+<td>2A / Ø8 / @100</td>
+<td>(4110,5081.25)</td>
+</tr>
+<tr>
+<td>Phải dưới, thanh3</td>
+<td>684FB</td>
+<td>3 / Ø6 / @300</td>
+<td>(3870,4911.25)</td>
+</tr>
+<tr>
+<td>Phải trên, neo khung</td>
+<td>68530</td>
+<td>G2 / Ø6 / @200</td>
+<td>(3870,5200)</td>
+</tr>
+</tbody>
+</table>
+<p>Có27LINE/LWPOLYLINE trênVHG-Dim được trích làm annotation candidates. 23/25 nhãn có đầu mút route trùng điểm chèn trong phép kiểm hiện tại; nhãn1A và2A không có mút trùng trong tập này. Không kết luận chúng thiếu leader chỉ từ kết quả endpoint: phải xem đường nhánh, block internal stub và hình thật. JSON giữ routes/handles để junior đối chiếu. Không nối leader mới một cách mù quáng để làm “đủ25”.</p>
+<p>Hai BLTC684F8/684F9 tại(3250,4961.25)/(3550,4961.25), scale0.2, trên mặt bằng tấm nắp. Đây là ký hiệu vị trí buộc, không phải hình thanh thật và không phải số lượng cố định2 cho mọi tấm. Trước khi sinh dấuX, resolve thanh phụ/role và station; nguồn bảng có TK.M.Z cho thanh3, <strong>không tự đổi mọi BLTC thành U chỉ vì thường dùng U ở bản đáy/trần</strong>. Giữ riêng PanelTieShape, BaseTieShape và RoofTieShape theo input/quyết định đã xác minh.</p>
+<h2>3. Tài sản và nét vẽ</h2>
+<ul>
+<li>TenMC/BLT/Gach/BLTC/MC1/MC2 và TK chèn0.2 ở nominal1:20; dimension style quan sát <code>VHG1-20</code>. Chữ ghi chú nominal2mm giấy, tiêu đề3mm theo asset; không dùng toàn bộ scale0.3 của sheet thân.</li>
+<li>Thép chịu lực/khung mặt bằng dùng VHG-Thep, Continuous theo layer; đường thấy bê tông VHG-BT. Khung bao khuất/lớp khuất dùng VHG-Dashed, DASHED. Không chuyển cả sheet sang Continuous để làm mất nét khuất.</li>
+<li>VHG-Dim cho DIM và annotation; VHG-Text cho chữ/thuộc tính; VHG-VL cho block tiết diện thép góc. Layer inventory cấp model không bao gồm hết nested entities: hatch nằm trongThepGocLoi dù top-level không cóHATCH.</li>
+<li>ThepGocLoi chèn1:1, có rotation90/180 và bốn instance extrusion hướng−Z. Bên trong có hatchANSI31 và đường bao; hatch có explicit lineweight40 (0.40mm), pattern scale20. Không suy mọi nét trong block đều theo default layer.</li>
+<li>BLMC có scale[1,1.176470588235294,1], được dùng3lần để biểu diễn móc4 trong mặt cắt. Đây là symbol có biến đổi riêng trong nguồn; không áp rule “mọi block phải scale1” hoặc “mọi block annotation phải scale0.2” cho asset này. Block sản phẩm nắp vẫn giữ1:1 theo quyết định chủ nhiệm.</li>
+<li>MC1/MC2 đặt hai đầu đường cắt trên mặt bằng, có ký tựA/B của hướng mặt cắt. B-B vàA-A phải resolve từ cùng assembly/transform, không tạo hình độc lập có kích thước khác.</li>
+</ul>
+<h2>4. Bảng nativeATT của tờ này</h2>
+<p>TK.Tieude tại(5700,5740), hàng đầuY5540, pitch100mm model, tương đương5mm giấy nominal. TK.Tenluoi đặt cùng cao độ hàng đầu nhóm, không thêm một hàng trống toàn bảng. TK.THKLNAP68605 tại(5700,4340).</p>
+<table>
+<thead>
+<tr>
+<th>Nhóm</th>
+<th>SH</th>
+<th>Asset</th>
+<th>Ø hoặc thép hình</th>
+<th>Kích thước/DAI trong nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Miệng ga</td>
+<td>GN1,GG1,GT1</td>
+<td>TK.TG</td>
+<td>V30x30x3 / 1.36kg/m</td>
+<td>DAI2400, SL1 mỗi hàng</td>
+</tr>
+<tr>
+<td>Miệng ga</td>
+<td>G2</td>
+<td>TK.NG</td>
+<td>Ø6</td>
+<td>L100, DAI100, SL56</td>
+</tr>
+<tr>
+<td>Nắp ga</td>
+<td>1</td>
+<td>TK.NA1</td>
+<td>Ø10</td>
+<td>50+770+50; DAI870, SL12</td>
+</tr>
+<tr>
+<td>Nắp ga</td>
+<td>1A</td>
+<td>TK.NA2</td>
+<td>Ø8</td>
+<td>70+770+70; DAI910, SL12</td>
+</tr>
+<tr>
+<td>Nắp ga</td>
+<td>2</td>
+<td>TK.NA1</td>
+<td>Ø10</td>
+<td>50+468+50; DAI568, SL18</td>
+</tr>
+<tr>
+<td>Nắp ga</td>
+<td>2A</td>
+<td>TK.NA2</td>
+<td>Ø8</td>
+<td>70+468+70; DAI608, SL18</td>
+</tr>
+<tr>
+<td>Nắp ga</td>
+<td>3</td>
+<td>TK.M.Z</td>
+<td>Ø6</td>
+<td>100+70+100; DAI270, SL4</td>
+</tr>
+<tr>
+<td>Nắp ga</td>
+<td>4</td>
+<td>TK.MC</td>
+<td>Ø8</td>
+<td>100+100+80+100+100; DAI480, SL4</td>
+</tr>
+<tr>
+<td>Nắp ga</td>
+<td>G1</td>
+<td>TK.TG</td>
+<td>V50x50x3 / 2.32kg/m</td>
+<td>DAI2595, SL4</td>
+</tr>
+<tr>
+<td>Nắp ga</td>
+<td>G2</td>
+<td>TK.NG</td>
+<td>Ø6</td>
+<td>L100, DAI100, SL20</td>
+</tr>
+</tbody>
+</table>
+<p>Không dùngTK.M.C thayTK.MC: schema khác nhau. TK.NA1/NA2 mang hình móc khác, không chọn bằngØ hoặc tênmark đơn thuần; dùng topology/shape policy đã resolve. <code>SL:2</code> ở tiêu đề tấm là số tấm assembly; quantities trongTK đã tổng hợp theo nguồn. Phải khai báo rõ row quantity là perPanel hay totalAssembly, không nhân2 lần nữa khi rendering.</p>
+<p>Tổng hợp nguồn: NAP1=24.04, NAP2=0.00, THEPHINH=33.87, TONG=57.92. Chênh0.01 với tổng hai số đã làm tròn không đủ kết luận lỗi; cộng giá trị chưa làm tròn rồi format cuối. Đơn vịDAI/legsmm, TDAIm. Khối lượng không phải trọng tâm phát triển hiện tại, nhưng schema/đơn vị và nội dung bảng phải giữ đúng.</p>
+<h2>5. Xung đột nguồn phải ghi nhận</h2>
+<p>BB nhãn685CE ghiSH=1,Ø8, trong khi mặt bằng/TK/AA có1AØ8. Nhãn685D5 ghiSH=2,Ø10 ở phía trên, trong khi đối chiếu các hình khác có nhóm2AØ8. Hai trường hợp này cần xác minh alias/đích hình học trước khi chuẩn hóa; không sao chép lỗi nghi ngờ vào rule và không tự rename toàncục. Mẫu cũng có nhãn nhỏ sít nhau; đạt chuẩn không có nghĩa sao chép va chạm chữ của nguồn.</p>
+<p>Tấm nắp mặt cắt dày100 của sheet này không đủ căn cứ để thay mọi chiều dày trần hoặc mọi sản phẩm. Quyết định owner khung nắp100/CT trên mặt hoàn thiện là contract riêng; không dùng một thông sốThickness cho cả panel, frame, roofslab và collar.</p>
+<h2>6. Sửa dữ liệu nghiên cứu OCS/WCS và quy tắc triển khai</h2>
+<p>Điểm chènDXF INSERT được lưu trongOCS. Ví dụThepGocLoi68549: rawinsertX=−89203.5095, extrusion≈(0,0,−1); WCSX=+89203.5095. Local thật là(4800,5260), không phải(−173607,5260). Bốn instance phản xạ của tờ này đã được sửa trongledger; cả71ledger được tái sinh với <code>insert_ocs_raw_mm</code>, <code>extrusion</code>, <code>insert_model_mm</code> đã đổiWCS. CSVbbox vốn lấyextentsWCS, không dùng rawinsert làm bbox.</p>
+<p><code>tools/vhg_page_ledger.py</code> dùngOCS.to_wcs, có4test bổ sung cho defaultnormal, −Z, normal nghiêng và missinginsert. Khi vẽ block thực, dùng ma trận đầy đủ (basepoint/scale/rotation/extrusion/translation), không chỉ sửa dấuX. JSON tờ này lưu matrix44 choThepGocLoi/BLMC và originWCS để kiểm. Tọa độATT/rawTEXT có thể cóOCS riêng: không tự chuyển cả rawrecord theo normal của INSERT; cần đọc theoentity type.</p>
+<h2>7. STD-20 — PanelDetail hiện là footprint generic, thiếu recipe lắp ghép này</h2>
+<p>Đọc code hiện tại: <code>ViewBuilder.Build</code> gọi <code>AddDetailViews</code> khoảng517. Trong <code>AddDetailViews</code> (khoảng718–749), mỗiComponentKind.Panel được thêm mộtview footprint/hatch, componentId và title <code>purpose.ToString()</code>, cùng presentation.ScaleDenominator. Đây là code-path finding có điều kiện: chỉ xảy ra nếu geometry cóPanel; chưa chạy native reproducer mới và chưa kiểm hết cácnhánh thay thế. Chưa được tuyên bố mọi assembly đều thiếu.</p>
+<p>Cách sửa cho junior:</p>
+<ol>
+<li>Xác định trigger: nắp/assembly được chọn có yêu cầu chi tiết chế tạo tấm/khung? Có thì tạoPanelAssemblyRecipe; không có thì không dựng giả ba khung hoặc tấm. Resolve catalog clear/orientation trước; giữ clear cổ theo sản phẩm và thickness cổ độc lập.</li>
+<li>Từ effectivePanelSpec, dựng vật lý panel + angleframes + anchors + meshes + ties/liftinghooks. Mỗi đối tượng có ID, role, layer và shape policy. Không lấy nét trongPDF làm physicalbar.</li>
+<li>Tạo sáu view tương ứng khi assembly cần: ba mặt bằng khung, mặt bằng tấm, AA,BB. Xác định transform của mặt cắt từ panel gốc; đưa cùngSourceIds vàomap để kiểm nhất quán.</li>
+<li>Resolve <code>PanelDetailScaleDenominator</code> từCF.Ga!M15 theoSTD-14; thiết lậpview/text/dim/annotations/TK/plot cùngscale. Frame sản phẩm giữ1:1, annotationtheoasset, symbolBLMCtheo policy riêng; không scale hìnhphysical để đổi tỷ lệ.</li>
+<li>DùngNOTE cho thép góc, SH/DK/A cho lưới, đồng bộ registry theo Panel/Mouth/FaceLayer. Bố trí nhãn nhưrecipe, đo hộpbao và routetránh chữ; đừng gomG2 hai scope khácspacing.</li>
+<li>Dựng nativeTK với12hàng của fixture này theo schema; biếnthiên sốhàng theoassembly, không hardcode12. BảngtổnghợpTK.THKLNAP khácTK.THKL. Quyết địnhperPanel/totalAssembly trước binding.</li>
+<li>Thay hoặc suppress viewgeneric chỉ khi recipe đã cung cấp đủ view tương ứng. Không xóa footprintgeneric rồi để trống khi asset/spec chưa resolve; báoPartial hoặcBlock có lýdo.</li>
+</ol>
+<p>Nghiệm thu: body1:30/panel1:20 vàbody1:40/panel1:20; rectangularcover xoay90°; đổi clear/thickness/số tấm/anchor pitch; có/không panel recipe; marks trùng tên khácscope; mirrored section block đọcWCS nằm đúnggóc; nativeATT đầyđủ; AA/BB/plan cùngID/kíchthước; PDF đủview khôngtràn/nhãn sai. Không lấytest “có1viewPanelDetail” làm bằngchứng đãđủsáuhình.</p>
+<p>Phần còn lại: kiểmtarget vật lý của mọi annotation, glyph/hatch/58DIM, sourcealias nghi ngờ, nhánhcode sảnphẩm đầyđủ vànativecandidate. Tất cả giữPending; khôngđóngSTD-20 chỉ vì extractor chạyxong.</p></html>

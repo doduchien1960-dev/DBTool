@@ -1,0 +1,124 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OWNER-RULES-THONG-KE-NHOM-20261013</title><style>body{font:16px/1.6 Segoe UI,Arial;max-width:1200px;margin:25px auto;padding:20px}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bccfd7;padding:8px;vertical-align:top}img{max-width:100%}pre{white-space:pre-wrap}</style><a href="INDEX.html">Trang tổng</a><h1>Quyết định chủ nhiệm: bảng ATT và nhóm thép biến chiều dài</h1>
+<p>Ngày 13/10/2026. Đây là yêu cầu trực tiếp mới nhất của chủ nhiệm, có hiệu lực cao hơn các suy luận hoặc hướng dẫn cũ trong hồ sơ nếu mâu thuẫn. Bốn ảnh do chủ nhiệm cung cấp được lưu kèm <a href="catalog/owner-captures-20261013.json">bằng chứng</a>. Số trong ảnh là ví dụ cách điền, không phải thông số cố định cho ga mới.</p>
+<h2>1. Bảng thống kê chỉ điền giá trị vào block mẫu</h2>
+<p><strong>Bắt buộc dùng block ATT đúng tên và schema của template DXF/DWG.</strong> Header, tên nhóm và diễn giải hiển thị tiếng Việt. Không dùng grid/text tiếng Anh, không explode block để dựng lại hình thép, không kéo giãn hình trong ô theo chiều dài thật.</p>
+<p>Hình thanh nằm trong TK là hình sơ họa có sẵn. Chọn asset đúng topology và bind ATT; giá trị thay đổi theo input. Chèn cả block theo quy cách trình bày/tỷ lệ của tờ đã xác minh, <strong>không lấy L hoặc DAI làm hệ số scale</strong>. Không diễn giải yêu cầu này thành “mọi TK phải scale1”: nguồn có annotation scale riêng; quyết định cấm là scale/stretch hình thanh theo kích thước physical. Block sản phẩm nắp giữ1:1 theo contract khác.</p>
+<p>Ảnh Properties hiển thị BlockUnit=Meters, scale0.0914 và UnitFactor3.2808 trong phiên CAD của người dùng. Đây không phải yêu cầu đổi đơn vị dự án hoặc sao chép scale0.0914 vào code. Geometry DBTool vẫn mm, cao độ m; lấy kích thước asset thật và cỡ chữ/ô trên giấy làm chuẩn, tránh AutoCAD tự nhân INSUNITS lần nữa.</p>
+<h2>2. Ví dụ ATT đã đọc từ ảnh</h2>
+<table>
+<thead>
+<tr>
+<th>Asset / ví dụ</th>
+<th>Giá trị đọc được</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TK.L2M, T2</td>
+<td>L1640, LT90, LP90, D10, DAI1820, SL10, TDAI18.20, KL11.22</td>
+<td>Hai đầu móc; hình trong ô giữ nguyên, chỉ số đổi</td>
+</tr>
+<tr>
+<td>TK.L2M, N2A</td>
+<td>L95, LT90, LP90, D10, DAI275, SL5, TDAI1.38, KL0.85</td>
+<td>Thanh ngắn vẫn dùng cùng hình sơ họa, không thu ngang theo95/1640</td>
+</tr>
+<tr>
+<td>TK.GC.H, C1A</td>
+<td>L=<code>950x950</code>, LT=<code>150x2</code>, D10, DAI4100, SL3, TDAI12.30, KL7.58</td>
+<td>TagL/LT có thể là chuỗi mô tả kích thước, không bắt buộc mọi tag làdouble</td>
+</tr>
+<tr>
+<td>TK.THKL</td>
+<td>TONG305.14; DAY1 56.49/DAY2 0; TUONG1 164.51/TUONG2 10.99; TRAN1 38.07/TRAN2 0; CO1 35.08/CO2 0</td>
+<td>Đúng schema tổng hợp theo cấu kiện và ngưỡngØ của header; không thay bảng bằngenum hoặc đổi1/2 thành lớp thép</td>
+</tr>
+</tbody>
+</table>
+<p>Ảnh C1A có tên <code>TK.GC.H</code>; tên rút gọn “GCH” ở tài liệu cũ chỉ là cách viết tắt, không phải asset khác để gọi renderer. Luôn dùng exact name từ manifest. Dữ liệu ảnh không đủ để giải quyết mọi alias C3/C3A hoặc group khác; giữ provenance, đối chiếu PDF và hình uốn trước khi khóa rule.</p>
+<h2>3. Thép bị lỗ cống cắt: gom theo vùng, chiều dài trung bình</h2>
+<p>Đối với một lỗ trên một lớp của một tường, chủ nhiệm quy định bốn nhóm bị cắt:</p>
+<table>
+<thead>
+<tr>
+<th>DisplayMark</th>
+<th>Vùng trình bày được yêu cầu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1A</td>
+<td>Bên trái lỗ</td>
+</tr>
+<tr>
+<td>T1B</td>
+<td>Bên phải lỗ</td>
+</tr>
+<tr>
+<td>T2A</td>
+<td>Phía trên lỗ</td>
+</tr>
+<tr>
+<td>T2B</td>
+<td>Phía dưới lỗ</td>
+</tr>
+</tbody>
+</table>
+<p>T1/T2 còn dùng cho nhóm nguyên không bị cắt theo recipe đã xác minh. Inner/Outer, tườngT1–T4, lỗ và view có scope riêng; không gom toàn ga theo chuỗiT1A. Phải định nghĩa hệ tọa độ nhìn tường và chiều trái/phải rõ trong ViewConvention. Không phân loại bằng tọa độ3D toàn cục hoặc đoán rằng mọi markT1 luôn tương đương globalVertical. Khi mặt sau bị mirror, giữ role vật lý và transform sang view đúng; không tráo A/B âm thầm.</p>
+<p><strong>Một nhóm có thể gồm nhiều thanh chiều dài khác nhau.</strong> Cống tròn cắt các station thành các đoạn khác nhau; gom nhóm vùng phù hợp, dùng trung bình số học chiều dài các thanh/đoạn thực tế của nhóm. Không tạo một hàng ATT/leader cho từng chiều dài lẻ.</p>
+<p>Đặt N là số thanh thành viên, Li là chiều dài gia công/nominal đã giải quyết theo cùng một policy:</p>
+<pre><code>Count = N
+MeanLengthMm = Sum(Li) / N
+TotalLengthMm = Sum(Li)               // dùng dữ liệu thật, chưa làm tròn
+DAI = Format(MeanLengthMm)            // mm, làm tròn lúc hiển thị
+SL = N
+TDAI = Format(TotalLengthMm / 1000)    // m
+</code></pre>
+<p>Ví dụ năm thanh có chiều dài300,420,500,420,300mm: N5, trung bình388mm, tổng1940mm; DAI388, SL5, TDAI1.94. Trường hợp trung bình lẻ, không dùng DAI đã làm tròn nhânN để tính lạiTDAI. Nếu giữ invariant Quantity×SingleLength trong canonical schedule, <strong>không thay invariant đó bằng nhóm trình bày trung bình</strong>: thêm lớp PresentationScheduleGroup riêng.</p>
+<p>Đối với tagL là đoạn chính và LT/LP là móc cố định: tính trung bình đoạn chính đúng role; giữ móc theo policy. DAI trung bình lấy từ chiều dài thanh đã giải quyết, không suy từ tổng các nhãn sơ họa khi bend allowance khác. Nếu móc/topology/Ø không tương thích, tách nhóm cấu tạo trước rồi mới lấy trung bình trong từng nhóm.</p>
+<p>Ltb trên caption hình uốn thể hiện length policy trung bình. BảngATT vẫn dùng tagDAI, không bịa thêm tagLTB nếu asset không có. Lmin/Lmax và từng Li lưu trong evidence để kiểm tra; không in thêm hàng cho mọi giá trị nếu mẫu chỉ gọi một nhóm.</p>
+<h2>4. Ranh giới gom nhóm — giữ đúng dữ liệu physical</h2>
+<p>Ba lớp độc lập:</p>
+<ol>
+<li><strong>Occurrence:</strong> từng thanh/đoạn thật, ID, path, chiều dài, nguồn cắt vàlỗ. Giữ đầy đủ; không thay5thanh biến thiên bằng5thanh cùng chiều dài trung bình.</li>
+<li><strong>Canonical fabrication shape:</strong> chỉ gom thanh tương thích hình uốn/kích thước theo invariant hiện có. Nhiều chiều dài có thể tạo nhiềuCanonicalMarks; đó là dữ liệu nội bộ hợp lệ.</li>
+<li><strong>PresentationScheduleGroup:</strong> gom cácCanonical/Occurrence có cùng cấu kiện/lớp/vùng/Ø/topology-compatible để hiển thị mộtDisplayMark, mộthàngTK và nhãn nhóm cần thiết. Lưu tậpCanonicalMarks, OccurrenceIds và MeanLengthMm. Không bắt nhóm này phải chỉ có mộtCanonicalMark.</li>
+</ol>
+<p>Khóa gợi ý: ManholeId + ComponentId + FaceLayer + OpeningRegionId + DirectionRole + ShapeRecipeId + Diameter + HookPolicy. Một lỗ sinh tối đa bốn nhóm bị cắt đang xét, cộng các nhóm nguyên/gia cường/buộc; nhóm rỗng không tạo row. Nhiều lỗ có thể chia một thanh thành nhiều đoạn: mỗi đoạn cóSegmentOccurrenceId và ownership; không dùngParentBarId để đếm tất cả đoạn như một thanh. Phải thống nhất chính sách đánh dấu phụ nếu nhiều vùng cùng role nhưng cấu tạo khác; không ép chỉbốnrow cho cảtườngnhiều lỗ.</p>
+<p>Không gộp U buộc với thang vì cùng assetTK.M.U; không gộp thép vạt, gia cường lỗ, thép nguyên vàđoạn cắt vì cùng Ø. Không gộpC3vớiC3A chỉ vìgần tên. Cácnhóm cònlại phải bổsungrecipe theo PDF/chi tiết uốn; chưa đủ bằng chứng thìNeedsRule có source, không fallbackL0M.</p>
+<h2>5. Cách sửa code cho junior</h2>
+<ol>
+<li><strong>Kiểm clip hình học trước.</strong> Lấy các đoạn thật sau clip, endpoint, cover, bend và OpeningId. Cống tròn dùng giao với hình tròn hoặc contour thật; cống hộp dùng contour thật. Không dùng bounding box của cống tròn để tính chiều dài Li.</li>
+<li><strong>Thêm adapter nhóm trình bày</strong> giữa domain/canonical schedule và native TK planner. Không nới lỏng <code>BendingSchematicPlanner.Build</code> để cho phép một canonical mark chứa nhiều hình không nhất quán.</li>
+<li><strong>Gán vùng theo ViewConvention</strong> và bảng quyết định owner ở trên. Dùng ownership của đoạn cắt có nguồn. Tách thanh nguyên, đoạn cắt và gia cường theo vai trò. Sắp station để ID/mark ổn định khi input đổi nhẹ.</li>
+<li><strong>Gom nhóm tương thích.</strong> Tính Count/Sum/Mean/Min/Max từ toàn bộ thành viên, giữ độ chính xác gốc. Nhóm rỗng không tạo hàng. Khác Ø, topology hoặc hook policy thì tách nhóm có lý do. Không lấy <code>First()</code> làm chiều dài đại diện.</li>
+<li><strong>Bind đúng schema ATT.</strong> L/LT/LP hoặc các tag đoạn lấy theo ShapeRecipe; SH nhận DisplayMark; DAI nhận chiều dài trung bình của nhóm biến thiên; SL nhận count; TDAI nhận tổng chưa làm tròn chia1000. Summary không cộng lại các ô đã format.</li>
+<li><strong>Emit native BlockPrimitive cho TK.</strong> Loại bỏ nhánh RoundSteel grid/text trong cùng scope. Dùng TENLUOI tiếng Việt và header native. Không để giá trị mặc định của ATTDEF tồn tại như dữ liệu thật.</li>
+<li><strong>Dùng registry chung</strong> cho callout, schematic và TK. Collector gom thanh theo vùng, Gach đặt tại giao thật. Một nhóm có thể cần nhiều nhánh collector để tránh lỗ; không vì “một nhóm” mà vẽ một đường mù xuyên cống.</li>
+<li><strong>Xuất <code>presentation-schedule-groups.json</code>.</strong> Lưu GroupId, Scope, ViewConventionId, OpeningRegionId, DisplayMark, AssetName, OccurrenceIds, CanonicalMarks, member lengths/legs, Count, Mean/Min/Max/SumLengthMm, BoundAttributes, LengthPolicyId và SourceRefs. Liên kết với file map occurrence hiện có, không thay mất dữ liệu đó.</li>
+</ol>
+<h2>6. Gate nghiệm thu bắt buộc</h2>
+<ul>
+<li>Năm đoạn300/420/500/420/300mm → một nhóm, một hàng, DAI388, SL5, TDAI1.94; đủ nămID và giữ nguyên các path vật lý.</li>
+<li>Nhóm300/301/301mm → mean300.666…, tổng902mm. Không dùng301×3=903 để tính TDAI. Chính sách làm tròn phải rõ; tổng gốc không đổi.</li>
+<li>Một lỗ tròn lệch tim: bốn vùng được phân loại đúng khi có thành viên. Trái/phải không bắt buộc có cùng số thanh hoặc cùng chiều dài trung bình. Mirror view không đổi ownership vật lý.</li>
+<li>Không có cống thì không sinh T1A/B/T2A/B giả. Cống hộp, hai lỗ và lỗ gần mép không làm mất, đếm trùng đoạn hoặc gom sai topology.</li>
+<li>Cùng SH ở hai tường hoặc hai lớp không nhập chung nhóm. U buộc/thang cùng asset vẫn khác nhóm. Cùng Ø nhưng khác hook policy không nhập nhóm.</li>
+<li>Native readback xác nhận đúng tên TK và đủ tag/giá trị; không còn hàng tiếng Anh dựng bằng grid/text. Scale không phụ thuộc Mean/L/DAI. Đổi L1640→95 vẫn giữ glyph và ô; chỉ ATT đổi.</li>
+<li>PDF có header/tên nhóm tiếng Việt; không tạo leader/hàng cho từng occurrence lặp lại; chữ, nhãn và đường không chồng lấn. Khi hoàn thành phải cập nhật ảnh/PDF và bằng chứng vào INDEX theo <a href="HUONG-DAN-CAP-NHAT-KET-QUA.html">quy trình</a>.</li>
+</ul>
+<p><strong>Điểm thay hướng dẫn cũ:</strong> yêu cầu một hàng TK chỉ tương ứng một canonical mark, hoặc bắt mọi thanh trong hàng có cùng chiều dài, không áp dụng cho PresentationScheduleGroup trung bình này. Invariant physical/canonical vẫn giữ. Tính khối lượng xuất Excel chưa được ưu tiên; đơn vị và binding TK vẫn phải chính xác.</p>
+<h2>Ảnh đối chiếu chủ nhiệm cung cấp</h2>
+<h3>TK.L2M — giá trị L1640 và hai móc90</h3>
+<p><a href="catalog/owner-20261013/01-tk-l2m.png">Ảnh gốc</a></p>
+<p><img alt="Ảnh đối chiếu" src="catalog/owner-20261013/01-tk-l2m.webp" /></p>
+<h3>TK.L2M — thanh ngắnL95 vẫn giữ hình sơ họa</h3>
+<p><a href="catalog/owner-20261013/02-tk-short.png">Ảnh gốc</a></p>
+<p><img alt="Ảnh đối chiếu" src="catalog/owner-20261013/02-tk-short.webp" /></p>
+<h3>TK.THKL — schema tổng hợp tiếng Việt</h3>
+<p><a href="catalog/owner-20261013/03-tk-summary.png">Ảnh gốc</a></p>
+<p><img alt="Ảnh đối chiếu" src="catalog/owner-20261013/03-tk-summary.webp" /></p>
+<h3>TK.GC.H — chuỗi kích thước và đoạn nối</h3>
+<p><a href="catalog/owner-20261013/04-tk-closed.png">Ảnh gốc</a></p>
+<p><img alt="Ảnh đối chiếu" src="catalog/owner-20261013/04-tk-closed.webp" /></p></html>

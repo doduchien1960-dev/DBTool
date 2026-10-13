@@ -1,0 +1,118 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>pages/PDF-003-PHAN-TICH-CHI-TIET</title><style>body{font:16px/1.6 Segoe UI,Arial;max-width:1200px;margin:25px auto;padding:20px}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bccfd7;padding:8px;vertical-align:top}img{max-width:100%}pre{white-space:pre-wrap}</style><a href="../INDEX.html">Trang tổng</a><h1>PDF003 — tờ hình uốn và liên kết với bảng ATT</h1>
+<p>Đã mở toàn trang <code>1.1.Ga thăm BTCT liền khối-Model-11.pdf</code>, đối chiếu native CAD-1-F020 và trích trực tiếp MTEXT từ DXF. Đã sửa tên Model trong phần mô tả; ledger/hash vẫn là Model-11, không thay nguồn đối chiếu. Tờ này là hình uốn, không phải mặt bằng lưới thép. Có 88 hình, 14 tiêu đề nhóm, 7 cột. 88 caption ghép duy nhất với 88 hàng ATT của PDF002 bằng <strong>nhóm cấu kiện/lớp + SH</strong>, sau đó kiểm tra đường kính và DAI: 88/88 khớp. Đây là bằng chứng nhất quán nội dung giữa hai tờ, chưa phải chứng nhận toàn bộ quantity, glyph hoặc cấu tạo vật lý.</p>
+<p><a href="../pdf/PDF-003-p1.png">Ảnh toàn trang</a> · <a href="PDF-003-BENDING-MAP.html">Bảng đối chiếu 88 hình</a> · <a href="PDF-003-detail-review.json">JSON có handle, tọa độ, hình học và chữ</a>.</p>
+<h2>1. Thứ tự nội dung bắt buộc</h2>
+<p>Tọa độ local mm lấy gốc tại góc dưới trái khung, X sang phải/Y lên. Các số là phép đo nguồn; chỉ dùng làm fixture đối chiếu và rút recipe, không dùng làm lookup theo tên ga.</p>
+<table>
+<thead>
+<tr>
+<th>Cột / tâm X</th>
+<th>Nhóm trên — số hình</th>
+<th>Nhóm dưới — số hình</th>
+<th>Y tiêu đề trên / dưới</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 / 1620</td>
+<td>Bản đáy - lớp trên: D1,D2,D3 — 3</td>
+<td>Bản đáy - lớp dưới: D1,D2 — 2</td>
+<td>8670 / 7260</td>
+</tr>
+<tr>
+<td>2 / 3240</td>
+<td>Tường T1 - lớp ngoài — 10</td>
+<td>Tường T1 - lớp trong — 9</td>
+<td>8670 / 4530</td>
+</tr>
+<tr>
+<td>3 / 4860</td>
+<td>Tường T2 - lớp ngoài — 10</td>
+<td>Tường T2 - lớp trong — 9</td>
+<td>8670 / 4530</td>
+</tr>
+<tr>
+<td>4 / 6480</td>
+<td>Tường T3 - lớp ngoài: T1,T2,T3 — 3</td>
+<td>Tường T3 - lớp trong: T1,T2 — 2</td>
+<td>8670 / 7260</td>
+</tr>
+<tr>
+<td>5 / 8100</td>
+<td>Tường T4 - lớp ngoài — 10</td>
+<td>Tường T4 - lớp trong — 9</td>
+<td>8670 / 4530</td>
+</tr>
+<tr>
+<td>6 / 9720</td>
+<td>Trần - lớp trên — 8</td>
+<td>Trần - lớp dưới — 7</td>
+<td>8670 / 5310</td>
+</tr>
+<tr>
+<td>7 / 11340</td>
+<td>Cổ ga: C1,C1A,C2,C2A,C3A — 5</td>
+<td>Thang thép: Th — 1</td>
+<td>8670 / 6480</td>
+</tr>
+</tbody>
+</table>
+<p>Tường có lỗ ở T1/T2/T4: thứ tự ngoài là T1,T1A,T1B,T2,T2A,T2B,T3,GC1,GC2,GC3; trong bỏ T3 trong nguồn này. T3 không có bộ nhánh quanh lỗ như các tường kia. Không ép mọi tường cùng một số hình, cũng không suy từ tên T3 rằng đó luôn là thép buộc: scope phải rõ.</p>
+<p>Trần trên: N1,N1A,N1B,N2,N2A,N2B,N3,N4; trần dưới bỏ N4 trong nguồn. Việc chỉ vẽ hình buộc ở một nhóm trình bày không đồng nghĩa bỏ thanh buộc vật lý ở lớp còn lại. Một U nối hai lớp chỉ là một thanh; mapping phải thể hiện vai trò ấy, tránh đếm đôi.</p>
+<h2>2. Font, layer, đối tượng và nét</h2>
+<ul>
+<li>14 block <code>TieudeMC</code> chỉ mang ATT <code>TIEUDE</code>, không có dòng tỷ lệ như <code>TenMC</code>. Chèn scale0.3; chữ tiêu đề màu xanh lá trong ảnh. Giữ schema/style asset, không thay bằng chuỗi tên enum tiếng Anh.</li>
+<li>88 caption là <strong>MTEXT</strong>, layer <code>VHG-Text</code>, style <code>VHG-Unicode.Regular</code>, char height60mm, attachment5 (Middle Center); raw có <code>\L...\l</code> để gạch chân. Ví dụ <code>\LT1A-D10, Ltb=480\l</code>. Không dùng nhãn BLT thay caption này.</li>
+<li>Nhãn kích thước các nhánh là TEXT riêng, height60, phần đã trích có width factor0.85; xoay0° hoặc90° theo nhánh. Vị trí insert/align và halign/valign lưu trong JSON. Không đo chiều dài đường schematic rồi ghi số đó.</li>
+<li>94 đối tượng thép gồm 41LWPOLYLINE + 47LINE + 6CIRCLE, layer <code>VHG-Thep</code>, màu đỏ trong bản in. Linetype các hình đã kiểm là BYLAYER; template layer Continuous. LWPOLYLINE C có bulge tạo cung, không được làm mất bulge khi chuyển đổi.</li>
+<li>Không có BLT/Gach/BLTC hoặc DIMENSION ở tờ này. Không thêm tuyến gom, dấu X hoặc chuỗi AutoCAD dimension như trên mặt bằng lưới. Các số nhánh ở đây là chú thích hình uốn.</li>
+<li>Có 192 TEXT native: 189 gán candidate bằng bounds; ba chữ “150” dưới vòng kín được gán thủ công sau khi xem ảnh: 67A0F → N3 trần trên (67A0A), 67C6C → N3 trần dưới (67C67), 680D1 → C1A cổ (680CC). Đây là kích thước đoạn đóng vòng, không phải dòng tiêu đề hay thép bổ sung. Đã lưu đủ 192 TEXT, chưa chứng nhận từng glyph.</li>
+</ul>
+<p>Các đường nét và TEXT gán vào ô theo bounds là <strong>candidate</strong>. 94đường thép được lưu tọa độ đầy đủ, nhưng quan hệ vật lý và từng giao điểm vẫn cần kiểm topology; extractor không tự chứng nhận.</p>
+<h2>3. Phát hiện quan trọng: schematic không vẽ theo chiều dài vật lý</h2>
+<p>Hình D1 trên, caption664A2, path664A3: nhánh ngang vẽ dài900mm model nhưng chữ nhánh là1490; hai móc vẽ150 nhưng chữ90. Tổng chiều dài chú thích1670 khớp ATT DAI1670. Không thể lấy phép đo polyline của schematic để lập hình vật lý hoặc tính chiều dài.</p>
+<p>Hình U D3 path6655E có các nhánh schematic150–150–300–150–150 nhưng chữ và ATT là100–90–200–90–100, DAI580. Thang path68112 có <strong>cùng footprint schematic</strong> với U này nhưng các số150–250–300–250–150, DAI1100, D18. Do đó:</p>
+<ol>
+<li>Đường physical giữ đủ nhánh, bend, cover và kích thước thật trong domain.</li>
+<li>Hình schematic giữ topology dễ đọc, chiều ngang/cao vừa ô; lấy <strong>số ghi chú</strong> từ thông số hình uốn đã giải quyết, không lấy chiều dài nét schematic.</li>
+<li>TK.M.U có thể dùng cho cả U buộc và thang, nhưng family/role/Ø/legs không được gộp chỉ vì cùng tên asset hoặc cùng hình vẽ.</li>
+<li>Không ép physicalC thành C190 của nguồn. Chủ nhiệm đã yêu cầu5đoạn và4gócR8; nguồn schematic chỉ ghi50+90+50 nên không đủ bằng chứng để bỏ hai đoạn sâu30 hoặc thay rule physical.</li>
+</ol>
+<p>GC1 T1 ngoài, circle6693C bán kính vẽ135 nhưng TEXT ghiD1090; cạnh150x2 thể hiện bằng nét phụ và haiTEXT150. Bằng chứng này bác bỏ cách dùng mọi hình schematic như hình đúng tỷ lệ. GC1 phải phân loại topology/role; không mặc định mọi GC1 là thanh xiên45°.</p>
+<p>Cổ ga caption680F9 là <code>C3A-D6, L=200</code>, ATT680EE cũngSH=C3A; mặt bằng cổ PDF002 lại gọiC3. Giữ xung đột alias trong SOURCE-CONFLICTS; không sửa tên toàn bộ dự án dựa trên một tờ.</p>
+<h2>4. Công thức bố cục khi biến thiên</h2>
+<p>Trong nguồn: pitch cột1620; tiêu đề tới caption đầu240; các caption trong cùng nhóm cách390. Nhóm dưới bắt đầu thấp hơn caption cuối nhóm trên390 tới tiêu đề mới, rồi240 tới caption đầu. Các khoảng là quy cách trình bày, không phải kích thước thanh.</p>
+<p>Ở nominal1:30: pitch54mm giấy, row pitch13mm, title→caption8mm. Tỷ lệ in thực đo từ transform khoảng1:32.6416, vì nguồn đã co trên trang; không lấy tỷ lệ đo đó thay nominal trong domain. Cần báo cả nominal và actual plot scale.</p>
+<p>Thuật toán junior phải làm:</p>
+<ol>
+<li>Nhận <code>BendingPresentationGroup</code> đã có Component/FaceLayer/DisplayMark và tập CanonicalMarks/OccurrenceIds; dùng cùng registry với nhãn và bảng TK.</li>
+<li>Chọn shape recipe theo topology/shape family đã xác minh, không theo ManholeId hoặc filename Model index.</li>
+<li>Điền caption <code>&lt;DisplayMark&gt;-D&lt;Ø&gt;, L=&lt;...&gt;</code>; dùng <code>Ltb</code> chỉ khi length policy của nhóm có thanh biến chiều dài và đã xác định cách tính đại diện. Không tự đổi mọi nhóm thànhLtb, không mặc định lấy thanh đầu tiên làm trung bình.</li>
+<li>Tạo nét schematic vào ô; text lấy leg values thật. Không ghi R/A cho mọi fillet nếu mẫu không gọi các số đó; giữ trong dữ liệu/diagnostic khi cần. Không bỏ móc hoặc cung chỉ để fitô.</li>
+<li>Đo ink extents gồm nét và chữ, lấy chiều cao ô lớn hơn minimum pitch. Xếp từng nhóm theo thứ tự trên; đặt nhóm dưới từ extents nhóm trên cộng gap. Cột kế tiếp theo recipe. Nếu không đủ trang, tiếp trang với header và thứ tự nhóm, không ép text nhỏ.</li>
+<li>Với nhóm rỗng do không có lỗ/cấu kiện, bỏ đúng nhóm nhánh đó, không sinh hìnhplaceholder. Với thanh physical có tồn tại nhưng chưa hỗ trợ shape, báo lỗi rõ và giữPartial; không làm biến mất C/U/thang.</li>
+</ol>
+<p>Các tọa độ nguồn là fixture; biến thiên số nhánh quanh lỗ hoặc số nhóm phải tính lại extents, không cộng tọa độ từG800.</p>
+<h2>5. STD-19 — nhánh hiện tại vẽ schematic theo canonical mark tự do</h2>
+<p>Code đọc trực tiếp: <code>DBTool/DBTool.Drawing/ViewBuilder.cs</code>, hàm <code>AddSchematicBars</code> (khoảng649–695); <code>BendingSchematicPlanner.cs</code>, <code>Build</code>.</p>
+<p>Planner gom theo canonical mark, kiểm consistency và chiếu physical path; đó là lớp hình uốn nền tảng có ích. Nhưng <code>AddSchematicBars</code> tạo một View cho mỗi shape, id <code>Bending/{shape.Mark}</code>, origin <code>index*2500,-8000</code>; caption <code>&lt;mark&gt; SL=&lt;quantity&gt; L=&lt;length&gt;</code> và đặt dimension cho từng LINE, <code>R=... A=...</code> cho từng ARC. Không thấy việc dựng 14nhóm/7cột, lấy DisplayMark theo scope, hay underlined caption/style như nguồn trong hàm này. Đây là <strong>code-path finding</strong>, không phải kết luận đã chạy native reproducer mới.</p>
+<p>Cách sửa:</p>
+<ul>
+<li>Giữ canonical geometry planner và consistency gate; không đổi canonical mark thành <code>T1</code> toàn cục.</li>
+<li>Bổ sung adapter từ group registry sang schematic presentation. Cho phép cùng canonical fabrication shape xuất hiện dưới nhiều scope trình bày nếu mẫu cần; không nhân số thanh khi lặp hình minh họa.</li>
+<li>Thay vòng xếp <code>index*2500</code> bằng column/group recipe trên. Khóa nội dung/hierarchy trước khi đưa vào packer tổng thể.</li>
+<li>Tách physical projection khỏi schematic normalization. NativeTK vẫn chèn block ATT, còn tờ hình uốn độc lập có LINE/polyline/circle + MTEXT/TEXT là đúng mẫu. <strong>Không cấm toàn bộ line thép</strong>, chỉ cấm lấy line/text thay block ATT trong bảngTK.</li>
+<li>Mỗi hình phải có identity liên kết về row/group; kiểm equality giữaØ, leg values, L/Ltb và DAI theo policy. Không đo path schematic để ghi ngược domain.</li>
+<li>Vì <code>BendingShapeIntent</code> hiện không mang Diameter hoặc FaceLayer/DisplayMark, adapter phải resolve từ source occurrences/group registry, không đoánØ10 hoặc lớp từ chỉ số.</li>
+<li>Không tự xóa <code>SL</code> trong bảngTK; ở caption hình uốn dùng mẫu không cóSL. Số lượng vẫn lấy từ dữ liệu và xuất trong đúng cellATT.</li>
+</ul>
+<h2>6. Nghiệm thu riêng cho junior</h2>
+<ul>
+<li>Fixture nguồn này có14nhóm/88caption; ghép scope+SH duy nhất,Ø/DAI khớp88/88. Bản biến thiên có số nhóm theo cấu tạo thật, <strong>không hardcode88</strong>.</li>
+<li>Cùng markT1 ngoài/trong có thể khácL/móc. Cùng canonical shape có thể được minh họa nhiều scope nhưng occurrence coverage/quantity không nhân đôi.</li>
+<li>D3/N4/Th dùng đúngØ và leg values; không gộp vì cùng footprint/TK.M.U.</li>
+<li>Test ga khôngcống/cốngtròn/cốnghộp: nhóm T1A/B/T2A/B/GC theo vùng thật; không mất thép do nhóm rỗng hoặc chưa hỗ trợ.</li>
+<li>Test đổi kích thước, đổi tên ga, đổi scale: physicalgeometry bất biến khi chỉ đổi tên/scale; schematic vừaô, chữ có cỡgiấy ổn định, không tràn/chồng.</li>
+<li>Native readback xác nhậnMTEXT gạch chân, style/layer/marks; PDF zoom kiểm chữ và cung. Chưa chạy những gate này trênDBTool thì chưa đóngSTD-19.</li>
+</ul>
+<p>Phạm vi còn thiếu: glyph/curve chính xác mọi ô, kiểm lại length policy vật lý/quantity và native candidate reproducer. Tài liệu này bổ sung, không tuyên bố hoàn tất71PDF hoặc đã sửa sản phẩm.</p></html>

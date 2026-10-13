@@ -1,0 +1,176 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>pages/PDF-005-PHAN-TICH-CHI-TIET</title><style>body{font:16px/1.65 Segoe UI,Arial;max-width:1200px;margin:auto;padding:24px}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bccfd7;padding:8px;vertical-align:top}img{max-width:100%}pre{white-space:pre-wrap}</style><a href="../INDEX.html">Trang tổng</a><h1>PDF005 — lưới bản đáy, tường có cống tròn và tuyến gom nhóm</h1>
+<p>Nguồn chính xác: <code>1.1.Ga thăm BTCT liền khối-Model-2.pdf</code>, SHA256 <code>a1a80f5e6b9ce6b5b6f2193aedc790588b5ac368e4a326c533a9b7dd7eeae6d3</code>. Khung đối chiếu CAD-1-F007, ga G500-2; đây là tờ lưới của bộ cấu tạo PDF001. <strong>Không phải bộ G800-1 của PDF002/003.</strong> Số thứ tự PDF trong catalog được sắp theo tên file, không phải số Model và không phải mã bộ hồ sơ.</p>
+<p><a href="../pdf/PDF-005-p1.png">Ảnh nguồn đầy đủ</a> · <a href="PDF-005-COLLECTOR-MAP.html">Bảng 47 nhãn, tọa độ và tuyến</a> · <a href="PDF-005-detail-review.json">Bằng chứng native có hash</a>.</p>
+<p>Đã xem toàn tờ, phân loại sáu hình và đọc ATT cùng tuyến native của 47 nhãn. 47/47 nhãn có đúng một tuyến nét ghi chú kết thúc tại điểm chèn block. Đây là kết quả đối chiếu nguồn, <strong>không phải 47 nhóm thanh vật lý đã được xác nhận</strong>, không phải kết quả DBTool đã sửa và chưa chứng nhận toàn bộ glyph/quantity. Các Gach thẳng hàng với tuyến chỉ là candidate; cần kiểm giao với đường thép thực trước khi nghiệm thu.</p>
+<h2>1. Nội dung phải có trong tờ và thứ tự đọc</h2>
+<p>Tờ có ba cột, hai hàng; cùng tỷ lệ danh định 1:30. Hàng trên: đáy lớp trên, T1 ngoài, T2 ngoài. Hàng dưới: đáy lớp dưới, T1 trong, T2 trong. Không gom hàng trên và dưới vào một view, không đổi thứ tự bằng packer tùy ý.</p>
+<table>
+<thead>
+<tr>
+<th>Hình</th>
+<th>Tâm tiêu đề local X,Y mm</th>
+<th style="text-align: right;">Số nhãn</th>
+<th style="text-align: right;">Gach native</th>
+<th style="text-align: right;">BLTC native</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Đáy lớp trên</td>
+<td>2345,8610</td>
+<td style="text-align: right;">3: D1,D2,D3</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr>
+<td>Đáy lớp dưới</td>
+<td>2345,4430</td>
+<td style="text-align: right;">2: D1,D2</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>T1 ngoài</td>
+<td>5835,8610</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr>
+<td>T1 trong</td>
+<td>5835,4430</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>T2 ngoài</td>
+<td>9325,8610</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr>
+<td>T2 trong</td>
+<td>9325,4430</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p>Tổng: 47 BLT, 234 Gach, 32 BLTC, sáu TenMC, bốn CT. Các số này chỉ là fixture nguồn này; không hardcode vào ga khác. Số BLTC bằng 0 ở view lớp dưới/trong không chứng minh thiếu thép buộc vật lý: ký hiệu có thể được trình bày ở view đại diện lớp trên/ngoài. Phải kiểm cả mô hình lẫn chính sách hiển thị theo view.</p>
+<p>Gốc tọa độ local đặt tại góc dưới trái khung CAD, X phải/Y lên. Trong thuật toán phải đổi sang gốc view trước khi dùng. Không dùng tọa độ khung của fixture làm tọa độ sản xuất.</p>
+<h2>2. Bản đáy: hai nhóm lưới và một nhóm buộc</h2>
+<p>Đáy phủ bì 1650×1850 mm. Đáy trên có mép trái/dưới tại (1520,5860), mép trên Y=7710. Tiêu đề cách đỉnh 900 mm model trong fixture tỷ lệ 1:30; đây là số đo nguồn, cần kiểm các tờ/tỷ lệ khác trước khi coi là hằng số chung.</p>
+<ul>
+<li>D1: BLT1 tại (1860,5710). Tuyến <code>5DE17</code>: (1830,7680) → (1830,5890) → (1830,5710) → (1860,5710). Tuyến đứng quét các thanh, xuống làn nhãn dưới cách đáy 150 mm rồi có stub ngang 30 mm.</li>
+<li>D2: BLT2 tại (1490,7430). Tuyến <code>5DECB</code>: (3140,7430) → (1550,7430) → (1520,7430) → (1490,7430). Tuyến ngang ra trái; điểm chèn block cách mép trái 30 mm. <strong>Điểm chèn không phải hộp bao chữ</strong>: block vươn trái, phải đo đúng envelope cả ATT và vòng số.</li>
+<li>D3: BLT1 tại (2825,5710), Ø6@300. Tuyến <code>5DF82</code>: nút (2720,6335) → (2795,6260) → (2795,5710) → (2825,5710). Đoạn đầu xiên 45°, sau đó đứng và stub. Không cấm mọi đoạn xiên; cấm leader nối mù từ nhãn xuyên qua chữ và sai thanh.</li>
+<li>Đáy dưới chỉ có D1/D2; vị trí tương ứng dịch Y −4180 trong bố cục nguồn. Không sao chép nguyên lệnh dịch này vào ga biến thiên: tạo mỗi view từ geometry rồi layout cả cụm.</li>
+</ul>
+<p>BLTC đáy trên có 12 dấu, không phải luôn 12 cho mọi ga. Sinh vị trí thép buộc U từ lưới và lớp thép thật, chọn chính sách so le “cách một thanh” theo yêu cầu chủ nhiệm; sau đó lấy tọa độ của các tie instance để vẽ X. Không tạo X độc lập rồi coi đó là có thép U.</p>
+<h2>3. Tường có cống: nhóm, vị trí nhãn và scope</h2>
+<p>T1: bề rộng thân 1450, chân 1650, chiều cao biểu diễn 1750 mm; cống Ø400 có cao độ đáy 57.06. T2: bề rộng thân 1650, chân 1850, cao 1750; cống Ø500 có cao độ đáy 56.64. Nhãn GC1 lần lượt đọc D640 và D750; <strong>không đồng nhất đường kính cống với đường kính vòng thép gia cường</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Nhóm</th>
+<th>Nơi bố trí mẫu</th>
+<th>T1 ngoài — điểm chèn local</th>
+<th>T2 ngoài — điểm chèn local</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1 nguyên</td>
+<td>Làn dưới, trái</td>
+<td>5155,5810</td>
+<td>8545,5810</td>
+</tr>
+<tr>
+<td>T1A</td>
+<td>Làn dưới, giữa trái</td>
+<td>5515,5810</td>
+<td>8950,5810</td>
+</tr>
+<tr>
+<td>T1B</td>
+<td>Làn dưới, phải</td>
+<td>6515,5810</td>
+<td>10105,5810</td>
+</tr>
+<tr>
+<td>T2 nguyên</td>
+<td>Bên trái, gần đỉnh</td>
+<td>5080,7635</td>
+<td>8470,7635</td>
+</tr>
+<tr>
+<td>T2A</td>
+<td>Bên trái, vùng trên lỗ</td>
+<td>5080,7390</td>
+<td>8470,7075</td>
+</tr>
+<tr>
+<td>T2B</td>
+<td>Bên trái, vùng dưới lỗ</td>
+<td>5080,6630</td>
+<td>8470,6205</td>
+</tr>
+<tr>
+<td>T3 — buộc ngoài Ø6@300</td>
+<td>Làn dưới, gần phải</td>
+<td>6405,5810</td>
+<td>9970,5810</td>
+</tr>
+<tr>
+<td>GC1 — vòng</td>
+<td>Bên phải, cao trình tâm vòng</td>
+<td>6590,7010</td>
+<td>10180,6640</td>
+</tr>
+<tr>
+<td>GC2 — SL:4</td>
+<td>Bên phải, vùng trên lỗ</td>
+<td>6590,7437.800</td>
+<td>10180,7126.136</td>
+</tr>
+<tr>
+<td>GC3 — SL:4</td>
+<td>Bên phải, vùng dưới lỗ</td>
+<td>6590,6582.200</td>
+<td>10180,6182.417</td>
+</tr>
+</tbody>
+</table>
+<p>Tường trong có 11 nhãn: sáu T1/T1A/T1B/T2/T2A/T2B, hai T3/T4 Ø10@150 và ba GC. Trong fixture, T3 đặt bên phải gần đỉnh, T4 bên phải gần chân. <strong>T3 trong không phải thép buộc C của T3 ngoài.</strong> Vai trò hình học chi tiết của hai nhóm này phải đối chiếu đường thép/hình uốn cùng bộ, không suy từ chuỗi “T3”. Các đường GC có thể xiên hoặc nhiều đoạn; giữ loại tuyến theo role, không ép tất cả thành leader hai điểm.</p>
+<p>Tên tra cứu tối thiểu: <code>(ManholeId, ComponentId, WallId, FaceLayer, OpeningId, Role, Region, DisplayMark)</code>. Scope không được chỉ là SH. Mặt tường “trái/phải” phải theo trục view có lưu transform; khi đổi mặt trong/ngoài không tự đảo tên do thứ tự enumerate.</p>
+<h2>4. Quy tắc bốn nhóm thép bị cống cắt — yêu cầu chủ nhiệm</h2>
+<p>Trong <strong>mỗi lớp của mỗi tường có lỗ</strong>, dùng vùng T1A=trái, T1B=phải, T2A=trên, T2B=dưới theo quy ước view đã chốt. Đây là quyết định chủ nhiệm, không phải suy luận rằng mọi đoạn native đã được phân loại vật lý xong. Gach và nhãn chỉ thể hiện nhóm; không cung cấp đủ dữ liệu để tính chiều dài của từng thanh.</p>
+<p>Trình tự triển khai cho junior:</p>
+<ol>
+<li>Lấy biên dạng lỗ và transform từ <strong>cùng một đối tượng Opening</strong> dùng ở mặt bằng và mặt tường. Không tính lại tim/lỗ riêng trong từng detailer. Ghi WallId, FaceLayer, OpeningId vào trace.</li>
+<li>Cắt đường thanh bằng biên thực circle/polygon. Giữ từng đoạn còn lại với SegmentOccurrenceId, ParentOccurrenceId, đường tâm, hook và chiều dài triển khai thật. Không lấy dây cung đại diện thay cho tất cả thanh cống tròn.</li>
+<li>Phân vùng đoạn trong hệ trục view; gom theo scope, role, vùng, Ø, shape/hook compatibility. Không gom hai mặt/lớp, hai lỗ hoặc hai kiểu uốn khác nhau chỉ vì cùng tên T1A. Thanh nguyên thuộc nhóm nguyên, không đưa vào nhóm bị cắt.</li>
+<li>N đoạn hợp lệ tạo một PresentationScheduleGroup: SL=N; DAI trung bình = ΣLi/N; tổng dài m = ΣLi/1000. Tính bằng số chưa làm tròn, chỉ định dạng khi ghi ATT. Ví dụ 300,420,500,420,300 mm → DAI=388, SL=5, tổng=1.94 m. Ví dụ 300,301,301 → mean=300.666…; không lấy 301×3 làm tổng thật.</li>
+<li>Chọn block TK theo hình uốn đã có trong template; gán SH/D/L/LT/LP/DAI/SL/TDAI/KL theo schema của đúng block. Với nhiều kích thước đoạn, cần giữ nghĩa từng chân; không lấy giá trị đầu tiên. Chuỗi kích thước như <code>950x950</code>, <code>150x2</code> không ép thành double.</li>
+<li>Hình cơ bản bên trong TK giữ nguyên. Không vẽ lại đường tâm vật lý theo chiều dài thật vào ô bảng, không stretch/scale block theo DAI. Chỉ dùng scale trình bày thống nhất theo recipe của cả bảng. Không tạo cột tiếng Anh hoặc bảng grid thay thế native ATT.</li>
+<li>Lưu group→SegmentOccurrenceIds→Li→mean→asset/tag/value trong evidence. Phần canonical fabrication riêng vẫn giữ kích thước từng loại; cho phép nhóm trình bày có nhiều chiều dài khi chủ nhiệm yêu cầu mean, không ghi đè dữ liệu chế tạo bằng mean.</li>
+<li>Tuyến gom của nhóm chỉ đánh Gach tại giao với thanh hiện hữu thuộc nhóm. Không đánh trong lỗ, không thu nhầm thép gia cường, không dùng một Gach thẳng hàng làm bằng chứng duy nhất về membership.</li>
+</ol>
+<h2>5. Biến thiên: giữ quan hệ, không giữ tọa độ fixture</h2>
+<p>Làn dưới lấy <code>view.minY − gapPaper*S</code>. X tuyến gom chọn trong miền hợp lệ của nhóm, tránh lỗ/nhóm khác; sau đó chọn BLT1/2 theo hướng vươn, stub theo recipe, đo envelope thực. T2A/T2B và GC neo theo <strong>biên lỗ/thép thực</strong>, không cố định cách đỉnh 280 mm trên mọi tường. Nhóm T3 buộc neo nút tie hiện hữu. Nếu không còn chỗ, cấp làn tiếp theo bằng allocator dùng chung view, rồi cập nhật hộp bao và bố cục trang; không bỏ nhãn hay giảm cỡ chữ âm thầm.</p>
+<p>Khi cống đổi Ø, cao độ hoặc vị trí, tường đổi W/H, mọi view và nhóm phải được regenerate từ chung mô hình. Đổi tên ga không được làm thay đổi hình học hoặc recipe. Không lấy 234 Gach/32 BLTC/47 nhãn làm target cho mọi ca.</p>
+<h2>6. Checklist nghiệm thu và điểm còn phải kiểm</h2>
+<ul>
+<li>[ ] Đủ sáu view, đúng thứ tự/lớp, đúng nội dung như nguồn theo tham số tương ứng.</li>
+<li>[ ] Mỗi nhóm lặp chỉ một nhãn/tuyến gom trong view theo recipe; ID từng đoạn vẫn truy được.</li>
+<li>[ ] Bốn vùng cut-bar có membership và mean từ dữ liệu thật; nhóm rỗng không sinh hàng giả.</li>
+<li>[ ] T3 ngoài và T3 trong không bị alias cùng role, Ø hoặc hình uốn.</li>
+<li>[ ] Gach có giao thanh hợp lệ, BLTC truy được tie instance; thép U/C có hình học thật và chính sách view đúng.</li>
+<li>[ ] Tim cống/Ø/cao độ nhất quán giữa mặt bằng, mặt cắt và tường qua cùng OpeningId.</li>
+<li>[ ] Hàng TK native tiếng Việt, đúng asset/tag, không kéo giãn sơ họa theo DAI; nhóm mean không mất chiều dài từng đoạn.</li>
+<li>[ ] Thử ga tăng riêng X, riêng Y, đổi H/Ø/cao độ cống và đảo mặt quan sát; không nhảy nhãn hay đảo nhóm do enumerate.</li>
+</ul>
+<p>Chưa đóng: xác minh membership toàn bộ thanh cắt; đối chiếu đủ nhóm với bảng/hình uốn <strong>cùng G500-2</strong>; kiểm lại trường hợp nhiều lỗ; glyph và mọi quantity. Bảng PDF002/003 thuộc G800-1 chỉ dùng so sánh recipe, không dùng làm bảng số của PDF005.</p></html>

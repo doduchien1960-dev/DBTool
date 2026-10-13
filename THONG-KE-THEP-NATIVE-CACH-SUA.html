@@ -1,0 +1,126 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>THONG-KE-THEP-NATIVE-CACH-SUA</title><style>body{font:16px/1.65 Segoe UI,Arial;margin:0;color:#183449;background:#edf2f5}main{max-width:1180px;margin:auto;padding:28px;background:white}nav{padding:12px;background:#15384b}nav a{color:white;margin-right:20px}a{color:#096e85}h1,h2,h3{color:#146d78}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{border:1px solid #bccfd7;padding:8px;vertical-align:top}th{background:#e4f0f2}pre{padding:14px;white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f5f7}img{max-width:100%}</style><nav><a href="INDEX.html">Trang tổng</a><a href="CATALOG-TEMPLATE.html">Catalog</a><a href="PDF-71-OVERVIEW.html">71 PDF</a><a href="KE-HOACH-SUA-CHO-JUNIOR.html">J00–J08</a></nav><main><h1>Bảng thống kê thép native — schema thật và cách sửa luồng DBTool</h1>
+<p>Ngày13/10/2026. Phạm vi: block ATT, layout hàng/cột và nguồn dữ liệu hiển thị trên DWG/PDF. Không ưu tiên phát triển tính khối lượng xuất Excel. Không chứng nhận phần production đã sửa.</p>
+<h2>1. Kết luận từ nguồn hiện tại</h2>
+<p>Template có21block tên TK.*, schema ATT đã trích đủ. Có1331lần sử dụng trong inventory ứng viên của71ledger, không phải1331vật thể độc lập được xác nhận trên PDF. Số này gồm lặp schema giữa các tờ và những association còn pending. Xem <a href="catalog/SCHEDULE-ASSET-TABLE.html">bảng21asset</a> và <a href="catalog/schedule-assets-audit.json">JSON đầy đủ</a>: từng tag/prompt/position/style/height, hash catalog, hash6filecode và usage theo PDF/frame/handle.</p>
+<p>21asset này được native inspection ghi Dynamic=false trong snapshot. Chúng vẫn là block ATT dùng được để điền số. Không cần dynamic stretch để đạt chuẩn bảng nguồn; không tự tạo API dynamic property từ tên block. Geometry schematic nằm trong asset, số/kích thước được bind vào ATT. Mục tiêu là dùng đúng block có sẵn, không vẽ lại bảng tự do.</p>
+<p>Điểm gây sai đã đọc trực tiếp:</p>
+<ul>
+<li><code>ViewBuilder</code> tạo main steel thành TableRowPrimitive, truyền Component/Layer/Axis bằng enum text và TotalLengthMm bằng số mm.</li>
+<li>Vòng cuối gom mọi TableRowPrimitive rồi gọi <code>ScheduleTablePlanner.Plan</code>; planner dựng grid/text generic và đo width bằng độ dài chuỗi.</li>
+<li><code>CadRenderer.RenderTableRow</code> chỉ AngleSteel đi qua TK.TG. RoundSteel đi qua AppendText từng cell. Đây là lý do có footer TK.THKL nhưng hàng thép chính vẫn không theo template.</li>
+<li><code>SheetFourNeckDetailer.Build</code> chưa cấp schedule như recipe mẫu; sửa generic bảng riêng không tự khôi phục tờ cổ+TK.</li>
+</ul>
+<p>Giữ nhánh TK.TG đang có; không viết lại cả renderer hay thay mọi loại bảng bằng TK. QuantityTable có scope khác.</p>
+<h2>2. STD18 — cột mét đang nhận số mm</h2>
+<p>Trong <code>ViewBuilder</code>, <code>NumberCell("TotalLengthMm", row.TotalLengthMm)</code> được đưa vào header “Tổng C.Dài (m)”. <code>ScheduleTablePlanner.Display</code> và nhánh roundsteel <code>RenderTableRow</code> chỉ format0/0.00, không đổi đơn vị. Theo chuỗi code này, tổng10000mm sẽ in10000 dưới header m, thay vì10.00. Đây là lỗi đọc-code đã xác nhận; chưa có native reproducer mới trong đợt audit này.</p>
+<p>Ngược lại, <code>ScheduleNativeAttributes.Angle</code> đã chia totalLength/1000 cho TDAI. Không chia lần nữa nhánh angle.</p>
+<p>Cách sửa:</p>
+<ol>
+<li>Tạo ca schedule có10thanh×1000mm=10000mm, total mass từ domain thật; giữ raw TotalLengthMm=10000.</li>
+<li>Tách raw quantity và display quantity. Schema native TDAI nhận totalLengthMm/1000. DAI/L/các đoạn móc vẫn mm. KL nhận kg, D nhận mm, SL là count.</li>
+<li>Nếu generic table còn phục vụ scope cần tổng chiều dài, chọn một trong hai hợp đồng rõ: column TotalLengthM với conversion tại adapter; hoặc unit-bearing display descriptor. Không giữ keyMm nhưng headerm rồi để formatter đoán theo tên tiếng Việt.</li>
+<li>Giữ invariant domain/canonical <code>TotalLengthMm = Quantity × SingleLengthMm</code> trong scope vốn có. PresentationScheduleGroup biến chiều dài dùng Sum(Li), Mean=Sum/N; không ép physical thanh về mean, không lấy mean đã làm tròn nhânN. Không thay số raw sang m hoặc chia toàn bảng.</li>
+<li>Kiểm mm→m đúng một lần ở round/native và angle; xem native TDAI=10.00 hoặc format tương đương theo policy, DAI=1000, SL=10. Kiểm thêm1250mm×3=3750mm→3.75m. Preview/native/PDF phải dùng cùng display contract.</li>
+</ol>
+<h2>3. Ánh xạ tag chuẩn</h2>
+<table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>Nguồn cần bind</th>
+<th>Đơn vị / điều kiện</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SH</td>
+<td>DisplayMark trong scope cấu kiện/lớp/region, truy canonical members</td>
+<td>Không OccurrenceId; không ép tên ga thành mark</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Ø của roundsteel</td>
+<td>mm; TK.TG riêng dùng unit mass theo schema/glyph đã có</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Đoạn chính theo shape recipe</td>
+<td>mm; TK.TG L là quy cách catalog, không dùng rule roundsteel</td>
+</tr>
+<tr>
+<td>LT/LP</td>
+<td>Đoạn trái/phải theo local schematic đã xác minh</td>
+<td>mm, không đoán từ thứ tự3D hoặc view mirror</td>
+</tr>
+<tr>
+<td>L1T/L2T/L3/L1P/L2P</td>
+<td>Năm đoạn theo schema asset U/MC</td>
+<td>mm; dùng shape spec; không gán tag không tồn tại</td>
+</tr>
+<tr>
+<td>DAI</td>
+<td>Chiều dài đại diện: đúng Li nếu nhóm đồng nhất; trung bình Li nếu nhóm đoạn cắt biến chiều dài theo quyết định owner</td>
+<td>mm; nominal/fabrication policy phải nhất quán</td>
+</tr>
+<tr>
+<td>SL</td>
+<td>Số thành viên của PresentationScheduleGroup có kiểm chứng</td>
+<td>Count; không dùng số presentation labels</td>
+</tr>
+<tr>
+<td>TDAI</td>
+<td>TotalLengthMm/1000</td>
+<td>m, đổi đúng một lần</td>
+</tr>
+<tr>
+<td>KL</td>
+<td>MassKg</td>
+<td>kg, formatter chỉ làm tròn hiển thị</td>
+</tr>
+<tr>
+<td>TENLUOI</td>
+<td>Tên nhóm tiếng Việt theo component/layer/face</td>
+<td>Ví dụ Đáy - trên/T1 - ngoài; không enum English</td>
+</tr>
+</tbody>
+</table>
+<p>ATTDEF prompt là nguồn schema, không tự là công thức tính fabrication. Không suy DAI bằng cộng tất cả số trên hình nếu chưa xác minh bend allowance. C hình vật lý có chiều sâu nhưng TK.M.C chỉ có L/LT/LP, không có tag chiều sâu; không bịa tag H hoặc ép asset khác chỉ vì muốn đủ5số.</p>
+<p><strong>Các tên dễ nhầm:</strong> TK.M.C và TK.MC là hai asset khác schema. TK.M.C có L/LT/LP; TK.MC có L1T/L2T/L3/L1P/L2P. TK.M.U cũng có năm tag nhưng không vì schema giống mà thay cho TK.MC. GC.T/GC.H/CT.N/CT.T đều có thể trùng danh sách tag nhưng glyph/role khác. Phải khóa mapping bằng ShapeRecipe và bằng chứng native/source, không prefix hoặc tag count.</p>
+<h2>4. Cách chọn asset mà không hardcode hố ga</h2>
+<p>Tạo bảng <code>ShapeRecipeId → NativeAssetName → SegmentRoleBindings → RequiredTags → GroupScope → ReferenceInstances</code>. ShapeRecipe dựa path/spec và cấu tạo, không tên G400/G500 hay số lượng thanh.</p>
+<p>Nguồn mẫu đọc được ở <code>Family21SheetFourStore</code>: L0M cho thanh thẳng, L2M cho thanh hai đầu móc, M.U cho U, M.C cho C, VG cho nhóm vạt trong recipe này. Đây là mapping khởi đầu <strong>có scope</strong>, chưa là luật áp mọi topology. GC/NG/NA/CT và MC phải kiểm glyph/role từ preview+instance phù hợp trước bổ sung. Asset có tồn tại nhưng chưa được mapping giữ NeedsRule, không fallback L0M để qua gate.</p>
+<ol>
+<li>Normalize physical shape bằng segment/bend roles; bảo toàn handedness và bends. Không group chỉ theo tổng chiều dài.</li>
+<li>Resolve canonical row members; nếu row trộn thông số không tương thích thì phân partition có identity/provenance, không chỉ lấy thanh đầu tiên.</li>
+<li>Chọn explicit recipe. Missing recipe trả NATIVE_SCHEDULE_SHAPE_UNMAPPED, SourceRef/CanonicalMark; không render generic thay thế âm thầm.</li>
+<li>Bind attributes theo required schema; giữ mọi segment role cần thiết. Missing/extra/multiply-bound tag phải diagnostic rõ. Default text trong ATTDEF không được để lại như số thật.</li>
+<li>Emit BlockPrimitive với asset name/role phù hợp manifest, model insertion, annotation scale và metadata RowId/CanonicalIds/OccurrenceIds.</li>
+</ol>
+<p>Không lấy quantity/length từ static store. Có thể trích order/cột/asset/tag/style và relative offsets; số mới phải từ input/domain.</p>
+<h2>5. Cách nối đúng pipeline hiện tại</h2>
+<ol>
+<li><strong>Drawing layer:</strong> thêm native roundsteel planner cạnh ScheduleTablePlanner; đầu vào gồm schedule thật, bending specs, group/display context, recipe và template schema. Không dùng TableCell generic làm nguồn duy nhất vì nó đã mất segment roles.</li>
+<li><strong>ViewBuilder:</strong> phân route theo material/purpose. Roundsteel đi native planner; AngleSteel giữ TK.TG; QuantityTable giữ generic nếu contract hiện yêu cầu. Loại bỏ generic grid/text của roundsteel cùng lần thay, tránh vẽ cả hai bảng đè nhau.</li>
+<li><strong>SheetFourNeckDetailer/sheet recipes:</strong> đặt cùng nội dung cổ/TK theo loại1/2; loại3 NeckCatch và TK riêng khi mẫu yêu cầu. Không dựng một tờ TK mới ngẫu nhiên rồi bỏ tờ cổ+TK mẫu.</li>
+<li><strong>Template manifest/preflight:</strong> đăng ký đúng asset role hoặc explicit name; kiểm block/tag/style trước render. Catalog tồn tại trong file nghiên cứu không có nghĩa manifest production đã resolve được.</li>
+<li><strong>Renderer:</strong> dùng đường AppendBlock/BlockPrimitive đã hỗ trợ attributes. Giữ attribute alignment/style/width/height của template; không tạo text trùng ngoài block. Kiểm write-readback các giá trị thật.</li>
+<li><strong>Layout:</strong> planner trả native ink bounds; SheetLayoutPlanner dùng bounds đó cùng recipe columns. Không để generic placements quyết định scale của native row.</li>
+<li><strong>Receipt:</strong> mỗi row có RowId, canonical members, asset, expected tags/values, units, placement, native block/attribute handles; kiểm output đọc lại khớp.</li>
+</ol>
+<h2>6. Hàng/cột và scale</h2>
+<p>Row thường bbox0..12500×−500..0 trong asset; ở annotation scale0.3 là3750×150modelmm. Header TK.Tieude cao1000gốc; ở0.3cao300. TK.Tenluoi bbox khác và row glyph VG/U/MC có extents vượt500; đo thực để kiểm overlap, không lấy mọi bbox như nhau.</p>
+<p>Store mẫu cho hàng pitch150modelmm tại scale0.3, tương đương5mm giấy ở danh định1:30. Đây là recipe được quan sát, không phải full-page measured fit tự động1:30. Anchor insertion tại asset basepoint, không bboxcenter. TK.THKL.CT có bbox xa gốc [9750,−3000]..[12500,−1500], nên placement phải dùng basepoint/schema thật; đặt bbox trái trên như row chuẩn sẽ lệch.</p>
+<p>Tách <code>RowPitchPaper</code>, <code>ColumnWidthPaper</code>, <code>HeaderRole</code>, <code>GroupLabelRole</code>, <code>ColumnBreakPolicy</code> khỏi shape dimensions. Khi không vừa, chuyển cả row sang cột/trang tiếp; lặp header/group cần thiết theo recipe. Không scale sản phẩm, không giảm chữ để vừa cột, không cắt schematic.</p>
+<p>TK.THKL phân bucket Ø≤10/&gt;10 theo consumer hiện có, không phải lớp trên/dưới. TK.THKLNAP có NAP1/NAP2/THEPHINH/TONG, TK.THKL.CT có CUATHU1/2. Không gộp mọi total vào một schema chung mà bỏ subgroup. Phạm vi summary phải giải thích tổng gồm nhóm nào; số còn thiếu nguồn giữ trạng thái rõ.</p>
+<h2>7. Kiểm để đóng STD05/06/18</h2>
+<ul>
+<li>Ca thẳng/1móc/2móc/C/U/vạt/gia cường/thang/cửa thu/nắp theo capability: asset đúng, tags đúng, physical members đúng. Chưa mapping giữ NeedsRule.</li>
+<li>Roundsteel output có INSERT TK row và ATTRIB, không generic cell texts/grid thứ hai; AngleSteel vẫn TK.TG; QuantityTable không bị thay ngoài scope.</li>
+<li>Native readback SH/segment/Ø/DAI/SL/TDAI/KL và style/height/alignment khớp receipt. Missing asset/tag không âm thầm dùng template defaults.</li>
+<li>TDAI10.00m cho10000mm,3.75m cho3750mm; DAI/segment không bị chia1000. Domain numbers trước/sau presentation không đổi.</li>
+<li>Đủ nhóm/cột/tờ theo recipe loại1/2/3; nhỏ/lớn và20/30/40; không mất C/U/thang khi đổi bảng.</li>
+<li>Crop before/after cùng effective input và bundle đúng, xem chữ/glyph/line/column placement. Schema/unit tests không thay visual acceptance.</li>
+</ul>
+<p>Hash code tại thời điểm audit nằm trong JSON evidence. Nếu AI khác sửa code, tái đọc caller/hash và reproducer trước áp hướng dẫn. Đây là nghiên cứu và hợp đồng sửa, không patch production renderer trong lượt này.</p>
+<h2>Quyết định owner bổ sung — áp dụng trước khi triển khai</h2>
+<p>Đọc <a href="OWNER-RULES-THONG-KE-NHOM-20261013.html">quy tắc ATT và trung bình nhóm</a>. Mộtrowpresentationcóthể gomnhiềucanonicalmarks cóchiềudàikhác nhưngcùngrole/topology/Ø/hookpolicy. NativeTK giữglyph, chỉATT thayđổi. DAI=meanLi, SL=N, TDAI=sumLi/1000; khôngFirst(), khôngscaleglyphtheoL. Catalogmappingmới: <code>catalog/schedule-group-bindings.json</code>; ảnhowner: <code>catalog/owner-captures-20261013.json</code>.</p></main></html>
