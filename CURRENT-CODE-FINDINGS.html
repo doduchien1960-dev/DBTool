@@ -1,5 +1,33 @@
 <!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CURRENT-CODE-FINDINGS</title><style>body{font:16px/1.65 Segoe UI,Arial;margin:0;color:#183449;background:#edf2f5}main{max-width:1180px;margin:auto;padding:28px;background:white}nav{padding:12px;background:#15384b}nav a{color:white;margin-right:20px}a{color:#096e85}h1,h2,h3{color:#146d78}table{border-collapse:collapse;display:block;overflow:auto;font-size:14px}th,td{border:1px solid #bccfd7;padding:8px;vertical-align:top}th{background:#e4f0f2}pre{padding:14px;white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f5f7}img{max-width:100%}</style><nav><a href="INDEX.html">Trang tổng</a><a href="CATALOG-TEMPLATE.html">Catalog</a><a href="PDF-71-OVERVIEW.html">71 PDF</a><a href="KE-HOACH-SUA-CHO-JUNIOR.html">J00–J08</a></nav><main><h1>Rà soát code hiện tại — các phát hiện đã đọc được, chưa phải toàn bộ audit</h1>
-<p>12/10/2026. Phân biệt <strong>đọc code</strong>, <strong>receipt của build đã chạy</strong> và <strong>hành vi đã tái hiện</strong>. Các file có thể được AI khác sửa đồng thời; trước khi sửa phải chụp hash lại. Không lấy line number của báo cáo trước làm bằng chứng code hiện còn nguyên.</p>
+<p>Khởi tạo 12/10, cập nhật 13/10/2026: 25 finding STD. Phân biệt <strong>đọc code</strong>, <strong>receipt của build đã chạy</strong> và <strong>hành vi đã tái hiện</strong>. Các file có thể được AI khác sửa đồng thời; trước khi sửa phải chụp hash lại. Không lấy line number của báo cáo trước làm bằng chứng code hiện còn nguyên.</p>
+<h2>STD-23–25 — cập nhật audit cấu tạo ngày 13/10</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Điều kiện và bằng chứng</th>
+<th>Hướng sửa / kiểm đóng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STD-23</td>
+<td>RoofJointDowelProjection tạo circle Geometry/DowelHole, nhưng SemanticRoleRegistry không resolve. CadRenderer preflight chặn nếu manifest không có alias riêng. Text cao60/offset180 cố định; probe đo1.5mm giấy tại1:40.</td>
+<td>Khai báo role/layer đúng template; chuyển annotation sang paper metrics, giữ circle vật lý. Native kiểm style, một lỗ/chốt và chữ2mm ở20/30/40. Không thêm lại lỗ vì roof detailer đã giữ lỗ trong probe.</td>
+</tr>
+<tr>
+<td>STD-24</td>
+<td>CatchBasinBuilder/PlanCatch chỉ thấy caller trong tests; GeometryStageAdapter/FullRebarStage chưa compose. DowelPlanner chặn mọi CatchBasinSpec, trong khi capability cho Dowels loại3 là Supported.</td>
+<td>Nối geometry/owned voids/frame trước steel; hoàn thiện prototype planner; collision theo từng station chốt và capability theo consumer thật. Kiểm loại3 Body/Neck/hướng/kích thước biến thiên. Không chỉ bỏ gate. Static finding, chưa native reproducer mới.</td>
+</tr>
+<tr>
+<td>STD-25</td>
+<td>Union kín trả inner loop trong pure probe; nhánh SteelAA/SteelBB chỉ phát region.Outer, thiếu duyệt InnerLoops. Có thể mất nét trong khi loop chưa được profile.Void đại diện.</td>
+<td>Boundary emitter chung outer+inner, dedup đúng topology/role/tolerance. Test tiết diện kín và qua access hole, giữ joints thật. Pure topology verified; workbook/native case gây mất nét còn cần tái hiện.</td>
+</tr>
+</tbody>
+</table>
+<p>Chi tiết caller, nguyên nhân, từng bước xử lý, ma trận và những đường đúng phải giữ ở <a href="CAU-TAO-UNION-CHOT-VAT-CUA-THU.html">audit cấu tạo</a>. <a href="cad/structure-boundary-probe.json">Probe có hash nguồn</a> không thay chứng nhận AutoCAD hoặc mọi workbook.</p>
 <table>
 <thead>
 <tr>
@@ -154,6 +182,10 @@
 <li>Full matrix + visual before/after. Những ca chưa chạy giữ NotRun.</li>
 </ol>
 <p>Danh sách này <strong>chưa phải kết luận đã audit mọi file</strong>. Phần còn lại phải kiểm cover builders/importer, concrete union, opening ownership/clip, haunch reinforcement, dowels/catch và actual candidate PDFs. Không dùng sổ này để tuyên bố 29 lỗi cũ đã đóng.</p>
+<h2>STD-22 — cửa thu loại 3 còn nhánh hình học và nhãn tĩnh</h2>
+<p>Đã xác nhận caller: <code>ViewBuilder.BuildCore</code>, trong nhánh có Neck và catchFamily, gọi <code>SheetFourCatchBasinViews.BuildPlan/BuildSec11/BuildSec22</code>. Ba hàm không nhận geometry, input, datum hay occurrences; chứa tọa độ/bounds cố định, ViewBuilder gán scale30. <code>BuildSec22</code> chèn NAPCUATHU2 scale .7188, path thép và BLT Ø10/@150/SH1 cố định. Đây là static reachable-path finding; chưa chạy native reproducer mới.</p>
+<p>Sửa trong K2/K6: resolve một CatchAssembly có host/OpeningId, kích thước, hướng, datum và sản phẩm; domain dựng bê tông/lỗ/thép; ba view chiếu chung assembly/occurrences; nhóm và nhãn lấy registry. Chọn grille/section đúng trục, giữ sản phẩm1:1; không stretch để bù mismatch. Bounds từ geometry+ink, annotation theo tỷ lệ. <a href="catalog/CONDITIONAL-ASSETS-AUDIT.html">Tám bước triển khai, block và kiểm đóng lỗi</a>.</p>
+<p>Kiểm bằng thay độc lập kích thước/hướng/vị trí/tỷ lệ, ON/OFF cửa thu và readback native cả3view. Không chỉ đổi các con số trong static store. Giữ nội dung mẫu làm recipe trình bày, không dùng làm nguồn hình học biến thiên.</p>
 <h2>STD-18 — đơn vị tổng chiều dài của bảng generic</h2>
 <p>Đọc code ngày13/10: ViewBuilder truyền NumberCell("TotalLengthMm",row.TotalLengthMm), nhưng header cùng key ghi “Tổng C.Dài (m)”. ScheduleTablePlanner.Display và CadRenderer nhánh RoundSteel chỉ format, không chia1000. Ví dụ total10000mm sẽ hiện10000 dưới headerm theo chuỗi này. Nhánh Angle native đã chia1000, không chia lại. Chưa có native reproducer mới; đây là code-path finding.</p>
 <p>Sửa ở presentation unit adapter: raw domain giữ mm, native TDAI hoặc display TotalLengthM nhận totalLengthMm/1000; DAI/segments giữmm. Không đổi domain invariant và không để formatter suy đơn vị từ header. Kiểm10×1000→10m và3×1250→3.75m, round/native/angle cùng semantic nhưng conversion đúng một lần. Hướng dẫn đầy đủ: <a href="THONG-KE-THEP-NATIVE-CACH-SUA.md">Bảng TK native — cách sửa</a>, schema21assets/1331candidate usages tại <code>catalog/schedule-assets-audit.json</code>.</p>
@@ -162,4 +194,8 @@
 <p>PDF003 có14nhóm/7cột/88caption MTEXT gạch chân;88/88 khớpØ/DAI của ATT PDF002 bằngscope+SH. Schematic D1 vẽ900 nhưng ghi1490; Ubuộc vàthang cùngfootprint nhưng kháclegs/Ø. Sửa bằng scoped presentation adapter + shape normalization + column/group recipe; giữ physical path nguyên vẹn. Chi tiết từng bước và gate: <a href="pages/PDF-003-PHAN-TICH-CHI-TIET.html">PDF003</a>. Không gộp chỉ theoSH toàncục, không lấy chiều dài schematic làm chiều dài vật lý.</p>
 <h2>STD-20 — PanelDetail generic chưa thể hiện recipe khung miệng/tấm nắp</h2>
 <p>Đã đọc ViewBuilder.Build → AddDetailViews: mỗi Panel component tạo view footprint/hatch với componentId và purpose.ToString(), dùng scale chung. PDF004 có ba khung, mặt bằng tấm, AA/BB và bảng ATT, dùng1:20 riêng. Đây là finding có điều kiện khi geometry chứaPanel; chưa chạy native reproducer mới hoặc chứng minh mọi nhánh thay thế đều thiếu. Cách sửa và gate: <a href="pages/PDF-004-PHAN-TICH-CHI-TIET.html">PDF004</a>.</p>
-<p>Bổ sung xuyên STD-03/05/19: quyết định owner ngày13/10 yêu cầu PresentationScheduleGroup chứa các thanh biến chiều dài tương thích, dùng meanDAI và rawsumTDAI; có thể chứa nhiềuCanonicalMarks. Giữ canonical consistency, không phá physical để ép nhóm. Xem <a href="OWNER-RULES-THONG-KE-NHOM-20261013.html">quy tắc bắt buộc</a>.</p></main></html>
+<p>Bổ sung xuyên STD-03/05/19: quyết định owner ngày13/10 yêu cầu PresentationScheduleGroup chứa các thanh biến chiều dài tương thích, dùng meanDAI và rawsumTDAI; có thể chứa nhiềuCanonicalMarks. Giữ canonical consistency, không phá physical để ép nhóm. Xem <a href="OWNER-RULES-THONG-KE-NHOM-20261013.html">quy tắc bắt buộc</a>.</p>
+<h2>STD-21 — clearance cắt thép quanh lỗ còn coupling với cover tường; nguồn rule riêng chưa chốt</h2>
+<p>Cập nhật consumer: CF.Ga H17 (Loại1/2) hoặcH19 (Loại3) là <strong>Lỗ cống</strong>, schema Protect.H, AccessoryInputMapper đã dùng cho pipe accessory; cover tường nằmD17/D19. Snapshot giá trị gốc lần này30/15 và30/10 có trong excel/hole-clearance-source-audit.json. Rule còn thiếu là offset convention và workbook/CAD đồng bộ, không phải chưa biết ô input. Native margin15 trong khi H17=15 cộngØ/2 sẽ20; không tự bỏØ/2 hoặc épH17=10 để chexungđột.</p>
+<p>Mức độ: <strong>NeedsRule / static coupling verified; chưa tái hiện lỗi runtime trên workbook đồng bộ</strong>. <code>WallRebarPlanner</code> truyền <code>rebarSpec.CoverMm</code> vào ClipIfRequired→ClearancePolicy; OpeningClipper dùng q=CoverToHole+Ø/2. Vòng gia cường trong VhgOpeningCompositionPlanner lại dùng input.Cover riêng. Source G500-2 có72đoạn cắt nằm tạiR320/375 trong khi vòng thông thủyR200/250 và vòng VHG-150R305/360. Do đó phải xác định cover-to-hole thực từ nguồn, không lấy wall cover hoặc D/2 theo thói quen.</p>
+<p>Sửa: truy note/inputconsumer→OpeningClearanceRule theo role/layer/Ø có provenance→truy vào clipper; giữ phân biệt clear/pipe outer/concrete cutout và union intervals/depth/ownership. Không sửa quadratic hoặc hardcode15/10 để khớp nguồn. Kiểm thay riêng wallcover/holecover/Ø/pipewall/mortar và ghi trace endpoints/q/basis; nếu chưa đủ rule thì Partial, không auto override. Hướng dẫn đầy đủ và công thức đối chiếu: <a href="pages/G500-CUT-MEMBERS-AUDIT.html">16 nhóm Ltb/72 đoạn</a>.</p></main></html>
