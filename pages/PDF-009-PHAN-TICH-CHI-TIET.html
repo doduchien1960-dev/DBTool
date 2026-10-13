@@ -1,0 +1,196 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>pages/PDF-009-PHAN-TICH-CHI-TIET</title><style>body{font:16px/1.6 Segoe UI,Arial;max-width:1200px;margin:25px auto;padding:20px}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bccfd7;padding:8px;vertical-align:top}img{max-width:100%}pre{white-space:pre-wrap}</style><a href="../INDEX.html">Trang tổng</a><h1>PDF-009 — G800-1 loại 1: cấu tạo, thang, cống và biến thiên so với G500-2</h1>
+<p>Nguồn: <code>1.1.Ga thăm BTCT liền khối-Model-7.pdf</code>, SHA256 <code>6966cc760e0980d873b6359cb599acba0e86cc51df1e0e292db308261ea3c7bd</code>. Khung CAD ứng viên được nội dung và bố cục hỗ trợ: <strong>CAD-1-F016</strong>. Đã mở ảnh riêng, đối chiếu 42 tuyến LEADER và TEXT native. Chưa chứng nhận từng glyph, mọi mục tiêu thanh vật lý hay toàn bộ nét của PDF. Không dùng số lượng đối tượng nghiên cứu làm chứng nhận DBTool.</p>
+<p><a href="../pdf/PDF-009-p1.png">Ảnh trang nguồn</a> · <a href="PDF-009-CALLOUT-TABLE.html">42 ghi chú/tuyến</a> · <a href="PDF-009-detail-review.json">Dữ liệu đầy đủ</a> · <a href="PDF-009.json">Ledger</a> · <a href="PDF-001-PHAN-TICH-CHI-TIET.html">Mẫu G500-2 để so sánh</a>.</p>
+<h2>1. Hệ tọa độ và bố cục sáu hình</h2>
+<p>Tọa độ dưới là local <strong>khung</strong>, mm model, X sang phải/Y lên trên; gốc WCS <code>(-3196.490472212073, -110011.52203702746)</code>. Không chép các điểm này vào hàm dựng ga biến thiên. Dùng chúng để đối chiếu recipe và tìm lại entity nguồn.</p>
+<table>
+<thead>
+<tr>
+<th>Vị trí</th>
+<th>Tiêu đề</th>
+<th>TenMC handle</th>
+<th>Điểm chèn local mm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trái trên</td>
+<td>MẶT BẰNG HỐ GA G800-1</td>
+<td>65780</td>
+<td>(2345,8610)</td>
+</tr>
+<tr>
+<td>Giữa trên</td>
+<td>MẶT CẮT B-B</td>
+<td>65B04</td>
+<td>(6335,8610)</td>
+</tr>
+<tr>
+<td>Phải trên</td>
+<td>MẶT CẮT CỐT THÉP A-A</td>
+<td>65E56</td>
+<td>(10325,8610)</td>
+</tr>
+<tr>
+<td>Trái dưới</td>
+<td>MẶT CẮT A-A</td>
+<td>658F5</td>
+<td>(2345,4480)</td>
+</tr>
+<tr>
+<td>Giữa dưới</td>
+<td>MẶT BẰNG LƯỚI THÉP TƯỜNG</td>
+<td>65D5E</td>
+<td>(6335,4480)</td>
+</tr>
+<tr>
+<td>Phải dưới</td>
+<td>CỐT THÉP MẶT CẮT B-B</td>
+<td>660D9</td>
+<td>(10325,4480)</td>
+</tr>
+</tbody>
+</table>
+<p>Khoảng tâm cột 3990mm giống PDF001; khoảng hàng <strong>4130mm</strong>, khác 4180mm của PDF001. Hai mẫu đủ bác bỏ việc coi khoảng hàng là một hằng số bắt buộc. Giữ thứ tự hình theo recipe; xác định vị trí thực bằng extents hình + dim + leader + chữ, không cộng chênh kích thước ga vào mọi tọa độ.</p>
+<p><code>TenMC</code> scale 0.3, TIEUDE cao90/style <code>VHG-Unicode.Bold</code>, TYLE cao60/width0.8/style <code>VHG-Unicode.Regular</code>. Các TEXT ghi chú cao60. Danh định1:30 tương ứng chữ3/2mm giấy; phép fit CAD–PDF hiện khoảng1:32.64. Hai giá trị phải được lưu riêng, không suy ngược scale sản phẩm từ ảnh.</p>
+<h2>2. Nội dung và mục đích từng hình</h2>
+<h3>2.1. Mặt bằng hố ga — trái trên</h3>
+<p>Lòng ga1250×1550, thành150, ngoài1550×1850. Có ba hướng cống: D800 phía trên/T1, D400 phía trái/T4, D500 phía phải/T2; T3 phía dưới không có cống trên hình này. Các chuỗi dim chỉ rõ clear, thành và phân đoạn quanh cống. Không lấy tên G800 để mặc định mọi cống đều800.</p>
+<p>Nắp lệch về vùng trái/dưới của mặt bằng; A-A theo trục dọc giấy, B-B theo trục ngang giấy. <code>MC1</code> handle658F1/658F2 tại(2245,8190)/(2245,5200); <code>MC2</code> 658F3/658F4 tại(4080,6605)/(910,6605). Marker bám trục cắt và mép hình mới, không bám điểm cũ khi kích thước thay đổi.</p>
+<p>Nét bao bê tông, nét khuất và tim cống có chức năng khác nhau. Cống có dấu ngắt ở phần kéo ra ngoài; không biến dấu ngắt thành mép lỗ khoét thật. D400/D500/D800 là tên cống, không phải số hiệu cốt thép.</p>
+<h3>2.2. Mặt cắt A-A — trái dưới</h3>
+<p>Thấy cống D400 chính diện; D800 hiện ở phía phải dưới dạng cắt dọc/nhìn cạnh. Phương lọt lòng cổ trên hình này <strong>500</strong>, chuỗi ngang525+150+500+150+525=1850. Đây là hướng chiếu của sản phẩm chữ nhật, không phải lỗi phải sửa thành700.</p>
+<p>Hoàn thiện56.74 đặt trên nắp; đáy lòng54.64; invert D400=54.96; D800=54.94. Các giá trị giúp nhận dạng mẫu, không là input mặc định. Thân ghi Htb1550; tổng Htb2350 gồm các phần theo chuỗi cao. Cổ/thành/trần/lót có hatch và đường biên riêng theo vị trí; miền bê tông cùng cấu kiện phải hợp nhất, còn đáy lót và lỗ cống phải được giữ.</p>
+<p>ThangD18 có các nét rung đỏ và dim bước300, hook/chiều vào150 trên hình. Nhãn trong lòng ga, tuyến <strong>65ADB</strong> bắt tại(2225,3210), qua(2135,3300), kết thúc(2495,3300); TEXT65ADC tại local(2135,3320). Việc xuất chữ “Thang D18” không chứng minh đã vẽ rung. Khi bật thang, phải kiểm cả path, số/bước rung, hướng, projection, callout và hàng thống kê.</p>
+<h3>2.3. Mặt cắt B-B — giữa trên</h3>
+<p>Thấy D800 chính diện, D400 bên trái, D500 bên phải. Phương cổ700, cổ lệch trái: chuỗi150+700+150+550=1550. Bản đáy có chân ngoài: chuỗi100+150+1250+150+100=1750. Không lấy bề rộng1850 của AA áp vào BB.</p>
+<p>Cao độ D800/D50054.94 và D40054.96 phải khớp AA và mặt bằng qua cùng OpeningId. Cao độ hoàn thiện56.74/đáy54.64 phải dùng chung datum. Nhãn vữa hai phía dùng hai leader <strong>65B1D</strong>, <strong>65B3F</strong>, theo vị trí tiếp xúc cống–tường riêng; nhãn thang dùng65D35, nằm trong vùng thoáng của cổ/thân.</p>
+<h3>2.4. Mặt bằng lưới thép tường — giữa dưới</h3>
+<p>T1 trên, T3 dưới, T4 trái, T2 phải. Có tám callout theo tường×lớp trong/ngoài, không phải nhãn cho mỗi thanh. Tám tuyến65E3F/42/45/48/4B/4E/51/54 nằm trong bảng chi tiết. Đây là recipe gọi lớp tường của hình tổng thể; không thay bằng các BLT của tờ triển khai từng lưới.</p>
+<p>Lưới/nét đứt phân lớp cần giữ đúng layer. Khi đổi chiều nhìn hoặc xoay host, nhãn phải theo transform tường/lớp; không coi “T1 ở trên giấy” là định luật toàn dự án.</p>
+<h3>2.5. Cốt thép A-A — phải trên</h3>
+<p>T3 trái, T1 phải; mỗi bên có lớp trong/ngoài. Đáy trên/dưới, trần trên/dưới, cổ, thang và vữa đều có lời gọi riêng. Lỗ D400 phải cắt đúng miền thép, trong khi D800 biểu diễn cạnh ở tường phải. Các nét đỏ quanh lỗ và chân phải dựa trên path đã cắt, không thêm hình minh họa nhằm che path sai.</p>
+<p>Ví dụ neo theo thép thật: <code>Đáy trên</code>660CD bắt(9817.5,5700); <code>Đáy dưới</code>660CF bắt(9628.333,5610). Chênh90 là dữ liệu của mẫu, không phải quy tắc mọi bản dày. <code>Trần dưới</code>660D1 bắt(10950,7310), <code>Trần trên</code>660D3 bắt(10950,7400). Hai lớp thay vị trí theo cover/đường kính/chiều dày; không gán Y cứng.</p>
+<h3>2.6. Cốt thép B-B — phải dưới</h3>
+<p>T4 trái, T2 phải; lỗ D800 lớn ở giữa, D400/D500 hai cạnh. Giữ chỗ cho lời gọi lớp tường gần chân, đáy dưới ngoài hình, thang trong lòng và trần/cổ gần đỉnh. Thép bị cắt bởi lỗ ở các tường phải được xử lý theo chính host đó; không lấy hình AA rồi thay chữ D400→D800.</p>
+<h2>3. Block và đường nét: dữ liệu nguồn phải phân biệt với suy luận</h2>
+<p>Khung có53 INSERT: Khung1, TenMC6, MC1×2, MC2×2, CT18, ThepGocLoi24. <strong>Không có INSERT <code>NapGa…</code>, BLT, Gach hoặc BLTC ở khung này.</strong> Tờ cấu tạo không phải tờ bố trí lưới; không có BLTC tại đây không chứng minh nguồn thiếu C/U. Không được vì nguồn không còn INSERT NapGa ở tờ này mà cho phép DBTool bỏ chọn sản phẩm/cập nhật clear theo catalog. Cách hình nguồn được lưu và yêu cầu sản phẩm phải đúng là hai phép kiểm khác nhau.</p>
+<p>24 <code>ThepGocLoi</code> là instance biểu diễn chi tiết profile ở vùng nắp/cổ, scale1, có rotation khác nhau; số INSERT không chứng minh có24 thanh vật lý. Cần catalog/profile-role nếu dùng lại; không thay chúng bằng24 thanh thép chịu lực hoặc đếm vào thống kê như occurrence tự động.</p>
+<p>Dữ liệu có482LWPOLYLINE+104LINE,12CIRCLE,165DIMENSION,70HATCH,48TEXT,42LEADER. JSON chi tiết giữ đủ586path với đỉnh/bulge/closed/lineweight/linetype, các circle, block, ATT, dim, hatch và layer native để truy lại từng nét. Việc lưu đủ path không có nghĩa mọi path đã được chứng nhận vai trò.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Mục đích ở trang</th>
+<th>Quy tắc sử dụng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VHG-BT</td>
+<td>Bao bê tông và hình học cấu kiện</td>
+<td>Continuous; union theo assembly, không xóa lỗ/mối nối thật</td>
+</tr>
+<tr>
+<td>VHG-Thep</td>
+<td>Cốt thép và rung thang nhìn thấy</td>
+<td>Continuous; không thay path thật bằng leader</td>
+</tr>
+<tr>
+<td>VHG-Thep3 / VHG-Thep4</td>
+<td>Các lớp/đường thép khuất của mặt bằng</td>
+<td>DASHED; màu magenta/gray không tự đổi thành tim</td>
+</tr>
+<tr>
+<td>VHG-Dashed</td>
+<td>Biên khuất/marker liên quan</td>
+<td>DASHED; khác nét thép khuất về role</td>
+</tr>
+<tr>
+<td>VHG-Center</td>
+<td>Tim hướng/cống</td>
+<td>ACAD_ISO10W100; không chọn layer chỉ theo màu</td>
+</tr>
+<tr>
+<td>VHG-Dim</td>
+<td>Dim/leader/khung</td>
+<td>Mảnh theo plot policy; không là nét chịu lực</td>
+</tr>
+<tr>
+<td>VHG-VL / VHG-150 / VHG-Cong</td>
+<td>Vật liệu, vùng chi tiết và cống</td>
+<td>Resolve theo entity/layer native trong JSON, không đoán từ tên</td>
+</tr>
+</tbody>
+</table>
+<p>Native layer properties đã lưu; layer lineweight Default không chứng minh bề rộng in cố định0.35/0.5mm. HATCH ghi pattern/scale/angle riêng từnghandle; không áp một hatch chung cho bê tông thân, lót và vữa.</p>
+<h2>4. Nguồn có hai cặp tuyến trùng: giữ bằng chứng, tránh sao chép nét thừa</h2>
+<p><code>660D5</code>/<code>660D7</code> cùng tuyến(9949.999…,7580)→(9830,7640)→(9620,7640), gọi lần lượt “Cổ ga”/“BTCT M250 đá 1x2”. <code>6639B</code>/<code>6639D</code> tương tự cho BB. Hai TEXT vẫn khác vị trí/nội dung; không xóa một TEXT vì leader trùng.</p>
+<p>Hướng triển khai: một annotation bundle có thể có nhiều dòng TEXT và một route chung nếu cùng target-role hợp lệ; nếu khác mục tiêu thì route riêng. Dedupe hình học stroke theo tolerance, bảo toàn semantic associations. Không áp luật “mọi leader phải khác tọa độ” lên tất cả annotation. Chưa kết luận DBTool hiện tái hiện lỗi này.</p>
+<h2>5. Đối chiếu hai kích thước để xây quy tắc biến thiên</h2>
+<table>
+<thead>
+<tr>
+<th>Thuộc tính</th>
+<th>G500-2/PDF001</th>
+<th>G800-1/PDF009</th>
+<th>Hướng triển khai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lòng ga</td>
+<td>1150×1350</td>
+<td>1250×1550</td>
+<td>Một resolved geometry, không chọn preset theo tên</td>
+</tr>
+<tr>
+<td>Ngoài thành</td>
+<td>1650×1850 trên hình MB nguồn001</td>
+<td>1550×1850</td>
+<td>Không coi ngoài là clear+2×150 cho mọi mẫu; đọc thickness thật từng input</td>
+</tr>
+<tr>
+<td>Phương cổ AA/BB</td>
+<td>700/500</td>
+<td>500/700</td>
+<td>Lấy clear sản phẩm + orientation + projection, không hardcode AA=700</td>
+</tr>
+<tr>
+<td>Cống</td>
+<td>Hai hướng chínhD400/D500</td>
+<td>Ba hướngD400/D500/D800</td>
+<td>Một OpeningId→host/frame→mọi view, không tăng size đồng loạt</td>
+</tr>
+<tr>
+<td>Cột/hàng title</td>
+<td>3990/4180</td>
+<td>3990/4130</td>
+<td>Recipe thứ tự cố định, khoảng hàng phụ thuộc extents</td>
+</tr>
+<tr>
+<td>Nắp trong native</td>
+<td>Có NapGa… INSERT</td>
+<td>Không có NapGa… INSERT</td>
+<td>Catalog sản phẩm là chuẩn lựa chọn; source representation không là bằng chứng mất nắp</td>
+</tr>
+<tr>
+<td>Leader</td>
+<td>40</td>
+<td>42</td>
+<td>Sinh theo nội dung hiện hữu, không cố định40 hay42</td>
+</tr>
+</tbody>
+</table>
+<p>Các mẫu khác nhau nhiều tham số; không suy ra đạo hàm biến thiên bằng phép trừ hai ảnh. Dùng chúng xác minh loại neo, rồi test thay <strong>một input mỗi lần</strong>: X, Y, H, chiều dày, orientation nắp, đường kính/cao độ cống, thangON/OFF.</p>
+<h2>6. Giao junior: sửa ở đâu, theo thứ tự nào, kiểm thế nào</h2>
+<ol>
+<li>Trong luồng resolved input/cover catalog/neck assembly, lưu clearX/clearY sản phẩm chưa chiếu, orientation và transform. Chỉ khóa clear theo nắp; giữ t_cổ biến thiên. Không hoán đổi clear hai lần giữa assembly và ViewBuilder. Xuất receipt projection axes để kiểm AA/BB.</li>
+<li>Trong OpeningViewMap và profile builder, một OpeningId lưu host, tâm, invert, concrete cutout và pipe profile. AA/BB/plan đều chiếu cùng record; cống chính diện ra circle/profile, cống cắt dọc ra đoạn cạnh có chiều dày/vữa đúng. Chạy ca ba cống khác đường kính/cao độ như nguồn này, rồi xoay host; kiểm identity trước layout.</li>
+<li>Trong SheetOneLadderPresentation và upstream ladder planner, kiểm rung vật lý trước annotation. OFF bỏ path+dim+leader+schedule; ON giữ đúng host, interval và projection. Không dùng chữ D18 để thay đường thang.</li>
+<li>Trong SectionRebarLabels, dùng lớp/path/surface làm target, không layer=null/Y60/140/190. Chọn lane trong lòng/ngoài hình theo role; tạo elbow rồi đoạn ngang đủ chữ. Cho phép tuyến xiên không45° như mẫu; chặn giao chữ, không chặn mọi tuyến đi vào bê tông.</li>
+<li>Trong recipe/SheetLayoutPlanner, nhóm đúng sáu hình theo bảng mục1; đo cả title/dim/callout/block ink. Không pack ngẫu nhiên, không giữ khoảng hàng4180 cho mọi case, không crop để qua gate.</li>
+<li>Giữ JSON truy vết ViewId→OpeningId/BarId/SurfaceId→AnnotationGroupId. Thiếu association thì Failed/Partial có lý do; không điền ID giả hoặc bỏ thanh để coverage đạt100%.</li>
+<li>Nghiệm thu: ảnh/PDF đủ sáu vùng, số cống/host/invert thống nhất, clear cổ đúng sản phẩm/hướng, đủ thang, đủ hai lớp đáy/trần và trong/ngoài tường, vật liệu/lót đúng trạng thái, nét/tiếng Việt đúng. Xuất cả small/large và các biến thể ba loại theo ma trận chung; trang này không thay nghiệm thu toàn ma trận.</li>
+</ol>
+<p><strong>Giới hạn:</strong> Chưa ghép mọi path của trang này tới physical occurrence, chưa kiểm đủ từng glyph/curve của PDF, chưa chứng minh DBTool sửa đúng. PDF010/011 là bước tiếp theo để kiểm cách chia nhóm khi ba tường có cống; không dùng nội dung tờ tổng thể để tự đoán bảng thống kê.</p></html>

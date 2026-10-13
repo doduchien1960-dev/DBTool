@@ -1,0 +1,191 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>pages/PDF-007-PHAN-TICH-CHI-TIET</title><style>body{font:16px/1.65 Segoe UI,Arial;max-width:1200px;margin:auto;padding:24px}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bccfd7;padding:8px;vertical-align:top}img{max-width:100%}pre{white-space:pre-wrap}</style><a href="../INDEX.html">Trang tổng</a><h1>PDF007 — cổ ga và 82 hàng thống kê native của G500-2</h1>
+<p>Nguồn: <code>1.1.Ga thăm BTCT liền khối-Model-4.pdf</code>, SHA256 <code>582aa06896f13ec6a7251acca408bf3b49f5e0c86c7cf42d769eaf676d9c9909</code>; candidate CAD-1-F009. Đã xem ảnh nguồn và có review bản in lại native trước đó: cổ 800×1000, cao độ 58.51 và hai cột TK phù hợp. Giữ trạng thái join lịch sử <code>AmbiguousOrSourceDifference_RequiresReview</code>: review nội dung không tự nâng thành chứng nhận mọi glyph/toàn hình.</p>
+<p><a href="../pdf/PDF-007-p1.png">Ảnh nguồn</a> · <a href="PDF-007-008-SCHEDULE-BENDING-MAP.html">82 hàng ATT và caption đối chiếu</a> · <a href="PDF-007-detail-review.json">JSON nguồn, scope và 47 liên kết lưới</a> · <a href="PDF-008-PHAN-TICH-CHI-TIET.html">Tờ hình uốn PDF008</a>.</p>
+<h2>1. Bố cục, block và vùng sử dụng</h2>
+<p>Cập nhật: <a href="G500-CUT-MEMBERS-AUDIT.html">16 nhóm cut/72 đoạn nguồn</a> đã xác minh membership hình học2D và mean hiển thị. Phần “Li/membership chưa kiểm” bên dưới hiện còn áp cho domain3D/runtime và các nhóm khác; không phủ nhận phép truy ngược source2D mới. Hai móc lớp ngoài nằm trong nghĩa ATT, không có trong LINE lưới.</p>
+<p>Ba hình cổ xếp dọc cột trái: mặt bằng, A-A, B-B. Tiêu đề TenMC lần lượt tại (2345,8610), (2345,5990), (2345,3770) mm local khung; scale .3, tỷ lệ danh định 1:30. CT ở (2345,5190) và (2345,2970), đọc 58.51; đây là dữ liệu mẫu, không phải thay đổi quyết định chủ nhiệm về khung nắp dày 100 và CT tại đỉnh hoàn thiện. Gốc local khung không phải gốc cấu kiện.</p>
+<p>Mặt bằng cổ phủ bì 800×1000, lọt lòng 500×700 và tường 150 mỗi bên. Hai mặt cắt có bề rộng 1000 và 800 tương ứng với trục cắt. Không lấy chữ số đầu trong tên block nắp làm cả hai chiều; chọn cover catalog, ánh xạ clearX/clearY và phép xoay trước khi khóa lọt lòng cổ.</p>
+<p>Cổ có 19 nhãn BLT1/BLT2 trên ba hình. Đây là nhãn nhóm/đại diện mặt cắt, không phải 19 ID từng thanh. Nhãn C3 trên hình nhưng dòng bảng C3A là alias cần kiểm, không sửa chữ hay gom cùng nhóm chỉ vì gần tên. Dữ liệu từng block/ATT/điểm chèn nằm trong JSON; vùng target cụ thể của tất cả 19 leader vẫn chưa được chứng nhận.</p>
+<p>Hai cột thống kê có header TK.Tieude tại X=4500 và 8550, Y=8610, cùng scale .3. Nhịp hàng native 150 mm model; cột tên lưới dùng TK.Tenluoi ghép vào hàng đầu nhóm, không tạo thêm một hàng group riêng như bảng grid. Cột trái 54 hàng, cột phải 28 hàng, tổng 82 hàng thuộc 14 scope. Cột phải bắt đầu T4 ngoài, không luôn bắt đầu Cổ ga. Chia cột theo dung lượng và thứ tự nhóm; không hardcode 48/40 của G800-1.</p>
+<p>TK.THKL tại (8550,4110), TONG=371.56, DAY1=65.07, TUONG1=209.95, TUONG2=13.18, TRAN1=47.23, CO1=36.12; các mục Ø&gt;10 còn lại 0.00. Đây là số nguồn để đối chiếu binding, không yêu cầu lấy số cố định. Thang Ø18 góp vào nhóm tường trong cách tổng hợp nguồn; quy tắc kế toán cấu kiện phải được xác nhận riêng, không tự gán thang vào cổ theo vị trí trên giấy.</p>
+<h2>2. Mapping thực tế: nhóm thanh → native TK</h2>
+<table>
+<thead>
+<tr>
+<th>Scope / nhóm</th>
+<th>Asset nguồn</th>
+<th>L / LT / LP</th>
+<th>DAI, SL</th>
+<th>Ý nghĩa để sửa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T1 ngoài / T1A,T1B</td>
+<td>TK.L2M</td>
+<td>428 / 90 / 90</td>
+<td>608, 4 mỗi nhóm</td>
+<td>Mean phần thẳng và móc phải có nghĩa riêng; 428+90+90=608 trong số nguồn</td>
+</tr>
+<tr>
+<td>T1 trong / T1A,T1B</td>
+<td>TK.L0M</td>
+<td>428 / — / —</td>
+<td>428, 4 mỗi nhóm</td>
+<td>Không thêm 180 móc của lớp ngoài</td>
+</tr>
+<tr>
+<td>T1 ngoài / T2A</td>
+<td>TK.L2M</td>
+<td>401 / 90 / 90</td>
+<td>581,4</td>
+<td>Vùng trên, không đồng nhất với vùng dưới</td>
+</tr>
+<tr>
+<td>T1 ngoài / T2B</td>
+<td>TK.L2M</td>
+<td>751 / 90 / 90</td>
+<td>931,4</td>
+<td>Cùng số lượng nhưng khác chiều dài</td>
+</tr>
+<tr>
+<td>T2 ngoài / T1A,T1B</td>
+<td>TK.L2M</td>
+<td>496 / 90 / 90</td>
+<td>676,5 mỗi nhóm</td>
+<td>Số thanh tăng theo lỗ/lưới thực, không mặc định 4</td>
+</tr>
+<tr>
+<td>T2 trong / T2A</td>
+<td>TK.L0M</td>
+<td>738 / — / —</td>
+<td>738,5</td>
+<td>Bảng và caption đều thể hiện mean, không phải một thanh dài đại diện</td>
+</tr>
+<tr>
+<td>T2 trong / T2B</td>
+<td>TK.L0M</td>
+<td>348 / — / —</td>
+<td>348,5</td>
+<td>Không đối xứng với nhóm trên do cao độ cống</td>
+</tr>
+<tr>
+<td>T1 ngoài / T3</td>
+<td>TK.M.C</td>
+<td>90 / 50 / 50</td>
+<td>190,8</td>
+<td>Sơ họa C; Ø6, khớp 8 X ở view tường ngoài T1</td>
+</tr>
+<tr>
+<td>T2 ngoài / T3</td>
+<td>TK.M.C</td>
+<td>90 / 50 / 50</td>
+<td>190,12</td>
+<td>Khớp 12 X ở view tường ngoài T2</td>
+</tr>
+<tr>
+<td>T1 trong / T3,T4</td>
+<td>TK.VG</td>
+<td>421 / 50 / 50</td>
+<td>521,8 mỗi nhóm</td>
+<td>Asset vạt/góc, Ø10; không dùng C của tường ngoài</td>
+</tr>
+<tr>
+<td>T2 trong / T3</td>
+<td>TK.VG</td>
+<td>421 / 50 / 50</td>
+<td>521,9</td>
+<td>Khác count so với T1</td>
+</tr>
+<tr>
+<td>T2 trong / T4</td>
+<td>TK.VG</td>
+<td>389 / 50 / 50</td>
+<td>489,9</td>
+<td>Không chép 421 của T3 vào T4</td>
+</tr>
+<tr>
+<td>T1 hai lớp / GC1</td>
+<td>TK.GC.T</td>
+<td>D640 / 150x2 / —</td>
+<td>2311,1 mỗi lớp</td>
+<td>Vòng tròn, tag L là chuỗi; không vẽ thành xiên 45°</td>
+</tr>
+<tr>
+<td>T2 hai lớp / GC1</td>
+<td>TK.GC.T</td>
+<td>D750 / 150x2 / —</td>
+<td>2656,1 mỗi lớp</td>
+<td>Ø vòng gia cường khác Ø cống 500</td>
+</tr>
+<tr>
+<td>T1 / GC2,GC3</td>
+<td>TK.L0M</td>
+<td>1140 / — / —</td>
+<td>1140,4 mỗi nhóm</td>
+<td>Sơ họa thẳng, không gom vào vòng GC1</td>
+</tr>
+<tr>
+<td>T2 / GC2,GC3</td>
+<td>TK.L0M</td>
+<td>1250 hoặc 1169</td>
+<td>1250 hoặc 1169,4</td>
+<td>Hai vùng có thể khác chiều dài</td>
+</tr>
+<tr>
+<td>Đáy trên / D3</td>
+<td>TK.M.U</td>
+<td>200 / hai chân 90 và hai đuôi 100</td>
+<td>580,12</td>
+<td>Khớp 12 X của đáy trên; không xóa thép U vì đáy dưới không có X</td>
+</tr>
+<tr>
+<td>Trần trên / N4</td>
+<td>TK.M.U</td>
+<td>200 / hai chân 90 và hai đuôi 100</td>
+<td>580,9</td>
+<td>Cùng asset U nhưng scope/instance khác đáy</td>
+</tr>
+<tr>
+<td>Cổ / C1</td>
+<td>TK.L2M</td>
+<td>545 / 100 / 100</td>
+<td>745,28</td>
+<td>Không lấy L=495 của bộ G800-1</td>
+</tr>
+<tr>
+<td>Cổ / C1A,C2A</td>
+<td>TK.GC.H</td>
+<td>750x950 hoặc 550x750 / 150x2</td>
+<td>3700 hoặc 2900,4</td>
+<td>Đai chữ nhật, giữ chuỗi nhiều chiều và closure</td>
+</tr>
+<tr>
+<td>Cổ / C3A</td>
+<td>TK.M.C</td>
+<td>100 / 50 / 50</td>
+<td>200,6</td>
+<td>Alias C3 trên view còn phải đối chiếu target</td>
+</tr>
+<tr>
+<td>Thang / Th</td>
+<td>TK.M.U</td>
+<td>300, hai chân 250, hai đuôi 150</td>
+<td>1100,6</td>
+<td>Ø18, cùng asset U với tie nhưng role khác; không gom vào N4/D3</td>
+</tr>
+</tbody>
+</table>
+<p>Toàn bộ 82 hàng, kể cả nhóm chưa nêu trong bảng rút gọn, có trong bảng map. 47 nhãn của PDF005 đều ghép duy nhất theo scope+SH tới hàng TK, đường kính bằng nhau. 82 caption PDF008 ghép đủ với hàng TK, kiểm D và DAI khớp. Đây là bằng chứng tên/schema/số hiển thị, <strong>chưa chứng minh Li thực của từng thanh bị cắt</strong> hoặc quy tắc tính uốn của VHGpro. Không lấy DAI nguồn rồi chia ngược để bịa danh sách member.</p>
+<h2>3. Hướng sửa code và điều kiện đóng việc</h2>
+<p><code>ViewBuilder.cs</code> hiện tạo round schedule từ canonical row; <code>ScheduleTablePlanner.cs</code> dựng grid/text và hàng nhóm riêng; <code>CadRenderer.RenderTableRow</code> chỉ nhánh AngleSteel có native block, nhánh còn lại AppendText từng cell. Vì vậy đổi header sang tiếng Việt chưa đáp ứng contract native ATT.</p>
+<p><a href="../cad/schedule-current-code-readback.json">Snapshot đọc code, hash và dòng neo</a> ghi nhận đúng ba file hiện hành; đây là audit hỗ trợ STD05/19, không phải production patch.</p>
+<ol>
+<li>Thêm adapter nhóm trình bày thống nhất trước exporter. Giữ canonical fabrication nguyên; adapter nhận member/segment ID, scope, role, region, shape/hook, diameter và mean chưa làm tròn. Bảng/nhãn/caption dùng cùng GroupId.</li>
+<li>Tạo schedule-native intent chứa exact asset + dictionary tag/value + group trace + anchor/scale trình bày. Import block thật từ template; clone ATTDEF thành ATTRIB, dùng đúng style/layer; không explode, không vẽ lại glyph hay stretch theo DAI.</li>
+<li>Thêm planner xếp TK.Tieude/TK.Tenluoi/TK row/TK.THKL theo envelope native và thứ tự scope. Không đặt group như một dòng grid thêm. Khi thiếu chỗ thì sang cột/trang, giữ chuỗi bảng; không ép cỡ chữ nhỏ, không chép X/Y fixture.</li>
+<li>Loại nhánh free-grid cho bảng thép tròn đạt chuẩn; vẫn giữ planner generic nếu dùng cho loại bảng khác. Không xóa AngleSteel native đã có.</li>
+<li>Readback DWG sau save/reopen phải thấy đúng tên TK và ATTRIB, kiểm schema/values/count/group; PNG/PDF có bảng tiếng Việt, shape đúng loại, không chồng grid duplicate.</li>
+<li>Kiểm mean từ Li của member riêng. Ví dụ source T1A ngoài 608 và T1A trong 428 chỉ chứng minh offset hai móc trong số hiển thị, không cho phép hardcode 180 cho mọi thanh/lớp. Chiều dài thật theo path/hook policy, ghi rõ quy tắc làm tròn.</li>
+</ol>
+<p>Chưa đóng: tất cả glyph/target cổ, alias C3↔C3A, Li/membership và nguyên tắc tổng hợp thang vào scope khối lượng. Các quyết định trực tiếp của chủ nhiệm về cover100/clear theo catalog vẫn có ưu tiên hơn bản mẫu cũ.</p></html>

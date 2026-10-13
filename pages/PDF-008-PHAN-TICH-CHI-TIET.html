@@ -1,0 +1,66 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>pages/PDF-008-PHAN-TICH-CHI-TIET</title><style>body{font:16px/1.65 Segoe UI,Arial;max-width:1200px;margin:auto;padding:24px}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bccfd7;padding:8px;vertical-align:top}img{max-width:100%}pre{white-space:pre-wrap}</style><a href="../INDEX.html">Trang tổng</a><h1>PDF008 — hình uốn G500-2, 16 caption chiều dài trung bình</h1>
+<p>Nguồn: <code>1.1.Ga thăm BTCT liền khối-Model-6.pdf</code>, SHA256 <code>6cbcb811d5f66e2d7394af230baeac1aa2889be88aae53e85907bb322ecb4aba</code>; native CAD-1-F010. Đã xem toàn trang, đọc 82 MTEXT caption và 14 TieudeMC. <a href="../pdf/PDF-008-p1.png">Ảnh nguồn</a> · <a href="PDF-008-detail-review.json">Bằng chứng</a> · <a href="PDF-007-008-SCHEDULE-BENDING-MAP.html">Map đủ 82 hàng</a> · <a href="PDF-007-PHAN-TICH-CHI-TIET.html">Quy tắc native ATT</a>.</p>
+<h2>1. Nội dung và vị trí theo nhóm</h2>
+<table>
+<thead>
+<tr>
+<th>Cột / X local mm</th>
+<th>Nhóm trên / số hình / Y tiêu đề</th>
+<th>Nhóm dưới / số hình / Y tiêu đề</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 /1620</td>
+<td>Đáy trên /3 /8670</td>
+<td>Đáy dưới /2 /7260</td>
+</tr>
+<tr>
+<td>2 /3240</td>
+<td>T1 ngoài /10 /8670</td>
+<td>T1 trong /11 /4530</td>
+</tr>
+<tr>
+<td>3 /4860</td>
+<td>T2 ngoài /10 /8670</td>
+<td>T2 trong /11 /4530</td>
+</tr>
+<tr>
+<td>4 /6480</td>
+<td>T3 ngoài /3 /8670</td>
+<td>T3 trong /4 /7260</td>
+</tr>
+<tr>
+<td>5 /8100</td>
+<td>T4 ngoài /3 /8670</td>
+<td>T4 trong /4 /7260</td>
+</tr>
+<tr>
+<td>6 /9720</td>
+<td>Trần trên /8 /8670</td>
+<td>Trần dưới /7 /5310</td>
+</tr>
+<tr>
+<td>7 /11340</td>
+<td>Cổ /5 /8670</td>
+<td>Thang /1 /6480</td>
+</tr>
+</tbody>
+</table>
+<p>Tiêu đề TieudeMC scale .3, chữ xanh; caption MTEXT style VHG-Unicode.Regular, cao 60 mm model, có underline trong raw MTEXT. Hình thép đỏ, kích thước là TEXT đặt cạnh từng chân. Đây là tờ sơ họa hình uốn: hình và chữ số mô tả hình dạng, <strong>không phải các thanh vật lý được thu nhỏ đồng tỷ lệ</strong>. Không đưa mọi radius/góc CAD vào caption gây rối như AddSchematicBars hiện tại.</p>
+<p>Chi tiết hình học từng line/arc của tờ này chưa được chứng nhận hết. Mức bằng chứng hiện tại là scope/caption/native ATT và review toàn trang; không coi vị trí chữ đã trích là chứng nhận không va chạm cho tất cả kích thước chân.</p>
+<h2>2. Bằng chứng Ltb và phân biệt các nhóm</h2>
+<p>Có đúng 16 caption <code>Ltb</code>: bốn vùng T1A/T1B/T2A/T2B × hai tường có cống T1/T2 × hai lớp ngoài/trong. 66 caption còn lại dùng <code>L</code>. 82/82 caption ghép đúng scope+SH tới hàng ATT của PDF007 và khớp D/DAI.</p>
+<ul>
+<li>T1 ngoài: T1A/T1B Ltb608, T2A581, T2B931; trong: 428,428,401,751. Sơ họa lớp ngoài có hai móc90; lớp trong thanh thẳng. Không lược bỏ/nhân đôi móc khi tính mean.</li>
+<li>T2 ngoài: T1A/T1B Ltb676, T2A918,T2B528; trong:496,496,738,348. Cao độ cống lệch làm vùng trên và dưới không bằng nhau, không cưỡng ép đối xứng.</li>
+<li>T3 ngoài là C Ø6,L190; T3/T4 trong là hình vạt/góc Ø10,L521 hoặc489. Hình vạt có hai đoạn50 và đoạn giữa421/389 theo bảng; không gán mọi T3 là tie C.</li>
+<li>GC1 vòng đọc D640 hoặcD750, có hai đoạn closure150; GC2/GC3 thẳng đọc1140/1250/1169. Không gom cả ba thành một recipe “thép gia cường xiên”.</li>
+<li>D3 và N4 là U Ø6,L580; Th là U Ø18,L1100. Cùng hình cơ bản không đồng nghĩa cùng role/members/legs.</li>
+<li>C1A/C2A là đai chữ nhật và closure; C3A là C. Không gọi C1A là cùng topology với C1 vì chung tiền tố.</li>
+</ul>
+<h2>3. Hướng sửa hình uốn dành cho junior</h2>
+<p>Giữ <code>BendingSchematicPlanner</code> kiểm nhất quán canonical fabrication; bổ sung bước chuyển sang sơ họa trình bày theo PresentationScheduleGroup. Không xóa kiểm fabrication chỉ để gom được mean. <code>ViewBuilder.AddSchematicBars</code> hiện lấy segments vật lý, box theo kích thước thật, đặt view tại index×2500 và caption Mark/SL/L; cần thay nhánh xuất tờ sơ họa chuẩn bằng recipe 7 cột/nhóm có tính dung lượng.</p>
+<p>Mỗi recipe định nghĩa: shape cơ bản cố định, điểm neo chữ chân, danh sách chân/closure cần ghi, caption <code>DisplayMark-DØ, L=...</code> hoặc <code>Ltb=...</code>, scope và quan hệ với TK row. Các số chân/caption lấy dữ liệu nhóm đã tính, không đo shape minh họa. Đường kính/radius thật của thanh vẫn giữ ở dữ liệu vật lý; sơ họa chỉ ghi những thông số recipe yêu cầu. Không bịa tag LTB trong TK nếu schema không có: DAI nhận mean, còn Ltb là caption của tờ hình uốn.</p>
+<p>Bố cục sinh theo nhóm và số hình thực, giữ thứ tự đáy→T1→T2→T3→T4→trần→cổ/thang; nếu vượt trang thì phân trang có tiêu đề tiếp nối. Không hardcode 82 hình, 16 Ltb, X/Y nguồn cho mọi ga. Ga không cống không được có nhóm cut giả; nhiều lỗ phải giữ opening scope và tránh đếm hai lần segment.</p>
+<p>Nghiệm thu cần: một–một GroupId giữa caption/TK/nhãn theo chính sách view; D/DAI/SL/mean đúng từ member; sơ họa đúng shape; chữ chân không trùng; đủ C/U/vạt/thang theo cấu hình. Chạy ga nhỏ/lớn, riêng X/Y/H, cống tròn/hộp, nhiều lỗ, cả ba loại. Hiện chưa có bằng chứng DBTool đáp ứng các mục này chỉ từ 82 caption nguồn khớp.</p></html>
