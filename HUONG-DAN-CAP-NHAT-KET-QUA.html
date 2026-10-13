@@ -1,0 +1,39 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HUONG-DAN-CAP-NHAT-KET-QUA</title><style>body{font:16px/1.6 Segoe UI,Arial;max-width:1200px;margin:25px auto;padding:20px}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #bccfd7;padding:8px;vertical-align:top}img{max-width:100%}pre{white-space:pre-wrap}</style><a href="INDEX.html">Trang tổng</a><h1>Cập nhật kết quả sửa vào INDEX — yêu cầu bắt buộc cho AI thực thi</h1>
+<p>Trang tổng được tạo bởi <code>tools/vhg_publish_portal.py</code>, không nối thêm liên kết rời rạc vào HTML. Mọi đường dẫn kết quả nằm trong thư mục <code>docs/vhgpro-standard-20261012/</code> và dùng đường dẫn tương đối để mở được tại máy hoặc trên web. Công cụ này không triển khai Vercel.</p>
+<h2>Đầu ra của mỗi ca thử</h2>
+<p>Tạo thư mục <code>deliveries/&lt;RunId&gt;/&lt;CaseId&gt;/</code>, chứa:</p>
+<ul>
+<li><code>page-01.webp</code>, <code>page-02.webp</code>…: ảnh xem nhanh từng tờ từ <strong>PDF thực xuất bằng CAD</strong>, cạnh dài khoảng1600px, chất lượng80–85. Không dùng ảnh dựng riêng để giả kết quả.</li>
+<li><code>drawing.pdf</code>: PDF vector đầy đủ của ca, hoặc cácPDF từng tờ và mộtmanifest liệt kê đủtrang. Không chỉ chụp tờđẹp nhất. GiữPDF gốcđểsoi font / nét / nhãn; WebP phục vụđọcnhanhtrênđiệnthoại.</li>
+<li><code>evidence.json</code>: hashinput/workbook/codebuild/DWG/PDF, family, thông sốeffective, SheetRoles, kết quảgate vàissuecònmở. Linkđếnma trậnnghiệm thu, khôngtựkhaiPassedkhiNotRun.</li>
+<li><code>notes.md</code>: sai khác trước/sau và lỗi còn lại, nếu có.</li>
+</ul>
+<p>DWG có thể giữ tại output run gốc; nếu không đưa vào site thì ghi rõ vị trí trong evidence, không đặt một linkdownload giả. Không copy toàn bộbin/logdunglượnglớn vào trangxem nhanh.</p>
+<h2>Đăng ký kết quả</h2>
+<p>Sửa <code>deliveries/index.json</code>, thêm mộtitem cho từng ca với cấu trúc:</p>
+<pre><code class="language-json">{
+  &quot;case_id&quot;: &quot;TYPE2_SMALL_ROUND_HAUNCH&quot;,
+  &quot;run_id&quot;: &quot;&lt;RunId&gt;&quot;,
+  &quot;family&quot;: 2,
+  &quot;status&quot;: &quot;Partial&quot;,
+  &quot;summary&quot;: &quot;Đã xuất đủ tờ; còn lỗi nhãn mặt cắt.&quot;,
+  &quot;preview&quot;: &quot;deliveries/&lt;RunId&gt;/&lt;CaseId&gt;/page-01.webp&quot;,
+  &quot;pdf&quot;: &quot;deliveries/&lt;RunId&gt;/&lt;CaseId&gt;/drawing.pdf&quot;,
+  &quot;evidence&quot;: &quot;deliveries/&lt;RunId&gt;/&lt;CaseId&gt;/evidence.json&quot;,
+  &quot;pages&quot;: [
+    {&quot;role&quot;: &quot;Structure&quot;, &quot;preview&quot;: &quot;deliveries/&lt;RunId&gt;/&lt;CaseId&gt;/page-01.webp&quot;}
+  ],
+  &quot;open_issue_ids&quot;: [&quot;&lt;IssueId&gt;&quot;]
+}
+</code></pre>
+<p>Status chỉ dùng <code>NotRun</code>, <code>Failed</code>, <code>Partial</code>, <code>Passed</code>. <code>Passed</code> phải có đủ bằng chứng gate cho đúng phạm vi, không cóissueblockingcònmở. Thử nghiệm có thểfailednhưngvẫncập nhậtảnh/PDFđểchủnhiệmthấytiếnđộ; không xóa ca lỗi để gallery chỉcònảnh đẹp.</p>
+<p>Sau khi cập nhật:</p>
+<ol>
+<li>Chạy <code>python tools/vhg_publish_portal.py</code> bằngPythonruntime củaworkspace.</li>
+<li>Chạy <code>python tools/vhg_standard_checkpoint.py</code> đểkiểm link/hashdữ liệunghiêncứu; kiểm này không thaygatephầnmềm.</li>
+<li>Mở INDEX vànhìnkết quả trênmàn hình nhỏ; kiểm ảnhkhôngvỡ/linkđúng. PDFphảiđúng runđangđăng ký.</li>
+<li>Bàn giao linktừng ca và danh sách lỗi cònmở. Khôngtuyênbốfinalnếu chưa đủma trận3loại/có chân-không chân/vát-khôngvát/lớn-nhỏ / tròn-hộp cùngcác ca biên.</li>
+</ol>
+<h2>Quy tắc dung lượng và liên kết</h2>
+<p>INDEX dùng thumbnailWebP tải lười cho71PDFnguồn; khôngembedbase64/PDF toàn trangvàokhốiHTML. KhiAI thực thicập nhật, ưutiênWebP đểxem nhanh, kèmPDF gốcđểsoi chi tiết. Không thayPDF bằngJPEG nhòe hoặc bỏtờ thống kê.</p>
+<p>Khi đưa lênweb cần mang thư mục tàiliệuvàcác tài sảnđược link, khôngchỉmột fileINDEX.html. Cácđường dẫnđếnsource/output ngoàithư mục tàiliệutrongbáo cáocũcó thểchỉdùng đượctại máy; kết quảmớibắt buộcself-containedtheo contract này. Không được tạo deploy hoặc thay cài đặt Vercel trong quá trình cập nhật báo cáo.</p></html>
