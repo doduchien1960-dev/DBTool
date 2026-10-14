@@ -1,0 +1,13 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  DBTool.Domain -> C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.Domain\bin\Debug\net8.0\DBTool.Domain.dll
+  DBTool.Drawing -> C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.Drawing\bin\Debug\net8.0\DBTool.Drawing.dll
+  DBTool.Application -> C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.Application\bin\Debug\net8.0\DBTool.Application.dll
+  DBTool.Infrastructure.Excel -> C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.Infrastructure.Excel\bin\Debug\net8.0\DBTool.Infrastructure.Excel.dll
+  DBTool.Headless -> C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.Headless\bin\Debug\net8.0\DBTool.Headless.dll
+  DBTool.Excel.Tests -> C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.Excel.Tests\bin\Debug\net8.0\DBTool.Excel.Tests.dll
+Test run for C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.Excel.Tests\bin\Debug\net8.0\DBTool.Excel.Tests.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\DucBao\Desktop\Dbtool\Ver 1\outputs\leader-acceptance\leader-field-contracts-20261013-r2\20261014-review-01\logs\test-results\DBTool.Excel.Tests\HungPhatPC_ADMINISTRATOR_2026-10-14_09_38_13_net8.0.trx
+
+Passed!  - Failed:     0, Passed:   272, Skipped:     0, Total:   272, Duration: 24 s - DBTool.Excel.Tests.dll (net8.0)

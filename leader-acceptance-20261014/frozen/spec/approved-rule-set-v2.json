@@ -1,0 +1,779 @@
+{
+  "snapshot_hash": "07a6ba4aab682dbd3c416a4b3ebc597eeff3674a52778dc133228dc75c45221c",
+  "entries": [
+    {
+      "id": "NR-01",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [
+        {
+          "key": "convention",
+          "kind": "Text",
+          "number": null,
+          "text": "Surface",
+          "flag": null,
+          "unit": "none",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        }
+      ],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-02",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-03",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-04",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-05",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-06",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [
+        {
+          "key": "pitch_quantum_mm",
+          "kind": "Number",
+          "number": 50,
+          "text": null,
+          "flag": null,
+          "unit": "mm",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        }
+      ],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-07",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-08",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-09",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-10",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [
+        {
+          "key": "alias_requires_exact_member_set",
+          "kind": "Bool",
+          "number": null,
+          "text": null,
+          "flag": true,
+          "unit": "none",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        }
+      ],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-11",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [
+        {
+          "key": "regenerate_from_members",
+          "kind": "Bool",
+          "number": null,
+          "text": null,
+          "flag": true,
+          "unit": "none",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        }
+      ],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-12",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-13",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [
+        {
+          "key": "decimals.DAI/mm",
+          "kind": "Number",
+          "number": 0,
+          "text": null,
+          "flag": null,
+          "unit": "dimensionless",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        },
+        {
+          "key": "decimals.Leg/mm",
+          "kind": "Number",
+          "number": 0,
+          "text": null,
+          "flag": null,
+          "unit": "dimensionless",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        },
+        {
+          "key": "decimals.TDAI/m",
+          "kind": "Number",
+          "number": 2,
+          "text": null,
+          "flag": null,
+          "unit": "dimensionless",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        },
+        {
+          "key": "decimals.KL/kg",
+          "kind": "Number",
+          "number": 2,
+          "text": null,
+          "flag": null,
+          "unit": "dimensionless",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        },
+        {
+          "key": "midpoint.DAI/mm",
+          "kind": "Text",
+          "number": null,
+          "text": "AwayFromZero",
+          "flag": null,
+          "unit": "none",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        },
+        {
+          "key": "midpoint.Leg/mm",
+          "kind": "Text",
+          "number": null,
+          "text": "AwayFromZero",
+          "flag": null,
+          "unit": "none",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        },
+        {
+          "key": "midpoint.TDAI/m",
+          "kind": "Text",
+          "number": null,
+          "text": "AwayFromZero",
+          "flag": null,
+          "unit": "none",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        },
+        {
+          "key": "midpoint.KL/kg",
+          "kind": "Text",
+          "number": null,
+          "text": "AwayFromZero",
+          "flag": null,
+          "unit": "none",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        }
+      ],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-14",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [
+        {
+          "key": "bucket_mode",
+          "kind": "Text",
+          "number": null,
+          "text": "PhysicalOwner",
+          "flag": null,
+          "unit": "none",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        },
+        {
+          "key": "summary_diameter_boundary_mm",
+          "kind": "Number",
+          "number": 10,
+          "text": null,
+          "flag": null,
+          "unit": "mm",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        }
+      ],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-15",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [
+        {
+          "key": "canonical_bundle",
+          "kind": "Text",
+          "number": null,
+          "text": "acad-original",
+          "flag": null,
+          "unit": "none",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        }
+      ],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-16",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-17",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [
+        {
+          "key": "missing_named_default_action",
+          "kind": "Text",
+          "number": null,
+          "text": "Block",
+          "flag": null,
+          "unit": "none",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        }
+      ],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-18",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-19",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-20",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-21",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [
+        {
+          "key": "collision_action",
+          "kind": "Text",
+          "number": null,
+          "text": "Reject",
+          "flag": null,
+          "unit": "none",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        }
+      ],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-22",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [
+        {
+          "key": "fixed_single_view_overflow_action",
+          "kind": "Text",
+          "number": null,
+          "text": "LAYOUT_SINGLE_VIEW_NO_FIT",
+          "flag": null,
+          "unit": "none",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        },
+        {
+          "key": "auto_requires_request",
+          "kind": "Bool",
+          "number": null,
+          "text": null,
+          "flag": true,
+          "unit": "none",
+          "source_ids": [
+            "OWNER-APPROVAL-23-20261013"
+          ]
+        }
+      ],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    },
+    {
+      "id": "NR-23",
+      "version": "owner-20261013-r2",
+      "status": "Approved",
+      "approver": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+      "approved_at_utc": "2026-10-13T13:15:06.467490+00:00",
+      "profiles": [
+        "GaThamLienKhoi",
+        "GaThamNapRoi",
+        "GaThamThuNapRoi"
+      ],
+      "components": [
+        "*"
+      ],
+      "shape_kinds": [
+        "*"
+      ],
+      "parameters": [],
+      "expressions": [],
+      "shapes": [],
+      "source_ids": [
+        "OWNER-APPROVAL-23-20261013"
+      ]
+    }
+  ],
+  "geometry_tolerance_mm": null,
+  "length_tolerance_mm": null,
+  "paper_tolerance_mm": null,
+  "mass_tolerance_kg": null,
+  "basis_tolerance": null,
+  "angle_tolerance_rad": null,
+  "area_tolerance_mm2": null,
+  "pdf_tolerance_points": null
+}

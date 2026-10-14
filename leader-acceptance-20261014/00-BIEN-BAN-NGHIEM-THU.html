@@ -1,0 +1,123 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>00-BIEN-BAN-NGHIEM-THU</title><style>body{margin:0;background:#edf2f5;color:#182c3a;font:16px/1.65 "Segoe UI",sans-serif}main{max-width:1320px;margin:auto;padding:32px;background:white}h1,h2,h3{line-height:1.35;color:#153c54}h2{border-bottom:2px solid #c7dce8;margin-top:42px;padding-bottom:8px}a{color:#086893}table{border-collapse:collapse;width:100%;display:block;overflow:auto;font-size:13px;margin:18px 0}th,td{border:1px solid #cad7df;padding:10px;vertical-align:top}th{background:#e6f0f5}tr:nth-child(even){background:#f7fafc}pre{padding:16px;background:#132c3b;color:#eaf4fa;overflow:auto;font:13px/1.5 Consolas,monospace}code{font-family:Consolas,monospace}nav{padding:12px;background:#e6f0f5;display:flex;gap:18px;flex-wrap:wrap}.banner{padding:18px;background:#fff1d1;border-left:6px solid #bd761b}details{padding:16px;border:1px solid #c8d7df;margin:16px 0}summary{font-weight:700;cursor:pointer}.badge{padding:6px 12px;background:#922e2e;color:white;border-radius:6px}button{padding:10px 18px;background:#17657d;color:white;border:0;border-radius:5px;cursor:pointer}@media print{nav{display:none}main{padding:0}table{font-size:10px}details{break-inside:avoid}}</style></head><body><main><nav><a href="INDEX.html">Mục lục nghiệm thu</a><a href="00-BIEN-BAN-NGHIEM-THU.html">Biên bản</a><a href="02-KE-HOACH-PHASE-1.html">Phase 1</a><a href="03-HO-SO-PHASE-2.html">Phase 2</a></nav><h1 id="bien-ban-soat-xet-nghiem-thu-implementation-dbtool-w01w13">BIÊN BẢN SOÁT XÉT NGHIỆM THU IMPLEMENTATION DBTOOL W01–W13</h1>
+<p><strong>Mã:</strong> DBTOOL-W01-W13-20261014-R01 · <strong>Ngày:</strong> 14/10/2026 · <strong>Spec:</strong> leader-field-contracts-20261013-r2.</p>
+<p><strong>KẾT LUẬN: CHƯA ĐẠT. CHƯA ĐỦ ĐIỀU KIỆN MỞ ĐỢT NGHIỆM THU NATIVE CHÍNH THỨC.</strong> Không xác nhận các InterfaceGate hiện tại đủ tin cậy làm nền cho nghiệm thu sản phẩm. Được tiếp tục chạy chẩn đoán trên bản sao để sửa lỗi; kết quả chẩn đoán không nâng NativeGate thành Passed.</p>
+<h2 id="1-pham-vi-va-can-cu">1. Phạm vi và căn cứ</h2>
+<p>Đã đọc file yêu cầu, 13 receipt gốc, toàn bộ danh mục ChangedFiles và các caller/test cần truy vết. Ba reviewer đọc code theo nhánh độc lập; project leader kiểm lại source và chạy kiểm chứng. Có 111 bản ghi thay đổi, tương ứng 102 path: 96 file hiện có và 6 file được gỡ có chủ đích ở W12. DTO 103 record khớp field/type của spec; schema đúng không đồng nghĩa implementation đúng.</p>
+<p>23 đề xuất NR01–NR23 đã được DucBao duyệt; giữ nguyên hiệu lực. Review này không yêu cầu duyệt lại và không tự tạo dữ liệu kỹ thuật còn thiếu. Không sửa code sản phẩm, UI chính, receipt cũ hoặc workbook/PDF/template gốc; không làm 3D.</p>
+<h2 id="2-so-lieu-va-bang-chung-a-kiem">2. Số liệu và bằng chứng đã kiểm</h2>
+<table>
+<thead>
+<tr>
+<th>Hạng mục</th>
+<th>Kết quả thực tế</th>
+<th>Giới hạn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Receipt</td>
+<td>13/13 ghi Complete/Passed; 59 checks; NativeGate đều NotRun</td>
+<td>Bảng trong prompt ghi W06=13; receipt W06=4. Tổng đúng từ receipts là 59.</td>
+</tr>
+<tr>
+<td>Build mới</td>
+<td>Solution build exit 0; 0 error, 5 warning MSB3277</td>
+<td>Cần kiểm runtime; không phải bằng chứng DWG/PDF đúng.</td>
+</tr>
+<tr>
+<td>Software suites mới</td>
+<td>1508 Passed / 1508 tests, 5 suites</td>
+<td>DBTool.AutoCAD.Tests không có test runner: dotnet test chỉ restore, không chạy host test.</td>
+</tr>
+<tr>
+<td>Counterexamples</td>
+<td>6 phép chạy trực tiếp đều tái hiện lỗi</td>
+<td>Input thiếu vẫn Ready; hash không đổi; view thiếu; native Passed giả; semantic diff sai.</td>
+</tr>
+<tr>
+<td>Host probe</td>
+<td>AutoCAD Core2026 load DBTool.dll, VEHOGABATCH báo file thiếu đúng; exit 0</td>
+<td>Chỉ load/negative probe; không sinh sản phẩm. Seed INSUNITS=2, không dùng cho nghiệm thu mm.</td>
+</tr>
+<tr>
+<td>Dependency</td>
+<td>19 link hash receipt khớp; mtime phù hợp</td>
+<td>Không chứng minh execution order; có 1 gap BeforeHash và 1 current AfterHash mismatch.</td>
+</tr>
+<tr>
+<td>Native sản phẩm</td>
+<td>0 DWG/PDF sản phẩm mới được nghiệm thu</td>
+<td>Scratch DWG của probe có thay đổi; nguồn gốc giữ hash. Phase 2 chưa có PDF để xem.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-thieu-sot-phai-ong">3. Thiếu sót phải đóng</h2>
+<p>Có <strong>39 finding</strong>: 34 P1 và 5 P2. P1 ảnh hưởng tính đúng hoặc độ tin cậy gate bắt buộc; P2 là lỗi phụ về cấu hình/provenance/hash. Mọi finding phải có disposition và bằng chứng đóng trước khi ký Phase 1; không dùng số test pass để đóng finding.</p>
+<table>
+<thead>
+<tr>
+<th>Nhóm</th>
+<th>Finding</th>
+<th>Gói sửa</th>
+<th>Điều kiện đóng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dữ liệu và hình học</td>
+<td>G01–G03, G07, G10</td>
+<td>W02/W06</td>
+<td>Không tự điền số, không mất feature; source/void/host/hash đúng.</td>
+</tr>
+<tr>
+<td>Thép và clipping</td>
+<td>G04–G06, G11–G12</td>
+<td>W07</td>
+<td>Physical paths/station/cover/holes đúng nguồn, thiếu binding phải Block.</td>
+</tr>
+<tr>
+<td>Template và trình bày</td>
+<td>G08–G09, D03–D09, D11</td>
+<td>W02/W03/W04/W08/W09/W10</td>
+<td>Exact native assets, boolean, targets và ink; không fake schema/metrics.</td>
+</tr>
+<tr>
+<td>Đủ view và sheet</td>
+<td>D01–D02, D12–D13</td>
+<td>W10/W11/W12</td>
+<td>Role table đủ, S8 được đặt, hash khóa đủ layout.</td>
+</tr>
+<tr>
+<td>Đường chạy và native</td>
+<td>N01–N04, N07, N10, N12</td>
+<td>W05/W13</td>
+<td>Command thật nối pipeline, render thật, save/reopen và field equality.</td>
+</tr>
+<tr>
+<td>Bằng chứng và batch</td>
+<td>N05–N06, N08–N11, R01–R02</td>
+<td>W01/W05/W13</td>
+<td>Actual độc lập, đủ row receipt/manifest và DucBao xem đúng PDF.</td>
+</tr>
+</tbody>
+</table>
+<p>Sáu phép tái hiện: input row trống vẫn ra 1000×1000×1500; đổi L 1000→1137 nhưng physical_hash giữ nguyên; ga không catch chỉ có ba view catch required=false; không native port/không DWG vẫn Committed/Passed; hai manifest{} được NoDifference; endpoint world Start.X đổi 10 mm bị coi LayoutOnly. Đây là phép chẩn đoán có input/log riêng, không phải số fixture nghiệm thu.</p>
+<p>Danh sách đầy đủ có file/dòng/spec/gói sửa/cách đo tại <a href="01-FINDINGS.html">Phụ lục finding</a>. <a href="04-ADJUDICATION-59-CHECKS.html">59 checks</a> được đánh giá riêng, không giữ nguyên chữ Passed của implementer.</p>
+<h2 id="4-quyet-inh-ve-ieu-kien-chay-native">4. Quyết định về điều kiện chạy native</h2>
+<p>Gate hiện tại là <strong>NO-GO</strong> do pipeline sản phẩm chưa nối S0–S11, có dữ liệu giả và feature bị bỏ, render/readback chưa đo thật, thiếu plot/review ports và còn missing bindings bị che. Seed rule có 8 tolerance fields chưa có giá trị; việc phê duyệt 23 phương án không cấp các con số này. Mọi thiếu dữ liệu active phải Block theo field/source, không tự nới dung sai hoặc tắt feature.</p>
+<p>Chỉ mở lại khi: các lỗi ảnh hưởng run được sửa và tái hiện không còn; composition thật và nguồn/phiên bản được đóng băng; binding active đầy đủ; runner và output guards có thật; diagnostic negatives chặn đúng; unit-mm/asset/host preflight đạt. Sau đó mới chạy batch smoke, coverage, save/reopen/plot. Không yêu cầu NativeGate đã Passed trước lần chạy đầu, nhưng phải có implementation và dữ liệu đủ để chạy trung thực.</p>
+<h2 id="5-hai-phase-va-ieu-kien-ky">5. Hai phase và điều kiện ký</h2>
+<p><strong>Phase 1 – Leader kiểm trên máy:</strong> đã hoàn thành audit/build/software/counterexamples và host-load probe. Sinh DWG/PDF đầy đủ, readback số học và overlay còn <strong>Blocked_Preflight</strong>. Kế hoạch chi tiết có gate, thứ tự ca, lệnh thật, output path và owner sửa tại <a href="02-KE-HOACH-PHASE-1.html">Phase 1</a>.</p>
+<p>216 core IDs và 40 edge requirement families hiện chưa phải 256 workbook hợp lệ. Có 72 core selectors yêu cầu vát trần ở profile2/3 trong khi field TopHaunch chỉ có profile1; review ghi CoverageConflict_Hold, đề xuất N/A/alias theo nguồn và giữ nguyên matrix gốc. Không tự xóa 72 mục hoặc tính chúng là Passed. 144 tổ hợp chưa vướng mâu thuẫn này vẫn phải có input và validation cụ thể;40 edge families phải tách đủ variants/negative cases. Ba workbook gốc chạy mọi dòng thực sự hợp lệ, không chọn một dòng đại diện.</p>
+<p><strong>Phase 2 – DucBao xem bằng mắt:</strong> bắt buộc sau Phase 1 đạt. Danh sách PDF sản phẩm hiện rỗng; hồ sơ chuẩn bị gồm manifest template, checklist theo role/vùng và form ghi nhận. Chỉ PDF thật có hash/frame/page được Leader bàn giao mới được ghi review. Không dùng ảnh mẫu, unit output hoặc metadata visual Passed thay chữ ký của DucBao.</p>
+<p><strong>Điều kiện Leader ký “máy kiểm xong”:</strong> mọi selected row và required frame được đối chiếu đủ; expected từ nguồn độc lập, actual native/PDF; tolerance có nguồn; không missing/failed measurement; đủ entity ownership, view/TK/bending/ink coverage, save/reopen và plot evidence; các ảnh hưởng cross-ga/undo/cancel/negative cases đạt; không còn finding chưa có disposition; manifest hash khép kín. Chữ ký này chỉ chuyển sang ReadyForHumanReview, không phải nghiệm thu cuối.</p>
+<p><strong>Điều kiện nghiệm thu cuối:</strong> Phase 1 đạt và DucBao xác nhận từng vùng bắt buộc trên mọi trang PDF thực tế; mismatch hoặc vùng chưa xem giữ Failed/NotRun. Mọi đổi code/input/template/rule/plot/PDF sau review làm mất hiệu lực phần bị ảnh hưởng và phải kiểm lại.</p>
+<h2 id="6-rui-ro-va-buoc-tiep-theo">6. Rủi ro và bước tiếp theo</h2>
+<ol>
+<li><strong>Passed giả:</strong> fake port, self-comparison và test hình thức. Đóng N02–N06/R01; dùng mutation native thật và kiểm thiếu artifact không bao giờ Passed.</li>
+<li><strong>Sai hoặc mất đối tượng khi thay ga:</strong> topology/ownership/hash/Replace sai. Chạy bản sao, kiểm stale guards, A→B→updateB và before/after A, undo/save failure.</li>
+<li><strong>DWG có hình nhưng PDF thiếu/chồng/sai tỷ lệ:</strong> thiếu view/S8, ink giả, font/CTB/unit khác. Khóa source profiles, đo native/vector, render so sánh và bắt buộc DucBao review.</li>
+</ol>
+<p>Giao trả implementer theo finding và <a href="05-PACKAGE-REWORK.html">bảng từng gói</a>. Không sửa bằng cách giảm expected coverage, tăng tolerance, sửa PDF mẫu hoặc giữ stub để qua tests. Sau sửa phải xuất amendment receipts kèm command/log/hash thực tế và chạy lại gate bị ảnh hưởng.</p>
+<p><strong>Người lập:</strong> Codex – project leader, kết luận review dựa trên bằng chứng máy và source. <strong>Chủ nhiệm:</strong> DucBao – chưa ký nghiệm thu sản phẩm trong biên bản này. Phê duyệt NeedsRule ngày 13/10 không được dùng làm chữ ký Phase 2.</p>
+<p><a href="INDEX.html">Mục lục</a> · <a href="data/review-summary.json">Dữ liệu review</a> · <a href="DELIVERY-MANIFEST.json">Manifest kiểm chứng</a>.</p></main></body></html>

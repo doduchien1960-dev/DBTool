@@ -1,0 +1,212 @@
+{
+  "PackageId": "W02",
+  "Phase": "P1",
+  "Version": "leader-field-contracts-20261013-r2",
+  "DependencyReceiptHashes": {
+    "W01": "88EF0C2BFF47DAB14ED469F80982E0136F24B64C056A7CA51F861632CC977EDF"
+  },
+  "ChangedFiles": [
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Common/Diagnostic.cs",
+      "BeforeHash": "225A596998C55AEA49042F8DC505C954089CF4F201034075EA76C8513432DC30",
+      "AfterHash": "BA71449E385376953CB3FB74EC4FD6A3387C82FDB28B4065A703DD62F2E7B649",
+      "Reason": "Bổ sung SubjectId, Unit, NeedsRuleIds cho Diagnostic model theo chuẩn DiagnosticV2."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Common/SourceRef.cs",
+      "BeforeHash": "0FF40490D85F9DFA6BF78424D5FD630A1ABD3407BA58B194ADE1D406CB78AAEA",
+      "AfterHash": "3DEFDC94BBF130EAD0D5BB3F38E2A60D1AA3429EEBD9CAD5E070F8677407A796",
+      "Reason": "Bổ sung SourceKind (Decision, Derived, CadHandle, NoteRef) và các trường Handle, FormulaId, ParentIds, NoteSource."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Input/ManholeInput.cs",
+      "BeforeHash": "53E852DE1F12E8B3A732FD12A97D1F4A346D1363BB4DFD02E5FE80F27D066165",
+      "AfterHash": "27200615308FD41768303FD18AA8C5B0CAB967B5EB96AD87F0457F7318390F6F",
+      "Reason": "Thêm NoteStyle, PitchSymbol, WallDimPrefix, NeckPrefix, PanelDetailScaleDenominator, MaterialG, AnnotationPrefixes, ConfigRawCells (get-only)."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Input/ValidatedManholeSpec.cs",
+      "BeforeHash": "EBE2884BEC8EC4241BDE5674BEA276C0CF11F95FD4460A9DA9C747786B5665CB",
+      "AfterHash": "D829719987D3EFFDEBE604B33D169169DC4575D9DC615480C1003AF3F3C2B8F0",
+      "Reason": "Thêm AssemblyDatums, Datums, ResolvedProducts, FeatureStates, ResolvedAperture (get-only)."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Policies/CalculationPolicy.cs",
+      "BeforeHash": "0E874AEA4296FB647BBDABAE82CF30D110DDAA2312C3B9E27041587701441ABF",
+      "AfterHash": "9C511A13BF4CA51207DFFD50C9466F45AFBDA979B9708EBE43CD19E61447D02F",
+      "Reason": "Bổ sung constructor RuleBinding với Sources và kiểm tra HasApprovedRules, không phụ thuộc vào proposal prose."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/PresentationProfile.cs",
+      "BeforeHash": "8330552FE3D673A99CB7BE9ADFC38B3A79D51EADA250DFBBEAD570F50D4180A1",
+      "AfterHash": "362792E177F483C46A881E2DB1C0C9819DA255D9CC44FEC962B3C0789264BA54",
+      "Reason": "Mở rộng PresentationProfile với MinInkGapMm, ApprovalId, Sources."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/PresentationRequest.cs",
+      "BeforeHash": "E1D05021A52C42AFF40B9F8E63553402C22009F0CFBC264BE6F81801FE8F18FA",
+      "AfterHash": "4414441A02FFA27E585C5AD9D403BD29CE40DA16D9B80CCA10CC048CC0FE4A09",
+      "Reason": "Mở rộng PresentationRequest với PanelScale, ScaleMode, ViewSpacingMm (get-only)."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Infrastructure.Excel/Vhg32Schema.cs",
+      "BeforeHash": "7BB1765477FD28127BF816CFAE85BBC2E49FD84372A4D03407DC69829FDD725C",
+      "AfterHash": "3ECEDC28D9089F3BF02A94F2FEF2D8EC369845EEB3F038278DD518DD68BA415C",
+      "Reason": "Bổ sung schema mappings cho F-206 (Material.G), F-162 (PitchSymbol), F-163 (NoteStyle), F-165..F-172 (Annotation.Prefix), Panel.DetailScaleDenominator."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Infrastructure.Excel/WorkbookImporter.cs",
+      "BeforeHash": "99A869CB8E484894C4D42A2500CDE633ADE6CA65988860AF9237BC8CE16080A8",
+      "AfterHash": "A9FB6BBB430DD493367B21E3C8B2317A53836361B42743BC236662E900346806",
+      "Reason": "Đọc và map các cấu hình ghi chú, tiền tố kích thước, scale denominator, và validate VHGpro template version marker."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/Templates/VhgTemplateRoles.cs",
+      "BeforeHash": "3E6F1C11A0F0F559D9839371EA156A34FCC54CC6C2CE9D54A99F30EDC30B62D3",
+      "AfterHash": "A0C6AB439322FBF9381B1AD36627C382C3600E4F6DA8D88202DDA19DC2E231E5",
+      "Reason": "Bổ sung Geometry/DowelHole, CatchSummary, VHG-HoThu và bảng GeometryRequirements theo W02 spec."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/Templates/TemplateContractValidator.cs",
+      "BeforeHash": "56AA70F3713AB4C3F46742B0A1C21CC0192249767E7C1695774044C4AD20050B",
+      "AfterHash": "5C7B43F6C42F738EE950DEFCD284617A9DC9C178905099DB40B300BE523C4786",
+      "Reason": "Bổ sung kiểm tra duplicate tag, same-name conflict và xác thực font metrics cơ bản."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.AutoCAD/NativeAssetSignatures.cs",
+      "BeforeHash": "22FA685C8022C0B70EB72D7CD5170A7C0F5BDEB1B2F344040CCE763C326DF547",
+      "AfterHash": "17BA9B0EAAC8152E4532A5D3D14312F55D5A3A3238397641AEE966C26681AFE5",
+      "Reason": "Thêm CanonicalBundleVersion, CustomizationVersion, ReadBlock, Block in Find signature, và ComputeAssetHash."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.AutoCAD/TemplateAssetImporter.cs",
+      "BeforeHash": "992F5A02EDA1762619BE20CC7E88123EB6997B4FCAFC26ED644B08C73C49C081",
+      "AfterHash": "190905AD9F26BC8AB09BFDF9F1372DE747ECFDE2139D1230EC1E64D04E0F7508",
+      "Reason": "Kiểm tra INSUNITS trước/sau khi import và ghi log version migration khi có xung đột định danh."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.AutoCAD/TemplateManifestReader.cs",
+      "BeforeHash": "7C911A78D380C0B4DB4FB0813CA210753DE2B5DE8D676339EF27DE85E25DF5D6",
+      "AfterHash": "EE6E4A16B10057E04994FD9DAFB083A4D7A570574A499412015A8D5CE256E735",
+      "Reason": "Cập nhật RequiredRoles cho W02 và bổ sung hàm ToAssetsV2 export contract."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/StageContractsV2/Domain.ContractsV2.cs",
+      "BeforeHash": "",
+      "AfterHash": "F62ED2F5AE81415592B1C6251620AD1AB374498C29DAD86C258F5F601595843F",
+      "Reason": "Tạo mới Stage DTO foundation S0..S9, S1StateV2..S4StateV2, DiagnosticV2, ReceiptV2, RuleApprovalRegistry theo bảng B3.04-B3.08."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs",
+      "BeforeHash": "",
+      "AfterHash": "2054A0A3108EBFC01CB9CF00EFB30DB84C83A059C7EB508DECF124CC885472EB",
+      "Reason": "Tạo mới Stage DTO foundation S5..S8, ViewPlacementV2, DimensionItemV2, HatchPatternV2, RebarCalloutV2 theo bảng B3.04-B3.08."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/StageContractsV2/Application.ContractsV2.cs",
+      "BeforeHash": "",
+      "AfterHash": "809E3E41D0D41719D727584E168373F766A5DDFFD1E656F94C200A8073851A4D",
+      "Reason": "Tạo mới PipelineContractsV2, SheetContractV2, IStageV2 và các port contracts INativeGenerationPort, IPlotEvidencePort, IVisualReviewReader, IArtifactStore."
+    }
+  ],
+  "InterfaceGate": "Passed",
+  "ImplementationStatus": "ImplementationComplete",
+  "NativeGate": "NotRun",
+  "BindingMissing": [],
+  "Commands": [
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests"
+    }
+  ],
+  "Checks": [
+    {
+      "Name": "StageDTO_Schema_Exactness",
+      "SubjectId": "ContractsV2",
+      "Expected": "Exact typed contracts for S0 through S9 stages and supporting value objects matching Tables B3.04-B3.08",
+      "Actual": "Full implementation of S0AssetsV2 through S9StateV2, DiagnosticV2, ReceiptV2, RuleApprovalRegistry with get-only immutability",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.04-B3.08",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Domain/StageContractsV2/Domain.ContractsV2.cs",
+        "Ver 1/DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs",
+        "Ver 1/DBTool/DBTool.Application/StageContractsV2/Application.ContractsV2.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "TemplateContract_RoleAndTagValidation",
+      "SubjectId": "TemplateContractValidator",
+      "Expected": "Geometry/DowelHole, CatchSummary, VHG-HoThu roles present; tag conflicts and duplicate names detected without fallback",
+      "Actual": "VhgTemplateRoles updated with GeometryRequirements; TemplateContractValidator checks tags and block name collisions",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Application/Templates/VhgTemplateRoles.cs",
+        "Ver 1/DBTool/DBTool.Application/Templates/TemplateContractValidator.cs",
+        "Ver 1/DBTool/DBTool.AutoCAD/NativeAssetSignatures.cs",
+        "Ver 1/DBTool/DBTool.AutoCAD/TemplateAssetImporter.cs",
+        "Ver 1/DBTool/DBTool.AutoCAD/TemplateManifestReader.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "CalculationPolicy_ApprovedRulesGating",
+      "SubjectId": "CalculationPolicy",
+      "Expected": "RuleBinding explicitly validates approved rules; proposal prose never converted to geometry",
+      "Actual": "RuleBinding constructor accepts Sources and checks HasApprovedRules, gated against non-approved bindings",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Domain/Policies/CalculationPolicy.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "ExcelImporter_FieldContractMapping",
+      "SubjectId": "WorkbookImporter",
+      "Expected": "Material.G, NoteStyle, PitchSymbol, Annotation prefixes mapped and version marker validated",
+      "Actual": "Vhg32Schema addresses updated and WorkbookImporter maps prefixes and checks VHGpro version signature",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Infrastructure.Excel/Vhg32Schema.cs",
+        "Ver 1/DBTool/DBTool.Infrastructure.Excel/WorkbookImporter.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "Architecture_DependenciesAndImmutability",
+      "SubjectId": "ArchitectureContractTests",
+      "Expected": "Clean one-way assembly dependencies without circular refs or public property mutators on DTOs",
+      "Actual": "All 1,453 unit and architecture contract tests pass across Domain, Drawing, Application, and Excel suites",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Domain/StageContractsV2/Domain.ContractsV2.cs",
+        "Ver 1/DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs",
+        "Ver 1/DBTool/DBTool.Application/StageContractsV2/Application.ContractsV2.cs"
+      ],
+      "Verdict": "Passed"
+    }
+  ],
+  "ActualDWG/PDFPaths": [],
+  "RecoveryState": "Clean",
+  "RollbackInstructions": "git checkout -- \"Ver 1/DBTool/DBTool.Domain/Common/Diagnostic.cs\" \"Ver 1/DBTool/DBTool.Domain/Common/SourceRef.cs\" \"Ver 1/DBTool/DBTool.Domain/Input/ManholeInput.cs\" \"Ver 1/DBTool/DBTool.Domain/Input/ValidatedManholeSpec.cs\" \"Ver 1/DBTool/DBTool.Domain/Policies/CalculationPolicy.cs\" \"Ver 1/DBTool/DBTool.Drawing/PresentationProfile.cs\" \"Ver 1/DBTool/DBTool.Drawing/PresentationRequest.cs\" \"Ver 1/DBTool/DBTool.Infrastructure.Excel/Vhg32Schema.cs\" \"Ver 1/DBTool/DBTool.Infrastructure.Excel/WorkbookImporter.cs\" \"Ver 1/DBTool/DBTool.Application/Templates/VhgTemplateRoles.cs\" \"Ver 1/DBTool/DBTool.Application/Templates/TemplateContractValidator.cs\" \"Ver 1/DBTool/DBTool.AutoCAD/NativeAssetSignatures.cs\" \"Ver 1/DBTool/DBTool.AutoCAD/TemplateAssetImporter.cs\" \"Ver 1/DBTool/DBTool.AutoCAD/TemplateManifestReader.cs\"; Remove-Item \"Ver 1/DBTool/DBTool.Domain/StageContractsV2/Domain.ContractsV2.cs\" \"Ver 1/DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs\" \"Ver 1/DBTool/DBTool.Application/StageContractsV2/Application.ContractsV2.cs\" -Force"
+}

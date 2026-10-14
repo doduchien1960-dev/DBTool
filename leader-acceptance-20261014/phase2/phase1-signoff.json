@@ -1,0 +1,7 @@
+{
+  "phase1_status": "Blocked_Preflight",
+  "leader_signoff": null,
+  "signed_at": null,
+  "product_pdf_manifest_sha256": null,
+  "reason": "Open findings/required data/runtime integration; no product DWG/PDF native acceptance run"
+}

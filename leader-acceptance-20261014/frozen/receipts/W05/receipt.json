@@ -1,0 +1,114 @@
+{
+  "PackageId": "W05",
+  "Phase": "NEW-C",
+  "Version": "leader-field-contracts-20261013-r2",
+  "DependencyReceiptHashes": {
+    "W02": "9109421973A2367B66C171F19BA95505CB1458E0A6C6ADE3149CD5019034CCD9"
+  },
+  "ChangedFiles": [
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/BatchGenerationOrchestrator.cs",
+      "BeforeHash": "",
+      "AfterHash": "9D01DF4F3D306558141E8799F783E88397D265E952CD781B55AAA1A0CDBF4211",
+      "Reason": "VIẾT MỚI: BatchGenerationOrchestrator theo H17; row receipts/cancel/host unhealthy/finiteAuto retry; inject Application ports."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.AutoCAD/NativeReadbackVerifier.cs",
+      "BeforeHash": "",
+      "AfterHash": "26972789B018AAD7901A0701AA54F6E7713A691E374487AA8B677368777DDA20",
+      "Reason": "VIẾT MỚI: NativeReadbackVerifier theo S10/H16; save/reopen actual DWG, OCS/handlemap readback, attribute tags/values and tolerance verification."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs",
+      "BeforeHash": "",
+      "AfterHash": "C6C388FEF5DD6BBEC1BE194541B5E44435C7DC7388AC0BEE3F58DFFBF05EC995",
+      "Reason": "VIẾT MỚI: AcceptanceEvidenceAssembler theo S11; Input->DWG->PDF scoped comparison/status, missing visual review verdict=NotRun."
+    }
+  ],
+  "InterfaceGate": "Passed",
+  "ImplementationStatus": "ImplementationComplete",
+  "NativeGate": "NotRun",
+  "BindingMissing": [],
+  "Commands": [
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests"
+    },
+    {
+      "Command": "dotnet build \"Ver 1/DBTool/DBTool.AutoCAD/DBTool.AutoCAD.csproj\" -p:AutoCADManagedPath=\"C:\\Program Files\\Autodesk\\AutoCAD 2026\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.AutoCAD"
+    }
+  ],
+  "Checks": [
+    {
+      "Name": "BatchGenerationOrchestrator_Signature_And_Isolation",
+      "SubjectId": "BatchGenerationOrchestrator",
+      "Expected": "BatchV2 Generate(RequestV2 request, IRunContextFactory contextFactory, CancellationToken token) with row isolation, cancellation handling, and finite scale retry",
+      "Actual": "Full implementation in DBTool.Application with session health management, manifest generation, and pure stage execution",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.08/H17",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Application/BatchGenerationOrchestrator.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "NativeReadbackVerifier_Save_Reopen_Validation",
+      "SubjectId": "NativeReadbackVerifier",
+      "Expected": "NativeV2 Verify(S9StateV2 expected, NativeV2 committedWrite, CancellationToken token) reading actual reopened database handles, attributes, and checking unchanged manifests",
+      "Actual": "Full implementation in DBTool.AutoCAD opening actual saved DWG, reading handle map, and validating tolerances against NR-18 rules",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.08/H16",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.AutoCAD/NativeReadbackVerifier.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "AcceptanceEvidenceAssembler_S11_Records",
+      "SubjectId": "AcceptanceEvidenceAssembler",
+      "Expected": "BatchV2 Assemble(S10StateV2 input, CancellationToken token) comparing expected effective/rebar/geometry against actual readback, with missing review marked NotRun",
+      "Actual": "Full implementation in DBTool.Application assembling AcceptanceCheckV2, PlotPageV2, RowVerdictV2, and delivery-manifest.json",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.08/S11",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "Architecture_DependenciesAndImmutability",
+      "SubjectId": "ArchitectureContractTests",
+      "Expected": "Clean one-way assembly dependencies without circular refs or public property mutators on DTOs",
+      "Actual": "All 1,453 unit and architecture contract tests pass across Domain, Drawing, Application, and Excel suites",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Application/BatchGenerationOrchestrator.cs",
+        "Ver 1/DBTool/DBTool.AutoCAD/NativeReadbackVerifier.cs",
+        "Ver 1/DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs"
+      ],
+      "Verdict": "Passed"
+    }
+  ],
+  "ActualDWG/PDFPaths": [],
+  "RecoveryState": "Clean",
+  "RollbackInstructions": "Remove-Item \"Ver 1/DBTool/DBTool.Application/BatchGenerationOrchestrator.cs\" \"Ver 1/DBTool/DBTool.AutoCAD/NativeReadbackVerifier.cs\" \"Ver 1/DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs\" -Force"
+}

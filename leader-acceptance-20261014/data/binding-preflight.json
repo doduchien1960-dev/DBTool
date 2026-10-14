@@ -1,0 +1,24 @@
+{
+  "owner_approval": "OWNER-APPROVAL-23-20261013",
+  "proposal_headers_approved": 23,
+  "numeric_tolerance_fields_missing": [
+    "geometry_tolerance_mm",
+    "length_tolerance_mm",
+    "paper_tolerance_mm",
+    "mass_tolerance_kg",
+    "basis_tolerance",
+    "angle_tolerance_rad",
+    "area_tolerance_mm2",
+    "pdf_tolerance_points"
+  ],
+  "other_required_active_data": [
+    "Product aperture/contact contracts",
+    "Shape corner/radius basis and nominal/fabrication roles",
+    "Layer stack/support and diameter catalog",
+    "Dowel embeds/hole depth/rounding endpoints",
+    "Actual font/glyph metrics and plot profile hashes",
+    "Ink gaps/lane/scale recipes and source role bindings"
+  ],
+  "result": "BlockedUntilActiveBindingsSourceVerified",
+  "instruction": "Do not reapprove the 23 proposals. Bind missing data from source; do not invent numbers or silently deactivate features."
+}

@@ -1,0 +1,29 @@
+{
+  "purpose": "load-only negative probe, not product acceptance",
+  "executable": "C:\\Program Files\\Autodesk\\AutoCAD 2026\\accoreconsole.exe",
+  "arguments": [
+    "/i",
+    "\"C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261014-review-01\\native-probe\\scratch-copy.dwg\"",
+    "/s",
+    "\"C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261014-review-01\\native-probe\\load-only.scr\"",
+    "/l",
+    "en-US",
+    "/isolate",
+    "W13Audit20261014",
+    "\"C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261014-review-01\\native-probe\\isolated-user\""
+  ],
+  "process_id": 21392,
+  "timed_out": false,
+  "exit_code": 0,
+  "product_acceptance": "NotRun",
+  "command_registered": true,
+  "probe_end_observed": true,
+  "database_insunits": 2,
+  "unit_meaning": "Feet; only load probe, not numerical product acceptance",
+  "source_unchanged": true,
+  "scratch_after_sha256": "51c0d9bcc908f3d42ea449832394990c00b5fd13577d172ddd85f99aa9970757",
+  "scratch_changed": true,
+  "transcript_sha256": "768c0138556e921ad9fff1832f047785a7d837c61d73e499c2ac8e767eff26db",
+  "passed_scope": "Command assembly load and missing-workbook negative branch only",
+  "native_product_acceptance": "NotRun"
+}

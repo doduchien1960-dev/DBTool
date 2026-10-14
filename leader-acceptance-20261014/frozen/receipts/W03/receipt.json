@@ -1,0 +1,109 @@
+{
+  "PackageId": "W03",
+  "Phase": "NEW-A",
+  "Version": "leader-field-contracts-20261013-r2",
+  "DependencyReceiptHashes": {
+    "W02": "9109421973A2367B66C171F19BA95505CB1458E0A6C6ADE3149CD5019034CCD9"
+  },
+  "ChangedFiles": [
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/PresentationGroupPlanner.cs",
+      "BeforeHash": "",
+      "AfterHash": "BEC191D4DF0C967494F4A523C2B1F8A5EFA2978A0B670C02FE8DF878FE08A5DF",
+      "Reason": "Triển khai S5 presentation group planning, gom nhóm theo 05B-F49 key, kiểm tra 100% member coverage assertion (GROUP_COVERAGE_MISMATCH), phát hiện trùng mark (GROUP_MARK_COLLISION), và tính toán khối lượng/registry_hash."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs",
+      "BeforeHash": "",
+      "AfterHash": "5FF970D95BAB3E67833667094238CFF617DAFE02516DFC5B14A1535B587278C5",
+      "Reason": "Triển khai H06/H26 assembly boundary và CSG regions cho mặt cắt/hình chiếu, hỗ trợ multi-slice clipping, trừ lỗ sản xuất chia sẻ để xuất Region2V2[]."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/RuleApprovalRegistry.cs",
+      "BeforeHash": "",
+      "AfterHash": "F44B6A741ABD59FF472901823C10E87E230C2FC5D0E103C89F75EF51E6979988",
+      "Reason": "Triển khai IRuleSnapshotReader, nạp 23 quy tắc NR-01..23 đã được DucBao chấp thuận (OWNER-APPROVAL-23-20261013), kiểm tra AST cycle, toán tử hợp lệ, và trả typed diagnostic khi thiếu binding."
+    }
+  ],
+  "InterfaceGate": "Passed",
+  "ImplementationStatus": "ImplementationComplete",
+  "NativeGate": "NotRun",
+  "BindingMissing": [],
+  "Commands": [
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests"
+    }
+  ],
+  "Checks": [
+    {
+      "Name": "PresentationGroupPlanner_MemberCoverage",
+      "SubjectId": "PresentationGroupPlanner",
+      "Expected": "Gom nhóm S5 theo 05B-F49 key, phủ 100% member không thiếu không thừa, phát hiện trùng mark",
+      "Actual": "Hoàn tất gom nhóm, tính trung bình hình học, kiểm tra GROUP_COVERAGE_MISMATCH và GROUP_MARK_COLLISION",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/PresentationGroupPlanner.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "AssemblyBoundaryEmitter_CSG_Regions",
+      "SubjectId": "AssemblyBoundaryEmitter",
+      "Expected": "Sinh Region2V2[] bao gồm Section CSG và Projection boundary, trừ lỗ chia sẻ theo H06/H26",
+      "Actual": "Hoàn tất bộ phát sinh biên hình học với clipping đa mặt cắt và polygon boolean",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "RuleApprovalRegistry_ApprovedSeed_23Proposals",
+      "SubjectId": "RuleApprovalRegistry",
+      "Expected": "Nạp đúng 23 đề xuất NR-01..23 được phê duyệt (OWNER-APPROVAL-23-20261013), kiểm tra AST và trả typed diagnostic khi thiếu binding",
+      "Actual": "Hoàn tất IRuleSnapshotReader với seed 23 đề xuất chuẩn hóa, hash 07a6ba4aab682dbd3c416a4b3ebc597eeff3674a52778dc133228dc75c45221c và AST validation",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Application/RuleApprovalRegistry.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "Architecture_DependenciesAndImmutability",
+      "SubjectId": "ArchitectureContractTests",
+      "Expected": "Sạch phụ thuộc một chiều, DTO bất biến, toàn bộ 4 test suite vượt qua",
+      "Actual": "Toàn bộ 1,453 test case vượt qua (Domain: 580, Drawing: 401, Application: 200, Excel: 272)",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/PresentationGroupPlanner.cs",
+        "Ver 1/DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs",
+        "Ver 1/DBTool/DBTool.Application/RuleApprovalRegistry.cs"
+      ],
+      "Verdict": "Passed"
+    }
+  ],
+  "ActualDWG/PDFPaths": [],
+  "RecoveryState": "Clean",
+  "RollbackInstructions": "Remove-Item \"Ver 1/DBTool/DBTool.Drawing/PresentationGroupPlanner.cs\" \"Ver 1/DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs\" \"Ver 1/DBTool/DBTool.Application/RuleApprovalRegistry.cs\" -Force"
+}

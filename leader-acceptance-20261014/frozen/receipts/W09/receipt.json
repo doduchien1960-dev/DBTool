@@ -1,0 +1,159 @@
+{
+  "PackageId": "W09",
+  "Phase": "P5",
+  "Version": "leader-field-contracts-20261013-r2",
+  "DependencyReceiptHashes": {
+    "W08": "43A92B7A9D33072638432133728AAE2AA6B9665D09E56869F8C9E6D0F492673F",
+    "W04": "06B2800E33B337C913AAED1C1BC7669A95A3EBC47FD5BB78759E1DA25E04B7CC"
+  },
+  "ChangedFiles": [
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/BendingSchematicPlanner.cs",
+      "BeforeHash": "D5188971C6713312E1D443F7FFBAF5BDF969153398AE09067A3FE8DCECAC29A8",
+      "AfterHash": "02BE0740BED11436745B5A8F33FEF5A559D897E00A7A095FCB090C0FAF210339",
+      "Reason": "Bổ sung RecipeId và GlyphAsset vào BendingShapeIntent, ánh xạ từ BarOccurrence.ShapeRecipeId, giữ nguyên canonical consistency và shape projection cho evidence; presentation dùng fixed-glyph recipe mới."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/ScheduleTablePlanner.cs",
+      "BeforeHash": "5BB56D77705CB6C24451F2D62E161FD6B75C2B2CD2A01B7D825D780155E1C687",
+      "AfterHash": "A29A99EEABB2600E5F4673D4D0EBE026D36CB6228C03C496F27DFE529738B729",
+      "Reason": "Giữ QuantityTable và AngleSchedule, loại round grid (Schedule/Grid) khỏi VHG native path sau khi thay thế bằng native schedule blocks."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetFiveViews.cs",
+      "BeforeHash": "65468C8F546336571EEB68AC8A495C83434D01D9E248F8FD63CAD360BE269F44",
+      "AfterHash": "3CAFDF3638E80EC5298226D47EE6C1E3CBDC97304CE215EA426802A202DD7154",
+      "Reason": "Bổ sung BuildFromIntents, BuildFromCaptions, BuildBending không lookup theo tên hố ga; giữ nguyên ViewId = 'Bending/Details' và Bounds tiêu chuẩn."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetFivePlacement.cs",
+      "BeforeHash": "7AAAE8C07A0B7C57EFD136ABAA677559F82CEAB8F3B85485A88DF7AC9621B8EF",
+      "AfterHash": "E08F8850AA7AEB14F833DD0F4B071844948420545D6E3656512A94F6E2A8A187",
+      "Reason": "Ánh xạ các view ID hình uốn động (prefix 'Bending') vào gốc tọa độ (0, 0) trên Bản vẽ số 5 để ngăn chặn lỗi SHEET_PLAN_PAGE_OVERFLOW."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+      "BeforeHash": "B64BAD11BE06E28559FD4E64984194E8EDB722430240E33F65E3D4F05EDE88C6",
+      "AfterHash": "99041CA38B13EAD6770D1B11010E4DCA269B5649A44BB3342CD309550755FC91",
+      "Reason": "Triển khai IS8StageV2 trên SteelScheduleStageAdapter kết nối NativeSteelSchedulePlanner và SchematicPresentationPlanner cho S8 wiring."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.AutoCAD.Tests/Phase6GenerationCommands.cs",
+      "BeforeHash": "15A003F0CD7EDF0A8FB66FE52AA4432107D2D21C1DD3AD966BBA187C59EC33F7",
+      "AfterHash": "411068F5158F17847B7990BCB229763A6C563465323323DB475FCD35E2A34CC4",
+      "Reason": "Cập nhật AnnotationEnvelope hỗ trợ dynamic Bending view IDs với 0-margin."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing.Tests/W09NativeScheduleAndBendingTests.cs",
+      "BeforeHash": "",
+      "AfterHash": "9858D3871BBD5557D586630B208A7C4DFCF8E1C36D7B06303B2FDF53D605C093",
+      "Reason": "Unit tests cho BendingSchematicPlanner, ScheduleTablePlanner, SheetFiveViews, SheetFivePlacement."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application.Tests/W09StageAdapterTests.cs",
+      "BeforeHash": "",
+      "AfterHash": "670830AA5373579C33F706838981CB44F461CB248AAF279C74568716D2B23649",
+      "Reason": "Unit tests cho SteelScheduleStageAdapter IS8StageV2 execution và wiring."
+    }
+  ],
+  "InterfaceGate": "Passed",
+  "ImplementationStatus": "ImplementationComplete",
+  "NativeGate": "NotRun",
+  "BindingMissing": [],
+  "Commands": [
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests"
+    }
+  ],
+  "Checks": [
+    {
+      "Name": "BendingSchematic_RecipeId_And_GlyphAsset",
+      "SubjectId": "BendingSchematicPlanner",
+      "Expected": "BendingShapeIntent mang RecipeId và GlyphAsset từ ShapeRecipeId của BarOccurrence, hỗ trợ dynamic fixed-glyph presentation",
+      "Actual": "BendingShapeIntent lưu trữ đầy đủ RecipeId và GlyphAsset, giữ nguyên canonical consistency và shape projection cho evidence",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/BendingSchematicPlanner.cs",
+        "Ver 1/DBTool/DBTool.Drawing.Tests/W09NativeScheduleAndBendingTests.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "ScheduleTablePlanner_OmitGrid_OnVhgPath",
+      "SubjectId": "ScheduleTablePlanner",
+      "Expected": "Loại bỏ lưới Schedule/Grid khi bảng thép tròn được native replacement trên VHG path, giữ nguyên bảng khối lượng và bảng thép góc",
+      "Actual": "PlanPages(rows, origin, isVhgNativePath: true) không sinh Schedule/Grid cho bảng cốt thép; QuantityTable và AngleSchedule vẫn sinh lưới đầy đủ",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/ScheduleTablePlanner.cs",
+        "Ver 1/DBTool/DBTool.Drawing.Tests/W09NativeScheduleAndBendingTests.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "SheetFiveViews_And_Placement_DynamicBending",
+      "SubjectId": "SheetFiveViewsAndPlacement",
+      "Expected": "SheetFiveViews cung cấp BuildFromIntents/BuildFromCaptions; SheetFivePlacement ánh xạ dynamic Bending views về (0, 0) ngăn SHEET_PLAN_PAGE_OVERFLOW",
+      "Actual": "SheetFiveViews tạo DrawingPrimitive từ presentation intents; SheetFivePlacement gán Origin = (0, 0) cho mọi ViewId bắt đầu bằng Bending",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/SheetFiveViews.cs",
+        "Ver 1/DBTool/DBTool.Drawing/SheetFivePlacement.cs",
+        "Ver 1/DBTool/DBTool.AutoCAD.Tests/Phase6GenerationCommands.cs",
+        "Ver 1/DBTool/DBTool.Drawing.Tests/W09NativeScheduleAndBendingTests.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "SteelScheduleStageAdapter_IS8StageV2_Wiring",
+      "SubjectId": "SteelScheduleStageAdapter",
+      "Expected": "SteelScheduleStageAdapter triển khai IS8StageV2 kết nối NativeSteelSchedulePlanner và SchematicPresentationPlanner xuất S8StateV2",
+      "Actual": "Execute(S7StateV2) lập kế hoạch rows, headings, summaries qua NativeSteelSchedulePlanner và presentation glyphs/captions qua SchematicPresentationPlanner",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+        "Ver 1/DBTool/DBTool.Application.Tests/W09StageAdapterTests.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "Architecture_TestSuiteZeroRegression",
+      "SubjectId": "FullTestSuite",
+      "Expected": "Toàn bộ 4 test suites pass không có lỗi regression",
+      "Actual": "1,468 tests passed (Domain: 580, Drawing: 415, Application: 201, Excel: 272)",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Domain.Tests",
+        "Ver 1/DBTool/DBTool.Drawing.Tests",
+        "Ver 1/DBTool/DBTool.Application.Tests",
+        "Ver 1/DBTool/DBTool.Excel.Tests"
+      ],
+      "Verdict": "Passed"
+    }
+  ],
+  "ActualDWG/PDFPaths": [],
+  "RecoveryState": "Clean",
+  "RollbackInstructions": "git checkout -- \"Ver 1/DBTool/DBTool.Drawing/BendingSchematicPlanner.cs\" \"Ver 1/DBTool/DBTool.Drawing/ScheduleTablePlanner.cs\" \"Ver 1/DBTool/DBTool.Drawing/SheetFiveViews.cs\" \"Ver 1/DBTool/DBTool.Drawing/SheetFivePlacement.cs\" \"Ver 1/DBTool/DBTool.Application/StageAdapters.cs\" \"Ver 1/DBTool/DBTool.AutoCAD.Tests/Phase6GenerationCommands.cs\"; Remove-Item \"Ver 1/DBTool/DBTool.Drawing.Tests/W09NativeScheduleAndBendingTests.cs\" \"Ver 1/DBTool/DBTool.Application.Tests/W09StageAdapterTests.cs\" -Force"
+}

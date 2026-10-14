@@ -1,0 +1,129 @@
+{
+  "PackageId": "W04",
+  "Phase": "NEW-B",
+  "Version": "leader-field-contracts-20261013-r2",
+  "DependencyReceiptHashes": {
+    "W03": "88D2B84615F8C5121FA51A4955B6180C75D73629697B8251D1CEA7629B31BC59"
+  },
+  "ChangedFiles": [
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+      "BeforeHash": "",
+      "AfterHash": "D9B3E2C401A621DCA54917923F37D8C462459FBE9358DEB341EC2FB615CC0056",
+      "Reason": "Triển khai S8 native steel schedule planner: tính toán hàng bảng thống kê cốt thép theo exact native asset (TK.T/TK.NA1/TK.CT.N), tiêu đề bảng (TK.Tenluoi, TK.Tieude, TieudeMC), và bảng tổng hợp khối lượng (TK.THKL/TK.THKLNAP/TK.THKL.CT) theo phân nhóm bucket."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SchematicPresentationPlanner.cs",
+      "BeforeHash": "",
+      "AfterHash": "2DB17BD9B1555D10A883656918B821837F13C3D7F7C06691A6F68EC6F52048BD",
+      "Reason": "Triển khai S8 schematic presentation planner: kế hoạch glyph hình dạng uốn cố định, gạch chân và caption hiển thị số hiệu, đường kính, chiều dài L/Ltb theo từng phân nhóm bucket (Body, Neck, Panel, Catch)."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+      "BeforeHash": "",
+      "AfterHash": "9F6E2DE5C970814D3DE87F7EABE45B8778615FAAC2DB26A13E1DFE2C89E1DF75",
+      "Reason": "Triển khai S7 annotation lane allocator: phân bổ làn nhãn (BLT1..4, BLT_ANGLE), định tuyến nhánh collector cho cốt thép chính/phụ, gạch tick Gach, ký hiệu BLTC cho đai, kích thước thông thủy và mặt cắt, cùng với vật liệu và cao độ."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/CatchAssemblyProjector.cs",
+      "BeforeHash": "",
+      "AfterHash": "3D0B735A3BF1AEF33397D815053F9E8B33FFA5A970E452D9A83C421A34C89134",
+      "Reason": "Triển khai S6 CatchAssemblyProjector chiếu 3 hình vẽ mặt bằng cửa thu (CatchPlan) và mặt cắt (Catch11, Catch22) từ physical assembly dùng chung thay thế dữ liệu tĩnh, kết hợp AssemblyBoundaryEmitter từ W03."
+    }
+  ],
+  "InterfaceGate": "Passed",
+  "ImplementationStatus": "ImplementationComplete",
+  "NativeGate": "NotRun",
+  "BindingMissing": [],
+  "Commands": [
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests"
+    }
+  ],
+  "Checks": [
+    {
+      "Name": "CatchAssemblyProjector_ThreeViews",
+      "SubjectId": "CatchAssemblyProjector",
+      "Expected": "Chiếu đủ ba hình vẽ mặt bằng cửa thu (CatchPlan) và mặt cắt (Catch11, Catch22) từ physical assembly dùng chung, sử dụng AssemblyBoundaryEmitter",
+      "Actual": "Hoàn tất chiếu hình học, mở lỗ cắt bê tông, đường tim cốt thép và sản phẩm nắp cửa thu ra ViewV2[], CurveV2[], Target2V2[], OpeningMap",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/CatchAssemblyProjector.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "SchematicPresentationPlanner_CaptionsAndGlyphs",
+      "SubjectId": "SchematicPresentationPlanner",
+      "Expected": "Tạo hình uốn schematic dạng cố định, gạch chân và caption L/Ltb theo từng phân nhóm bucket",
+      "Actual": "Hoàn tất phân nhóm bucket (Body, Neck, Panel, Catch), định dạng số hiệu, đường kính, chiều dài L/Ltb và bao ink chính xác",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/SchematicPresentationPlanner.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "NativeSteelSchedulePlanner_RowsAndSummaries",
+      "SubjectId": "NativeSteelSchedulePlanner",
+      "Expected": "Chọn exact native TK, gán tag thuộc tính, sinh tiêu đề và bảng tổng hợp khối lượng theo nhóm",
+      "Actual": "Hoàn tất S8 schedule planner với hàng TK, tiêu đề TK.Tenluoi/TK.Tieude/TieudeMC, tổng hợp TK.THKL/TK.THKLNAP/TK.THKL.CT, và kiểm tra bao phủ 100% nhóm",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "AnnotationLaneAllocator_SharedInkAndRouting",
+      "SubjectId": "AnnotationLaneAllocator",
+      "Expected": "Phân bổ làn nhãn dùng chung, định tuyến đa nhánh collector, gạch tick Gach và ký hiệu BLTC",
+      "Actual": "Hoàn tất S7 lane allocator cho kích thước, cao độ, vật liệu, ký hiệu đai BLTC, gạch tick Gach và nhãn cốt thép theo phong cách NoteStyle1/NoteStyle2",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "Architecture_TestSuiteCoverage",
+      "SubjectId": "RegressionTestSuites",
+      "Expected": "Toàn bộ 4 test suites vượt qua với 100% pass",
+      "Actual": "Toàn bộ 1,459 test case vượt qua (Domain: 580, Drawing: 407, Application: 200, Excel: 272)",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+        "Ver 1/DBTool/DBTool.Drawing/SchematicPresentationPlanner.cs",
+        "Ver 1/DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+        "Ver 1/DBTool/DBTool.Drawing/CatchAssemblyProjector.cs",
+        "Ver 1/DBTool/DBTool.Drawing.Tests/W04PlannerAndProjectorTests.cs"
+      ],
+      "Verdict": "Passed"
+    }
+  ],
+  "ActualDWG/PDFPaths": [],
+  "RecoveryState": "Clean",
+  "RollbackInstructions": "Remove-Item \"Ver 1/DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs\" \"Ver 1/DBTool/DBTool.Drawing/SchematicPresentationPlanner.cs\" \"Ver 1/DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs\" \"Ver 1/DBTool/DBTool.Drawing/CatchAssemblyProjector.cs\" \"Ver 1/DBTool/DBTool.Drawing.Tests/W04PlannerAndProjectorTests.cs\" -Force"
+}

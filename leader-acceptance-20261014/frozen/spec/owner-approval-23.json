@@ -1,0 +1,9 @@
+{
+  "id": "OWNER-APPROVAL-23-20261013",
+  "authority": "DucBao — chủ nhiệm, trực tiếp trong chat hiện tại",
+  "instruction": "23 needs rule: tôi đồng ý toàn bộ đề xuất của bạn, bạn hãy cập nhật mọi thứ liên quan",
+  "recorded_at_utc": "2026-10-13T13:15:06.467490+00:00",
+  "effective_date": "2026-10-13",
+  "scope": "Exact proposals NR-01..NR-23 in reviewed deliverable04. Does not approve invented values, incomplete product measurements or actual DWG/PDF outputs.",
+  "rule_version": "owner-20261013-r2"
+}

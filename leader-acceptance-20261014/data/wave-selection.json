@@ -1,0 +1,46 @@
+{
+  "smoke": [
+    "C001",
+    "C073",
+    "C145"
+  ],
+  "pairwise_additional": [
+    "C050",
+    "C027",
+    "C114",
+    "C196",
+    "C029",
+    "C080",
+    "C084",
+    "C022",
+    "C056",
+    "C067",
+    "C036",
+    "C149",
+    "C147"
+  ],
+  "pairwise_all": [
+    "C001",
+    "C073",
+    "C145",
+    "C050",
+    "C027",
+    "C114",
+    "C196",
+    "C029",
+    "C080",
+    "C084",
+    "C022",
+    "C056",
+    "C067",
+    "C036",
+    "C149",
+    "C147"
+  ],
+  "eligible_unique_core": 144,
+  "source_scope_corrections": 72,
+  "original_core_ids": 216,
+  "edge_requirement_families": 40,
+  "method": "Greedy uncovered currently compatible pair count; ties lowest original numeric case ID; no numeric input defaults",
+  "scope_change": "72 TopHaunch selectors are CoverageConflict_Hold. Source-based N/A aliases are proposed only, never auto approved or product Passed. Original matrix untouched."
+}

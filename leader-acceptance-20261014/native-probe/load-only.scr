@@ -1,0 +1,12 @@
+(setvar "FILEDIA" 0)
+(setvar "CMDDIA" 0)
+(setvar "TRUSTEDPATHS" (strcat (getvar "TRUSTEDPATHS") ";C:/Users/DucBao/Desktop/Dbtool/Ver 1/outputs/leader-acceptance/leader-field-contracts-20261013-r2/20261014-review-01/native-probe/plugin"))
+(princ "\nW13_AUDIT_PROBE_BEGIN\n")
+(princ (strcat "\nINSUNITS=" (itoa (getvar "INSUNITS")) "\n"))
+_.NETLOAD
+"C:/Users/DucBao/Desktop/Dbtool/Ver 1/outputs/leader-acceptance/leader-field-contracts-20261013-r2/20261014-review-01/native-probe/plugin/DBTool.dll"
+VEHOGABATCH
+"C:/Users/DucBao/Desktop/Dbtool/Ver 1/outputs/leader-acceptance/leader-field-contracts-20261013-r2/20261014-review-01/native-probe/intentionally-missing.xlsx"
+(princ "\nW13_AUDIT_PROBE_END\n")
+_.QUIT
+_No

@@ -1,0 +1,716 @@
+[
+  {
+    "path": "DBTool/DBTool.Application/ReferenceComparisonService.cs",
+    "last_package": "W01",
+    "review_branch": "root",
+    "current_hash": "350b1cc8122dab92268ee493b9efeb4592fbf89626dbd7aa0bbfdb6e4a1e609d",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "DBTool/DBTool.Application/ReleaseEvidence.cs",
+    "last_package": "W01",
+    "review_branch": "root",
+    "current_hash": "49ec1f2f2190202bfe1430255c1078bc6155c73d61a1216957e5aa9642d1414a",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "DBTool/DBTool.Drawing/SemanticDiff.cs",
+    "last_package": "W01",
+    "review_branch": "root",
+    "current_hash": "ae5865958b38c200a86717b011c03a473b1767f88fb1749f9c5f0ef87e88a981",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Common/Diagnostic.cs",
+    "last_package": "W02",
+    "review_branch": "geometry",
+    "current_hash": "ba71449e385376953cb3fb74ec4fd6a3387c82fdb28b4065a703dd62f2e7b649",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Common/SourceRef.cs",
+    "last_package": "W02",
+    "review_branch": "geometry",
+    "current_hash": "3defdc94bbf130ead0d5bb3f38e2a60d1aa3429eebd9cad5e070f8677407a796",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Input/ManholeInput.cs",
+    "last_package": "W02",
+    "review_branch": "geometry",
+    "current_hash": "27200615308fd41768303fd18aa8c5b0cab967b5eb96ad87f0457f7318390f6f",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Input/ValidatedManholeSpec.cs",
+    "last_package": "W02",
+    "review_branch": "geometry",
+    "current_hash": "d829719987d3effdebe604b33d169169dc4575d9dc615480c1003af3f3c2b8f0",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Policies/CalculationPolicy.cs",
+    "last_package": "W02",
+    "review_branch": "geometry",
+    "current_hash": "9c511a13bf4ca51207dffd50c9466f45afbda979b9708ebe43cd19e61447d02f",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/PresentationProfile.cs",
+    "last_package": "W02",
+    "review_branch": "geometry",
+    "current_hash": "362792e177f483c46a881e2db1c0c9819da255d9cc44fec962b3c0789264ba54",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/PresentationRequest.cs",
+    "last_package": "W02",
+    "review_branch": "geometry",
+    "current_hash": "4414441a02ffa27e585c5ad9d403bd29ce40da16d9b80cca10cc048cc0fe4a09",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Infrastructure.Excel/Vhg32Schema.cs",
+    "last_package": "W02",
+    "review_branch": "geometry",
+    "current_hash": "3ecedc28d9089f3bf02a94f2fef2d8ec369845eeb3f038278dd518dd68ba415c",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Infrastructure.Excel/WorkbookImporter.cs",
+    "last_package": "W02",
+    "review_branch": "geometry",
+    "current_hash": "a9fb6bbb430dd493367b21e3c8b2317a53836361b42743bc236662e900346806",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Application/Templates/VhgTemplateRoles.cs",
+    "last_package": "W02",
+    "review_branch": "geometry",
+    "current_hash": "a0c6ab439322fbf9381b1ad36627c382c3600e4f6da8d88202dda19dc2e231e5",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Application/Templates/TemplateContractValidator.cs",
+    "last_package": "W02",
+    "review_branch": "geometry",
+    "current_hash": "5c7b43f6c42f738ee950defcd284617a9dc9c178905099db40b300be523c4786",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.AutoCAD/NativeAssetSignatures.cs",
+    "last_package": "W02",
+    "review_branch": "geometry",
+    "current_hash": "17ba9b0eaac8152e4532a5d3d14312f55d5a3a3238397641aee966c26681afe5",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.AutoCAD/TemplateAssetImporter.cs",
+    "last_package": "W02",
+    "review_branch": "geometry",
+    "current_hash": "190905ad9f26bc8ab09bfdf9f1372de747ecfde2139d1230ec1e64d04e0f7508",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.AutoCAD/TemplateManifestReader.cs",
+    "last_package": "W02",
+    "review_branch": "geometry",
+    "current_hash": "ee6e4a16b10057e04994fd9dafb083a4d7a570574a499412015a8d5ce256e735",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/StageContractsV2/Domain.ContractsV2.cs",
+    "last_package": "W02",
+    "review_branch": "geometry",
+    "current_hash": "f62ed2f5ae81415592b1c6251620ad1ab374498c29dad86c258f5f601595843f",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs",
+    "last_package": "W02",
+    "review_branch": "geometry",
+    "current_hash": "d033701722879b541599a7cd0a535024f75ddaae5c692b85a84f21a08fd366ee",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Application/StageContractsV2/Application.ContractsV2.cs",
+    "last_package": "W02",
+    "review_branch": "geometry",
+    "current_hash": "809e3e41d0d41719d727584e168373f766a5ddffd1e656f94c200a8073851a4d",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/PresentationGroupPlanner.cs",
+    "last_package": "W03",
+    "review_branch": "drawing",
+    "current_hash": "bec191d4df0c967494f4a523c2b1f8a5efa2978a0b670c02fe8df878fe08a5df",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs",
+    "last_package": "W03",
+    "review_branch": "drawing",
+    "current_hash": "5ff970d95bab3e67833667094238cff617dafe02516dfc5b14a1535b587278c5",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Application/RuleApprovalRegistry.cs",
+    "last_package": "W03",
+    "review_branch": "drawing",
+    "current_hash": "f44b6a741abd59ff472901823c10e87e230c2fc5d0e103c89f75ef51e6979988",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+    "last_package": "W04",
+    "review_branch": "drawing",
+    "current_hash": "d9b3e2c401a621dca54917923f37d8c462459fbe9358deb341ec2fb615cc0056",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/SchematicPresentationPlanner.cs",
+    "last_package": "W04",
+    "review_branch": "drawing",
+    "current_hash": "2db17bd9b1555d10a883656918b821837f13c3d7f7c06691a6f68ec6f52048bd",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+    "last_package": "W04",
+    "review_branch": "drawing",
+    "current_hash": "9f6e2de5c970814d3de87f7eabe45b8778615faac2db26a13e1dfe2c89e1df75",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/CatchAssemblyProjector.cs",
+    "last_package": "W04",
+    "review_branch": "drawing",
+    "current_hash": "3d0b735a3bf1aef33397d815053f9e8b33ffa5a970e452d9a83c421a34c89134",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Application/BatchGenerationOrchestrator.cs",
+    "last_package": "W05",
+    "review_branch": "native",
+    "current_hash": "9d01df4f3d306558141e8799f783e88397d265e952cd781b55aaa1a0cdbf4211",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.AutoCAD/NativeReadbackVerifier.cs",
+    "last_package": "W05",
+    "review_branch": "native",
+    "current_hash": "26972789b018aad7901a0701aa54f6e7713a691e374487aa8b677368777dda20",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs",
+    "last_package": "W05",
+    "review_branch": "native",
+    "current_hash": "c6c388fef5dd6bbec1be194541b5e44435c7dc7388ac0bee3f58dffbf05ec995",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Application/AccessoryInputMapper.cs",
+    "last_package": "W06",
+    "review_branch": "geometry",
+    "current_hash": "bd07c71828934dc7c0d2a84ed8bc8ab17025833bd3513aa7cf503af422959140",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Application/ManholeValidator.cs",
+    "last_package": "W06",
+    "review_branch": "geometry",
+    "current_hash": "432eeeeee2e286876fbfcd8daa5ee0160e8d126cf7f34ded1f311830e43562e7",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Geometry/CatchBasinBuilder.cs",
+    "last_package": "W06",
+    "review_branch": "geometry",
+    "current_hash": "dd89e129523b49fd3ee372c9d71b50604d2d02c5ec50e276348156c118a2f847",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Geometry/GeometryModel.cs",
+    "last_package": "W06",
+    "review_branch": "geometry",
+    "current_hash": "04fa56ff8029d120c7b28f1b3cc0c3047d31ec43979231569a3627ee37b0b264",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Input/CatchBasinSpec.cs",
+    "last_package": "W06",
+    "review_branch": "geometry",
+    "current_hash": "2d31bf8320e1eea63aa0a52d63b2b37ca2944712918e0d5ff7992e430e1f83d0",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/SheetOneConcreteAssembly.cs",
+    "last_package": "W06",
+    "review_branch": "geometry",
+    "current_hash": "831e30045fae7977f487f0e0b0ba57de3ddc8b17e64789397350b3aeb64547b9",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/SheetOneHatchRegions.cs",
+    "last_package": "W06",
+    "review_branch": "geometry",
+    "current_hash": "09ab5f9cb68e90201f46ca8f9beecbfc18af484c6feaea018bb5eb4fb367ce21",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/SheetOneNeckAssembly.cs",
+    "last_package": "W06",
+    "review_branch": "geometry",
+    "current_hash": "79219c9357a546ef729c0720aebc032c04fab07bc6a759cc1f4efa64bebfb83c",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/SheetOnePipeViews.cs",
+    "last_package": "W06",
+    "review_branch": "geometry",
+    "current_hash": "0b22f44dcc647cbf4fcd4438a22a7809d8d97dee3b950ad0df93ab249dc20d5d",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/SheetOnePlanBaseOutlinePolicy.cs",
+    "last_package": "W06",
+    "review_branch": "geometry",
+    "current_hash": "68d5a66ae5f246c2913a675c4e5c5d45155d9614435576144bd1ce3c6e2cb2bd",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/SheetOnePlanOutlinePolicy.cs",
+    "last_package": "W06",
+    "review_branch": "geometry",
+    "current_hash": "62bf4ef2a97cbcbf570c3af6aca95e1d13498a7e4444e5b57d13cfc502956ea9",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/SheetOneSectionOutlinePolicy.cs",
+    "last_package": "W06",
+    "review_branch": "geometry",
+    "current_hash": "07355119252dd05d1202a6bd3b576e73830d5f96a0a77b374e80495747af9f44",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+    "last_package": "W13",
+    "review_branch": "native",
+    "current_hash": "849e2d7874808fdff76aad93c1f4e66b19fbb37a606baad850ebe0d845dfaf17",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Application/FeatureSupportValidator.cs",
+    "last_package": "W07",
+    "review_branch": "geometry",
+    "current_hash": "e273822fd3adda2d9909d03a7f7a6d32bfffb3c7541a5233a7b08c348b0db2c9",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Rebar/BarLengthResolver.cs",
+    "last_package": "W07",
+    "review_branch": "geometry",
+    "current_hash": "a8be40284588d94a1f1c35a89fa7d0376c64606fcf41e944219bca2d2c472437",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Rebar/BarOccurrence.cs",
+    "last_package": "W07",
+    "review_branch": "geometry",
+    "current_hash": "f796dc084a17a07f1e1fe661287c9a1e53b74ce6eef1703a7ebc5ad0ef857ec4",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Rebar/CatchBasinRebarPlanner.cs",
+    "last_package": "W07",
+    "review_branch": "geometry",
+    "current_hash": "decafe79dee58d59132b6a54f03915892cc6e1faed7728b4756eb6280bbb7ffa",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Rebar/DowelPlanner.cs",
+    "last_package": "W07",
+    "review_branch": "geometry",
+    "current_hash": "cda3fe055d12c68bd903ca3f9f409594fe9acbc9fbb16f88ba5c3dbc687e4344",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Rebar/HaunchRebarPlanner.cs",
+    "last_package": "W07",
+    "review_branch": "geometry",
+    "current_hash": "c28557dd1b3863401f77ca0b398dfa4aead7f034fc4c694ea79acbabe41a20ce",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Rebar/LiftingHookPlanner.cs",
+    "last_package": "W07",
+    "review_branch": "geometry",
+    "current_hash": "e5fea4b9627359122771fa681f3a66dd9cc839ad14a7bdc9816e03c5e0882ea1",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Rebar/NeckRebarPlanner.cs",
+    "last_package": "W07",
+    "review_branch": "geometry",
+    "current_hash": "13a173cbc7f1a57c14be04b0492a4a0c5b7bab73d775882bd080398b0c30f6b4",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Rebar/NominalFabricationLength.cs",
+    "last_package": "W07",
+    "review_branch": "geometry",
+    "current_hash": "d50183a6b6c0837fd4bbb2be26a562a58675df886c6f1a0f4fddef659023a3ce",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Rebar/NominalHookPlanner.cs",
+    "last_package": "W07",
+    "review_branch": "geometry",
+    "current_hash": "4720899279157c82b16bbb0ee53371a7ec21ecaa1365ba6ff0a9a2c1c34a4c15",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Rebar/OpeningClipper.cs",
+    "last_package": "W07",
+    "review_branch": "geometry",
+    "current_hash": "2fc8bf73a544a5c1fc9aea518eb2015a5f07b7894a62913935afa99223fefe12",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Rebar/PanelRebarPlanner.cs",
+    "last_package": "W07",
+    "review_branch": "geometry",
+    "current_hash": "c475a2b475ac8b6d221d6e54b706f07a2f420e86482e805a305832352288676d",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Rebar/ShapeSignature.cs",
+    "last_package": "W07",
+    "review_branch": "geometry",
+    "current_hash": "8b7e3736265b6460446146b854bcda433a5715a9dbcc255a9eb3540efb919061",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Rebar/TiePlanner.cs",
+    "last_package": "W07",
+    "review_branch": "geometry",
+    "current_hash": "ceb00fd49f22a91d5bc47184dee9a6f15d10fd3ac14ed0d1d260cf4eebc6f846",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Domain/Rebar/WallRebarPlanner.cs",
+    "last_package": "W07",
+    "review_branch": "geometry",
+    "current_hash": "1f99fe67a05a5ecef3aeb88b0105f3cfac055f4c34df8725f9619f8f5e7d0132",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Application/CalculationPipeline.cs",
+    "last_package": "W08",
+    "review_branch": "drawing",
+    "current_hash": "1c7b41c31d12baf812acc609dde796ec79d35e27a0acbe88bc89780c842f40c3",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/DrawingInputs.cs",
+    "last_package": "W08",
+    "review_branch": "drawing",
+    "current_hash": "b115e79d19edbaa5e248ff258f055de89c1f54f9cf025a19b2bea2ae838c62e0",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/PresentationGroup.cs",
+    "last_package": "W08",
+    "review_branch": "drawing",
+    "current_hash": "6e44469f405714a6735a5f413b4dec8c65eaa800ecb857b1f61ceb27ed4e1cb0",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/ScheduleNativeAttributes.cs",
+    "last_package": "W08",
+    "review_branch": "drawing",
+    "current_hash": "c4b7ef5dba906938562c6682d23ad85fe22fd1ae59f55523e6dec7de27377679",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/BendingSchematicPlanner.cs",
+    "last_package": "W09",
+    "review_branch": "drawing",
+    "current_hash": "02be0740bed11436745b5a8f33fef5a559d897e00a7a095fcb090c0faf210339",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/ScheduleTablePlanner.cs",
+    "last_package": "W09",
+    "review_branch": "drawing",
+    "current_hash": "a29a99eeabb2600e5f4673d4d0ebe026d36cb6228c03c496f27dfe529738b729",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/SheetFiveViews.cs",
+    "last_package": "W12",
+    "review_branch": "drawing",
+    "current_hash": "1323632c85e56ab0498b7facff0e7bc35e0818dd18f79c4b2b92263e8111b78c",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/SheetFivePlacement.cs",
+    "last_package": "W09",
+    "review_branch": "drawing",
+    "current_hash": "e08f8850aa7aeb14f833dd0f4b071844948420545d6e3656512a94f6e2a8a187",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.AutoCAD.Tests/Phase6GenerationCommands.cs",
+    "last_package": "W09",
+    "review_branch": "drawing",
+    "current_hash": "411068f5158f17847b7990bcb229763a6c563465323323db475fcd35e2a34cc4",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing.Tests/W09NativeScheduleAndBendingTests.cs",
+    "last_package": "W09",
+    "review_branch": "drawing",
+    "current_hash": "9858d3871bbd5557d586630b208a7c4dfcf8e1c36d7b06303b2fdf53d605c093",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Application.Tests/W09StageAdapterTests.cs",
+    "last_package": "W09",
+    "review_branch": "drawing",
+    "current_hash": "670830aa5373579c33f706838981cb44f461cb248aaf279c74568716d2b23649",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/SheetThreeRoofViews.cs",
+    "last_package": "W10",
+    "review_branch": "drawing",
+    "current_hash": "4343c348c15e07e46514538cc456c9284f7d6c5f3480a4cc32abc204efc78a9d",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/RoofJointDowelProjection.cs",
+    "last_package": "W10",
+    "review_branch": "drawing",
+    "current_hash": "84060cf8c59e79e6d46237b80c775979f2fdc572065a8329c0fb901a1f518950",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/SheetThreeRoofDetailer.cs",
+    "last_package": "W10",
+    "review_branch": "drawing",
+    "current_hash": "7e2fe9545436ffecfa87f11eb295bd007a505a02f644df9d01d9c93742aefc22",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/ViewBuilder.cs",
+    "last_package": "W12",
+    "review_branch": "drawing",
+    "current_hash": "854a97c40fb11ed51ea876a919e7e7089e40953608372add80c82874835fc641",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Application.Tests/W10StageAdapterTests.cs",
+    "last_package": "W10",
+    "review_branch": "drawing",
+    "current_hash": "a7e8307c4352d4a328dec12053bd6b5202a587524e9c96204e4772df1ef54d6e",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing.Tests/W10ProjectionAndWiringTests.cs",
+    "last_package": "W10",
+    "review_branch": "drawing",
+    "current_hash": "6bed6b2b79d5806e7c0cdf12ceb99467eb949647f804e0ac8bb83e8a9faf0d4a",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/DrawingPackage.cs",
+    "last_package": "W11",
+    "review_branch": "drawing",
+    "current_hash": "467b568068b1b1c09e128b154c43dabadb0a4685809bc00914c0996a6fa9f19c",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/DrawingPackageValidator.cs",
+    "last_package": "W11",
+    "review_branch": "drawing",
+    "current_hash": "d5f7f0580aa1b314e7d24a3798001df2b73a31aa0bbba8fc39a0a39474c2d0c9",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/Family21ManholeHelper.cs",
+    "last_package": "W11",
+    "review_branch": "drawing",
+    "current_hash": "bc34f752ae5c97dedee107439757e7bfbd0204e55f8871fb6fb0172c74faca6a",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/SheetFourViews.cs",
+    "last_package": "W12",
+    "review_branch": "drawing",
+    "current_hash": "b19a2b5cf3663ba7144af755a8292872718d394b6ac3c4cdac8287e77d9322a9",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/SheetPlan.cs",
+    "last_package": "W11",
+    "review_branch": "drawing",
+    "current_hash": "87cd9345856a7d80d350f5874b5cb5f10b349f77045f576895a0bebb01f1eddc",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Application.Tests/W11StageAdapterTests.cs",
+    "last_package": "W11",
+    "review_branch": "drawing",
+    "current_hash": "4924d7710cab8e307ad28bb682b35b6c33f32611dcc993cf075d44899182903a",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing.Tests/W11LayoutAndPaginationTests.cs",
+    "last_package": "W11",
+    "review_branch": "drawing",
+    "current_hash": "5e6c2f90f114783e901a083784ae5a5813f5fafd5bfc571b195c281d887efffb",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/Family21SheetFiveStore.cs",
+    "last_package": "W12",
+    "review_branch": "drawing",
+    "current_hash": null,
+    "state": "IntentionalDeletionArchiveReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/Family21SheetFourStore.cs",
+    "last_package": "W12",
+    "review_branch": "drawing",
+    "current_hash": null,
+    "state": "IntentionalDeletionArchiveReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/Family21SheetThreeStore.cs",
+    "last_package": "W12",
+    "review_branch": "drawing",
+    "current_hash": null,
+    "state": "IntentionalDeletionArchiveReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/Family21SheetTwoStore.cs",
+    "last_package": "W12",
+    "review_branch": "drawing",
+    "current_hash": null,
+    "state": "IntentionalDeletionArchiveReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/SheetFourCatchBasinViews.cs",
+    "last_package": "W12",
+    "review_branch": "drawing",
+    "current_hash": null,
+    "state": "IntentionalDeletionArchiveReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing/SheetTwoViews.cs",
+    "last_package": "W12",
+    "review_branch": "drawing",
+    "current_hash": null,
+    "state": "IntentionalDeletionArchiveReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Drawing.Tests/W12ModuleRemovalTests.cs",
+    "last_package": "W12",
+    "review_branch": "drawing",
+    "current_hash": "d89b202b4deed7a46951bc65e4d3b0d6133a38535beccd168dffc385e3005030",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool/App/HoGaCommands.cs",
+    "last_package": "W13",
+    "review_branch": "native",
+    "current_hash": "d9d3e875517fbee24df19129543fccf7e0c6e17352008a11d10b5663aca5db9e",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool/App/PaletteDrawingCalculation.cs",
+    "last_package": "W13",
+    "review_branch": "native",
+    "current_hash": "e4fe68f97efc8f94fbc488895babd1c8ae76a017fd2967e2bb66077d82dd75d9",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool/App/SchedulePackageExport.cs",
+    "last_package": "W13",
+    "review_branch": "native",
+    "current_hash": "49cd8120270d02f1d82ddf2c8a9518425c07d8f5af8ac9283ce0fdd3cffc5beb",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool/UI/MainPaletteControl.xaml.cs",
+    "last_package": "W13",
+    "review_branch": "native",
+    "current_hash": "eb172379f476f74af010db0455c6268f498c21a0322bd46ecb15d3ec4bec7dca",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool/UI/MainViewModel.cs",
+    "last_package": "W13",
+    "review_branch": "native",
+    "current_hash": "4309d6b7e43e36170d7a0c7c966877e80063002581db49ac432bfd9a5dea1e74",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Application/ExportCalculationUseCase.cs",
+    "last_package": "W13",
+    "review_branch": "native",
+    "current_hash": "ffc0bc550bd151e039ecb3d1b1c1a1fc57da7d4b7ef3caf4478b524debc4d5c0",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Application/GenerateDrawingUseCase.cs",
+    "last_package": "W13",
+    "review_branch": "native",
+    "current_hash": "207898e2b534911e656c587ccc701f6492aa3ce77fee2179295b6d39bae85bbd",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.AutoCAD/BlockAttributeWriter.cs",
+    "last_package": "W13",
+    "review_branch": "native",
+    "current_hash": "f90b9b009a2d8b8573fb383e4d16ed7e55aa9ff8bd01f7c24c3daf5376617e07",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.AutoCAD/CadGenerationWriter.cs",
+    "last_package": "W13",
+    "review_branch": "native",
+    "current_hash": "3d89ba4720dab99f7cdb8b38f62d91d236296d7e110c5bf57a1092c8fab0c6e8",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.AutoCAD/CadRenderer.cs",
+    "last_package": "W13",
+    "review_branch": "native",
+    "current_hash": "181120a4a0b6db337a5069b114f8e02de43d19b56e760e1e35fdb57aaaf70630",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.AutoCAD/GenerationRepository.cs",
+    "last_package": "W13",
+    "review_branch": "native",
+    "current_hash": "9da9494aa34948356b3220b63699bb4fdeb5d6795cdae926f041621d924d7cac",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Headless/Program.cs",
+    "last_package": "W13",
+    "review_branch": "native",
+    "current_hash": "ed58bd509438c2a9822981abf98c1d815cd1fd0e7bbc982620858baa2ed82203",
+    "state": "SourceReviewed"
+  },
+  {
+    "path": "Ver 1/DBTool/DBTool.Application.Tests/W13StageAdapterTests.cs",
+    "last_package": "W13",
+    "review_branch": "native",
+    "current_hash": "fe2f3bf073a1a0ea31a59c02877cf7b608b566352149ae0c080e145a0d799c0f",
+    "state": "SourceReviewed"
+  }
+]

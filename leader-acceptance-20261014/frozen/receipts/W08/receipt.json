@@ -1,0 +1,136 @@
+{
+  "PackageId": "W08",
+  "Phase": "P4",
+  "Version": "leader-field-contracts-20261013-r2",
+  "DependencyReceiptHashes": {
+    "W07": "ACF5F456807D0A2AD25232BC492282D36DED34B546262C78A9B08A12456AFBAC",
+    "W03": "88D2B84615F8C5121FA51A4955B6180C75D73629697B8251D1CEA7629B31BC59"
+  },
+  "ChangedFiles": [
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/CalculationPipeline.cs",
+      "BeforeHash": "5E773E8D2C753E3D05621FA522B1E546174E64DF3E28CE73E4E531D93B9D8B39",
+      "AfterHash": "1C7B41C31D12BAF812ACC609DDE796EC79D35E27A0ACBE88BC89780C842F40C3",
+      "Reason": "Gọi S5 PresentationGroupMap.PlanPreDrawing trước DrawingStageAdapter trong Calculate và CalculateS3Rebar, xác thực coverage không orphan/phantom; giữ nguyên guard CalculateQuantityBatch."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/DrawingInputs.cs",
+      "BeforeHash": "E633A7BA4E058D92D524AB67255371608E87057C4A7696E9AC34E67920F72186",
+      "AfterHash": "B115E79D19EDBAA5E248FF258F055DE89C1F54F9CF025A19B2BEA2AE838C62E0",
+      "Reason": "Bổ sung thuộc tính và constructor nhận immutable GroupRegistry, GroupRegistryHash, SourceRefs giữ Drawing boundary nhất quán, không để exporter tự nhóm lại."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/PresentationGroup.cs",
+      "BeforeHash": "633B1E43FD8D1B8816AD52E9796E15897B4EC44683723968A3EC985274B29C82",
+      "AfterHash": "6E44469F405714A6735A5F413B4DEC8C65EAA800ECB857B1F61CEB27ED4E1CB0",
+      "Reason": "Mở rộng PresentationGroupRecord với MemberLengthsMm, MeasurementBasis, MemberLengthBasis, thống kê Sum/Mean/Min/Max, MassKg, MaterialKind, AngleCode, UnitMass; bổ sung PlanPreDrawing, FromPlannedGroups, ValidateCoverage và PresentationGroupValidator."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/ScheduleNativeAttributes.cs",
+      "BeforeHash": "30906C6A6E4963A0036A94F8BA379768DA783A4325E0F02C962174E32FC56855",
+      "AfterHash": "C4B7EF5DBA906938562C6682D23AD85FE22FD1AE59F55523E6DEC7DE27377679",
+      "Reason": "Định nghĩa 21 exact schedule block schemas, ràng buộc chuyển đổi đơn vị mm/1000 một lần duy nhất cho TDAI, bind schedule row với leg dimensions, Approved formatter."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+      "BeforeHash": "4CC31B36BA3DB1DB4313CA3B54EF7BDECCD9C8CFA00C3E1D7CC4A8FFF98FFFDE",
+      "AfterHash": "B64BAD11BE06E28559FD4E64984194E8EDB722430240E33F65E3D4F05EDE88C6",
+      "Reason": "Triển khai IDrawingStage và IS5StageV2 trên DrawingStageAdapter, làm vật mang (carrier) S5 envelope và chuyển giao DrawingInputs hoàn chỉnh với GroupRegistry và SourceRefs."
+    }
+  ],
+  "InterfaceGate": "Passed",
+  "ImplementationStatus": "ImplementationComplete",
+  "NativeGate": "NotRun",
+  "BindingMissing": [],
+  "Commands": [
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests"
+    }
+  ],
+  "Checks": [
+    {
+      "Name": "PresentationGroup_S5_PreDrawing_Planning",
+      "SubjectId": "PresentationGroupPlannerAndRegistry",
+      "Expected": "Quy hoạch presentation groups trước khi vẽ, tính toán lengths, basis, mass và coverage validation không orphan/phantom",
+      "Actual": "PresentationGroupMap.PlanPreDrawing và FromPlannedGroups tính toán đầy đủ các trường thống kê, ValidateCoverage xác nhận 100% độ phủ cốt thép",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/PresentationGroup.cs",
+        "Ver 1/DBTool/DBTool.Drawing/DrawingInputs.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "ScheduleNativeAttributes_21_Exact_Block_Schemas",
+      "SubjectId": "ScheduleBlockSchemas",
+      "Expected": "Định nghĩa và ánh xạ 21 block schemas chuẩn AutoCAD, TDAI đổi mm sang m một lần duy nhất, format approved",
+      "Actual": "21 block schemas được cấu hình chuẩn xác qua BindScheduleRow, Summary, Angle, GroupTitle, Header",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/ScheduleNativeAttributes.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "DrawingStageAdapter_S5_Carrier",
+      "SubjectId": "DrawingStageAdapter",
+      "Expected": "DrawingStageAdapter triển khai IS5StageV2 và IDrawingStage mang immutable DrawingInputs và GroupRegistry",
+      "Actual": "DrawingStageAdapter tích hợp PresentationGroupMap và forward đầy đủ context tới ViewBuilder",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Application/StageAdapters.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "CalculationPipeline_PreDrawing_Integration",
+      "SubjectId": "CalculationPipeline",
+      "Expected": "CalculationPipeline tích hợp quy hoạch S5 trước khi gọi DrawingStageAdapter, giữ guard batch",
+      "Actual": "Calculate và CalculateS3Rebar chuyển giao GroupRegistry, xác thực coverage không orphan/phantom; CalculateQuantityBatch giữ nguyên guard độc lập",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Application/CalculationPipeline.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "Architecture_TestSuiteZeroRegression",
+      "SubjectId": "FullTestSuite",
+      "Expected": "Toàn bộ 4 test suites pass không có lỗi regression",
+      "Actual": "1,459 tests passed (Domain: 580, Drawing: 407, Application: 200, Excel: 272)",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Domain.Tests",
+        "Ver 1/DBTool/DBTool.Drawing.Tests",
+        "Ver 1/DBTool/DBTool.Application.Tests",
+        "Ver 1/DBTool/DBTool.Excel.Tests"
+      ],
+      "Verdict": "Passed"
+    }
+  ],
+  "ActualDWG/PDFPaths": [],
+  "RecoveryState": "Clean",
+  "RollbackInstructions": "git checkout -- \"Ver 1/DBTool/DBTool.Application/CalculationPipeline.cs\" \"Ver 1/DBTool/DBTool.Drawing/DrawingInputs.cs\" \"Ver 1/DBTool/DBTool.Drawing/PresentationGroup.cs\" \"Ver 1/DBTool/DBTool.Drawing/ScheduleNativeAttributes.cs\" \"Ver 1/DBTool/DBTool.Application/StageAdapters.cs\""
+}

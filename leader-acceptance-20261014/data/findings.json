@@ -1,0 +1,693 @@
+[
+  {
+    "id": "G01",
+    "severity": "P1",
+    "corrective_packages": [
+      "W06"
+    ],
+    "file": "DBTool/DBTool.Application/StageAdapters.cs",
+    "line": 70,
+    "spec": "S2; H14; F47",
+    "title": "Thiếu dữ liệu vẫn tự điền kích thước hoặc chọn dòng khác",
+    "observed": "GetNum dùng mặc định 1000/1500/200/150; mất row_index thì chọn rows[0]; bỏ kiểm kiểu và formula cache.",
+    "correction": "Lookup đúng dòng; parse từng field, unit, activity và cache; thiếu bắt buộc trả StageFault/receipt Blocked.",
+    "verification": "Input trống, dòng không tồn tại, số lỗi và cache chưa xác minh phải Block; probe P-MISSING-INPUT phải hết tái hiện.",
+    "evidence_kind": "ExecutedCounterexampleAndSource",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "G02",
+    "severity": "P1",
+    "corrective_packages": [
+      "W06",
+      "W07"
+    ],
+    "file": "DBTool/DBTool.Application/StageAdapters.cs",
+    "line": 166,
+    "spec": "S2; H14; NR23",
+    "title": "S2 làm mất feature và nguồn đã yêu cầu",
+    "observed": "members/pipes/source_ids/parsed_fields luôn rỗng; catch/panel null; cổ bị giới hạn 700 và luôn ở giữa.",
+    "correction": "Map đủ 206 bindings và mọi feature đang ON; giải aperture/contact/position từ nguồn; không tắt feature để qua gate.",
+    "verification": "Bật riêng từng family, 4 tường cống, catch, panel và vị trí cổ; OUT có đúng giá trị/source hoặc diagnostic cụ thể.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "G03",
+    "severity": "P1",
+    "corrective_packages": [
+      "W06"
+    ],
+    "file": "DBTool/DBTool.Application/StageAdapters.cs",
+    "line": 223,
+    "spec": "S3; H03/H04/H05; F27/F28",
+    "title": "S3 thiếu assembly, opening ownership và joint",
+    "observed": "Không compose pipe/catch/panel/haunch/seat/collar/frame thật; RoofAccess không gắn Roof.void_ids; joint.dowel_required=false.",
+    "correction": "Dựng đủ solid/void/host/contact theo từng nhánh; feature ON chưa dựng phải Block.",
+    "verification": "Đối chiếu contour/depth/owner từng component; roof hole trừ đúng một lần; type3 không catch phải lỗi; pad0 không có Pad.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "G04",
+    "severity": "P1",
+    "corrective_packages": [
+      "W07"
+    ],
+    "file": "DBTool/DBTool.Application/StageAdapters.cs",
+    "line": 572,
+    "spec": "S4; H07/H08; F32/F36",
+    "title": "S4 dựng thép giả và lặp đường thanh tại gốc",
+    "observed": "count mặc định 5, bước150, D10, run lấy pitch; mọi đường thanh trùng origin→run; Angle dùng giá trị mass/path không tương thích.",
+    "correction": "Nối physical planners thật; validate recipe/stack/support; phân station, clip/hook và giữ provenance, length basis.",
+    "verification": "Thanh nằm đúng host và cover; station khác nhau; conservation khi clip; thiếu recipe phải Block, không Known/Ready.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "G05",
+    "severity": "P1",
+    "corrective_packages": [
+      "W07",
+      "W06"
+    ],
+    "file": "DBTool/DBTool.Application/StageAdapters.cs",
+    "line": 611,
+    "spec": "S4; H09; NR06; F34",
+    "title": "Chốt và lỗ chờ cố định, trùng tâm, thiếu joint vẫn Ready",
+    "observed": "Dowel dài500, hole25/depth100, mọi center tại origin; thiếu joint dùng chuỗi Joint; station chỉ nằm trong metadata.",
+    "correction": "Dùng joint thật và NR06 bindings cho station/embed/depth/diameter; một bar/hole cùng transform.",
+    "verification": "Tâm bar/hole khớp từng pair, khác nhau theo station; chiều dài/đường kính theo input; thiếu joint/binding phải Block.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "G06",
+    "severity": "P1",
+    "corrective_packages": [
+      "W07"
+    ],
+    "file": "DBTool/DBTool.Application/StageAdapters.cs",
+    "line": 565,
+    "spec": "S4 required-feature gate; H00",
+    "title": "BindingMissing vẫn được truyền thành S4State Ready",
+    "observed": "Host không tồn tại chỉ thêm FeatureState rồi continue; cuối hàm vẫn canonical và trả S4StateV2.",
+    "correction": "Giữ partial preview riêng; tổng hợp diagnostic rồi RAISE REBAR_REQUIRED_FEATURE_BLOCKED trước accounting.",
+    "verification": "Một member thiếu host cùng một member hợp lệ: không được có Ready S4; receipt và partial output phải đủ nguồn lỗi.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "G07",
+    "severity": "P1",
+    "corrective_packages": [
+      "W06",
+      "W07"
+    ],
+    "file": "DBTool/DBTool.Application/StageAdapters.cs",
+    "line": 307,
+    "spec": "S3/S4; F46",
+    "title": "Hash không bao gồm hình học vật lý mà nó tuyên bố khóa",
+    "observed": "Geometry bỏ XY/loops/frames/void ownership; rebar bỏ path/station; hole hash bỏ center/axis. Đổi L1000→1137 vẫn cùng hash.",
+    "correction": "Canonical JSON bất biến culture, đúng thứ tự topology; hash đủ physical leaves, loại riêng display/layout/handles.",
+    "verification": "Probe P-GEOMETRY-HASH hết tái hiện; đổi từng endpoint, hole center, aperture, product rotation phải đổi hash.",
+    "evidence_kind": "ExecutedCounterexampleAndSource",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "G08",
+    "severity": "P1",
+    "corrective_packages": [
+      "W02"
+    ],
+    "file": "DBTool/DBTool.AutoCAD/TemplateManifestReader.cs",
+    "line": 315,
+    "spec": "S0; AssetsV2/AttributeDefV2; NR16",
+    "title": "Converter asset tự tạo ATTDEF metrics và extents",
+    "observed": "ToAssetsV2 dùng bounds0, height200,width1, basepoint chung; glyphs/products/layers/font_styles rỗng; source_ids chưa đúng descriptor.",
+    "correction": "Đọc metrics/ATTDEF/dependency/font/product thật trong transaction; thiếu dữ liệu bắt buộc phải Block.",
+    "verification": "So từng field của ít nhất hai block có alignment/style khác nhau với native; mọi source_id giải được trong registry.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "G09",
+    "severity": "P1",
+    "corrective_packages": [
+      "W02"
+    ],
+    "file": "DBTool/DBTool.AutoCAD/TemplateManifestReader.cs",
+    "line": 211,
+    "spec": "S0; exact native role/tag schema",
+    "title": "Role template bắt buộc không thể được reader tạo ra",
+    "observed": "RequiredRoles yêu cầu CatchSummary/Geometry-DowelHole nhưng MapBlockRole không map hai role đó; CatchSummary đòi TONG trái CUATHU1/CUATHU2 nguồn.",
+    "correction": "Map đúng block/tag thật và scope feature; không buộc asset ngoài phạm vi mọi case; round-trip reader→validator→import.",
+    "verification": "Template gốc phải qua round-trip với role/tag đúng; xóa asset active phải lỗi chính xác, không thiếu role giả toàn cục.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "G10",
+    "severity": "P1",
+    "corrective_packages": [
+      "W06",
+      "W02"
+    ],
+    "file": "DBTool/DBTool.Domain/Input/ManholeInput.cs",
+    "line": 21,
+    "spec": "S3 padOFF; input PadThickness",
+    "title": "Pad=0 qua validator rồi crash constructor",
+    "observed": "Validator cho NonNegative nhưng ManholeInput vẫn Positive; ca padOFF hợp lệ ném ArgumentOutOfRangeException.",
+    "correction": "Đồng bộ invariant >=0 và không tạo pad degenerate trong builder; giữ base datum.",
+    "verification": "Chỉ đổi pad dương→0: validate được, không Pad/hatch/PadBottom; pad âm trả diagnostic theo field.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "G11",
+    "severity": "P1",
+    "corrective_packages": [
+      "W07"
+    ],
+    "file": "DBTool/DBTool.Application/StageAdapters.cs",
+    "line": 490,
+    "spec": "S4; NR08; Catch.M/Protect.I",
+    "title": "Đường legacy bỏ Catch.M và dựng catch steel sai kích thước/frame",
+    "observed": "CatchRebarSpec cố định D8@150 cover25; truyền clearHeight vào FloorDepth; không consumer CatchMesh và không transform host thật.",
+    "correction": "Lấy Ø/pitch/cover từ input; depth đúng trường; compose floor/side/front theo frame body/neck và rule đã duyệt.",
+    "verification": "Đổi Catch.M, Protect.I, depth khác height, đổi tường và offset: mỗi path/length/count đúng support và nguồn.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "G12",
+    "severity": "P1",
+    "corrective_packages": [
+      "W07",
+      "W06"
+    ],
+    "file": "DBTool/DBTool.Domain/Rebar/WallRebarPlanner.cs",
+    "line": 137,
+    "spec": "S4; NR01; Protect.H",
+    "title": "Tắt thép tăng cường cống làm Protect.H mất tác dụng",
+    "observed": "Pipe.D OFF khiến Accessories.Pipe=null; clipping mesh dùng cover tường thay Protect.H.",
+    "correction": "Tách clearance lỗ của mesh khỏi activity phụ kiện; dùng surface cover Protect.H + D/2 theo NR01.",
+    "verification": "Giữ Pipe.D=0, thay riêng Protect.H: endpoint mesh phải đổi đúng q; ON/OFF phụ kiện không đổi clearance mesh.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "D01",
+    "severity": "P1",
+    "corrective_packages": [
+      "W10",
+      "W13"
+    ],
+    "file": "DBTool/DBTool.Application/StageAdapters.cs",
+    "line": 765,
+    "spec": "S6; EXPAND_VIEW_ROLE_TABLE",
+    "title": "S6 chỉ tạo ba view cửa thu",
+    "observed": "Execute chỉ gọi CatchAssemblyProjector; case không catch trả CatchPlan/11/22 required=false, không có body/base/wall/roof.",
+    "correction": "Expand toàn bộ role table và chiếu physical components/members; catch là nhánh thêm, không thay kết cấu.",
+    "verification": "Probe P-STRUCTURE-VIEWS hết tái hiện; role và target coverage khớp chính xác cho cả 3 profile.",
+    "evidence_kind": "ExecutedCounterexampleAndSource",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "D02",
+    "severity": "P1",
+    "corrective_packages": [
+      "W11"
+    ],
+    "file": "DBTool/DBTool.Application/StageAdapters.cs",
+    "line": 831,
+    "spec": "S9; EXACT_VIEW_BUNDLES; F41",
+    "title": "S9 không đặt bảng thống kê và hình uốn từ S8",
+    "observed": "Bundles chỉ duyệt projection.views; Schedule/Bending mới trong S8 không được placement; coverage cũng chỉ so S6.",
+    "correction": "Hợp required view IDs của projection và S8; đặt mỗi bundle đúng một lần và kiểm cả heading/summary/caption.",
+    "verification": "Multiset required IDs == placements; mỗi TK/bending có frame và native ink nằm trong frame sau reopen.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "D03",
+    "severity": "P1",
+    "corrective_packages": [
+      "W04",
+      "W09"
+    ],
+    "file": "DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+    "line": 309,
+    "spec": "S8; TagBindingV2.operation",
+    "title": "Binder khác tên enum trong spec và âm thầm để trống",
+    "observed": "Code nhận RoleMean/RawSumM/MassKg, spec dùng MeanRole/RawSumMetres/Mass; Pitch/FixedRole/SizePair thiếu; unknown trả literal/empty.",
+    "correction": "Dùng đúng closed operation set; nhánh unknown raise; bind typed raw/unit/source trước format.",
+    "verification": "Mỗi operation hợp lệ có raw/text đúng; unknown Block; reopen ATTRIB đủ tag và giá trị, không ô rỗng thay số.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "D04",
+    "severity": "P1",
+    "corrective_packages": [
+      "W04",
+      "W09",
+      "W10"
+    ],
+    "file": "DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+    "line": 564,
+    "spec": "S7/S8; exact asset gate",
+    "title": "Thiếu asset thì tự tạo block/schema/hash",
+    "observed": "ExactAsset sinh handle0/default_hash/default_label_hash và extents; schematic tự tạo glyph bounds; chọn shape bằng heuristic.",
+    "correction": "Chỉ exact asset/recipe có nguồn; thiếu active asset/field phải Block, không dựng definition giả.",
+    "verification": "Xóa từng TK/BLT/glyph active phải báo tên/source đúng trước native write; không có fake handle/hash trong output.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "D05",
+    "severity": "P1",
+    "corrective_packages": [
+      "W04",
+      "W09",
+      "W10"
+    ],
+    "file": "DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+    "line": 517,
+    "spec": "S7/S8; H12; NR16",
+    "title": "Ink được ước tính bằng số ký tự",
+    "observed": "Nhãn/bảng/caption dùng text.Length×hằng số; bỏ glyph/font/kerning/escape/alignment/rotation.",
+    "correction": "Đo glyph và native style thật; transform đầy đủ ink/strokes; missing metric phải lỗi.",
+    "verification": "Các chữ tiếng Việt, %%c, căn giữa/phải, quay/mirror và font khác: ink tính và native quan sát khớp tolerance nguồn.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "D06",
+    "severity": "P1",
+    "corrective_packages": [
+      "W04",
+      "W10"
+    ],
+    "file": "DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+    "line": 429,
+    "spec": "S7; H28; NR22; NR-IO-011",
+    "title": "Hết vị trí hợp lệ vẫn trả nhãn chồng lấn",
+    "observed": "Ba lane cố định; thất bại thì dùng anchor+(300,200) không kiểm; recipe luôn Right và port bị coi là insertion.",
+    "correction": "Duyệt hữu hạn lane/extension từ source, đúng side/extent/gap và port; hết phải LAYOUT_ANNOTATION_NO_FIT.",
+    "verification": "Che kín mọi lane phải NoFit với rejected candidates; case có chỗ phải đúng min gap và native port transform.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "D07",
+    "severity": "P1",
+    "corrective_packages": [
+      "W04",
+      "W10"
+    ],
+    "file": "DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+    "line": 167,
+    "spec": "S7; H11; physical target association",
+    "title": "Collector/tick/BLTC không gắn đúng giao điểm thanh thật",
+    "observed": "Một leader từ anchor đầu nhưng mọi target được khai là giao điểm; BLTC occurrence_id=group.id; view ink thiếu route/tick.",
+    "correction": "Tính analytic intersections trên member đúng group; tie join physical occurrence; union ink đầy đủ.",
+    "verification": "Mỗi claimed point nằm trên collector và member; BLTC ID là tie thật; routes/ticks đều nằm trong certified envelope.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "D08",
+    "severity": "P1",
+    "corrective_packages": [
+      "W03",
+      "W10"
+    ],
+    "file": "DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs",
+    "line": 488,
+    "spec": "S6; H06/H26; F37/F38",
+    "title": "Boolean không thực hiện CSG và arc biến thành chord",
+    "observed": "Union nối list; Difference thêm nguyên inner loop kể cả vượt biên; projection biến arc thành line endpoint.",
+    "correction": "Analytic split/classify/stitch, union/difference đúng và giữ line/arc; lỗi capability phải rõ.",
+    "verification": "Union hình chồng, void cắt mép, seam cùng vật liệu, lỗ tròn: topology/area/orientation theo tolerance nguồn và native/PDF.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "D09",
+    "severity": "P1",
+    "corrective_packages": [
+      "W04",
+      "W09"
+    ],
+    "file": "DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+    "line": 434,
+    "spec": "S8; NR14 physical owner buckets",
+    "title": "Tổng con bằng 0 do nhận owner qua tiền tố sai",
+    "observed": "StartsWith(Base/Wall/Roof/Neck) trên ID đã scope như MH1:Base đều false; TONG vẫn cộng mass.",
+    "correction": "Join exact component/assembly ownership từ registry, không parse tên/prefix gần giống.",
+    "verification": "Đổi tên/prefix ga tùy ý: DAY/TUONG/TRAN/CO và TONG phải khớp raw rows cho cả hai bucket Ø.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "D10",
+    "severity": "P1",
+    "corrective_packages": [
+      "W08",
+      "W09",
+      "W10",
+      "W13"
+    ],
+    "file": "DBTool/DBTool.Drawing/ViewBuilder.cs",
+    "line": 39,
+    "spec": "S5; F49; shared registry",
+    "title": "Đường chạy thật mang nhưng không dùng S5 registry",
+    "observed": "ViewBuilder tiếp tục markByOccurrence canonical; FromPlannedGroups không caller; PlanPreDrawing gộp ComponentKind và tự mass D²×0.006165.",
+    "correction": "Nối một registry nhóm exact xuyên annotation/TK/bending; mass theo source basis; bỏ đường dựng danh tính riêng.",
+    "verification": "Trace từ command thật; group marks khác canonical vẫn xuất nhất quán; host/panel/opening scopes không bị trộn.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "D11",
+    "severity": "P1",
+    "corrective_packages": [
+      "W03",
+      "W08"
+    ],
+    "file": "DBTool/DBTool.Drawing/PresentationGroupPlanner.cs",
+    "line": 114,
+    "spec": "S5; F49; scoped aliases",
+    "title": "Thiếu recipe/prefix hoặc sai scope vẫn có nhóm hợp lệ giả",
+    "observed": "Thiếu basis mặc định Fabrication; search sau bỏ profile/component/family; prefix 1..8/D1; global alias không chứng minh member set.",
+    "correction": "Validate exact scope/basis/prefix và alias member-set evidence; thiếu phải Block.",
+    "verification": "Recipe sai profile/thiếu prefix/alias sai member set phải lỗi; cùng chữ mark ở host khác không cross-join.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "D12",
+    "severity": "P1",
+    "corrective_packages": [
+      "W10",
+      "W12"
+    ],
+    "file": "DBTool/DBTool.Drawing/ViewBuilder.cs",
+    "line": 398,
+    "spec": "S6 active Catch; W12 replacement gate",
+    "title": "Catch view phụ thuộc nhầm vào thép cổ",
+    "observed": "Nhánh catch động nằm trong điều kiện có Neck và view /Neck/; catch active với cổ không BTCT mất cả 3 view.",
+    "correction": "Tách predicate catch khỏi neck reinforcement; chiếu chung assembly cửa thu theo activity đúng.",
+    "verification": "Cross-product catch ON/OFF, neck0/có và BTCT/không: các view bắt buộc có đủ hoặc diagnostic có nguồn.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "D13",
+    "severity": "P2",
+    "corrective_packages": [
+      "W11"
+    ],
+    "file": "DBTool/DBTool.Application/StageAdapters.cs",
+    "line": 994,
+    "spec": "S9; F46",
+    "title": "Sheet hash bỏ placement/scale/ink",
+    "observed": "Chỉ hash frame.id và placements.Length, nên thay vị trí/scale/bounds vẫn cùng hash.",
+    "correction": "Canonical HASH_STATE của payload sheet đầy đủ, không hash count thay nội dung.",
+    "verification": "Đổi riêng scale, translation, bounds, ink phải đổi hash; replay cùng state/culture phải giữ hash.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "N01",
+    "severity": "P1",
+    "corrective_packages": [
+      "W13",
+      "W05"
+    ],
+    "file": "DBTool/DBTool/App/HoGaCommands.cs",
+    "line": 167,
+    "spec": "S0–S11 composition; W13 B3.07",
+    "title": "Entrypoint sản phẩm không nối production pipeline mới",
+    "observed": "Command/palette/headless dùng CalculationPipeline cũ; dispatcher/batch/verifier không caller sản phẩm; chưa có plot/review/session/context ports thật.",
+    "correction": "Composition root thực sự dùng một request qua S0–S11 và đủ native/plot/evidence ports; giữ UI chính.",
+    "verification": "Transcript một run command/palette thật có đủ stage/source/build IDs, native handles, save/reopen, plot và row receipts.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "N02",
+    "severity": "P1",
+    "corrective_packages": [
+      "W13",
+      "W05"
+    ],
+    "file": "DBTool/DBTool.AutoCAD/CadGenerationWriter.cs",
+    "line": 95,
+    "spec": "S10 write/readback",
+    "title": "Native port chỉ ghi manifest, không render entity",
+    "observed": "handleMap rỗng, không dựng native intents hoặc TagOwned; có thể xóa Replace rồi không tạo hình thay thế; vẫn readback Passed.",
+    "correction": "Flatten/render đủ intents trong transaction; ownership/handle coverage; reopen đo trước khi Passed.",
+    "verification": "Input S9 có curve/label/TK/frame phải ra entity thật đúng coverage; sửa một entity/ATTRIB phải NATIVE_READBACK_MISMATCH.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "N03",
+    "severity": "P1",
+    "corrective_packages": [
+      "W13"
+    ],
+    "file": "DBTool/DBTool.Application/StageAdapters.cs",
+    "line": 1074,
+    "spec": "H00; S0/S1/S10; no simulated Passed",
+    "title": "Thiếu port vẫn sinh Committed/Passed/Reopened giả",
+    "observed": "Default S10 trả SIMULATED_SAVED_NATIVE_HASH, handles[] và hash input; S0/S1 mặc định cũng tự dựng dữ liệu rỗng. Test hiện tại bắt phải có trạng thái giả này.",
+    "correction": "Production không có fallback fake; thiếu port/reader trả Blocked/NotRun; fakes chỉ ở test assembly.",
+    "verification": "Probe P-DEFAULT-NATIVE hết tái hiện; không có DWG thật không thể Passed; command composition test không chỉ IsAssignableFrom.",
+    "evidence_kind": "ExecutedCounterexampleAndSource",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "N04",
+    "severity": "P1",
+    "corrective_packages": [
+      "W05",
+      "W13"
+    ],
+    "file": "DBTool/DBTool.AutoCAD/NativeReadbackVerifier.cs",
+    "line": 105,
+    "spec": "S10 actual native equality",
+    "title": "Readback chỉ kiểm handle tồn tại, không so field đo thật",
+    "observed": "Không so geometry/ATTRIB/OCS/style/scale/owner với expected; thiếu attributes lấy dữ liệu caller; hash copy input; handles rỗng vẫn pass.",
+    "correction": "Đọc lại DB đã đóng/mở, đủ native fields và actual normalized hash; kiểm coverage và ownership thật.",
+    "verification": "Di chuyển vertex, đổi block/tag/style/owner/rotation/scale hoặc thiếu handle: fail kèm expected/actual/unit/handle.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "N05",
+    "severity": "P1",
+    "corrective_packages": [
+      "W05",
+      "W13"
+    ],
+    "file": "DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs",
+    "line": 331,
+    "spec": "S11; NR18; F48",
+    "title": "Expected được gán lại thành actual; dung sai bị tự điền",
+    "observed": "Dim/group/opening/owner dùng cùng DTO cho hai phía; GetUnitTolerance thay null bằng literal.",
+    "correction": "Actual chỉ từ readback/vector PDF có handle/hash; thiếu measurement NotRun, thiếu tolerance Blocked.",
+    "verification": "Native sai số thật phải được báo đúng actual và Failed; null tolerance không thể Passed; không tự lấy expected làm actual.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "N06",
+    "severity": "P1",
+    "corrective_packages": [
+      "W05",
+      "W13"
+    ],
+    "file": "DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs",
+    "line": 153,
+    "spec": "S11; mandatory DucBao review",
+    "title": "Visual/reference Passed không có chứng minh đúng PDF và vùng xem",
+    "observed": "Chỉ kiểm reference IDs không rỗng; copy visual_status, không bắt reviewer, PDF hash/frame và required regions; chưa port thật.",
+    "correction": "Khóa reference identity và PDF hash/page/frame; mọi vùng phải được DucBao xem; validate file/plot transcript trước verdict.",
+    "verification": "Đổi PDF hash/frame/reference, thiếu reviewer/vùng hoặc chưa xem: không visual Passed/Complete.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "N07",
+    "severity": "P1",
+    "corrective_packages": [
+      "W13"
+    ],
+    "file": "DBTool/DBTool.AutoCAD/CadGenerationWriter.cs",
+    "line": 90,
+    "spec": "S10 output guard/Create/Replace",
+    "title": "Thiếu bảo vệ output và kiểm stale target trước Replace",
+    "observed": "Chỉ chặn path rỗng; SaveAs có thể ghi nguồn/ngoài output; không đọc expected_generation/input/document token; mode lạ vẫn đi tiếp.",
+    "correction": "Canonical output allowlist, cấm source; exact mode và stale target checks trước transaction; Create chống trùng.",
+    "verification": "Path nguồn/ngoài root, stale Replace/mode lạ/duplicate Create phải fail trước mutation; Replace B giữ A nguyên vẹn.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "N08",
+    "severity": "P1",
+    "corrective_packages": [
+      "W13",
+      "W05"
+    ],
+    "file": "DBTool/DBTool/App/PaletteDrawingCalculation.cs",
+    "line": 90,
+    "spec": "S11 batch row isolation; H17",
+    "title": "Một row lỗi làm mất các row tốt và row receipts",
+    "observed": "Loop có receipt nhưng any failure trả Value=null; command gate cả workbook; calculation Complete bị hiểu như delivery; export không xử failed rows.",
+    "correction": "Giữ một final receipt cho mỗi row; tiếp tục rows tốt khi host khỏe; tách CalculationReady với DeliveryComplete.",
+    "verification": "Batch A tốt/B lỗi/C tốt: A,C có artifact; A/B/C có final receipt; cancel/savefail giữ bằng chứng đã commit và không mất dòng.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "N09",
+    "severity": "P2",
+    "corrective_packages": [
+      "W13"
+    ],
+    "file": "DBTool/DBTool/UI/MainViewModel.cs",
+    "line": 159,
+    "spec": "W13 shared request; preserve main UI",
+    "title": "Scale/elevation được khai báo nhưng UI/command chưa dùng đúng",
+    "observed": "XAML không bind các field mới; RunBatch cố định 30/Symbolic; Relative không thuộc enum, fallback Symbolic; CLI chỉ 20/30/40 và một ID.",
+    "correction": "Map từ controls/request hiện có, không đổi hình thức UI; enum/scale đúng nguồn; command documentation trùng parser thật.",
+    "verification": "Trace từng lựa chọn đến immutable request; giá trị unsupported phải lỗi; script hiện tại chỉ truyền đúng một workbook path.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "N10",
+    "severity": "P1",
+    "corrective_packages": [
+      "W13",
+      "W09"
+    ],
+    "file": "DBTool/DBTool.AutoCAD/CadRenderer.cs",
+    "line": 298,
+    "spec": "S8/S10 exact native TK",
+    "title": "Bảng TK vẫn fallback text và số thiếu thành 0",
+    "observed": "Thiếu block hoặc mark rơi xuống AppendText; length/count/total/mass/diameter thiếu dùng 0.",
+    "correction": "Preflight toàn row/block/tag/raw value; thiếu active TK/number phải Block, không text thay native INSERT.",
+    "verification": "Xóa required block/number phải lỗi trước write; mỗi row hợp lệ reopen đúng block và ATTRIB, không DBText rời.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "N11",
+    "severity": "P2",
+    "corrective_packages": [
+      "W05"
+    ],
+    "file": "DBTool/DBTool.Application/BatchGenerationOrchestrator.cs",
+    "line": 248,
+    "spec": "S11/H17 artifact manifest",
+    "title": "Manifest bị ghi đè mất provenance và lỗi persist bị nuốt",
+    "observed": "Assembler ghi nguồn/receipts rồi orchestrator ghi raw BatchV2 cùng tên; catch persist rỗng; session/context exception có thể mất row receipt.",
+    "correction": "Một finalizer/schema manifest đầy đủ; I/O failure rõ; bảo đảm accounting/cleanup mọi target kể cả pre-row fault.",
+    "verification": "Inject lỗi store/session/context: receipt thất bại đúng và cleanup; manifest cuối giữ đủ source/build/rule/receipt/artifact hashes.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "N12",
+    "severity": "P2",
+    "corrective_packages": [
+      "W13"
+    ],
+    "file": "DBTool/DBTool.AutoCAD/GenerationRepository.cs",
+    "line": 131,
+    "spec": "S10 versioned ownership",
+    "title": "TagOwned ghi schema mới nhưng ReadMetadata đọc schema cũ",
+    "observed": "XData mới generation/semantic/run/build/version bị decoder hiểu semantic là InputHash, run là TemplateHash, build là Version.",
+    "correction": "Schema có version discriminator rõ; round-trip/upgrade explicit; không giải nghĩa lại index âm thầm.",
+    "verification": "Ghi/đọc/save/reopen cả schema được hỗ trợ; unknown version phải Block; owner/input/template/semantic/run/build không lẫn.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "R01",
+    "severity": "P1",
+    "corrective_packages": [
+      "W01"
+    ],
+    "file": "DBTool/DBTool.Drawing/SemanticDiff.cs",
+    "line": 52,
+    "spec": "W01 evidence integrity; physical semantic diff",
+    "title": "Physical manifest thiếu schema vẫn NoDifference; tọa độ vật lý bị coi LayoutOnly",
+    "observed": "{} và {} thành snapshot rỗng rồi NoDifference=true; Start.X line đổi10mm bị phân loại LayoutOnly. Hai counterexamples đã chạy thật.",
+    "correction": "Validate schema/expected entity coverage và semantic ID trước diff; phân biệt world geometry với sheet placement bằng kind/frame/space.",
+    "verification": "P-EMPTY-PHYSICAL-MANIFEST và P-PHYSICAL-COORDINATE-CLASSIFICATION hết tái hiện; đổi physical endpoint không được là LayoutOnly.",
+    "evidence_kind": "ExecutedCounterexampleAndSource",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  },
+  {
+    "id": "R02",
+    "severity": "P2",
+    "corrective_packages": [
+      "W02",
+      "W07"
+    ],
+    "file": "DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs",
+    "line": 1,
+    "spec": "B3.12 evidence/BeforeHash chain",
+    "title": "Ledger thay đổi file chưa khép kín",
+    "observed": "Drawing DTO current hash khác W02 AfterHash (nội dung khác whitespace, schema103 vẫn khớp); StageAdapters W07 BeforeHash khác W06 AfterHash.",
+    "correction": "Bổ sung amendment có hash/source/actor/thời điểm cho thay đổi chưa ghi; không sửa receipts cũ làm gãy dependency hashes.",
+    "verification": "Hash snapshot hiện tại và chuỗi sửa được giải thích đầy đủ; 19 dependency links hiện khớp không thay thế bằng chứng execution order.",
+    "evidence_kind": "StaticSourceReview",
+    "disposition": "Open",
+    "required_before_phase1_signoff": true
+  }
+]

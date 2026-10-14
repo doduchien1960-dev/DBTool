@@ -1,0 +1,93 @@
+Redirect stdout (file: C:\Users\DucBao\AppData\Local\Temp\accc213922).
+AcCoreConsole: StdOutConsoleMode: processed-output: disabled,auto
+AutoCAD Core Engine Console - Copyright 2025 Autodesk, Inc.  All rights reserved. (W.164.0.0)
+
+Execution Path:
+C:\Program Files\Autodesk\AutoCAD 2026\accoreconsole.exe
+Current Directory: C:\Users\DucBao\Desktop\Dbtool\Ver 1\outputs\leader-acceptance\leader-field-contracts-20261013-r2\20261014-review-01\native-probe
+Isolating to regkey=W13Audit20261014, userDataFolder=C:\Users\DucBao\Desktop\Dbtool\Ver 1\outputs\leader-acceptance\leader-field-contracts-20261013-r2\20261014-review-01\native-probe\isolated-user.
+
+INFO: Isolation create time: 12395 ms.
+
+Version Number: W.164.0.0 (UNICODE)
+LogFilePath has been set to the working folder.
+CoreHeartBeat
+Loading AEC Base...
+Loading AECC Base...
+
+Loading Modeler DLLs.
+Loading AEC Base Extended...
+Loading AEC Project Base...
+Loading AEC Architectural Base...
+Loading AEC Schedule...
+Loading AECC Land...
+Loading AEC Core...
+Loading AECC Base Core...
+Loading AECC QTO......
+Loading AECC Survey...
+Loading AECC Roadway...
+Loading AECC Pipe Part...
+Loading AECC Pipe Network...
+Loading AECC Pressure Pipes...
+Loading AECC Building Site...
+Loading AECC DwgIndxExtractor...
+Loading AecCivilBase...
+Loading AECC Plan Production...
+Loading AECC Bridge...
+Loading AECC Hydrology...
+Loading AECC Rail...
+Regenerating model.
+CoreHeartBeat
+
+**** System Variable Changed ****
+2 of the monitored system variables have changed from the preferred value. Use SYSVARMONITOR command to view changes.
+
+
+AutoCAD menu utilities loaded.
+Command:
+Command:
+
+Command:
+Command: (setvar "FILEDIA" 0)
+0
+
+Command: (setvar "CMDDIA" 0)
+0
+
+Command: (setvar "TRUSTEDPATHS" (strcat (getvar "TRUSTEDPATHS") ";C:/Users/DucBao/Desktop/Dbtool/Ver 1/outputs/leader-acceptance/leader-field-contracts-20261013-r2/20261014-review-01/native-probe/plugin"))
+"C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261014-review-01\\native-probe\\isolated-user\\Roaming\\Support\\;C:\\ProgramData\\Autodesk\\C3D 2026\\enu\\Data\\Reports\\Net;;C:/Users/DucBao/Desktop/Dbtool/Ver 1/outputs/leader-acceptance/leader-field-contracts-20261013-r2/20261014-review-01/native-probe/plugin"
+
+Command: (princ "\nW13_AUDIT_PROBE_BEGIN\n")
+
+W13_AUDIT_PROBE_BEGIN
+"\nW13_AUDIT_PROBE_BEGIN\n"
+
+Command: (princ (strcat "\nINSUNITS=" (itoa (getvar "INSUNITS")) "\n"))
+
+INSUNITS=2
+"\nINSUNITS=2\n"
+
+Command: _.NETLOAD
+Assembly file name: "C:/Users/DucBao/Desktop/Dbtool/Ver 1/outputs/leader-acceptance/leader-field-contracts-20261013-r2/20261014-review-01/native-probe/plugin/DBTool.dll"
+
+=======================================================
+[DBTool 2026] Clean-Room Engine for AutoCAD & Civil 3D
+ - Gõ 'VEHOGA' để mở bảng điều khiển trực quan.
+ - Gõ 'VEHOGABATCH' để chạy tự động theo file Excel.
+=======================================================
+
+Command: VEHOGABATCH
+
+Nhập đường dẫn file Excel (.xlsx): "C:/Users/DucBao/Desktop/Dbtool/Ver 1/outputs/leader-acceptance/leader-field-contracts-20261013-r2/20261014-review-01/native-probe/intentionally-missing.xlsx"
+
+[Lỗi] Không tìm thấy file: C:/Users/DucBao/Desktop/Dbtool/Ver 1/outputs/leader-acceptance/leader-field-contracts-20261013-r2/20261014-review-01/native-probe/intentionally-missing.xlsx
+
+Command: (princ "\nW13_AUDIT_PROBE_END\n")
+
+W13_AUDIT_PROBE_END
+"\nW13_AUDIT_PROBE_END\n"
+
+Command: _.QUIT
+_No
+Really want to discard all changes to drawing? <N> _No
+

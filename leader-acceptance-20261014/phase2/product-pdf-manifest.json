@@ -1,0 +1,11 @@
+{
+  "review_id": "DBTOOL-W01-W13-20261014-R01",
+  "phase1_status": "Blocked_Preflight",
+  "phase1_signoff_hash": null,
+  "pages": [],
+  "generated_product_pdf_count": 0,
+  "visual_status": "NotRun",
+  "reviewer": null,
+  "reviewed_at": null,
+  "exclusion": "Reference PDFs and load-only scratch DWG are not product evidence"
+}

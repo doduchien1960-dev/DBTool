@@ -1,0 +1,172 @@
+{
+  "PackageId": "W12",
+  "Phase": "REMOVE",
+  "Version": "leader-field-contracts-20261013-r2",
+  "DependencyReceiptHashes": {
+    "W11": "923D3AD45A21A61ABBB64A73A91D11C7D9C42C816D7A5BF26EB3BC230040B6BC",
+    "W03": "88D2B84615F8C5121FA51A4955B6180C75D73629697B8251D1CEA7629B31BC59",
+    "W04": "06B2800E33B337C913AAED1C1BC7669A95A3EBC47FD5BB78759E1DA25E04B7CC"
+  },
+  "ChangedFiles": [
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/Family21SheetFiveStore.cs",
+      "BeforeHash": "1DB62D46DBB3195693A1ACDFB6DDE91FBDA005464ECA99EDD9DA0A18450BD520",
+      "AfterHash": "",
+      "Reason": "Loại bỏ hoàn toàn khỏi runtime; lưu trữ bản sao và hash trong archive/W12; thay thế bằng S5-S9 typed recipes và projectors động."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/Family21SheetFourStore.cs",
+      "BeforeHash": "D6BA42EBE1E0B622F4037C4A5DFE9C8D40CDECC6D3067D2B1F3C6E4431244391",
+      "AfterHash": "",
+      "Reason": "Loại bỏ hoàn toàn khỏi runtime; lưu trữ bản sao và hash trong archive/W12; thay thế bằng dynamic neck và catch view projectors."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/Family21SheetThreeStore.cs",
+      "BeforeHash": "2C79A0C1790A4F028B13D4DC8E6EFA9C7D18824D117F819DBB0009532EF7AB98",
+      "AfterHash": "",
+      "Reason": "Loại bỏ hoàn toàn khỏi runtime; lưu trữ bản sao và hash trong archive/W12; thay thế bằng dynamic wall và roof mesh projection."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/Family21SheetTwoStore.cs",
+      "BeforeHash": "33F2D83E926959900099832643EEB3AF1084F72FB82FA85AAE4365A909039FC7",
+      "AfterHash": "",
+      "Reason": "Loại bỏ hoàn toàn khỏi runtime; lưu trữ bản sao và hash trong archive/W12; thay thế bằng dynamic base và wall mesh projection."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetFourCatchBasinViews.cs",
+      "BeforeHash": "03E2E3D70FE40FDF3BE9D50EF24717A6DB9821921C2C8447A8B0601D775893F0",
+      "AfterHash": "",
+      "Reason": "Loại bỏ hoàn toàn khỏi runtime; di chuyển các hằng số ViewId (CatchPlanViewId, CatchSec11ViewId, CatchSec22ViewId) sang SheetFourViews; thay thế bởi dynamic CatchAssemblyProjector / ViewBuilder."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetTwoViews.cs",
+      "BeforeHash": "3F393E2D3BD9EC0461D8A3312C1363CBD9FF820862041FBEDD62EA5162443926",
+      "AfterHash": "",
+      "Reason": "Loại bỏ hoàn toàn khỏi runtime; nhánh if (false) trong ViewBuilder được loại bỏ; thay thế bằng dynamic mesh và material views."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetFourViews.cs",
+      "BeforeHash": "6A3719061BD5F05105A6DEDA033E5294A07F113EE3F5C94CC69DB10CCE8C2633",
+      "AfterHash": "B19A2B5CF3663BA7144AF755A8292872718D394B6AC3C4CDAC8287E77D9322A9",
+      "Reason": "Bảo toàn 4 hằng số ViewId gốc (Plan, AA, BB, Schedule) và tiếp nhận các hằng số ViewId hố thu từ SheetFourCatchBasinViews."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetFiveViews.cs",
+      "BeforeHash": "3CAFDF3638E80EC5298226D47EE6C1E3CBDC97304CE215EA426802A202DD7154",
+      "AfterHash": "1323632C85E56AB0498B7FACFF0E7BC35E0818DD18F79C4B2B92263E8111B78C",
+      "Reason": "Gỡ bỏ BuildFixture (phương thức gọi Family21SheetFiveStore cũ); giữ nguyên semantic ViewId, Bounds, BuildBending, BuildFromIntents, BuildFromCaptions."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/ViewBuilder.cs",
+      "BeforeHash": "0850DC4D998BD409D0115DB6A537A35CFA876F1540D26C27BC9D92B8A8820957",
+      "AfterHash": "854A97C40FB11ED51EA876A919E7E7089E40953608372ADD80C82874835FC641",
+      "Reason": "Gỡ bỏ nhánh if (false) SheetTwoViews; thay thế nhánh static catchFamily bằng dynamic projection từ geometry.Components và layout.Occurrences."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing.Tests/W12ModuleRemovalTests.cs",
+      "BeforeHash": "",
+      "AfterHash": "D89B202B4DEED7A46951BC65E4D3B0D6133A38535BECCD168DFFC385E3005030",
+      "Reason": "Unit tests xác thực 6 module tĩnh đã bị gỡ khỏi assembly, không còn qua reflection; semantic ViewIds được bảo toàn; ViewBuilder.Build chiếu hình học hố thu động."
+    }
+  ],
+  "InterfaceGate": "Passed",
+  "ImplementationStatus": "ImplementationComplete",
+  "NativeGate": "NotRun",
+  "BindingMissing": [],
+  "Commands": [
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests"
+    }
+  ],
+  "Checks": [
+    {
+      "Name": "Family21Store_And_StaticViews_PermanentRemoval",
+      "SubjectId": "DBTool.Drawing",
+      "Expected": "6 module tĩnh (Family21SheetFiveStore, Family21SheetFourStore, Family21SheetThreeStore, Family21SheetTwoStore, SheetFourCatchBasinViews, SheetTwoViews) bị loại bỏ vĩnh viễn khỏi runtime và assembly",
+      "Actual": "6 file nguồn đã được xóa khỏi DBTool.Drawing; assembly không chứa bất kỳ kiểu dữ liệu nào trong số 6 kiểu này; được kiểm tra bằng reflection trong W12ModuleRemovalTests",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing.Tests/W12ModuleRemovalTests.cs",
+        "outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W12/archive/archive-manifest.json"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "ZeroActiveReferences_To_RemovedModules",
+      "SubjectId": "DBTool",
+      "Expected": "0 tham chiếu active hoặc reflection tới 6 module bị gỡ bỏ trên toàn bộ solution DBTool",
+      "Actual": "git grep xác nhận 0 lần xuất hiện của 6 symbol trong toàn bộ mã nguồn sản phẩm Ver 1/DBTool (ngoại trừ W12ModuleRemovalTests dùng assert absent)",
+      "Unit": "count",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing",
+        "Ver 1/DBTool/DBTool.Drawing.Tests/W12ModuleRemovalTests.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "CallerUpdates_SheetFourViews_SheetFiveViews_ViewBuilder",
+      "SubjectId": "CallerUpdates",
+      "Expected": "SheetFourViews giữ các semantic ViewId và tiếp nhận catch view IDs; SheetFiveViews gỡ BuildFixture nhưng giữ ViewId, Bounds, BuildBending; ViewBuilder loại bỏ dead code SheetTwoViews và chuyển catchFamily sang chiếu động",
+      "Actual": "SheetFourViews bổ sung CatchPlanViewId, CatchSec11ViewId, CatchSec22ViewId; SheetFiveViews không còn BuildFixture; ViewBuilder dùng dynamic component & rebar projection cho hố thu",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/SheetFourViews.cs",
+        "Ver 1/DBTool/DBTool.Drawing/SheetFiveViews.cs",
+        "Ver 1/DBTool/DBTool.Drawing/ViewBuilder.cs",
+        "Ver 1/DBTool/DBTool.Drawing.Tests/W12ModuleRemovalTests.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "ArchiveManifest_Created_With_Hashes",
+      "SubjectId": "ArchiveManifest",
+      "Expected": "Lưu trữ đầy đủ 6 file kèm SHA-256 trước khi xóa ra ngoài compile tree",
+      "Actual": "6 file và archive-manifest.json được lưu tại outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W12/archive/ và Ver 1/archive/W12_removed_modules/",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W12/archive/archive-manifest.json",
+        "Ver 1/archive/W12_removed_modules/archive-manifest.json"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "Architecture_TestSuiteZeroRegression",
+      "SubjectId": "FullTestSuite",
+      "Expected": "Toàn bộ test suites pass không có regression sau khi gỡ 6 module",
+      "Actual": "1,488 tests passed (Domain: 580, Drawing: 426, Application: 210, Excel: 272), 0 failed, 0 skipped",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Domain.Tests",
+        "Ver 1/DBTool/DBTool.Drawing.Tests",
+        "Ver 1/DBTool/DBTool.Application.Tests",
+        "Ver 1/DBTool/DBTool.Excel.Tests"
+      ],
+      "Verdict": "Passed"
+    }
+  ],
+  "ActualDWG/PDFPaths": [],
+  "RecoveryState": "Clean",
+  "RollbackInstructions": "git checkout -- \"Ver 1/DBTool/DBTool.Drawing/SheetFourViews.cs\" \"Ver 1/DBTool/DBTool.Drawing/SheetFiveViews.cs\" \"Ver 1/DBTool/DBTool.Drawing/ViewBuilder.cs\"; Remove-Item \"Ver 1/DBTool/DBTool.Drawing.Tests/W12ModuleRemovalTests.cs\" -Force; Copy-Item \"outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W12/archive/*.cs\" \"Ver 1/DBTool/DBTool.Drawing/\" -Force"
+}

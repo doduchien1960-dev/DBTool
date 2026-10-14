@@ -1,0 +1,332 @@
+{
+  "recorded_at_utc": "2026-10-14T02:35:26.114321+00:00",
+  "scope": "Receipts and current workspace evidence; no product approval",
+  "source_root": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1",
+  "receipt_root": "C:\\Users\\DucBao\\Desktop\\Dbtool\\outputs\\leader-implementation\\leader-field-contracts-20261013-r2\\packages",
+  "spec_version": "leader-field-contracts-20261013-r2",
+  "package_count": 13,
+  "total_check_records": 59,
+  "total_changed_file_records": 111,
+  "unique_changed_paths": 102,
+  "missing_latest_paths": [
+    {
+      "package": "W12",
+      "Path": "Ver 1/DBTool/DBTool.Drawing/Family21SheetFiveStore.cs",
+      "BeforeHash": "1DB62D46DBB3195693A1ACDFB6DDE91FBDA005464ECA99EDD9DA0A18450BD520",
+      "AfterHash": "",
+      "Reason": "Loại bỏ hoàn toàn khỏi runtime; lưu trữ bản sao và hash trong archive/W12; thay thế bằng S5-S9 typed recipes và projectors động.",
+      "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\Family21SheetFiveStore.cs",
+      "exists": false,
+      "current_hash": null,
+      "previous_package": null,
+      "before_matches_previous_after": null,
+      "after_matches_current": null
+    },
+    {
+      "package": "W12",
+      "Path": "Ver 1/DBTool/DBTool.Drawing/Family21SheetFourStore.cs",
+      "BeforeHash": "D6BA42EBE1E0B622F4037C4A5DFE9C8D40CDECC6D3067D2B1F3C6E4431244391",
+      "AfterHash": "",
+      "Reason": "Loại bỏ hoàn toàn khỏi runtime; lưu trữ bản sao và hash trong archive/W12; thay thế bằng dynamic neck và catch view projectors.",
+      "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\Family21SheetFourStore.cs",
+      "exists": false,
+      "current_hash": null,
+      "previous_package": null,
+      "before_matches_previous_after": null,
+      "after_matches_current": null
+    },
+    {
+      "package": "W12",
+      "Path": "Ver 1/DBTool/DBTool.Drawing/Family21SheetThreeStore.cs",
+      "BeforeHash": "2C79A0C1790A4F028B13D4DC8E6EFA9C7D18824D117F819DBB0009532EF7AB98",
+      "AfterHash": "",
+      "Reason": "Loại bỏ hoàn toàn khỏi runtime; lưu trữ bản sao và hash trong archive/W12; thay thế bằng dynamic wall và roof mesh projection.",
+      "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\Family21SheetThreeStore.cs",
+      "exists": false,
+      "current_hash": null,
+      "previous_package": null,
+      "before_matches_previous_after": null,
+      "after_matches_current": null
+    },
+    {
+      "package": "W12",
+      "Path": "Ver 1/DBTool/DBTool.Drawing/Family21SheetTwoStore.cs",
+      "BeforeHash": "33F2D83E926959900099832643EEB3AF1084F72FB82FA85AAE4365A909039FC7",
+      "AfterHash": "",
+      "Reason": "Loại bỏ hoàn toàn khỏi runtime; lưu trữ bản sao và hash trong archive/W12; thay thế bằng dynamic base và wall mesh projection.",
+      "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\Family21SheetTwoStore.cs",
+      "exists": false,
+      "current_hash": null,
+      "previous_package": null,
+      "before_matches_previous_after": null,
+      "after_matches_current": null
+    },
+    {
+      "package": "W12",
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetFourCatchBasinViews.cs",
+      "BeforeHash": "03E2E3D70FE40FDF3BE9D50EF24717A6DB9821921C2C8447A8B0601D775893F0",
+      "AfterHash": "",
+      "Reason": "Loại bỏ hoàn toàn khỏi runtime; di chuyển các hằng số ViewId (CatchPlanViewId, CatchSec11ViewId, CatchSec22ViewId) sang SheetFourViews; thay thế bởi dynamic CatchAssemblyProjector / ViewBuilder.",
+      "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SheetFourCatchBasinViews.cs",
+      "exists": false,
+      "current_hash": null,
+      "previous_package": null,
+      "before_matches_previous_after": null,
+      "after_matches_current": null
+    },
+    {
+      "package": "W12",
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetTwoViews.cs",
+      "BeforeHash": "3F393E2D3BD9EC0461D8A3312C1363CBD9FF820862041FBEDD62EA5162443926",
+      "AfterHash": "",
+      "Reason": "Loại bỏ hoàn toàn khỏi runtime; nhánh if (false) trong ViewBuilder được loại bỏ; thay thế bằng dynamic mesh và material views.",
+      "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SheetTwoViews.cs",
+      "exists": false,
+      "current_hash": null,
+      "previous_package": null,
+      "before_matches_previous_after": null,
+      "after_matches_current": null
+    }
+  ],
+  "latest_hash_mismatches": [
+    {
+      "package": "W02",
+      "Path": "Ver 1/DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs",
+      "BeforeHash": "",
+      "AfterHash": "2054A0A3108EBFC01CB9CF00EFB30DB84C83A059C7EB508DECF124CC885472EB",
+      "Reason": "Tạo mới Stage DTO foundation S5..S8, ViewPlacementV2, DimensionItemV2, HatchPatternV2, RebarCalloutV2 theo bảng B3.04-B3.08.",
+      "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\StageContractsV2\\Drawing.ContractsV2.cs",
+      "exists": true,
+      "current_hash": "d033701722879b541599a7cd0a535024f75ddaae5c692b85a84f21a08fd366ee",
+      "previous_package": null,
+      "before_matches_previous_after": null,
+      "after_matches_current": false
+    }
+  ],
+  "file_chain_mismatches": [
+    {
+      "package": "W07",
+      "Path": "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+      "BeforeHash": "A635B23E025402ADC2979DDA06D107E4E15BFA3F7C8C812E9EEB392997F56C52",
+      "AfterHash": "4CC31B36BA3DB1DB4313CA3B54EF7BDECCD9C8CFA00C3E1D7CC4A8FFF98FFFDE",
+      "Reason": "Triển khai IS4StageV2 cho FullRebarStage (Execute S3->S4), compose catch geometry/voids rồi catch steel, giữ thứ tự dowel sau hooks, tích hợp RebarGroupRegistry và RebarModelV2.",
+      "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\StageAdapters.cs",
+      "exists": true,
+      "current_hash": "849e2d7874808fdff76aad93c1f4e66b19fbb37a606baad850ebe0d845dfaf17",
+      "previous_package": "W06",
+      "before_matches_previous_after": false,
+      "after_matches_current": false
+    }
+  ],
+  "dependency_hash_mismatches": [],
+  "packages": [
+    {
+      "package": "W01",
+      "phase": "P0",
+      "implementation": "ImplementationComplete",
+      "interface": "Passed",
+      "native": "NotRun",
+      "check_count": 3,
+      "check_verdict_counts": {
+        "Passed": 3
+      },
+      "binding_missing": 0,
+      "changed_files": 3,
+      "commands": 4,
+      "actual_native_paths": [],
+      "receipt_sha256": "88ef0c2bff47dab14ed469f80982e0136f24b64c056a7ca51f861632cc977edf"
+    },
+    {
+      "package": "W02",
+      "phase": "P1",
+      "implementation": "ImplementationComplete",
+      "interface": "Passed",
+      "native": "NotRun",
+      "check_count": 5,
+      "check_verdict_counts": {
+        "Passed": 5
+      },
+      "binding_missing": 0,
+      "changed_files": 17,
+      "commands": 4,
+      "actual_native_paths": [],
+      "receipt_sha256": "9109421973a2367b66c171f19ba95505cb1458e0a6c6ade3149cd5019034ccd9"
+    },
+    {
+      "package": "W03",
+      "phase": "NEW-A",
+      "implementation": "ImplementationComplete",
+      "interface": "Passed",
+      "native": "NotRun",
+      "check_count": 4,
+      "check_verdict_counts": {
+        "Passed": 4
+      },
+      "binding_missing": 0,
+      "changed_files": 3,
+      "commands": 4,
+      "actual_native_paths": [],
+      "receipt_sha256": "88d2b84615f8c5121fa51a4955b6180c75d73629697b8251d1cea7629b31bc59"
+    },
+    {
+      "package": "W04",
+      "phase": "NEW-B",
+      "implementation": "ImplementationComplete",
+      "interface": "Passed",
+      "native": "NotRun",
+      "check_count": 5,
+      "check_verdict_counts": {
+        "Passed": 5
+      },
+      "binding_missing": 0,
+      "changed_files": 4,
+      "commands": 4,
+      "actual_native_paths": [],
+      "receipt_sha256": "06b2800e33b337c913aaed1c1bc7669a95a3ebc47fd5bb78759e1da25e04b7cc"
+    },
+    {
+      "package": "W05",
+      "phase": "NEW-C",
+      "implementation": "ImplementationComplete",
+      "interface": "Passed",
+      "native": "NotRun",
+      "check_count": 4,
+      "check_verdict_counts": {
+        "Passed": 4
+      },
+      "binding_missing": 0,
+      "changed_files": 3,
+      "commands": 5,
+      "actual_native_paths": [],
+      "receipt_sha256": "23325dc8cdc092c0cbf743fc3d092ef6b751548c5ac358e42b4844bb86529333"
+    },
+    {
+      "package": "W06",
+      "phase": "P2",
+      "implementation": "ImplementationComplete",
+      "interface": "Passed",
+      "native": "NotRun",
+      "check_count": 4,
+      "check_verdict_counts": {
+        "Passed": 4
+      },
+      "binding_missing": 0,
+      "changed_files": 13,
+      "commands": 4,
+      "actual_native_paths": [],
+      "receipt_sha256": "eed9d643a96086799c471af6baf1ae180bdc6d7823c45df5222ba84480540622"
+    },
+    {
+      "package": "W07",
+      "phase": "P3",
+      "implementation": "ImplementationComplete",
+      "interface": "Passed",
+      "native": "NotRun",
+      "check_count": 4,
+      "check_verdict_counts": {
+        "Passed": 4
+      },
+      "binding_missing": 0,
+      "changed_files": 16,
+      "commands": 4,
+      "actual_native_paths": [],
+      "receipt_sha256": "acf5f456807d0a2ad25232bc492282d36ded34b546262c78a9b08a12456afbac"
+    },
+    {
+      "package": "W08",
+      "phase": "P4",
+      "implementation": "ImplementationComplete",
+      "interface": "Passed",
+      "native": "NotRun",
+      "check_count": 5,
+      "check_verdict_counts": {
+        "Passed": 5
+      },
+      "binding_missing": 0,
+      "changed_files": 5,
+      "commands": 4,
+      "actual_native_paths": [],
+      "receipt_sha256": "43a92b7a9d33072638432133728aae2aa6b9665d09e56869f8c9e6d0f492673f"
+    },
+    {
+      "package": "W09",
+      "phase": "P5",
+      "implementation": "ImplementationComplete",
+      "interface": "Passed",
+      "native": "NotRun",
+      "check_count": 5,
+      "check_verdict_counts": {
+        "Passed": 5
+      },
+      "binding_missing": 0,
+      "changed_files": 8,
+      "commands": 4,
+      "actual_native_paths": [],
+      "receipt_sha256": "7f0db787b8819d6f01645a19dc386a9be69d54a93848ea0435ebeef42b8f46e8"
+    },
+    {
+      "package": "W10",
+      "phase": "P6",
+      "implementation": "ImplementationComplete",
+      "interface": "Passed",
+      "native": "NotRun",
+      "check_count": 5,
+      "check_verdict_counts": {
+        "Passed": 5
+      },
+      "binding_missing": 0,
+      "changed_files": 7,
+      "commands": 4,
+      "actual_native_paths": [],
+      "receipt_sha256": "135c0ad0747870a2563295bb69b9be9189d17d4196696bc59a1840c7964d3fa4"
+    },
+    {
+      "package": "W11",
+      "phase": "P7",
+      "implementation": "ImplementationComplete",
+      "interface": "Passed",
+      "native": "NotRun",
+      "check_count": 6,
+      "check_verdict_counts": {
+        "Passed": 6
+      },
+      "binding_missing": 0,
+      "changed_files": 8,
+      "commands": 4,
+      "actual_native_paths": [],
+      "receipt_sha256": "923d3ad45a21a61abbb64a73a91d11c7d9c42c816d7a5bf26eb3bc230040b6bc"
+    },
+    {
+      "package": "W12",
+      "phase": "REMOVE",
+      "implementation": "ImplementationComplete",
+      "interface": "Passed",
+      "native": "NotRun",
+      "check_count": 5,
+      "check_verdict_counts": {
+        "Passed": 5
+      },
+      "binding_missing": 0,
+      "changed_files": 10,
+      "commands": 4,
+      "actual_native_paths": [],
+      "receipt_sha256": "46911c6aedb4e11dceca304387ffd825630d941314fc1736d8670f60bf5005b1"
+    },
+    {
+      "package": "W13",
+      "phase": "P8",
+      "implementation": "ImplementationComplete",
+      "interface": "Passed",
+      "native": "NotRun",
+      "check_count": 4,
+      "check_verdict_counts": {
+        "Passed": 4
+      },
+      "binding_missing": 0,
+      "changed_files": 14,
+      "commands": 7,
+      "actual_native_paths": [],
+      "receipt_sha256": "a686fa20048c121247581af89f56aa1081f0374825fd3036a64a21f6f9d6e907"
+    }
+  ]
+}

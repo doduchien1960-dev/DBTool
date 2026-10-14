@@ -1,0 +1,570 @@
+[
+  {
+    "pdf_id": "PDF-001",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\1.1.Ga thăm BTCT liền khối-Model-1.pdf",
+    "sha256": "ab7ed35463e537f4c5c2260d2a509362adfb6800b5fe682ee59028e507ff274b",
+    "bytes": 269126,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-002",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\1.1.Ga thăm BTCT liền khối-Model-10.pdf",
+    "sha256": "77162e8633ca00833080be04b5fa54a61b164a39cca9f8231093b4a6a7047041",
+    "bytes": 374234,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-003",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\1.1.Ga thăm BTCT liền khối-Model-11.pdf",
+    "sha256": "6c838c5368cc7478b1e228f775a305dadc32de6b8b0f72e039ff63297bdbc7ff",
+    "bytes": 211155,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-004",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\1.1.Ga thăm BTCT liền khối-Model-12.pdf",
+    "sha256": "bd408e23b6749df8ebd75a5820329149350c73063d345c30d9350367a7bc2d08",
+    "bytes": 186395,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-005",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\1.1.Ga thăm BTCT liền khối-Model-2.pdf",
+    "sha256": "a1a80f5e6b9ce6b5b6f2193aedc790588b5ac368e4a326c533a9b7dd7eeae6d3",
+    "bytes": 203801,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-006",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\1.1.Ga thăm BTCT liền khối-Model-3.pdf",
+    "sha256": "030949f0314702d2f465e0cbb4701cfccb8b81934a891ee8ee63d91cda8e34ba",
+    "bytes": 175942,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-007",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\1.1.Ga thăm BTCT liền khối-Model-4.pdf",
+    "sha256": "582aa06896f13ec6a7251acca408bf3b49f5e0c86c7cf42d769eaf676d9c9909",
+    "bytes": 361319,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-008",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\1.1.Ga thăm BTCT liền khối-Model-6.pdf",
+    "sha256": "6cbcb811d5f66e2d7394af230baeac1aa2889be88aae53e85907bb322ecb4aba",
+    "bytes": 203990,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-009",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\1.1.Ga thăm BTCT liền khối-Model-7.pdf",
+    "sha256": "6966cc760e0980d873b6359cb599acba0e86cc51df1e0e292db308261ea3c7bd",
+    "bytes": 270741,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-010",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\1.1.Ga thăm BTCT liền khối-Model-8.pdf",
+    "sha256": "6a0278f880b79aa0514fc9f3c2be05cb23a75723c6b3df6c4feb8c1ca8c5c011",
+    "bytes": 193621,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-011",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\1.1.Ga thăm BTCT liền khối-Model-9.pdf",
+    "sha256": "ddd4ead35a15a59f89731b12f8b782001c74ab944ed4e6cad5ed94178ed5db73",
+    "bytes": 186862,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-012",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-1.pdf",
+    "sha256": "f8946eaa2ec712f3e2f76ae01abdb07a64ab6a920e32482d32fbed4fc70db3bb",
+    "bytes": 261677,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-013",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-10.pdf",
+    "sha256": "385739dafe421de57231b80788aa4bf6151baf32842904f283756d9b4c38bf9d",
+    "bytes": 201999,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-014",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-11.pdf",
+    "sha256": "39796aaa3da8d8c2d593e38d27d590fdeb2ec5bd07e445279bf884ce72e29b67",
+    "bytes": 292512,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-015",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-12.pdf",
+    "sha256": "5fbe8e533c8f4b7f022b86fd3922ff076f93900e2b2bb66b22e8a7c26e1fb102",
+    "bytes": 186434,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-016",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-13.pdf",
+    "sha256": "6d5048667d014e09428b9508316a1a765ddd5de1290dc43648cd2d98aadfa5aa",
+    "bytes": 215292,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-017",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-14.pdf",
+    "sha256": "492ff823f975e193bc29ae81afed910d4f2a92aeed74a68181465e110cb1fb87",
+    "bytes": 386860,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-018",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-15.pdf",
+    "sha256": "58a0592a86b0a96c20c675d442c073d94491d35232948194b903662a991d6e4b",
+    "bytes": 219781,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-019",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-16.pdf",
+    "sha256": "6c35b0f19102b6a79a8dee33c98dd08bfeffaec65ba5d1ea472a423097512b71",
+    "bytes": 186713,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-020",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-17.pdf",
+    "sha256": "efdca7a3933591d6de3f5ab0f1b5ace30f23e13b05a9aca2b104f3351d465ea4",
+    "bytes": 274533,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-021",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-18.pdf",
+    "sha256": "2e13842a03c75e4faefb9c89edae6dc1aa900041173e56a1b1c7721123718b4f",
+    "bytes": 195816,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-022",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-19.pdf",
+    "sha256": "cab90bebc9a322a7da49943dd8c72468f80e490ec50bbabc62c9bb71da2e3376",
+    "bytes": 193820,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-023",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-2.pdf",
+    "sha256": "c399a8e4a8e42e03256129d5a31634637958116e8efcd21db0be0d33bd2e235c",
+    "bytes": 167114,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-024",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-20.pdf",
+    "sha256": "a7f511a90dcc4f5033b3b232ab304d5039f4108fc8504079a0b5cfae03a6c48e",
+    "bytes": 381161,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-025",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-21.pdf",
+    "sha256": "8b50dfac7aa6af7d14beaf69ffc02fd42ccb77083a28e4c40e681479c213c96e",
+    "bytes": 215186,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-026",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-22.pdf",
+    "sha256": "45bfd0ec62f880bcd1d20b7ab660645f6f105c069f13e0dae75d8d5b55ab4805",
+    "bytes": 186832,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-027",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-23.pdf",
+    "sha256": "33fc59433a156fa2c896e1e3403854e36ff60df42614b22df509e521877fc75f",
+    "bytes": 282809,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-028",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-24.pdf",
+    "sha256": "43050ecfc90300b3357003e018e4b27b0015c49962c36034b10da8f99f9cf8fe",
+    "bytes": 177770,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-029",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-25.pdf",
+    "sha256": "5ec651c47c7e49a6b579f8e99d822b47f28f5d84205c24829f763a119074e5b3",
+    "bytes": 213236,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-030",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-26.pdf",
+    "sha256": "b8cbd2b727cba081e55285a5290afc443535baa8ac696bfb00fe0bb0e059a1cc",
+    "bytes": 382825,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-031",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-27.pdf",
+    "sha256": "2a5044af218d41dfa8c1321fa17b3a1feb730d24f4ea8f3d81502cddf573b4af",
+    "bytes": 212697,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-032",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-3.pdf",
+    "sha256": "93817743eb503b6202fe52075097b0553c2be7ecaf3d05e28ca8d3a388f00311",
+    "bytes": 178202,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-033",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-4.pdf",
+    "sha256": "4bc6ed1457e11bd169d97c8481dd6ee8bcdcaa686c5481b5d04d9692f081fb6f",
+    "bytes": 288202,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-034",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-5.pdf",
+    "sha256": "5745c6386a3e34f82669873ee31cf113db0952ad8108506898d469fb9155945c",
+    "bytes": 169347,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-035",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-6.pdf",
+    "sha256": "d49c4b8889a135cd1cfadc0cda7ab6d4b1b37c32f42705c82da13d047f7ebfa9",
+    "bytes": 276023,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-036",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-7.pdf",
+    "sha256": "b1a54e0c4a11e4cec62a9baf7a58522b4b3e3f5af23ad76790f0bb4f3ed1944d",
+    "bytes": 202782,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-037",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-8.pdf",
+    "sha256": "c6a020d23fc646fd51969bff9a7c67fa8568da5762ada4355ef68ccf7b77d242",
+    "bytes": 180358,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-038",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\2.1.Ga thăm BTCT nắp rời-Model-9.pdf",
+    "sha256": "06c9254eec0d626d085230ee40ad44e75ffbf8e485201aa57828cce8e6ed4bb1",
+    "bytes": 357411,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-039",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-1.pdf",
+    "sha256": "5803caf9e7e6638d34a8141f4bcb6983d4984c6e7f7570da7c4321a89a9a5ed5",
+    "bytes": 392548,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-040",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-10.pdf",
+    "sha256": "c14f625be67bdae88e19892be6185f2604ed65c00a155742465da2f17d9bdd82",
+    "bytes": 354717,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-041",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-11.pdf",
+    "sha256": "3a7969dd0d46a1978fa39070324ef3a53a5f4e9f8b23e60f4393052ae8ff7eb7",
+    "bytes": 673837,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-042",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-12.pdf",
+    "sha256": "76c30e636b1d0136efebe19ad3bbab03b705505b6002843f8ecebb6922187cb0",
+    "bytes": 483904,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-043",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-13.pdf",
+    "sha256": "7c1a84e9c586cea7c469464b38da7b467c385e1bf23f1307ebf70f56ddbf3588",
+    "bytes": 334853,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-044",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-14.pdf",
+    "sha256": "5296ad26ac4712172000fa17469b9b6b4cf9d32b48eac3c28276877a3e5f4046",
+    "bytes": 441260,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-045",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-15.pdf",
+    "sha256": "47b415e992543005531279cd5160bd5d245f43325689f82fe9366bb805003674",
+    "bytes": 304618,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-046",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-16.pdf",
+    "sha256": "b996d0aea428d4ac56c4674029ad3dfadc17193a8a866c59b5140c2ce681007e",
+    "bytes": 373547,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-047",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-17.pdf",
+    "sha256": "54bcc46193ca8d338c9252789c5941462760f889d6e5d4a358fb18a2ebd1bb78",
+    "bytes": 351915,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-048",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-18.pdf",
+    "sha256": "92a4b47d7b8d97514c23089aceba76518f3aa2d2e67bec778b8ab5d47eae0faf",
+    "bytes": 642462,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-049",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-19.pdf",
+    "sha256": "82b4635fc8470a3016a2fe3d358d1f8edd798a40f6eec18c710536f815789fb0",
+    "bytes": 463250,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-050",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-2.pdf",
+    "sha256": "c4f41992356e2e0df8e91be09d45fe461370c353c59e845d73c3da28b86b3b18",
+    "bytes": 269959,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-051",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-20.pdf",
+    "sha256": "132fe468c0348da3f0d93e582f4b7d72992612f73309411009c66d800eaf6e40",
+    "bytes": 331009,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-052",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-21.pdf",
+    "sha256": "34d33d97d93a1113f31b0de1f3d63d090dfae5cfedbdd135fcf691279ff1ca5d",
+    "bytes": 423632,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-053",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-22.pdf",
+    "sha256": "78c9e3e57957463452879d386e99a3b650679e04cded2216eac43fe42b47acfa",
+    "bytes": 347012,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-054",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-23.pdf",
+    "sha256": "32a336abb6a66c851bd68aa2868d46df3e7861f9aad19421bc850a6b63f50acd",
+    "bytes": 313997,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-055",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-24.pdf",
+    "sha256": "b362a9e020e39c018c0a3a47b8e052684ea1ebe5bccb468df9dbec31c6e35c9a",
+    "bytes": 310394,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-056",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-25.pdf",
+    "sha256": "e63c52ec1da392d9de450e21bb20995f1e92fe3752ddee2977ec3d3171a68662",
+    "bytes": 592803,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-057",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-26.pdf",
+    "sha256": "dd4e6cc0f83e605a5cad875d37b806e59f6f38ea6d0b1b1f7b78dab6d6833bc6",
+    "bytes": 439476,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-058",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-27.pdf",
+    "sha256": "e150d9a9be2f628219efd0fc9ac72d22babc727c15de4059940d39a5ce820245",
+    "bytes": 331009,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-059",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-28.pdf",
+    "sha256": "23addbc48b92e9d29d32098b94cd844e6ff20326859541b2d5a35c2dcf8d21b1",
+    "bytes": 448895,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-060",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-29.pdf",
+    "sha256": "618784b341587b7259f1689d02ae554b635dc291a81a7351688cc118680059d1",
+    "bytes": 318971,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-061",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-3.pdf",
+    "sha256": "7da38c2444122a0cc7d705ca9fb822feaba626a25fa42755785a03a3e98c765e",
+    "bytes": 302112,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-062",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-30.pdf",
+    "sha256": "e9b0ea14fc919b565dcf3f26be4942a3bdfe17412a78d5777eca4d644653c9e3",
+    "bytes": 387182,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-063",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-31.pdf",
+    "sha256": "04c084a8cc1f6ca0ae3f2b720e285e6bc36f6720aaddfd862188748f42a68a98",
+    "bytes": 311559,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-064",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-32.pdf",
+    "sha256": "62865401a7e4c6b2216f6368827acca5e881695dc0dd8eb538180d25c675c49d",
+    "bytes": 666862,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-065",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-33.pdf",
+    "sha256": "6cf6bdd9dfe2d93ee55e3949632736240166f19aad39c7aaf405557a4f2a93db",
+    "bytes": 475539,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-066",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-4.pdf",
+    "sha256": "ced952341b4cee4229b4abd93671ab6ef675fc4e773973bd07d93b95ceee2834",
+    "bytes": 354992,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-067",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-5.pdf",
+    "sha256": "d1784928323c42c37c548752fc847713dc25bd7e6500845a8b77b95125f5146a",
+    "bytes": 474433,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-068",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-6.pdf",
+    "sha256": "0de40ea085b404781a83539d21a7ddfa090fe814f3b7bc1a3500f9ff15b5a4a8",
+    "bytes": 330909,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-069",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-7.pdf",
+    "sha256": "d126484f55895be78e327863a2347c3d66127d83c3a1a462e97bb1ddc9dd202c",
+    "bytes": 462509,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-070",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-8.pdf",
+    "sha256": "c91377bebd2618fe2737e59f4d09ac3c0a4dd362f0e25c8a7cfcc4a00d2112ad",
+    "bytes": 356316,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  },
+  {
+    "pdf_id": "PDF-071",
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Cad\\3.1.Ga thăm + thu BTCT nắp rời-Model-9.pdf",
+    "sha256": "cc42a216a6546c3e852ed852647b1599b6e742e4a8e8da49864bb4549d8d3f95",
+    "bytes": 338424,
+    "kind": "ReferenceOnly",
+    "numeric_comparison_requires_exact_input_identity": true
+  }
+]

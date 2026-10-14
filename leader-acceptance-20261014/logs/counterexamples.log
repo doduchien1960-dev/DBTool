@@ -1,0 +1,67 @@
+[
+  {
+    "id": "P-MISSING-INPUT",
+    "expected": "StageFault for missing required fields and source bindings",
+    "actual": "S2StateV2 returned",
+    "clear_x_mm": 1000,
+    "clear_y_mm": 1000,
+    "clear_h_mm": 1500,
+    "members": 0,
+    "sources": 0,
+    "verdict": "CounterexampleObserved"
+  },
+  {
+    "id": "P-GEOMETRY-HASH",
+    "expected": "Different physical hashes for different X dimensions",
+    "widthA": 1000,
+    "widthB": 1137,
+    "hashA": "3C4D4B27FB7A018E9B88C2D0F210EF06E1222B94ED5827AEC799145A5AC525E1",
+    "hashB": "3C4D4B27FB7A018E9B88C2D0F210EF06E1222B94ED5827AEC799145A5AC525E1",
+    "actual": "Hashes equal",
+    "verdict": "CounterexampleObserved"
+  },
+  {
+    "id": "P-STRUCTURE-VIEWS",
+    "expected": "Required body/base/wall/roof structure views even with no catch",
+    "actual": [
+      {
+        "role": "CatchPlan",
+        "required": false
+      },
+      {
+        "role": "Catch11",
+        "required": false
+      },
+      {
+        "role": "Catch22",
+        "required": false
+      }
+    ],
+    "requiredViewCount": 0,
+    "verdict": "CounterexampleObserved"
+  },
+  {
+    "id": "P-DEFAULT-NATIVE",
+    "expected": "Missing native port must fail; cannot declare readback Passed",
+    "actual": "Passed",
+    "write_status": "Committed",
+    "fileExists": false,
+    "savedPath": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261014-review-01\\probes\\results\\never-written.dwg",
+    "verdict": "CounterexampleObserved"
+  },
+  {
+    "id": "P-EMPTY-PHYSICAL-MANIFEST",
+    "expected": "Missing physical manifest schema must reject, never NoDifference",
+    "actual": true,
+    "verdict": "CounterexampleObserved"
+  },
+  {
+    "id": "P-PHYSICAL-COORDINATE-CLASSIFICATION",
+    "expected": "Physical world endpoint moved 10 mm must be numerical/geometry difference",
+    "actual": [
+      "LayoutOnly"
+    ],
+    "IsLayoutOnly": true,
+    "verdict": "CounterexampleObserved"
+  }
+]

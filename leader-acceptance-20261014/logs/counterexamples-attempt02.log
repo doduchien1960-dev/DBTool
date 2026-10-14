@@ -1,0 +1,3 @@
+C:\Users\DucBao\Desktop\Dbtool\Ver 1\outputs\leader-acceptance\leader-field-contracts-20261013-r2\20261014-review-01\probes\AcceptanceProbe\Program.cs(40,199): error CS1061: 'NativeV2' does not contain a definition for 'handle_map' and no accessible extension method 'handle_map' accepting a first argument of type 'NativeV2' could be found (are you missing a using directive or an assembly reference?) [C:\Users\DucBao\Desktop\Dbtool\Ver 1\outputs\leader-acceptance\leader-field-contracts-20261013-r2\20261014-review-01\probes\AcceptanceProbe\AcceptanceProbe.csproj]
+
+The build failed. Fix the build errors and run again.

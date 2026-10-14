@@ -1,0 +1,1902 @@
+[
+  {
+    "package": "W01",
+    "index": 1,
+    "Name": "ReferenceComparison_InputMismatch_Separation",
+    "SubjectId": "ReferenceComparisonService",
+    "Expected": "InputMismatch (not implementation defect)",
+    "Actual": "ComparisonClassification.InputMismatch",
+    "Unit": "none",
+    "ToleranceRuleId": "NR-18",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Application/ReferenceComparisonService.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/ReferenceComparisonService.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\ReferenceComparisonService.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W01",
+    "index": 2,
+    "Name": "ReleaseEvidence_VerdictIntegrity",
+    "SubjectId": "ReleaseEvidenceEvaluator",
+    "Expected": "Blocked on NotRun/Partial/NeedsRule regardless of exit code",
+    "Actual": "InvalidOperationException raised and logged as missing gate",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Application/ReleaseEvidence.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/ReleaseEvidence.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\ReleaseEvidence.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W01",
+    "index": 3,
+    "Name": "SemanticDiff_PhysicalManifestAndClassification",
+    "SubjectId": "SemanticDiff",
+    "Expected": "Accurate classification of LayoutOnly, Rename, InputBasis vs ContentLoss",
+    "Actual": "DifferenceNature properly assigned and exposed on DiffReport",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/SemanticDiff.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/SemanticDiff.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SemanticDiff.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W02",
+    "index": 1,
+    "Name": "StageDTO_Schema_Exactness",
+    "SubjectId": "ContractsV2",
+    "Expected": "Exact typed contracts for S0 through S9 stages and supporting value objects matching Tables B3.04-B3.08",
+    "Actual": "Full implementation of S0AssetsV2 through S9StateV2, DiagnosticV2, ReceiptV2, RuleApprovalRegistry with get-only immutability",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.04-B3.08",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Domain/StageContractsV2/Domain.ContractsV2.cs",
+      "Ver 1/DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs",
+      "Ver 1/DBTool/DBTool.Application/StageContractsV2/Application.ContractsV2.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/StageContractsV2/Domain.ContractsV2.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\StageContractsV2\\Domain.ContractsV2.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\StageContractsV2\\Drawing.ContractsV2.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/StageContractsV2/Application.ContractsV2.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\StageContractsV2\\Application.ContractsV2.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W02",
+    "index": 2,
+    "Name": "TemplateContract_RoleAndTagValidation",
+    "SubjectId": "TemplateContractValidator",
+    "Expected": "Geometry/DowelHole, CatchSummary, VHG-HoThu roles present; tag conflicts and duplicate names detected without fallback",
+    "Actual": "VhgTemplateRoles updated with GeometryRequirements; TemplateContractValidator checks tags and block name collisions",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Application/Templates/VhgTemplateRoles.cs",
+      "Ver 1/DBTool/DBTool.Application/Templates/TemplateContractValidator.cs",
+      "Ver 1/DBTool/DBTool.AutoCAD/NativeAssetSignatures.cs",
+      "Ver 1/DBTool/DBTool.AutoCAD/TemplateAssetImporter.cs",
+      "Ver 1/DBTool/DBTool.AutoCAD/TemplateManifestReader.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/Templates/VhgTemplateRoles.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\Templates\\VhgTemplateRoles.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/Templates/TemplateContractValidator.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\Templates\\TemplateContractValidator.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.AutoCAD/NativeAssetSignatures.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.AutoCAD\\NativeAssetSignatures.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.AutoCAD/TemplateAssetImporter.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.AutoCAD\\TemplateAssetImporter.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.AutoCAD/TemplateManifestReader.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.AutoCAD\\TemplateManifestReader.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W02",
+    "index": 3,
+    "Name": "CalculationPolicy_ApprovedRulesGating",
+    "SubjectId": "CalculationPolicy",
+    "Expected": "RuleBinding explicitly validates approved rules; proposal prose never converted to geometry",
+    "Actual": "RuleBinding constructor accepts Sources and checks HasApprovedRules, gated against non-approved bindings",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Domain/Policies/CalculationPolicy.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/Policies/CalculationPolicy.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\Policies\\CalculationPolicy.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W02",
+    "index": 4,
+    "Name": "ExcelImporter_FieldContractMapping",
+    "SubjectId": "WorkbookImporter",
+    "Expected": "Material.G, NoteStyle, PitchSymbol, Annotation prefixes mapped and version marker validated",
+    "Actual": "Vhg32Schema addresses updated and WorkbookImporter maps prefixes and checks VHGpro version signature",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Infrastructure.Excel/Vhg32Schema.cs",
+      "Ver 1/DBTool/DBTool.Infrastructure.Excel/WorkbookImporter.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Infrastructure.Excel/Vhg32Schema.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Infrastructure.Excel\\Vhg32Schema.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Infrastructure.Excel/WorkbookImporter.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Infrastructure.Excel\\WorkbookImporter.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W02",
+    "index": 5,
+    "Name": "Architecture_DependenciesAndImmutability",
+    "SubjectId": "ArchitectureContractTests",
+    "Expected": "Clean one-way assembly dependencies without circular refs or public property mutators on DTOs",
+    "Actual": "All 1,453 unit and architecture contract tests pass across Domain, Drawing, Application, and Excel suites",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Domain/StageContractsV2/Domain.ContractsV2.cs",
+      "Ver 1/DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs",
+      "Ver 1/DBTool/DBTool.Application/StageContractsV2/Application.ContractsV2.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/StageContractsV2/Domain.ContractsV2.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\StageContractsV2\\Domain.ContractsV2.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\StageContractsV2\\Drawing.ContractsV2.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/StageContractsV2/Application.ContractsV2.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\StageContractsV2\\Application.ContractsV2.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W03",
+    "index": 1,
+    "Name": "PresentationGroupPlanner_MemberCoverage",
+    "SubjectId": "PresentationGroupPlanner",
+    "Expected": "Gom nhóm S5 theo 05B-F49 key, phủ 100% member không thiếu không thừa, phát hiện trùng mark",
+    "Actual": "Hoàn tất gom nhóm, tính trung bình hình học, kiểm tra GROUP_COVERAGE_MISMATCH và GROUP_MARK_COLLISION",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/PresentationGroupPlanner.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/PresentationGroupPlanner.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\PresentationGroupPlanner.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W03",
+    "index": 2,
+    "Name": "AssemblyBoundaryEmitter_CSG_Regions",
+    "SubjectId": "AssemblyBoundaryEmitter",
+    "Expected": "Sinh Region2V2[] bao gồm Section CSG và Projection boundary, trừ lỗ chia sẻ theo H06/H26",
+    "Actual": "Hoàn tất bộ phát sinh biên hình học với clipping đa mặt cắt và polygon boolean",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\AssemblyBoundaryEmitter.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W03",
+    "index": 3,
+    "Name": "RuleApprovalRegistry_ApprovedSeed_23Proposals",
+    "SubjectId": "RuleApprovalRegistry",
+    "Expected": "Nạp đúng 23 đề xuất NR-01..23 được phê duyệt (OWNER-APPROVAL-23-20261013), kiểm tra AST và trả typed diagnostic khi thiếu binding",
+    "Actual": "Hoàn tất IRuleSnapshotReader với seed 23 đề xuất chuẩn hóa, hash 07a6ba4aab682dbd3c416a4b3ebc597eeff3674a52778dc133228dc75c45221c và AST validation",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Application/RuleApprovalRegistry.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/RuleApprovalRegistry.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\RuleApprovalRegistry.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W03",
+    "index": 4,
+    "Name": "Architecture_DependenciesAndImmutability",
+    "SubjectId": "ArchitectureContractTests",
+    "Expected": "Sạch phụ thuộc một chiều, DTO bất biến, toàn bộ 4 test suite vượt qua",
+    "Actual": "Toàn bộ 1,453 test case vượt qua (Domain: 580, Drawing: 401, Application: 200, Excel: 272)",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/PresentationGroupPlanner.cs",
+      "Ver 1/DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs",
+      "Ver 1/DBTool/DBTool.Application/RuleApprovalRegistry.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/PresentationGroupPlanner.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\PresentationGroupPlanner.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\AssemblyBoundaryEmitter.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/RuleApprovalRegistry.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\RuleApprovalRegistry.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W04",
+    "index": 1,
+    "Name": "CatchAssemblyProjector_ThreeViews",
+    "SubjectId": "CatchAssemblyProjector",
+    "Expected": "Chiếu đủ ba hình vẽ mặt bằng cửa thu (CatchPlan) và mặt cắt (Catch11, Catch22) từ physical assembly dùng chung, sử dụng AssemblyBoundaryEmitter",
+    "Actual": "Hoàn tất chiếu hình học, mở lỗ cắt bê tông, đường tim cốt thép và sản phẩm nắp cửa thu ra ViewV2[], CurveV2[], Target2V2[], OpeningMap",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/CatchAssemblyProjector.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/CatchAssemblyProjector.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\CatchAssemblyProjector.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W04",
+    "index": 2,
+    "Name": "SchematicPresentationPlanner_CaptionsAndGlyphs",
+    "SubjectId": "SchematicPresentationPlanner",
+    "Expected": "Tạo hình uốn schematic dạng cố định, gạch chân và caption L/Ltb theo từng phân nhóm bucket",
+    "Actual": "Hoàn tất phân nhóm bucket (Body, Neck, Panel, Catch), định dạng số hiệu, đường kính, chiều dài L/Ltb và bao ink chính xác",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/SchematicPresentationPlanner.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/SchematicPresentationPlanner.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SchematicPresentationPlanner.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W04",
+    "index": 3,
+    "Name": "NativeSteelSchedulePlanner_RowsAndSummaries",
+    "SubjectId": "NativeSteelSchedulePlanner",
+    "Expected": "Chọn exact native TK, gán tag thuộc tính, sinh tiêu đề và bảng tổng hợp khối lượng theo nhóm",
+    "Actual": "Hoàn tất S8 schedule planner với hàng TK, tiêu đề TK.Tenluoi/TK.Tieude/TieudeMC, tổng hợp TK.THKL/TK.THKLNAP/TK.THKL.CT, và kiểm tra bao phủ 100% nhóm",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\NativeSteelSchedulePlanner.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W04",
+    "index": 4,
+    "Name": "AnnotationLaneAllocator_SharedInkAndRouting",
+    "SubjectId": "AnnotationLaneAllocator",
+    "Expected": "Phân bổ làn nhãn dùng chung, định tuyến đa nhánh collector, gạch tick Gach và ký hiệu BLTC",
+    "Actual": "Hoàn tất S7 lane allocator cho kích thước, cao độ, vật liệu, ký hiệu đai BLTC, gạch tick Gach và nhãn cốt thép theo phong cách NoteStyle1/NoteStyle2",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\AnnotationLaneAllocator.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W04",
+    "index": 5,
+    "Name": "Architecture_TestSuiteCoverage",
+    "SubjectId": "RegressionTestSuites",
+    "Expected": "Toàn bộ 4 test suites vượt qua với 100% pass",
+    "Actual": "Toàn bộ 1,459 test case vượt qua (Domain: 580, Drawing: 407, Application: 200, Excel: 272)",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+      "Ver 1/DBTool/DBTool.Drawing/SchematicPresentationPlanner.cs",
+      "Ver 1/DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+      "Ver 1/DBTool/DBTool.Drawing/CatchAssemblyProjector.cs",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W04PlannerAndProjectorTests.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\NativeSteelSchedulePlanner.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/SchematicPresentationPlanner.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SchematicPresentationPlanner.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\AnnotationLaneAllocator.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/CatchAssemblyProjector.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\CatchAssemblyProjector.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing.Tests/W04PlannerAndProjectorTests.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing.Tests\\W04PlannerAndProjectorTests.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W05",
+    "index": 1,
+    "Name": "BatchGenerationOrchestrator_Signature_And_Isolation",
+    "SubjectId": "BatchGenerationOrchestrator",
+    "Expected": "BatchV2 Generate(RequestV2 request, IRunContextFactory contextFactory, CancellationToken token) with row isolation, cancellation handling, and finite scale retry",
+    "Actual": "Full implementation in DBTool.Application with session health management, manifest generation, and pure stage execution",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.08/H17",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Application/BatchGenerationOrchestrator.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/BatchGenerationOrchestrator.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\BatchGenerationOrchestrator.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W05",
+    "index": 2,
+    "Name": "NativeReadbackVerifier_Save_Reopen_Validation",
+    "SubjectId": "NativeReadbackVerifier",
+    "Expected": "NativeV2 Verify(S9StateV2 expected, NativeV2 committedWrite, CancellationToken token) reading actual reopened database handles, attributes, and checking unchanged manifests",
+    "Actual": "Full implementation in DBTool.AutoCAD opening actual saved DWG, reading handle map, and validating tolerances against NR-18 rules",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.08/H16",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.AutoCAD/NativeReadbackVerifier.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.AutoCAD/NativeReadbackVerifier.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.AutoCAD\\NativeReadbackVerifier.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W05",
+    "index": 3,
+    "Name": "AcceptanceEvidenceAssembler_S11_Records",
+    "SubjectId": "AcceptanceEvidenceAssembler",
+    "Expected": "BatchV2 Assemble(S10StateV2 input, CancellationToken token) comparing expected effective/rebar/geometry against actual readback, with missing review marked NotRun",
+    "Actual": "Full implementation in DBTool.Application assembling AcceptanceCheckV2, PlotPageV2, RowVerdictV2, and delivery-manifest.json",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.08/S11",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\AcceptanceEvidenceAssembler.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W05",
+    "index": 4,
+    "Name": "Architecture_DependenciesAndImmutability",
+    "SubjectId": "ArchitectureContractTests",
+    "Expected": "Clean one-way assembly dependencies without circular refs or public property mutators on DTOs",
+    "Actual": "All 1,453 unit and architecture contract tests pass across Domain, Drawing, Application, and Excel suites",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Application/BatchGenerationOrchestrator.cs",
+      "Ver 1/DBTool/DBTool.AutoCAD/NativeReadbackVerifier.cs",
+      "Ver 1/DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/BatchGenerationOrchestrator.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\BatchGenerationOrchestrator.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.AutoCAD/NativeReadbackVerifier.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.AutoCAD\\NativeReadbackVerifier.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\AcceptanceEvidenceAssembler.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W06",
+    "index": 1,
+    "Name": "StageAdapters_S2_S3_Implementation",
+    "SubjectId": "GeometryStageAdapter",
+    "Expected": "IS2StageV2 và IS3StageV2 được triển khai chính xác trên GeometryStageAdapter theo quy tắc H00, H01, H03, H14",
+    "Actual": "GeometryStageAdapter thực thi S2 và S3, tạo EffectiveV2 và GeometryV2 với các liên kết hình học, datums, frame 100mm, physical hash",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Application/StageAdapters.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\StageAdapters.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W06",
+    "index": 2,
+    "Name": "SheetOneDrawingPolicies_Preservation",
+    "SubjectId": "SheetOneDrawingPolicies",
+    "Expected": "Bảo toàn đúng các hợp đồng outer/inner loops, loại bỏ pad0 phantom, giữ liên kết kết cấu và vật liệu",
+    "Actual": "SheetOnePlanBaseOutlinePolicy, SheetOnePlanOutlinePolicy, SheetOneSectionOutlinePolicy, SheetOneNeckAssembly, SheetOneHatchRegions, SheetOneConcreteAssembly, SheetOnePipeViews hoạt động đúng hợp đồng",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/SheetOneConcreteAssembly.cs",
+      "Ver 1/DBTool/DBTool.Drawing/SheetOneHatchRegions.cs",
+      "Ver 1/DBTool/DBTool.Drawing/SheetOneNeckAssembly.cs",
+      "Ver 1/DBTool/DBTool.Drawing/SheetOnePipeViews.cs",
+      "Ver 1/DBTool/DBTool.Drawing/SheetOnePlanBaseOutlinePolicy.cs",
+      "Ver 1/DBTool/DBTool.Drawing/SheetOnePlanOutlinePolicy.cs",
+      "Ver 1/DBTool/DBTool.Drawing/SheetOneSectionOutlinePolicy.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/SheetOneConcreteAssembly.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SheetOneConcreteAssembly.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/SheetOneHatchRegions.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SheetOneHatchRegions.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/SheetOneNeckAssembly.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SheetOneNeckAssembly.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/SheetOnePipeViews.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SheetOnePipeViews.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/SheetOnePlanBaseOutlinePolicy.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SheetOnePlanBaseOutlinePolicy.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/SheetOnePlanOutlinePolicy.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SheetOnePlanOutlinePolicy.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/SheetOneSectionOutlinePolicy.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SheetOneSectionOutlinePolicy.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W06",
+    "index": 3,
+    "Name": "AccessoryAndCatchBasin_Extensions",
+    "SubjectId": "CatchBasinAndAccessory",
+    "Expected": "Typed catch basin spec với pad, expansion, reinforced, product code; Accessory mapper đọc đầy đủ ties, lap, prefixes",
+    "Actual": "CatchBasinSpec, GeometryModel, CatchBasinBuilder, AccessoryInputMapper, ManholeValidator mở rộng đầy đủ các trường yêu cầu",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Application/AccessoryInputMapper.cs",
+      "Ver 1/DBTool/DBTool.Application/ManholeValidator.cs",
+      "Ver 1/DBTool/DBTool.Domain/Geometry/CatchBasinBuilder.cs",
+      "Ver 1/DBTool/DBTool.Domain/Geometry/GeometryModel.cs",
+      "Ver 1/DBTool/DBTool.Domain/Input/CatchBasinSpec.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/AccessoryInputMapper.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\AccessoryInputMapper.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/ManholeValidator.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\ManholeValidator.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/Geometry/CatchBasinBuilder.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\Geometry\\CatchBasinBuilder.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/Geometry/GeometryModel.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\Geometry\\GeometryModel.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/Input/CatchBasinSpec.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\Input\\CatchBasinSpec.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W06",
+    "index": 4,
+    "Name": "Architecture_DependenciesAndTestSuiteZeroRegression",
+    "SubjectId": "FullTestSuite",
+    "Expected": "Toàn bộ 4 test suites pass không có lỗi regression",
+    "Actual": "1,459 tests passed (Domain: 580, Drawing: 407, Application: 200, Excel: 272)",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Domain.Tests",
+      "Ver 1/DBTool/DBTool.Drawing.Tests",
+      "Ver 1/DBTool/DBTool.Application.Tests",
+      "Ver 1/DBTool/DBTool.Excel.Tests"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Application.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Excel.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Excel.Tests",
+        "exists": true,
+        "is_file": false
+      }
+    ]
+  },
+  {
+    "package": "W07",
+    "index": 1,
+    "Name": "StageAdapters_S4_FullRebarStage_Implementation",
+    "SubjectId": "FullRebarStage",
+    "Expected": "Triển khai IS4StageV2 trên FullRebarStage theo hợp đồng S3StateV2 -> S4StateV2 với RebarModelV2, RebarGroupRegistry, physical occurrences và provenance traces",
+    "Actual": "FullRebarStage thực thi S4 tạo RebarModelV2 với groups, marks, schedules, physical hash và liên kết hình học S3",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Application/StageAdapters.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\StageAdapters.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W07",
+    "index": 2,
+    "Name": "RebarPlanners_PhysicalProvenance_And_CanonicalSignatures",
+    "SubjectId": "DomainRebarPlanners",
+    "Expected": "BarOccurrence lưu giữ toàn bộ thông tin nguồn gốc, segment, station, host, face, cut interval, canonical signature chuẩn hóa theo ShapeSignature",
+    "Actual": "BarOccurrence, ShapeSignature, BarLengthResolver, OpeningClipper, WallRebarPlanner, DowelPlanner, TiePlanner, LiftingHookPlanner, NeckRebarPlanner, CatchBasinRebarPlanner, PanelRebarPlanner và HaunchRebarPlanner hoạt động đúng hợp đồng",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Domain/Rebar/BarLengthResolver.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/BarOccurrence.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/CatchBasinRebarPlanner.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/DowelPlanner.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/HaunchRebarPlanner.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/LiftingHookPlanner.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/NeckRebarPlanner.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/NominalFabricationLength.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/NominalHookPlanner.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/OpeningClipper.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/PanelRebarPlanner.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/ShapeSignature.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/TiePlanner.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/WallRebarPlanner.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/Rebar/BarLengthResolver.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\Rebar\\BarLengthResolver.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/Rebar/BarOccurrence.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\Rebar\\BarOccurrence.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/Rebar/CatchBasinRebarPlanner.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\Rebar\\CatchBasinRebarPlanner.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/Rebar/DowelPlanner.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\Rebar\\DowelPlanner.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/Rebar/HaunchRebarPlanner.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\Rebar\\HaunchRebarPlanner.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/Rebar/LiftingHookPlanner.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\Rebar\\LiftingHookPlanner.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/Rebar/NeckRebarPlanner.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\Rebar\\NeckRebarPlanner.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/Rebar/NominalFabricationLength.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\Rebar\\NominalFabricationLength.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/Rebar/NominalHookPlanner.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\Rebar\\NominalHookPlanner.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/Rebar/OpeningClipper.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\Rebar\\OpeningClipper.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/Rebar/PanelRebarPlanner.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\Rebar\\PanelRebarPlanner.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/Rebar/ShapeSignature.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\Rebar\\ShapeSignature.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/Rebar/TiePlanner.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\Rebar\\TiePlanner.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain/Rebar/WallRebarPlanner.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain\\Rebar\\WallRebarPlanner.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W07",
+    "index": 3,
+    "Name": "FeatureSupport_RebarCapabilities",
+    "SubjectId": "FeatureSupportValidator",
+    "Expected": "Duy trì các cổng kiểm tra capability cốt thép S2 và S4, phân biệt Dowels và kiểm tra raw fields formula cache",
+    "Actual": "FeatureSupportValidator kiểm tra đầy đủ các ràng buộc profile, phụ kiện và formula caching",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Application/FeatureSupportValidator.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/FeatureSupportValidator.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\FeatureSupportValidator.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W07",
+    "index": 4,
+    "Name": "Architecture_DependenciesAndTestSuiteZeroRegression",
+    "SubjectId": "FullTestSuite",
+    "Expected": "Toàn bộ 4 test suites pass không có lỗi regression",
+    "Actual": "1,459 tests passed (Domain: 580, Drawing: 407, Application: 200, Excel: 272)",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Domain.Tests",
+      "Ver 1/DBTool/DBTool.Drawing.Tests",
+      "Ver 1/DBTool/DBTool.Application.Tests",
+      "Ver 1/DBTool/DBTool.Excel.Tests"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Application.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Excel.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Excel.Tests",
+        "exists": true,
+        "is_file": false
+      }
+    ]
+  },
+  {
+    "package": "W08",
+    "index": 1,
+    "Name": "PresentationGroup_S5_PreDrawing_Planning",
+    "SubjectId": "PresentationGroupPlannerAndRegistry",
+    "Expected": "Quy hoạch presentation groups trước khi vẽ, tính toán lengths, basis, mass và coverage validation không orphan/phantom",
+    "Actual": "PresentationGroupMap.PlanPreDrawing và FromPlannedGroups tính toán đầy đủ các trường thống kê, ValidateCoverage xác nhận 100% độ phủ cốt thép",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/PresentationGroup.cs",
+      "Ver 1/DBTool/DBTool.Drawing/DrawingInputs.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/PresentationGroup.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\PresentationGroup.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/DrawingInputs.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\DrawingInputs.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W08",
+    "index": 2,
+    "Name": "ScheduleNativeAttributes_21_Exact_Block_Schemas",
+    "SubjectId": "ScheduleBlockSchemas",
+    "Expected": "Định nghĩa và ánh xạ 21 block schemas chuẩn AutoCAD, TDAI đổi mm sang m một lần duy nhất, format approved",
+    "Actual": "21 block schemas được cấu hình chuẩn xác qua BindScheduleRow, Summary, Angle, GroupTitle, Header",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/ScheduleNativeAttributes.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/ScheduleNativeAttributes.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\ScheduleNativeAttributes.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W08",
+    "index": 3,
+    "Name": "DrawingStageAdapter_S5_Carrier",
+    "SubjectId": "DrawingStageAdapter",
+    "Expected": "DrawingStageAdapter triển khai IS5StageV2 và IDrawingStage mang immutable DrawingInputs và GroupRegistry",
+    "Actual": "DrawingStageAdapter tích hợp PresentationGroupMap và forward đầy đủ context tới ViewBuilder",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Application/StageAdapters.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\StageAdapters.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W08",
+    "index": 4,
+    "Name": "CalculationPipeline_PreDrawing_Integration",
+    "SubjectId": "CalculationPipeline",
+    "Expected": "CalculationPipeline tích hợp quy hoạch S5 trước khi gọi DrawingStageAdapter, giữ guard batch",
+    "Actual": "Calculate và CalculateS3Rebar chuyển giao GroupRegistry, xác thực coverage không orphan/phantom; CalculateQuantityBatch giữ nguyên guard độc lập",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Application/CalculationPipeline.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/CalculationPipeline.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\CalculationPipeline.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W08",
+    "index": 5,
+    "Name": "Architecture_TestSuiteZeroRegression",
+    "SubjectId": "FullTestSuite",
+    "Expected": "Toàn bộ 4 test suites pass không có lỗi regression",
+    "Actual": "1,459 tests passed (Domain: 580, Drawing: 407, Application: 200, Excel: 272)",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Domain.Tests",
+      "Ver 1/DBTool/DBTool.Drawing.Tests",
+      "Ver 1/DBTool/DBTool.Application.Tests",
+      "Ver 1/DBTool/DBTool.Excel.Tests"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Application.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Excel.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Excel.Tests",
+        "exists": true,
+        "is_file": false
+      }
+    ]
+  },
+  {
+    "package": "W09",
+    "index": 1,
+    "Name": "BendingSchematic_RecipeId_And_GlyphAsset",
+    "SubjectId": "BendingSchematicPlanner",
+    "Expected": "BendingShapeIntent mang RecipeId và GlyphAsset từ ShapeRecipeId của BarOccurrence, hỗ trợ dynamic fixed-glyph presentation",
+    "Actual": "BendingShapeIntent lưu trữ đầy đủ RecipeId và GlyphAsset, giữ nguyên canonical consistency và shape projection cho evidence",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/BendingSchematicPlanner.cs",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W09NativeScheduleAndBendingTests.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/BendingSchematicPlanner.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\BendingSchematicPlanner.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing.Tests/W09NativeScheduleAndBendingTests.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing.Tests\\W09NativeScheduleAndBendingTests.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W09",
+    "index": 2,
+    "Name": "ScheduleTablePlanner_OmitGrid_OnVhgPath",
+    "SubjectId": "ScheduleTablePlanner",
+    "Expected": "Loại bỏ lưới Schedule/Grid khi bảng thép tròn được native replacement trên VHG path, giữ nguyên bảng khối lượng và bảng thép góc",
+    "Actual": "PlanPages(rows, origin, isVhgNativePath: true) không sinh Schedule/Grid cho bảng cốt thép; QuantityTable và AngleSchedule vẫn sinh lưới đầy đủ",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/ScheduleTablePlanner.cs",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W09NativeScheduleAndBendingTests.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/ScheduleTablePlanner.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\ScheduleTablePlanner.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing.Tests/W09NativeScheduleAndBendingTests.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing.Tests\\W09NativeScheduleAndBendingTests.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W09",
+    "index": 3,
+    "Name": "SheetFiveViews_And_Placement_DynamicBending",
+    "SubjectId": "SheetFiveViewsAndPlacement",
+    "Expected": "SheetFiveViews cung cấp BuildFromIntents/BuildFromCaptions; SheetFivePlacement ánh xạ dynamic Bending views về (0, 0) ngăn SHEET_PLAN_PAGE_OVERFLOW",
+    "Actual": "SheetFiveViews tạo DrawingPrimitive từ presentation intents; SheetFivePlacement gán Origin = (0, 0) cho mọi ViewId bắt đầu bằng Bending",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/SheetFiveViews.cs",
+      "Ver 1/DBTool/DBTool.Drawing/SheetFivePlacement.cs",
+      "Ver 1/DBTool/DBTool.AutoCAD.Tests/Phase6GenerationCommands.cs",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W09NativeScheduleAndBendingTests.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/SheetFiveViews.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SheetFiveViews.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/SheetFivePlacement.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SheetFivePlacement.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.AutoCAD.Tests/Phase6GenerationCommands.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.AutoCAD.Tests\\Phase6GenerationCommands.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing.Tests/W09NativeScheduleAndBendingTests.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing.Tests\\W09NativeScheduleAndBendingTests.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W09",
+    "index": 4,
+    "Name": "SteelScheduleStageAdapter_IS8StageV2_Wiring",
+    "SubjectId": "SteelScheduleStageAdapter",
+    "Expected": "SteelScheduleStageAdapter triển khai IS8StageV2 kết nối NativeSteelSchedulePlanner và SchematicPresentationPlanner xuất S8StateV2",
+    "Actual": "Execute(S7StateV2) lập kế hoạch rows, headings, summaries qua NativeSteelSchedulePlanner và presentation glyphs/captions qua SchematicPresentationPlanner",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+      "Ver 1/DBTool/DBTool.Application.Tests/W09StageAdapterTests.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\StageAdapters.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Application.Tests/W09StageAdapterTests.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application.Tests\\W09StageAdapterTests.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W09",
+    "index": 5,
+    "Name": "Architecture_TestSuiteZeroRegression",
+    "SubjectId": "FullTestSuite",
+    "Expected": "Toàn bộ 4 test suites pass không có lỗi regression",
+    "Actual": "1,468 tests passed (Domain: 580, Drawing: 415, Application: 201, Excel: 272)",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Domain.Tests",
+      "Ver 1/DBTool/DBTool.Drawing.Tests",
+      "Ver 1/DBTool/DBTool.Application.Tests",
+      "Ver 1/DBTool/DBTool.Excel.Tests"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Application.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Excel.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Excel.Tests",
+        "exists": true,
+        "is_file": false
+      }
+    ]
+  },
+  {
+    "package": "W10",
+    "index": 1,
+    "Name": "DrawingStageAdapter_IS6_IS7_Wiring",
+    "SubjectId": "DrawingStageAdapter",
+    "Expected": "DrawingStageAdapter triển khai IS6StageV2 và IS7StageV2, nối tiếp S5StateV2 -> S6StateV2 qua CatchAssemblyProjector và S6StateV2 -> S7StateV2 qua AnnotationLaneAllocator",
+    "Actual": "DrawingStageAdapter thực thi S6 và S7 với các projection views, curves, targets, opening_map và annotations đầy đủ",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+      "Ver 1/DBTool/DBTool.Application.Tests/W10StageAdapterTests.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\StageAdapters.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Application.Tests/W10StageAdapterTests.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application.Tests\\W10StageAdapterTests.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W10",
+    "index": 2,
+    "Name": "SheetThreeRoofViews_RetainSemanticIds_DropMockBounds",
+    "SubjectId": "SheetThreeRoofViews",
+    "Expected": "SheetThreeRoofViews giữ lại TopViewId và BottomViewId, loại bỏ BuildTop/BuildBottom và bounds cố định không có caller",
+    "Actual": "TopViewId và BottomViewId được bảo toàn đầy đủ, các mock method tĩnh và bounds không còn tồn tại",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/SheetThreeRoofViews.cs",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W10ProjectionAndWiringTests.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/SheetThreeRoofViews.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SheetThreeRoofViews.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing.Tests/W10ProjectionAndWiringTests.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing.Tests\\W10ProjectionAndWiringTests.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W10",
+    "index": 3,
+    "Name": "RoofJointDowelProjection_PreserveHole1to1_AndScalePaperMetrics",
+    "SubjectId": "RoofJointDowelProjection",
+    "Expected": "Lỗ chốt giữ tỉ lệ 1:1 trong model mm, role Geometry/DowelHole, chiều cao chữ ghi chú tỷ lệ với paper metrics (2 * scaleDenominator)",
+    "Actual": "Bán kính lỗ đúng diameter/2 (1:1), ghi chú đạt đúng 2 * scaleDenominator (60 tại 1:30, 100 tại 1:50)",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/RoofJointDowelProjection.cs",
+      "Ver 1/DBTool/DBTool.Drawing/ViewBuilder.cs",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W10ProjectionAndWiringTests.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/RoofJointDowelProjection.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\RoofJointDowelProjection.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/ViewBuilder.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\ViewBuilder.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing.Tests/W10ProjectionAndWiringTests.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing.Tests\\W10ProjectionAndWiringTests.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W10",
+    "index": 4,
+    "Name": "SheetThreeRoofDetailer_TargetMemberFromMetadata",
+    "SubjectId": "SheetThreeRoofDetailer",
+    "Expected": "Ưu tiên chọn thanh thép mục tiêu theo mainBarIds/metadata từ S5/S7 thay vì chỉ chọn theo longestPath",
+    "Actual": "SheetThreeRoofDetailer chọn thanh thép khớp mainBarIds trước khi dự phòng sắp xếp theo độ dài",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/SheetThreeRoofDetailer.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/SheetThreeRoofDetailer.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SheetThreeRoofDetailer.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W10",
+    "index": 5,
+    "Name": "Architecture_TestSuiteZeroRegression",
+    "SubjectId": "FullTestSuite",
+    "Expected": "Toàn bộ 4 test suites pass không có lỗi regression",
+    "Actual": "1,475 tests passed (Domain: 580, Drawing: 418, Application: 205, Excel: 272)",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Domain.Tests",
+      "Ver 1/DBTool/DBTool.Drawing.Tests",
+      "Ver 1/DBTool/DBTool.Application.Tests",
+      "Ver 1/DBTool/DBTool.Excel.Tests"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Application.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Excel.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Excel.Tests",
+        "exists": true,
+        "is_file": false
+      }
+    ]
+  },
+  {
+    "package": "W11",
+    "index": 1,
+    "Name": "DrawingStageAdapter_IS9_LayoutPagination",
+    "SubjectId": "DrawingStageAdapter",
+    "Expected": "DrawingStageAdapter triển khai IS9StageV2, giải thuật phân trang S9 chia trang theo vai trò, kiểm tra single-view fit, bao dòng theo lề nội dung, tách trang mới, kiểm tra dung sai mép ink, bao phủ khung nhìn bắt buộc, sinh canonical sheet_hash",
+    "Actual": "DrawingStageAdapter thực thi S9 với phân trang đầy đủ, ném chẩn đoán chuẩn xác cho fit/coverage và tạo SheetV2 hoàn chỉnh",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.07",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+      "Ver 1/DBTool/DBTool.Application.Tests/W11StageAdapterTests.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\StageAdapters.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Application.Tests/W11StageAdapterTests.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application.Tests\\W11StageAdapterTests.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W11",
+    "index": 2,
+    "Name": "DrawingPackage_ExpandedContract",
+    "SubjectId": "DrawingPackage",
+    "Expected": "DrawingPackage bổ sung các thuộc tính SemanticIds, Targets, Groups, InkBounds, Frames, IntentManifest với getter-only và tương thích ngược",
+    "Actual": "Các thuộc tính được bổ sung với getter-only, bất biến hoàn toàn, tương thích các constructor hiện có",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/DrawingPackage.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/DrawingPackage.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\DrawingPackage.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W11",
+    "index": 3,
+    "Name": "DrawingPackageValidator_ValidatePackageCompleteness",
+    "SubjectId": "DrawingPackageValidator",
+    "Expected": "ValidatePackageCompleteness kiểm tra tính đầy đủ của vai trò khung nhìn, quan hệ collector, bao phủ nhóm và phát hiện vai trò không xác định",
+    "Actual": "Báo cáo chính xác khi thiếu nhóm hoặc góc nhìn primitive, trả về OperationResult<DrawingValidationReport>",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/DrawingPackageValidator.cs",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W11LayoutAndPaginationTests.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/DrawingPackageValidator.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\DrawingPackageValidator.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing.Tests/W11LayoutAndPaginationTests.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing.Tests\\W11LayoutAndPaginationTests.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W11",
+    "index": 4,
+    "Name": "SheetFourViews_RetainSemanticIds_DropMockBounds",
+    "SubjectId": "SheetFourViews",
+    "Expected": "SheetFourViews giữ 4 hằng số ViewId (PlanViewId, AAViewId, BBViewId, ScheduleViewId); loại bỏ các mock store tĩnh và bounds cố định",
+    "Actual": "4 hằng số ViewId được bảo toàn nguyên vẹn; các phương thức mock Build* và bounds cố định không còn tồn tại",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/SheetFourViews.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/SheetFourViews.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SheetFourViews.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W11",
+    "index": 5,
+    "Name": "SheetPlan_FrameRegistry_And_PageLedger",
+    "SubjectId": "SheetPlan",
+    "Expected": "SheetPlanPage bổ sung ManholeId, PageRole, PageIndex, ScaleDenominator, InkBounds, OwnedViewBundles; FrameRegistry hỗ trợ đăng ký, tra cứu và VerifyCoverage",
+    "Actual": "SheetPlanPage mở rộng lưu giữ đầy đủ dữ liệu phân trang; FrameRegistry kiểm tra coverage chuẩn xác và trả về OperationResult<FrameRegistry>",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/SheetPlan.cs",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W11LayoutAndPaginationTests.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/SheetPlan.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SheetPlan.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing.Tests/W11LayoutAndPaginationTests.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing.Tests\\W11LayoutAndPaginationTests.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W11",
+    "index": 6,
+    "Name": "Architecture_TestSuiteZeroRegression",
+    "SubjectId": "FullTestSuite",
+    "Expected": "Toàn bộ test suites pass không có lỗi regression",
+    "Actual": "1,484 tests passed (Domain: 580, Drawing: 422, Application: 210, Excel: 272), 0 failed, 0 skipped",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Domain.Tests",
+      "Ver 1/DBTool/DBTool.Drawing.Tests",
+      "Ver 1/DBTool/DBTool.Application.Tests",
+      "Ver 1/DBTool/DBTool.Excel.Tests"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Application.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Excel.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Excel.Tests",
+        "exists": true,
+        "is_file": false
+      }
+    ]
+  },
+  {
+    "package": "W12",
+    "index": 1,
+    "Name": "Family21Store_And_StaticViews_PermanentRemoval",
+    "SubjectId": "DBTool.Drawing",
+    "Expected": "6 module tĩnh (Family21SheetFiveStore, Family21SheetFourStore, Family21SheetThreeStore, Family21SheetTwoStore, SheetFourCatchBasinViews, SheetTwoViews) bị loại bỏ vĩnh viễn khỏi runtime và assembly",
+    "Actual": "6 file nguồn đã được xóa khỏi DBTool.Drawing; assembly không chứa bất kỳ kiểu dữ liệu nào trong số 6 kiểu này; được kiểm tra bằng reflection trong W12ModuleRemovalTests",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W12ModuleRemovalTests.cs",
+      "outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W12/archive/archive-manifest.json"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing.Tests/W12ModuleRemovalTests.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing.Tests\\W12ModuleRemovalTests.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W12/archive/archive-manifest.json",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\outputs\\leader-implementation\\leader-field-contracts-20261013-r2\\packages\\W12\\archive\\archive-manifest.json",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W12",
+    "index": 2,
+    "Name": "ZeroActiveReferences_To_RemovedModules",
+    "SubjectId": "DBTool",
+    "Expected": "0 tham chiếu active hoặc reflection tới 6 module bị gỡ bỏ trên toàn bộ solution DBTool",
+    "Actual": "git grep xác nhận 0 lần xuất hiện của 6 symbol trong toàn bộ mã nguồn sản phẩm Ver 1/DBTool (ngoại trừ W12ModuleRemovalTests dùng assert absent)",
+    "Unit": "count",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W12ModuleRemovalTests.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing.Tests/W12ModuleRemovalTests.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing.Tests\\W12ModuleRemovalTests.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W12",
+    "index": 3,
+    "Name": "CallerUpdates_SheetFourViews_SheetFiveViews_ViewBuilder",
+    "SubjectId": "CallerUpdates",
+    "Expected": "SheetFourViews giữ các semantic ViewId và tiếp nhận catch view IDs; SheetFiveViews gỡ BuildFixture nhưng giữ ViewId, Bounds, BuildBending; ViewBuilder loại bỏ dead code SheetTwoViews và chuyển catchFamily sang chiếu động",
+    "Actual": "SheetFourViews bổ sung CatchPlanViewId, CatchSec11ViewId, CatchSec22ViewId; SheetFiveViews không còn BuildFixture; ViewBuilder dùng dynamic component & rebar projection cho hố thu",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Drawing/SheetFourViews.cs",
+      "Ver 1/DBTool/DBTool.Drawing/SheetFiveViews.cs",
+      "Ver 1/DBTool/DBTool.Drawing/ViewBuilder.cs",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W12ModuleRemovalTests.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/SheetFourViews.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SheetFourViews.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/SheetFiveViews.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\SheetFiveViews.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing/ViewBuilder.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing\\ViewBuilder.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing.Tests/W12ModuleRemovalTests.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing.Tests\\W12ModuleRemovalTests.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W12",
+    "index": 4,
+    "Name": "ArchiveManifest_Created_With_Hashes",
+    "SubjectId": "ArchiveManifest",
+    "Expected": "Lưu trữ đầy đủ 6 file kèm SHA-256 trước khi xóa ra ngoài compile tree",
+    "Actual": "6 file và archive-manifest.json được lưu tại outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W12/archive/ và Ver 1/archive/W12_removed_modules/",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W12/archive/archive-manifest.json",
+      "Ver 1/archive/W12_removed_modules/archive-manifest.json"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W12/archive/archive-manifest.json",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\outputs\\leader-implementation\\leader-field-contracts-20261013-r2\\packages\\W12\\archive\\archive-manifest.json",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/archive/W12_removed_modules/archive-manifest.json",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\archive\\W12_removed_modules\\archive-manifest.json",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W12",
+    "index": 5,
+    "Name": "Architecture_TestSuiteZeroRegression",
+    "SubjectId": "FullTestSuite",
+    "Expected": "Toàn bộ test suites pass không có regression sau khi gỡ 6 module",
+    "Actual": "1,488 tests passed (Domain: 580, Drawing: 426, Application: 210, Excel: 272), 0 failed, 0 skipped",
+    "Unit": "none",
+    "ToleranceRuleId": "B3.03",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Domain.Tests",
+      "Ver 1/DBTool/DBTool.Drawing.Tests",
+      "Ver 1/DBTool/DBTool.Application.Tests",
+      "Ver 1/DBTool/DBTool.Excel.Tests"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Domain.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Domain.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Drawing.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Drawing.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Application.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application.Tests",
+        "exists": true,
+        "is_file": false
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Excel.Tests",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Excel.Tests",
+        "exists": true,
+        "is_file": false
+      }
+    ]
+  },
+  {
+    "package": "W13",
+    "index": 1,
+    "Name": "ProductionPipeline_S0_Through_S11_Wiring",
+    "SubjectId": "ProductionDispatcher",
+    "Expected": "IS10StageV2 and IS11StageV2 invoked in order",
+    "Actual": "S10StageAdapter and S11StageAdapter execute and assemble BatchV2",
+    "Unit": "state",
+    "ToleranceRuleId": "ARCH-DISPATCHER",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+      "Ver 1/DBTool/DBTool.Application.Tests/W13StageAdapterTests.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application\\StageAdapters.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Application.Tests/W13StageAdapterTests.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Application.Tests\\W13StageAdapterTests.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W13",
+    "index": 2,
+    "Name": "CadGenerationWriter_NativeGenerationPort_Implementation",
+    "SubjectId": "CadGenerationWriter",
+    "Expected": "Implements INativeGenerationPort.Write with transaction rollback and repository tagging",
+    "Actual": "Implements INativeGenerationPort.Write and verifies untouched manhole states",
+    "Unit": "contract",
+    "ToleranceRuleId": "ARCH-CAD-PORT",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.AutoCAD/CadGenerationWriter.cs",
+      "Ver 1/DBTool/DBTool.AutoCAD/GenerationRepository.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.AutoCAD/CadGenerationWriter.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.AutoCAD\\CadGenerationWriter.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.AutoCAD/GenerationRepository.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.AutoCAD\\GenerationRepository.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W13",
+    "index": 3,
+    "Name": "Palette_PresentationRequest_Configurability",
+    "SubjectId": "PaletteDrawingCalculation",
+    "Expected": "PresentationRequest passed from ViewModel (scale, elevation) instead of hardcoded 30/Symbolic",
+    "Actual": "MainViewModel and MainPaletteControl provide typed DrawingScale and ElevationMode",
+    "Unit": "request",
+    "ToleranceRuleId": "ARCH-PALETTE-PRESENTATION",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool/App/PaletteDrawingCalculation.cs",
+      "Ver 1/DBTool/DBTool/UI/MainPaletteControl.xaml.cs",
+      "Ver 1/DBTool/DBTool/UI/MainViewModel.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool/App/PaletteDrawingCalculation.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool\\App\\PaletteDrawingCalculation.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool/UI/MainPaletteControl.xaml.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool\\UI\\MainPaletteControl.xaml.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool/UI/MainViewModel.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool\\UI\\MainViewModel.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  },
+  {
+    "package": "W13",
+    "index": 4,
+    "Name": "Headless_Scale_And_Identity_Validation",
+    "SubjectId": "HeadlessRunner",
+    "Expected": "Page scales validated, single manhole identity enforced, no fixture fallback",
+    "Actual": "Validates scales and raises CLI_ARGUMENT_INVALID on missing or invalid arguments",
+    "Unit": "contract",
+    "ToleranceRuleId": "ARCH-HEADLESS",
+    "EvidencePaths": [
+      "Ver 1/DBTool/DBTool.Headless/Program.cs",
+      "Ver 1/DBTool/DBTool.Excel.Tests/HeadlessRunnerTests.cs"
+    ],
+    "Verdict": "Passed",
+    "evidence_resolution": [
+      {
+        "path": "Ver 1/DBTool/DBTool.Headless/Program.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Headless\\Program.cs",
+        "exists": true,
+        "is_file": true
+      },
+      {
+        "path": "Ver 1/DBTool/DBTool.Excel.Tests/HeadlessRunnerTests.cs",
+        "absolute_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\DBTool\\DBTool.Excel.Tests\\HeadlessRunnerTests.cs",
+        "exists": true,
+        "is_file": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,151 @@
+{
+  "PackageId": "W10",
+  "Phase": "P6",
+  "Version": "leader-field-contracts-20261013-r2",
+  "DependencyReceiptHashes": {
+    "W09": "7F0DB787B8819D6F01645A19DC386A9BE69D54A93848EA0435EBEEF42B8F46E8",
+    "W04": "06B2800E33B337C913AAED1C1BC7669A95A3EBC47FD5BB78759E1DA25E04B7CC"
+  },
+  "ChangedFiles": [
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+      "BeforeHash": "99041CA38B13EAD6770D1B11010E4DCA269B5649A44BB3342CD309550755FC91",
+      "AfterHash": "B6488B91FEDCF05EDB1FB1E4B1111AF35848BAB2AF33ADC81E65680AD392C877",
+      "Reason": "Triển khai IS6StageV2 và IS7StageV2 trên DrawingStageAdapter kết nối CatchAssemblyProjector và AnnotationLaneAllocator cho S6-S7 wiring."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetThreeRoofViews.cs",
+      "BeforeHash": "8412EDF3A4DA9976315BE8B4879E038E6CAF5A89FA32CFA6A6A536B1D56C5B15",
+      "AfterHash": "4343C348C15E07E46514538CC456C9284F7D6C5F3480A4CC32ABC204EFC78A9D",
+      "Reason": "Giữ lại TopViewId và BottomViewId; loại bỏ các phương thức mock tĩnh BuildTop/BuildBottom và bounds cố định không có caller."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/RoofJointDowelProjection.cs",
+      "BeforeHash": "4A7341B30EE531551D4C747FE14893030273B81F393AD814E4917180C5AC874B",
+      "AfterHash": "84060CF8C59E79E6D46237B80C775979F2FDC572065A8329C0FB901A1F518950",
+      "Reason": "Bổ sung tham số scaleDenominator, tính chiều cao chữ ghi chú theo thước đo giấy paper metrics (2 * scaleDenominator), giữ nguyên kích thước lỗ 1:1."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetThreeRoofDetailer.cs",
+      "BeforeHash": "82BA3ACA4C1DBAD42805DBCF4F6B95B707B072C6FD66BAAFE963C747B5AA9C4A",
+      "AfterHash": "7E2FE9545436FFECFA87F11EB295BD007A505A02F644DF9D01D9C93742AEFC22",
+      "Reason": "Ưu tiên chọn thanh thép mục tiêu theo mainBarIds/metadata từ S5/S7 thay vì chỉ chọn theo thanh dài nhất longestPath."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/ViewBuilder.cs",
+      "BeforeHash": "5B42B1D5CD48C9E4542A35265CBB3842F14DF4B54C275094B5DA53BF150068AD",
+      "AfterHash": "0850DC4D998BD409D0115DB6A537A35CFA876F1540D26C27BC9D92B8A8820957",
+      "Reason": "Truyền presentation.ScaleDenominator vào RoofJointDowelProjection.Build bảo đảm kích thước giấy ghi chú nhất quán."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application.Tests/W10StageAdapterTests.cs",
+      "BeforeHash": "",
+      "AfterHash": "A7E8307C4352D4A328DEC12053BD6B5202A587524E9C96204E4772DF1EF54D6E",
+      "Reason": "Unit tests cho DrawingStageAdapter triển khai IS6StageV2 và IS7StageV2, xác thực thực thi S6 và S7."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing.Tests/W10ProjectionAndWiringTests.cs",
+      "BeforeHash": "",
+      "AfterHash": "6BED6B2B79D5806E7C0CDF12CEB99467EB949647F804E0AC8BB83E8A9FAF0D4A",
+      "Reason": "Unit tests cho SheetThreeRoofViews (Top/Bottom view IDs) và RoofJointDowelProjection (lỗ 1:1 và scale paper metrics)."
+    }
+  ],
+  "InterfaceGate": "Passed",
+  "ImplementationStatus": "ImplementationComplete",
+  "NativeGate": "NotRun",
+  "BindingMissing": [],
+  "Commands": [
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests"
+    }
+  ],
+  "Checks": [
+    {
+      "Name": "DrawingStageAdapter_IS6_IS7_Wiring",
+      "SubjectId": "DrawingStageAdapter",
+      "Expected": "DrawingStageAdapter triển khai IS6StageV2 và IS7StageV2, nối tiếp S5StateV2 -> S6StateV2 qua CatchAssemblyProjector và S6StateV2 -> S7StateV2 qua AnnotationLaneAllocator",
+      "Actual": "DrawingStageAdapter thực thi S6 và S7 với các projection views, curves, targets, opening_map và annotations đầy đủ",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+        "Ver 1/DBTool/DBTool.Application.Tests/W10StageAdapterTests.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "SheetThreeRoofViews_RetainSemanticIds_DropMockBounds",
+      "SubjectId": "SheetThreeRoofViews",
+      "Expected": "SheetThreeRoofViews giữ lại TopViewId và BottomViewId, loại bỏ BuildTop/BuildBottom và bounds cố định không có caller",
+      "Actual": "TopViewId và BottomViewId được bảo toàn đầy đủ, các mock method tĩnh và bounds không còn tồn tại",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/SheetThreeRoofViews.cs",
+        "Ver 1/DBTool/DBTool.Drawing.Tests/W10ProjectionAndWiringTests.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "RoofJointDowelProjection_PreserveHole1to1_AndScalePaperMetrics",
+      "SubjectId": "RoofJointDowelProjection",
+      "Expected": "Lỗ chốt giữ tỉ lệ 1:1 trong model mm, role Geometry/DowelHole, chiều cao chữ ghi chú tỷ lệ với paper metrics (2 * scaleDenominator)",
+      "Actual": "Bán kính lỗ đúng diameter/2 (1:1), ghi chú đạt đúng 2 * scaleDenominator (60 tại 1:30, 100 tại 1:50)",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/RoofJointDowelProjection.cs",
+        "Ver 1/DBTool/DBTool.Drawing/ViewBuilder.cs",
+        "Ver 1/DBTool/DBTool.Drawing.Tests/W10ProjectionAndWiringTests.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "SheetThreeRoofDetailer_TargetMemberFromMetadata",
+      "SubjectId": "SheetThreeRoofDetailer",
+      "Expected": "Ưu tiên chọn thanh thép mục tiêu theo mainBarIds/metadata từ S5/S7 thay vì chỉ chọn theo longestPath",
+      "Actual": "SheetThreeRoofDetailer chọn thanh thép khớp mainBarIds trước khi dự phòng sắp xếp theo độ dài",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/SheetThreeRoofDetailer.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "Architecture_TestSuiteZeroRegression",
+      "SubjectId": "FullTestSuite",
+      "Expected": "Toàn bộ 4 test suites pass không có lỗi regression",
+      "Actual": "1,475 tests passed (Domain: 580, Drawing: 418, Application: 205, Excel: 272)",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Domain.Tests",
+        "Ver 1/DBTool/DBTool.Drawing.Tests",
+        "Ver 1/DBTool/DBTool.Application.Tests",
+        "Ver 1/DBTool/DBTool.Excel.Tests"
+      ],
+      "Verdict": "Passed"
+    }
+  ],
+  "ActualDWG/PDFPaths": [],
+  "RecoveryState": "Clean",
+  "RollbackInstructions": "git checkout -- \"Ver 1/DBTool/DBTool.Application/StageAdapters.cs\" \"Ver 1/DBTool/DBTool.Drawing/SheetThreeRoofViews.cs\" \"Ver 1/DBTool/DBTool.Drawing/RoofJointDowelProjection.cs\" \"Ver 1/DBTool/DBTool.Drawing/SheetThreeRoofDetailer.cs\" \"Ver 1/DBTool/DBTool.Drawing/ViewBuilder.cs\"; Remove-Item \"Ver 1/DBTool/DBTool.Application.Tests/W10StageAdapterTests.cs\" \"Ver 1/DBTool/DBTool.Drawing.Tests/W10ProjectionAndWiringTests.cs\" -Force"
+}

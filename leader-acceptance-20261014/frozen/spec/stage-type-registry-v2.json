@@ -1,0 +1,6278 @@
+{
+  "Point3V2": {
+    "name": "Point3V2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "x_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Tọa độ X của point argument, 05B-F26/F27; không lấy paper X làm world X."
+      },
+      {
+        "name": "y_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Tọa độ Y của point argument, 05B-F26/F27."
+      },
+      {
+        "name": "z_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Tọa độ Z của point argument, 05B-F26/F27."
+      }
+    ]
+  },
+  "Point2V2": {
+    "name": "Point2V2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "x_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Tọa độ ngang trong frame đã ghi, 05B-F26/F38."
+      },
+      {
+        "name": "y_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Tọa độ dọc trong frame đã ghi, 05B-F26/F38."
+      }
+    ]
+  },
+  "Vector3V2": {
+    "name": "Vector3V2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "x",
+        "type": "double",
+        "unit": "dimensionless",
+        "derivation": "Thành phần X của unit basis/normal; 05B-F25/F26."
+      },
+      {
+        "name": "y",
+        "type": "double",
+        "unit": "dimensionless",
+        "derivation": "Thành phần Y của unit basis/normal; 05B-F25/F26."
+      },
+      {
+        "name": "z",
+        "type": "double",
+        "unit": "dimensionless",
+        "derivation": "Thành phần Z của unit basis/normal; 05B-F25/F26."
+      }
+    ]
+  },
+  "Bounds2V2": {
+    "name": "Bounds2V2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "min_x_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "min của ink/curve X sau transform; 05B-F42."
+      },
+      {
+        "name": "min_y_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "min của ink/curve Y sau transform; 05B-F42."
+      },
+      {
+        "name": "max_x_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "max của ink/curve X sau transform; 05B-F42."
+      },
+      {
+        "name": "max_y_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "max của ink/curve Y sau transform; 05B-F42."
+      }
+    ]
+  },
+  "FrameV2": {
+    "name": "FrameV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(owner_id,face_role,frame_role), 05B-F46."
+      },
+      {
+        "name": "origin",
+        "type": "Point3V2",
+        "unit": "mm",
+        "derivation": "Điểm gốc component/view/host: argument origin của FRAME; 05B-F26/F29/F38."
+      },
+      {
+        "name": "axis_u",
+        "type": "Vector3V2",
+        "unit": "dimensionless",
+        "derivation": "Vector U argument của FRAME; bảng T1..T4 tại 05B-F26."
+      },
+      {
+        "name": "axis_v",
+        "type": "Vector3V2",
+        "unit": "dimensionless",
+        "derivation": "Vector V argument của FRAME; 05B-F26/F38."
+      },
+      {
+        "name": "normal",
+        "type": "Vector3V2",
+        "unit": "dimensionless",
+        "derivation": "cross(axis_u,axis_v), hoặc outward đã khai báo cho host; handedness ghi rõ, 05B-F26."
+      },
+      {
+        "name": "handedness",
+        "type": "int",
+        "unit": "—",
+        "derivation": "sign(dot(cross(U,V),normal)); chỉ +1 hoặc -1, 05B-F26."
+      }
+    ]
+  },
+  "SourceV2": {
+    "name": "SourceV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "SHA256(canonical source descriptor); 05B-F46."
+      },
+      {
+        "name": "kind",
+        "type": "string",
+        "unit": "—",
+        "derivation": "WorkbookCell/PdfPage/SourceCode/RuleDocument/Dxf/Dwg/OwnerDecision/Request/Derived; giữ enum cũ khi migrate."
+      },
+      {
+        "name": "relative_path",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Pass-through path của bytes nguồn; Derived dùng derived/<RunId>/<id>."
+      },
+      {
+        "name": "sha256",
+        "type": "string",
+        "unit": "—",
+        "derivation": "SHA256(bytes nguồn), Derived hash formula_id+parent_ids+effective value; 05B-F46."
+      },
+      {
+        "name": "sheet",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Tên sheet literal từ WorkbookCell; loại nguồn khác null."
+      },
+      {
+        "name": "cell",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Địa chỉ một ô; note và value khác ô phải tạo hai SourceV2."
+      },
+      {
+        "name": "page",
+        "type": "int?",
+        "unit": "page",
+        "derivation": "PdfPage one-based; nguồn khác null, 05B-F25."
+      },
+      {
+        "name": "handle",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Native Dxf/Dwg entity handle; không gán cho PDF page."
+      },
+      {
+        "name": "raw_text",
+        "type": "string",
+        "unit": "—",
+        "derivation": "RawText bất biến hoặc literal decision/request."
+      },
+      {
+        "name": "parent_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Derived giữ IDs nguồn đầu vào, không cycle; nguồn gốc có list rỗng."
+      },
+      {
+        "name": "formula_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "ID 05B của phép biến đổi; pass-through/source literal null."
+      }
+    ]
+  },
+  "DiagnosticV2": {
+    "name": "DiagnosticV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "code",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Mã RAISE được ghi trực tiếp trong pseudocode."
+      },
+      {
+        "name": "stage",
+        "type": "string",
+        "unit": "—",
+        "derivation": "S0..S11 hoặc PRECHECK."
+      },
+      {
+        "name": "manhole_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Pass-through context.manhole_id nếu đã có."
+      },
+      {
+        "name": "subject_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Component/occurrence/group/view/field bị lỗi; null chỉ lỗi trước xác định subject."
+      },
+      {
+        "name": "field_paths",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Paths cụ thể đã kiểm, không một thông báo chung."
+      },
+      {
+        "name": "expected_text",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Literal invariant/expected field value từ phép kiểm."
+      },
+      {
+        "name": "actual_text",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Serialize actual values bị lỗi, culture invariant."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "IDs của các input gây lỗi, tra context.sources[]."
+      },
+      {
+        "name": "needsrule_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "NR-01..23 hoặc NR-IO-* liên quan; không tự tạo numeric fallback."
+      },
+      {
+        "name": "severity",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Block/Warning/Info từ call RAISE/REPORT, không đổi khi render."
+      }
+    ]
+  },
+  "ReceiptV2": {
+    "name": "ReceiptV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "stage",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Tên stage vừa thực hiện."
+      },
+      {
+        "name": "run_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through context.run_id."
+      },
+      {
+        "name": "manhole_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through context.manhole_id."
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Ready/Partial/Blocked/Cancelled theo diagnostic và cancellation."
+      },
+      {
+        "name": "input_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash canonical input state trước stage, 05B-F46."
+      },
+      {
+        "name": "output_hash",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Hash ready payload; lỗi trước payload = null."
+      },
+      {
+        "name": "started_utc",
+        "type": "string",
+        "unit": "UTC",
+        "derivation": "Clock UTC lúc bắt đầu; không dùng làm freshness workbook."
+      },
+      {
+        "name": "finished_utc",
+        "type": "string",
+        "unit": "UTC",
+        "derivation": "Clock UTC lúc kết thúc stage, ghi kể cả lỗi."
+      }
+    ]
+  },
+  "ContextV2": {
+    "name": "ContextV2",
+    "owner": "Application",
+    "fields": [
+      {
+        "name": "run_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Request RunId đã tạo trước S0; immutable cả batch."
+      },
+      {
+        "name": "job_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ID job workbook hiện tại từ request.jobs[].job_id."
+      },
+      {
+        "name": "manhole_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ID target hiện tại, không dựa G400/G500/name similarity."
+      },
+      {
+        "name": "row_index",
+        "type": "int",
+        "unit": "row",
+        "derivation": "Target row_index hiện tại; >=4 theo Vhg32Schema."
+      },
+      {
+        "name": "build_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash assembly/source build được host thực load, pass-through request."
+      },
+      {
+        "name": "template_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash bundle S0 đã kiểm, pass-through request.templates bundle hash."
+      },
+      {
+        "name": "rule_set_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash approved+proposal snapshots, 05B-F46; không sửa giữa batch."
+      },
+      {
+        "name": "cancel_requested",
+        "type": "bool",
+        "unit": "—",
+        "derivation": "Snapshot cancellation state tại entry/exit stage."
+      },
+      {
+        "name": "sources",
+        "type": "SourceV2[]",
+        "unit": "—",
+        "derivation": "Nguồn gốc+Derived append-only, ID không trùng khác nội dung."
+      },
+      {
+        "name": "diagnostics",
+        "type": "DiagnosticV2[]",
+        "unit": "—",
+        "derivation": "Diagnostic của các stage đã chạy, append-only."
+      },
+      {
+        "name": "receipts",
+        "type": "ReceiptV2[]",
+        "unit": "—",
+        "derivation": "Receipts append-only; mỗi lần chạy stage có record riêng."
+      },
+      {
+        "name": "artifact_directory",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Caller creates run output directory; every persisted file path stays inside this exact directory."
+      },
+      {
+        "name": "prior_row_results",
+        "type": "RowVerdictV2[]",
+        "unit": "—",
+        "derivation": "Immutable accumulator from earlier requested rows; root orchestrator adds explicit failed/cancelled receipts before next row. S11 appends current result to batch.rows, not to input."
+      },
+      {
+        "name": "prior_plot_pages",
+        "type": "PlotPageV2[]",
+        "unit": "—",
+        "derivation": "Immutable prior actual plots from same healthy host session; S11 batch.pages appends current row."
+      },
+      {
+        "name": "plot_session_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "One shared healthy host session opened by root orchestrator; null blocks required plot with PLOT_SESSION_MISSING."
+      }
+    ]
+  },
+  "TargetV2": {
+    "name": "TargetV2",
+    "owner": "Application",
+    "fields": [
+      {
+        "name": "row_index",
+        "type": "int",
+        "unit": "row",
+        "derivation": "Request selection; main rows >=4."
+      },
+      {
+        "name": "manhole_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Stable request target ID, required; host tạo/persist khi user chọn row."
+      },
+      {
+        "name": "expected_generation_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Required per target for Replace; exact repository generation, not ManholeId inferred from text."
+      },
+      {
+        "name": "expected_input_hash",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Expected previous generation input hash for Replace, distinct from new computed input hash."
+      },
+      {
+        "name": "expected_document_token",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Expected current target CAD document identity token."
+      },
+      {
+        "name": "requested_generation_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Explicit new generation ID for Create; null allows host GUID allocation stored in receipt."
+      }
+    ]
+  },
+  "JobV2": {
+    "name": "JobV2",
+    "owner": "Application",
+    "fields": [
+      {
+        "name": "job_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Unique request ID của workbook job."
+      },
+      {
+        "name": "logical_source_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Stable project workbook identity từ request, không là full-content SHA."
+      },
+      {
+        "name": "workbook_path",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Path workbook cần snapshot, không ghi vào nguồn."
+      },
+      {
+        "name": "workbook_bytes",
+        "type": "byte[]",
+        "unit": "—",
+        "derivation": "ReadAllBytes đúng một lần trước S0; giữ immutable cả batch."
+      },
+      {
+        "name": "workbook_sha256",
+        "type": "string",
+        "unit": "—",
+        "derivation": "SHA256(workbook_bytes), 05B-F46."
+      },
+      {
+        "name": "profile",
+        "type": "string",
+        "unit": "—",
+        "derivation": "GaThamLienKhoi/GaThamNapRoi/GaThamThuNapRoi; explicit request."
+      },
+      {
+        "name": "main_sheet",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact sheet theo profile, không suy từ tên ga."
+      },
+      {
+        "name": "numeric_culture",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Explicit culture của parse, không đoán 1,234."
+      },
+      {
+        "name": "targets",
+        "type": "TargetV2[]",
+        "unit": "—",
+        "derivation": "Selected rows/ManholeIds, unique trong batch."
+      },
+      {
+        "name": "recalculation_receipt_path",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Optional actual recalculation certificate for this byte snapshot; active Formula without matching certificate is blocked."
+      },
+      {
+        "name": "recalculation_receipt_sha256",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Hash actual recalc receipt bytes; null iff path null."
+      }
+    ]
+  },
+  "RequestV2": {
+    "name": "RequestV2",
+    "owner": "Application",
+    "fields": [
+      {
+        "name": "jobs",
+        "type": "JobV2[]",
+        "unit": "—",
+        "derivation": "Frozen workbook jobs do entrypoint UI/Headless truyền."
+      },
+      {
+        "name": "target_dwg_path",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Output copy hoặc drawing target do request chọn."
+      },
+      {
+        "name": "generation_mode",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Create/Update; unknown RAISE REQUEST_MODE_INVALID."
+      },
+      {
+        "name": "anchor",
+        "type": "Point3V2",
+        "unit": "mm",
+        "derivation": "Explicit insertion point của request; không preset theo fixture."
+      },
+      {
+        "name": "body_scale",
+        "type": "double",
+        "unit": "1:S",
+        "derivation": "Explicit body denominator >0, HDSD p24–25."
+      },
+      {
+        "name": "panel_scale",
+        "type": "double?",
+        "unit": "1:S",
+        "derivation": "Override request nếu có; nếu null lấy raw Panel.CoverRatioPercent=M15, không phần trăm."
+      },
+      {
+        "name": "scale_mode",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Fixed/Auto; Auto candidates lấy approved NR22, không list số tự đặt."
+      },
+      {
+        "name": "elevation_mode_override",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "null dùng Excel Elevation.C; nếu override phải có SourceV2 Request."
+      },
+      {
+        "name": "draw_scope",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Full/GeometryOnly; GeometryOnly không công bố FullRebarFinal."
+      },
+      {
+        "name": "max_numeric_count",
+        "type": "int",
+        "unit": "count",
+        "derivation": "Resource limit explicit request; quá limit RAISE RESOURCE_LIMIT, không clamp engineering input."
+      },
+      {
+        "name": "plot_profile_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact approved profile ID từ request/rules NR18."
+      },
+      {
+        "name": "template_manifest_path",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact source manifest được chọn; S0 kiểm SHA."
+      },
+      {
+        "name": "template_manifest_sha256",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash bytes manifest, không hash tên file."
+      },
+      {
+        "name": "rule_snapshot_path",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact versioned rule snapshot input."
+      },
+      {
+        "name": "rule_snapshot_sha256",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash rule bytes; Proposal vẫn giữ nguyên Proposal."
+      },
+      {
+        "name": "reference_bundle_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Explicit source bundles để so recipe; không ghép Modelordinal."
+      }
+    ]
+  },
+  "AttributeDefV2": {
+    "name": "AttributeDefV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "tag",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through ATTDEF.Tag literal, exact case theo schema nguồn."
+      },
+      {
+        "name": "default_text",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ATTDEF specimen, tuyệt đối không là quantity output."
+      },
+      {
+        "name": "style_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ATTDEF text style exact key trong selected bundle."
+      },
+      {
+        "name": "height_mm",
+        "type": "double",
+        "unit": "native mm",
+        "derivation": "ATTDEF.Height từ native definition, không universal200/300."
+      },
+      {
+        "name": "width_factor",
+        "type": "double",
+        "unit": "dimensionless",
+        "derivation": "ATTDEF.WidthFactor từ native source."
+      },
+      {
+        "name": "insertion",
+        "type": "Point3V2",
+        "unit": "native mm",
+        "derivation": "Native ATTDEF insertion point, pass-through."
+      },
+      {
+        "name": "alignment",
+        "type": "Point3V2",
+        "unit": "native mm",
+        "derivation": "Native ATTDEF alignment point, pass-through."
+      },
+      {
+        "name": "rotation_rad",
+        "type": "double",
+        "unit": "rad",
+        "derivation": "Native rotation converted đúng một lần, 05B-F25."
+      },
+      {
+        "name": "horizontal_mode",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Native justification enum name, pass-through."
+      },
+      {
+        "name": "vertical_mode",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Native vertical alignment enum name, pass-through."
+      }
+    ]
+  },
+  "AssetV2": {
+    "name": "AssetV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "name",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact block name từ selected native bundle, không fuzzy."
+      },
+      {
+        "name": "definition_handle",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Native definition handle dùng lookup/readback, không entity output handle."
+      },
+      {
+        "name": "content_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash native definition signature+dependencies, 05B-F46."
+      },
+      {
+        "name": "base_point",
+        "type": "Point3V2",
+        "unit": "native mm",
+        "derivation": "Native definition origin, không bbox-center."
+      },
+      {
+        "name": "bounds",
+        "type": "Bounds2V2",
+        "unit": "native mm",
+        "derivation": "Native source extents của immutable glyph, không dùng tính Li."
+      },
+      {
+        "name": "role",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact role binding từ asset manifest; missing role Block."
+      },
+      {
+        "name": "child_names",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Native INSERT dependencies exact names."
+      },
+      {
+        "name": "attributes",
+        "type": "AttributeDefV2[]",
+        "unit": "—",
+        "derivation": "Đủ ATTDEF schema của definition, không thêm tag bịa."
+      },
+      {
+        "name": "layer_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Native layer signature key của source."
+      },
+      {
+        "name": "style_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Native style key nếu asset có text; không text null."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "SourceV2 Dwg/Dxf/RuleDocument của definition và role."
+      }
+    ]
+  },
+  "GlyphV2": {
+    "name": "GlyphV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "style_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Font/style hash approved NR16."
+      },
+      {
+        "name": "codepoint",
+        "type": "int",
+        "unit": "Unicode",
+        "derivation": "Unicode scalar sau encoding decoder đã duyệt."
+      },
+      {
+        "name": "advance_native_mm",
+        "type": "double",
+        "unit": "native mm",
+        "derivation": "Measured glyph advance tại native height của style; không đoán bằng char count."
+      },
+      {
+        "name": "ink",
+        "type": "Bounds2V2",
+        "unit": "native mm",
+        "derivation": "Measured actual glyph ink box tại origin."
+      },
+      {
+        "name": "font_file_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash font thực dùng để đo."
+      },
+      {
+        "name": "reference_height_mm",
+        "type": "double",
+        "unit": "native mm",
+        "derivation": "Font metric normalization height supplied by S0 provider; not assumed equal to ATTDEF height."
+      }
+    ]
+  },
+  "AssetsV2": {
+    "name": "AssetsV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "bundle_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash selected bundle checked S0."
+      },
+      {
+        "name": "definitions",
+        "type": "AssetV2[]",
+        "unit": "—",
+        "derivation": "Exact asset registry từ native manifest/import preflight."
+      },
+      {
+        "name": "glyphs",
+        "type": "GlyphV2[]",
+        "unit": "—",
+        "derivation": "Approved font metrics được đo/cached theo style/font hash."
+      },
+      {
+        "name": "font_policy_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "NR16 approved version key; chưa có rule thì S0 Block Final."
+      },
+      {
+        "name": "units",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Native mm; khác unit phải explicit conversion receipt, 05B-F01."
+      },
+      {
+        "name": "products",
+        "type": "ProductContractV2[]",
+        "unit": "—",
+        "derivation": "Native/owner-approved product aperture/contact contracts, not guessed from names."
+      },
+      {
+        "name": "kerning",
+        "type": "KerningV2[]",
+        "unit": "—",
+        "derivation": "Actual font kerning pairs for required literal text corpus, 05B-F40; missing metrics Block."
+      },
+      {
+        "name": "layers",
+        "type": "LayerMetricV2[]",
+        "unit": "—",
+        "derivation": "Native layer signatures/role bindings/plot stroke metrics."
+      },
+      {
+        "name": "font_styles",
+        "type": "FontMetricStyleV2[]",
+        "unit": "—",
+        "derivation": "Font engine/encoding/kerning metadata required for exact native ink measurement."
+      }
+    ]
+  },
+  "ParamV2": {
+    "name": "ParamV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "key",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Closed parameter key trong rule schema; unknown reject."
+      },
+      {
+        "name": "kind",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Number/Text/Bool; đúng một value slot được điền."
+      },
+      {
+        "name": "number",
+        "type": "double?",
+        "unit": "unit field",
+        "derivation": "Approved numeric parameter, finite; khác kind null."
+      },
+      {
+        "name": "text",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Approved text/enum parameter; khác kind null."
+      },
+      {
+        "name": "flag",
+        "type": "bool?",
+        "unit": "—",
+        "derivation": "Approved boolean parameter; khác kind null."
+      },
+      {
+        "name": "unit",
+        "type": "string",
+        "unit": "—",
+        "derivation": "mm/m/kg/rad/paper_mm/dimensionless/none; theo schema key."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Source evidence/owner decision của parameter; không list rỗng."
+      }
+    ]
+  },
+  "ExprNodeV2": {
+    "name": "ExprNodeV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Unique expression node ID trong RuleV2, không cycle."
+      },
+      {
+        "name": "op",
+        "type": "string",
+        "unit": "—",
+        "derivation": "CONST/REF/ADD/SUB/MUL/DIV/MIN/MAX/SQRT/SIN/COS/TAN/ATAN2/CEIL/FLOOR/ROUND; exhaustive helper EVAL."
+      },
+      {
+        "name": "arg_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Node children theo đúng thứ tự operator; arity kiểm trong EVAL."
+      },
+      {
+        "name": "ref_path",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "REF đọc approved parameter hoặc typed numeric field trong environment; khác REF null."
+      },
+      {
+        "name": "constant",
+        "type": "double?",
+        "unit": "unit field",
+        "derivation": "CONST numeric source-backed; khác CONST null."
+      },
+      {
+        "name": "unit",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Output unit của node, checked dimensional arithmetic."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "CONSTANT/formula source IDs; derived node ghi parent source IDs."
+      },
+      {
+        "name": "rounding_mode",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "ROUND only: ToEven/AwayFromZero from approved NR13/06; other operators null."
+      }
+    ]
+  },
+  "ShapeCornerV2": {
+    "name": "ShapeCornerV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "role",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Ordered corner/end role từ approved shape recipe NR02/04/05/07/08/19."
+      },
+      {
+        "name": "x_expr",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ExprNode ID cho X trong host support frame, mm."
+      },
+      {
+        "name": "y_expr",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ExprNode ID cho Y trong host support frame, mm."
+      },
+      {
+        "name": "z_expr",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ExprNode ID cho Z/depth trong host support frame, mm."
+      },
+      {
+        "name": "bend_radius_mm",
+        "type": "double?",
+        "unit": "mm",
+        "derivation": "null ở endpoint hoặc sharp-approved corner; radius >0 theo approved bend."
+      },
+      {
+        "name": "radius_basis",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Inner/Centreline; null ở endpoint, không tự chọn R8 basis."
+      }
+    ]
+  },
+  "TagBindingV2": {
+    "name": "TagBindingV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "tag",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact native tag tên trong AssetV2.attributes."
+      },
+      {
+        "name": "operation",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Mark/Diameter/Pitch/MeanLength/RawSumMetres/Count/Mass/MeanRole/FixedRole/Literal/SizePair; exhaustive S8 binder."
+      },
+      {
+        "name": "role",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "SegmentRole hoặc literal key khi operation cần; không parse số từ glyph."
+      },
+      {
+        "name": "literal",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Chỉ Literal hoặc fixed sourced glyph caption; quantity không lấy ATT default."
+      },
+      {
+        "name": "unit",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Typed value unit: mm,m,kg,count,none,kg/m."
+      }
+    ]
+  },
+  "ShapeRecipeV2": {
+    "name": "ShapeRecipeV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact recipe ID, source-backed scope; không chọn theo tên ga."
+      },
+      {
+        "name": "component_kind",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Base/Wall/Roof/Neck/Panel/Catch/Accessory theo scope."
+      },
+      {
+        "name": "family",
+        "type": "string",
+        "unit": "—",
+        "derivation": "MainMesh/Tie/Ladder/Dowel/Haunch/Lifting/Anchor/Angle/OpeningReinforcement."
+      },
+      {
+        "name": "shape_kind",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Straight/C/U/Z/Loop/Rectangle/Lifting/CustomApproved."
+      },
+      {
+        "name": "corners",
+        "type": "ShapeCornerV2[]",
+        "unit": "—",
+        "derivation": "Ordered centreline/nominal corner expressions; basis checked before path."
+      },
+      {
+        "name": "length_expr_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Approved schedule length expression ID; fabrication path length tính riêng."
+      },
+      {
+        "name": "measurement_basis",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Centreline/NominalApproved; không đổi theo renderer."
+      },
+      {
+        "name": "native_asset",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact TK asset; thiếu mapping = NATIVE_SCHEDULE_SHAPE_UNMAPPED."
+      },
+      {
+        "name": "fixed_glyph_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash glyph native content, bất biến khi Li thay đổi."
+      },
+      {
+        "name": "tag_bindings",
+        "type": "TagBindingV2[]",
+        "unit": "—",
+        "derivation": "Closed mapping exact tags, đủ và không dư."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Reference glyph/role/owner decisions; chưa verified = rule chưa approved."
+      },
+      {
+        "name": "fabrication_basis",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Centreline only when path/radius/nominal-to-centreline conversion approved; otherwise feature NeedsRule."
+      },
+      {
+        "name": "presentation_length_basis",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Schedule/Fabrication explicitly approved for this shape/role; no silent substitution."
+      }
+    ]
+  },
+  "RuleV2": {
+    "name": "RuleV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "NR/approved rule ID, source snapshot exact."
+      },
+      {
+        "name": "version",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Immutable version string, không dùng latest heuristic."
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Proposal/Approved/Rejected; Proposal không cấp numeric production values."
+      },
+      {
+        "name": "approver",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Required khi Approved, else null hoặc draft metadata."
+      },
+      {
+        "name": "approved_at_utc",
+        "type": "string?",
+        "unit": "UTC",
+        "derivation": "Required khi Approved, không timestamp file thay approval."
+      },
+      {
+        "name": "profiles",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Explicit scope profiles; rỗng không tự là all."
+      },
+      {
+        "name": "components",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Explicit component scope."
+      },
+      {
+        "name": "shape_kinds",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Explicit shape scope."
+      },
+      {
+        "name": "parameters",
+        "type": "ParamV2[]",
+        "unit": "—",
+        "derivation": "Closed named parameter list với types/units/source kiểm S0."
+      },
+      {
+        "name": "expressions",
+        "type": "ExprNodeV2[]",
+        "unit": "—",
+        "derivation": "Finite DAG, helper EVAL kiểm arity/cycle/units."
+      },
+      {
+        "name": "shapes",
+        "type": "ShapeRecipeV2[]",
+        "unit": "—",
+        "derivation": "Approved physical/presentation recipes cho scope."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Owner/source evidence cho rule và approval."
+      }
+    ]
+  },
+  "RulesV2": {
+    "name": "RulesV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "snapshot_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash full rule snapshot bytes, 05B-F46."
+      },
+      {
+        "name": "entries",
+        "type": "RuleV2[]",
+        "unit": "—",
+        "derivation": "Approved + proposal preserved, không promote Experimental."
+      },
+      {
+        "name": "geometry_tolerance_mm",
+        "type": "double?",
+        "unit": "mm",
+        "derivation": "Approved NR18; null nếu chưa ký, math requiring tolerance Block."
+      },
+      {
+        "name": "length_tolerance_mm",
+        "type": "double?",
+        "unit": "mm",
+        "derivation": "Approved NR18 riêng length."
+      },
+      {
+        "name": "paper_tolerance_mm",
+        "type": "double?",
+        "unit": "paper mm",
+        "derivation": "Approved NR18 riêng paper."
+      },
+      {
+        "name": "mass_tolerance_kg",
+        "type": "double?",
+        "unit": "kg",
+        "derivation": "Approved NR18 riêng mass."
+      },
+      {
+        "name": "basis_tolerance",
+        "type": "double?",
+        "unit": "dimensionless",
+        "derivation": "Approved NR18 tolerance for this unit; null blocks checks needing it, no shared mm epsilon."
+      },
+      {
+        "name": "angle_tolerance_rad",
+        "type": "double?",
+        "unit": "rad",
+        "derivation": "Approved NR18 tolerance for this unit; null blocks checks needing it, no shared mm epsilon."
+      },
+      {
+        "name": "area_tolerance_mm2",
+        "type": "double?",
+        "unit": "mm2",
+        "derivation": "Approved NR18 tolerance for this unit; null blocks checks needing it, no shared mm epsilon."
+      },
+      {
+        "name": "pdf_tolerance_points",
+        "type": "double?",
+        "unit": "pdf point",
+        "derivation": "Approved NR18 tolerance for this unit; null blocks checks needing it, no shared mm epsilon."
+      }
+    ]
+  },
+  "RawCellV2": {
+    "name": "RawCellV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "field_key",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact 206 keys trong embedded input table 05A snapshot."
+      },
+      {
+        "name": "sheet",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through actual worksheet name."
+      },
+      {
+        "name": "address",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Value cell actual address; không note/header cell."
+      },
+      {
+        "name": "kind",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Blank/Number/Text/Bool/Formula/Error, captured OOXML."
+      },
+      {
+        "name": "text",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Literal/raw text slot; numeric dùng raw_number_text để không mất decimal."
+      },
+      {
+        "name": "raw_number_text",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "OOXML numeric lexical value, invariant, chưa convert."
+      },
+      {
+        "name": "boolean",
+        "type": "bool?",
+        "unit": "—",
+        "derivation": "Literal OOXML bool value, kind khác Bool = null."
+      },
+      {
+        "name": "formula",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Raw formula text không dùng làm numeric value."
+      },
+      {
+        "name": "cache_kind",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Number/Text/Bool/Error/Blank cho formula cache."
+      },
+      {
+        "name": "cache_text",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Raw cached value; null khi không cache."
+      },
+      {
+        "name": "cache_verified",
+        "type": "bool",
+        "unit": "—",
+        "derivation": "Có recalculation receipt phù hợp bytes hash/engine/version; timestamp đơn thuần không đủ."
+      },
+      {
+        "name": "active",
+        "type": "bool",
+        "unit": "—",
+        "derivation": "S1 chỉ raw capture; S2 đặt effective activity dựa explicit conditions trong 05 input binding table."
+      },
+      {
+        "name": "source_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "SourceV2 WorkbookCell của value."
+      },
+      {
+        "name": "note_source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "SourceV2 note cells liên quan, không thay value source."
+      }
+    ]
+  },
+  "RawRowV2": {
+    "name": "RawRowV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "row_index",
+        "type": "int",
+        "unit": "row",
+        "derivation": "Actual selected/data row index >=4."
+      },
+      {
+        "name": "name_raw",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Column B literal, chưa normalize identity."
+      },
+      {
+        "name": "cells",
+        "type": "RawCellV2[]",
+        "unit": "—",
+        "derivation": "B:AA cells theo MainColumns, không thiếu field."
+      }
+    ]
+  },
+  "RawCatalogRowV2": {
+    "name": "RawCatalogRowV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "sheet",
+        "type": "string",
+        "unit": "—",
+        "derivation": "CF.Cong/CF.Data/DBTool.Covers exact source sheet."
+      },
+      {
+        "name": "row_index",
+        "type": "int",
+        "unit": "row",
+        "derivation": "Catalog row>=4; row trống bỏ riêng row, không dừng toàn catalog."
+      },
+      {
+        "name": "cells",
+        "type": "RawCellV2[]",
+        "unit": "—",
+        "derivation": "Catalog columns từ 206 field table."
+      }
+    ]
+  },
+  "RawV2": {
+    "name": "RawV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "workbook_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through current JobV2.workbook_sha256."
+      },
+      {
+        "name": "profile",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through current JobV2.profile."
+      },
+      {
+        "name": "main_sheet",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through current JobV2.main_sheet đã kiểm exact."
+      },
+      {
+        "name": "selected_row_index",
+        "type": "int",
+        "unit": "row",
+        "derivation": "Pass-through context.row_index."
+      },
+      {
+        "name": "rows",
+        "type": "RawRowV2[]",
+        "unit": "—",
+        "derivation": "Capture all nonblank main data rows, lookup selected row exact index."
+      },
+      {
+        "name": "config",
+        "type": "RawCellV2[]",
+        "unit": "—",
+        "derivation": "Profile-specific CF.Ga addresses trong 206-field binding table."
+      },
+      {
+        "name": "catalog_rows",
+        "type": "RawCatalogRowV2[]",
+        "unit": "—",
+        "derivation": "All populated catalog rows immutable."
+      },
+      {
+        "name": "version_marker",
+        "type": "string",
+        "unit": "—",
+        "derivation": "VHGpro!L2 literal version, source EX-001."
+      }
+    ]
+  },
+  "DatumV2": {
+    "name": "DatumV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "surface_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "BaseTop/BaseBottom/PadBottom/WallTop/RoofBottom/RoofTop/NeckBottom/NeckTop/FrameBottom/FrameTop/FinishedCoverTop/PanelBottom; exact IDs."
+      },
+      {
+        "name": "z_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Local elevation giải phương trình 05B-F13/F28; không datum lấy từ glyph."
+      },
+      {
+        "name": "symbol",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Literal Elevation.D:I khi symbolic; absent symbol required Block."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Input fields/contact surfaces/derived formula source IDs."
+      }
+    ]
+  },
+  "MemberSpecV2": {
+    "name": "MemberSpecV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(manhole_id,host_id,face,layer,direction,family), 05B-F46."
+      },
+      {
+        "name": "host_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Stable component ID S3 tạo từ exact mapping table."
+      },
+      {
+        "name": "component_kind",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Base/Wall/Roof/Neck/Panel/Catch/Accessory."
+      },
+      {
+        "name": "face",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Top/Bottom/Inner/Outer/Floor/Left/Right/Front/Joint."
+      },
+      {
+        "name": "layer",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Top/Bottom/Inner/Outer/Single theo input và approved stack."
+      },
+      {
+        "name": "direction",
+        "type": "string",
+        "unit": "—",
+        "derivation": "U/V/Loop/Vertical/Horizontal theo mapping, không paper X/Y."
+      },
+      {
+        "name": "family",
+        "type": "string",
+        "unit": "—",
+        "derivation": "MainMesh/Tie/Ladder/Dowel/Haunch/Lifting/Anchor/Angle/OpeningReinforcement."
+      },
+      {
+        "name": "active",
+        "type": "bool",
+        "unit": "—",
+        "derivation": "Explicit input predicate; false giữ suppression_reason, không tự OFF unsupported."
+      },
+      {
+        "name": "suppression_reason",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Rule/field condition khi inactive, active = null."
+      },
+      {
+        "name": "diameter_mm",
+        "type": "int?",
+        "unit": "mm",
+        "derivation": "Positive round bar diameter; Angle=null (catalog V/L dimensions+kg/m), no numeric placeholder."
+      },
+      {
+        "name": "requested_pitch_mm",
+        "type": "double?",
+        "unit": "mm",
+        "derivation": "null nếu feature Count-based; mesh/tie/dowel >0."
+      },
+      {
+        "name": "spacing_mode",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Equalized/ByPitch/ApprovedStations/CountBased."
+      },
+      {
+        "name": "cover_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Protect role field theo mapping; hole cover riêng không wallCover."
+      },
+      {
+        "name": "pitch_delta_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "WallSpacingDelta/NeckSpacingDelta hoặc sourced zero khi không áp dụng; 05B-F33."
+      },
+      {
+        "name": "diameter_step_down",
+        "type": "int",
+        "unit": "catalog steps",
+        "derivation": "Wall/Neck configured steps, không trừ mm trực tiếp."
+      },
+      {
+        "name": "hook_pattern",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "HookPattern.C:J role mapping; feature không hook = null."
+      },
+      {
+        "name": "shape_recipe_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact approved physical/nominal recipe, thiếu RAISE RULE_UNAPPROVED."
+      },
+      {
+        "name": "required_rule_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Feature-specific approvals; scope không match Block."
+      },
+      {
+        "name": "count",
+        "type": "int?",
+        "unit": "count",
+        "derivation": "Count-based features roof/panel lifting/angle, mesh = null."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Exact input cells and rule references defining member."
+      }
+    ]
+  },
+  "PipeSpecV2": {
+    "name": "PipeSpecV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(manhole_id,wall,pipe_slot), 05B-F46."
+      },
+      {
+        "name": "wall",
+        "type": "string",
+        "unit": "—",
+        "derivation": "T1/T2/T3/T4 từ O:V pair, không name heuristic."
+      },
+      {
+        "name": "catalog_code",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact code/declared alias đã duyệt."
+      },
+      {
+        "name": "kind",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Round/Box/DoubleBox từ catalog."
+      },
+      {
+        "name": "invert_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Pass-through InvertT1..4; relative to BaseTop."
+      },
+      {
+        "name": "offset_u_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Pass-through PipeOffsetT1..4 trong host inside-looking-out frame."
+      },
+      {
+        "name": "inner_width_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Round diameter hoặc total box clear width từ CF.Cong."
+      },
+      {
+        "name": "inner_height_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Round diameter hoặc box height từ CF.Cong."
+      },
+      {
+        "name": "wall_thickness_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "CF.Cong thickness của entry exact."
+      },
+      {
+        "name": "mortar_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "PipeMortar/alias Pipe.C, không BeddingMortar."
+      },
+      {
+        "name": "chamfer_x_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "CF.Cong G tuple first; zero chỉ khi catalog khai báo square corner."
+      },
+      {
+        "name": "chamfer_y_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "CF.Cong G tuple second."
+      },
+      {
+        "name": "web_mm",
+        "type": "double?",
+        "unit": "mm",
+        "derivation": "DoubleBox sourced web theo NR20; Round/Box null."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Code/invert/offset/catalog/mortar sources."
+      }
+    ]
+  },
+  "CatchSpecV2": {
+    "name": "CatchSpecV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "active",
+        "type": "bool",
+        "unit": "—",
+        "derivation": "Profile3 requested catch; profile1/2 inactive với source profile condition."
+      },
+      {
+        "name": "owner",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Body/Neck từ Catch.C; inactive null."
+      },
+      {
+        "name": "wall",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "T1..T4 từ Catch.D."
+      },
+      {
+        "name": "position",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Left/Center/Right từ Catch.D; Neck forced Center source HDSD p13."
+      },
+      {
+        "name": "raw_position",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Preserve raw Catch.D position dù effective override."
+      },
+      {
+        "name": "offset_u_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Explicit Catch.D decoded offset nếu grammar cung cấp; không có offset = sourced definition Center/Left/Right at edge, không guess text."
+      },
+      {
+        "name": "opening_width_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Catch.F first value."
+      },
+      {
+        "name": "opening_height_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Catch.F second value."
+      },
+      {
+        "name": "clear_depth_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Catch.G first value, NOTE-0411."
+      },
+      {
+        "name": "clear_height_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Catch.G second value = clear height above floor; NOTE-0411, legacy mismatch NR-IO-004."
+      },
+      {
+        "name": "wall_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Catch.H, NOTE-0412."
+      },
+      {
+        "name": "base_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Catch.I, NOTE-0413."
+      },
+      {
+        "name": "pad_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Catch.J >=0; zero OFF."
+      },
+      {
+        "name": "pad_expansion_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Catch.K, NOTE-0415."
+      },
+      {
+        "name": "reinforced",
+        "type": "bool",
+        "unit": "—",
+        "derivation": "Catch.L BTCT=true, Khác=false; copied note text cổ không đổi scope."
+      },
+      {
+        "name": "product_code",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Approved catch product/aperture source NR09; no source = Block khi requested."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Catch raw fields and effective overrides."
+      }
+    ]
+  },
+  "PanelSpecV2": {
+    "name": "PanelSpecV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "active",
+        "type": "bool",
+        "unit": "—",
+        "derivation": "CoverType BTCT/Panel predicate."
+      },
+      {
+        "name": "contract_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Selected PanelAssemblyContract approved NR23, inactive null."
+      },
+      {
+        "name": "count",
+        "type": "int",
+        "unit": "count",
+        "derivation": "PanelCount >=1 khi active; inactive zero có predicate source."
+      },
+      {
+        "name": "split_axis",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "X/Y từ PanelDirection, inactive null."
+      },
+      {
+        "name": "gap_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "PanelGap >=0, 05B-F12."
+      },
+      {
+        "name": "thickness_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "CoverHeight theo approved contact/seat contract, không frame100."
+      },
+      {
+        "name": "seat_expansion_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "NeckHaunchSize/seat contract đã resolve."
+      },
+      {
+        "name": "seat_height_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "NeckHaunchSize height nếu active, else sourced zero."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Panel/seat/count/direction/gap sources + NR23."
+      },
+      {
+        "name": "support_mode",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Recess/OverOuter chosen in approved NR23 contract, not inferred from support width."
+      }
+    ]
+  },
+  "EffectiveV2": {
+    "name": "EffectiveV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through context.manhole_id."
+      },
+      {
+        "name": "display_name",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Selected RawRowV2.name_raw literal, không làm group key."
+      },
+      {
+        "name": "profile",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through raw.profile."
+      },
+      {
+        "name": "clear_x_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Parsed Length main C; >0."
+      },
+      {
+        "name": "clear_y_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Parsed Width main D; >0."
+      },
+      {
+        "name": "clear_h_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Parsed Height E; clear E includes bedding mortar theo notes loại2/3."
+      },
+      {
+        "name": "base_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "BaseThickness F >0."
+      },
+      {
+        "name": "wall_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "WallThickness I >0."
+      },
+      {
+        "name": "roof_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "RoofThickness L >0."
+      },
+      {
+        "name": "base_expansion_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "BaseExpansion CF.Ga C5 >=0."
+      },
+      {
+        "name": "pad_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "PadThickness D3 >=0; zero = no Pad."
+      },
+      {
+        "name": "pad_expansion_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "PadExpansion C3 >=0."
+      },
+      {
+        "name": "base_haunch_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "BaseHaunch D5 >=0; numeric to typed width/height mapping from source spec."
+      },
+      {
+        "name": "top_haunch_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "TopHaunch C9 loại1; loại2/3 inactive zero with profile reason."
+      },
+      {
+        "name": "bedding_mortar_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "BeddingMortar G9 loại2/3; loại1 zero via monolithic predicate."
+      },
+      {
+        "name": "neck_active",
+        "type": "bool",
+        "unit": "—",
+        "derivation": "NeckHeight>0; không tự thêm neck vì template có block."
+      },
+      {
+        "name": "neck_clear_x_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Approved selected product/panel aperture X, lưu raw khác biệt riêng."
+      },
+      {
+        "name": "neck_clear_y_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Approved selected product/panel aperture Y."
+      },
+      {
+        "name": "neck_raw_clear_x_mm",
+        "type": "double?",
+        "unit": "mm",
+        "derivation": "Parsed NeckSize first; inactive/raw blank null."
+      },
+      {
+        "name": "neck_raw_clear_y_mm",
+        "type": "double?",
+        "unit": "mm",
+        "derivation": "Parsed NeckSize second."
+      },
+      {
+        "name": "neck_wall_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "NeckThickness X >0 khi neck active."
+      },
+      {
+        "name": "neck_height_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "NeckHeight W phần BTCT, không cộng frame/product vào W."
+      },
+      {
+        "name": "neck_position",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Parsed NeckPosition nine-value table trong S2."
+      },
+      {
+        "name": "neck_center",
+        "type": "Point2V2",
+        "unit": "mm",
+        "derivation": "05B-F29 từ effective clear và NeckPosition."
+      },
+      {
+        "name": "neck_reinforced",
+        "type": "bool",
+        "unit": "—",
+        "derivation": "NeckStructure BTCT/Khác predicate."
+      },
+      {
+        "name": "cover_kind",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Purchased/Panel/None exact CoverType mapping."
+      },
+      {
+        "name": "cover_code",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Exact selected product code, không đo kích thước từ suffix."
+      },
+      {
+        "name": "product_rotation_rad",
+        "type": "double",
+        "unit": "rad",
+        "derivation": "Explicit catalog/request supported angle, 05B-F25; unsupported Block."
+      },
+      {
+        "name": "frame_outer_x_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "neck_clear_x_mm+2*neck_wall_mm, 05B-F02."
+      },
+      {
+        "name": "frame_outer_y_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "neck_clear_y_mm+2*neck_wall_mm, 05B-F02."
+      },
+      {
+        "name": "frame_height_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "100 từ CONTRACT C01 owner13/10, 05B-F02."
+      },
+      {
+        "name": "base_elevation_m",
+        "type": "double?",
+        "unit": "m",
+        "derivation": "Main AA nếu Absolute; Symbolic nullable."
+      },
+      {
+        "name": "elevation_mode",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Request override có source hoặc parsed Elevation.C."
+      },
+      {
+        "name": "body_scale",
+        "type": "double",
+        "unit": "1:S",
+        "derivation": "Pass-through request.body_scale."
+      },
+      {
+        "name": "panel_scale",
+        "type": "double?",
+        "unit": "1:S",
+        "derivation": "Request.panel_scale or active Panel.CoverRatioPercent denominator; null when no designed Panel and no override."
+      },
+      {
+        "name": "note_style",
+        "type": "string",
+        "unit": "—",
+        "derivation": "NoteStyle1/2 từ Annotation.NoteStyle."
+      },
+      {
+        "name": "pitch_symbol",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Literal Annotation.PitchSymbol."
+      },
+      {
+        "name": "datums",
+        "type": "DatumV2[]",
+        "unit": "—",
+        "derivation": "Surface-specific Z values 05B-F13/F28, solved contact equations S2."
+      },
+      {
+        "name": "members",
+        "type": "MemberSpecV2[]",
+        "unit": "—",
+        "derivation": "Exact host/face/layer/family mapping table S2, no consumers guessed."
+      },
+      {
+        "name": "pipes",
+        "type": "PipeSpecV2[]",
+        "unit": "—",
+        "derivation": "Resolved O:V catalog entries S2."
+      },
+      {
+        "name": "catch",
+        "type": "CatchSpecV2?",
+        "unit": "—",
+        "derivation": "S2 parsed fields + NeckCenter override.; null khi profile/cover không yêu cầu, không tạo struct số0 cho dữ liệu chưa biết."
+      },
+      {
+        "name": "panel",
+        "type": "PanelSpecV2?",
+        "unit": "—",
+        "derivation": "Selected panel contract + explicit input quantities.; null khi profile/cover không yêu cầu, không tạo struct số0 cho dữ liệu chưa biết."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Raw/effective diffs and input field evidence; no lost raw bytes."
+      },
+      {
+        "name": "parsed_fields",
+        "type": "ParsedFieldV2[]",
+        "unit": "—",
+        "derivation": "Typed values for every applicable 206 field; inactive raw preserved, aliases verified equal."
+      },
+      {
+        "name": "contact_equations",
+        "type": "SurfaceConstraintV2[]",
+        "unit": "mm",
+        "derivation": "Explicit immutable datum constraint list used to solve datums in S2."
+      }
+    ]
+  },
+  "CurveV2": {
+    "name": "CurveV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Stable segment ID from owner/path index, 05B-F46."
+      },
+      {
+        "name": "kind",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Line/Arc, exhaustive geometry helper."
+      },
+      {
+        "name": "start",
+        "type": "Point3V2",
+        "unit": "mm",
+        "derivation": "Coordinate in owning object frame: occurrence paths world; solid/patch/opening loops local XY in that owner frame. Constructor mapping in 05B-F26/F27/F31/F35."
+      },
+      {
+        "name": "end",
+        "type": "Point3V2",
+        "unit": "mm",
+        "derivation": "Coordinate in owning object frame: occurrence paths world; solid/patch/opening loops local XY in that owner frame. Constructor mapping in 05B-F26/F27/F31/F35."
+      },
+      {
+        "name": "center",
+        "type": "Point3V2?",
+        "unit": "mm",
+        "derivation": "Coordinate in owning object frame: occurrence paths world; solid/patch/opening loops local XY in that owner frame. Constructor mapping in 05B-F26/F27/F31/F35."
+      },
+      {
+        "name": "normal",
+        "type": "Vector3V2?",
+        "unit": "dimensionless",
+        "derivation": "Arc plane normal, Line=null."
+      },
+      {
+        "name": "radius_mm",
+        "type": "double?",
+        "unit": "mm",
+        "derivation": "Arc radius>0, Line=null."
+      },
+      {
+        "name": "sweep_rad",
+        "type": "double?",
+        "unit": "rad",
+        "derivation": "Signed arc sweep, Line=null; 05B-F35."
+      },
+      {
+        "name": "role",
+        "type": "string",
+        "unit": "—",
+        "derivation": "StraightRun/Hook/Bend/Outline/Opening/Collector/Hidden; source-specific."
+      }
+    ]
+  },
+  "LoopV2": {
+    "name": "LoopV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(owner,loop_role,index), 05B-F46."
+      },
+      {
+        "name": "role",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Outer/Inner/Exclusion/Contact; không suy từ màu."
+      },
+      {
+        "name": "curves",
+        "type": "CurveV2[]",
+        "unit": "—",
+        "derivation": "Ordered analytic closed chain; 05B-F31/F32/F37."
+      },
+      {
+        "name": "closed",
+        "type": "bool",
+        "unit": "—",
+        "derivation": "True chỉ nếu last.end==first.start trong approved geometry tolerance."
+      },
+      {
+        "name": "signed_area_mm2",
+        "type": "double",
+        "unit": "mm2",
+        "derivation": "Analytic line/arc Green area, 05B-F37."
+      }
+    ]
+  },
+  "PatchV2": {
+    "name": "PatchV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(component_id,face_role,patch_index), 05B-F46."
+      },
+      {
+        "name": "component_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Owner component exact ID."
+      },
+      {
+        "name": "face_role",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Top/Bottom/Inner/Outer/OpeningReveal/Contact."
+      },
+      {
+        "name": "frame",
+        "type": "FrameV2",
+        "unit": "—",
+        "derivation": "Patch local plane origin/axes/normal, 05B-F26/F27."
+      },
+      {
+        "name": "loops",
+        "type": "LoopV2[]",
+        "unit": "mm",
+        "derivation": "Outer/inner loops in local XY of patch.frame; not global coordinates transformed twice, 05B-F26/F37."
+      },
+      {
+        "name": "area_mm2",
+        "type": "double",
+        "unit": "mm2",
+        "derivation": "Outer areas minus inner, 05B-F37; no bbox area for curved voids."
+      },
+      {
+        "name": "adjacent_component_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Real contact owner, not nearest label; no contact null."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Component input/void/contact sources."
+      }
+    ]
+  },
+  "ComponentV2": {
+    "name": "ComponentV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(manhole_id,semantic component key), exact keys in S3."
+      },
+      {
+        "name": "kind",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pad/Base/Wall/Roof/Neck/Frame/Panel/Catch/Haunch/Mortar/Product."
+      },
+      {
+        "name": "assembly_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Profile ownership table S3; union only same assembly/material."
+      },
+      {
+        "name": "material_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Concrete/Bedding/BeddingMortar/NativeProduct explicit role."
+      },
+      {
+        "name": "frame",
+        "type": "FrameV2",
+        "unit": "—",
+        "derivation": "Physical local-to-world basis; no sheet transform."
+      },
+      {
+        "name": "loops",
+        "type": "LoopV2[]",
+        "unit": "mm",
+        "derivation": "Occupied footprint outer+inner loops; 05B-F27/F30/F31."
+      },
+      {
+        "name": "z_min_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Component lower datum from effective.datums and S3 branch."
+      },
+      {
+        "name": "z_max_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Component upper datum from effective.datums and S3 branch."
+      },
+      {
+        "name": "thickness_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Pass-through active component thickness or derived slab Z span, 05B-F27."
+      },
+      {
+        "name": "patches",
+        "type": "PatchV2[]",
+        "unit": "—",
+        "derivation": "Exposed/contact/void faces from analytic component boundary."
+      },
+      {
+        "name": "void_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Owned openings IDs; same opening not subtracted twice."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Input source IDs + construction formula IDs."
+      },
+      {
+        "name": "solid_parts",
+        "type": "SolidPartV2[]",
+        "unit": "—",
+        "derivation": "Physical union/difference extrusion parts; supports triangular haunch/seat slopes without bbox substitute."
+      },
+      {
+        "name": "local_key",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact Base/Wall/T1..T4/Roof/Neck/Pad/etc key for legacy adapter; full id remains namespaced. NR-IO-002 records mapping."
+      },
+      {
+        "name": "material_role",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Bedding/BodyConcrete/NeckConcrete/PanelConcrete/CatchConcrete/PipeConcrete/Plaster/BeddingMortar; exact role binding selects input material key. material_id is actual material family+grade, not merely Concrete."
+      }
+    ]
+  },
+  "OpeningV2": {
+    "name": "OpeningV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(manhole_id,host_id,opening_slot), stable."
+      },
+      {
+        "name": "kind",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Round/Box/DoubleBox/RoofAccess/Catch."
+      },
+      {
+        "name": "host_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Partitioned owners from actual contour×depth intersection, 05B-F32."
+      },
+      {
+        "name": "frame",
+        "type": "FrameV2",
+        "unit": "—",
+        "derivation": "Host plane U/Z with depth outward, 05B-F26."
+      },
+      {
+        "name": "inner",
+        "type": "LoopV2[]",
+        "unit": "mm",
+        "derivation": "Clear aperture true contour, 05B-F06/F31."
+      },
+      {
+        "name": "pipe_outer",
+        "type": "LoopV2[]",
+        "unit": "mm",
+        "derivation": "Pipe physical outer contour; roof/catch no pipe = empty."
+      },
+      {
+        "name": "concrete_cutout",
+        "type": "LoopV2[]",
+        "unit": "mm",
+        "derivation": "Pipe outer+mortar or roof/catch clear cutout, 05B-F06/F31."
+      },
+      {
+        "name": "depth_min_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Host inward/outward start depth from S3 ownership."
+      },
+      {
+        "name": "depth_max_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Host end depth; no double-count adjoining host."
+      },
+      {
+        "name": "invert_mm",
+        "type": "double?",
+        "unit": "mm",
+        "derivation": "Pipe relative invert from S2; roof/catch=null."
+      },
+      {
+        "name": "clearance_rule_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "NR01 applicable for steel exclusion; no steel exclusion=null."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Source pipe/catch/access fields and contour derivation."
+      }
+    ]
+  },
+  "JointV2": {
+    "name": "JointV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(manhole_id,lower_assembly,upper_assembly), 05B-F46."
+      },
+      {
+        "name": "lower_assembly_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Body assembly for type2/3 wall-roof joint."
+      },
+      {
+        "name": "upper_assembly_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Roof assembly for type2/3; type1 joint absent."
+      },
+      {
+        "name": "z_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "WallTop/RoofBottom contact surfaces, 05B-F13/F28."
+      },
+      {
+        "name": "mortar_component_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "ID of separately built bedding mortar ring, zero mortar=null."
+      },
+      {
+        "name": "dowel_required",
+        "type": "bool",
+        "unit": "—",
+        "derivation": "HasDowel input; absence not inferred from source BLT count."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Profile/G9/HasDowel source IDs."
+      }
+    ]
+  },
+  "GeometryV2": {
+    "name": "GeometryV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "components",
+        "type": "ComponentV2[]",
+        "unit": "—",
+        "derivation": "Physical components emitted by S3 explicit component table."
+      },
+      {
+        "name": "openings",
+        "type": "OpeningV2[]",
+        "unit": "—",
+        "derivation": "Roof/pipe/catch openings with stable identity, actual contours/owners."
+      },
+      {
+        "name": "joints",
+        "type": "JointV2[]",
+        "unit": "—",
+        "derivation": "Type2/3 construction joints preserved; type1 excludes wall-roof joint."
+      },
+      {
+        "name": "physical_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Canonical geometry data excluding layout/name, 05B-F46."
+      },
+      {
+        "name": "products",
+        "type": "ProductPlacementV2[]",
+        "unit": "—",
+        "derivation": "Native product placements at physical1:1; never replace actual product by an outside-bounds prism."
+      }
+    ]
+  },
+  "RoleValueV2": {
+    "name": "RoleValueV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "role",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Named run/bend/leg role, ordered where topology requires."
+      },
+      {
+        "name": "value_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Value from approved shape expression/path, not glyph measurement."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Expression inputs/shape rule sources."
+      }
+    ]
+  },
+  "OccurrenceV2": {
+    "name": "OccurrenceV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(manhole,host,panel_instance,face,layer,direction,family,station,retained ordinal), 05B-F46."
+      },
+      {
+        "name": "parent_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Preclip parent bar identity; retained segments share this ID."
+      },
+      {
+        "name": "host_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through MemberSpecV2.host_id."
+      },
+      {
+        "name": "assembly_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through geometry component assembly ownership."
+      },
+      {
+        "name": "panel_instance_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Actual panel instance when applicable, else null."
+      },
+      {
+        "name": "face",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through member.face."
+      },
+      {
+        "name": "layer",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through member.layer."
+      },
+      {
+        "name": "direction",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through member.direction; no paper-coordinate classifier."
+      },
+      {
+        "name": "family",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through member.family."
+      },
+      {
+        "name": "station_index",
+        "type": "int",
+        "unit": "count",
+        "derivation": "Original grid index before clipping, never reset by removed bars."
+      },
+      {
+        "name": "station_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "05B-F08/F18/F34 distribution coordinate."
+      },
+      {
+        "name": "diameter_mm",
+        "type": "int",
+        "unit": "mm",
+        "derivation": "Resolved diameter after sourced catalog step-down; 05B-F33."
+      },
+      {
+        "name": "requested_pitch_mm",
+        "type": "double?",
+        "unit": "mm",
+        "derivation": "Original requested pitch, preserved."
+      },
+      {
+        "name": "actual_gap_mm",
+        "type": "double?",
+        "unit": "mm",
+        "derivation": "Distance to previous original station; count-based/first=null."
+      },
+      {
+        "name": "opening_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Openings affecting retained interval and end roles."
+      },
+      {
+        "name": "region_role",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Uncut/Left/Right/Above/Below/Middle/Multiple in host convention."
+      },
+      {
+        "name": "path",
+        "type": "CurveV2[]",
+        "unit": "mm",
+        "derivation": "Physical ordered line/arc centreline path, 05B-F35."
+      },
+      {
+        "name": "role_values",
+        "type": "RoleValueV2[]",
+        "unit": "mm",
+        "derivation": "Each named run/bend/nominal role, no First() averaging."
+      },
+      {
+        "name": "straight_run_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Sum physical straight portions before hook/bend components, 05B-F35."
+      },
+      {
+        "name": "fabrication_length_mm",
+        "type": "double?",
+        "unit": "mm",
+        "derivation": "Sum centreline Lines+Arcs only if basis approved, otherwise null+diagnostic."
+      },
+      {
+        "name": "schedule_length_mm",
+        "type": "double?",
+        "unit": "mm",
+        "derivation": "EVAL approved recipe.length_expr_id on typed roles, separate from fabrication."
+      },
+      {
+        "name": "measurement_basis",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Approved recipe basis; unknown cannot become Known."
+      },
+      {
+        "name": "length_status",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Known/NeedsRule; NeedsRule blocks accounting Final."
+      },
+      {
+        "name": "shape_recipe_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact approved shape recipe ID used for this occurrence."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Member inputs+clip/hook/length formula sources."
+      },
+      {
+        "name": "spec_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact MemberSpecV2.id; support/cover lookup never by near name."
+      },
+      {
+        "name": "station_key",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Original grid key ENCODE(spec id,i,j), before clipping and mirror, 05B-F46."
+      },
+      {
+        "name": "fabrication_basis",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through approved shape recipe.fabrication_basis, separate from schedule measurement_basis."
+      }
+    ]
+  },
+  "ClipLedgerV2": {
+    "name": "ClipLedgerV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "parent_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Original preclip parent occurrence ID."
+      },
+      {
+        "name": "opening_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "All applicable actual-depth opening IDs."
+      },
+      {
+        "name": "original_length_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Preclip support interval length on same basis."
+      },
+      {
+        "name": "removed_intervals_mm",
+        "type": "double[]",
+        "unit": "mm",
+        "derivation": "Flatten pairs [s0,e0,s1,e1,...], sorted non-overlapping; 05B-F32."
+      },
+      {
+        "name": "retained_intervals_mm",
+        "type": "double[]",
+        "unit": "mm",
+        "derivation": "Complement pairs, 05B-F32."
+      },
+      {
+        "name": "retained_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Output segment IDs corresponding to retained pairs."
+      },
+      {
+        "name": "conservation_error_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "original-sum(removed)-sum(retained), 05B-F32."
+      }
+    ]
+  },
+  "FeatureStateV2": {
+    "name": "FeatureStateV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "spec_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Member/feature spec ID."
+      },
+      {
+        "name": "state",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Inactive/Ready/NeedsRule/Unsupported/Invalid."
+      },
+      {
+        "name": "reason",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Explicit input predicate, missing rule, or concrete diagnostic."
+      },
+      {
+        "name": "occurrence_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Physical outputs of this feature; inactive empty."
+      },
+      {
+        "name": "needsrule_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Missing approved rule IDs, not an arbitrary retry flag."
+      }
+    ]
+  },
+  "DowelPairV2": {
+    "name": "DowelPairV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(joint_id,station_index), 05B-F46."
+      },
+      {
+        "name": "joint_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Actual JointV2 ID."
+      },
+      {
+        "name": "dowel_occurrence_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Straight physical dowel occurrence."
+      },
+      {
+        "name": "hole_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Associated hole semantic ID, native S10 mapping later."
+      },
+      {
+        "name": "center",
+        "type": "Point3V2",
+        "unit": "mm",
+        "derivation": "Same station for dowel and hole, 05B-F34."
+      },
+      {
+        "name": "hole_diameter_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "DowelHoleDia source > dowel diameter, NR06."
+      },
+      {
+        "name": "hole_depth_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Approved NR06, not half DowelLength fallback."
+      },
+      {
+        "name": "hole_axis",
+        "type": "Vector3V2",
+        "unit": "dimensionless",
+        "derivation": "Approved vertical hole direction from joint spec; same physical pair transform."
+      },
+      {
+        "name": "hole_z_min_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "RoofBottom from effective.datums for underside hole start, NR06/05B-F34."
+      },
+      {
+        "name": "hole_z_max_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "hole_z_min_mm+hole_depth_mm, approved NR06, 05B-F34."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Dowel/hole input and approval references, no depth guessed."
+      }
+    ]
+  },
+  "CanonicalRowV2": {
+    "name": "CanonicalRowV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash exact topology/diameter/roles/basis/owner signature, 05B-F46."
+      },
+      {
+        "name": "member_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Actual equal-signature occurrences, no duplicate view accounting."
+      },
+      {
+        "name": "diameter_mm",
+        "type": "int",
+        "unit": "mm",
+        "derivation": "Same for all members; mixed diameters cannot canonical merge."
+      },
+      {
+        "name": "single_length_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Single known fabrication centreline length; canonical rows split on actual physical signature/length."
+      },
+      {
+        "name": "quantity",
+        "type": "int",
+        "unit": "count",
+        "derivation": "count distinct member IDs."
+      },
+      {
+        "name": "total_length_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "quantity*single_length_mm, 05B-F04; no presentation mean substitution."
+      },
+      {
+        "name": "mass_kg",
+        "type": "double?",
+        "unit": "kg",
+        "derivation": "Approved NR14 raw length×unit mass, else null/NeedsRule."
+      },
+      {
+        "name": "measurement_basis",
+        "type": "string",
+        "unit": "—",
+        "derivation": "FabricationCentreline, invariant canonical physical basis; presentation nominal lengths remain in occurrences/groups."
+      },
+      {
+        "name": "accounted_length_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Length sum selected by approved NR14 mass_length_basis; total_length_mm remains physical fabrication sum."
+      },
+      {
+        "name": "mass_length_basis",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Fabrication/Schedule from approved NR14, explicit when different."
+      }
+    ]
+  },
+  "RebarV2": {
+    "name": "RebarV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "occurrences",
+        "type": "OccurrenceV2[]",
+        "unit": "—",
+        "derivation": "Every actual piece once; per-panel prototypes expanded exactly once."
+      },
+      {
+        "name": "clip_ledger",
+        "type": "ClipLedgerV2[]",
+        "unit": "—",
+        "derivation": "Every parent with removed/retained intervals, including fully removed."
+      },
+      {
+        "name": "features",
+        "type": "FeatureStateV2[]",
+        "unit": "—",
+        "derivation": "State for all requested/inactive features, never silently omitted."
+      },
+      {
+        "name": "dowel_pairs",
+        "type": "DowelPairV2[]",
+        "unit": "—",
+        "derivation": "One joint/station creates exactly one dowel-hole pair."
+      },
+      {
+        "name": "canonical",
+        "type": "CanonicalRowV2[]",
+        "unit": "—",
+        "derivation": "Exact shape/length invariant canonical rows."
+      },
+      {
+        "name": "physical_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash physical paths/identity/basis; excludes labels/layout."
+      },
+      {
+        "name": "angles",
+        "type": "AngleOccurrenceV2[]",
+        "unit": "—",
+        "derivation": "Physical angle accounting uses catalog kg/m, never round-steel Ø formula."
+      },
+      {
+        "name": "fabrication_geometry_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash geometry S3 plus resolved dowel-hole geometry from pairs, 05B-F46; preserve design geometry hash unchanged."
+      }
+    ]
+  },
+  "GroupV2": {
+    "name": "GroupV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash compatibility key and sorted member IDs, 05B-F46."
+      },
+      {
+        "name": "host_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Same member host, no merge across owners."
+      },
+      {
+        "name": "face",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Same member face."
+      },
+      {
+        "name": "layer",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Same member layer."
+      },
+      {
+        "name": "direction",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Same member direction."
+      },
+      {
+        "name": "family",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Same member family."
+      },
+      {
+        "name": "region_role",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Host convention from clip endpoint metadata, not label enumeration."
+      },
+      {
+        "name": "opening_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Sorted exact OpeningRegionSet."
+      },
+      {
+        "name": "shape_recipe_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Same topology/role/basis-compatible recipe."
+      },
+      {
+        "name": "diameter_mm",
+        "type": "int?",
+        "unit": "mm",
+        "derivation": "Same round member diameter; Angle=null, never display kg/m as Ø."
+      },
+      {
+        "name": "member_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Distinct physical retained occurrences sorted by host station."
+      },
+      {
+        "name": "canonical_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Canonical rows containing members, no fuzzy display join."
+      },
+      {
+        "name": "member_lengths_mm",
+        "type": "double[]",
+        "unit": "mm",
+        "derivation": "Member ScheduleLength in same member_ids order."
+      },
+      {
+        "name": "count",
+        "type": "int",
+        "unit": "count",
+        "derivation": "member_ids.Length >0, 05B-F04."
+      },
+      {
+        "name": "raw_sum_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "sum member_lengths_mm without rounding, 05B-F04."
+      },
+      {
+        "name": "mean_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "raw_sum_mm/count, 05B-F04."
+      },
+      {
+        "name": "min_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "min member lengths, diagnostic only."
+      },
+      {
+        "name": "max_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "max member lengths, diagnostic only."
+      },
+      {
+        "name": "mean_roles",
+        "type": "RoleValueV2[]",
+        "unit": "mm",
+        "derivation": "Mean each compatible role separately, 05B-F05."
+      },
+      {
+        "name": "display_mark",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Owner region naming + literal prefix, explicit aliases only NR10/11/12."
+      },
+      {
+        "name": "pitch_mm",
+        "type": "double?",
+        "unit": "mm",
+        "derivation": "Same compatible requested/actual pitch convention, no fake @150."
+      },
+      {
+        "name": "mass_kg",
+        "type": "double?",
+        "unit": "kg",
+        "derivation": "sum actual member raw masses under approved NR14."
+      },
+      {
+        "name": "measurement_basis",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through same approved member basis."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Membership/owner naming/rule/length evidence."
+      },
+      {
+        "name": "material_kind",
+        "type": "string",
+        "unit": "—",
+        "derivation": "RoundBar/Angle partition, no mixing unit mass with diameter."
+      },
+      {
+        "name": "angle_code",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Angle group exact catalog code; round bar=null."
+      },
+      {
+        "name": "unit_mass_kg_per_m",
+        "type": "double?",
+        "unit": "kg/m",
+        "derivation": "Angle catalog unit mass; round bar unit mass from NR14 if needed."
+      },
+      {
+        "name": "member_length_basis",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Schedule/Fabrication from recipe.presentation_length_basis; all members compatible."
+      },
+      {
+        "name": "length_policy_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact approved shape/length rule version, not inferred from matching PDF numbers."
+      }
+    ]
+  },
+  "GroupsV2": {
+    "name": "GroupsV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "items",
+        "type": "GroupV2[]",
+        "unit": "—",
+        "derivation": "One nonempty compatible partition per group."
+      },
+      {
+        "name": "registry_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash groups and membership/means unrounded, 05B-F46."
+      }
+    ]
+  },
+  "ViewV2": {
+    "name": "ViewV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(manhole_id,view_role,page_scope), 05B-F46."
+      },
+      {
+        "name": "role",
+        "type": "string",
+        "unit": "—",
+        "derivation": "StructurePlan/SectionAA/SectionBB/SteelAA/SteelBB/WallMesh/BaseTop/BaseBottom/WallT1Outer/WallT1Inner/WallT2Outer/WallT2Inner/WallT3Outer/WallT3Inner/WallT4Outer/WallT4Inner/RoofTop/RoofBottom/NeckPlan/NeckAA/NeckBB/CatchPlan/Catch11/Catch22."
+      },
+      {
+        "name": "owner_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Actual assembly/component semantic owner."
+      },
+      {
+        "name": "frame",
+        "type": "FrameV2",
+        "unit": "—",
+        "derivation": "World-to-view orthonormal frame from role table, 05B-F38."
+      },
+      {
+        "name": "section_offset_mm",
+        "type": "double?",
+        "unit": "mm",
+        "derivation": "Section plane offset from resolved component datum/center; plan=null."
+      },
+      {
+        "name": "scale",
+        "type": "double",
+        "unit": "1:S",
+        "derivation": "Effective body/panel scale by role; >0."
+      },
+      {
+        "name": "mirror",
+        "type": "bool",
+        "unit": "—",
+        "derivation": "Explicit view convention, not negative physical product scale."
+      },
+      {
+        "name": "required",
+        "type": "bool",
+        "unit": "—",
+        "derivation": "Role predicate profile/input active; false must have na_reason."
+      },
+      {
+        "name": "na_reason",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Inactive input rule/source reason only, required=true null."
+      },
+      {
+        "name": "component_cuts",
+        "type": "ViewPartCutV2[]",
+        "unit": "—",
+        "derivation": "AA/BB body at centre, roof/neck through access per existing source behavior; no one fake section frame."
+      }
+    ]
+  },
+  "ProjectedCurveV2": {
+    "name": "ProjectedCurveV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(view_id,source_id,curve_index,visibility), 05B-F46."
+      },
+      {
+        "name": "view_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Owner ViewV2.id."
+      },
+      {
+        "name": "source_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Geometry component/opening/occurrence ID, not a PDF source handle."
+      },
+      {
+        "name": "group_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "GroupRegistry ID for steel, geometry=null."
+      },
+      {
+        "name": "kind",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Line/Arc/Dot/RegionBoundary/ProductReference."
+      },
+      {
+        "name": "start",
+        "type": "Point2V2",
+        "unit": "model mm",
+        "derivation": "World point projected by dot axes, 05B-F38."
+      },
+      {
+        "name": "end",
+        "type": "Point2V2",
+        "unit": "model mm",
+        "derivation": "Projected endpoint, same transform."
+      },
+      {
+        "name": "center",
+        "type": "Point2V2?",
+        "unit": "model mm",
+        "derivation": "Arc/dot centre, Line=null."
+      },
+      {
+        "name": "radius_mm",
+        "type": "double?",
+        "unit": "model mm",
+        "derivation": "Arc physical projected radius; not a symbol scale."
+      },
+      {
+        "name": "sweep_rad",
+        "type": "double?",
+        "unit": "rad",
+        "derivation": "Arc signed sweep transformed with handedness, 05B-F38."
+      },
+      {
+        "name": "visibility",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Visible/Hidden/Sectioned from source depth/section predicate."
+      },
+      {
+        "name": "role",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Geometry/Opening/SteelMain/SteelAccessory/DowelHole/Product; no color inference."
+      },
+      {
+        "name": "projection_frame_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact ViewPartCutV2.frame.id used; inverse transform uses this frame, not guessed main view frame."
+      }
+    ]
+  },
+  "Target2V2": {
+    "name": "Target2V2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(view_id,source_id,target_role,index), 05B-F46."
+      },
+      {
+        "name": "view_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Owner view ID."
+      },
+      {
+        "name": "source_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Source component/surface/opening/physical member."
+      },
+      {
+        "name": "group_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Group ID when target belongs to steel group."
+      },
+      {
+        "name": "kind",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Bar/Surface/Opening/Material/TieNode/Joint/DowelHole/Product/ViewTitle/Elevation. S6 registers title and datum anchors explicitly for S7."
+      },
+      {
+        "name": "point",
+        "type": "Point2V2?",
+        "unit": "model mm",
+        "derivation": "Valid point target, curve/region target may be null."
+      },
+      {
+        "name": "curve_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Projected path IDs representing target; no nearest-name lookup."
+      },
+      {
+        "name": "region_loop_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Projected material/void region loops when relevant."
+      },
+      {
+        "name": "visible",
+        "type": "bool",
+        "unit": "—",
+        "derivation": "Projection visibility, source retained even when hidden."
+      }
+    ]
+  },
+  "ProjectedOpeningV2": {
+    "name": "ProjectedOpeningV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "opening_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through geometry.openings[].id."
+      },
+      {
+        "name": "view_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "View receiving representation."
+      },
+      {
+        "name": "host_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Same actual host ownership."
+      },
+      {
+        "name": "representation",
+        "type": "string",
+        "unit": "—",
+        "derivation": "SectionContour/SideHidden/PlanContour chosen from intersection predicate."
+      },
+      {
+        "name": "curve_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Curves emitted from same inner/outer/cutout contour and same transform."
+      },
+      {
+        "name": "projection_frame_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Actual host/component section frame used for this opening representation."
+      }
+    ]
+  },
+  "ProjectionV2": {
+    "name": "ProjectionV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "views",
+        "type": "ViewV2[]",
+        "unit": "—",
+        "derivation": "All required/conditional view roles explicitly expanded S6."
+      },
+      {
+        "name": "curves",
+        "type": "ProjectedCurveV2[]",
+        "unit": "—",
+        "derivation": "Projected shared model, no static fixture geometry."
+      },
+      {
+        "name": "targets",
+        "type": "Target2V2[]",
+        "unit": "—",
+        "derivation": "Annotation anchor registry derived from physical sources."
+      },
+      {
+        "name": "opening_map",
+        "type": "ProjectedOpeningV2[]",
+        "unit": "—",
+        "derivation": "Same OpeningId across views, inverse transform check."
+      },
+      {
+        "name": "regions",
+        "type": "Region2V2[]",
+        "unit": "—",
+        "derivation": "Shared projected material regions for geometry outlines and hatch; preserve inner loops."
+      },
+      {
+        "name": "native_references",
+        "type": "ProjectedNativeV2[]",
+        "unit": "—",
+        "derivation": "Physical product INSERT intents separate from cast concrete CSG and paper label scaling."
+      }
+    ]
+  },
+  "BoundAttributeV2": {
+    "name": "BoundAttributeV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "tag",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact ATTDEF tag in selected AssetV2."
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Formatted literal from typed value; no sample ATT fallback."
+      },
+      {
+        "name": "value_kind",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Text/Length/Metres/Mass/Count/Diameter/Pitch/SizePair/UnitMass."
+      },
+      {
+        "name": "raw_number",
+        "type": "double?",
+        "unit": "unit field",
+        "derivation": "Unrounded numeric value when scalar; text/pair=null."
+      },
+      {
+        "name": "unit",
+        "type": "string",
+        "unit": "—",
+        "derivation": "mm/m/kg/count/kg_per_m/none, explicit per binding."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Group/input/rule values that produced text."
+      }
+    ]
+  },
+  "MemberIntersectionV2": {
+    "name": "MemberIntersectionV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "occurrence_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Physical member intersected by this collector branch."
+      },
+      {
+        "name": "point",
+        "type": "Point2V2",
+        "unit": "model mm",
+        "derivation": "Analytic segment/arc crossing, 05B-F31/F39."
+      },
+      {
+        "name": "collector_curve_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Actual branch curve containing crossing."
+      }
+    ]
+  },
+  "LabelV2": {
+    "name": "LabelV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(view_id,target_role,group_id/subject_id,label_index), 05B-F46."
+      },
+      {
+        "name": "view_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Owner view ID."
+      },
+      {
+        "name": "group_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Required for steel labels, geometry/material=null."
+      },
+      {
+        "name": "target_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Exact registered target IDs; not coordinate nearest guesses."
+      },
+      {
+        "name": "asset_name",
+        "type": "string",
+        "unit": "—",
+        "derivation": "BLT1/2/3/4/BLTC/CT/TenMC/MC/NotThep or sourced role selector."
+      },
+      {
+        "name": "attributes",
+        "type": "BoundAttributeV2[]",
+        "unit": "—",
+        "derivation": "Exact schema bindings, formatted before ink measurement."
+      },
+      {
+        "name": "insertion",
+        "type": "Point2V2",
+        "unit": "model mm",
+        "derivation": "Candidate placement maps label port to route landing, 05B-F14/F40."
+      },
+      {
+        "name": "port_native",
+        "type": "Point2V2",
+        "unit": "native mm",
+        "derivation": "Native route/text landing port, not always block insertion."
+      },
+      {
+        "name": "asset_scale",
+        "type": "double",
+        "unit": "dimensionless",
+        "derivation": "paper target/native height × view.scale, 05B-F14/F16."
+      },
+      {
+        "name": "rotation_rad",
+        "type": "double",
+        "unit": "rad",
+        "derivation": "Explicit recipe rotation, not guessed by mirrored view."
+      },
+      {
+        "name": "ink",
+        "type": "Bounds2V2",
+        "unit": "model mm",
+        "derivation": "Full glyph+text actual envelope after binding/alignment/scale, 05B-F40/F42."
+      },
+      {
+        "name": "route_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Polyline/line branches associated with this label."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Group/target/recipe/font/paper offset sources."
+      }
+    ]
+  },
+  "RouteV2": {
+    "name": "RouteV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(label_id,branch_index), 05B-F46."
+      },
+      {
+        "name": "view_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Owner view ID."
+      },
+      {
+        "name": "group_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Steel collector group or null material/CT."
+      },
+      {
+        "name": "points",
+        "type": "Point2V2[]",
+        "unit": "model mm",
+        "derivation": "Ordered route vertices from target→elbow→label port, 05B-F39."
+      },
+      {
+        "name": "intersections",
+        "type": "MemberIntersectionV2[]",
+        "unit": "—",
+        "derivation": "Only real same-group bar crossings outside voids."
+      },
+      {
+        "name": "label_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Shared stroke may serve multiple labels; keep associations."
+      },
+      {
+        "name": "reason",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Candidate lane/branch/target selection receipt, no arbitrary X/Y."
+      }
+    ]
+  },
+  "DimensionV2": {
+    "name": "DimensionV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(view_id,subject_id,axis,endpoints,lane_role), 05B-F46."
+      },
+      {
+        "name": "view_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Owner view ID."
+      },
+      {
+        "name": "subject_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ClearX/OverallX/WallThickness/Spacing/SurfaceZ/etc exact measurement subject."
+      },
+      {
+        "name": "start",
+        "type": "Point2V2",
+        "unit": "model mm",
+        "derivation": "Projected source endpoint, 05B-F38/F43."
+      },
+      {
+        "name": "end",
+        "type": "Point2V2",
+        "unit": "model mm",
+        "derivation": "Projected source endpoint, same frame."
+      },
+      {
+        "name": "axis",
+        "type": "string",
+        "unit": "—",
+        "derivation": "U/V/Aligned based on measured subject."
+      },
+      {
+        "name": "measured_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "dot(end-start,axis) magnitude or analytic path measure, 05B-F43."
+      },
+      {
+        "name": "prefix",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Literal WallDimPrefix/NeckPrefix by subject, no value override."
+      },
+      {
+        "name": "display_text",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Approved formatter of measured value+prefix, 05B-F44."
+      },
+      {
+        "name": "lane_mm",
+        "type": "double",
+        "unit": "model mm",
+        "derivation": "Approved paper offset×view scale, 05B-F14."
+      },
+      {
+        "name": "ink",
+        "type": "Bounds2V2",
+        "unit": "model mm",
+        "derivation": "Native-style text/ext line envelope, 05B-F42."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Effective field/model endpoints and style/format sources."
+      }
+    ]
+  },
+  "TickV2": {
+    "name": "TickV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(route_id,occurrence_id,intersection_index), 05B-F46."
+      },
+      {
+        "name": "view_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Owner view."
+      },
+      {
+        "name": "asset_name",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact Gach asset from registry."
+      },
+      {
+        "name": "occurrence_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Real physical member at crossing."
+      },
+      {
+        "name": "point",
+        "type": "Point2V2",
+        "unit": "model mm",
+        "derivation": "Pass-through validated MemberIntersectionV2.point."
+      },
+      {
+        "name": "scale",
+        "type": "double",
+        "unit": "dimensionless",
+        "derivation": "Approved annotation symbol paper scale, 05B-F14."
+      }
+    ]
+  },
+  "AnnotationsV2": {
+    "name": "AnnotationsV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "labels",
+        "type": "LabelV2[]",
+        "unit": "—",
+        "derivation": "Complete labels with target/member/asset binding, not placeholder text."
+      },
+      {
+        "name": "routes",
+        "type": "RouteV2[]",
+        "unit": "—",
+        "derivation": "Finite selected leader/collector routes and associations."
+      },
+      {
+        "name": "dimensions",
+        "type": "DimensionV2[]",
+        "unit": "—",
+        "derivation": "Typed subjects and native measured endpoints."
+      },
+      {
+        "name": "ticks",
+        "type": "TickV2[]",
+        "unit": "—",
+        "derivation": "Gach only at actual intersections."
+      },
+      {
+        "name": "view_ink",
+        "type": "ViewInkV2[]",
+        "unit": "—",
+        "derivation": "Union geometry+title+DIM+labels ink by view, 05B-F42."
+      },
+      {
+        "name": "hatches",
+        "type": "HatchV2[]",
+        "unit": "—",
+        "derivation": "Requested material hatch intents use the SAME projected region IDs."
+      }
+    ]
+  },
+  "ViewInkV2": {
+    "name": "ViewInkV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "view_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "View ID being measured."
+      },
+      {
+        "name": "bounds",
+        "type": "Bounds2V2",
+        "unit": "model mm",
+        "derivation": "Union all relevant primitive ink envelopes, 05B-F42."
+      }
+    ]
+  },
+  "ScheduleRowV2": {
+    "name": "ScheduleRowV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(manhole_id,group_id,recipe_id), 05B-F46."
+      },
+      {
+        "name": "group_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Same group consumed by labels/caption."
+      },
+      {
+        "name": "native_asset",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact shape recipe native TK asset."
+      },
+      {
+        "name": "attributes",
+        "type": "BoundAttributeV2[]",
+        "unit": "—",
+        "derivation": "SH/D/legs/DAI/SL/TDAI/KL according to exact tags, 05B-F04/F05/F20/F44."
+      },
+      {
+        "name": "glyph_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through approved fixed native glyph hash."
+      },
+      {
+        "name": "insertion",
+        "type": "Point2V2",
+        "unit": "model mm",
+        "derivation": "S8 measured row layout point, 05B-F15/F41."
+      },
+      {
+        "name": "scale",
+        "type": "double",
+        "unit": "dimensionless",
+        "derivation": "Native baseline scale view.S/100 where sourced, 05B-F14/F15."
+      },
+      {
+        "name": "ink",
+        "type": "Bounds2V2",
+        "unit": "model mm",
+        "derivation": "Actual row ink including glyph/basepoint/text, 05B-F42."
+      },
+      {
+        "name": "view_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(manhole_id,Schedule,physical owner bucket); sheet includes row only in this view."
+      }
+    ]
+  },
+  "CaptionV2": {
+    "name": "CaptionV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "group_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Same registry group."
+      },
+      {
+        "name": "glyph_asset",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact fixed topology glyph from recipe, not physical-sized bar."
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Mark-DØ,L=... or Ltb=... per approved length display policy."
+      },
+      {
+        "name": "role_values",
+        "type": "RoleValueV2[]",
+        "unit": "mm",
+        "derivation": "Mean/fixed named segment dimensions, no collector length."
+      },
+      {
+        "name": "underline_start",
+        "type": "Point2V2",
+        "unit": "model mm",
+        "derivation": "Caption actual ink min X at approved paper baseline."
+      },
+      {
+        "name": "underline_end",
+        "type": "Point2V2",
+        "unit": "model mm",
+        "derivation": "Caption actual ink max X, 05B-F42."
+      },
+      {
+        "name": "ink",
+        "type": "Bounds2V2",
+        "unit": "model mm",
+        "derivation": "Glyph+dimensions+caption+underline envelope."
+      },
+      {
+        "name": "view_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(manhole_id,Bending,owner bucket); not inferred from array position."
+      },
+      {
+        "name": "insertion",
+        "type": "Point2V2",
+        "unit": "model mm",
+        "derivation": "Exact schematic insertion; fixed source glyph scale, F14/F17/F41."
+      },
+      {
+        "name": "asset_scale",
+        "type": "double",
+        "unit": "dimensionless",
+        "derivation": "Source baseline scale S/100; never Li/source glyph dimension."
+      }
+    ]
+  },
+  "SummaryV2": {
+    "name": "SummaryV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(manhole_id,summary_scope), 05B-F46."
+      },
+      {
+        "name": "scope",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Body/Neck/Panel/Catch from approved NR14 owner bucket map."
+      },
+      {
+        "name": "native_asset",
+        "type": "string",
+        "unit": "—",
+        "derivation": "TK.THKL/TK.THKL.CT/approved summary asset."
+      },
+      {
+        "name": "attributes",
+        "type": "BoundAttributeV2[]",
+        "unit": "—",
+        "derivation": "Exact existing tags, sums raw values not formatted cells."
+      },
+      {
+        "name": "mass_small_kg",
+        "type": "double",
+        "unit": "kg",
+        "derivation": "Sum raw masses for diameter<=10, 05B-F19/F20, native headers source."
+      },
+      {
+        "name": "mass_large_kg",
+        "type": "double",
+        "unit": "kg",
+        "derivation": "Sum raw masses for diameter>10, 05B-F19/F20."
+      },
+      {
+        "name": "view_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Schedule view owning this summary, stable explicit identity."
+      },
+      {
+        "name": "insertion",
+        "type": "Point2V2",
+        "unit": "model mm",
+        "derivation": "S8 actual summary insertion after rows, F15/F41."
+      },
+      {
+        "name": "asset_scale",
+        "type": "double",
+        "unit": "dimensionless",
+        "derivation": "Native baseline scale S/100, F14/F15."
+      },
+      {
+        "name": "ink",
+        "type": "Bounds2V2",
+        "unit": "model mm",
+        "derivation": "Measured summary glyph+ATTRIB ink, F40/F42."
+      }
+    ]
+  },
+  "SchedulesV2": {
+    "name": "SchedulesV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "rows",
+        "type": "ScheduleRowV2[]",
+        "unit": "—",
+        "derivation": "One nonempty compatible presentation group per native row."
+      },
+      {
+        "name": "captions",
+        "type": "CaptionV2[]",
+        "unit": "—",
+        "derivation": "Separate bending drawing output, group metadata shared."
+      },
+      {
+        "name": "summaries",
+        "type": "SummaryV2[]",
+        "unit": "—",
+        "derivation": "Owner bucket raw quantities, no view duplication."
+      },
+      {
+        "name": "ink",
+        "type": "ViewInkV2[]",
+        "unit": "—",
+        "derivation": "Native TK/bending view bounds measured before pagination."
+      },
+      {
+        "name": "headings",
+        "type": "ScheduleHeadingV2[]",
+        "unit": "—",
+        "derivation": "Owner heading anchored with first row, fixed table header and bending group titles; no duplicated free-floating label."
+      }
+    ]
+  },
+  "PlacementV2": {
+    "name": "PlacementV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "view_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Actual view/table/bending role ID."
+      },
+      {
+        "name": "frame_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Target sheet frame ID."
+      },
+      {
+        "name": "translation",
+        "type": "Point2V2",
+        "unit": "model mm",
+        "derivation": "Derived role placement so translated ink fits content box, 05B-F41."
+      },
+      {
+        "name": "rotation_rad",
+        "type": "double",
+        "unit": "rad",
+        "derivation": "Recipe rotation only, no product deformation."
+      },
+      {
+        "name": "scale_denominator",
+        "type": "double",
+        "unit": "1:S",
+        "derivation": "Same view requested/approved Auto scale."
+      },
+      {
+        "name": "ink_after",
+        "type": "Bounds2V2",
+        "unit": "model mm",
+        "derivation": "Apply placement to full view bundle bounds, 05B-F41/F42."
+      }
+    ]
+  },
+  "SheetFrameV2": {
+    "name": "SheetFrameV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(manhole_id,sheet_role,page_index), 05B-F46."
+      },
+      {
+        "name": "manhole_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through context.manhole_id."
+      },
+      {
+        "name": "sheet_role",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Structure/BaseWalls12/Walls34Roof/NeckAndSchedule/NeckCatch/ScheduleOnly/CoverConstruction/Bending."
+      },
+      {
+        "name": "page_index",
+        "type": "int",
+        "unit": "page",
+        "derivation": "One-based page index within semantic sheet role."
+      },
+      {
+        "name": "scale_denominator",
+        "type": "double",
+        "unit": "1:S",
+        "derivation": "Explicit body/panel denominator; mixed scale uses separate page in v2."
+      },
+      {
+        "name": "frame_asset",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact Khung selected source."
+      },
+      {
+        "name": "window",
+        "type": "Bounds2V2",
+        "unit": "model mm",
+        "derivation": "Actual native plot frame window after placement, 05B-F41."
+      },
+      {
+        "name": "content",
+        "type": "Bounds2V2",
+        "unit": "model mm",
+        "derivation": "Approved printable/content region in that frame, 05B-F41."
+      },
+      {
+        "name": "placements",
+        "type": "PlacementV2[]",
+        "unit": "—",
+        "derivation": "Each required view exactly once unless recipe says referenced elsewhere."
+      },
+      {
+        "name": "origin",
+        "type": "Point2V2",
+        "unit": "sheet-local mm",
+        "derivation": "Native frame insertion/basepoint transform; frame/page packing places distinct full windows with sourced page gap."
+      }
+    ]
+  },
+  "SheetV2": {
+    "name": "SheetV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "frames",
+        "type": "SheetFrameV2[]",
+        "unit": "—",
+        "derivation": "Complete FrameRegistry from S9."
+      },
+      {
+        "name": "geometry_hash_before",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through rebar.fabrication_geometry_hash (or geometry.physical_hash in explicit GeometryOnly scope)."
+      },
+      {
+        "name": "rebar_hash_before",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through rebar.physical_hash before layout."
+      },
+      {
+        "name": "sheet_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash frame/placement/content IDs/ink/scales, 05B-F46."
+      }
+    ]
+  },
+  "HandleV2": {
+    "name": "HandleV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "semantic_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Intent source ID from geometry/label/TK/frame."
+      },
+      {
+        "name": "entity_handle",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Actual native appended/reopened handle."
+      },
+      {
+        "name": "block_name",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Actual block name when INSERT; geometry=null."
+      },
+      {
+        "name": "attribute_tags",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Native ATTRIB tag list; nonblock empty."
+      },
+      {
+        "name": "attribute_values",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Readback values aligned with tags."
+      },
+      {
+        "name": "owner_manhole_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Generation ownership metadata, not inferred from label text."
+      }
+    ]
+  },
+  "NativeV2": {
+    "name": "NativeV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "saved_dwg_path",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Actual saved output copy path, never source workbook/DWG input."
+      },
+      {
+        "name": "saved_dwg_sha256",
+        "type": "string",
+        "unit": "—",
+        "derivation": "SHA256 actual saved DWG bytes, 05B-F46."
+      },
+      {
+        "name": "handles",
+        "type": "HandleV2[]",
+        "unit": "—",
+        "derivation": "Readback intent-to-native map after reopen."
+      },
+      {
+        "name": "normalized_geometry_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash actual normalized 2D native geometry/projection, undo sheet transform and match S6 intent. Does not reconstruct 3D concrete from a schematic."
+      },
+      {
+        "name": "normalized_rebar_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash actual normalized projected steel with source occurrence IDs and stored fabrication provenance. Physical length comes from S4, never measured from a TK glyph."
+      },
+      {
+        "name": "repository_version",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Actual NOD/XData generation schema version."
+      },
+      {
+        "name": "write_status",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Committed/RolledBack/Failed, no fake Committed on exception."
+      },
+      {
+        "name": "readback_status",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Passed/Failed/NotRun based on actual saved/reopened entities."
+      },
+      {
+        "name": "unchanged_manhole_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Non-target IDs measured unchanged for Update."
+      },
+      {
+        "name": "unchanged_before_hashes",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Normalized before manifests aligned with IDs."
+      },
+      {
+        "name": "unchanged_after_hashes",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Actual after manifests, must equal before when success."
+      },
+      {
+        "name": "domain_geometry_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through rebar.fabrication_geometry_hash; trace to domain data only, not native 3D proof."
+      },
+      {
+        "name": "expected_projection_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash S6/S7/S8 intents normalized by S9 placements; compare actual native geometry and values individually before hash."
+      },
+      {
+        "name": "commit_state",
+        "type": "string",
+        "unit": "—",
+        "derivation": "NotCommitted/Committed/Saved/Reopened; postcommit failure cannot be called rolled back."
+      }
+    ]
+  },
+  "AcceptanceCheckV2": {
+    "name": "AcceptanceCheckV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "name",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Concrete numerical/semantic/visual check name."
+      },
+      {
+        "name": "subject_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Actual field/member/handle/frame/region being checked."
+      },
+      {
+        "name": "expected",
+        "type": "double?",
+        "unit": "unit field",
+        "derivation": "Numerical expected from EffectiveInput/rules; visual/text=null."
+      },
+      {
+        "name": "actual",
+        "type": "double?",
+        "unit": "unit field",
+        "derivation": "Actual native/PDF measurement; cannot be guessed from requested value."
+      },
+      {
+        "name": "expected_text",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Expected asset/tag/role/text for exact checks."
+      },
+      {
+        "name": "actual_text",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Native/PDF actual exact value."
+      },
+      {
+        "name": "unit",
+        "type": "string",
+        "unit": "—",
+        "derivation": "mm,m,kg,paper_mm,pdf_point,count,none."
+      },
+      {
+        "name": "tolerance_rule_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Approved NR18 numeric/visual tolerance; exact categorical checks=null."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Input/rule/reference sources supporting expected."
+      },
+      {
+        "name": "native_handles",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Actual subjects in saved output DWG."
+      },
+      {
+        "name": "evidence_paths",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Actual crop/PDF/readback/ledger paths with artifact hashes in run manifest."
+      },
+      {
+        "name": "verdict",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Passed/Failed/Blocked/NotRun/NA; NA requires reason."
+      },
+      {
+        "name": "reason",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Missing approval/evidence/NA or numerical mismatch, Passed may null."
+      }
+    ]
+  },
+  "RowVerdictV2": {
+    "name": "RowVerdictV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "job_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through selected job identity."
+      },
+      {
+        "name": "row_index",
+        "type": "int",
+        "unit": "row",
+        "derivation": "Exact selected row."
+      },
+      {
+        "name": "manhole_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact target ID."
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Complete/Partial/Blocked/Failed/Cancelled/NotRun, no silent missing row."
+      },
+      {
+        "name": "frame_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Actual generated FrameRegistry IDs for row."
+      },
+      {
+        "name": "checks",
+        "type": "AcceptanceCheckV2[]",
+        "unit": "—",
+        "derivation": "All required checks, actual evidence; no test counts as acceptance."
+      },
+      {
+        "name": "diagnostics",
+        "type": "DiagnosticV2[]",
+        "unit": "—",
+        "derivation": "Row-specific diagnostics including unsuccessful stage."
+      }
+    ]
+  },
+  "PlotPageV2": {
+    "name": "PlotPageV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "frame_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Registered source frame window ID."
+      },
+      {
+        "name": "pdf_path",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Actual generated vector PDF file path."
+      },
+      {
+        "name": "pdf_sha256",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash actual PDF bytes, 05B-F46."
+      },
+      {
+        "name": "page_index",
+        "type": "int",
+        "unit": "page",
+        "derivation": "Actual PDF page index one-based."
+      },
+      {
+        "name": "host_session_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Actual one healthy plot host session identity."
+      },
+      {
+        "name": "pstylemode",
+        "type": "int",
+        "unit": "—",
+        "derivation": "Read actual native PSTYLEMODE, choose compatible CTB/STB explicitly."
+      },
+      {
+        "name": "plot_profile_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Approved selected profile/hash, no default acad.ctb unless approved."
+      },
+      {
+        "name": "nominal_scale",
+        "type": "double",
+        "unit": "1:S",
+        "derivation": "Frame requested scale."
+      },
+      {
+        "name": "actual_scale",
+        "type": "double",
+        "unit": "1:S",
+        "derivation": "Scale measured from native window→PDF mapping, 05B-F48."
+      },
+      {
+        "name": "transcript_path",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Actual host/plot transcript saved, not fabricated success text."
+      },
+      {
+        "name": "visual_status",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Passed/Failed/NotRun, actual reviewed regions required for Passed."
+      },
+      {
+        "name": "reviewer",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Actual reviewer identity; null for NotRun."
+      },
+      {
+        "name": "reviewed_regions",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Actual reviewed named regions; complete required coverage for visual Passed."
+      }
+    ]
+  },
+  "BatchV2": {
+    "name": "BatchV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "rows",
+        "type": "RowVerdictV2[]",
+        "unit": "—",
+        "derivation": "Every selected target has exactly one final receipt, including failures."
+      },
+      {
+        "name": "pages",
+        "type": "PlotPageV2[]",
+        "unit": "—",
+        "derivation": "Actual plotted frame/page ledger."
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Complete iff every selected valid row/all required checks Passed; invalid rows keep Failed."
+      },
+      {
+        "name": "delivery_manifest_path",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Actual DWG/PDF/readback/receipt artifact index for this run."
+      },
+      {
+        "name": "final_dwg_path",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Actual aggregate output path when any write committed; null if no DWG exists."
+      },
+      {
+        "name": "final_dwg_sha256",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Hash final actual aggregate saved bytes; not assumed equal earlier per-row frozen snapshot hashes."
+      }
+    ]
+  },
+  "ParsedFieldV2": {
+    "name": "ParsedFieldV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "field_key",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact field key trong bảng 206 fields; catalog keys có row_index."
+      },
+      {
+        "name": "sheet",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through raw source sheet."
+      },
+      {
+        "name": "address",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through raw value cell address."
+      },
+      {
+        "name": "row_index",
+        "type": "int?",
+        "unit": "row",
+        "derivation": "Catalog/main row nếu applicable, config scalar null."
+      },
+      {
+        "name": "active",
+        "type": "bool",
+        "unit": "—",
+        "derivation": "Predicate explicit trong S2 INPUT_ACTIVITY; không dùng active=false để che Unsupported."
+      },
+      {
+        "name": "inactive_reason",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Tên predicate và raw source gây inactive; active=true null."
+      },
+      {
+        "name": "kind",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Number/Integer/Text/Bool/Tuple/Mesh/Anchor/Counted/TokenSet, exhaustive PARSE_FIELD."
+      },
+      {
+        "name": "number",
+        "type": "double?",
+        "unit": "unit field",
+        "derivation": "Number slot finite; kind khác Number null."
+      },
+      {
+        "name": "integer",
+        "type": "int?",
+        "unit": "unit field",
+        "derivation": "Integer slot checked exact integral, không truncate."
+      },
+      {
+        "name": "text",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Literal/config enum/raw catalog code; không fuzzy."
+      },
+      {
+        "name": "flag",
+        "type": "bool?",
+        "unit": "—",
+        "derivation": "Có/Không parsed bool; unsupported literal Block."
+      },
+      {
+        "name": "tuple_mm",
+        "type": "double[]",
+        "unit": "mm",
+        "derivation": "Ordered values AxB/AxBxC, arity và role order có bảng S2."
+      },
+      {
+        "name": "diameter_mm",
+        "type": "int?",
+        "unit": "mm",
+        "derivation": "Mesh/Anchor/Counted parsed diameter >0."
+      },
+      {
+        "name": "pitch_mm",
+        "type": "double?",
+        "unit": "mm",
+        "derivation": "Mesh/Anchor parsed pitch>0."
+      },
+      {
+        "name": "length_mm",
+        "type": "double?",
+        "unit": "mm",
+        "derivation": "Anchor parsed length>0, other=null."
+      },
+      {
+        "name": "count",
+        "type": "int?",
+        "unit": "count",
+        "derivation": "Counted bar number; off allowed only explicit feature predicate."
+      },
+      {
+        "name": "tokens",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Exact enum set e.g angle positions1/2/3, no duplicates."
+      },
+      {
+        "name": "unit",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Unit của scalar numeric field theo 206 input table."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Raw value/note refs and parse conversion provenance."
+      }
+    ]
+  },
+  "SurfaceConstraintV2": {
+    "name": "SurfaceConstraintV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "surface_a",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Datum ID vế trái, exact SurfaceId."
+      },
+      {
+        "name": "surface_b",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Datum ID vế phải, exact SurfaceId."
+      },
+      {
+        "name": "delta_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Equation z(a)=z(b)+delta from input/contact evidence, 05B-F28."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Native product contact/owner/input evidence, không outside bbox."
+      }
+    ]
+  },
+  "ProductContractV2": {
+    "name": "ProductContractV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Versioned selected product/PanelAssemblyContract ID."
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact catalog product code."
+      },
+      {
+        "name": "plan_asset",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact MB name verified S0."
+      },
+      {
+        "name": "section_aa_asset",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact AA native name verified S0."
+      },
+      {
+        "name": "section_bb_asset",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact BB native name verified S0."
+      },
+      {
+        "name": "aperture_x_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Measured/approved clear aperture X, independent of outside bounds."
+      },
+      {
+        "name": "aperture_y_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Measured/approved clear aperture Y."
+      },
+      {
+        "name": "rotation_rad",
+        "type": "double",
+        "unit": "rad",
+        "derivation": "Explicit source registration rotation; approved support set checked S2."
+      },
+      {
+        "name": "aperture",
+        "type": "LoopV2[]",
+        "unit": "mm",
+        "derivation": "Actual clear contour, preserves circle/rounded corners, not bbox substitution."
+      },
+      {
+        "name": "contact_equations",
+        "type": "SurfaceConstraintV2[]",
+        "unit": "mm",
+        "derivation": "Named product/support datums, 05B-F28."
+      },
+      {
+        "name": "approved",
+        "type": "bool",
+        "unit": "—",
+        "derivation": "Approval/source evidence of product/contact contract, not asset existence."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Native measurements and owner confirmation references."
+      },
+      {
+        "name": "placement_surface_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Approved placement datum SurfaceId, e.g NeckTop or SeatPlane; not guessed."
+      },
+      {
+        "name": "registration_offset",
+        "type": "Point3V2",
+        "unit": "mm",
+        "derivation": "Native measured/approved placement offset, not outside bbox center."
+      }
+    ]
+  },
+  "KerningV2": {
+    "name": "KerningV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "style_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Same approved font/style key as glyphs."
+      },
+      {
+        "name": "left_codepoint",
+        "type": "int",
+        "unit": "Unicode",
+        "derivation": "First character of measured kerning pair."
+      },
+      {
+        "name": "right_codepoint",
+        "type": "int",
+        "unit": "Unicode",
+        "derivation": "Second character of measured kerning pair."
+      },
+      {
+        "name": "adjustment_native_mm",
+        "type": "double",
+        "unit": "native mm",
+        "derivation": "Measured advance adjustment from approved font provider."
+      }
+    ]
+  },
+  "LayerMetricV2": {
+    "name": "LayerMetricV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "layer_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact native layer ID/name."
+      },
+      {
+        "name": "semantic_role",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Role binding from selected template manifest."
+      },
+      {
+        "name": "stroke_paper_mm",
+        "type": "double",
+        "unit": "paper mm",
+        "derivation": "Native lineweight/approved plot style effective width; hairline0 only if source/profile says0."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Layer/plot policy evidence, NR18 when profile changes."
+      }
+    ]
+  },
+  "SolidPartV2": {
+    "name": "SolidPartV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(component_id,part_role,index), 05B-F46."
+      },
+      {
+        "name": "operation",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Union/Subtract in ordered CSG list; void ownership prevents subtraction twice."
+      },
+      {
+        "name": "frame",
+        "type": "FrameV2",
+        "unit": "—",
+        "derivation": "Extrusion plane world origin/U/V/normal, 05B-F26/F27."
+      },
+      {
+        "name": "loops",
+        "type": "LoopV2[]",
+        "unit": "mm",
+        "derivation": "Plane section contours, analytic line/arc, no triangulated schematic length."
+      },
+      {
+        "name": "depth_min_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Extrusion coordinate along frame.normal, 05B-F27."
+      },
+      {
+        "name": "depth_max_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Extrusion end coordinate; >depth_min for active part."
+      }
+    ]
+  },
+  "ProductPlacementV2": {
+    "name": "ProductPlacementV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(manhole_id,product contract id,placement role), 05B-F46."
+      },
+      {
+        "name": "contract_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact AssetsV2.products[].id selected in S2."
+      },
+      {
+        "name": "anchor",
+        "type": "Point3V2",
+        "unit": "mm",
+        "derivation": "Neck center+approved registration offset; Z from placement SurfaceId, 05B-F26/F28."
+      },
+      {
+        "name": "rotation_rad",
+        "type": "double",
+        "unit": "rad",
+        "derivation": "Pass-through approved product registration rotation, not sheet mirror."
+      },
+      {
+        "name": "physical_scale",
+        "type": "double",
+        "unit": "dimensionless",
+        "derivation": "1 exactly after native unit normalization; CONTRACT C01/05B-F25, not annotation scale."
+      },
+      {
+        "name": "plan_asset",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through selected ProductContractV2.plan_asset."
+      },
+      {
+        "name": "section_aa_asset",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through selected section AA asset."
+      },
+      {
+        "name": "section_bb_asset",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Pass-through selected section BB asset."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Product/aperture/contact/registration evidence."
+      }
+    ]
+  },
+  "AngleOccurrenceV2": {
+    "name": "AngleOccurrenceV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "One actual angle frame/member identity, no duplicate view accounting, 05B-F46."
+      },
+      {
+        "name": "host_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Actual Neck/Panel host component ID."
+      },
+      {
+        "name": "panel_instance_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Physical panel instance when applicable, else null."
+      },
+      {
+        "name": "catalog_code",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact CF.Data angle code, not fuzzy."
+      },
+      {
+        "name": "unit_mass_kg_per_m",
+        "type": "double",
+        "unit": "kg/m",
+        "derivation": "CF.Data C paired with exact B code."
+      },
+      {
+        "name": "path",
+        "type": "CurveV2[]",
+        "unit": "mm",
+        "derivation": "Actual angle accounting path from approved frame support rule, not glyph."
+      },
+      {
+        "name": "total_length_mm",
+        "type": "double",
+        "unit": "mm",
+        "derivation": "Sum actual ordered line/arc path lengths, 05B-F35."
+      },
+      {
+        "name": "mass_kg",
+        "type": "double",
+        "unit": "kg",
+        "derivation": "total_length_mm/1000*unit_mass_kg_per_m, 05B-F01/F20."
+      },
+      {
+        "name": "shape_recipe_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact TK.TG/physical role recipe."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Angle code/unit mass/position/physical path rule sources."
+      },
+      {
+        "name": "spec_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact S2 MemberSpecV2 identity; scope/face/layer never guessed from catalog code or label."
+      },
+      {
+        "name": "role_values",
+        "type": "RoleValueV2[]",
+        "unit": "mm",
+        "derivation": "Pass-through actual ordered physical frame segment roles from approved angle recipe."
+      }
+    ]
+  },
+  "ViewPartCutV2": {
+    "name": "ViewPartCutV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "component_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact component receiving this cut/projection frame."
+      },
+      {
+        "name": "frame",
+        "type": "FrameV2",
+        "unit": "—",
+        "derivation": "Actual component-specific section plane; source SheetOneSectionViews composite behavior preserved explicitly."
+      },
+      {
+        "name": "mode",
+        "type": "string",
+        "unit": "—",
+        "derivation": "TrueSection/CompositePublished/Projection; no physical geometry deformation."
+      }
+    ]
+  },
+  "Region2V2": {
+    "name": "Region2V2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(view_id,assembly_id,material_id,region_index), 05B-F46."
+      },
+      {
+        "name": "view_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Actual view role ID."
+      },
+      {
+        "name": "assembly_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Same pour assembly, joint/other materials never merged."
+      },
+      {
+        "name": "material_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Concrete/Bedding/BeddingMortar/native role."
+      },
+      {
+        "name": "component_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "All physical components contributing to this region."
+      },
+      {
+        "name": "loops",
+        "type": "LoopV2[]",
+        "unit": "view-local mm",
+        "derivation": "Analytic outer/inner loops from shared SECTION_CSG/REGION_BOOLEAN; same for hatch and outline."
+      },
+      {
+        "name": "projection_frame_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Actual section/projection frame key for region; composite body/access planes remain distinguishable."
+      },
+      {
+        "name": "surface_depth_mm",
+        "type": "double?",
+        "unit": "mm",
+        "derivation": "Projection visible surface depth for step-edge visibility; TrueSection=null."
+      },
+      {
+        "name": "material_role",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Actual contributing role, or explicit mixed Concrete role requiring scoped hatch role binding; grade comes from component material_id."
+      },
+      {
+        "name": "representation_kind",
+        "type": "string",
+        "unit": "—",
+        "derivation": "TrueSection/Projection; visibility is not guessed from a nullable depth value."
+      },
+      {
+        "name": "visible_surface_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "Actual exposed CSG face/analytic surface ID for Projection; TrueSection=null. Flat surface depth may be scalar, sloped/curved surface depth is evaluated by this surface, never one midpoint depth for all points."
+      }
+    ]
+  },
+  "HatchV2": {
+    "name": "HatchV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(view_id,region_id,pattern role), 05B-F46."
+      },
+      {
+        "name": "view_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Owner view ID."
+      },
+      {
+        "name": "region_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact Region2V2 ID, closed outer+inner loops available."
+      },
+      {
+        "name": "pattern_name",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact requested catalog name or approved named fallback NR17."
+      },
+      {
+        "name": "pattern_scale",
+        "type": "double",
+        "unit": "dimensionless",
+        "derivation": "Exact paired CF.Data scale and approved presentation scale expression."
+      },
+      {
+        "name": "angle_rad",
+        "type": "double",
+        "unit": "rad",
+        "derivation": "Approved hatch role/source angle, not arbitrary zero if missing."
+      },
+      {
+        "name": "layer_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact native semantic layer binding, preflight S0."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "CF.Ga/CF.Data/material mapping/approval evidence."
+      }
+    ]
+  },
+  "FontMetricStyleV2": {
+    "name": "FontMetricStyleV2",
+    "owner": "Domain",
+    "fields": [
+      {
+        "name": "style_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact native style binding."
+      },
+      {
+        "name": "font_path",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Approved font file path."
+      },
+      {
+        "name": "font_hash",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Hash actual font bytes, NR16."
+      },
+      {
+        "name": "encoding",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Unicode/TCVN3/VNI approved decoder."
+      },
+      {
+        "name": "kerning_mode",
+        "type": "string",
+        "unit": "—",
+        "derivation": "None/SparseComplete/QueryRequired, explicit metric provider certificate."
+      },
+      {
+        "name": "provider_version",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Measured metric provider version/hash; no char-count substitute."
+      },
+      {
+        "name": "normalization",
+        "type": "string",
+        "unit": "—",
+        "derivation": "None/NFC explicitly declared by approved FontPolicy, no silent text normalization."
+      }
+    ]
+  },
+  "ProjectedNativeV2": {
+    "name": "ProjectedNativeV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(view_id,source product id,asset name), 05B-F46."
+      },
+      {
+        "name": "view_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact projection view ID."
+      },
+      {
+        "name": "source_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact GeometryV2.products[].id, not schematic label ID."
+      },
+      {
+        "name": "asset_name",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Product MB/AA/BB asset selected by explicit view role table."
+      },
+      {
+        "name": "insertion",
+        "type": "Point2V2",
+        "unit": "view-local mm",
+        "derivation": "Project actual world product anchor in selected view frame, 05B-F26/F38."
+      },
+      {
+        "name": "rotation_rad",
+        "type": "double",
+        "unit": "rad",
+        "derivation": "Native registered in-plane rotation in this view, approved product binding."
+      },
+      {
+        "name": "scale_x",
+        "type": "double",
+        "unit": "dimensionless",
+        "derivation": "1 after unit normalization for physical product; no source distortion copied."
+      },
+      {
+        "name": "scale_y",
+        "type": "double",
+        "unit": "dimensionless",
+        "derivation": "1 after unit normalization for physical product."
+      },
+      {
+        "name": "source_ids",
+        "type": "string[]",
+        "unit": "—",
+        "derivation": "Product/source transform evidence."
+      }
+    ]
+  },
+  "ScheduleHeadingV2": {
+    "name": "ScheduleHeadingV2",
+    "owner": "Drawing",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "ENCODE(view_id,heading kind,group_id), 05B-F46."
+      },
+      {
+        "name": "view_id",
+        "type": "string",
+        "unit": "—",
+        "derivation": "Exact Schedule/Bending view ID."
+      },
+      {
+        "name": "group_id",
+        "type": "string?",
+        "unit": "—",
+        "derivation": "First actual group for owner heading; fixed table header=null."
+      },
+      {
+        "name": "kind",
+        "type": "string",
+        "unit": "—",
+        "derivation": "OwnerHeading/TableHeader/BendingTitle."
+      },
+      {
+        "name": "native_asset",
+        "type": "string",
+        "unit": "—",
+        "derivation": "TK.Tenluoi/TK.Tieude/TieudeMC exact source names."
+      },
+      {
+        "name": "attributes",
+        "type": "BoundAttributeV2[]",
+        "unit": "—",
+        "derivation": "TENLUOI or TIEUDE literal from source owner label; fixed header empty array."
+      },
+      {
+        "name": "insertion",
+        "type": "Point2V2",
+        "unit": "model mm",
+        "derivation": "Source-backed heading offset relative first row or bending origin, 05B-F15/F41."
+      },
+      {
+        "name": "asset_scale",
+        "type": "double",
+        "unit": "dimensionless",
+        "derivation": "S/100 native annotation baseline, 05B-F14."
+      },
+      {
+        "name": "ink",
+        "type": "Bounds2V2",
+        "unit": "model mm",
+        "derivation": "Actual native fixed stroke+ATTRIB ink, 05B-F40/F42."
+      }
+    ]
+  },
+  "FailureV2": {
+    "name": "FailureV2",
+    "owner": "Application",
+    "fields": [
+      {
+        "name": "diagnostic",
+        "type": "DiagnosticV2",
+        "unit": "—",
+        "derivation": "Concrete RAISE payload; no Ready data on failure."
+      },
+      {
+        "name": "receipt",
+        "type": "ReceiptV2",
+        "unit": "—",
+        "derivation": "Failed stage receipt, output_hash=null; cancellation explicit."
+      }
+    ]
+  },
+  "EntryStateV2": {
+    "name": "EntryStateV2",
+    "owner": "Application",
+    "fields": [
+      {
+        "name": "context",
+        "type": "ContextV2",
+        "unit": "—",
+        "derivation": "Explicit caller context; entry helper validates run/job/target IDs."
+      },
+      {
+        "name": "request",
+        "type": "RequestV2",
+        "unit": "—",
+        "derivation": "Explicit request + frozen source bytes; never inferred from fixture."
+      }
+    ]
+  },
+  "S0StateV2": {
+    "name": "S0StateV2",
+    "owner": "Application",
+    "fields": [
+      {
+        "name": "context",
+        "type": "ContextV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "request",
+        "type": "RequestV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "assets",
+        "type": "AssetsV2",
+        "unit": "—",
+        "derivation": "S0 mới tính payload assets; leaf derivations và pseudocode trong cùng mục."
+      },
+      {
+        "name": "rules",
+        "type": "RulesV2",
+        "unit": "—",
+        "derivation": "S0 mới tính payload rules; leaf derivations và pseudocode trong cùng mục."
+      }
+    ]
+  },
+  "S1StateV2": {
+    "name": "S1StateV2",
+    "owner": "Application",
+    "fields": [
+      {
+        "name": "context",
+        "type": "ContextV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "request",
+        "type": "RequestV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "assets",
+        "type": "AssetsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rules",
+        "type": "RulesV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "raw",
+        "type": "RawV2",
+        "unit": "—",
+        "derivation": "S1 mới tính payload raw; leaf derivations và pseudocode trong cùng mục."
+      }
+    ]
+  },
+  "S2StateV2": {
+    "name": "S2StateV2",
+    "owner": "Application",
+    "fields": [
+      {
+        "name": "context",
+        "type": "ContextV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "request",
+        "type": "RequestV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "assets",
+        "type": "AssetsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rules",
+        "type": "RulesV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "raw",
+        "type": "RawV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "effective",
+        "type": "EffectiveV2",
+        "unit": "—",
+        "derivation": "S2 mới tính payload effective; leaf derivations và pseudocode trong cùng mục."
+      }
+    ]
+  },
+  "S3StateV2": {
+    "name": "S3StateV2",
+    "owner": "Application",
+    "fields": [
+      {
+        "name": "context",
+        "type": "ContextV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "request",
+        "type": "RequestV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "assets",
+        "type": "AssetsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rules",
+        "type": "RulesV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "raw",
+        "type": "RawV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "effective",
+        "type": "EffectiveV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "geometry",
+        "type": "GeometryV2",
+        "unit": "—",
+        "derivation": "S3 mới tính payload geometry; leaf derivations và pseudocode trong cùng mục."
+      }
+    ]
+  },
+  "S4StateV2": {
+    "name": "S4StateV2",
+    "owner": "Application",
+    "fields": [
+      {
+        "name": "context",
+        "type": "ContextV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "request",
+        "type": "RequestV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "assets",
+        "type": "AssetsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rules",
+        "type": "RulesV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "raw",
+        "type": "RawV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "effective",
+        "type": "EffectiveV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "geometry",
+        "type": "GeometryV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rebar",
+        "type": "RebarV2",
+        "unit": "—",
+        "derivation": "S4 mới tính payload rebar; leaf derivations và pseudocode trong cùng mục."
+      }
+    ]
+  },
+  "S5StateV2": {
+    "name": "S5StateV2",
+    "owner": "Application",
+    "fields": [
+      {
+        "name": "context",
+        "type": "ContextV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "request",
+        "type": "RequestV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "assets",
+        "type": "AssetsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rules",
+        "type": "RulesV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "raw",
+        "type": "RawV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "effective",
+        "type": "EffectiveV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "geometry",
+        "type": "GeometryV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rebar",
+        "type": "RebarV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "groups",
+        "type": "GroupsV2",
+        "unit": "—",
+        "derivation": "S5 mới tính payload groups; leaf derivations và pseudocode trong cùng mục."
+      }
+    ]
+  },
+  "S6StateV2": {
+    "name": "S6StateV2",
+    "owner": "Application",
+    "fields": [
+      {
+        "name": "context",
+        "type": "ContextV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "request",
+        "type": "RequestV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "assets",
+        "type": "AssetsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rules",
+        "type": "RulesV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "raw",
+        "type": "RawV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "effective",
+        "type": "EffectiveV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "geometry",
+        "type": "GeometryV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rebar",
+        "type": "RebarV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "groups",
+        "type": "GroupsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "projection",
+        "type": "ProjectionV2",
+        "unit": "—",
+        "derivation": "S6 mới tính payload projection; leaf derivations và pseudocode trong cùng mục."
+      }
+    ]
+  },
+  "S7StateV2": {
+    "name": "S7StateV2",
+    "owner": "Application",
+    "fields": [
+      {
+        "name": "context",
+        "type": "ContextV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "request",
+        "type": "RequestV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "assets",
+        "type": "AssetsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rules",
+        "type": "RulesV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "raw",
+        "type": "RawV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "effective",
+        "type": "EffectiveV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "geometry",
+        "type": "GeometryV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rebar",
+        "type": "RebarV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "groups",
+        "type": "GroupsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "projection",
+        "type": "ProjectionV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "annotations",
+        "type": "AnnotationsV2",
+        "unit": "—",
+        "derivation": "S7 mới tính payload annotations; leaf derivations và pseudocode trong cùng mục."
+      }
+    ]
+  },
+  "S8StateV2": {
+    "name": "S8StateV2",
+    "owner": "Application",
+    "fields": [
+      {
+        "name": "context",
+        "type": "ContextV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "request",
+        "type": "RequestV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "assets",
+        "type": "AssetsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rules",
+        "type": "RulesV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "raw",
+        "type": "RawV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "effective",
+        "type": "EffectiveV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "geometry",
+        "type": "GeometryV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rebar",
+        "type": "RebarV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "groups",
+        "type": "GroupsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "projection",
+        "type": "ProjectionV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "annotations",
+        "type": "AnnotationsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "schedules",
+        "type": "SchedulesV2",
+        "unit": "—",
+        "derivation": "S8 mới tính payload schedules; leaf derivations và pseudocode trong cùng mục."
+      }
+    ]
+  },
+  "S9StateV2": {
+    "name": "S9StateV2",
+    "owner": "Application",
+    "fields": [
+      {
+        "name": "context",
+        "type": "ContextV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "request",
+        "type": "RequestV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "assets",
+        "type": "AssetsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rules",
+        "type": "RulesV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "raw",
+        "type": "RawV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "effective",
+        "type": "EffectiveV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "geometry",
+        "type": "GeometryV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rebar",
+        "type": "RebarV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "groups",
+        "type": "GroupsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "projection",
+        "type": "ProjectionV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "annotations",
+        "type": "AnnotationsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "schedules",
+        "type": "SchedulesV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "sheet",
+        "type": "SheetV2",
+        "unit": "—",
+        "derivation": "S9 mới tính payload sheet; leaf derivations và pseudocode trong cùng mục."
+      }
+    ]
+  },
+  "S10StateV2": {
+    "name": "S10StateV2",
+    "owner": "Application",
+    "fields": [
+      {
+        "name": "context",
+        "type": "ContextV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "request",
+        "type": "RequestV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "assets",
+        "type": "AssetsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rules",
+        "type": "RulesV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "raw",
+        "type": "RawV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "effective",
+        "type": "EffectiveV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "geometry",
+        "type": "GeometryV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rebar",
+        "type": "RebarV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "groups",
+        "type": "GroupsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "projection",
+        "type": "ProjectionV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "annotations",
+        "type": "AnnotationsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "schedules",
+        "type": "SchedulesV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "sheet",
+        "type": "SheetV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "native",
+        "type": "NativeV2",
+        "unit": "—",
+        "derivation": "S10 mới tính payload native; leaf derivations và pseudocode trong cùng mục."
+      }
+    ]
+  },
+  "S11StateV2": {
+    "name": "S11StateV2",
+    "owner": "Application",
+    "fields": [
+      {
+        "name": "context",
+        "type": "ContextV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "request",
+        "type": "RequestV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "assets",
+        "type": "AssetsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rules",
+        "type": "RulesV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "raw",
+        "type": "RawV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "effective",
+        "type": "EffectiveV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "geometry",
+        "type": "GeometryV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "rebar",
+        "type": "RebarV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "groups",
+        "type": "GroupsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "projection",
+        "type": "ProjectionV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "annotations",
+        "type": "AnnotationsV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "schedules",
+        "type": "SchedulesV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "sheet",
+        "type": "SheetV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "native",
+        "type": "NativeV2",
+        "unit": "—",
+        "derivation": "Pass-through từ input state, immutable; chỉ append context receipts/diagnostics/sources."
+      },
+      {
+        "name": "batch",
+        "type": "BatchV2",
+        "unit": "—",
+        "derivation": "S11 mới tính payload batch; leaf derivations và pseudocode trong cùng mục."
+      }
+    ]
+  }
+}

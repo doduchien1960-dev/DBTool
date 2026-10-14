@@ -1,0 +1,22 @@
+{
+  "ReviewId": null,
+  "Phase1SignoffHash": null,
+  "CaseId": null,
+  "RunId": null,
+  "ManholeId": null,
+  "FrameId": null,
+  "PdfPath": null,
+  "PdfSha256": null,
+  "PdfPage": null,
+  "ReferenceSha256": null,
+  "ComparisonMode": null,
+  "RegionId": null,
+  "RegionBounds": null,
+  "Required": null,
+  "Decision": "NotRun",
+  "Comment": null,
+  "AnnotationPath": null,
+  "Reviewer": null,
+  "ReviewedAt": null,
+  "RecordKind": "TemplateOnly_NotActualReview"
+}

@@ -1,0 +1,452 @@
+[
+  {
+    "sheet_role": "Structure",
+    "region_id": "Structure/R01",
+    "label": "Khung/tiêu đề/tỷ lệ",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Structure",
+    "region_id": "Structure/R02",
+    "label": "Mặt bằng kết cấu",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Structure",
+    "region_id": "Structure/R03",
+    "label": "Mặt cắt AA",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Structure",
+    "region_id": "Structure/R04",
+    "label": "Mặt cắt BB",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Structure",
+    "region_id": "Structure/R05",
+    "label": "DIM và cao độ",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Structure",
+    "region_id": "Structure/R06",
+    "label": "Vật liệu/hatch",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Structure",
+    "region_id": "Structure/R07",
+    "label": "Nắp/khung/cống",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "BaseWalls12",
+    "region_id": "BaseWalls12/R01",
+    "label": "Khung/role",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "BaseWalls12",
+    "region_id": "BaseWalls12/R02",
+    "label": "Thép đáy dưới",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "BaseWalls12",
+    "region_id": "BaseWalls12/R03",
+    "label": "Thép đáy trên",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "BaseWalls12",
+    "region_id": "BaseWalls12/R04",
+    "label": "T1 ngoài",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "BaseWalls12",
+    "region_id": "BaseWalls12/R05",
+    "label": "T1 trong",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "BaseWalls12",
+    "region_id": "BaseWalls12/R06",
+    "label": "T2 ngoài",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "BaseWalls12",
+    "region_id": "BaseWalls12/R07",
+    "label": "T2 trong",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "BaseWalls12",
+    "region_id": "BaseWalls12/R08",
+    "label": "Nhãn/collector/Gach",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Walls34Roof",
+    "region_id": "Walls34Roof/R01",
+    "label": "Khung/role",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Walls34Roof",
+    "region_id": "Walls34Roof/R02",
+    "label": "T3 ngoài",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Walls34Roof",
+    "region_id": "Walls34Roof/R03",
+    "label": "T3 trong",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Walls34Roof",
+    "region_id": "Walls34Roof/R04",
+    "label": "T4 ngoài",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Walls34Roof",
+    "region_id": "Walls34Roof/R05",
+    "label": "T4 trong",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Walls34Roof",
+    "region_id": "Walls34Roof/R06",
+    "label": "Thép trần trên",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Walls34Roof",
+    "region_id": "Walls34Roof/R07",
+    "label": "Thép trần dưới",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Walls34Roof",
+    "region_id": "Walls34Roof/R08",
+    "label": "Hole/dowel pairs",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Walls34Roof",
+    "region_id": "Walls34Roof/R09",
+    "label": "Nhãn/collector/Gach",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "NeckAndSchedule",
+    "region_id": "NeckAndSchedule/R01",
+    "label": "Cổ và mặt cắt/thép cổ",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "NeckAndSchedule",
+    "region_id": "NeckAndSchedule/R02",
+    "label": "Khung100/cao độ hoàn thiện",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "NeckAndSchedule",
+    "region_id": "NeckAndSchedule/R03",
+    "label": "TK Body/Neck",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "NeckAndSchedule",
+    "region_id": "NeckAndSchedule/R04",
+    "label": "Owner headings/summary",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "NeckAndSchedule",
+    "region_id": "NeckAndSchedule/R05",
+    "label": "Mark liên kết",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "NeckCatch",
+    "region_id": "NeckCatch/R01",
+    "label": "Cổ nếu active",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "NeckCatch",
+    "region_id": "NeckCatch/R02",
+    "label": "CatchPlan",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "NeckCatch",
+    "region_id": "NeckCatch/R03",
+    "label": "Catch11",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "NeckCatch",
+    "region_id": "NeckCatch/R04",
+    "label": "Catch22",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "NeckCatch",
+    "region_id": "NeckCatch/R05",
+    "label": "Thép cửa thu",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "NeckCatch",
+    "region_id": "NeckCatch/R06",
+    "label": "Sản phẩm/labels/cao độ",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "ScheduleOnly",
+    "region_id": "ScheduleOnly/R01",
+    "label": "Header/owner headings",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "ScheduleOnly",
+    "region_id": "ScheduleOnly/R02",
+    "label": "Mọi hàng TK",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "ScheduleOnly",
+    "region_id": "ScheduleOnly/R03",
+    "label": "Raw/display units",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "ScheduleOnly",
+    "region_id": "ScheduleOnly/R04",
+    "label": "Summary/tổng",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "ScheduleOnly",
+    "region_id": "ScheduleOnly/R05",
+    "label": "Continuation pages",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "CoverConstruction",
+    "region_id": "CoverConstruction/R01",
+    "label": "Mặt bằng/mặt cắt panel",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "CoverConstruction",
+    "region_id": "CoverConstruction/R02",
+    "label": "Quantity/gap/support",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "CoverConstruction",
+    "region_id": "CoverConstruction/R03",
+    "label": "Thép/anchor/lifting",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "CoverConstruction",
+    "region_id": "CoverConstruction/R04",
+    "label": "Sản phẩm native",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "CoverConstruction",
+    "region_id": "CoverConstruction/R05",
+    "label": "Panel TK",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Bending",
+    "region_id": "Bending/R01",
+    "label": "Mọi fixed glyph",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Bending",
+    "region_id": "Bending/R02",
+    "label": "Caption L/Ltb",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Bending",
+    "region_id": "Bending/R03",
+    "label": "Leg-role/Ø/count",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Bending",
+    "region_id": "Bending/R04",
+    "label": "Mark liên kết TK",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  },
+  {
+    "sheet_role": "Bending",
+    "region_id": "Bending/R05",
+    "label": "Overflow và readability",
+    "required_when": "Role/view/feature active in frozen input; otherwise source-backed N/A disposition",
+    "bounds": null,
+    "bounds_status": "MustBindToActualPageFromPhase1",
+    "decision": "NotRun"
+  }
+]

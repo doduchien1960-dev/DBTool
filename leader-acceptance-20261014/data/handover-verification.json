@@ -1,0 +1,112 @@
+{
+  "review_id": "DBTOOL-W01-W13-20261014-R01",
+  "recorded_at_utc": "2026-10-14T03:26:03.419822+00:00",
+  "checks": [
+    {
+      "name": "reviewed_production_paths_unchanged",
+      "actual": [],
+      "passed": true
+    },
+    {
+      "name": "original_13_receipts_unchanged",
+      "actual": [],
+      "passed": true
+    },
+    {
+      "name": "39_findings_unique_and_actionable",
+      "actual": 39,
+      "passed": true
+    },
+    {
+      "name": "59_checks_individually_adjudicated",
+      "actual": 59,
+      "passed": true
+    },
+    {
+      "name": "source_references_71_verified",
+      "actual": 71,
+      "passed": true
+    },
+    {
+      "name": "three_original_workbooks_unchanged",
+      "actual": 3,
+      "passed": true
+    },
+    {
+      "name": "six_final_counterexamples_observed",
+      "actual": [
+        "P-MISSING-INPUT",
+        "P-GEOMETRY-HASH",
+        "P-STRUCTURE-VIEWS",
+        "P-DEFAULT-NATIVE",
+        "P-EMPTY-PHYSICAL-MANIFEST",
+        "P-PHYSICAL-COORDINATE-CLASSIFICATION"
+      ],
+      "passed": true
+    },
+    {
+      "name": "five_fresh_software_TRX_parsed",
+      "actual": 1508,
+      "passed": true
+    },
+    {
+      "name": "DTO_103_exact",
+      "actual": {
+        "expected_records": 103,
+        "actual_records": 103,
+        "mismatches": {}
+      },
+      "passed": true
+    },
+    {
+      "name": "host_load_negative_scope_honest",
+      "actual": "Command assembly load and missing-workbook negative branch only",
+      "passed": true
+    },
+    {
+      "name": "phase2_not_fabricated",
+      "actual": {
+        "review_id": "DBTOOL-W01-W13-20261014-R01",
+        "phase1_status": "Blocked_Preflight",
+        "phase1_signoff_hash": null,
+        "pages": [],
+        "generated_product_pdf_count": 0,
+        "visual_status": "NotRun",
+        "reviewer": null,
+        "reviewed_at": null,
+        "exclusion": "Reference PDFs and load-only scratch DWG are not product evidence"
+      },
+      "passed": true
+    },
+    {
+      "name": "all_original_case_ids_retained",
+      "actual": 256,
+      "passed": true
+    },
+    {
+      "name": "PDF_is_report_three_readable_pages",
+      "actual": 3,
+      "passed": true
+    },
+    {
+      "name": "PDF_text_preserved",
+      "actual": 7686,
+      "passed": true
+    },
+    {
+      "name": "HTML_local_links_resolve",
+      "actual": [],
+      "passed": true
+    },
+    {
+      "name": "six_W12_deletions_archived",
+      "actual": [],
+      "passed": true
+    }
+  ],
+  "failed": [],
+  "assurance": "Self verification of handover with three independent AI source-review branches; actual native product and human visual acceptance remain NotRun",
+  "pdf_render_review": "All three latest rendered pages visually inspected; no clipping/overlap observed",
+  "browser_render_review": "NotRun; HTML parsed and local links checked",
+  "production_readiness": "NO_GO"
+}

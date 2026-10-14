@@ -1,0 +1,772 @@
+{
+  "literal_keys": [
+    {
+      "key": "allowed_sides",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H19-SOURCE-BINDING-AND-SEMANTIC-SUPPORT"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "angle_label_asset",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "S7"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "angle_rad",
+      "kind": "Number",
+      "unit": "rad",
+      "consumers": [
+        "H13-DIM-CT-MATERIAL-HATCH"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "collar_assembly_id",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H03-SEAT-FRAME-PANEL-HAUNCH"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "collar_inner_x_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H03-SEAT-FRAME-PANEL-HAUNCH"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "collar_inner_y_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H03-SEAT-FRAME-PANEL-HAUNCH"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "collar_outer_x_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H03-SEAT-FRAME-PANEL-HAUNCH"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "collar_outer_y_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H03-SEAT-FRAME-PANEL-HAUNCH"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "collar_z_max_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H03-SEAT-FRAME-PANEL-HAUNCH"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "collar_z_min_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H03-SEAT-FRAME-PANEL-HAUNCH"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "collector_axis",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H11-COLLECTORS-AND-LANES"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "collision_action",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H19-SOURCE-BINDING-AND-SEMANTIC-SUPPORT"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "convention",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "S4"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "count_label_prefix",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H23-GROUP-TAG-AND-INK-OPERATIONS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "count_u_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H07-SUPPORT-STATIONS-REGIONS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "count_v_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H07-SUPPORT-STATIONS-REGIONS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "culture",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H13-DIM-CT-MATERIAL-HATCH"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "default_pattern_exact_name",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H13-DIM-CT-MATERIAL-HATCH"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "density_kg_per_m3",
+      "kind": "Number",
+      "unit": "kg_per_m3",
+      "consumers": [
+        "H10-CANONICAL-AND-MASS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "diameter_mm",
+      "kind": "Number",
+      "unit": "mm",
+      "consumers": [
+        "H14-PARSE-ACTIVITY-DATUM-MEMBER"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "diameter_squared_divisor",
+      "kind": "Number",
+      "unit": "dimensionless",
+      "consumers": [
+        "H10-CANONICAL-AND-MASS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "exact_product_code",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H14-PARSE-ACTIVITY-DATUM-MEMBER"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "fallback_curve_parameter",
+      "kind": "Number",
+      "unit": "dimensionless",
+      "consumers": [
+        "H11-COLLECTORS-AND-LANES"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "first_row_y_native_mm",
+      "kind": "Number",
+      "unit": "mm",
+      "consumers": [
+        "S8"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "glyph_asset",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "S8"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "height_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H03-SEAT-FRAME-PANEL-HAUNCH"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "hole_depth_mm",
+      "kind": "Number",
+      "unit": "mm",
+      "consumers": [
+        "H09-DOWELS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "input_material_field",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H19-SOURCE-BINDING-AND-SEMANTIC-SUPPORT"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "keep_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H07-SUPPORT-STATIONS-REGIONS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "ladder_min_z_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H07-SUPPORT-STATIONS-REGIONS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "ladder_top_surface_id",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H07-SUPPORT-STATIONS-REGIONS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "layer_id",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H13-DIM-CT-MATERIAL-HATCH"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "lower_embed_mm",
+      "kind": "Number",
+      "unit": "mm",
+      "consumers": [
+        "H09-DOWELS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "mass_length_basis",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H10-CANONICAL-AND-MASS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "min_ink_gap_paper_mm",
+      "kind": "Number",
+      "unit": "paper_mm",
+      "consumers": [
+        "H28-FINITE-NATIVE-LABEL-PLACEMENT",
+        "S7"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "native_baseline_denominator",
+      "kind": "Number",
+      "unit": "dimensionless",
+      "consumers": [
+        "H28-FINITE-NATIVE-LABEL-PLACEMENT",
+        "S7"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "native_view_rotation_rad",
+      "kind": "Number",
+      "unit": "rad",
+      "consumers": [
+        "H15-PROJECTION-FRAMES-AND-NATIVE-REFERENCE"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "next_gap_paper_mm",
+      "kind": "Number",
+      "unit": "paper_mm",
+      "consumers": [
+        "S8"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "offset_u_mm",
+      "kind": "Number",
+      "unit": "mm",
+      "consumers": [
+        "H14-PARSE-ACTIVITY-DATUM-MEMBER"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "page_gap_paper_mm",
+      "kind": "Number",
+      "unit": "paper_mm",
+      "consumers": [
+        "H18-OFFSET-DISTANCE-AND-CLOSED-OPERATIONS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "pitch_midpoint_mode",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H09-DOWELS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "pitch_quantum_mm",
+      "kind": "Number",
+      "unit": "mm",
+      "consumers": [
+        "H09-DOWELS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "rotation_rad",
+      "kind": "Number",
+      "unit": "rad",
+      "consumers": [
+        "H19-SOURCE-BINDING-AND-SEMANTIC-SUPPORT"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "round_mass_mode",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H10-CANONICAL-AND-MASS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "route_enabled",
+      "kind": "Bool",
+      "unit": "none",
+      "consumers": [
+        "H28-FINITE-NATIVE-LABEL-PLACEMENT"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "route_mode",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H11-COLLECTORS-AND-LANES"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "scale_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H13-DIM-CT-MATERIAL-HATCH"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "seat_kind",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H03-SEAT-FRAME-PANEL-HAUNCH"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "selected_contract_id",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "S2"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "show_angle",
+      "kind": "Bool",
+      "unit": "none",
+      "consumers": [
+        "H22-VIEW-ROLE-AND-TARGET-TABLE"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "side",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H19-SOURCE-BINDING-AND-SEMANTIC-SUPPORT"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "side_basis",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H05-CATCH"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "station_count_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H07-SUPPORT-STATIONS-REGIONS",
+        "H09-DOWELS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "station_distance_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H09-DOWELS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "station_u_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H07-SUPPORT-STATIONS-REGIONS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "station_v_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H07-SUPPORT-STATIONS-REGIONS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "stub_paper_mm",
+      "kind": "Number",
+      "unit": "paper_mm",
+      "consumers": [
+        "H11-COLLECTORS-AND-LANES"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "summary_gap_paper_mm",
+      "kind": "Number",
+      "unit": "paper_mm",
+      "consumers": [
+        "S8"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "support_mode",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H14-PARSE-ACTIVITY-DATUM-MEMBER"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "target_parameter",
+      "kind": "Number",
+      "unit": "dimensionless",
+      "consumers": [
+        "H22-VIEW-ROLE-AND-TARGET-TABLE",
+        "H23-GROUP-TAG-AND-INK-OPERATIONS",
+        "H30-EXACT-PROJECTED-GROUP-TARGET"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "target_role",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H19-SOURCE-BINDING-AND-SEMANTIC-SUPPORT",
+        "H22-VIEW-ROLE-AND-TARGET-TABLE",
+        "H23-GROUP-TAG-AND-INK-OPERATIONS",
+        "H30-EXACT-PROJECTED-GROUP-TARGET"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "target_selection",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H30-EXACT-PROJECTED-GROUP-TARGET"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "title_anchor_x_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H29-REGISTERED-TITLE-AND-ELEVATION-SUBJECTS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "title_anchor_y_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H29-REGISTERED-TITLE-AND-ELEVATION-SUBJECTS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "title_literal",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H13-DIM-CT-MATERIAL-HATCH"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "u_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H07-SUPPORT-STATIONS-REGIONS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "underline_gap_paper_mm",
+      "kind": "Number",
+      "unit": "paper_mm",
+      "consumers": [
+        "S8"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "upper_embed_mm",
+      "kind": "Number",
+      "unit": "mm",
+      "consumers": [
+        "H09-DOWELS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "v_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H07-SUPPORT-STATIONS-REGIONS"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "view_gap_x_paper_mm",
+      "kind": "Number",
+      "unit": "paper_mm",
+      "consumers": [
+        "S9"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "view_gap_y_paper_mm",
+      "kind": "Number",
+      "unit": "paper_mm",
+      "consumers": [
+        "S9"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    },
+    {
+      "key": "width_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumers": [
+        "H03-SEAT-FRAME-PANEL-HAUNCH"
+      ],
+      "required_when": "Only when named operation is invoked for active feature;missing→RULE_BINDING_DATA_MISSING"
+    }
+  ],
+  "dynamic_patterns": [
+    {
+      "key": "recipe.{MemberBindingKey}",
+      "kind": "Text",
+      "unit": "none",
+      "consumer": "S2 exact component/face/layer/family recipe ID"
+    },
+    {
+      "key": "offset.{Component}.{Face}.{Layer}.{Direction}",
+      "kind": "Text",
+      "unit": "none",
+      "consumer": "S4 expression ID returning mm centreline offset"
+    },
+    {
+      "key": "face.{MemberBindingKey}/layer.{MemberBindingKey}/direction.{MemberBindingKey}",
+      "kind": "Text",
+      "unit": "none",
+      "consumer": "S2 special family support/direction"
+    },
+    {
+      "key": "support_patch_id.{MemberSpecId}",
+      "kind": "Text",
+      "unit": "none",
+      "consumer": "S4 special-family exact patch ID"
+    },
+    {
+      "key": "dimension_subject.{Ordinal}",
+      "kind": "Text",
+      "unit": "none",
+      "consumer": "S7 subject table key"
+    },
+    {
+      "key": "dimension_lane_paper_mm.{Subject}",
+      "kind": "Number",
+      "unit": "paper_mm",
+      "consumer": "S7 dimension lane"
+    },
+    {
+      "key": "asset.{LabelRole}",
+      "kind": "Text",
+      "unit": "none",
+      "consumer": "S7 exact block name"
+    },
+    {
+      "key": "field_for_material.{MaterialId}",
+      "kind": "Text",
+      "unit": "none",
+      "consumer": "S7 requested hatch field"
+    },
+    {
+      "key": "lane_offset_paper_mm.{Side}/lane_extent_paper_mm.{Side}",
+      "kind": "Number",
+      "unit": "paper_mm",
+      "consumer": "S7 finite lane bounds"
+    },
+    {
+      "key": "decimals.{Role}/{Unit}",
+      "kind": "Number",
+      "unit": "dimensionless",
+      "consumer": "S7/S8 exact nonnegative integer precision"
+    },
+    {
+      "key": "midpoint.{Role}/{Unit}",
+      "kind": "Text",
+      "unit": "none",
+      "consumer": "S7/S8 source rounding mode"
+    },
+    {
+      "key": "trailing_zeros.{Role}/{Unit}",
+      "kind": "Bool",
+      "unit": "none",
+      "consumer": "S7/S8 formatting trailing zeros"
+    },
+    {
+      "key": "frame_asset.{SheetRole}",
+      "kind": "Text",
+      "unit": "none",
+      "consumer": "S9 exact frame block"
+    },
+    {
+      "key": "content_min_x_paper_mm.{Role}/content_min_y_paper_mm.{Role}/content_max_x_paper_mm.{Role}/content_max_y_paper_mm.{Role}",
+      "kind": "Number",
+      "unit": "paper_mm",
+      "consumer": "S9 frame printable/content bounds"
+    },
+    {
+      "key": "show.{LabelRole}",
+      "kind": "Bool",
+      "unit": "none",
+      "consumer": "S6 scoped AnnotationTargets recipe: explicit visible title/elevation roles"
+    },
+    {
+      "key": "anchor_world_x_expr.{ElevationRole}/anchor_world_y_expr.{ElevationRole}",
+      "kind": "Text",
+      "unit": "none",
+      "consumer": "S6 expression IDs returning source world mm;Z from exact datum/pipe"
+    },
+    {
+      "key": "title_anchor_x_expr/title_anchor_y_expr",
+      "kind": "Text",
+      "unit": "none",
+      "consumer": "S6 expression IDs returning view-local mm"
+    },
+    {
+      "key": "route_enabled",
+      "kind": "Bool",
+      "unit": "none",
+      "consumer": "S7 per-label-role explicit route intent;title may have no leader"
+    }
+  ],
+  "missing_value_action": "RULE_BINDING_DATA_MISSING",
+  "approval": "23 proposal headers already Approved;payload completeness is separate"
+}

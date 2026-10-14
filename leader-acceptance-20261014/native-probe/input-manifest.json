@@ -1,0 +1,95 @@
+{
+  "purpose": "Isolated command load and missing-file negative probe only; no product generation/acceptance",
+  "source_path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\docs\\vhgpro-standard-20261012\\native\\source-00\\scratch.dwg",
+  "source_sha256": "f35682aaf294aa970ef54e976dba250e495ec47c5e6845621425f86b4a5d86bc",
+  "input_copy": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261014-review-01\\native-probe\\scratch-copy.dwg",
+  "copy_sha256": "f35682aaf294aa970ef54e976dba250e495ec47c5e6845621425f86b4a5d86bc",
+  "plugin_files": [
+    {
+      "name": "ClosedXML.dll",
+      "sha256": "d20270efad0d3f5a17ed35c6fe512c2071b1ed40a57ce91199897f41760ec1bc"
+    },
+    {
+      "name": "ClosedXML.Parser.dll",
+      "sha256": "8d36e75b9b238e57ddd4122d0e2f6105acdc873bce2f297277ae0a25ddf610eb"
+    },
+    {
+      "name": "DBTool.Application.dll",
+      "sha256": "10747171a26fde160520938d17bd6eced50bcfe2ba36a47ef4b06d1b11f4a53e"
+    },
+    {
+      "name": "DBTool.Application.pdb",
+      "sha256": "3f9c8b8e13bc751cbf0c73f1d0b487ad1904d36b0c1fcc08a20f997ee72b0bfa"
+    },
+    {
+      "name": "DBTool.AutoCAD.dll",
+      "sha256": "96f13c662684de61b3959a9472d1e91ff1546381147fea4821702924dd6922dc"
+    },
+    {
+      "name": "DBTool.AutoCAD.pdb",
+      "sha256": "81e15a078fda54cbed7ec95e2e52fe520c4cd53ced197b34e1a362f283d6427f"
+    },
+    {
+      "name": "DBTool.deps.json",
+      "sha256": "caf73792191d5c3ba2f04a037d10f99452552a55d0559acc787ae3fc11a4abb3"
+    },
+    {
+      "name": "DBTool.dll",
+      "sha256": "5918c64fbaeacd612fc9d1336f45b69967dc09983ea621763a648b4807fc1857"
+    },
+    {
+      "name": "DBTool.Domain.dll",
+      "sha256": "3e8ba6a2666815ff605104cce839aa1d81d46a5586e847d18eeb708200eda972"
+    },
+    {
+      "name": "DBTool.Domain.pdb",
+      "sha256": "00e3b0cedbba67e3e1368fbd422447df1cc7370fd10381fb939d72f8ed2440dd"
+    },
+    {
+      "name": "DBTool.Drawing.dll",
+      "sha256": "931107cf4ecd25045a9d99db414bf6e828ee682ad9c4f8e32e81c14412f97097"
+    },
+    {
+      "name": "DBTool.Drawing.pdb",
+      "sha256": "0e03012ef34f68de67f7f7de882df75547cc5741d105d56f9e4debf3cc793ee0"
+    },
+    {
+      "name": "DBTool.Infrastructure.Excel.dll",
+      "sha256": "6c20c8968d211252315210d6f3b781799371acdc7c5cdd4d136e0b4fdf7c7896"
+    },
+    {
+      "name": "DBTool.Infrastructure.Excel.pdb",
+      "sha256": "9fef932626ebec64bc0a252bd860174c559dde28fe6c4dcfdf47d5252c0dcd33"
+    },
+    {
+      "name": "DBTool.pdb",
+      "sha256": "23160b579679cb6698a7962208069003ba6e2b03f294b83d27f10037b98f78c3"
+    },
+    {
+      "name": "DocumentFormat.OpenXml.dll",
+      "sha256": "5a0c237a7467dde85bce402d124b7a07777531607837eb59ee62a9a79905ff43"
+    },
+    {
+      "name": "DocumentFormat.OpenXml.Framework.dll",
+      "sha256": "ddae1f34e78971a731193e459c3aed54314f93a54d51c2457e12ccc169bf5663"
+    },
+    {
+      "name": "ExcelNumberFormat.dll",
+      "sha256": "d7c45b8e4e1027831e2fc8cdf941faf51d28a66feacfcaaa737da73262e7b507"
+    },
+    {
+      "name": "RBush.dll",
+      "sha256": "047e48ab058a783a1d0021ede9ac238e158ed43fa2368a15fd4ccd8f920ab6a1"
+    },
+    {
+      "name": "SixLabors.Fonts.dll",
+      "sha256": "e1e2f107e7c78fb859f1b23383107a125acd8b3a7470140850daa6f6f6c45d9f"
+    },
+    {
+      "name": "System.IO.Packaging.dll",
+      "sha256": "12ddc8bff279fad856551a74894dc52b80fa437d5d2b32722e70ae6899217b7c"
+    }
+  ],
+  "expected": "Either native command loads and rejects nonexistent workbook, or actual host-load diagnostic; never product Passed",
+  "product_native_status": "NotRun"
+}

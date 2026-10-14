@@ -1,0 +1,93 @@
+{
+  "PackageId": "W01",
+  "Phase": "P0",
+  "Version": "leader-field-contracts-20261013-r2",
+  "DependencyReceiptHashes": {},
+  "ChangedFiles": [
+    {
+      "Path": "DBTool/DBTool.Application/ReferenceComparisonService.cs",
+      "BeforeHash": "2B061D50A32E3EC0E4929AD6F93DC57B76A35BDD95342B3740F8F674036712C7",
+      "AfterHash": "350B1CC8122DAB92268EE493B9EFEB4592FBF89626DBD7AA0BBFDB6E4A1E609D",
+      "Reason": "Tách numerical expected từ EffectiveInput với recipe/source PDF, lưu Expected/Actual/unit/tolerance và reviewed region; phân biệt InputDifference và regression."
+    },
+    {
+      "Path": "DBTool/DBTool.Application/ReleaseEvidence.cs",
+      "BeforeHash": "422688523B20785E7F848014334D1AA21570C359442A24E50CBD39D4FDDC7DA6",
+      "AfterHash": "49EC1F2F2190202BFE1430255C1078BC6155C73D61A1216957E5AA9642D1414A",
+      "Reason": "Bổ sung StageVerdictRecord, RowVerdictRecord, PageVerdictRecord; chặn chuyển NotRun/Partial/NeedsRule thành Passed từ exit code."
+    },
+    {
+      "Path": "DBTool/DBTool.Drawing/SemanticDiff.cs",
+      "BeforeHash": "60EDDE6DE31DBAB5D6AE622BB9F5B1744A0ADD45E9FE0F2D5FB18D56CCCBD203",
+      "AfterHash": "AE5865958B38C200A86717B011C03A473B1767F88FB1749F9C5F0EF87E88A981",
+      "Reason": "So physical manifest chuẩn hóa thay DWG bytes, phân biệt layout-only, rename, input-basis differences với mất nội dung (content loss)."
+    }
+  ],
+  "InterfaceGate": "Passed",
+  "ImplementationStatus": "ImplementationComplete",
+  "NativeGate": "NotRun",
+  "BindingMissing": [],
+  "Commands": [
+    {
+      "Command": "dotnet test DBTool.Application.Tests/DBTool.Application.Tests.csproj",
+      "ExitCode": 0,
+      "ArtifactPath": "DBTool/DBTool.Application.Tests"
+    },
+    {
+      "Command": "dotnet test DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj",
+      "ExitCode": 0,
+      "ArtifactPath": "DBTool/DBTool.Drawing.Tests"
+    },
+    {
+      "Command": "dotnet test DBTool.Domain.Tests/DBTool.Domain.Tests.csproj",
+      "ExitCode": 0,
+      "ArtifactPath": "DBTool/DBTool.Domain.Tests"
+    },
+    {
+      "Command": "dotnet test DBTool.Excel.Tests/DBTool.Excel.Tests.csproj",
+      "ExitCode": 0,
+      "ArtifactPath": "DBTool/DBTool.Excel.Tests"
+    }
+  ],
+  "Checks": [
+    {
+      "Name": "ReferenceComparison_InputMismatch_Separation",
+      "SubjectId": "ReferenceComparisonService",
+      "Expected": "InputMismatch (not implementation defect)",
+      "Actual": "ComparisonClassification.InputMismatch",
+      "Unit": "none",
+      "ToleranceRuleId": "NR-18",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Application/ReferenceComparisonService.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "ReleaseEvidence_VerdictIntegrity",
+      "SubjectId": "ReleaseEvidenceEvaluator",
+      "Expected": "Blocked on NotRun/Partial/NeedsRule regardless of exit code",
+      "Actual": "InvalidOperationException raised and logged as missing gate",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Application/ReleaseEvidence.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "SemanticDiff_PhysicalManifestAndClassification",
+      "SubjectId": "SemanticDiff",
+      "Expected": "Accurate classification of LayoutOnly, Rename, InputBasis vs ContentLoss",
+      "Actual": "DifferenceNature properly assigned and exposed on DiffReport",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/SemanticDiff.cs"
+      ],
+      "Verdict": "Passed"
+    }
+  ],
+  "ActualDWG/PDFPaths": [],
+  "RecoveryState": "Clean",
+  "RollbackInstructions": "git checkout -- \"Ver 1/DBTool/DBTool.Application/ReferenceComparisonService.cs\" \"Ver 1/DBTool/DBTool.Application/ReleaseEvidence.cs\" \"Ver 1/DBTool/DBTool.Drawing/SemanticDiff.cs\""
+}

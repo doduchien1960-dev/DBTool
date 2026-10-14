@@ -1,0 +1,192 @@
+[
+  {
+    "package": "W02",
+    "dependency": "W01",
+    "expected_hash": "88ef0c2bff47dab14ed469f80982e0136f24b64c056a7ca51f861632cc977edf",
+    "recorded_hash": "88EF0C2BFF47DAB14ED469F80982E0136F24B64C056A7CA51F861632CC977EDF",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-13T13:49:20.446258+00:00",
+    "package_mtime_utc": "2026-10-13T14:34:45.117654+00:00",
+    "mtime_order": true
+  },
+  {
+    "package": "W03",
+    "dependency": "W02",
+    "expected_hash": "9109421973a2367b66c171f19ba95505cb1458e0a6c6ade3149cd5019034ccd9",
+    "recorded_hash": "9109421973A2367B66C171F19BA95505CB1458E0A6C6ADE3149CD5019034CCD9",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-13T14:34:45.117654+00:00",
+    "package_mtime_utc": "2026-10-13T14:56:32.087929+00:00",
+    "mtime_order": true
+  },
+  {
+    "package": "W04",
+    "dependency": "W03",
+    "expected_hash": "88d2b84615f8c5121fa51a4955b6180c75d73629697b8251d1cea7629b31bc59",
+    "recorded_hash": "88D2B84615F8C5121FA51A4955B6180C75D73629697B8251D1CEA7629B31BC59",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-13T14:56:32.087929+00:00",
+    "package_mtime_utc": "2026-10-13T15:23:16.930410+00:00",
+    "mtime_order": true
+  },
+  {
+    "package": "W05",
+    "dependency": "W02",
+    "expected_hash": "9109421973a2367b66c171f19ba95505cb1458e0a6c6ade3149cd5019034ccd9",
+    "recorded_hash": "9109421973A2367B66C171F19BA95505CB1458E0A6C6ADE3149CD5019034CCD9",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-13T14:34:45.117654+00:00",
+    "package_mtime_utc": "2026-10-13T14:57:12.290836+00:00",
+    "mtime_order": true
+  },
+  {
+    "package": "W06",
+    "dependency": "W02",
+    "expected_hash": "9109421973a2367b66c171f19ba95505cb1458e0a6c6ade3149cd5019034ccd9",
+    "recorded_hash": "9109421973A2367B66C171F19BA95505CB1458E0A6C6ADE3149CD5019034CCD9",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-13T14:34:45.117654+00:00",
+    "package_mtime_utc": "2026-10-13T15:39:41.365731+00:00",
+    "mtime_order": true
+  },
+  {
+    "package": "W06",
+    "dependency": "W03",
+    "expected_hash": "88d2b84615f8c5121fa51a4955b6180c75d73629697b8251d1cea7629b31bc59",
+    "recorded_hash": "88D2B84615F8C5121FA51A4955B6180C75D73629697B8251D1CEA7629B31BC59",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-13T14:56:32.087929+00:00",
+    "package_mtime_utc": "2026-10-13T15:39:41.365731+00:00",
+    "mtime_order": true
+  },
+  {
+    "package": "W07",
+    "dependency": "W06",
+    "expected_hash": "eed9d643a96086799c471af6baf1ae180bdc6d7823c45df5222ba84480540622",
+    "recorded_hash": "EED9D643A96086799C471AF6BAF1AE180BDC6D7823C45DF5222BA84480540622",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-13T15:39:41.365731+00:00",
+    "package_mtime_utc": "2026-10-13T16:18:43.826874+00:00",
+    "mtime_order": true
+  },
+  {
+    "package": "W08",
+    "dependency": "W07",
+    "expected_hash": "acf5f456807d0a2ad25232bc492282d36ded34b546262c78a9b08a12456afbac",
+    "recorded_hash": "ACF5F456807D0A2AD25232BC492282D36DED34B546262C78A9B08A12456AFBAC",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-13T16:18:43.826874+00:00",
+    "package_mtime_utc": "2026-10-13T23:28:10.110333+00:00",
+    "mtime_order": true
+  },
+  {
+    "package": "W08",
+    "dependency": "W03",
+    "expected_hash": "88d2b84615f8c5121fa51a4955b6180c75d73629697b8251d1cea7629b31bc59",
+    "recorded_hash": "88D2B84615F8C5121FA51A4955B6180C75D73629697B8251D1CEA7629B31BC59",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-13T14:56:32.087929+00:00",
+    "package_mtime_utc": "2026-10-13T23:28:10.110333+00:00",
+    "mtime_order": true
+  },
+  {
+    "package": "W09",
+    "dependency": "W08",
+    "expected_hash": "43a92b7a9d33072638432133728aae2aa6b9665d09e56869f8c9e6d0f492673f",
+    "recorded_hash": "43A92B7A9D33072638432133728AAE2AA6B9665D09E56869F8C9E6D0F492673F",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-13T23:28:10.110333+00:00",
+    "package_mtime_utc": "2026-10-13T23:50:08.180362+00:00",
+    "mtime_order": true
+  },
+  {
+    "package": "W09",
+    "dependency": "W04",
+    "expected_hash": "06b2800e33b337c913aaed1c1bc7669a95a3ebc47fd5bb78759e1da25e04b7cc",
+    "recorded_hash": "06B2800E33B337C913AAED1C1BC7669A95A3EBC47FD5BB78759E1DA25E04B7CC",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-13T15:23:16.930410+00:00",
+    "package_mtime_utc": "2026-10-13T23:50:08.180362+00:00",
+    "mtime_order": true
+  },
+  {
+    "package": "W10",
+    "dependency": "W09",
+    "expected_hash": "7f0db787b8819d6f01645a19dc386a9be69d54a93848ea0435ebeef42b8f46e8",
+    "recorded_hash": "7F0DB787B8819D6F01645A19DC386A9BE69D54A93848EA0435EBEEF42B8F46E8",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-13T23:50:08.180362+00:00",
+    "package_mtime_utc": "2026-10-14T00:07:02.784543+00:00",
+    "mtime_order": true
+  },
+  {
+    "package": "W10",
+    "dependency": "W04",
+    "expected_hash": "06b2800e33b337c913aaed1c1bc7669a95a3ebc47fd5bb78759e1da25e04b7cc",
+    "recorded_hash": "06B2800E33B337C913AAED1C1BC7669A95A3EBC47FD5BB78759E1DA25E04B7CC",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-13T15:23:16.930410+00:00",
+    "package_mtime_utc": "2026-10-14T00:07:02.784543+00:00",
+    "mtime_order": true
+  },
+  {
+    "package": "W11",
+    "dependency": "W10",
+    "expected_hash": "135c0ad0747870a2563295bb69b9be9189d17d4196696bc59a1840c7964d3fa4",
+    "recorded_hash": "135C0AD0747870A2563295BB69B9BE9189D17D4196696BC59A1840C7964D3FA4",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-14T00:07:02.784543+00:00",
+    "package_mtime_utc": "2026-10-14T00:38:00.104760+00:00",
+    "mtime_order": true
+  },
+  {
+    "package": "W12",
+    "dependency": "W11",
+    "expected_hash": "923d3ad45a21a61abbb64a73a91d11c7d9c42c816d7a5bf26eb3bc230040b6bc",
+    "recorded_hash": "923D3AD45A21A61ABBB64A73A91D11C7D9C42C816D7A5BF26EB3BC230040B6BC",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-14T00:38:00.104760+00:00",
+    "package_mtime_utc": "2026-10-14T01:08:12.843641+00:00",
+    "mtime_order": true
+  },
+  {
+    "package": "W12",
+    "dependency": "W03",
+    "expected_hash": "88d2b84615f8c5121fa51a4955b6180c75d73629697b8251d1cea7629b31bc59",
+    "recorded_hash": "88D2B84615F8C5121FA51A4955B6180C75D73629697B8251D1CEA7629B31BC59",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-13T14:56:32.087929+00:00",
+    "package_mtime_utc": "2026-10-14T01:08:12.843641+00:00",
+    "mtime_order": true
+  },
+  {
+    "package": "W12",
+    "dependency": "W04",
+    "expected_hash": "06b2800e33b337c913aaed1c1bc7669a95a3ebc47fd5bb78759e1da25e04b7cc",
+    "recorded_hash": "06B2800E33B337C913AAED1C1BC7669A95A3EBC47FD5BB78759E1DA25E04B7CC",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-13T15:23:16.930410+00:00",
+    "package_mtime_utc": "2026-10-14T01:08:12.843641+00:00",
+    "mtime_order": true
+  },
+  {
+    "package": "W13",
+    "dependency": "W12",
+    "expected_hash": "46911c6aedb4e11dceca304387ffd825630d941314fc1736d8670f60bf5005b1",
+    "recorded_hash": "46911C6AEDB4E11DCECA304387FFD825630D941314FC1736D8670F60BF5005B1",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-14T01:08:12.843641+00:00",
+    "package_mtime_utc": "2026-10-14T01:40:25.922789+00:00",
+    "mtime_order": true
+  },
+  {
+    "package": "W13",
+    "dependency": "W05",
+    "expected_hash": "23325dc8cdc092c0cbf743fc3d092ef6b751548c5ac358e42b4844bb86529333",
+    "recorded_hash": "23325DC8CDC092C0CBF743FC3D092EF6B751548C5AC358E42B4844BB86529333",
+    "hash_matches": true,
+    "dependency_mtime_utc": "2026-10-13T14:57:12.290836+00:00",
+    "package_mtime_utc": "2026-10-14T01:40:25.922789+00:00",
+    "mtime_order": true
+  }
+]

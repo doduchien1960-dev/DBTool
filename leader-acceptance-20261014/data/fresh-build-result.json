@@ -1,0 +1,9 @@
+{
+  "command": "dotnet build DBTool/DBTool.slnx --nologo --verbosity minimal -p:AutoCADManagedPath=\"C:\\Program Files\\Autodesk\\AutoCAD 2026\" -bl:<review>/logs/build.binlog",
+  "exit_code": 0,
+  "build_succeeded": true,
+  "errors": 0,
+  "warnings": 5,
+  "log_sha256": "93b6b87a5278bbba2ee85602b25bc1e6d0a634c49188734de6c306bcb963a474",
+  "scope": "Full current solution and dependencies; additional five test projects explicitly executed"
+}

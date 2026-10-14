@@ -1,0 +1,194 @@
+{
+  "PackageId": "W13",
+  "Phase": "P8",
+  "Version": "leader-field-contracts-20261013-r2",
+  "DependencyReceiptHashes": {
+    "W12": "46911C6AEDB4E11DCECA304387FFD825630D941314FC1736D8670F60BF5005B1",
+    "W05": "23325DC8CDC092C0CBF743FC3D092EF6B751548C5AC358E42B4844BB86529333"
+  },
+  "ChangedFiles": [
+    {
+      "Path": "Ver 1/DBTool/DBTool/App/HoGaCommands.cs",
+      "BeforeHash": "C48B7FFEA6CD1F70FD5FE48861ECC1790174BC7B4DB14638F0021FC3C1C26A92",
+      "AfterHash": "D9D3E875517FBEE24DF19129543FCCF7E0C6E17352008A11D10B5663ACA5DB9E",
+      "Reason": "Cập nhật RunBatch sử dụng typed PresentationRequest từ ViewModel (scale/elevation) và ghi log row receipts thay vì hardcoded fixed 30/Symbolic."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool/App/PaletteDrawingCalculation.cs",
+      "BeforeHash": "BE5CEC554E9C1865F48D0DE53EC8AAD48969FF2E42D0A450666241C060735E9E",
+      "AfterHash": "E4FE68F97EFC8F94FBC488895BABD1C8AE76A017FD2967E2BB66077D82DD75D9",
+      "Reason": "Bổ sung PaletteRowReceipt, hỗ trợ PresentationRequest cấu hình được từ caller, fail khi thiếu manhole identities thay vì fallback G400-1."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool/App/SchedulePackageExport.cs",
+      "BeforeHash": "412DFB9AB250B91C0C88392F6BC571E9EF31CFDEC3A247DEDD689FF581A4395A",
+      "AfterHash": "49CD8120270D02F1D82DDF2C8A9518425C07D8F5AF8AC9283CE0FDD3CFFC5BEB",
+      "Reason": "Nhận status/quantity basis từng row, lưu file Excel theo thư mục runId/manholeId, không đánh dấu Complete khi batch có row lỗi."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool/UI/MainPaletteControl.xaml.cs",
+      "BeforeHash": "F0A33ADB4177B05CE660421B77E805464DA2B73202A853A26CC0F3792F9D0E13",
+      "AfterHash": "EB172379F476F74AF010DB0455C6268F498C21A0322BD46ECB15D3EC4BEC7DCA",
+      "Reason": "Bỏ nguồn Presentation cố định 30/Symbolic, lấy DrawingScale và ElevationMode từ ViewModel."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool/UI/MainViewModel.cs",
+      "BeforeHash": "41DE81C3AFA8F9F2EC3226C1AAD8D17487207DB264205B278DB4064D7D77DF20",
+      "AfterHash": "4309D6B7E43E36170D7A0C7C966877E80063002581DB49AC432BFD9A5DEA1E74",
+      "Reason": "Bổ sung typed DrawingScale, AvailableScales (20, 25, 30, 40, 50), ScaleMode, ElevationMode, AvailableElevationModes."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/ExportCalculationUseCase.cs",
+      "BeforeHash": "FD67E0E94BEAB9A6233F7F32A83D5205A71DF57A0CE0C2EC2E2BAF33FD55A3ED",
+      "AfterHash": "FFC0BC550BD151E039ECB3D1B1C1A1FC57DA7D4B7EF3CAF4478B524DEBC4D5C0",
+      "Reason": "Kiểm tra Calculated basis và CalculationStatus trong ExportQuantityAsync trước khi cho phép xuất khối lượng."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/GenerateDrawingUseCase.cs",
+      "BeforeHash": "61C7B4E685CD55E81C5609F25220650A5AEF1AC0519BB3B966815F5518EA0D5E",
+      "AfterHash": "207898E2B534911E656C587CCC701F6492AA3CE77FEE2179295B6D39BAE85BBD",
+      "Reason": "Thêm preflight kiểm tra nhóm S5 (DrawingPackage.Groups) không rỗng khi có occurrences trước khi thực hiện native mutation."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.AutoCAD/BlockAttributeWriter.cs",
+      "BeforeHash": "2F7A55245A155CF0C721B66D368969E1671D064F37279ED9C754C0EEA1287EDE",
+      "AfterHash": "F90B9B009A2D8B8573FB383E4D16ED7E55AA9FF8BD01F7C24C3DAF5376617E07",
+      "Reason": "Xóa giá trị mẫu trong template block attribute khi tag không có trong typed intent; kiểm tra readback xác thực."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.AutoCAD/CadGenerationWriter.cs",
+      "BeforeHash": "2C7714B3690108400AC84F6ACCE7E21B3179B5EE5E3C551C20E14AFD2EDBE2D9",
+      "AfterHash": "3D89BA4720DAB99F7CDB8B38F62D91D236296D7E110C5BF57A1092C8FAB0C6E8",
+      "Reason": "Hiện thực INativeGenerationPort.Write(S9StateV2, token) với transaction rollback, namespace theo ManholeId, bảo toàn ga khác và repository records."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.AutoCAD/CadRenderer.cs",
+      "BeforeHash": "A26AB98B3A11C0C6F3502E31D320C76391066C99A10603DFE438CDD2B3F5683C",
+      "AfterHash": "181120A4A0B6DB337A5069B114F8E02DE43D19B56E760E1E35FDB57AAAF70630",
+      "Reason": "Giữ AppendBlock cho schedule block native, không fallback AppendText text rời cho hàng bảng thống kê."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.AutoCAD/GenerationRepository.cs",
+      "BeforeHash": "72D2665E5C307D757EC3F51E28829D0E4BC5F10D1C314F6B42560A1FA9931635",
+      "AfterHash": "9DA9494AA34948356B3220B63699BB4FDEB5D6795CDAE926F041621D924D7CAC",
+      "Reason": "Thêm TagOwned, StoreGenerationManifest và ReadUntouchedGenerationManifests hỗ trợ kiểm tra atomic replacement giữa các ga."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Headless/Program.cs",
+      "BeforeHash": "7C2FEBD00AD3A24D657889E893C8FE6C2C4046B98428EC5F3776957329AF0259",
+      "AfterHash": "ED58BD509438C2A9822981ABF98C1D815CD1FD0E7BBC982620858BAA2ED82203",
+      "Reason": "Headless giữ single calculation contract; hỗ trợ --scale 20|30|40, reject missing manhole identity thay vì fallback G400."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+      "BeforeHash": "3FDB0BEBBDC36F71B669CF66E1AC2D0EB0F8FAC0ED0DD8D85CCF72B38A2A6AFF",
+      "AfterHash": "849E2D7874808FDFF76AAD93C1F4E66B19FBB37A606BAAD850EBE0D845DFAF17",
+      "Reason": "Bổ sung S10StageAdapter, S11StageAdapter và ProductionDispatcher kết nối cumulative pipeline S0-S11."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application.Tests/W13StageAdapterTests.cs",
+      "BeforeHash": "",
+      "AfterHash": "FE2F3BF073A1A0EA31A59C02877CF7B608B566352149AE0C080E145A0D799C0F",
+      "Reason": "Unit test cho S10StageAdapter, S11StageAdapter, ProductionDispatcher pipeline wiring."
+    }
+  ],
+  "InterfaceGate": "Passed",
+  "ImplementationStatus": "ImplementationComplete",
+  "NativeGate": "NotRun",
+  "BindingMissing": [],
+  "Commands": [
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.UI.Tests/DBTool.UI.Tests.csproj\" -p:AutoCADManagedPath=\"C:\\Program Files\\Autodesk\\AutoCAD 2026\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.UI.Tests"
+    },
+    {
+      "Command": "dotnet build \"Ver 1/DBTool/DBTool.AutoCAD/DBTool.AutoCAD.csproj\" -p:AutoCADManagedPath=\"C:\\Program Files\\Autodesk\\AutoCAD 2026\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.AutoCAD"
+    },
+    {
+      "Command": "dotnet build \"Ver 1/DBTool/DBTool.Headless/DBTool.Headless.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Headless"
+    }
+  ],
+  "Checks": [
+    {
+      "Name": "ProductionPipeline_S0_Through_S11_Wiring",
+      "SubjectId": "ProductionDispatcher",
+      "Expected": "IS10StageV2 and IS11StageV2 invoked in order",
+      "Actual": "S10StageAdapter and S11StageAdapter execute and assemble BatchV2",
+      "Unit": "state",
+      "ToleranceRuleId": "ARCH-DISPATCHER",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+        "Ver 1/DBTool/DBTool.Application.Tests/W13StageAdapterTests.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "CadGenerationWriter_NativeGenerationPort_Implementation",
+      "SubjectId": "CadGenerationWriter",
+      "Expected": "Implements INativeGenerationPort.Write with transaction rollback and repository tagging",
+      "Actual": "Implements INativeGenerationPort.Write and verifies untouched manhole states",
+      "Unit": "contract",
+      "ToleranceRuleId": "ARCH-CAD-PORT",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.AutoCAD/CadGenerationWriter.cs",
+        "Ver 1/DBTool/DBTool.AutoCAD/GenerationRepository.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "Palette_PresentationRequest_Configurability",
+      "SubjectId": "PaletteDrawingCalculation",
+      "Expected": "PresentationRequest passed from ViewModel (scale, elevation) instead of hardcoded 30/Symbolic",
+      "Actual": "MainViewModel and MainPaletteControl provide typed DrawingScale and ElevationMode",
+      "Unit": "request",
+      "ToleranceRuleId": "ARCH-PALETTE-PRESENTATION",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool/App/PaletteDrawingCalculation.cs",
+        "Ver 1/DBTool/DBTool/UI/MainPaletteControl.xaml.cs",
+        "Ver 1/DBTool/DBTool/UI/MainViewModel.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "Headless_Scale_And_Identity_Validation",
+      "SubjectId": "HeadlessRunner",
+      "Expected": "Page scales validated, single manhole identity enforced, no fixture fallback",
+      "Actual": "Validates scales and raises CLI_ARGUMENT_INVALID on missing or invalid arguments",
+      "Unit": "contract",
+      "ToleranceRuleId": "ARCH-HEADLESS",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Headless/Program.cs",
+        "Ver 1/DBTool/DBTool.Excel.Tests/HeadlessRunnerTests.cs"
+      ],
+      "Verdict": "Passed"
+    }
+  ],
+  "ActualDWG/PDFPaths": [],
+  "RecoveryState": "Intact",
+  "RollbackInstructions": "git checkout HEAD -- 'Ver 1/DBTool/DBTool/App/HoGaCommands.cs' 'Ver 1/DBTool/DBTool/App/PaletteDrawingCalculation.cs' 'Ver 1/DBTool/DBTool/App/SchedulePackageExport.cs' 'Ver 1/DBTool/DBTool/UI/MainPaletteControl.xaml.cs' 'Ver 1/DBTool/DBTool/UI/MainViewModel.cs' 'Ver 1/DBTool/DBTool.Application/ExportCalculationUseCase.cs' 'Ver 1/DBTool/DBTool.Application/GenerateDrawingUseCase.cs' 'Ver 1/DBTool/DBTool.AutoCAD/BlockAttributeWriter.cs' 'Ver 1/DBTool/DBTool.AutoCAD/CadGenerationWriter.cs' 'Ver 1/DBTool/DBTool.AutoCAD/CadRenderer.cs' 'Ver 1/DBTool/DBTool.AutoCAD/GenerationRepository.cs' 'Ver 1/DBTool/DBTool.Headless/Program.cs' 'Ver 1/DBTool/DBTool.Application/StageAdapters.cs' && rm 'Ver 1/DBTool/DBTool.Application.Tests/W13StageAdapterTests.cs'"
+}

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="85d13dbc-db8c-4077-8147-5958ddbc325a" name="HungPhatPC@ADMINISTRATOR 2026-10-14 09:38:41" runUser="ADMINISTRATOR\HungPhatPC" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-10-14T09:38:41.4640725+07:00" queuing="2026-10-14T09:38:41.4640729+07:00" start="2026-10-14T09:38:40.7440266+07:00" finish="2026-10-14T09:38:43.0082350+07:00" />
+  <TestSettings name="default" id="f7254cb5-131e-49ce-ba04-1932ad0986af">
+    <Deployment runDeploymentRoot="HungPhatPC_ADMINISTRATOR_2026-10-14_09_38_41" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="b88bddda-53aa-43cb-aaea-61d79a0130ee" testId="9546d01d-848e-18c3-9cf2-c5419168e7e9" testName="DBTool.UI.Tests.PaletteThemeTests.Real_templates_keep_popup_items_lists_and_caret_dark_with_white_text" computerName="ADMINISTRATOR" duration="00:00:00.6112286" startTime="2026-10-14T09:38:41.3619338+07:00" endTime="2026-10-14T09:38:41.9791602+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b88bddda-53aa-43cb-aaea-61d79a0130ee" />
+    <UnitTestResult executionId="7eb77a4a-6c45-4d94-8932-0e381a589cc4" testId="9733dad8-0e7e-2804-9524-190ba1dbd260" testName="DBTool.UI.Tests.PaletteSelectionTests.Highlighted_row_is_used_when_no_checkmarks_remain" computerName="ADMINISTRATOR" duration="00:00:00.0038405" startTime="2026-10-14T09:38:41.4013334+07:00" endTime="2026-10-14T09:38:41.4013839+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7eb77a4a-6c45-4d94-8932-0e381a589cc4" />
+    <UnitTestResult executionId="a6b97e40-49f2-435d-ac83-abbf83da62f0" testId="90bd4ab3-ab4c-b994-412e-f07aeb466270" testName="DBTool.UI.Tests.PaletteSelectionTests.Unchecked_manholes_disable_generation" computerName="ADMINISTRATOR" duration="00:00:00.0001395" startTime="2026-10-14T09:38:41.4015285+07:00" endTime="2026-10-14T09:38:41.4015690+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a6b97e40-49f2-435d-ac83-abbf83da62f0" />
+    <UnitTestResult executionId="02f2c5d6-6e26-4d38-a6fb-6e6455870dfa" testId="09ac712a-50e1-1286-5af3-1bcab9240639" testName="DBTool.UI.Tests.PaletteDrawingCalculationTests.Missing_selected_row_returns_no_batch_for_the_writer" computerName="ADMINISTRATOR" duration="00:00:01.4301667" startTime="2026-10-14T09:38:41.3619916+07:00" endTime="2026-10-14T09:38:42.7995118+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="02f2c5d6-6e26-4d38-a6fb-6e6455870dfa" />
+    <UnitTestResult executionId="03e8b0ca-065a-40ca-9637-8fc316aeb895" testId="f17cd370-e62d-6279-95c0-54843e48ba60" testName="DBTool.UI.Tests.PaletteSelectionTests.Busy_and_changed_profile_disable_generation" computerName="ADMINISTRATOR" duration="00:00:00.0010526" startTime="2026-10-14T09:38:41.4005889+07:00" endTime="2026-10-14T09:38:41.4006657+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="03e8b0ca-065a-40ca-9637-8fc316aeb895" />
+    <UnitTestResult executionId="f757ca93-a37a-4077-82dd-f64ac823e5ef" testId="783316e5-b4e2-2437-cd47-b0e33a114ea7" testName="DBTool.UI.Tests.PaletteSelectionTests.Added_items_notify_button_when_their_selection_changes" computerName="ADMINISTRATOR" duration="00:00:00.0023295" startTime="2026-10-14T09:38:41.4019852+07:00" endTime="2026-10-14T09:38:41.4020429+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f757ca93-a37a-4077-82dd-f64ac823e5ef" />
+    <UnitTestResult executionId="48e4c3df-f07b-4d0c-aa79-5c190457fe2a" testId="52635746-2333-5cf7-8174-74174a06355c" testName="DBTool.UI.Tests.PaletteDrawingCalculationTests.Changed_workbook_bytes_require_reloading_before_drawing" computerName="ADMINISTRATOR" duration="00:00:00.0123978" startTime="2026-10-14T09:38:42.8000180+07:00" endTime="2026-10-14T09:38:42.8128096+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="48e4c3df-f07b-4d0c-aa79-5c190457fe2a" />
+    <UnitTestResult executionId="11c30d40-abba-490e-902d-afc289257bf7" testId="7676a802-d48a-4f0c-30dd-e3b239adb814" testName="DBTool.UI.Tests.PaletteDrawingCalculationTests.Each_checked_row_gets_its_own_immutable_package_from_the_same_snapshot" computerName="ADMINISTRATOR" duration="00:00:00.0446098" startTime="2026-10-14T09:38:42.8129300+07:00" endTime="2026-10-14T09:38:42.8578290+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="11c30d40-abba-490e-902d-afc289257bf7" />
+    <UnitTestResult executionId="75fc43ff-294b-467d-9db2-b1a4158ef5a8" testId="904f9ea4-506f-f5a0-d2c5-a7eff7fe5139" testName="DBTool.UI.Tests.PaletteDrawingCalculationTests.FailurePresentationSeparatesReviewAndReportsSeverityScopeGaAndCell" computerName="ADMINISTRATOR" duration="00:00:00.0088929" startTime="2026-10-14T09:38:42.8579687+07:00" endTime="2026-10-14T09:38:42.8668260+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="75fc43ff-294b-467d-9db2-b1a4158ef5a8" />
+    <UnitTestResult executionId="7cd14b6f-0f3d-4044-93bf-7e7b67cd202f" testId="1ec70434-a1a9-a555-1c97-e81f09916b33" testName="DBTool.UI.Tests.ScheduleEntrypointParityTests.ExportConsumesTheCalculatedPackageWithoutRecomputingRowsOrHash" computerName="ADMINISTRATOR" duration="00:00:01.4757283" startTime="2026-10-14T09:38:41.3608617+07:00" endTime="2026-10-14T09:38:42.8440074+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7cd14b6f-0f3d-4044-93bf-7e7b67cd202f" />
+    <UnitTestResult executionId="acda8d53-15ee-41bf-af00-4ceff9adb07d" testId="a4cb4080-878f-fcf0-5d89-abe495c2f5fb" testName="DBTool.UI.Tests.PaletteSelectionTests.Multiple_checked_manholes_enable_generation" computerName="ADMINISTRATOR" duration="00:00:00.0001798" startTime="2026-10-14T09:38:41.4350089+07:00" endTime="2026-10-14T09:38:41.4350927+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="acda8d53-15ee-41bf-af00-4ceff9adb07d" />
+    <UnitTestResult executionId="819f6e3a-9d4e-4d52-a9d0-b43a5e0c9d3c" testId="32cb31ce-0eca-b878-3513-7ce0adf3d897" testName="DBTool.UI.Tests.PaletteSelectionTests.Blocking_error_on_unselected_manholes_does_not_lock_valid_selection" computerName="ADMINISTRATOR" duration="00:00:00.0006945" startTime="2026-10-14T09:38:41.4355135+07:00" endTime="2026-10-14T09:38:41.4355694+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="819f6e3a-9d4e-4d52-a9d0-b43a5e0c9d3c" />
+    <UnitTestResult executionId="0f278457-9ad8-45b3-a753-d64b12346dcb" testId="b71bdbcc-4210-19a9-7e4e-75ca198cd75b" testName="DBTool.UI.Tests.PaletteSelectionTests.Global_block_and_selected_block_still_disable_generation" computerName="ADMINISTRATOR" duration="00:00:00.0208634" startTime="2026-10-14T09:38:41.3620199+07:00" endTime="2026-10-14T09:38:41.3908337+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0f278457-9ad8-45b3-a753-d64b12346dcb" />
+    <UnitTestResult executionId="1f43254f-2ae9-4fc1-9e58-4666cc40323a" testId="6ce00436-e95b-db5b-62f4-d0e3a2bbd2a8" testName="DBTool.UI.Tests.PaletteSelectionTests.Insertion_point_changes_do_not_invalidate_workbook_snapshot" computerName="ADMINISTRATOR" duration="00:00:00.0002454" startTime="2026-10-14T09:38:41.4016831+07:00" endTime="2026-10-14T09:38:41.4017336+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1f43254f-2ae9-4fc1-9e58-4666cc40323a" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="DBTool.UI.Tests.PaletteSelectionTests.Added_items_notify_button_when_their_selection_changes" storage="c:\users\ducbao\desktop\dbtool\ver 1\dbtool\dbtool.ui.tests\bin\debug\net8.0-windows\dbtool.ui.tests.dll" id="783316e5-b4e2-2437-cd47-b0e33a114ea7">
+      <Execution id="f757ca93-a37a-4077-82dd-f64ac823e5ef" />
+      <TestMethod codeBase="C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.UI.Tests\bin\Debug\net8.0-windows\DBTool.UI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="DBTool.UI.Tests.PaletteSelectionTests" name="Added_items_notify_button_when_their_selection_changes" />
+    </UnitTest>
+    <UnitTest name="DBTool.UI.Tests.PaletteDrawingCalculationTests.FailurePresentationSeparatesReviewAndReportsSeverityScopeGaAndCell" storage="c:\users\ducbao\desktop\dbtool\ver 1\dbtool\dbtool.ui.tests\bin\debug\net8.0-windows\dbtool.ui.tests.dll" id="904f9ea4-506f-f5a0-d2c5-a7eff7fe5139">
+      <Execution id="75fc43ff-294b-467d-9db2-b1a4158ef5a8" />
+      <TestMethod codeBase="C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.UI.Tests\bin\Debug\net8.0-windows\DBTool.UI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="DBTool.UI.Tests.PaletteDrawingCalculationTests" name="FailurePresentationSeparatesReviewAndReportsSeverityScopeGaAndCell" />
+    </UnitTest>
+    <UnitTest name="DBTool.UI.Tests.PaletteSelectionTests.Highlighted_row_is_used_when_no_checkmarks_remain" storage="c:\users\ducbao\desktop\dbtool\ver 1\dbtool\dbtool.ui.tests\bin\debug\net8.0-windows\dbtool.ui.tests.dll" id="9733dad8-0e7e-2804-9524-190ba1dbd260">
+      <Execution id="7eb77a4a-6c45-4d94-8932-0e381a589cc4" />
+      <TestMethod codeBase="C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.UI.Tests\bin\Debug\net8.0-windows\DBTool.UI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="DBTool.UI.Tests.PaletteSelectionTests" name="Highlighted_row_is_used_when_no_checkmarks_remain" />
+    </UnitTest>
+    <UnitTest name="DBTool.UI.Tests.PaletteDrawingCalculationTests.Changed_workbook_bytes_require_reloading_before_drawing" storage="c:\users\ducbao\desktop\dbtool\ver 1\dbtool\dbtool.ui.tests\bin\debug\net8.0-windows\dbtool.ui.tests.dll" id="52635746-2333-5cf7-8174-74174a06355c">
+      <Execution id="48e4c3df-f07b-4d0c-aa79-5c190457fe2a" />
+      <TestMethod codeBase="C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.UI.Tests\bin\Debug\net8.0-windows\DBTool.UI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="DBTool.UI.Tests.PaletteDrawingCalculationTests" name="Changed_workbook_bytes_require_reloading_before_drawing" />
+    </UnitTest>
+    <UnitTest name="DBTool.UI.Tests.PaletteSelectionTests.Blocking_error_on_unselected_manholes_does_not_lock_valid_selection" storage="c:\users\ducbao\desktop\dbtool\ver 1\dbtool\dbtool.ui.tests\bin\debug\net8.0-windows\dbtool.ui.tests.dll" id="32cb31ce-0eca-b878-3513-7ce0adf3d897">
+      <Execution id="819f6e3a-9d4e-4d52-a9d0-b43a5e0c9d3c" />
+      <TestMethod codeBase="C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.UI.Tests\bin\Debug\net8.0-windows\DBTool.UI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="DBTool.UI.Tests.PaletteSelectionTests" name="Blocking_error_on_unselected_manholes_does_not_lock_valid_selection" />
+    </UnitTest>
+    <UnitTest name="DBTool.UI.Tests.PaletteSelectionTests.Unchecked_manholes_disable_generation" storage="c:\users\ducbao\desktop\dbtool\ver 1\dbtool\dbtool.ui.tests\bin\debug\net8.0-windows\dbtool.ui.tests.dll" id="90bd4ab3-ab4c-b994-412e-f07aeb466270">
+      <Execution id="a6b97e40-49f2-435d-ac83-abbf83da62f0" />
+      <TestMethod codeBase="C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.UI.Tests\bin\Debug\net8.0-windows\DBTool.UI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="DBTool.UI.Tests.PaletteSelectionTests" name="Unchecked_manholes_disable_generation" />
+    </UnitTest>
+    <UnitTest name="DBTool.UI.Tests.PaletteThemeTests.Real_templates_keep_popup_items_lists_and_caret_dark_with_white_text" storage="c:\users\ducbao\desktop\dbtool\ver 1\dbtool\dbtool.ui.tests\bin\debug\net8.0-windows\dbtool.ui.tests.dll" id="9546d01d-848e-18c3-9cf2-c5419168e7e9">
+      <Execution id="b88bddda-53aa-43cb-aaea-61d79a0130ee" />
+      <TestMethod codeBase="C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.UI.Tests\bin\Debug\net8.0-windows\DBTool.UI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="DBTool.UI.Tests.PaletteThemeTests" name="Real_templates_keep_popup_items_lists_and_caret_dark_with_white_text" />
+    </UnitTest>
+    <UnitTest name="DBTool.UI.Tests.PaletteDrawingCalculationTests.Missing_selected_row_returns_no_batch_for_the_writer" storage="c:\users\ducbao\desktop\dbtool\ver 1\dbtool\dbtool.ui.tests\bin\debug\net8.0-windows\dbtool.ui.tests.dll" id="09ac712a-50e1-1286-5af3-1bcab9240639">
+      <Execution id="02f2c5d6-6e26-4d38-a6fb-6e6455870dfa" />
+      <TestMethod codeBase="C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.UI.Tests\bin\Debug\net8.0-windows\DBTool.UI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="DBTool.UI.Tests.PaletteDrawingCalculationTests" name="Missing_selected_row_returns_no_batch_for_the_writer" />
+    </UnitTest>
+    <UnitTest name="DBTool.UI.Tests.ScheduleEntrypointParityTests.ExportConsumesTheCalculatedPackageWithoutRecomputingRowsOrHash" storage="c:\users\ducbao\desktop\dbtool\ver 1\dbtool\dbtool.ui.tests\bin\debug\net8.0-windows\dbtool.ui.tests.dll" id="1ec70434-a1a9-a555-1c97-e81f09916b33">
+      <Execution id="7cd14b6f-0f3d-4044-93bf-7e7b67cd202f" />
+      <TestMethod codeBase="C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.UI.Tests\bin\Debug\net8.0-windows\DBTool.UI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="DBTool.UI.Tests.ScheduleEntrypointParityTests" name="ExportConsumesTheCalculatedPackageWithoutRecomputingRowsOrHash" />
+    </UnitTest>
+    <UnitTest name="DBTool.UI.Tests.PaletteDrawingCalculationTests.Each_checked_row_gets_its_own_immutable_package_from_the_same_snapshot" storage="c:\users\ducbao\desktop\dbtool\ver 1\dbtool\dbtool.ui.tests\bin\debug\net8.0-windows\dbtool.ui.tests.dll" id="7676a802-d48a-4f0c-30dd-e3b239adb814">
+      <Execution id="11c30d40-abba-490e-902d-afc289257bf7" />
+      <TestMethod codeBase="C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.UI.Tests\bin\Debug\net8.0-windows\DBTool.UI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="DBTool.UI.Tests.PaletteDrawingCalculationTests" name="Each_checked_row_gets_its_own_immutable_package_from_the_same_snapshot" />
+    </UnitTest>
+    <UnitTest name="DBTool.UI.Tests.PaletteSelectionTests.Global_block_and_selected_block_still_disable_generation" storage="c:\users\ducbao\desktop\dbtool\ver 1\dbtool\dbtool.ui.tests\bin\debug\net8.0-windows\dbtool.ui.tests.dll" id="b71bdbcc-4210-19a9-7e4e-75ca198cd75b">
+      <Execution id="0f278457-9ad8-45b3-a753-d64b12346dcb" />
+      <TestMethod codeBase="C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.UI.Tests\bin\Debug\net8.0-windows\DBTool.UI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="DBTool.UI.Tests.PaletteSelectionTests" name="Global_block_and_selected_block_still_disable_generation" />
+    </UnitTest>
+    <UnitTest name="DBTool.UI.Tests.PaletteSelectionTests.Insertion_point_changes_do_not_invalidate_workbook_snapshot" storage="c:\users\ducbao\desktop\dbtool\ver 1\dbtool\dbtool.ui.tests\bin\debug\net8.0-windows\dbtool.ui.tests.dll" id="6ce00436-e95b-db5b-62f4-d0e3a2bbd2a8">
+      <Execution id="1f43254f-2ae9-4fc1-9e58-4666cc40323a" />
+      <TestMethod codeBase="C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.UI.Tests\bin\Debug\net8.0-windows\DBTool.UI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="DBTool.UI.Tests.PaletteSelectionTests" name="Insertion_point_changes_do_not_invalidate_workbook_snapshot" />
+    </UnitTest>
+    <UnitTest name="DBTool.UI.Tests.PaletteSelectionTests.Busy_and_changed_profile_disable_generation" storage="c:\users\ducbao\desktop\dbtool\ver 1\dbtool\dbtool.ui.tests\bin\debug\net8.0-windows\dbtool.ui.tests.dll" id="f17cd370-e62d-6279-95c0-54843e48ba60">
+      <Execution id="03e8b0ca-065a-40ca-9637-8fc316aeb895" />
+      <TestMethod codeBase="C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.UI.Tests\bin\Debug\net8.0-windows\DBTool.UI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="DBTool.UI.Tests.PaletteSelectionTests" name="Busy_and_changed_profile_disable_generation" />
+    </UnitTest>
+    <UnitTest name="DBTool.UI.Tests.PaletteSelectionTests.Multiple_checked_manholes_enable_generation" storage="c:\users\ducbao\desktop\dbtool\ver 1\dbtool\dbtool.ui.tests\bin\debug\net8.0-windows\dbtool.ui.tests.dll" id="a4cb4080-878f-fcf0-5d89-abe495c2f5fb">
+      <Execution id="acda8d53-15ee-41bf-af00-4ceff9adb07d" />
+      <TestMethod codeBase="C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.UI.Tests\bin\Debug\net8.0-windows\DBTool.UI.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="DBTool.UI.Tests.PaletteSelectionTests" name="Multiple_checked_manholes_enable_generation" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="9546d01d-848e-18c3-9cf2-c5419168e7e9" executionId="b88bddda-53aa-43cb-aaea-61d79a0130ee" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9733dad8-0e7e-2804-9524-190ba1dbd260" executionId="7eb77a4a-6c45-4d94-8932-0e381a589cc4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="90bd4ab3-ab4c-b994-412e-f07aeb466270" executionId="a6b97e40-49f2-435d-ac83-abbf83da62f0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="09ac712a-50e1-1286-5af3-1bcab9240639" executionId="02f2c5d6-6e26-4d38-a6fb-6e6455870dfa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f17cd370-e62d-6279-95c0-54843e48ba60" executionId="03e8b0ca-065a-40ca-9637-8fc316aeb895" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="783316e5-b4e2-2437-cd47-b0e33a114ea7" executionId="f757ca93-a37a-4077-82dd-f64ac823e5ef" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="52635746-2333-5cf7-8174-74174a06355c" executionId="48e4c3df-f07b-4d0c-aa79-5c190457fe2a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7676a802-d48a-4f0c-30dd-e3b239adb814" executionId="11c30d40-abba-490e-902d-afc289257bf7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="904f9ea4-506f-f5a0-d2c5-a7eff7fe5139" executionId="75fc43ff-294b-467d-9db2-b1a4158ef5a8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1ec70434-a1a9-a555-1c97-e81f09916b33" executionId="7cd14b6f-0f3d-4044-93bf-7e7b67cd202f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a4cb4080-878f-fcf0-5d89-abe495c2f5fb" executionId="acda8d53-15ee-41bf-af00-4ceff9adb07d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="32cb31ce-0eca-b878-3513-7ce0adf3d897" executionId="819f6e3a-9d4e-4d52-a9d0-b43a5e0c9d3c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b71bdbcc-4210-19a9-7e4e-75ca198cd75b" executionId="0f278457-9ad8-45b3-a753-d64b12346dcb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6ce00436-e95b-db5b-62f4-d0e3a2bbd2a8" executionId="1f43254f-2ae9-4fc1-9e58-4666cc40323a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="14" executed="14" passed="14" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.1+bf6400fd51 (64-bit .NET 8.0.31)&#xD;
+[xUnit.net 00:00:00.08]   Discovering: DBTool.UI.Tests&#xD;
+[xUnit.net 00:00:00.10]   Discovered:  DBTool.UI.Tests&#xD;
+[xUnit.net 00:00:00.12]   Starting:    DBTool.UI.Tests&#xD;
+[xUnit.net 00:00:01.65]   Finished:    DBTool.UI.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

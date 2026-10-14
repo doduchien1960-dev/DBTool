@@ -1,0 +1,383 @@
+[
+  {
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Excel\\1.0.HO GA v3.2 (Thăm - Liền khối) 4.11.2025.xlsx",
+    "sha256": "50a4cbf80521995c0ac8ed4a8fcf870d3b545aa13eeabf4334d3abba8bc30ead",
+    "candidate_named_rows": [
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 4,
+        "name": "G400-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 5,
+        "name": "G500-2",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 6,
+        "name": "G600-3",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 7,
+        "name": "G800-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 8,
+        "name": "G800-2",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 9,
+        "name": "G800-3",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 10,
+        "name": "G1000-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 11,
+        "name": "G1200-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 12,
+        "name": "G1200-2",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 13,
+        "name": "G1250-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 14,
+        "name": "G1250-2",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 15,
+        "name": "G1250-3",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 16,
+        "name": "G1250-4",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 17,
+        "name": "G1250-5",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 18,
+        "name": "G1500-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 19,
+        "name": "G1500-2",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 20,
+        "name": "G1500-3",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 21,
+        "name": "G2000-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 22,
+        "name": "G2000-2",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamLienKhoi",
+        "row": 23,
+        "name": "G2500-1",
+        "validation_status": "NotRun"
+      }
+    ],
+    "scope": "Original workbook, all actual valid rows must run; name presence is not validity"
+  },
+  {
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Excel\\2.0.HO GA v3.2 (Thăm - Nắp rời) 4.11.2025.xlsx",
+    "sha256": "d0917949603848209f5b14d3cabd3204ecaa72b9358d16fffb0a437d9a7843f1",
+    "candidate_named_rows": [
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 4,
+        "name": "G400-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 5,
+        "name": "G500-2",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 6,
+        "name": "G600-3",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 7,
+        "name": "G800-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 8,
+        "name": "G800-2",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 9,
+        "name": "G800-3",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 10,
+        "name": "G1000-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 11,
+        "name": "G1200-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 12,
+        "name": "G1200-2",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 13,
+        "name": "G1250-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 14,
+        "name": "G1250-2",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 15,
+        "name": "G1250-3",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 16,
+        "name": "G1250-4",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 17,
+        "name": "G1250-5",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 18,
+        "name": "G1500-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 19,
+        "name": "G1500-2",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 20,
+        "name": "G1500-3",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 21,
+        "name": "G2000-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 22,
+        "name": "G2000-2",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamNapRoi",
+        "row": 23,
+        "name": "G2500-1",
+        "validation_status": "NotRun"
+      }
+    ],
+    "scope": "Original workbook, all actual valid rows must run; name presence is not validity"
+  },
+  {
+    "path": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\VHGpro 3.2\\Demo\\Excel\\3.0.HO GA v3.2 (Thăm+thu - Nắp rời) 4.11.2025.xlsx",
+    "sha256": "1dbc939979546c55eb0981e00fb90fc471ecc28cde931b50d41d1b1e37fc502b",
+    "candidate_named_rows": [
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 4,
+        "name": "G400-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 5,
+        "name": "G500-2",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 6,
+        "name": "G600-3",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 7,
+        "name": "G800-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 8,
+        "name": "G800-2",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 9,
+        "name": "G800-3",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 10,
+        "name": "G1000-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 11,
+        "name": "G1200-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 12,
+        "name": "G1200-2",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 13,
+        "name": "G1250-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 14,
+        "name": "G1250-2",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 15,
+        "name": "G1250-3",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 16,
+        "name": "G1250-4",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 17,
+        "name": "G1250-5",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 18,
+        "name": "G1500-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 19,
+        "name": "G1500-2",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 20,
+        "name": "G1500-3",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 21,
+        "name": "G2000-1",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 22,
+        "name": "G2000-2",
+        "validation_status": "NotRun"
+      },
+      {
+        "sheet": "GaThamThuNapRoi",
+        "row": 23,
+        "name": "G2500-1",
+        "validation_status": "NotRun"
+      }
+    ],
+    "scope": "Original workbook, all actual valid rows must run; name presence is not validity"
+  }
+]

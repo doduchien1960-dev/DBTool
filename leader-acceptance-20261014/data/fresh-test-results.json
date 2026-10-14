@@ -1,0 +1,123 @@
+{
+  "suites": [
+    {
+      "project": "DBTool.Application.Tests",
+      "path": "logs/test-results/DBTool.Application.Tests/HungPhatPC_ADMINISTRATOR_2026-10-14_09_38_08_net8.0.trx",
+      "sha256": "36737c96e924b3e170f3cedeb1ea38ebbc5f9c48109dc89367f6903194abac93",
+      "counters": {
+        "total": "216",
+        "executed": "216",
+        "passed": "216",
+        "failed": "0",
+        "error": "0",
+        "timeout": "0",
+        "aborted": "0",
+        "inconclusive": "0",
+        "passedButRunAborted": "0",
+        "notRunnable": "0",
+        "notExecuted": "0",
+        "disconnected": "0",
+        "warning": "0",
+        "completed": "0",
+        "inProgress": "0",
+        "pending": "0"
+      }
+    },
+    {
+      "project": "DBTool.Domain.Tests",
+      "path": "logs/test-results/DBTool.Domain.Tests/HungPhatPC_ADMINISTRATOR_2026-10-14_09_38_01_net8.0.trx",
+      "sha256": "a7e3a75ecf355c8055801df605d9da47aceee0ee0b1758d0697b6a28ff45439e",
+      "counters": {
+        "total": "580",
+        "executed": "580",
+        "passed": "580",
+        "failed": "0",
+        "error": "0",
+        "timeout": "0",
+        "aborted": "0",
+        "inconclusive": "0",
+        "passedButRunAborted": "0",
+        "notRunnable": "0",
+        "notExecuted": "0",
+        "disconnected": "0",
+        "warning": "0",
+        "completed": "0",
+        "inProgress": "0",
+        "pending": "0"
+      }
+    },
+    {
+      "project": "DBTool.Drawing.Tests",
+      "path": "logs/test-results/DBTool.Drawing.Tests/HungPhatPC_ADMINISTRATOR_2026-10-14_09_38_04_net8.0.trx",
+      "sha256": "b3419c333ad0509adfe22cf74ee6f842a9614dcba1b329087c9ce092e42b7c5a",
+      "counters": {
+        "total": "426",
+        "executed": "426",
+        "passed": "426",
+        "failed": "0",
+        "error": "0",
+        "timeout": "0",
+        "aborted": "0",
+        "inconclusive": "0",
+        "passedButRunAborted": "0",
+        "notRunnable": "0",
+        "notExecuted": "0",
+        "disconnected": "0",
+        "warning": "0",
+        "completed": "0",
+        "inProgress": "0",
+        "pending": "0"
+      }
+    },
+    {
+      "project": "DBTool.Excel.Tests",
+      "path": "logs/test-results/DBTool.Excel.Tests/HungPhatPC_ADMINISTRATOR_2026-10-14_09_38_13_net8.0.trx",
+      "sha256": "ce345fd5aff8584371c5e72f30c04df3b461c164bbbc75c28937f57cfffd6e45",
+      "counters": {
+        "total": "272",
+        "executed": "272",
+        "passed": "272",
+        "failed": "0",
+        "error": "0",
+        "timeout": "0",
+        "aborted": "0",
+        "inconclusive": "0",
+        "passedButRunAborted": "0",
+        "notRunnable": "0",
+        "notExecuted": "0",
+        "disconnected": "0",
+        "warning": "0",
+        "completed": "0",
+        "inProgress": "0",
+        "pending": "0"
+      }
+    },
+    {
+      "project": "DBTool.UI.Tests",
+      "path": "logs/test-results/DBTool.UI.Tests/HungPhatPC_ADMINISTRATOR_2026-10-14_09_38_41_net8.0.trx",
+      "sha256": "58c022a075cd23f25d4f8d2aeac4f79194a09851dedca9ae73eadf481835a667",
+      "counters": {
+        "total": "14",
+        "executed": "14",
+        "passed": "14",
+        "failed": "0",
+        "error": "0",
+        "timeout": "0",
+        "aborted": "0",
+        "inconclusive": "0",
+        "passedButRunAborted": "0",
+        "notRunnable": "0",
+        "notExecuted": "0",
+        "disconnected": "0",
+        "warning": "0",
+        "completed": "0",
+        "inProgress": "0",
+        "pending": "0"
+      }
+    }
+  ],
+  "total": 1508,
+  "passed": 1508,
+  "scope": "Software checks only, not native product acceptance",
+  "autocad_tests_project": "No Microsoft.NET.Test.Sdk/test runner; dotnet test only restored; zero discovered host tests"
+}

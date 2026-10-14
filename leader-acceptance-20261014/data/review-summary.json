@@ -1,0 +1,28 @@
+{
+  "review_id": "DBTOOL-W01-W13-20261014-R01",
+  "date": "2026-10-14",
+  "implementation_verdict": "CHUA_DAT",
+  "native_official_readiness": "NO_GO",
+  "phase1": "Blocked_Preflight",
+  "phase2": "NotRun",
+  "owner_product_visual_signature": null,
+  "independent_source_reviewers": 3,
+  "root_review": "Rechecked sources, compiled solution, reran five software suites, executed six counterexamples and isolated native command-load negative probe",
+  "findings_count": 39,
+  "severity_counts": {
+    "P1": 34,
+    "P2": 5
+  },
+  "receipt_checks": 59,
+  "changed_file_records": 111,
+  "unique_changed_paths": 102,
+  "intentional_deletions": 6,
+  "dependency_hash_links": 19,
+  "dependency_hashes_match": true,
+  "generated_product_dwgs": [],
+  "generated_product_pdfs": [],
+  "main_ui_modified_by_review": false,
+  "production_source_modified_by_review": false,
+  "retained_owner_approvals": 23,
+  "approval_does_not_supply_missing_payload": true
+}

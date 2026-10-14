@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "phase1_status",
+    "phase1_signoff_hash",
+    "pages"
+  ],
+  "properties": {
+    "phase1_status": {
+      "enum": [
+        "Blocked_Preflight",
+        "ReadyForHumanReview"
+      ]
+    },
+    "phase1_signoff_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "case_id",
+          "run_id",
+          "manhole_id",
+          "frame_id",
+          "sheet_role",
+          "pdf_path",
+          "pdf_sha256",
+          "pdf_page",
+          "reference_path",
+          "reference_sha256",
+          "comparison_mode",
+          "input_hash",
+          "build_hash",
+          "rule_hash",
+          "template_hash",
+          "plot_profile_hash",
+          "required_region_ids",
+          "region_bounds"
+        ],
+        "properties": {
+          "case_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "run_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "manhole_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "frame_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sheet_role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pdf_path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pdf_sha256": {
+            "type": "string",
+            "pattern": "^[A-Fa-f0-9]{64}$"
+          },
+          "pdf_page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "reference_path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reference_sha256": {
+            "type": "string",
+            "pattern": "^[A-Fa-f0-9]{64}$"
+          },
+          "comparison_mode": {
+            "enum": [
+              "ExactInput",
+              "RecipeOnly"
+            ]
+          },
+          "input_hash": {
+            "type": "string",
+            "pattern": "^[A-Fa-f0-9]{64}$"
+          },
+          "build_hash": {
+            "type": "string",
+            "pattern": "^[A-Fa-f0-9]{64}$"
+          },
+          "rule_hash": {
+            "type": "string",
+            "pattern": "^[A-Fa-f0-9]{64}$"
+          },
+          "template_hash": {
+            "type": "string",
+            "pattern": "^[A-Fa-f0-9]{64}$"
+          },
+          "plot_profile_hash": {
+            "type": "string",
+            "pattern": "^[A-Fa-f0-9]{64}$"
+          },
+          "required_region_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "region_bounds": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "phase1_status": {
+            "const": "ReadyForHumanReview"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "phase1_signoff_hash": {
+            "type": "string",
+            "pattern": "^[A-Fa-f0-9]{64}$"
+          },
+          "pages": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ]
+}

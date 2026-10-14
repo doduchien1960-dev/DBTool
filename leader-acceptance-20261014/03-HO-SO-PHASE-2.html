@@ -1,0 +1,111 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>03-HO-SO-PHASE-2</title><style>body{margin:0;background:#edf2f5;color:#182c3a;font:16px/1.65 "Segoe UI",sans-serif}main{max-width:1320px;margin:auto;padding:32px;background:white}h1,h2,h3{line-height:1.35;color:#153c54}h2{border-bottom:2px solid #c7dce8;margin-top:42px;padding-bottom:8px}a{color:#086893}table{border-collapse:collapse;width:100%;display:block;overflow:auto;font-size:13px;margin:18px 0}th,td{border:1px solid #cad7df;padding:10px;vertical-align:top}th{background:#e6f0f5}tr:nth-child(even){background:#f7fafc}pre{padding:16px;background:#132c3b;color:#eaf4fa;overflow:auto;font:13px/1.5 Consolas,monospace}code{font-family:Consolas,monospace}nav{padding:12px;background:#e6f0f5;display:flex;gap:18px;flex-wrap:wrap}.banner{padding:18px;background:#fff1d1;border-left:6px solid #bd761b}details{padding:16px;border:1px solid #c8d7df;margin:16px 0}summary{font-weight:700;cursor:pointer}.badge{padding:6px 12px;background:#922e2e;color:white;border-radius:6px}button{padding:10px 18px;background:#17657d;color:white;border:0;border-radius:5px;cursor:pointer}@media print{nav{display:none}main{padding:0}table{font-size:10px}details{break-inside:avoid}}</style></head><body><main><nav><a href="INDEX.html">Mục lục nghiệm thu</a><a href="00-BIEN-BAN-NGHIEM-THU.html">Biên bản</a><a href="02-KE-HOACH-PHASE-1.html">Phase 1</a><a href="03-HO-SO-PHASE-2.html">Phase 2</a></nav><h1 id="phase-2-bo-ho-so-cho-ducbao-nghiem-thu-bang-mat">Phase 2 — Bộ hồ sơ cho DucBao nghiệm thu bằng mắt</h1>
+<p><strong>Chưa mở Phase2.</strong> Danh sách PDF sản phẩm hiện có0 mục. <code>phase2/product-pdf-manifest.json</code> ghi <code>Phase1=Blocked_Preflight</code>, <code>pages=[]</code>, <code>visual_status=NotRun</code>. Không đưa scratch DWG, PDF mẫu hoặc ảnh unit test vào danh sách sản phẩm đã bàn giao.</p>
+<h2 id="1-tai-lieu-a-chuan-bi">1. Tài liệu đã chuẩn bị</h2>
+<table>
+<thead>
+<tr>
+<th>Tài liệu</th>
+<th>Mục đích</th>
+<th>Trạng thái</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product-pdf-manifest.json</td>
+<td>Exact generated PDF path/hash/page/frame/case/row và vùng bắt buộc</td>
+<td>Rỗng, chờ Phase1 đạt.</td>
+</tr>
+<tr>
+<td>product-pdf-manifest.schema.json</td>
+<td>Schema cần có để mở review</td>
+<td>Đã định nghĩa, không phải artifact Passed.</td>
+</tr>
+<tr>
+<td>region-checklist.json</td>
+<td>Checklist theo từng SheetRole/vùng</td>
+<td>Đã chuẩn bị.</td>
+</tr>
+<tr>
+<td>REVIEW-FORM.html / visual-review-template.json / visual-review-template.csv</td>
+<td>Mẫu ghi nhận quyết định, reviewer và bằng chứng</td>
+<td>Draft/NotRun; không có chữ ký sản phẩm.</td>
+</tr>
+<tr>
+<td>reference-pdf-manifest.json</td>
+<td>71 PDF nguồn có hash để chọn đúng reference</td>
+<td>ReferenceOnly; không phải PDF sản phẩm.</td>
+</tr>
+<tr>
+<td>phase1-signoff.json</td>
+<td>Kết luận kiểm máy và PDF manifest hash</td>
+<td>Blocked, chưa ký ReadyForHumanReview.</td>
+</tr>
+</tbody>
+</table>
+<p>Sau Phase1, Leader sinh một dòng danh sách cho <strong>mỗi trang thực tế</strong> của <strong>mọi PDF sản phẩm</strong>. Không chọn vài trang đẹp hoặc một ga đại diện. Nội dung dòng: CaseId/variant, RunId, ManholeId/row, FrameId/SheetRole, generated PDF path/SHA256/page, reference PDF/path/hash/page, ComparisonMode, input/build/rule/template/plot hashes, required region IDs và link ảnh compare. Nếu chưa xác nhận đúng input thì reference chỉ là RecipeOnly, không dùng số trên reference để kết luận số của ga current sai.</p>
+<h2 id="2-checklist-tung-vung-theo-loai-to">2. Checklist từng vùng theo loại tờ</h2>
+<table>
+<thead>
+<tr>
+<th>SheetRole</th>
+<th>Các vùng phải xem</th>
+<th>Dấu hiệu không đạt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Structure</td>
+<td>Mặt bằng, AA, BB; khung/tiêu đề/tỷ lệ; DIM và cao độ; nắp/khung/cổ/cống; vật liệu/hatch</td>
+<td>Sai kích thước/khẩu độ/cao độ, view thiếu, lỗ không đồng bộ, seam giả, che DIM/chữ hoặc khung cắt ink.</td>
+</tr>
+<tr>
+<td>BaseWalls12</td>
+<td>Thép đáy dưới/trên; T1/T2 trong/ngoài; labels/collectors/ticks; vật liệu và footprint</td>
+<td>Thanh hoặc view mất, Gach ở chỗ không có thanh, ghi nhầm nhóm, cover/cắt lỗ không nhất quán.</td>
+</tr>
+<tr>
+<td>Walls34Roof</td>
+<td>T3/T4 trong/ngoài; thép trần trên/dưới; lỗ trần/chốt; labels/collectors</td>
+<td>Chốt cong/đổi vị trí, hole thiếu pair, nhóm T1A/T1B/T2A/T2B sai vùng, nhãn chồng.</td>
+</tr>
+<tr>
+<td>NeckAndSchedule</td>
+<td>Cổ/mặt cắt/thép cổ; frame100; thống kê Body/Neck và tổng hợp</td>
+<td>Cổ không theo selected cover, high datum sai, bảng/tiêu đề/summary thiếu hoặc không cùng mark.</td>
+</tr>
+<tr>
+<td>NeckCatch</td>
+<td>Cổ nếu active; CatchPlan/11/22 và thép cửa thu; sản phẩm nắp/lưới; cao độ/labels</td>
+<td>Cửa thu giữ contour tĩnh khi input đổi, mất view khi cổ không BTCT, sai depth/height/owner.</td>
+</tr>
+<tr>
+<td>ScheduleOnly</td>
+<td>Toàn bộ hàng TK, header/owner headings, summary và các trang nối</td>
+<td>Thiếu hàng/nhóm, tổng con trái tổng, ký tự/font sai, hàng text giả thay block, continuation mất header.</td>
+</tr>
+<tr>
+<td>CoverConstruction</td>
+<td>Mặt bằng/mặt cắt/thép panel; quantity/gap/support; sản phẩm native; Panel TK</td>
+<td>Nhân quantity hai lần, support/gap sai, stretch sản phẩm, thiếu panel rows hoặc anchor/lifting notes.</td>
+</tr>
+<tr>
+<td>Bending</td>
+<td>Mọi fixed glyph, caption L/Ltb, leg roles, mark/Ø/count, trang overflow</td>
+<td>Dùng schematic để quyết định chiều dài, glyph scale theo Li, caption/mark khác TK, hình uốn bị xóa để vừa trang.</td>
+</tr>
+</tbody>
+</table>
+<p>Mọi trang còn có các vùng chung: <strong>V01 khung và role/tỷ lệ; V02 hình học/view bắt buộc; V03 DIM/cao độ; V04 nhãn/leader/tick; V05 TK/bending nếu áp dụng; V06 hatch/linetype/lineweight; V07 dấu tiếng Việt/font/readability; V08 khoảng hở và không cắt ink; V09 liên kết ID/mark giữa các tờ.</strong> Leader phải bind từng vùng tới page/view/bounds thật trong manifest, không để junior tự đoán tọa độ vùng.</p>
+<p>Vùng không áp dụng chỉ N/A khi predicate input và SourceId/RuleId chứng minh (ví dụ không panel); không dùng N/A vì không có hình được sinh. Mọi feature ON cần vùng/output hoặc diagnostic trước Phase1 signoff. Khi nhiều trang overflow, từng trang có checklist riêng và source-role tương ứng.</p>
+<h2 id="3-cach-ducbao-xem-va-ghi-nhan">3. Cách DucBao xem và ghi nhận</h2>
+<ol>
+<li>Xác nhận build/input/PDF manifest hash đúng bộ Leader bàn giao; mở PDF sinh mới cạnh reference đúng mode, cùng trang/zoom. Có thể dùng PDF viewer bất kỳ, không đổi UI sản phẩm DBTool.</li>
+<li>Xem lần lượt từng vùng bắt buộc, kiểm số/mark/DIM/CT, bố cục/độ đọc/leader/TK/bending và liên kết sang tờ liên quan. Ảnh overlay chỉ hỗ trợ; quyết định dựa trên PDF thật.</li>
+<li>Ghi <strong>Đạt / Không đạt / Chưa xem / N/A có nguồn</strong> cho từng vùng. Không đạt ghi vị trí/page/region/mark, mô tả cụ thể và ảnh chú thích. Nghi số học thì trả Leader đo lại native, không sửa số trên PDF.</li>
+<li>Xác nhận reviewer=DucBao, thời điểm thực, exact generated PDF SHA256/page/frame, required region IDs và quyết định cho từng vùng. Form là draft cho đến khi bằng chứng này đủ và Leader kiểm lại manifest/hash.</li>
+<li>Một vùng bắt buộc Không đạt → page Failed. Một vùng bắt buộc Chưa xem → page NotRun. Chỉ mọi vùng bắt buộc Đạt, mọi N/A hợp lệ và toàn bộ artifact identity khớp mới page Passed. Mọi page/row áp dụng phải Passed mới có thể ký nghiệm thu cuối; không lấy tỷ lệ phần trăm trang đạt để chấp nhận phần còn lỗi.</li>
+</ol>
+<p>Mỗi record phải có <code>ReviewId, Phase1SignoffHash, CaseId, RunId, ManholeId, FrameId, PdfPath, PdfSha256, PdfPage, ReferenceSha256, ComparisonMode, RegionId, RegionBounds, Required, Decision, Comment, AnnotationPath, Reviewer, ReviewedAt</code>. ReviewedAt để null trước khi xem. Không ký thay DucBao, không tái dùng quyết định phê duyệt23 NR làm review PDF.</p>
+<h2 id="4-hieu-luc-va-quay-lai-sua">4. Hiệu lực và quay lại sửa</h2>
+<p>PDF/hash, input, source build, rule/template/font/plot đổi → review các trang bị ảnh hưởng mất hiệu lực. Giữ review cũ để truy vết, tạo revision mới và Leader chạy lại Phase1 liên quan trước khi DucBao xem lại. Không sửa record Failed thành Passed khi chưa có bộ PDF/hash mới và lần xem thật.</p>
+<p>Nếu cần UI nghiệm thu sau này: hai khung PDF cạnh nhau, chọn page/region, hiện hash/mode, checklist có trạng thái chưa xem, ghim ảnh lỗi, export JSON/CSV và bộ review. Công cụ này tách khỏi UI DBTool; không tự tính visual Passed hoặc tự tạo dữ liệu native. Trong lượt review hiện tại, bàn giao form draft và checklist; không tuyên bố đã có full PDF comparison app vận hành.</p></main></body></html>

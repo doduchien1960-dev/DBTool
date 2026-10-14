@@ -1,0 +1,19 @@
+{
+  "purpose": "load-only negative probe, not product acceptance",
+  "executable": "C:\\Program Files\\Autodesk\\AutoCAD 2026\\accoreconsole.exe",
+  "arguments": [
+    "/i",
+    "\"C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261014-review-01\\native-probe\\scratch-copy.dwg\"",
+    "/s",
+    "\"C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261014-review-01\\native-probe\\load-only.scr\"",
+    "/l",
+    "en-US",
+    "/isolate",
+    "W13Audit20261014",
+    "\"C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261014-review-01\\native-probe\\isolated-user\""
+  ],
+  "process_id": 21392,
+  "timed_out": false,
+  "exit_code": 0,
+  "product_acceptance": "NotRun"
+}

@@ -1,0 +1,201 @@
+{
+  "PackageId": "W07",
+  "Phase": "P3",
+  "Version": "leader-field-contracts-20261013-r2",
+  "DependencyReceiptHashes": {
+    "W06": "EED9D643A96086799C471AF6BAF1AE180BDC6D7823C45DF5222BA84480540622"
+  },
+  "ChangedFiles": [
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/FeatureSupportValidator.cs",
+      "BeforeHash": "4180183DB66FBCAC6C5C350231C14014EB8AF459CF5E21D9D4797187012B813B",
+      "AfterHash": "E273822FD3ADDA2D9909D03A7F7A6D32BFFFB3C7541A5233A7B08C348B0DB2C9",
+      "Reason": "Validate capability theo consumer composition, projection, và thống kê thép; duy trì gate Dowels không hỗ trợ blanket cho GaThamThuNapRoi và kiểm tra cell dạng formula cho raw unsupported fields."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+      "BeforeHash": "A635B23E025402ADC2979DDA06D107E4E15BFA3F7C8C812E9EEB392997F56C52",
+      "AfterHash": "4CC31B36BA3DB1DB4313CA3B54EF7BDECCD9C8CFA00C3E1D7CC4A8FFF98FFFDE",
+      "Reason": "Triển khai IS4StageV2 cho FullRebarStage (Execute S3->S4), compose catch geometry/voids rồi catch steel, giữ thứ tự dowel sau hooks, tích hợp RebarGroupRegistry và RebarModelV2."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Rebar/BarLengthResolver.cs",
+      "BeforeHash": "4058062BBBCD48018DE330D20F5304603632CABE7DB16CE9A49237BFCAEDADA1",
+      "AfterHash": "A8BE40284588D94A1F1C35A89FA7D0376C64606FCF41E944219BCA2D2C472437",
+      "Reason": "Tách bạch straight run, schedule length, fabrication length và measurement basis (TangentPath/Centerline); bend/hook không bị cộng lặp hoặc đo từ schematic."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Rebar/BarOccurrence.cs",
+      "BeforeHash": "BA70D296EC945C90B4538223E5517846C7681855AC993082825A7A6B26398ECD",
+      "AfterHash": "F796DC084A17A07F1E1FE661287C9A1E53B74CE6EEF1703A7EBC5AD0EF857EC4",
+      "Reason": "Bổ sung trace nguồn gốc chi tiết: ParentId, SegmentIndex, StationIndex, StationMm, HostComponentId, Face, Layer, OpeningClearanceCut, OpeningClearanceMm, UncutLengthMm, ProvenanceRuleId, GroupId, CanonicalSignature, BasisName."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Rebar/CatchBasinRebarPlanner.cs",
+      "BeforeHash": "F7F907E787D79F2248E92B6A7350C33E737F0B7AEAF69252FDE33D17A32DC87B",
+      "AfterHash": "DECAFE79DEE58D59132B6A54F03915892CC6E1FAED7728B4756EB6280BBB7FFA",
+      "Reason": "Hoàn thiện phân bố cốt thép hố thu trên các mặt support theo NR-08; tính toán collision, liên kết transformation và hỗ trợ mesh hố thu."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Rebar/DowelPlanner.cs",
+      "BeforeHash": "DDFA4B3C7B987005FC83C15EF3279A89E2112E391B79166428F9AF466EB6B0F8",
+      "AfterHash": "CDA3FE055D12C68BD903CA3F9F409594FE9ACBC9FBB16F88BA5C3DBC687E4344",
+      "Reason": "Dựng cốt thép chốt dowel sau lifting hooks; phân cặp lỗ theo station, làm tròn midpoint 50mm, phân biệt chẩn đoán va chạm mở lỗ tường (DOWEL_OPENING_COLLISION) và hố thu (DOWEL_CATCH_COLLISION)."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Rebar/HaunchRebarPlanner.cs",
+      "BeforeHash": "D62A2FE4640A0F61E1A33BA24C0E76840733B9B335607CD1557EB97CA74704B1",
+      "AfterHash": "C28557DD1B3863401F77CA0B398DFA4AEAD7F034FC4C694EA79ACBABE41A20CE",
+      "Reason": "Quy hoạch cốt thép vát góc haunch theo NR-05; giữ trạng thái Partial, kiểm soát đường dẫn trong union slab+haunch+wall, anchor multiple và basis."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Rebar/LiftingHookPlanner.cs",
+      "BeforeHash": "A6A75A581C20B04D5C46D3A498CB9014E4C176C6F8FBE86CD76747C53B3AA1A4",
+      "AfterHash": "E5FEA4B9627359122771FA681F3A66DD9CC839AD14A7BDC9816E03C5E0882EA1",
+      "Reason": "Phân biệt lifting hook roof (0/2/4) và panel (1/2/4); dựng path, anchor, support theo NR-07 được duyệt, không sử dụng glyph TK làm chiều dài chế tạo."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Rebar/NeckRebarPlanner.cs",
+      "BeforeHash": "D3370415C8DDF506F35437C8CE057F826A9AD2C0D0216173694487B435E90F79",
+      "AfterHash": "13A173CBC7F1A57C14BE04B0492A4A0C5B7BAB73D775882BD080398B0C30F6B4",
+      "Reason": "Quy hoạch cốt thép cổ ga (mesh và đai hoop); nhận effective clear aperture, áp dụng policy C/U/Z theo component, bảo toàn C3/C3A identity không fuzzy join."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Rebar/NominalFabricationLength.cs",
+      "BeforeHash": "F57C3B313362046D3F9DA687653F015D03CA3C464DC62C84722B422183634FD2",
+      "AfterHash": "D50183A6B6C0837FD4BBB2BE26A562A58675DF886C6F1A0F4FDDEF659023A3CE",
+      "Reason": "Phân biệt kích thước danh định và cơ sở chế tạo, hỗ trợ fallback uốn cong chuẩn hóa theo VHG-OWNER-BEND-FALLBACK-1B-v1."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Rebar/NominalHookPlanner.cs",
+      "BeforeHash": "53CECCB86C6E150B2B6E2087D051D2229B92B6066EA9BE9D38D8EA42E7532AFA",
+      "AfterHash": "4720899279157C82B16BBB0EE53371A7EC21ECAA1365BA6FF0A9A2C1C34A4C15",
+      "Reason": "Áp móc neo theo vai trò đầu thanh và chiều dày cấu kiện trước khi chốt dowels; tách biệt path và schedule length, phát hiện HOOK_NO_ROOM khi không đủ khoảng trống neo."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Rebar/OpeningClipper.cs",
+      "BeforeHash": "057D1494B289E0B3CBE96966CBA018FBA54180EB9D5329B801188B79B146FF32",
+      "AfterHash": "2FC8BF73A544A5C1FC9AEA518EB2015A5F07B7894A62913935AFA99223FEFE12",
+      "Reason": "Cắt cốt thép qua lỗ mở hình học giải tích; lưu giữ trace nguồn gốc từng phân đoạn retained, bảo toàn uncut length và interval clipping."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Rebar/PanelRebarPlanner.cs",
+      "BeforeHash": "0FC391144597BF66F877353820B13DF20F63EADD28EF1BA6E28C73DC5D4EDCBE",
+      "AfterHash": "C475A2B475AC8B6D221D6E54B706F07A2F420E86482E805A305832352288676D",
+      "Reason": "Quy hoạch cốt thép tấm đan panel nắp; nhân số lượng thể hiện panel chính xác một lần, thiết lập layer/angle/anchor/lifting theo input và không nhân số lượng thêm ở thống kê."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Rebar/ShapeSignature.cs",
+      "BeforeHash": "E4F82CFA68C14750E72A254CF9A5D89BA3DA3D2B861DC05EB93FB48906367D21",
+      "AfterHash": "8B7E3736265B6460446146B854BCDA433A5715A9DBCC255A9EB3540EFB919061",
+      "Reason": "Tạo chữ ký hình dạng chuẩn hóa canonical (topology, thứ tự vai trò góc, đường kính, bán kính uốn, basis, host scope); không gộp shape chỉ vì trùng display mark."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Rebar/TiePlanner.cs",
+      "BeforeHash": "5B11A60D08FB917838BC4BD44B37141CED3E630EB7DD2A478290D994CE63D9FB",
+      "AfterHash": "CEB00FD49F22A91D5BC47184DEE9A6F15D10FD3AC14ED0D1D260CF4EEBC6F846",
+      "Reason": "Quy hoạch cốt thép đai liên kết C/U/Z theo ma trận cấu kiện và quy tắc vị trí station theo NR-02/NR-03/NR-04; hỗ trợ Wall C-wrap, Slab U-hook, Z-ties."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Rebar/WallRebarPlanner.cs",
+      "BeforeHash": "DDBB344B0175848D722B661C3B08507AB01A96E35878E7AFFA7896F7FB7A421C",
+      "AfterHash": "1F99FE67A05A5ECEF3AEB88B0105F3CFAC055F4C34DF8725F9619F8F5E7D0132",
+      "Reason": "Áp dụng khoảng hở Protect.H riêng cho lỗ mở ống theo NR-01 thay vì wallCover thông thường; bảo toàn cấu trúc phân đoạn và vết cắt cốt thép tường."
+    }
+  ],
+  "InterfaceGate": "Passed",
+  "ImplementationStatus": "ImplementationComplete",
+  "NativeGate": "NotRun",
+  "BindingMissing": [],
+  "Commands": [
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests"
+    }
+  ],
+  "Checks": [
+    {
+      "Name": "StageAdapters_S4_FullRebarStage_Implementation",
+      "SubjectId": "FullRebarStage",
+      "Expected": "Triển khai IS4StageV2 trên FullRebarStage theo hợp đồng S3StateV2 -> S4StateV2 với RebarModelV2, RebarGroupRegistry, physical occurrences và provenance traces",
+      "Actual": "FullRebarStage thực thi S4 tạo RebarModelV2 với groups, marks, schedules, physical hash và liên kết hình học S3",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Application/StageAdapters.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "RebarPlanners_PhysicalProvenance_And_CanonicalSignatures",
+      "SubjectId": "DomainRebarPlanners",
+      "Expected": "BarOccurrence lưu giữ toàn bộ thông tin nguồn gốc, segment, station, host, face, cut interval, canonical signature chuẩn hóa theo ShapeSignature",
+      "Actual": "BarOccurrence, ShapeSignature, BarLengthResolver, OpeningClipper, WallRebarPlanner, DowelPlanner, TiePlanner, LiftingHookPlanner, NeckRebarPlanner, CatchBasinRebarPlanner, PanelRebarPlanner và HaunchRebarPlanner hoạt động đúng hợp đồng",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Domain/Rebar/BarLengthResolver.cs",
+        "Ver 1/DBTool/DBTool.Domain/Rebar/BarOccurrence.cs",
+        "Ver 1/DBTool/DBTool.Domain/Rebar/CatchBasinRebarPlanner.cs",
+        "Ver 1/DBTool/DBTool.Domain/Rebar/DowelPlanner.cs",
+        "Ver 1/DBTool/DBTool.Domain/Rebar/HaunchRebarPlanner.cs",
+        "Ver 1/DBTool/DBTool.Domain/Rebar/LiftingHookPlanner.cs",
+        "Ver 1/DBTool/DBTool.Domain/Rebar/NeckRebarPlanner.cs",
+        "Ver 1/DBTool/DBTool.Domain/Rebar/NominalFabricationLength.cs",
+        "Ver 1/DBTool/DBTool.Domain/Rebar/NominalHookPlanner.cs",
+        "Ver 1/DBTool/DBTool.Domain/Rebar/OpeningClipper.cs",
+        "Ver 1/DBTool/DBTool.Domain/Rebar/PanelRebarPlanner.cs",
+        "Ver 1/DBTool/DBTool.Domain/Rebar/ShapeSignature.cs",
+        "Ver 1/DBTool/DBTool.Domain/Rebar/TiePlanner.cs",
+        "Ver 1/DBTool/DBTool.Domain/Rebar/WallRebarPlanner.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "FeatureSupport_RebarCapabilities",
+      "SubjectId": "FeatureSupportValidator",
+      "Expected": "Duy trì các cổng kiểm tra capability cốt thép S2 và S4, phân biệt Dowels và kiểm tra raw fields formula cache",
+      "Actual": "FeatureSupportValidator kiểm tra đầy đủ các ràng buộc profile, phụ kiện và formula caching",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Application/FeatureSupportValidator.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "Architecture_DependenciesAndTestSuiteZeroRegression",
+      "SubjectId": "FullTestSuite",
+      "Expected": "Toàn bộ 4 test suites pass không có lỗi regression",
+      "Actual": "1,459 tests passed (Domain: 580, Drawing: 407, Application: 200, Excel: 272)",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Domain.Tests",
+        "Ver 1/DBTool/DBTool.Drawing.Tests",
+        "Ver 1/DBTool/DBTool.Application.Tests",
+        "Ver 1/DBTool/DBTool.Excel.Tests"
+      ],
+      "Verdict": "Passed"
+    }
+  ],
+  "ActualDWG/PDFPaths": [],
+  "RecoveryState": "Clean",
+  "RollbackInstructions": "git checkout -- \"Ver 1/DBTool/DBTool.Application/FeatureSupportValidator.cs\" \"Ver 1/DBTool/DBTool.Application/StageAdapters.cs\" \"Ver 1/DBTool/DBTool.Domain/Rebar/BarLengthResolver.cs\" \"Ver 1/DBTool/DBTool.Domain/Rebar/BarOccurrence.cs\" \"Ver 1/DBTool/DBTool.Domain/Rebar/CatchBasinRebarPlanner.cs\" \"Ver 1/DBTool/DBTool.Domain/Rebar/DowelPlanner.cs\" \"Ver 1/DBTool/DBTool.Domain/Rebar/LiftingHookPlanner.cs\" \"Ver 1/DBTool/DBTool.Domain/Rebar/NeckRebarPlanner.cs\" \"Ver 1/DBTool/DBTool.Domain/Rebar/NominalFabricationLength.cs\" \"Ver 1/DBTool/DBTool.Domain/Rebar/NominalHookPlanner.cs\" \"Ver 1/DBTool/DBTool.Domain/Rebar/OpeningClipper.cs\" \"Ver 1/DBTool/DBTool.Domain/Rebar/PanelRebarPlanner.cs\" \"Ver 1/DBTool/DBTool.Domain/Rebar/ShapeSignature.cs\" \"Ver 1/DBTool/DBTool.Domain/Rebar/TiePlanner.cs\" \"Ver 1/DBTool/DBTool.Domain/Rebar/WallRebarPlanner.cs\" && git rm -f \"Ver 1/DBTool/DBTool.Domain/Rebar/HaunchRebarPlanner.cs\""
+}

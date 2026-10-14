@@ -1,0 +1,1076 @@
+[
+  {
+    "package": "W01",
+    "check_index": 1,
+    "name": "ReferenceComparison_InputMismatch_Separation",
+    "reported": "Passed",
+    "adjudicated": "PartiallySupported_NotNative",
+    "findings": [],
+    "reason": "Có thay đổi/guard trong source và software evidence; chưa chứng minh toàn bộ predicate bằng dữ liệu thật hoặc native.",
+    "expected": "InputMismatch (not implementation defect)",
+    "reported_actual": "ComparisonClassification.InputMismatch",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Application/ReferenceComparisonService.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W01",
+    "check_index": 2,
+    "name": "ReleaseEvidence_VerdictIntegrity",
+    "reported": "Passed",
+    "adjudicated": "PartiallySupported_NotNative",
+    "findings": [],
+    "reason": "Có thay đổi/guard trong source và software evidence; chưa chứng minh toàn bộ predicate bằng dữ liệu thật hoặc native.",
+    "expected": "Blocked on NotRun/Partial/NeedsRule regardless of exit code",
+    "reported_actual": "InvalidOperationException raised and logged as missing gate",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Application/ReleaseEvidence.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W01",
+    "check_index": 3,
+    "name": "SemanticDiff_PhysicalManifestAndClassification",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "R01"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu R01.",
+    "expected": "Accurate classification of LayoutOnly, Rename, InputBasis vs ContentLoss",
+    "reported_actual": "DifferenceNature properly assigned and exposed on DiffReport",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/SemanticDiff.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W02",
+    "check_index": 1,
+    "name": "StageDTO_Schema_Exactness",
+    "reported": "Passed",
+    "adjudicated": "VerifiedStructuralOnly",
+    "findings": [],
+    "reason": "103 record và từng field/type khớp spec; đây chỉ là schema, không chứng minh dữ liệu runtime.",
+    "expected": "Exact typed contracts for S0 through S9 stages and supporting value objects matching Tables B3.04-B3.08",
+    "reported_actual": "Full implementation of S0AssetsV2 through S9StateV2, DiagnosticV2, ReceiptV2, RuleApprovalRegistry with get-only immutability",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Domain/StageContractsV2/Domain.ContractsV2.cs",
+      "Ver 1/DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs",
+      "Ver 1/DBTool/DBTool.Application/StageContractsV2/Application.ContractsV2.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W02",
+    "check_index": 2,
+    "name": "TemplateContract_RoleAndTagValidation",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "G08",
+      "G09"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu G08, G09.",
+    "expected": "Geometry/DowelHole, CatchSummary, VHG-HoThu roles present; tag conflicts and duplicate names detected without fallback",
+    "reported_actual": "VhgTemplateRoles updated with GeometryRequirements; TemplateContractValidator checks tags and block name collisions",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Application/Templates/VhgTemplateRoles.cs",
+      "Ver 1/DBTool/DBTool.Application/Templates/TemplateContractValidator.cs",
+      "Ver 1/DBTool/DBTool.AutoCAD/NativeAssetSignatures.cs",
+      "Ver 1/DBTool/DBTool.AutoCAD/TemplateAssetImporter.cs",
+      "Ver 1/DBTool/DBTool.AutoCAD/TemplateManifestReader.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W02",
+    "check_index": 3,
+    "name": "CalculationPolicy_ApprovedRulesGating",
+    "reported": "Passed",
+    "adjudicated": "PartiallySupported_NotNative",
+    "findings": [],
+    "reason": "Có thay đổi/guard trong source và software evidence; chưa chứng minh toàn bộ predicate bằng dữ liệu thật hoặc native.",
+    "expected": "RuleBinding explicitly validates approved rules; proposal prose never converted to geometry",
+    "reported_actual": "RuleBinding constructor accepts Sources and checks HasApprovedRules, gated against non-approved bindings",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Domain/Policies/CalculationPolicy.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W02",
+    "check_index": 4,
+    "name": "ExcelImporter_FieldContractMapping",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "G02"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu G02.",
+    "expected": "Material.G, NoteStyle, PitchSymbol, Annotation prefixes mapped and version marker validated",
+    "reported_actual": "Vhg32Schema addresses updated and WorkbookImporter maps prefixes and checks VHGpro version signature",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Infrastructure.Excel/Vhg32Schema.cs",
+      "Ver 1/DBTool/DBTool.Infrastructure.Excel/WorkbookImporter.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W02",
+    "check_index": 5,
+    "name": "Architecture_DependenciesAndImmutability",
+    "reported": "Passed",
+    "adjudicated": "SoftwareEvidenceOnly",
+    "findings": [],
+    "reason": "Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.",
+    "expected": "Clean one-way assembly dependencies without circular refs or public property mutators on DTOs",
+    "reported_actual": "All 1,453 unit and architecture contract tests pass across Domain, Drawing, Application, and Excel suites",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Domain/StageContractsV2/Domain.ContractsV2.cs",
+      "Ver 1/DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs",
+      "Ver 1/DBTool/DBTool.Application/StageContractsV2/Application.ContractsV2.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W03",
+    "check_index": 1,
+    "name": "PresentationGroupPlanner_MemberCoverage",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D11"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D11.",
+    "expected": "Gom nhóm S5 theo 05B-F49 key, phủ 100% member không thiếu không thừa, phát hiện trùng mark",
+    "reported_actual": "Hoàn tất gom nhóm, tính trung bình hình học, kiểm tra GROUP_COVERAGE_MISMATCH và GROUP_MARK_COLLISION",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/PresentationGroupPlanner.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W03",
+    "check_index": 2,
+    "name": "AssemblyBoundaryEmitter_CSG_Regions",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D08"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D08.",
+    "expected": "Sinh Region2V2[] bao gồm Section CSG và Projection boundary, trừ lỗ chia sẻ theo H06/H26",
+    "reported_actual": "Hoàn tất bộ phát sinh biên hình học với clipping đa mặt cắt và polygon boolean",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W03",
+    "check_index": 3,
+    "name": "RuleApprovalRegistry_ApprovedSeed_23Proposals",
+    "reported": "Passed",
+    "adjudicated": "PartiallySupported_NotNative",
+    "findings": [],
+    "reason": "Có thay đổi/guard trong source và software evidence; chưa chứng minh toàn bộ predicate bằng dữ liệu thật hoặc native.",
+    "expected": "Nạp đúng 23 đề xuất NR-01..23 được phê duyệt (OWNER-APPROVAL-23-20261013), kiểm tra AST và trả typed diagnostic khi thiếu binding",
+    "reported_actual": "Hoàn tất IRuleSnapshotReader với seed 23 đề xuất chuẩn hóa, hash 07a6ba4aab682dbd3c416a4b3ebc597eeff3674a52778dc133228dc75c45221c và AST validation",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Application/RuleApprovalRegistry.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W03",
+    "check_index": 4,
+    "name": "Architecture_DependenciesAndImmutability",
+    "reported": "Passed",
+    "adjudicated": "SoftwareEvidenceOnly",
+    "findings": [],
+    "reason": "Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.",
+    "expected": "Sạch phụ thuộc một chiều, DTO bất biến, toàn bộ 4 test suite vượt qua",
+    "reported_actual": "Toàn bộ 1,453 test case vượt qua (Domain: 580, Drawing: 401, Application: 200, Excel: 272)",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/PresentationGroupPlanner.cs",
+      "Ver 1/DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs",
+      "Ver 1/DBTool/DBTool.Application/RuleApprovalRegistry.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W04",
+    "check_index": 1,
+    "name": "CatchAssemblyProjector_ThreeViews",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D01"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D01.",
+    "expected": "Chiếu đủ ba hình vẽ mặt bằng cửa thu (CatchPlan) và mặt cắt (Catch11, Catch22) từ physical assembly dùng chung, sử dụng AssemblyBoundaryEmitter",
+    "reported_actual": "Hoàn tất chiếu hình học, mở lỗ cắt bê tông, đường tim cốt thép và sản phẩm nắp cửa thu ra ViewV2[], CurveV2[], Target2V2[], OpeningMap",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/CatchAssemblyProjector.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W04",
+    "check_index": 2,
+    "name": "SchematicPresentationPlanner_CaptionsAndGlyphs",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D04",
+      "D05"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D04, D05.",
+    "expected": "Tạo hình uốn schematic dạng cố định, gạch chân và caption L/Ltb theo từng phân nhóm bucket",
+    "reported_actual": "Hoàn tất phân nhóm bucket (Body, Neck, Panel, Catch), định dạng số hiệu, đường kính, chiều dài L/Ltb và bao ink chính xác",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/SchematicPresentationPlanner.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W04",
+    "check_index": 3,
+    "name": "NativeSteelSchedulePlanner_RowsAndSummaries",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D03",
+      "D04",
+      "D05",
+      "D09"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D03, D04, D05, D09.",
+    "expected": "Chọn exact native TK, gán tag thuộc tính, sinh tiêu đề và bảng tổng hợp khối lượng theo nhóm",
+    "reported_actual": "Hoàn tất S8 schedule planner với hàng TK, tiêu đề TK.Tenluoi/TK.Tieude/TieudeMC, tổng hợp TK.THKL/TK.THKLNAP/TK.THKL.CT, và kiểm tra bao phủ 100% nhóm",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W04",
+    "check_index": 4,
+    "name": "AnnotationLaneAllocator_SharedInkAndRouting",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D05",
+      "D06",
+      "D07"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D05, D06, D07.",
+    "expected": "Phân bổ làn nhãn dùng chung, định tuyến đa nhánh collector, gạch tick Gach và ký hiệu BLTC",
+    "reported_actual": "Hoàn tất S7 lane allocator cho kích thước, cao độ, vật liệu, ký hiệu đai BLTC, gạch tick Gach và nhãn cốt thép theo phong cách NoteStyle1/NoteStyle2",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W04",
+    "check_index": 5,
+    "name": "Architecture_TestSuiteCoverage",
+    "reported": "Passed",
+    "adjudicated": "SoftwareEvidenceOnly",
+    "findings": [],
+    "reason": "Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.",
+    "expected": "Toàn bộ 4 test suites vượt qua với 100% pass",
+    "reported_actual": "Toàn bộ 1,459 test case vượt qua (Domain: 580, Drawing: 407, Application: 200, Excel: 272)",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+      "Ver 1/DBTool/DBTool.Drawing/SchematicPresentationPlanner.cs",
+      "Ver 1/DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+      "Ver 1/DBTool/DBTool.Drawing/CatchAssemblyProjector.cs",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W04PlannerAndProjectorTests.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W05",
+    "check_index": 1,
+    "name": "BatchGenerationOrchestrator_Signature_And_Isolation",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "N01",
+      "N11"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu N01, N11.",
+    "expected": "BatchV2 Generate(RequestV2 request, IRunContextFactory contextFactory, CancellationToken token) with row isolation, cancellation handling, and finite scale retry",
+    "reported_actual": "Full implementation in DBTool.Application with session health management, manifest generation, and pure stage execution",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Application/BatchGenerationOrchestrator.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W05",
+    "check_index": 2,
+    "name": "NativeReadbackVerifier_Save_Reopen_Validation",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "N04"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu N04.",
+    "expected": "NativeV2 Verify(S9StateV2 expected, NativeV2 committedWrite, CancellationToken token) reading actual reopened database handles, attributes, and checking unchanged manifests",
+    "reported_actual": "Full implementation in DBTool.AutoCAD opening actual saved DWG, reading handle map, and validating tolerances against NR-18 rules",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.AutoCAD/NativeReadbackVerifier.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W05",
+    "check_index": 3,
+    "name": "AcceptanceEvidenceAssembler_S11_Records",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "N05",
+      "N06",
+      "N11"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu N05, N06, N11.",
+    "expected": "BatchV2 Assemble(S10StateV2 input, CancellationToken token) comparing expected effective/rebar/geometry against actual readback, with missing review marked NotRun",
+    "reported_actual": "Full implementation in DBTool.Application assembling AcceptanceCheckV2, PlotPageV2, RowVerdictV2, and delivery-manifest.json",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W05",
+    "check_index": 4,
+    "name": "Architecture_DependenciesAndImmutability",
+    "reported": "Passed",
+    "adjudicated": "SoftwareEvidenceOnly",
+    "findings": [],
+    "reason": "Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.",
+    "expected": "Clean one-way assembly dependencies without circular refs or public property mutators on DTOs",
+    "reported_actual": "All 1,453 unit and architecture contract tests pass across Domain, Drawing, Application, and Excel suites",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Application/BatchGenerationOrchestrator.cs",
+      "Ver 1/DBTool/DBTool.AutoCAD/NativeReadbackVerifier.cs",
+      "Ver 1/DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W06",
+    "check_index": 1,
+    "name": "StageAdapters_S2_S3_Implementation",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "G01",
+      "G02",
+      "G03",
+      "G07"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu G01, G02, G03, G07.",
+    "expected": "IS2StageV2 và IS3StageV2 được triển khai chính xác trên GeometryStageAdapter theo quy tắc H00, H01, H03, H14",
+    "reported_actual": "GeometryStageAdapter thực thi S2 và S3, tạo EffectiveV2 và GeometryV2 với các liên kết hình học, datums, frame 100mm, physical hash",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Application/StageAdapters.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W06",
+    "check_index": 2,
+    "name": "SheetOneDrawingPolicies_Preservation",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "G10"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu G10.",
+    "expected": "Bảo toàn đúng các hợp đồng outer/inner loops, loại bỏ pad0 phantom, giữ liên kết kết cấu và vật liệu",
+    "reported_actual": "SheetOnePlanBaseOutlinePolicy, SheetOnePlanOutlinePolicy, SheetOneSectionOutlinePolicy, SheetOneNeckAssembly, SheetOneHatchRegions, SheetOneConcreteAssembly, SheetOnePipeViews hoạt động đúng hợp đồng",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/SheetOneConcreteAssembly.cs",
+      "Ver 1/DBTool/DBTool.Drawing/SheetOneHatchRegions.cs",
+      "Ver 1/DBTool/DBTool.Drawing/SheetOneNeckAssembly.cs",
+      "Ver 1/DBTool/DBTool.Drawing/SheetOnePipeViews.cs",
+      "Ver 1/DBTool/DBTool.Drawing/SheetOnePlanBaseOutlinePolicy.cs",
+      "Ver 1/DBTool/DBTool.Drawing/SheetOnePlanOutlinePolicy.cs",
+      "Ver 1/DBTool/DBTool.Drawing/SheetOneSectionOutlinePolicy.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W06",
+    "check_index": 3,
+    "name": "AccessoryAndCatchBasin_Extensions",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "G02",
+      "G03"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu G02, G03.",
+    "expected": "Typed catch basin spec với pad, expansion, reinforced, product code; Accessory mapper đọc đầy đủ ties, lap, prefixes",
+    "reported_actual": "CatchBasinSpec, GeometryModel, CatchBasinBuilder, AccessoryInputMapper, ManholeValidator mở rộng đầy đủ các trường yêu cầu",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Application/AccessoryInputMapper.cs",
+      "Ver 1/DBTool/DBTool.Application/ManholeValidator.cs",
+      "Ver 1/DBTool/DBTool.Domain/Geometry/CatchBasinBuilder.cs",
+      "Ver 1/DBTool/DBTool.Domain/Geometry/GeometryModel.cs",
+      "Ver 1/DBTool/DBTool.Domain/Input/CatchBasinSpec.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W06",
+    "check_index": 4,
+    "name": "Architecture_DependenciesAndTestSuiteZeroRegression",
+    "reported": "Passed",
+    "adjudicated": "SoftwareEvidenceOnly",
+    "findings": [],
+    "reason": "Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.",
+    "expected": "Toàn bộ 4 test suites pass không có lỗi regression",
+    "reported_actual": "1,459 tests passed (Domain: 580, Drawing: 407, Application: 200, Excel: 272)",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Domain.Tests",
+      "Ver 1/DBTool/DBTool.Drawing.Tests",
+      "Ver 1/DBTool/DBTool.Application.Tests",
+      "Ver 1/DBTool/DBTool.Excel.Tests"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W07",
+    "check_index": 1,
+    "name": "StageAdapters_S4_FullRebarStage_Implementation",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "G04",
+      "G05",
+      "G06",
+      "G07"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu G04, G05, G06, G07.",
+    "expected": "Triển khai IS4StageV2 trên FullRebarStage theo hợp đồng S3StateV2 -> S4StateV2 với RebarModelV2, RebarGroupRegistry, physical occurrences và provenance traces",
+    "reported_actual": "FullRebarStage thực thi S4 tạo RebarModelV2 với groups, marks, schedules, physical hash và liên kết hình học S3",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Application/StageAdapters.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W07",
+    "check_index": 2,
+    "name": "RebarPlanners_PhysicalProvenance_And_CanonicalSignatures",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "G11",
+      "G12"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu G11, G12.",
+    "expected": "BarOccurrence lưu giữ toàn bộ thông tin nguồn gốc, segment, station, host, face, cut interval, canonical signature chuẩn hóa theo ShapeSignature",
+    "reported_actual": "BarOccurrence, ShapeSignature, BarLengthResolver, OpeningClipper, WallRebarPlanner, DowelPlanner, TiePlanner, LiftingHookPlanner, NeckRebarPlanner, CatchBasinRebarPlanner, PanelRebarPlanner và HaunchRebarPlanner hoạt động đúng hợp đồng",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Domain/Rebar/BarLengthResolver.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/BarOccurrence.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/CatchBasinRebarPlanner.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/DowelPlanner.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/HaunchRebarPlanner.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/LiftingHookPlanner.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/NeckRebarPlanner.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/NominalFabricationLength.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/NominalHookPlanner.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/OpeningClipper.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/PanelRebarPlanner.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/ShapeSignature.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/TiePlanner.cs",
+      "Ver 1/DBTool/DBTool.Domain/Rebar/WallRebarPlanner.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W07",
+    "check_index": 3,
+    "name": "FeatureSupport_RebarCapabilities",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "G02",
+      "G06"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu G02, G06.",
+    "expected": "Duy trì các cổng kiểm tra capability cốt thép S2 và S4, phân biệt Dowels và kiểm tra raw fields formula cache",
+    "reported_actual": "FeatureSupportValidator kiểm tra đầy đủ các ràng buộc profile, phụ kiện và formula caching",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Application/FeatureSupportValidator.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W07",
+    "check_index": 4,
+    "name": "Architecture_DependenciesAndTestSuiteZeroRegression",
+    "reported": "Passed",
+    "adjudicated": "SoftwareEvidenceOnly",
+    "findings": [],
+    "reason": "Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.",
+    "expected": "Toàn bộ 4 test suites pass không có lỗi regression",
+    "reported_actual": "1,459 tests passed (Domain: 580, Drawing: 407, Application: 200, Excel: 272)",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Domain.Tests",
+      "Ver 1/DBTool/DBTool.Drawing.Tests",
+      "Ver 1/DBTool/DBTool.Application.Tests",
+      "Ver 1/DBTool/DBTool.Excel.Tests"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W08",
+    "check_index": 1,
+    "name": "PresentationGroup_S5_PreDrawing_Planning",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D10"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D10.",
+    "expected": "Quy hoạch presentation groups trước khi vẽ, tính toán lengths, basis, mass và coverage validation không orphan/phantom",
+    "reported_actual": "PresentationGroupMap.PlanPreDrawing và FromPlannedGroups tính toán đầy đủ các trường thống kê, ValidateCoverage xác nhận 100% độ phủ cốt thép",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/PresentationGroup.cs",
+      "Ver 1/DBTool/DBTool.Drawing/DrawingInputs.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W08",
+    "check_index": 2,
+    "name": "ScheduleNativeAttributes_21_Exact_Block_Schemas",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D03",
+      "D09"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D03, D09.",
+    "expected": "Định nghĩa và ánh xạ 21 block schemas chuẩn AutoCAD, TDAI đổi mm sang m một lần duy nhất, format approved",
+    "reported_actual": "21 block schemas được cấu hình chuẩn xác qua BindScheduleRow, Summary, Angle, GroupTitle, Header",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/ScheduleNativeAttributes.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W08",
+    "check_index": 3,
+    "name": "DrawingStageAdapter_S5_Carrier",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D10"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D10.",
+    "expected": "DrawingStageAdapter triển khai IS5StageV2 và IDrawingStage mang immutable DrawingInputs và GroupRegistry",
+    "reported_actual": "DrawingStageAdapter tích hợp PresentationGroupMap và forward đầy đủ context tới ViewBuilder",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Application/StageAdapters.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W08",
+    "check_index": 4,
+    "name": "CalculationPipeline_PreDrawing_Integration",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D10"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D10.",
+    "expected": "CalculationPipeline tích hợp quy hoạch S5 trước khi gọi DrawingStageAdapter, giữ guard batch",
+    "reported_actual": "Calculate và CalculateS3Rebar chuyển giao GroupRegistry, xác thực coverage không orphan/phantom; CalculateQuantityBatch giữ nguyên guard độc lập",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Application/CalculationPipeline.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W08",
+    "check_index": 5,
+    "name": "Architecture_TestSuiteZeroRegression",
+    "reported": "Passed",
+    "adjudicated": "SoftwareEvidenceOnly",
+    "findings": [],
+    "reason": "Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.",
+    "expected": "Toàn bộ 4 test suites pass không có lỗi regression",
+    "reported_actual": "1,459 tests passed (Domain: 580, Drawing: 407, Application: 200, Excel: 272)",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Domain.Tests",
+      "Ver 1/DBTool/DBTool.Drawing.Tests",
+      "Ver 1/DBTool/DBTool.Application.Tests",
+      "Ver 1/DBTool/DBTool.Excel.Tests"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W09",
+    "check_index": 1,
+    "name": "BendingSchematic_RecipeId_And_GlyphAsset",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D04",
+      "D05"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D04, D05.",
+    "expected": "BendingShapeIntent mang RecipeId và GlyphAsset từ ShapeRecipeId của BarOccurrence, hỗ trợ dynamic fixed-glyph presentation",
+    "reported_actual": "BendingShapeIntent lưu trữ đầy đủ RecipeId và GlyphAsset, giữ nguyên canonical consistency và shape projection cho evidence",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/BendingSchematicPlanner.cs",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W09NativeScheduleAndBendingTests.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W09",
+    "check_index": 2,
+    "name": "ScheduleTablePlanner_OmitGrid_OnVhgPath",
+    "reported": "Passed",
+    "adjudicated": "PartiallySupported_NotNative",
+    "findings": [],
+    "reason": "Có thay đổi/guard trong source và software evidence; chưa chứng minh toàn bộ predicate bằng dữ liệu thật hoặc native.",
+    "expected": "Loại bỏ lưới Schedule/Grid khi bảng thép tròn được native replacement trên VHG path, giữ nguyên bảng khối lượng và bảng thép góc",
+    "reported_actual": "PlanPages(rows, origin, isVhgNativePath: true) không sinh Schedule/Grid cho bảng cốt thép; QuantityTable và AngleSchedule vẫn sinh lưới đầy đủ",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/ScheduleTablePlanner.cs",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W09NativeScheduleAndBendingTests.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W09",
+    "check_index": 3,
+    "name": "SheetFiveViews_And_Placement_DynamicBending",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D02"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D02.",
+    "expected": "SheetFiveViews cung cấp BuildFromIntents/BuildFromCaptions; SheetFivePlacement ánh xạ dynamic Bending views về (0, 0) ngăn SHEET_PLAN_PAGE_OVERFLOW",
+    "reported_actual": "SheetFiveViews tạo DrawingPrimitive từ presentation intents; SheetFivePlacement gán Origin = (0, 0) cho mọi ViewId bắt đầu bằng Bending",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/SheetFiveViews.cs",
+      "Ver 1/DBTool/DBTool.Drawing/SheetFivePlacement.cs",
+      "Ver 1/DBTool/DBTool.AutoCAD.Tests/Phase6GenerationCommands.cs",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W09NativeScheduleAndBendingTests.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W09",
+    "check_index": 4,
+    "name": "SteelScheduleStageAdapter_IS8StageV2_Wiring",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D03",
+      "D09"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D03, D09.",
+    "expected": "SteelScheduleStageAdapter triển khai IS8StageV2 kết nối NativeSteelSchedulePlanner và SchematicPresentationPlanner xuất S8StateV2",
+    "reported_actual": "Execute(S7StateV2) lập kế hoạch rows, headings, summaries qua NativeSteelSchedulePlanner và presentation glyphs/captions qua SchematicPresentationPlanner",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+      "Ver 1/DBTool/DBTool.Application.Tests/W09StageAdapterTests.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W09",
+    "check_index": 5,
+    "name": "Architecture_TestSuiteZeroRegression",
+    "reported": "Passed",
+    "adjudicated": "SoftwareEvidenceOnly",
+    "findings": [],
+    "reason": "Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.",
+    "expected": "Toàn bộ 4 test suites pass không có lỗi regression",
+    "reported_actual": "1,468 tests passed (Domain: 580, Drawing: 415, Application: 201, Excel: 272)",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Domain.Tests",
+      "Ver 1/DBTool/DBTool.Drawing.Tests",
+      "Ver 1/DBTool/DBTool.Application.Tests",
+      "Ver 1/DBTool/DBTool.Excel.Tests"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W10",
+    "check_index": 1,
+    "name": "DrawingStageAdapter_IS6_IS7_Wiring",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D01",
+      "D05",
+      "D06",
+      "D07"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D01, D05, D06, D07.",
+    "expected": "DrawingStageAdapter triển khai IS6StageV2 và IS7StageV2, nối tiếp S5StateV2 -> S6StateV2 qua CatchAssemblyProjector và S6StateV2 -> S7StateV2 qua AnnotationLaneAllocator",
+    "reported_actual": "DrawingStageAdapter thực thi S6 và S7 với các projection views, curves, targets, opening_map và annotations đầy đủ",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+      "Ver 1/DBTool/DBTool.Application.Tests/W10StageAdapterTests.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W10",
+    "check_index": 2,
+    "name": "SheetThreeRoofViews_RetainSemanticIds_DropMockBounds",
+    "reported": "Passed",
+    "adjudicated": "PartiallySupported_NotNative",
+    "findings": [],
+    "reason": "Có thay đổi/guard trong source và software evidence; chưa chứng minh toàn bộ predicate bằng dữ liệu thật hoặc native.",
+    "expected": "SheetThreeRoofViews giữ lại TopViewId và BottomViewId, loại bỏ BuildTop/BuildBottom và bounds cố định không có caller",
+    "reported_actual": "TopViewId và BottomViewId được bảo toàn đầy đủ, các mock method tĩnh và bounds không còn tồn tại",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/SheetThreeRoofViews.cs",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W10ProjectionAndWiringTests.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W10",
+    "check_index": 3,
+    "name": "RoofJointDowelProjection_PreserveHole1to1_AndScalePaperMetrics",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "G05"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu G05.",
+    "expected": "Lỗ chốt giữ tỉ lệ 1:1 trong model mm, role Geometry/DowelHole, chiều cao chữ ghi chú tỷ lệ với paper metrics (2 * scaleDenominator)",
+    "reported_actual": "Bán kính lỗ đúng diameter/2 (1:1), ghi chú đạt đúng 2 * scaleDenominator (60 tại 1:30, 100 tại 1:50)",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/RoofJointDowelProjection.cs",
+      "Ver 1/DBTool/DBTool.Drawing/ViewBuilder.cs",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W10ProjectionAndWiringTests.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W10",
+    "check_index": 4,
+    "name": "SheetThreeRoofDetailer_TargetMemberFromMetadata",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D10"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D10.",
+    "expected": "Ưu tiên chọn thanh thép mục tiêu theo mainBarIds/metadata từ S5/S7 thay vì chỉ chọn theo longestPath",
+    "reported_actual": "SheetThreeRoofDetailer chọn thanh thép khớp mainBarIds trước khi dự phòng sắp xếp theo độ dài",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/SheetThreeRoofDetailer.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W10",
+    "check_index": 5,
+    "name": "Architecture_TestSuiteZeroRegression",
+    "reported": "Passed",
+    "adjudicated": "SoftwareEvidenceOnly",
+    "findings": [],
+    "reason": "Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.",
+    "expected": "Toàn bộ 4 test suites pass không có lỗi regression",
+    "reported_actual": "1,475 tests passed (Domain: 580, Drawing: 418, Application: 205, Excel: 272)",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Domain.Tests",
+      "Ver 1/DBTool/DBTool.Drawing.Tests",
+      "Ver 1/DBTool/DBTool.Application.Tests",
+      "Ver 1/DBTool/DBTool.Excel.Tests"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W11",
+    "check_index": 1,
+    "name": "DrawingStageAdapter_IS9_LayoutPagination",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D02",
+      "D13"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D02, D13.",
+    "expected": "DrawingStageAdapter triển khai IS9StageV2, giải thuật phân trang S9 chia trang theo vai trò, kiểm tra single-view fit, bao dòng theo lề nội dung, tách trang mới, kiểm tra dung sai mép ink, bao phủ khung nhìn bắt buộc, sinh canonical sheet_hash",
+    "reported_actual": "DrawingStageAdapter thực thi S9 với phân trang đầy đủ, ném chẩn đoán chuẩn xác cho fit/coverage và tạo SheetV2 hoàn chỉnh",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+      "Ver 1/DBTool/DBTool.Application.Tests/W11StageAdapterTests.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W11",
+    "check_index": 2,
+    "name": "DrawingPackage_ExpandedContract",
+    "reported": "Passed",
+    "adjudicated": "PartiallySupported_NotNative",
+    "findings": [],
+    "reason": "Có thay đổi/guard trong source và software evidence; chưa chứng minh toàn bộ predicate bằng dữ liệu thật hoặc native.",
+    "expected": "DrawingPackage bổ sung các thuộc tính SemanticIds, Targets, Groups, InkBounds, Frames, IntentManifest với getter-only và tương thích ngược",
+    "reported_actual": "Các thuộc tính được bổ sung với getter-only, bất biến hoàn toàn, tương thích các constructor hiện có",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/DrawingPackage.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W11",
+    "check_index": 3,
+    "name": "DrawingPackageValidator_ValidatePackageCompleteness",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D01",
+      "D02"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D01, D02.",
+    "expected": "ValidatePackageCompleteness kiểm tra tính đầy đủ của vai trò khung nhìn, quan hệ collector, bao phủ nhóm và phát hiện vai trò không xác định",
+    "reported_actual": "Báo cáo chính xác khi thiếu nhóm hoặc góc nhìn primitive, trả về OperationResult<DrawingValidationReport>",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/DrawingPackageValidator.cs",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W11LayoutAndPaginationTests.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W11",
+    "check_index": 4,
+    "name": "SheetFourViews_RetainSemanticIds_DropMockBounds",
+    "reported": "Passed",
+    "adjudicated": "PartiallySupported_NotNative",
+    "findings": [],
+    "reason": "Có thay đổi/guard trong source và software evidence; chưa chứng minh toàn bộ predicate bằng dữ liệu thật hoặc native.",
+    "expected": "SheetFourViews giữ 4 hằng số ViewId (PlanViewId, AAViewId, BBViewId, ScheduleViewId); loại bỏ các mock store tĩnh và bounds cố định",
+    "reported_actual": "4 hằng số ViewId được bảo toàn nguyên vẹn; các phương thức mock Build* và bounds cố định không còn tồn tại",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/SheetFourViews.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W11",
+    "check_index": 5,
+    "name": "SheetPlan_FrameRegistry_And_PageLedger",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D02"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D02.",
+    "expected": "SheetPlanPage bổ sung ManholeId, PageRole, PageIndex, ScaleDenominator, InkBounds, OwnedViewBundles; FrameRegistry hỗ trợ đăng ký, tra cứu và VerifyCoverage",
+    "reported_actual": "SheetPlanPage mở rộng lưu giữ đầy đủ dữ liệu phân trang; FrameRegistry kiểm tra coverage chuẩn xác và trả về OperationResult<FrameRegistry>",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/SheetPlan.cs",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W11LayoutAndPaginationTests.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W11",
+    "check_index": 6,
+    "name": "Architecture_TestSuiteZeroRegression",
+    "reported": "Passed",
+    "adjudicated": "SoftwareEvidenceOnly",
+    "findings": [],
+    "reason": "Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.",
+    "expected": "Toàn bộ test suites pass không có lỗi regression",
+    "reported_actual": "1,484 tests passed (Domain: 580, Drawing: 422, Application: 210, Excel: 272), 0 failed, 0 skipped",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Domain.Tests",
+      "Ver 1/DBTool/DBTool.Drawing.Tests",
+      "Ver 1/DBTool/DBTool.Application.Tests",
+      "Ver 1/DBTool/DBTool.Excel.Tests"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W12",
+    "check_index": 1,
+    "name": "Family21Store_And_StaticViews_PermanentRemoval",
+    "reported": "Passed",
+    "adjudicated": "VerifiedStructuralOnly",
+    "findings": [],
+    "reason": "Đã kiểm deletion/archive/no production symbol; phần thay thế chức năng vẫn chưa đạt D12 và D01.",
+    "expected": "6 module tĩnh (Family21SheetFiveStore, Family21SheetFourStore, Family21SheetThreeStore, Family21SheetTwoStore, SheetFourCatchBasinViews, SheetTwoViews) bị loại bỏ vĩnh viễn khỏi runtime và assembly",
+    "reported_actual": "6 file nguồn đã được xóa khỏi DBTool.Drawing; assembly không chứa bất kỳ kiểu dữ liệu nào trong số 6 kiểu này; được kiểm tra bằng reflection trong W12ModuleRemovalTests",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W12ModuleRemovalTests.cs",
+      "outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W12/archive/archive-manifest.json"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W12",
+    "check_index": 2,
+    "name": "ZeroActiveReferences_To_RemovedModules",
+    "reported": "Passed",
+    "adjudicated": "VerifiedStructuralOnly",
+    "findings": [],
+    "reason": "Đã kiểm deletion/archive/no production symbol; phần thay thế chức năng vẫn chưa đạt D12 và D01.",
+    "expected": "0 tham chiếu active hoặc reflection tới 6 module bị gỡ bỏ trên toàn bộ solution DBTool",
+    "reported_actual": "git grep xác nhận 0 lần xuất hiện của 6 symbol trong toàn bộ mã nguồn sản phẩm Ver 1/DBTool (ngoại trừ W12ModuleRemovalTests dùng assert absent)",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W12ModuleRemovalTests.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W12",
+    "check_index": 3,
+    "name": "CallerUpdates_SheetFourViews_SheetFiveViews_ViewBuilder",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "D12"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D12.",
+    "expected": "SheetFourViews giữ các semantic ViewId và tiếp nhận catch view IDs; SheetFiveViews gỡ BuildFixture nhưng giữ ViewId, Bounds, BuildBending; ViewBuilder loại bỏ dead code SheetTwoViews và chuyển catchFamily sang chiếu động",
+    "reported_actual": "SheetFourViews bổ sung CatchPlanViewId, CatchSec11ViewId, CatchSec22ViewId; SheetFiveViews không còn BuildFixture; ViewBuilder dùng dynamic component & rebar projection cho hố thu",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Drawing/SheetFourViews.cs",
+      "Ver 1/DBTool/DBTool.Drawing/SheetFiveViews.cs",
+      "Ver 1/DBTool/DBTool.Drawing/ViewBuilder.cs",
+      "Ver 1/DBTool/DBTool.Drawing.Tests/W12ModuleRemovalTests.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W12",
+    "check_index": 4,
+    "name": "ArchiveManifest_Created_With_Hashes",
+    "reported": "Passed",
+    "adjudicated": "VerifiedStructuralOnly",
+    "findings": [],
+    "reason": "Đã kiểm deletion/archive/no production symbol; phần thay thế chức năng vẫn chưa đạt D12 và D01.",
+    "expected": "Lưu trữ đầy đủ 6 file kèm SHA-256 trước khi xóa ra ngoài compile tree",
+    "reported_actual": "6 file và archive-manifest.json được lưu tại outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W12/archive/ và Ver 1/archive/W12_removed_modules/",
+    "evidence_paths": [
+      "outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W12/archive/archive-manifest.json",
+      "Ver 1/archive/W12_removed_modules/archive-manifest.json"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W12",
+    "check_index": 5,
+    "name": "Architecture_TestSuiteZeroRegression",
+    "reported": "Passed",
+    "adjudicated": "SoftwareEvidenceOnly",
+    "findings": [],
+    "reason": "Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.",
+    "expected": "Toàn bộ test suites pass không có regression sau khi gỡ 6 module",
+    "reported_actual": "1,488 tests passed (Domain: 580, Drawing: 426, Application: 210, Excel: 272), 0 failed, 0 skipped",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Domain.Tests",
+      "Ver 1/DBTool/DBTool.Drawing.Tests",
+      "Ver 1/DBTool/DBTool.Application.Tests",
+      "Ver 1/DBTool/DBTool.Excel.Tests"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W13",
+    "check_index": 1,
+    "name": "ProductionPipeline_S0_Through_S11_Wiring",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "N01",
+      "N03"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu N01, N03.",
+    "expected": "IS10StageV2 and IS11StageV2 invoked in order",
+    "reported_actual": "S10StageAdapter and S11StageAdapter execute and assemble BatchV2",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+      "Ver 1/DBTool/DBTool.Application.Tests/W13StageAdapterTests.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W13",
+    "check_index": 2,
+    "name": "CadGenerationWriter_NativeGenerationPort_Implementation",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "N02",
+      "N04",
+      "N07",
+      "N12"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu N02, N04, N07, N12.",
+    "expected": "Implements INativeGenerationPort.Write with transaction rollback and repository tagging",
+    "reported_actual": "Implements INativeGenerationPort.Write and verifies untouched manhole states",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.AutoCAD/CadGenerationWriter.cs",
+      "Ver 1/DBTool/DBTool.AutoCAD/GenerationRepository.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W13",
+    "check_index": 3,
+    "name": "Palette_PresentationRequest_Configurability",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "N09"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu N09.",
+    "expected": "PresentationRequest passed from ViewModel (scale, elevation) instead of hardcoded 30/Symbolic",
+    "reported_actual": "MainViewModel and MainPaletteControl provide typed DrawingScale and ElevationMode",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool/App/PaletteDrawingCalculation.cs",
+      "Ver 1/DBTool/DBTool/UI/MainPaletteControl.xaml.cs",
+      "Ver 1/DBTool/DBTool/UI/MainViewModel.cs"
+    ],
+    "no_native_proof": true
+  },
+  {
+    "package": "W13",
+    "check_index": 4,
+    "name": "Headless_Scale_And_Identity_Validation",
+    "reported": "Passed",
+    "adjudicated": "ContradictedOrIncomplete",
+    "findings": [
+      "N09"
+    ],
+    "reason": "Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu N09.",
+    "expected": "Page scales validated, single manhole identity enforced, no fixture fallback",
+    "reported_actual": "Validates scales and raises CLI_ARGUMENT_INVALID on missing or invalid arguments",
+    "evidence_paths": [
+      "Ver 1/DBTool/DBTool.Headless/Program.cs",
+      "Ver 1/DBTool/DBTool.Excel.Tests/HeadlessRunnerTests.cs"
+    ],
+    "no_native_proof": true
+  }
+]

@@ -1,0 +1,2 @@
+﻿ReviewId,Phase1SignoffHash,CaseId,RunId,ManholeId,FrameId,PdfPath,PdfSha256,PdfPage,ReferenceSha256,ComparisonMode,RegionId,RegionBounds,Required,Decision,Comment,AnnotationPath,Reviewer,ReviewedAt,RecordKind
+,,,,,,,,,,,,,,NotRun,,,,,TemplateOnly_NotActualReview

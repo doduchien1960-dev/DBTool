@@ -1,0 +1,429 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>04-ADJUDICATION-59-CHECKS</title><style>body{margin:0;background:#edf2f5;color:#182c3a;font:16px/1.65 "Segoe UI",sans-serif}main{max-width:1320px;margin:auto;padding:32px;background:white}h1,h2,h3{line-height:1.35;color:#153c54}h2{border-bottom:2px solid #c7dce8;margin-top:42px;padding-bottom:8px}a{color:#086893}table{border-collapse:collapse;width:100%;display:block;overflow:auto;font-size:13px;margin:18px 0}th,td{border:1px solid #cad7df;padding:10px;vertical-align:top}th{background:#e6f0f5}tr:nth-child(even){background:#f7fafc}pre{padding:16px;background:#132c3b;color:#eaf4fa;overflow:auto;font:13px/1.5 Consolas,monospace}code{font-family:Consolas,monospace}nav{padding:12px;background:#e6f0f5;display:flex;gap:18px;flex-wrap:wrap}.banner{padding:18px;background:#fff1d1;border-left:6px solid #bd761b}details{padding:16px;border:1px solid #c8d7df;margin:16px 0}summary{font-weight:700;cursor:pointer}.badge{padding:6px 12px;background:#922e2e;color:white;border-radius:6px}button{padding:10px 18px;background:#17657d;color:white;border:0;border-radius:5px;cursor:pointer}@media print{nav{display:none}main{padding:0}table{font-size:10px}details{break-inside:avoid}}</style></head><body><main><nav><a href="INDEX.html">Mục lục nghiệm thu</a><a href="00-BIEN-BAN-NGHIEM-THU.html">Biên bản</a><a href="02-KE-HOACH-PHASE-1.html">Phase 1</a><a href="03-HO-SO-PHASE-2.html">Phase 2</a></nav><h1 id="anh-gia-lai-u-59-check-records">Đánh giá lại đủ 59 check records</h1>
+<p>Reported là lời ghi trong receipt; Adjudicated là kết luận review hiện tại. Không có check nào trong bảng này được dùng để chứng nhận DWG/PDF. File code tồn tại hoặc unit suite xanh chỉ hỗ trợ phạm vi software tương ứng.</p>
+<table>
+<thead>
+<tr>
+<th>W/check</th>
+<th>Tên</th>
+<th>Reported</th>
+<th>Adjudicated</th>
+<th>Finding / lý do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W01/1</td>
+<td>ReferenceComparison_InputMismatch_Separation</td>
+<td>Passed</td>
+<td>PartiallySupported_NotNative</td>
+<td>Có thay đổi/guard trong source và software evidence; chưa chứng minh toàn bộ predicate bằng dữ liệu thật hoặc native.</td>
+</tr>
+<tr>
+<td>W01/2</td>
+<td>ReleaseEvidence_VerdictIntegrity</td>
+<td>Passed</td>
+<td>PartiallySupported_NotNative</td>
+<td>Có thay đổi/guard trong source và software evidence; chưa chứng minh toàn bộ predicate bằng dữ liệu thật hoặc native.</td>
+</tr>
+<tr>
+<td>W01/3</td>
+<td>SemanticDiff_PhysicalManifestAndClassification</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu R01.</td>
+</tr>
+<tr>
+<td>W02/1</td>
+<td>StageDTO_Schema_Exactness</td>
+<td>Passed</td>
+<td>VerifiedStructuralOnly</td>
+<td>103 record và từng field/type khớp spec; đây chỉ là schema, không chứng minh dữ liệu runtime.</td>
+</tr>
+<tr>
+<td>W02/2</td>
+<td>TemplateContract_RoleAndTagValidation</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu G08, G09.</td>
+</tr>
+<tr>
+<td>W02/3</td>
+<td>CalculationPolicy_ApprovedRulesGating</td>
+<td>Passed</td>
+<td>PartiallySupported_NotNative</td>
+<td>Có thay đổi/guard trong source và software evidence; chưa chứng minh toàn bộ predicate bằng dữ liệu thật hoặc native.</td>
+</tr>
+<tr>
+<td>W02/4</td>
+<td>ExcelImporter_FieldContractMapping</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu G02.</td>
+</tr>
+<tr>
+<td>W02/5</td>
+<td>Architecture_DependenciesAndImmutability</td>
+<td>Passed</td>
+<td>SoftwareEvidenceOnly</td>
+<td>Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.</td>
+</tr>
+<tr>
+<td>W03/1</td>
+<td>PresentationGroupPlanner_MemberCoverage</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D11.</td>
+</tr>
+<tr>
+<td>W03/2</td>
+<td>AssemblyBoundaryEmitter_CSG_Regions</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D08.</td>
+</tr>
+<tr>
+<td>W03/3</td>
+<td>RuleApprovalRegistry_ApprovedSeed_23Proposals</td>
+<td>Passed</td>
+<td>PartiallySupported_NotNative</td>
+<td>Có thay đổi/guard trong source và software evidence; chưa chứng minh toàn bộ predicate bằng dữ liệu thật hoặc native.</td>
+</tr>
+<tr>
+<td>W03/4</td>
+<td>Architecture_DependenciesAndImmutability</td>
+<td>Passed</td>
+<td>SoftwareEvidenceOnly</td>
+<td>Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.</td>
+</tr>
+<tr>
+<td>W04/1</td>
+<td>CatchAssemblyProjector_ThreeViews</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D01.</td>
+</tr>
+<tr>
+<td>W04/2</td>
+<td>SchematicPresentationPlanner_CaptionsAndGlyphs</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D04, D05.</td>
+</tr>
+<tr>
+<td>W04/3</td>
+<td>NativeSteelSchedulePlanner_RowsAndSummaries</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D03, D04, D05, D09.</td>
+</tr>
+<tr>
+<td>W04/4</td>
+<td>AnnotationLaneAllocator_SharedInkAndRouting</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D05, D06, D07.</td>
+</tr>
+<tr>
+<td>W04/5</td>
+<td>Architecture_TestSuiteCoverage</td>
+<td>Passed</td>
+<td>SoftwareEvidenceOnly</td>
+<td>Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.</td>
+</tr>
+<tr>
+<td>W05/1</td>
+<td>BatchGenerationOrchestrator_Signature_And_Isolation</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu N01, N11.</td>
+</tr>
+<tr>
+<td>W05/2</td>
+<td>NativeReadbackVerifier_Save_Reopen_Validation</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu N04.</td>
+</tr>
+<tr>
+<td>W05/3</td>
+<td>AcceptanceEvidenceAssembler_S11_Records</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu N05, N06, N11.</td>
+</tr>
+<tr>
+<td>W05/4</td>
+<td>Architecture_DependenciesAndImmutability</td>
+<td>Passed</td>
+<td>SoftwareEvidenceOnly</td>
+<td>Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.</td>
+</tr>
+<tr>
+<td>W06/1</td>
+<td>StageAdapters_S2_S3_Implementation</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu G01, G02, G03, G07.</td>
+</tr>
+<tr>
+<td>W06/2</td>
+<td>SheetOneDrawingPolicies_Preservation</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu G10.</td>
+</tr>
+<tr>
+<td>W06/3</td>
+<td>AccessoryAndCatchBasin_Extensions</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu G02, G03.</td>
+</tr>
+<tr>
+<td>W06/4</td>
+<td>Architecture_DependenciesAndTestSuiteZeroRegression</td>
+<td>Passed</td>
+<td>SoftwareEvidenceOnly</td>
+<td>Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.</td>
+</tr>
+<tr>
+<td>W07/1</td>
+<td>StageAdapters_S4_FullRebarStage_Implementation</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu G04, G05, G06, G07.</td>
+</tr>
+<tr>
+<td>W07/2</td>
+<td>RebarPlanners_PhysicalProvenance_And_CanonicalSignatures</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu G11, G12.</td>
+</tr>
+<tr>
+<td>W07/3</td>
+<td>FeatureSupport_RebarCapabilities</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu G02, G06.</td>
+</tr>
+<tr>
+<td>W07/4</td>
+<td>Architecture_DependenciesAndTestSuiteZeroRegression</td>
+<td>Passed</td>
+<td>SoftwareEvidenceOnly</td>
+<td>Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.</td>
+</tr>
+<tr>
+<td>W08/1</td>
+<td>PresentationGroup_S5_PreDrawing_Planning</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D10.</td>
+</tr>
+<tr>
+<td>W08/2</td>
+<td>ScheduleNativeAttributes_21_Exact_Block_Schemas</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D03, D09.</td>
+</tr>
+<tr>
+<td>W08/3</td>
+<td>DrawingStageAdapter_S5_Carrier</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D10.</td>
+</tr>
+<tr>
+<td>W08/4</td>
+<td>CalculationPipeline_PreDrawing_Integration</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D10.</td>
+</tr>
+<tr>
+<td>W08/5</td>
+<td>Architecture_TestSuiteZeroRegression</td>
+<td>Passed</td>
+<td>SoftwareEvidenceOnly</td>
+<td>Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.</td>
+</tr>
+<tr>
+<td>W09/1</td>
+<td>BendingSchematic_RecipeId_And_GlyphAsset</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D04, D05.</td>
+</tr>
+<tr>
+<td>W09/2</td>
+<td>ScheduleTablePlanner_OmitGrid_OnVhgPath</td>
+<td>Passed</td>
+<td>PartiallySupported_NotNative</td>
+<td>Có thay đổi/guard trong source và software evidence; chưa chứng minh toàn bộ predicate bằng dữ liệu thật hoặc native.</td>
+</tr>
+<tr>
+<td>W09/3</td>
+<td>SheetFiveViews_And_Placement_DynamicBending</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D02.</td>
+</tr>
+<tr>
+<td>W09/4</td>
+<td>SteelScheduleStageAdapter_IS8StageV2_Wiring</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D03, D09.</td>
+</tr>
+<tr>
+<td>W09/5</td>
+<td>Architecture_TestSuiteZeroRegression</td>
+<td>Passed</td>
+<td>SoftwareEvidenceOnly</td>
+<td>Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.</td>
+</tr>
+<tr>
+<td>W10/1</td>
+<td>DrawingStageAdapter_IS6_IS7_Wiring</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D01, D05, D06, D07.</td>
+</tr>
+<tr>
+<td>W10/2</td>
+<td>SheetThreeRoofViews_RetainSemanticIds_DropMockBounds</td>
+<td>Passed</td>
+<td>PartiallySupported_NotNative</td>
+<td>Có thay đổi/guard trong source và software evidence; chưa chứng minh toàn bộ predicate bằng dữ liệu thật hoặc native.</td>
+</tr>
+<tr>
+<td>W10/3</td>
+<td>RoofJointDowelProjection_PreserveHole1to1_AndScalePaperMetrics</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu G05.</td>
+</tr>
+<tr>
+<td>W10/4</td>
+<td>SheetThreeRoofDetailer_TargetMemberFromMetadata</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D10.</td>
+</tr>
+<tr>
+<td>W10/5</td>
+<td>Architecture_TestSuiteZeroRegression</td>
+<td>Passed</td>
+<td>SoftwareEvidenceOnly</td>
+<td>Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.</td>
+</tr>
+<tr>
+<td>W11/1</td>
+<td>DrawingStageAdapter_IS9_LayoutPagination</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D02, D13.</td>
+</tr>
+<tr>
+<td>W11/2</td>
+<td>DrawingPackage_ExpandedContract</td>
+<td>Passed</td>
+<td>PartiallySupported_NotNative</td>
+<td>Có thay đổi/guard trong source và software evidence; chưa chứng minh toàn bộ predicate bằng dữ liệu thật hoặc native.</td>
+</tr>
+<tr>
+<td>W11/3</td>
+<td>DrawingPackageValidator_ValidatePackageCompleteness</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D01, D02.</td>
+</tr>
+<tr>
+<td>W11/4</td>
+<td>SheetFourViews_RetainSemanticIds_DropMockBounds</td>
+<td>Passed</td>
+<td>PartiallySupported_NotNative</td>
+<td>Có thay đổi/guard trong source và software evidence; chưa chứng minh toàn bộ predicate bằng dữ liệu thật hoặc native.</td>
+</tr>
+<tr>
+<td>W11/5</td>
+<td>SheetPlan_FrameRegistry_And_PageLedger</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D02.</td>
+</tr>
+<tr>
+<td>W11/6</td>
+<td>Architecture_TestSuiteZeroRegression</td>
+<td>Passed</td>
+<td>SoftwareEvidenceOnly</td>
+<td>Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.</td>
+</tr>
+<tr>
+<td>W12/1</td>
+<td>Family21Store_And_StaticViews_PermanentRemoval</td>
+<td>Passed</td>
+<td>VerifiedStructuralOnly</td>
+<td>Đã kiểm deletion/archive/no production symbol; phần thay thế chức năng vẫn chưa đạt D12 và D01.</td>
+</tr>
+<tr>
+<td>W12/2</td>
+<td>ZeroActiveReferences_To_RemovedModules</td>
+<td>Passed</td>
+<td>VerifiedStructuralOnly</td>
+<td>Đã kiểm deletion/archive/no production symbol; phần thay thế chức năng vẫn chưa đạt D12 và D01.</td>
+</tr>
+<tr>
+<td>W12/3</td>
+<td>CallerUpdates_SheetFourViews_SheetFiveViews_ViewBuilder</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu D12.</td>
+</tr>
+<tr>
+<td>W12/4</td>
+<td>ArchiveManifest_Created_With_Hashes</td>
+<td>Passed</td>
+<td>VerifiedStructuralOnly</td>
+<td>Đã kiểm deletion/archive/no production symbol; phần thay thế chức năng vẫn chưa đạt D12 và D01.</td>
+</tr>
+<tr>
+<td>W12/5</td>
+<td>Architecture_TestSuiteZeroRegression</td>
+<td>Passed</td>
+<td>SoftwareEvidenceOnly</td>
+<td>Số unit tests/architecture checks không chứng minh pipeline thật hoặc DWG/PDF; đã chạy lại, vẫn có counterexamples.</td>
+</tr>
+<tr>
+<td>W13/1</td>
+<td>ProductionPipeline_S0_Through_S11_Wiring</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu N01, N03.</td>
+</tr>
+<tr>
+<td>W13/2</td>
+<td>CadGenerationWriter_NativeGenerationPort_Implementation</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu N02, N04, N07, N12.</td>
+</tr>
+<tr>
+<td>W13/3</td>
+<td>Palette_PresentationRequest_Configurability</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu N09.</td>
+</tr>
+<tr>
+<td>W13/4</td>
+<td>Headless_Scale_And_Identity_Validation</td>
+<td>Passed</td>
+<td>ContradictedOrIncomplete</td>
+<td>Mệnh đề Passed rộng hơn hành vi code đã kiểm; đối chiếu N09.</td>
+</tr>
+</tbody>
+</table>
+<p>Đối với mọi check yếu: thay bằng observed input→output qua đúng public entrypoint, có source/hash, expected độc lập và negative mutation. Native checks phải trỏ tới DWG/PDF/handle thật; không dùng tên thư mục project thay log hoặc artifact.</p></main></body></html>

@@ -1,0 +1,1094 @@
+{
+  "review_id": "DBTOOL-W01-W13-20261014-R01",
+  "scope": "Review report/evidence/handoff templates; not native product approval",
+  "files": [
+    {
+      "path": "00-BIEN-BAN-NGHIEM-THU.html",
+      "bytes": 12057,
+      "sha256": "a6e2e78dc4ebaf20c598b77c488a6fcaa625561648f6b8f90c579b7d5ad14861"
+    },
+    {
+      "path": "00-BIEN-BAN-NGHIEM-THU.md",
+      "bytes": 9228,
+      "sha256": "0f09a14a600c027f654aa9f0e7f167eb87fcfbf1488fef256b0e64f55eb62c81"
+    },
+    {
+      "path": "00-BIEN-BAN-NGHIEM-THU.pdf",
+      "bytes": 58109,
+      "sha256": "1850fa961b63016bb39d6aedc94890d14bf55cc68eca6f08c365689f6026fb7a"
+    },
+    {
+      "path": "01-FINDINGS.html",
+      "bytes": 98023,
+      "sha256": "6ce883137c46b55d8b737b305070ef6bced441175466e6726f5e56c873627293"
+    },
+    {
+      "path": "01-FINDINGS.md",
+      "bytes": 78558,
+      "sha256": "ca2d4c96f57db89655a4a48442876506d56c86bf24dbcdf4e9c2d4a453ee15f2"
+    },
+    {
+      "path": "02-KE-HOACH-PHASE-1.html",
+      "bytes": 19659,
+      "sha256": "db10c4ae7c04eba038ce453f765417739c8791f9da08dce9dae97c8edd2c9ec4"
+    },
+    {
+      "path": "02-KE-HOACH-PHASE-1.md",
+      "bytes": 16414,
+      "sha256": "b41131c87206b5fade8ac1c8c409684cdfa950163a2fecf28261575b3f56990c"
+    },
+    {
+      "path": "03-HO-SO-PHASE-2.html",
+      "bytes": 9661,
+      "sha256": "9239c82fcae17fd65906a6001d7547db4c09678dc10c9ffd863ad372f345fbe7"
+    },
+    {
+      "path": "03-HO-SO-PHASE-2.md",
+      "bytes": 7144,
+      "sha256": "9306205585cc0d202924e741257134ee81d649df6a5b6c188c705d2a402d36f2"
+    },
+    {
+      "path": "04-ADJUDICATION-59-CHECKS.html",
+      "bytes": 16406,
+      "sha256": "2532f239a01e671ae3a5a6123958ac92fa09dc9b844212cf459d0c23dd6521c0"
+    },
+    {
+      "path": "04-ADJUDICATION-59-CHECKS.md",
+      "bytes": 12125,
+      "sha256": "081cd2dc7b215fcdc4ba1c2478c0e03dfcefea1735b5c54e647c3dc3c463e02c"
+    },
+    {
+      "path": "05-PACKAGE-REWORK.html",
+      "bytes": 6526,
+      "sha256": "28dec9b44a00a4f379274593044f3807dacb8121a016c3c4792892cb9a8bd953"
+    },
+    {
+      "path": "05-PACKAGE-REWORK.md",
+      "bytes": 4353,
+      "sha256": "6de5b15c25093fecc329dac172f240cf3bf73f0fd3db481705518423f565275e"
+    },
+    {
+      "path": "06-MACHINE-EVIDENCE.html",
+      "bytes": 5962,
+      "sha256": "8f32b324fc3540b5f26b560a9a0e49a31a46b59ee3cd23f2e0f884f405525628"
+    },
+    {
+      "path": "06-MACHINE-EVIDENCE.md",
+      "bytes": 3671,
+      "sha256": "bc1e13677f9594c364866afd2dafc860de7d54f41fc2192b76d2efc8c2883ba8"
+    },
+    {
+      "path": "agents/drawing-review.md",
+      "bytes": 17108,
+      "sha256": "199ea304c5a78840d8e17430a5e4b23cc7008c1358c79da85c5092f6ba157744"
+    },
+    {
+      "path": "agents/geometry-review.md",
+      "bytes": 26316,
+      "sha256": "c2c622b8ae6cf223b7c6304017c7ed589ef66b8e33bd3c08b94d1dd11d56d7eb"
+    },
+    {
+      "path": "agents/native-review.md",
+      "bytes": 22935,
+      "sha256": "3e5f4a57ba2b6bb2efdc5b5fed4ace26f9352b1a145e1e2f99be5f7660a118c1"
+    },
+    {
+      "path": "data/binding-preflight.json",
+      "bytes": 898,
+      "sha256": "dd917e7f31e53e0f55535f794181f08e3b95a1e3f6fb42ad0faa50556d250528"
+    },
+    {
+      "path": "data/case-ledger.json",
+      "bytes": 313334,
+      "sha256": "cac7c9ab4a819e2ae3be8d790df38a2ffbfd89c348df865dc12b9883f5de8660"
+    },
+    {
+      "path": "data/changed-file-chain.json",
+      "bytes": 83626,
+      "sha256": "566dabdd83a4ccd9234ef75bb0000e9ae213802735fd7a338a7cba07d2f309c4"
+    },
+    {
+      "path": "data/check-adjudication-59.csv",
+      "bytes": 11254,
+      "sha256": "f30a50b9879bace99859b300766bb565911267d671bf152963c9fbf70df6c8fd"
+    },
+    {
+      "path": "data/check-adjudication-59.json",
+      "bytes": 49339,
+      "sha256": "12d8a17416a83ddaf202f276dab1398a53c282f66323dd01b8ceee266948444b"
+    },
+    {
+      "path": "data/current-changed-files.json",
+      "bytes": 76699,
+      "sha256": "4b2968c4e5b83118b0aab6f7d9c6bc6f96cd125c54c33ded7552c73bfa2431cd"
+    },
+    {
+      "path": "data/dto-schema-comparison.json",
+      "bytes": 80,
+      "sha256": "cc798a614f69b94c3e152716d834d4f398ee36ab11c0c7127b8238b00ddeb502"
+    },
+    {
+      "path": "data/findings.json",
+      "bytes": 33608,
+      "sha256": "119016a95df8c531b8e67fdfd0d94205b9174e4ae57916b74bdf2700cd1a6784"
+    },
+    {
+      "path": "data/fresh-build-result.json",
+      "bytes": 444,
+      "sha256": "2941d6883b6b3518bb680206d0d41ff20c3ccff52ffa931e8b31b3c727cf782b"
+    },
+    {
+      "path": "data/fresh-test-results.json",
+      "bytes": 3719,
+      "sha256": "0a5ecbc3df328c69d0f6726f40d12e126d727adc024619b6c3afbd7f1e6f360d"
+    },
+    {
+      "path": "data/handover-verification.json",
+      "bytes": 2874,
+      "sha256": "18bdd6c851ad42be2897285d0df25b8937cf394a431acc7db617b4d27546166f"
+    },
+    {
+      "path": "data/host-load-result.json",
+      "bytes": 1379,
+      "sha256": "1f086a8477a7bf8b092c9bb9b0ae21809a35d40bfca21d9abccdc38eac9b9037"
+    },
+    {
+      "path": "data/original-workbook-manifest.json",
+      "bytes": 9187,
+      "sha256": "ade3dce05af5b80f822bc5710c1bfc1a4547fdd22f2418880c585d29d35392fa"
+    },
+    {
+      "path": "data/receipt-checks.json",
+      "bytes": 79279,
+      "sha256": "50ca6cda35144536db5fb00c8ae602950f0b3ec244d8244e0dc07311e62b4922"
+    },
+    {
+      "path": "data/receipt-commands.json",
+      "bytes": 15659,
+      "sha256": "cdd8d943912194331cb0638adc33530897ed5a8321af2be89e0c3507bf26f9fb"
+    },
+    {
+      "path": "data/receipt-dependency-chain.json",
+      "bytes": 7774,
+      "sha256": "2f65680c86dd0967b39262f199a1ca7a093a575f5377c04f762dcc5b09410091"
+    },
+    {
+      "path": "data/receipt-inventory.json",
+      "bytes": 12130,
+      "sha256": "29059c2064a69dc690e327c383a525d45ec95704a60f35c2e38329f51880030a"
+    },
+    {
+      "path": "data/reference-pdf-manifest.json",
+      "bytes": 25118,
+      "sha256": "1f264f09a2758486f2e5524de685d50b4b7ce48b0398528eb57a146e76375d8e"
+    },
+    {
+      "path": "data/review-coverage.json",
+      "bytes": 25802,
+      "sha256": "ba2872d6fc9155c503852bf1ea43048adf42c2d0eb1b9e5ccf992a83a61002b7"
+    },
+    {
+      "path": "data/review-summary.json",
+      "bytes": 948,
+      "sha256": "fd0b774002bec2775b77bc950eb6894fc2a9b695ee14352648d37d973dd064b7"
+    },
+    {
+      "path": "data/wave-selection.json",
+      "bytes": 897,
+      "sha256": "33143c6e6f87a6cbc0fc83842702c6d441bb3846b77a8d2f513af29c1a222963"
+    },
+    {
+      "path": "frozen/receipts/W01/receipt.json",
+      "bytes": 3861,
+      "sha256": "88ef0c2bff47dab14ed469f80982e0136f24b64c056a7ca51f861632cc977edf"
+    },
+    {
+      "path": "frozen/receipts/W02/receipt.json",
+      "bytes": 12264,
+      "sha256": "9109421973a2367b66c171f19ba95505cb1458e0a6c6ade3149cd5019034ccd9"
+    },
+    {
+      "path": "frozen/receipts/W03/receipt.json",
+      "bytes": 5134,
+      "sha256": "88d2b84615f8c5121fa51a4955b6180c75d73629697b8251d1cea7629b31bc59"
+    },
+    {
+      "path": "frozen/receipts/W04/receipt.json",
+      "bytes": 6800,
+      "sha256": "06b2800e33b337c913aaed1c1bc7669a95a3ebc47fd5bb78759e1da25e04b7cc"
+    },
+    {
+      "path": "frozen/receipts/W05/receipt.json",
+      "bytes": 5395,
+      "sha256": "23325dc8cdc092c0cbf743fc3d092ef6b751548c5ac358e42b4844bb86529333"
+    },
+    {
+      "path": "frozen/receipts/W06/receipt.json",
+      "bytes": 10472,
+      "sha256": "eed9d643a96086799c471af6baf1ae180bdc6d7823c45df5222ba84480540622"
+    },
+    {
+      "path": "frozen/receipts/W07/receipt.json",
+      "bytes": 13004,
+      "sha256": "acf5f456807d0a2ad25232bc492282d36ded34b546262c78a9b08a12456afbac"
+    },
+    {
+      "path": "frozen/receipts/W08/receipt.json",
+      "bytes": 6986,
+      "sha256": "43a92b7a9d33072638432133728aae2aa6b9665d09e56869f8c9e6d0f492673f"
+    },
+    {
+      "path": "frozen/receipts/W09/receipt.json",
+      "bytes": 8596,
+      "sha256": "7f0db787b8819d6f01645a19dc386a9be69d54a93848ea0435ebeef42b8f46e8"
+    },
+    {
+      "path": "frozen/receipts/W10/receipt.json",
+      "bytes": 7832,
+      "sha256": "135c0ad0747870a2563295bb69b9be9189d17d4196696bc59a1840c7964d3fa4"
+    },
+    {
+      "path": "frozen/receipts/W11/receipt.json",
+      "bytes": 9095,
+      "sha256": "923d3ad45a21a61abbb64a73a91d11c7d9c42c816d7a5bf26eb3bc230040b6bc"
+    },
+    {
+      "path": "frozen/receipts/W12/receipt.json",
+      "bytes": 9486,
+      "sha256": "46911c6aedb4e11dceca304387ffd825630d941314fc1736d8670f60bf5005b1"
+    },
+    {
+      "path": "frozen/receipts/W13/receipt.json",
+      "bytes": 10602,
+      "sha256": "a686fa20048c121247581af89f56aa1081f0374825fd3036a64a21f6f9d6e907"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool/App/HoGaCommands.cs",
+      "bytes": 11160,
+      "sha256": "d9d3e875517fbee24df19129543fccf7e0c6e17352008a11d10b5663aca5db9e"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool/App/PaletteDrawingCalculation.cs",
+      "bytes": 7471,
+      "sha256": "e4fe68f97efc8f94fbc488895babd1c8ae76a017fd2967e2bb66077d82dd75d9"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool/App/SchedulePackageExport.cs",
+      "bytes": 1304,
+      "sha256": "49cd8120270d02f1d82ddf2c8a9518425c07d8f5af8ac9283ce0fdd3cffc5beb"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool/UI/MainPaletteControl.xaml.cs",
+      "bytes": 15011,
+      "sha256": "eb172379f476f74af010db0455c6268f498c21a0322bd46ecb15d3ec4bec7dca"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool/UI/MainViewModel.cs",
+      "bytes": 12151,
+      "sha256": "4309d6b7e43e36170d7a0c7c966877e80063002581db49ac432bfd9a5dea1e74"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs",
+      "bytes": 15935,
+      "sha256": "c6c388fef5dd6bbec1be194541b5e44435c7dc7388ac0bee3f58dffbf05ec995"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application/AccessoryInputMapper.cs",
+      "bytes": 10133,
+      "sha256": "bd07c71828934dc7c0d2a84ed8bc8ab17025833bd3513aa7cf503af422959140"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application/BatchGenerationOrchestrator.cs",
+      "bytes": 11293,
+      "sha256": "9d01df4f3d306558141e8799f783e88397d265e952cd781b55aaa1a0cdbf4211"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application/CalculationPipeline.cs",
+      "bytes": 14369,
+      "sha256": "1c7b41c31d12baf812acc609dde796ec79d35e27a0acbe88bc89780c842f40c3"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application/ExportCalculationUseCase.cs",
+      "bytes": 2628,
+      "sha256": "ffc0bc550bd151e039ecb3d1b1c1a1fc57da7d4b7ef3caf4478b524debc4d5c0"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application/FeatureSupportValidator.cs",
+      "bytes": 14660,
+      "sha256": "e273822fd3adda2d9909d03a7f7a6d32bfffb3c7541a5233a7b08c348b0db2c9"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application/GenerateDrawingUseCase.cs",
+      "bytes": 3875,
+      "sha256": "207898e2b534911e656c587ccc701f6492aa3ce77fee2179295b6d39bae85bbd"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application/ManholeValidator.cs",
+      "bytes": 55279,
+      "sha256": "432eeeeee2e286876fbfcd8daa5ee0160e8d126cf7f34ded1f311830e43562e7"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application/ReferenceComparisonService.cs",
+      "bytes": 9849,
+      "sha256": "350b1cc8122dab92268ee493b9efeb4592fbf89626dbd7aa0bbfdb6e4a1e609d"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application/ReleaseEvidence.cs",
+      "bytes": 17617,
+      "sha256": "49ec1f2f2190202bfe1430255c1078bc6155c73d61a1216957e5aa9642d1414a"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application/RuleApprovalRegistry.cs",
+      "bytes": 27535,
+      "sha256": "f44b6a741abd59ff472901823c10e87e230c2fc5d0e103c89f75ef51e6979988"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application/StageAdapters.cs",
+      "bytes": 62586,
+      "sha256": "849e2d7874808fdff76aad93c1f4e66b19fbb37a606baad850ebe0d845dfaf17"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application/StageContractsV2/Application.ContractsV2.cs",
+      "bytes": 8502,
+      "sha256": "809e3e41d0d41719d727584e168373f766a5ddffd1e656f94c200a8073851a4d"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application/Templates/TemplateContractValidator.cs",
+      "bytes": 6663,
+      "sha256": "5c7b43f6c42f738ee950defcd284617a9dc9c178905099db40b300be523c4786"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application/Templates/VhgTemplateRoles.cs",
+      "bytes": 2432,
+      "sha256": "a0c6ab439322fbf9381b1ad36627c382c3600e4f6da8d88202dda19dc2e231e5"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application.Tests/W09StageAdapterTests.cs",
+      "bytes": 3161,
+      "sha256": "670830aa5373579c33f706838981cb44f461cb248aaf279c74568716d2b23649"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application.Tests/W10StageAdapterTests.cs",
+      "bytes": 13168,
+      "sha256": "a7e8307c4352d4a328dec12053bd6b5202a587524e9c96204e4772df1ef54d6e"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application.Tests/W11StageAdapterTests.cs",
+      "bytes": 8890,
+      "sha256": "4924d7710cab8e307ad28bb682b35b6c33f32611dcc993cf075d44899182903a"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Application.Tests/W13StageAdapterTests.cs",
+      "bytes": 9348,
+      "sha256": "fe2f3bf073a1a0ea31a59c02877cf7b608b566352149ae0c080e145a0d799c0f"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.AutoCAD/BlockAttributeWriter.cs",
+      "bytes": 3525,
+      "sha256": "f90b9b009a2d8b8573fb383e4d16ed7e55aa9ff8bd01f7c24c3daf5376617e07"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.AutoCAD/CadGenerationWriter.cs",
+      "bytes": 9280,
+      "sha256": "3d89ba4720dab99f7cdb8b38f62d91d236296d7e110c5bf57a1092c8fab0c6e8"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.AutoCAD/CadRenderer.cs",
+      "bytes": 26964,
+      "sha256": "181120a4a0b6db337a5069b114f8e02de43d19b56e760e1e35fdb57aaaf70630"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.AutoCAD/GenerationRepository.cs",
+      "bytes": 9866,
+      "sha256": "9da9494aa34948356b3220b63699bb4fdeb5d6795cdae926f041621d924d7cac"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.AutoCAD/NativeAssetSignatures.cs",
+      "bytes": 7778,
+      "sha256": "17ba9b0eaac8152e4532a5d3d14312f55d5a3a3238397641aee966c26681afe5"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.AutoCAD/NativeReadbackVerifier.cs",
+      "bytes": 6931,
+      "sha256": "26972789b018aad7901a0701aa54f6e7713a691e374487aa8b677368777dda20"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.AutoCAD/TemplateAssetImporter.cs",
+      "bytes": 4375,
+      "sha256": "190905ad9f26bc8ab09bfdf9f1372de747ecfde2139d1230ec1e64d04e0f7508"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.AutoCAD/TemplateManifestReader.cs",
+      "bytes": 21607,
+      "sha256": "ee6e4a16b10057e04994fd9dafb083a4d7a570574a499412015a8d5ce256e735"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.AutoCAD.Tests/Phase6GenerationCommands.cs",
+      "bytes": 28615,
+      "sha256": "411068f5158f17847b7990bcb229763a6c563465323323db475fcd35e2a34cc4"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Common/Diagnostic.cs",
+      "bytes": 2286,
+      "sha256": "ba71449e385376953cb3fb74ec4fd6a3387c82fdb28b4065a703dd62f2e7b649"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Common/SourceRef.cs",
+      "bytes": 2776,
+      "sha256": "3defdc94bbf130ead0d5bb3f38e2a60d1aa3429eebd9cad5e070f8677407a796"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Geometry/CatchBasinBuilder.cs",
+      "bytes": 15134,
+      "sha256": "dd89e129523b49fd3ee372c9d71b50604d2d02c5ec50e276348156c118a2f847"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Geometry/GeometryModel.cs",
+      "bytes": 2529,
+      "sha256": "04fa56ff8029d120c7b28f1b3cc0c3047d31ec43979231569a3627ee37b0b264"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Input/CatchBasinSpec.cs",
+      "bytes": 3459,
+      "sha256": "2d31bf8320e1eea63aa0a52d63b2b37ca2944712918e0d5ff7992e430e1f83d0"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Input/ManholeInput.cs",
+      "bytes": 7864,
+      "sha256": "27200615308fd41768303fd18aa8c5b0cab967b5eb96ad87f0457f7318390f6f"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Input/ValidatedManholeSpec.cs",
+      "bytes": 3235,
+      "sha256": "d829719987d3effdebe604b33d169169dc4575d9dc615480c1003af3f3c2b8f0"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Policies/CalculationPolicy.cs",
+      "bytes": 4677,
+      "sha256": "9c511a13bf4ca51207dffd50c9466f45afbda979b9708ebe43cd19e61447d02f"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Rebar/BarLengthResolver.cs",
+      "bytes": 7210,
+      "sha256": "a8be40284588d94a1f1c35a89fa7d0376c64606fcf41e944219bca2d2c472437"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Rebar/BarOccurrence.cs",
+      "bytes": 5467,
+      "sha256": "f796dc084a17a07f1e1fe661287c9a1e53b74ce6eef1703a7ebc5ad0ef857ec4"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Rebar/CatchBasinRebarPlanner.cs",
+      "bytes": 7372,
+      "sha256": "decafe79dee58d59132b6a54f03915892cc6e1faed7728b4756eb6280bbb7ffa"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Rebar/DowelPlanner.cs",
+      "bytes": 8569,
+      "sha256": "cda3fe055d12c68bd903ca3f9f409594fe9acbc9fbb16f88ba5c3dbc687e4344"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Rebar/HaunchRebarPlanner.cs",
+      "bytes": 12153,
+      "sha256": "c28557dd1b3863401f77ca0b398dfa4aead7f034fc4c694ea79acbabe41a20ce"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Rebar/LiftingHookPlanner.cs",
+      "bytes": 4319,
+      "sha256": "e5fea4b9627359122771fa681f3a66dd9cc839ad14a7bdc9816e03c5e0882ea1"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Rebar/NeckRebarPlanner.cs",
+      "bytes": 1045,
+      "sha256": "13a173cbc7f1a57c14be04b0492a4a0c5b7bab73d775882bd080398b0c30f6b4"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Rebar/NominalFabricationLength.cs",
+      "bytes": 2474,
+      "sha256": "d50183a6b6c0837fd4bbb2be26a562a58675df886c6f1a0f4fddef659023a3ce"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Rebar/NominalHookPlanner.cs",
+      "bytes": 8414,
+      "sha256": "4720899279157c82b16bbb0ee53371a7ec21ecaa1365ba6ff0a9a2c1c34a4c15"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Rebar/OpeningClipper.cs",
+      "bytes": 40212,
+      "sha256": "2fc8bf73a544a5c1fc9aea518eb2015a5f07b7894a62913935afa99223fefe12"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Rebar/PanelRebarPlanner.cs",
+      "bytes": 4501,
+      "sha256": "c475a2b475ac8b6d221d6e54b706f07a2f420e86482e805a305832352288676d"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Rebar/ShapeSignature.cs",
+      "bytes": 4017,
+      "sha256": "8b7e3736265b6460446146b854bcda433a5715a9dbcc255a9eb3540efb919061"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Rebar/TiePlanner.cs",
+      "bytes": 27184,
+      "sha256": "ceb00fd49f22a91d5bc47184dee9a6f15d10fd3ac14ed0d1d260cf4eebc6f846"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/Rebar/WallRebarPlanner.cs",
+      "bytes": 14920,
+      "sha256": "1f99fe67a05a5ecef3aeb88b0105f3cfac055f4c34df8725f9619f8f5e7d0132"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Domain/StageContractsV2/Domain.ContractsV2.cs",
+      "bytes": 18727,
+      "sha256": "f62ed2f5ae81415592b1c6251620ad1ab374498c29dad86c258f5f601595843f"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+      "bytes": 24441,
+      "sha256": "9f6e2de5c970814d3de87f7eabe45b8778615faac2db26a13e1dfe2c89e1df75"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs",
+      "bytes": 21792,
+      "sha256": "5ff970d95bab3e67833667094238cff617dafe02516dfc5b14a1535b587278c5"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/BendingSchematicPlanner.cs",
+      "bytes": 4743,
+      "sha256": "02be0740bed11436745b5a8f33fef5a559d897e00a7a095fcb090c0faf210339"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/CatchAssemblyProjector.cs",
+      "bytes": 19884,
+      "sha256": "3d0b735a3bf1aef33397d815053f9e8b33ffa5a970e452d9a83c421a34c89134"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/DrawingInputs.cs",
+      "bytes": 4228,
+      "sha256": "b115e79d19edbaa5e248ff258f055de89c1f54f9cf025a19b2bea2ae838c62e0"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/DrawingPackage.cs",
+      "bytes": 2667,
+      "sha256": "467b568068b1b1c09e128b154c43dabadb0a4685809bc00914c0996a6fa9f19c"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/DrawingPackageValidator.cs",
+      "bytes": 9401,
+      "sha256": "d5f7f0580aa1b314e7d24a3798001df2b73a31aa0bbba8fc39a0a39474c2d0c9"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/Family21ManholeHelper.cs",
+      "bytes": 14546,
+      "sha256": "bc34f752ae5c97dedee107439757e7bfbd0204e55f8871fb6fb0172c74faca6a"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+      "bytes": 27515,
+      "sha256": "d9b3e2c401a621dca54917923f37d8c462459fbe9358deb341ec2fb615cc0056"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/PresentationGroup.cs",
+      "bytes": 27150,
+      "sha256": "6e44469f405714a6735a5f413b4dec8c65eaa800ecb857b1f61ceb27ed4e1cb0"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/PresentationGroupPlanner.cs",
+      "bytes": 27242,
+      "sha256": "bec191d4df0c967494f4a523c2b1f8a5efa2978a0b670c02fe8df878fe08a5df"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/PresentationProfile.cs",
+      "bytes": 5464,
+      "sha256": "362792e177f483c46a881e2db1c0c9819da255d9cc44fec962b3c0789264ba54"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/PresentationRequest.cs",
+      "bytes": 1819,
+      "sha256": "4414441a02ffa27e585c5ad9d403bd29ce40da16d9b80cca10cc048cc0fe4a09"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/RoofJointDowelProjection.cs",
+      "bytes": 2370,
+      "sha256": "84060cf8c59e79e6d46237b80c775979f2fdc572065a8329c0fb901a1f518950"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/ScheduleNativeAttributes.cs",
+      "bytes": 8668,
+      "sha256": "c4b7ef5dba906938562c6682d23ad85fe22fd1ae59f55523e6dec7de27377679"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/ScheduleTablePlanner.cs",
+      "bytes": 5823,
+      "sha256": "a29a99eeabb2600e5f4673d4d0ebe026d36cb6228c03c496f27dfe529738b729"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/SchematicPresentationPlanner.cs",
+      "bytes": 10760,
+      "sha256": "2db17bd9b1555d10a883656918b821837f13c3d7f7c06691a6f68ec6f52048bd"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/SemanticDiff.cs",
+      "bytes": 15338,
+      "sha256": "ae5865958b38c200a86717b011c03a473b1767f88fb1749f9c5f0ef87e88a981"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/SheetFivePlacement.cs",
+      "bytes": 2304,
+      "sha256": "e08f8850aa7aeb14f833dd0f4b071844948420545d6e3656512a94f6e2a8a187"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/SheetFiveViews.cs",
+      "bytes": 2308,
+      "sha256": "1323632c85e56ab0498b7facff0e7bc35e0818dd18f79c4b2b92263e8111b78c"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/SheetFourViews.cs",
+      "bytes": 702,
+      "sha256": "b19a2b5cf3663ba7144af755a8292872718d394b6ac3c4cdac8287e77d9322a9"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/SheetOneConcreteAssembly.cs",
+      "bytes": 4485,
+      "sha256": "831e30045fae7977f487f0e0b0ba57de3ddc8b17e64789397350b3aeb64547b9"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/SheetOneHatchRegions.cs",
+      "bytes": 10232,
+      "sha256": "09ab5f9cb68e90201f46ca8f9beecbfc18af484c6feaea018bb5eb4fb367ce21"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/SheetOneNeckAssembly.cs",
+      "bytes": 4755,
+      "sha256": "79219c9357a546ef729c0720aebc032c04fab07bc6a759cc1f4efa64bebfb83c"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/SheetOnePipeViews.cs",
+      "bytes": 11017,
+      "sha256": "0b22f44dcc647cbf4fcd4438a22a7809d8d97dee3b950ad0df93ab249dc20d5d"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/SheetOnePlanBaseOutlinePolicy.cs",
+      "bytes": 5685,
+      "sha256": "68d5a66ae5f246c2913a675c4e5c5d45155d9614435576144bd1ce3c6e2cb2bd"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/SheetOnePlanOutlinePolicy.cs",
+      "bytes": 1580,
+      "sha256": "62bf4ef2a97cbcbf570c3af6aca95e1d13498a7e4444e5b57d13cfc502956ea9"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/SheetOneSectionOutlinePolicy.cs",
+      "bytes": 3198,
+      "sha256": "07355119252dd05d1202a6bd3b576e73830d5f96a0a77b374e80495747af9f44"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/SheetPlan.cs",
+      "bytes": 6700,
+      "sha256": "87cd9345856a7d80d350f5874b5cb5f10b349f77045f576895a0bebb01f1eddc"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/SheetThreeRoofDetailer.cs",
+      "bytes": 10513,
+      "sha256": "7e2fe9545436ffecfa87f11eb295bd007a505a02f644df9d01d9c93742aefc22"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/SheetThreeRoofViews.cs",
+      "bytes": 348,
+      "sha256": "4343c348c15e07e46514538cc456c9284f7d6c5f3480a4cc32abc204efc78a9d"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs",
+      "bytes": 11164,
+      "sha256": "d033701722879b541599a7cd0a535024f75ddaae5c692b85a84f21a08fd366ee"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing/ViewBuilder.cs",
+      "bytes": 69511,
+      "sha256": "854a97c40fb11ed51ea876a919e7e7089e40953608372add80c82874835fc641"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing.Tests/W09NativeScheduleAndBendingTests.cs",
+      "bytes": 7552,
+      "sha256": "9858d3871bbd5557d586630b208a7c4dfcf8e1c36d7b06303b2fdf53d605c093"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing.Tests/W10ProjectionAndWiringTests.cs",
+      "bytes": 3357,
+      "sha256": "6bed6b2b79d5806e7c0cdf12ceb99467eb949647f804e0ac8bb83e8a9faf0d4a"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing.Tests/W11LayoutAndPaginationTests.cs",
+      "bytes": 4220,
+      "sha256": "5e6c2f90f114783e901a083784ae5a5813f5fafd5bfc571b195c281d887efffb"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Drawing.Tests/W12ModuleRemovalTests.cs",
+      "bytes": 7014,
+      "sha256": "d89b202b4deed7a46951bc65e4d3b0d6133a38535beccd168dffc385e3005030"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Headless/Program.cs",
+      "bytes": 11296,
+      "sha256": "ed58bd509438c2a9822981abf98c1d815cd1fd0e7bbc982620858baa2ed82203"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Infrastructure.Excel/Vhg32Schema.cs",
+      "bytes": 5883,
+      "sha256": "3ecedc28d9089f3bf02a94f2fef2d8ec369845eeb3f038278dd518dd68ba415c"
+    },
+    {
+      "path": "frozen/source/DBTool/DBTool.Infrastructure.Excel/WorkbookImporter.cs",
+      "bytes": 9291,
+      "sha256": "a9fb6bbb430dd493367b21e3c8b2317a53836361b42743bc236662e900346806"
+    },
+    {
+      "path": "frozen/spec/05-ARCHITECTURE.md",
+      "bytes": 5293037,
+      "sha256": "bb490f74af354271490de28c8bfc6e30acab0bbf7ad9d2bdb0f3f8c20d4ef586"
+    },
+    {
+      "path": "frozen/spec/05D-STAGE-IO-CONTRACT.md",
+      "bytes": 5861357,
+      "sha256": "6969c39e4bfbceb30b923ad49d17a25387bf54978959c528a31335b8f41a3fae"
+    },
+    {
+      "path": "frozen/spec/approved-rule-set-v2.json",
+      "bytes": 19436,
+      "sha256": "3f0771a82f9833d03e3e7ec02b7f06cab310befb2c8b3fc6950dfc513e5bd6a1"
+    },
+    {
+      "path": "frozen/spec/input-field-contracts.json",
+      "bytes": 161970,
+      "sha256": "7c6eb6efc01689ed6031dcabe0f824e0163fc21fb165e9154fcdab2f39138e25"
+    },
+    {
+      "path": "frozen/spec/owner-approval-23.json",
+      "bytes": 560,
+      "sha256": "feabfdc8307e170af11c46e1fbdee1f8067270969b6139c0bcc5f03434b678e3"
+    },
+    {
+      "path": "frozen/spec/rule-binding-key-schema-v2.json",
+      "bytes": 23961,
+      "sha256": "85b00796803957800fead478be9b4037ad9663371f04264d4ebc7c7e5b3fd2dc"
+    },
+    {
+      "path": "frozen/spec/stage-type-registry-v2.json",
+      "bytes": 188977,
+      "sha256": "cd3cc9bc18c83dc584e72e102724a7c2a8ef173e0c239202e1752aa246b9c24b"
+    },
+    {
+      "path": "INDEX.html",
+      "bytes": 3361,
+      "sha256": "8e0533d185909c9c00013a447df2dab465982f0e8f7245adaf6344bfab54728e"
+    },
+    {
+      "path": "INDEX.md",
+      "bytes": 1298,
+      "sha256": "3231f742eae60d34aad02d8147d3ca19eeeaffb918c2d9bde6f1fa9db59ad375"
+    },
+    {
+      "path": "logs/build.binlog",
+      "bytes": 1176559,
+      "sha256": "f762f970f6cabdc1e1b25e09acb17fb75f4ebba4e1ef61eb9767c83ef5eeab76"
+    },
+    {
+      "path": "logs/build.log",
+      "bytes": 86649,
+      "sha256": "93b6b87a5278bbba2ee85602b25bc1e6d0a634c49188734de6c306bcb963a474"
+    },
+    {
+      "path": "logs/counterexamples-attempt01.log",
+      "bytes": 2266,
+      "sha256": "663a4c08c3a049f8b6f7c3b736d7c7e78a9d5f9025493650cc0e95018ede2d8b"
+    },
+    {
+      "path": "logs/counterexamples-attempt02.log",
+      "bytes": 626,
+      "sha256": "3e2fe51b06fa745447feabace77654843200d249bd035b8fb6cba80e126fe7f3"
+    },
+    {
+      "path": "logs/counterexamples-first-four.log",
+      "bytes": 1586,
+      "sha256": "a3940d94f399383fe1f8203269f39714b41872c0d471ff5b303d54defb2f6a0b"
+    },
+    {
+      "path": "logs/counterexamples.log",
+      "bytes": 2053,
+      "sha256": "70e79705320fe40c90623a066e99230ca46f45d242fc5fd4e50c1229bd053d68"
+    },
+    {
+      "path": "logs/DBTool.Application.Tests.log",
+      "bytes": 1159,
+      "sha256": "b579fa1e44ad1553611877617427e92c8981439aa7e02afeb4773fd3bdcf389b"
+    },
+    {
+      "path": "logs/DBTool.AutoCAD.Tests.log",
+      "bytes": 82,
+      "sha256": "2ad9967f2280d0195ad457a92fe6a353a8492625846632386df6dfc446efe4bc"
+    },
+    {
+      "path": "logs/DBTool.Domain.Tests.log",
+      "bytes": 880,
+      "sha256": "8911e1caf15e48e3dbb280f125fb9f132c0578508820eeccfc9296dfa9ff7c46"
+    },
+    {
+      "path": "logs/DBTool.Drawing.Tests.log",
+      "bytes": 1003,
+      "sha256": "61f953f42b21cd5378a965f627245cb8a3725c0261f8bf5da5f083c3aa6276be"
+    },
+    {
+      "path": "logs/DBTool.Excel.Tests.log",
+      "bytes": 1389,
+      "sha256": "258c133f77fe0fc81ce9197b74744e7adfd80db06e02f986e897fc6ba6e919a7"
+    },
+    {
+      "path": "logs/DBTool.UI.Tests.log",
+      "bytes": 44013,
+      "sha256": "133cec350ce222a29f16976698783015bef98a9e61204a2da939c04266dd9706"
+    },
+    {
+      "path": "logs/test-results/DBTool.Application.Tests/HungPhatPC_ADMINISTRATOR_2026-10-14_09_38_08_net8.0.trx",
+      "bytes": 313593,
+      "sha256": "36737c96e924b3e170f3cedeb1ea38ebbc5f9c48109dc89367f6903194abac93"
+    },
+    {
+      "path": "logs/test-results/DBTool.Domain.Tests/HungPhatPC_ADMINISTRATOR_2026-10-14_09_38_01_net8.0.trx",
+      "bytes": 823993,
+      "sha256": "a7e3a75ecf355c8055801df605d9da47aceee0ee0b1758d0697b6a28ff45439e"
+    },
+    {
+      "path": "logs/test-results/DBTool.Drawing.Tests/HungPhatPC_ADMINISTRATOR_2026-10-14_09_38_04_net8.0.trx",
+      "bytes": 617001,
+      "sha256": "b3419c333ad0509adfe22cf74ee6f842a9614dcba1b329087c9ce092e42b7c5a"
+    },
+    {
+      "path": "logs/test-results/DBTool.Excel.Tests/HungPhatPC_ADMINISTRATOR_2026-10-14_09_38_13_net8.0.trx",
+      "bytes": 397450,
+      "sha256": "ce345fd5aff8584371c5e72f30c04df3b461c164bbbc75c28937f57cfffd6e45"
+    },
+    {
+      "path": "logs/test-results/DBTool.UI.Tests/HungPhatPC_ADMINISTRATOR_2026-10-14_09_38_41_net8.0.trx",
+      "bytes": 21110,
+      "sha256": "58c022a075cd23f25d4f8d2aeac4f79194a09851dedca9ae73eadf481835a667"
+    },
+    {
+      "path": "native-probe/input-manifest.json",
+      "bytes": 3589,
+      "sha256": "6ea45927c1a2443cf936e876015033af335b1be4b6de6e76fb177c69102bf379"
+    },
+    {
+      "path": "native-probe/load-only.scr",
+      "bytes": 713,
+      "sha256": "c50c1cad1090517478e46fc598e5e600eed9b870f4eddc448dc7be3170993853"
+    },
+    {
+      "path": "native-probe/plugin/ClosedXML.dll",
+      "bytes": 1692160,
+      "sha256": "d20270efad0d3f5a17ed35c6fe512c2071b1ed40a57ce91199897f41760ec1bc"
+    },
+    {
+      "path": "native-probe/plugin/ClosedXML.Parser.dll",
+      "bytes": 192000,
+      "sha256": "8d36e75b9b238e57ddd4122d0e2f6105acdc873bce2f297277ae0a25ddf610eb"
+    },
+    {
+      "path": "native-probe/plugin/DBTool.Application.dll",
+      "bytes": 516608,
+      "sha256": "10747171a26fde160520938d17bd6eced50bcfe2ba36a47ef4b06d1b11f4a53e"
+    },
+    {
+      "path": "native-probe/plugin/DBTool.Application.pdb",
+      "bytes": 99332,
+      "sha256": "3f9c8b8e13bc751cbf0c73f1d0b487ad1904d36b0c1fcc08a20f997ee72b0bfa"
+    },
+    {
+      "path": "native-probe/plugin/DBTool.AutoCAD.dll",
+      "bytes": 136704,
+      "sha256": "96f13c662684de61b3959a9472d1e91ff1546381147fea4821702924dd6922dc"
+    },
+    {
+      "path": "native-probe/plugin/DBTool.AutoCAD.pdb",
+      "bytes": 45292,
+      "sha256": "81e15a078fda54cbed7ec95e2e52fe520c4cd53ced197b34e1a362f283d6427f"
+    },
+    {
+      "path": "native-probe/plugin/DBTool.deps.json",
+      "bytes": 8194,
+      "sha256": "caf73792191d5c3ba2f04a037d10f99452552a55d0559acc787ae3fc11a4abb3"
+    },
+    {
+      "path": "native-probe/plugin/DBTool.dll",
+      "bytes": 309248,
+      "sha256": "5918c64fbaeacd612fc9d1336f45b69967dc09983ea621763a648b4807fc1857"
+    },
+    {
+      "path": "native-probe/plugin/DBTool.Domain.dll",
+      "bytes": 1009152,
+      "sha256": "3e8ba6a2666815ff605104cce839aa1d81d46a5586e847d18eeb708200eda972"
+    },
+    {
+      "path": "native-probe/plugin/DBTool.Domain.pdb",
+      "bytes": 221768,
+      "sha256": "00e3b0cedbba67e3e1368fbd422447df1cc7370fd10381fb939d72f8ed2440dd"
+    },
+    {
+      "path": "native-probe/plugin/DBTool.Drawing.dll",
+      "bytes": 978432,
+      "sha256": "931107cf4ecd25045a9d99db414bf6e828ee682ad9c4f8e32e81c14412f97097"
+    },
+    {
+      "path": "native-probe/plugin/DBTool.Drawing.pdb",
+      "bytes": 253340,
+      "sha256": "0e03012ef34f68de67f7f7de882df75547cc5741d105d56f9e4debf3cc793ee0"
+    },
+    {
+      "path": "native-probe/plugin/DBTool.Infrastructure.Excel.dll",
+      "bytes": 202752,
+      "sha256": "6c20c8968d211252315210d6f3b781799371acdc7c5cdd4d136e0b4fdf7c7896"
+    },
+    {
+      "path": "native-probe/plugin/DBTool.Infrastructure.Excel.pdb",
+      "bytes": 41912,
+      "sha256": "9fef932626ebec64bc0a252bd860174c559dde28fe6c4dcfdf47d5252c0dcd33"
+    },
+    {
+      "path": "native-probe/plugin/DBTool.pdb",
+      "bytes": 104968,
+      "sha256": "23160b579679cb6698a7962208069003ba6e2b03f294b83d27f10037b98f78c3"
+    },
+    {
+      "path": "native-probe/plugin/DocumentFormat.OpenXml.dll",
+      "bytes": 6349424,
+      "sha256": "5a0c237a7467dde85bce402d124b7a07777531607837eb59ee62a9a79905ff43"
+    },
+    {
+      "path": "native-probe/plugin/DocumentFormat.OpenXml.Framework.dll",
+      "bytes": 471152,
+      "sha256": "ddae1f34e78971a731193e459c3aed54314f93a54d51c2457e12ccc169bf5663"
+    },
+    {
+      "path": "native-probe/plugin/ExcelNumberFormat.dll",
+      "bytes": 30720,
+      "sha256": "d7c45b8e4e1027831e2fc8cdf941faf51d28a66feacfcaaa737da73262e7b507"
+    },
+    {
+      "path": "native-probe/plugin/RBush.dll",
+      "bytes": 34816,
+      "sha256": "047e48ab058a783a1d0021ede9ac238e158ed43fa2368a15fd4ccd8f920ab6a1"
+    },
+    {
+      "path": "native-probe/plugin/SixLabors.Fonts.dll",
+      "bytes": 1135616,
+      "sha256": "e1e2f107e7c78fb859f1b23383107a125acd8b3a7470140850daa6f6f6c45d9f"
+    },
+    {
+      "path": "native-probe/plugin/System.IO.Packaging.dll",
+      "bytes": 142136,
+      "sha256": "12ddc8bff279fad856551a74894dc52b80fa437d5d2b32722e70ae6899217b7c"
+    },
+    {
+      "path": "native-probe/process-result.json",
+      "bytes": 869,
+      "sha256": "0cae1340c8366d7b303f04806328977bcc78004529ff0c6f72411f40144b8e5e"
+    },
+    {
+      "path": "native-probe/scratch-copy.bak",
+      "bytes": 1190967,
+      "sha256": "f35682aaf294aa970ef54e976dba250e495ec47c5e6845621425f86b4a5d86bc"
+    },
+    {
+      "path": "native-probe/scratch-copy.dwg",
+      "bytes": 1190967,
+      "sha256": "51c0d9bcc908f3d42ea449832394990c00b5fd13577d172ddd85f99aa9970757"
+    },
+    {
+      "path": "native-probe/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "native-probe/stdout.log",
+      "bytes": 7196,
+      "sha256": "2161a33181cad92016ffe4a31ad41553c7cdc2dde4d58d1e3a0ba432a3ccce0e"
+    },
+    {
+      "path": "native-probe/transcript-utf8.log",
+      "bytes": 3731,
+      "sha256": "768c0138556e921ad9fff1832f047785a7d837c61d73e499c2ac8e767eff26db"
+    },
+    {
+      "path": "phase2/phase1-signoff.json",
+      "bytes": 234,
+      "sha256": "ce7116a5566353953f64dfd8c17481e3df76faf3b210ce1dfbe47be4c5e9a659"
+    },
+    {
+      "path": "phase2/product-pdf-manifest.json",
+      "bytes": 327,
+      "sha256": "96bace65a7de6f536d57a310e49cd14e358eab87155970e03110e47c110fcdaa"
+    },
+    {
+      "path": "phase2/product-pdf-manifest.schema.json",
+      "bytes": 3353,
+      "sha256": "e8eefb967ccdbaea92b598a829611cc9a7a301ecb40315699ecdb67041e25ce5"
+    },
+    {
+      "path": "phase2/region-checklist.json",
+      "bytes": 15889,
+      "sha256": "29b045e12c8e59bd5e1fc8a1b408f03d4052e7c8a183ba351c8ef9f80b1f82fd"
+    },
+    {
+      "path": "phase2/REVIEW-FORM.html",
+      "bytes": 8602,
+      "sha256": "baccfba72f1bc9ffcb3556b2725b7d551e6f4f12945cdaaee30ea0aed13b2c21"
+    },
+    {
+      "path": "phase2/visual-review-template.csv",
+      "bytes": 268,
+      "sha256": "27a0f6c3648baf9fd659a1f580b2a317673dc05a9e140aee7b3ab6a68947d8bc"
+    },
+    {
+      "path": "phase2/visual-review-template.json",
+      "bytes": 462,
+      "sha256": "9ba7a942b8cfbeefec4c7f06876a6b8fb86114b4e91aef321250f34cb6a2d700"
+    },
+    {
+      "path": "probes/AcceptanceProbe/AcceptanceProbe.csproj",
+      "bytes": 352,
+      "sha256": "6f5248daa6d1cc71a299f4bf9abe3982347facd5cc003b122053d61fa9ee0f0a"
+    },
+    {
+      "path": "probes/AcceptanceProbe/Program.cs",
+      "bytes": 5781,
+      "sha256": "a92f80912d5ecf741770796dd0266ba0805b0ed428d2634820d78f0748b20692"
+    },
+    {
+      "path": "probes/results/counterexamples.json",
+      "bytes": 2051,
+      "sha256": "570d3fb98fafcc0c88fa2f3b342ee6ffdf89268a540d63bb4a5646284a25da64"
+    },
+    {
+      "path": "render/report-1.png",
+      "bytes": 254139,
+      "sha256": "5dcea7ef7d434076f608bd0ed04298003ff45867f30823f3e92a1b715404c52c"
+    },
+    {
+      "path": "render/report-2.png",
+      "bytes": 343101,
+      "sha256": "b6b83c6b4d0cbe3a2c673ead43d95d1d18c187c7c3a9ebeb527894f5c6f8b6ec"
+    },
+    {
+      "path": "render/report-3.png",
+      "bytes": 114754,
+      "sha256": "0f2eda2e98f09b6b04b3561e60cfd75626f71d4bec382293012e070e23071a53"
+    }
+  ],
+  "excluded_volatile_folders": [
+    "probes/**/bin",
+    "probes/**/obj",
+    "native-probe/isolated-user"
+  ],
+  "pdf_kind": "Review report only, not generated product drawing",
+  "product_dwgs": [],
+  "product_pdfs": []
+}

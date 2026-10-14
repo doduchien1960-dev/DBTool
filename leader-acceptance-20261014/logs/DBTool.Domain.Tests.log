@@ -1,0 +1,9 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  DBTool.Domain -> C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.Domain\bin\Debug\net8.0\DBTool.Domain.dll
+  DBTool.Domain.Tests -> C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.Domain.Tests\bin\Debug\net8.0\DBTool.Domain.Tests.dll
+Test run for C:\Users\DucBao\Desktop\Dbtool\Ver 1\DBTool\DBTool.Domain.Tests\bin\Debug\net8.0\DBTool.Domain.Tests.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\DucBao\Desktop\Dbtool\Ver 1\outputs\leader-acceptance\leader-field-contracts-20261013-r2\20261014-review-01\logs\test-results\DBTool.Domain.Tests\HungPhatPC_ADMINISTRATOR_2026-10-14_09_38_01_net8.0.trx
+
+Passed!  - Failed:     0, Passed:   580, Skipped:     0, Total:   580, Duration: 711 ms - DBTool.Domain.Tests.dll (net8.0)

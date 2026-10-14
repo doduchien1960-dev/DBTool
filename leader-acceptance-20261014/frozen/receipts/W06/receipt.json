@@ -1,0 +1,181 @@
+{
+  "PackageId": "W06",
+  "Phase": "P2",
+  "Version": "leader-field-contracts-20261013-r2",
+  "DependencyReceiptHashes": {
+    "W02": "9109421973A2367B66C171F19BA95505CB1458E0A6C6ADE3149CD5019034CCD9",
+    "W03": "88D2B84615F8C5121FA51A4955B6180C75D73629697B8251D1CEA7629B31BC59"
+  },
+  "ChangedFiles": [
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/AccessoryInputMapper.cs",
+      "BeforeHash": "A02BFE00D52A1153E17103DE8D5543397FB9446CB329BF3EC0E7D355DCC94C79",
+      "AfterHash": "BD07C71828934DC7C0D2A84ED8BC8AB17025833BD3513AA7CF503AF422959140",
+      "Reason": "Đọc đầy đủ Ties.I (lap), Catch.M (catch mesh), Prefix C..J; kiểm tra tính hợp lệ và không coi parse là Supported."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/ManholeValidator.cs",
+      "BeforeHash": "06D06F779CCCCE9399FDA6D97414CDDFADB2D87723B57C15D8C142A6BDBC1789",
+      "AfterHash": "432EEEEEE2E286876FBFCD8DAA5EE0160E8D126CF7F34DED1F311830E43562E7",
+      "Reason": "Resolve cover trước fit check; Pad nonnegative; bỏ guessed PipeCatalogEntry fallback; typed catch/scale."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Geometry/CatchBasinBuilder.cs",
+      "BeforeHash": "36C3B5396676D247E8C8BA3C322439B3E87975FBC542AC0B5670603477804426",
+      "AfterHash": "DD89E129523B49FD3EE372C9D71B50604D2D02C5EC50E276348156C118A2F847",
+      "Reason": "Thêm optional catch pad box extrusion bên dưới đáy hố thu khi PadThicknessMm > 0."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Geometry/GeometryModel.cs",
+      "BeforeHash": "971954077B6529D0D9041DD69169142A95F2CE1E232EC696AE07760743D3EDC3",
+      "AfterHash": "04FA56FF8029D120C7B28F1B3CC0C3047D31EC43979231569A3627EE37B0B264",
+      "Reason": "Bổ sung Joints, CatchBasin, Datums, Frames, TopologyTrace dùng chung steel và projection."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Domain/Input/CatchBasinSpec.cs",
+      "BeforeHash": "5D967236E2A52E0BAADCDAC16A7EBAE14850694DDC7EEE53C1A10C129CD04D3A",
+      "AfterHash": "2D31BF8320E1EEA63AA0A52D63B2B37CA2944712918E0D5FF7992E430E1F83D0",
+      "Reason": "Bổ sung PadThicknessMm, PadExpansionMm, Reinforced, ProductCode, RawPosition và Neck Center override theo HDSD p13."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetOneConcreteAssembly.cs",
+      "BeforeHash": "62B4EAFC2EDA1B894BD9A3121C6AA01B5CB7BA620437B7C81D4E093561C38DA8",
+      "AfterHash": "831E30045FAE7977F487F0E0B0BA57DE3DDC8B17E64789397350B3AEB64547B9",
+      "Reason": "Giữ composition concrete, xuất outer+inner boundary cùng pour/material, bảo toàn joint loại 2/3 và voids, không union mortar vào BTCT."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetOneHatchRegions.cs",
+      "BeforeHash": "288F4E11872AC7FF45FBABEC751AFE24B6221368A18627B5176898ED5A44443A",
+      "AfterHash": "09AB5F9CB68E90201F46CA8F9BEECBFC18AF484C6FEAEA018BB5EB4FB367CE21",
+      "Reason": "Lọc bỏ đúng region Pad khi Pad không active hoặc diện tích không dương, bảo toàn outer/inner loops và material separation."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetOneNeckAssembly.cs",
+      "BeforeHash": "D02577BDFA817CD3588E4C4852E8D8C07D6861B948F10B255879A8F548173F85",
+      "AfterHash": "79219C9357A546EF729C0720AEBC032C04FAB07BC6A759CC1F4EFA64BEBFB83C",
+      "Reason": "Nhận resolved cover/neck/frame datums và effective aperture, hỗ trợ frame100 riêng và resolve neck top cả khi không có collar."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetOnePipeViews.cs",
+      "BeforeHash": "CBB5A3DCBEDAC55115329361FAB1A77A3963D060FD7F828EDF58459606F26059",
+      "AfterHash": "0B22F44DCC647CBF4FCD4438A22A7809D8D97DEE3B950AD0DF93AB249DC20D5D",
+      "Reason": "Nhận ResolvedPipeConnection và OpeningViewMap, hiển thị inner/outer/cutout đúng role và invert cùng host, không circle-fit box."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetOnePlanBaseOutlinePolicy.cs",
+      "BeforeHash": "7FBE7DC408EAD332AFBFC74ABAEAA468BB6A25483729994769E2EC2114BC217B",
+      "AfterHash": "68D5A66AE5F246C2913A675C4E5C5D45155D9614435576144BD1CE3C6E2CB2BD",
+      "Reason": "Base/pad outlines từ geometry component active và owned contour, pad0 không phantom, không dùng base fixture bounds."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetOnePlanOutlinePolicy.cs",
+      "BeforeHash": "89A4DAFB5D983DB5916B058F307E8BD6EAAE82D16C0469CCF381E11282F059CE",
+      "AfterHash": "62BF4EF2A97CBCBF570C3AF6ACA95E1D13498A7E4444E5B57D13CFC502956EA9",
+      "Reason": "Emits outer/inner loops theo material/void ownership, giữ true boundaries, không thêm seam giả hoặc xóa roof access hole."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetOneSectionOutlinePolicy.cs",
+      "BeforeHash": "12D35B167172882E56ACBE18330FE44449E70970555E425BF531C9C2A20B26B9",
+      "AfterHash": "07355119252DD05D1202A6BD3B576E73830D5F96A0A77B374E80495747AF9F44",
+      "Reason": "Outline outer+inner từ section material regions dùng shared boundary emitter, closure và void dedup có topology identity."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+      "BeforeHash": "22B2E2FE33D63D983E76CA5DBF46C3144FF92EDB8BA8CCCBCEE0EA12E4A29CF0",
+      "AfterHash": "FEE46919C7682655959074A59B6C4991278F8E5B630A0D8B632E512D8393A35C",
+      "Reason": "Triển khai IS2StageV2 (Execute S1->S2) và IS3StageV2 (Execute S2->S3) cho GeometryStageAdapter với đầy đủ aperture, Frame100, datums, physical hash."
+    }
+  ],
+  "InterfaceGate": "Passed",
+  "ImplementationStatus": "ImplementationComplete",
+  "NativeGate": "NotRun",
+  "BindingMissing": [],
+  "Commands": [
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests"
+    }
+  ],
+  "Checks": [
+    {
+      "Name": "StageAdapters_S2_S3_Implementation",
+      "SubjectId": "GeometryStageAdapter",
+      "Expected": "IS2StageV2 và IS3StageV2 được triển khai chính xác trên GeometryStageAdapter theo quy tắc H00, H01, H03, H14",
+      "Actual": "GeometryStageAdapter thực thi S2 và S3, tạo EffectiveV2 và GeometryV2 với các liên kết hình học, datums, frame 100mm, physical hash",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Application/StageAdapters.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "SheetOneDrawingPolicies_Preservation",
+      "SubjectId": "SheetOneDrawingPolicies",
+      "Expected": "Bảo toàn đúng các hợp đồng outer/inner loops, loại bỏ pad0 phantom, giữ liên kết kết cấu và vật liệu",
+      "Actual": "SheetOnePlanBaseOutlinePolicy, SheetOnePlanOutlinePolicy, SheetOneSectionOutlinePolicy, SheetOneNeckAssembly, SheetOneHatchRegions, SheetOneConcreteAssembly, SheetOnePipeViews hoạt động đúng hợp đồng",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/SheetOneConcreteAssembly.cs",
+        "Ver 1/DBTool/DBTool.Drawing/SheetOneHatchRegions.cs",
+        "Ver 1/DBTool/DBTool.Drawing/SheetOneNeckAssembly.cs",
+        "Ver 1/DBTool/DBTool.Drawing/SheetOnePipeViews.cs",
+        "Ver 1/DBTool/DBTool.Drawing/SheetOnePlanBaseOutlinePolicy.cs",
+        "Ver 1/DBTool/DBTool.Drawing/SheetOnePlanOutlinePolicy.cs",
+        "Ver 1/DBTool/DBTool.Drawing/SheetOneSectionOutlinePolicy.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "AccessoryAndCatchBasin_Extensions",
+      "SubjectId": "CatchBasinAndAccessory",
+      "Expected": "Typed catch basin spec với pad, expansion, reinforced, product code; Accessory mapper đọc đầy đủ ties, lap, prefixes",
+      "Actual": "CatchBasinSpec, GeometryModel, CatchBasinBuilder, AccessoryInputMapper, ManholeValidator mở rộng đầy đủ các trường yêu cầu",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Application/AccessoryInputMapper.cs",
+        "Ver 1/DBTool/DBTool.Application/ManholeValidator.cs",
+        "Ver 1/DBTool/DBTool.Domain/Geometry/CatchBasinBuilder.cs",
+        "Ver 1/DBTool/DBTool.Domain/Geometry/GeometryModel.cs",
+        "Ver 1/DBTool/DBTool.Domain/Input/CatchBasinSpec.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "Architecture_DependenciesAndTestSuiteZeroRegression",
+      "SubjectId": "FullTestSuite",
+      "Expected": "Toàn bộ 4 test suites pass không có lỗi regression",
+      "Actual": "1,459 tests passed (Domain: 580, Drawing: 407, Application: 200, Excel: 272)",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Domain.Tests",
+        "Ver 1/DBTool/DBTool.Drawing.Tests",
+        "Ver 1/DBTool/DBTool.Application.Tests",
+        "Ver 1/DBTool/DBTool.Excel.Tests"
+      ],
+      "Verdict": "Passed"
+    }
+  ],
+  "ActualDWG/PDFPaths": [],
+  "RecoveryState": "Clean",
+  "RollbackInstructions": "git checkout -- \"Ver 1/DBTool/DBTool.Application/AccessoryInputMapper.cs\" \"Ver 1/DBTool/DBTool.Application/ManholeValidator.cs\" \"Ver 1/DBTool/DBTool.Domain/Geometry/CatchBasinBuilder.cs\" \"Ver 1/DBTool/DBTool.Domain/Geometry/GeometryModel.cs\" \"Ver 1/DBTool/DBTool.Domain/Input/CatchBasinSpec.cs\" \"Ver 1/DBTool/DBTool.Drawing/SheetOneConcreteAssembly.cs\" \"Ver 1/DBTool/DBTool.Drawing/SheetOneHatchRegions.cs\" \"Ver 1/DBTool/DBTool.Drawing/SheetOneNeckAssembly.cs\" \"Ver 1/DBTool/DBTool.Drawing/SheetOnePipeViews.cs\" \"Ver 1/DBTool/DBTool.Drawing/SheetOnePlanBaseOutlinePolicy.cs\" \"Ver 1/DBTool/DBTool.Drawing/SheetOnePlanOutlinePolicy.cs\" \"Ver 1/DBTool/DBTool.Drawing/SheetOneSectionOutlinePolicy.cs\" \"Ver 1/DBTool/DBTool.Application/StageAdapters.cs\""
+}

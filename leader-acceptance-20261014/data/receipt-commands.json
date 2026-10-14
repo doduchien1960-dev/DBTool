@@ -1,0 +1,506 @@
+[
+  {
+    "package": "W01",
+    "index": 1,
+    "Command": "dotnet test DBTool.Application.Tests/DBTool.Application.Tests.csproj",
+    "ExitCode": 0,
+    "ArtifactPath": "DBTool/DBTool.Application.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W01",
+    "index": 2,
+    "Command": "dotnet test DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj",
+    "ExitCode": 0,
+    "ArtifactPath": "DBTool/DBTool.Drawing.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W01",
+    "index": 3,
+    "Command": "dotnet test DBTool.Domain.Tests/DBTool.Domain.Tests.csproj",
+    "ExitCode": 0,
+    "ArtifactPath": "DBTool/DBTool.Domain.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W01",
+    "index": 4,
+    "Command": "dotnet test DBTool.Excel.Tests/DBTool.Excel.Tests.csproj",
+    "ExitCode": 0,
+    "ArtifactPath": "DBTool/DBTool.Excel.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W02",
+    "index": 1,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W02",
+    "index": 2,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W02",
+    "index": 3,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W02",
+    "index": 4,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W03",
+    "index": 1,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W03",
+    "index": 2,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W03",
+    "index": 3,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W03",
+    "index": 4,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W04",
+    "index": 1,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W04",
+    "index": 2,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W04",
+    "index": 3,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W04",
+    "index": 4,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W05",
+    "index": 1,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W05",
+    "index": 2,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W05",
+    "index": 3,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W05",
+    "index": 4,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W05",
+    "index": 5,
+    "Command": "dotnet build \"Ver 1/DBTool/DBTool.AutoCAD/DBTool.AutoCAD.csproj\" -p:AutoCADManagedPath=\"C:\\Program Files\\Autodesk\\AutoCAD 2026\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.AutoCAD",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W06",
+    "index": 1,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W06",
+    "index": 2,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W06",
+    "index": 3,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W06",
+    "index": 4,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W07",
+    "index": 1,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W07",
+    "index": 2,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W07",
+    "index": 3,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W07",
+    "index": 4,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W08",
+    "index": 1,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W08",
+    "index": 2,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W08",
+    "index": 3,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W08",
+    "index": 4,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W09",
+    "index": 1,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W09",
+    "index": 2,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W09",
+    "index": 3,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W09",
+    "index": 4,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W10",
+    "index": 1,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W10",
+    "index": 2,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W10",
+    "index": 3,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W10",
+    "index": 4,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W11",
+    "index": 1,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W11",
+    "index": 2,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W11",
+    "index": 3,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W11",
+    "index": 4,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W12",
+    "index": 1,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W12",
+    "index": 2,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W12",
+    "index": 3,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W12",
+    "index": 4,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W13",
+    "index": 1,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W13",
+    "index": 2,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W13",
+    "index": 3,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W13",
+    "index": 4,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W13",
+    "index": 5,
+    "Command": "dotnet test \"Ver 1/DBTool/DBTool.UI.Tests/DBTool.UI.Tests.csproj\" -p:AutoCADManagedPath=\"C:\\Program Files\\Autodesk\\AutoCAD 2026\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.UI.Tests",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W13",
+    "index": 6,
+    "Command": "dotnet build \"Ver 1/DBTool/DBTool.AutoCAD/DBTool.AutoCAD.csproj\" -p:AutoCADManagedPath=\"C:\\Program Files\\Autodesk\\AutoCAD 2026\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.AutoCAD",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  },
+  {
+    "package": "W13",
+    "index": 7,
+    "Command": "dotnet build \"Ver 1/DBTool/DBTool.Headless/DBTool.Headless.csproj\"",
+    "ExitCode": 0,
+    "ArtifactPath": "Ver 1/DBTool/DBTool.Headless",
+    "artifact_exists": true,
+    "artifact_is_file": false
+  }
+]

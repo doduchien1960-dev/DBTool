@@ -1,0 +1,95 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>05-PACKAGE-REWORK</title><style>body{margin:0;background:#edf2f5;color:#182c3a;font:16px/1.65 "Segoe UI",sans-serif}main{max-width:1320px;margin:auto;padding:32px;background:white}h1,h2,h3{line-height:1.35;color:#153c54}h2{border-bottom:2px solid #c7dce8;margin-top:42px;padding-bottom:8px}a{color:#086893}table{border-collapse:collapse;width:100%;display:block;overflow:auto;font-size:13px;margin:18px 0}th,td{border:1px solid #cad7df;padding:10px;vertical-align:top}th{background:#e6f0f5}tr:nth-child(even){background:#f7fafc}pre{padding:16px;background:#132c3b;color:#eaf4fa;overflow:auto;font:13px/1.5 Consolas,monospace}code{font-family:Consolas,monospace}nav{padding:12px;background:#e6f0f5;display:flex;gap:18px;flex-wrap:wrap}.banner{padding:18px;background:#fff1d1;border-left:6px solid #bd761b}details{padding:16px;border:1px solid #c8d7df;margin:16px 0}summary{font-weight:700;cursor:pointer}.badge{padding:6px 12px;background:#922e2e;color:white;border-radius:6px}button{padding:10px 18px;background:#17657d;color:white;border:0;border-radius:5px;cursor:pointer}@media print{nav{display:none}main{padding:0}table{font-size:10px}details{break-inside:avoid}}</style></head><body><main><nav><a href="INDEX.html">Mục lục nghiệm thu</a><a href="00-BIEN-BAN-NGHIEM-THU.html">Biên bản</a><a href="02-KE-HOACH-PHASE-1.html">Phase 1</a><a href="03-HO-SO-PHASE-2.html">Phase 2</a></nav><h1 id="giao-tra-implementer-theo-dependency">Giao trả implementer theo dependency</h1>
+<p>Đây là yêu cầu sửa sau review, chưa phải thông báo đã sửa. Giữ nguyên UI sản phẩm và các23 phê duyệt. Không reset repo/checkout HEAD theo rollback receipt cũ; trước sửa phải snapshot exact paths và kiểm hash.</p>
+<table>
+<thead>
+<tr>
+<th>Gói</th>
+<th>Phán quyết review</th>
+<th>Findings phải xử lý</th>
+<th>Gate cụ thể</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W01</td>
+<td>Chưa đủ nghiệm thu chức năng</td>
+<td>R01</td>
+<td>Đóng mọi finding được gán; receipt mới có source/log/hash và kết quả gate theo behavior, không theo test count.</td>
+</tr>
+<tr>
+<td>W02</td>
+<td>Chưa đủ nghiệm thu chức năng</td>
+<td>G08, G09, G10, R02</td>
+<td>Đóng mọi finding được gán; receipt mới có source/log/hash và kết quả gate theo behavior, không theo test count.</td>
+</tr>
+<tr>
+<td>W03</td>
+<td>Chưa đủ nghiệm thu chức năng</td>
+<td>D08, D11</td>
+<td>Đóng mọi finding được gán; receipt mới có source/log/hash và kết quả gate theo behavior, không theo test count.</td>
+</tr>
+<tr>
+<td>W04</td>
+<td>Chưa đủ nghiệm thu chức năng</td>
+<td>D03, D04, D05, D06, D07, D09</td>
+<td>Đóng mọi finding được gán; receipt mới có source/log/hash và kết quả gate theo behavior, không theo test count.</td>
+</tr>
+<tr>
+<td>W05</td>
+<td>Chưa đủ nghiệm thu chức năng</td>
+<td>N01, N02, N04, N05, N06, N08, N11</td>
+<td>Đóng mọi finding được gán; receipt mới có source/log/hash và kết quả gate theo behavior, không theo test count.</td>
+</tr>
+<tr>
+<td>W06</td>
+<td>Chưa đủ nghiệm thu chức năng</td>
+<td>G01, G02, G03, G05, G07, G10, G12</td>
+<td>Đóng mọi finding được gán; receipt mới có source/log/hash và kết quả gate theo behavior, không theo test count.</td>
+</tr>
+<tr>
+<td>W07</td>
+<td>Chưa đủ nghiệm thu chức năng</td>
+<td>G02, G04, G05, G06, G07, G11, G12, R02</td>
+<td>Đóng mọi finding được gán; receipt mới có source/log/hash và kết quả gate theo behavior, không theo test count.</td>
+</tr>
+<tr>
+<td>W08</td>
+<td>Chưa đủ nghiệm thu chức năng</td>
+<td>D10, D11</td>
+<td>Đóng mọi finding được gán; receipt mới có source/log/hash và kết quả gate theo behavior, không theo test count.</td>
+</tr>
+<tr>
+<td>W09</td>
+<td>Chưa đủ nghiệm thu chức năng</td>
+<td>D03, D04, D05, D09, D10, N10</td>
+<td>Đóng mọi finding được gán; receipt mới có source/log/hash và kết quả gate theo behavior, không theo test count.</td>
+</tr>
+<tr>
+<td>W10</td>
+<td>Chưa đủ nghiệm thu chức năng</td>
+<td>D01, D04, D05, D06, D07, D08, D10, D12</td>
+<td>Đóng mọi finding được gán; receipt mới có source/log/hash và kết quả gate theo behavior, không theo test count.</td>
+</tr>
+<tr>
+<td>W11</td>
+<td>Chưa đủ nghiệm thu chức năng</td>
+<td>D02, D13</td>
+<td>Đóng mọi finding được gán; receipt mới có source/log/hash và kết quả gate theo behavior, không theo test count.</td>
+</tr>
+<tr>
+<td>W12</td>
+<td>Chưa đủ nghiệm thu chức năng</td>
+<td>D12</td>
+<td>Đóng mọi finding được gán; receipt mới có source/log/hash và kết quả gate theo behavior, không theo test count.</td>
+</tr>
+<tr>
+<td>W13</td>
+<td>Chưa đủ nghiệm thu chức năng</td>
+<td>D01, D10, N01, N02, N03, N04, N05, N06, N07, N08, N09, N10, N12</td>
+<td>Đóng mọi finding được gán; receipt mới có source/log/hash và kết quả gate theo behavior, không theo test count.</td>
+</tr>
+</tbody>
+</table>
+<p>Thứ tự sửa khuyến nghị: W01 integrity + W02 source assets/DTO/data → W03 grouping/CSG → W06 effective/geometry → W07 physical steel → W04 planners + W08 shared registry → W09 TK/bending → W10 views/annotations → W11 placement/hash → W12 xác minh replacement → W05 native/evidence ports → W13 composition và native writer. W05 có thể sửa port/evidence song song với core, nhưng không ký integration trước khi đúng payload. Gói trước có lỗi thì không giả lập thành Passed để gói sau chạy.</p>
+<p>Mỗi finding cần: Before/After hashes, predicate input, command exit, output/log, expected/actual/unit/tolerance/source, kết luận closed/not-closed. Khi sửa field/algorithm phải đối chiếu 05D/05C và callers; không thay signature âm thầm. Sau đóng lớp nào, chạy lại downstream bị tác động và native mutation scope tương ứng.</p>
+<p>R02 là thiếu audit trail, không chứng minh có gian lận hoặc sai logic DTO: 103 schema vẫn khớp. Cần amendment giải thích gap và khóa source build đang dùng. 19 dependency hashes khớp chứng minh receipt liên kết đúng phiên bản file, không chứng minh thứ tự chạy code hoặc mọi gói thực sự hoàn thành.</p></main></body></html>

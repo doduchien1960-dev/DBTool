@@ -1,0 +1,67 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>06-MACHINE-EVIDENCE</title><style>body{margin:0;background:#edf2f5;color:#182c3a;font:16px/1.65 "Segoe UI",sans-serif}main{max-width:1320px;margin:auto;padding:32px;background:white}h1,h2,h3{line-height:1.35;color:#153c54}h2{border-bottom:2px solid #c7dce8;margin-top:42px;padding-bottom:8px}a{color:#086893}table{border-collapse:collapse;width:100%;display:block;overflow:auto;font-size:13px;margin:18px 0}th,td{border:1px solid #cad7df;padding:10px;vertical-align:top}th{background:#e6f0f5}tr:nth-child(even){background:#f7fafc}pre{padding:16px;background:#132c3b;color:#eaf4fa;overflow:auto;font:13px/1.5 Consolas,monospace}code{font-family:Consolas,monospace}nav{padding:12px;background:#e6f0f5;display:flex;gap:18px;flex-wrap:wrap}.banner{padding:18px;background:#fff1d1;border-left:6px solid #bd761b}details{padding:16px;border:1px solid #c8d7df;margin:16px 0}summary{font-weight:700;cursor:pointer}.badge{padding:6px 12px;background:#922e2e;color:white;border-radius:6px}button{padding:10px 18px;background:#17657d;color:white;border:0;border-radius:5px;cursor:pointer}@media print{nav{display:none}main{padding:0}table{font-size:10px}details{break-inside:avoid}}</style></head><body><main><nav><a href="INDEX.html">Mục lục nghiệm thu</a><a href="00-BIEN-BAN-NGHIEM-THU.html">Biên bản</a><a href="02-KE-HOACH-PHASE-1.html">Phase 1</a><a href="03-HO-SO-PHASE-2.html">Phase 2</a></nav><h1 id="bang-chung-may-va-gioi-han-quan-sat">Bằng chứng máy và giới hạn quan sát</h1>
+<p>Các file dưới đây được tạo trong review, tách khỏi13 receipt tự khai. Không dùng số test pass để nghiệm thu sản phẩm.</p>
+<table>
+<thead>
+<tr>
+<th>Hoạt động</th>
+<th>Observed</th>
+<th>Log/artifact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Build solution</td>
+<td>Exit0; 0 errors, 5 MSB3277 warnings</td>
+<td><a href="logs/build.log">Build log</a> · <a href="logs/build.binlog">Binary log</a></td>
+</tr>
+<tr>
+<td>Software tests</td>
+<td>1508/1508 qua trong5 suites;0 failed/skip</td>
+<td><a href="data/fresh-test-results.json">TRX index</a></td>
+</tr>
+<tr>
+<td>AutoCAD.Tests project</td>
+<td>dotnet test chỉ restore; không có test SDK/runner, không host test</td>
+<td><a href="logs/DBTool.AutoCAD.Tests.log">Log</a></td>
+</tr>
+<tr>
+<td>DTO field/type</td>
+<td>103 expected ==103 actual; mismatch[]</td>
+<td><a href="data/dto-schema-comparison.json">Schema comparison</a></td>
+</tr>
+<tr>
+<td>Counterexamples</td>
+<td>6 CounterexampleObserved; không có ProbeError ở run cuối</td>
+<td><a href="probes/results/counterexamples.json">JSON</a> · <a href="logs/counterexamples.log">Run log</a></td>
+</tr>
+<tr>
+<td>Core Console load-only</td>
+<td>Exit0; NETLOAD/VEHOGABATCH executed; missing workbook rejected</td>
+<td><a href="native-probe/transcript-utf8.log">Transcript</a> · <a href="data/host-load-result.json">Result</a></td>
+</tr>
+<tr>
+<td>Source protection</td>
+<td>Nguồn scratch DWG giữ hash; input copy của probe đã bị Core thay đổi</td>
+<td><a href="native-probe/input-manifest.json">Input hashes</a>; chỉ bản sao nằm trong review output.</td>
+</tr>
+<tr>
+<td>Dependency hashes</td>
+<td>19 links đúng, mtime tương thích;1 file-chain gap và1 current hash mismatch</td>
+<td><a href="data/receipt-dependency-chain.json">Receipt chain</a> · <a href="data/receipt-inventory.json">Inventory</a></td>
+</tr>
+<tr>
+<td>Native product</td>
+<td>NotRun; không có generated product DWG/PDF; Phase2 pages=[]</td>
+<td><a href="data/review-summary.json">Review summary</a> · <a href="phase2/product-pdf-manifest.json">PDF manifest</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="giai-thich-host-va-units">Giải thích host và units</h2>
+<p>Probe dùng executable AutoCAD2026 (25.1.164.0.0), transcript engine W.164.0.0 và một source-DWG copy; log cho thấy có AEC/Civil modules được load theo bản vẽ/profile hiện có. Đây không phải smoke palette desktop hoặc một seed mm sạch. INSUNITS=2 là Feet; mm là4 theo <a href="https://help.autodesk.com/cloudhelp/2026/ENU/AutoCAD-Core/files/GUID-A58A87BB-482B-4042-A00A-EEF55A2B4FD8.htm">Autodesk INSUNITS2026</a>. Không suy từ biến này rằng mọi geometry đã scale đúng: nó là insertion-unit boundary phải kiểm cùng native geometry/block units.</p>
+<p>Core Console nạp được DLL có WPF/AcMgd references ở máy này là quan sát thực tế, không chứng minh mọi API/UI/plot hoạt động trong Core. Desktop palette/undo và numerical product run chưa thực hiện vì preflight không đạt.</p>
+<h2 id="cac-phep-tai-hien-chay-lai">Các phép tái hiện chạy lại</h2>
+<pre><code class="language-powershell">dotnet run --project outputs/leader-acceptance/leader-field-contracts-20261013-r2/20261014-review-01/probes/AcceptanceProbe/AcceptanceProbe.csproj -- &lt;thư-mục-output-chẩn-đoán-mới&gt;
+</code></pre>
+<p>Probe chỉ đọc và gọi các adapter/semantic diff trong source hiện tại; sử dụng synthetic negative data từ test factory, không phải bộ input nghiệm thu. Không sửa production source. <code>never-written.dwg</code> phải không tồn tại trước chạy; nếu chạy lại vào thư mục khác, ghi log/run ID mới. Hai log attempt01/02 là lỗi dựng harness đã sửa (relative ProjectReference và tên property), không phải lỗi build sản phẩm; giữ để truy vết, không dùng làm finding.</p>
+<h2 id="code-va-nguon-trong-review">Code và nguồn trong review</h2>
+<p>Snapshot source/receipts ở frozen; spec frozen là căn cứ của lượt này. Các reviewer nhánh không chạy build/test/host; root chạy các bước có log nêu trên. Không có native geometric mutation test, vector PDF comparison hoặc visual DucBao review bị giả là đã chạy.</p></main></body></html>

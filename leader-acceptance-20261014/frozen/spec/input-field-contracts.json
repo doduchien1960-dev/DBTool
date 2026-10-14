@@ -1,0 +1,5233 @@
+[
+  {
+    "field": "Name",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!B{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!B{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!B{row>=4}"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal; empty allowed for prefix only",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-001",
+    "category": "Main",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Length",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!C{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!C{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!C{row>=4}"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-002",
+    "category": "Main",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Width",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!D{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!D{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!D{row>=4}"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-003",
+    "category": "Main",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Height",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!E{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!E{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!E{row>=4}"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-004",
+    "category": "Main",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "BaseThickness",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!F{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!F{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!F{row>=4}"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-005",
+    "category": "Main",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "BaseBottomMesh",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!G{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!G{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!G{row>=4}"
+    },
+    "type": "MeshSpec{int DiameterMm,double RequestedPitchMm}",
+    "unit": "mm",
+    "validation": "Parse DxxAyyy, positive; OFF only explicit rule",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-006",
+    "category": "Main",
+    "parse_kind": "Mesh",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "BaseTopMesh",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!H{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!H{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!H{row>=4}"
+    },
+    "type": "MeshSpec{int DiameterMm,double RequestedPitchMm}",
+    "unit": "mm",
+    "validation": "Parse DxxAyyy, positive; OFF only explicit rule",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-007",
+    "category": "Main",
+    "parse_kind": "Mesh",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "WallThickness",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!I{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!I{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!I{row>=4}"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-008",
+    "category": "Main",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "WallOuterMesh",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!J{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!J{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!J{row>=4}"
+    },
+    "type": "MeshSpec{int DiameterMm,double RequestedPitchMm}",
+    "unit": "mm",
+    "validation": "Parse DxxAyyy, positive; OFF only explicit rule",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-009",
+    "category": "Main",
+    "parse_kind": "Mesh",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "WallInnerMesh",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!K{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!K{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!K{row>=4}"
+    },
+    "type": "MeshSpec{int DiameterMm,double RequestedPitchMm}",
+    "unit": "mm",
+    "validation": "Parse DxxAyyy, positive; OFF only explicit rule",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-010",
+    "category": "Main",
+    "parse_kind": "Mesh",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "RoofThickness",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!L{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!L{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!L{row>=4}"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-011",
+    "category": "Main",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "RoofTopMesh",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!M{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!M{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!M{row>=4}"
+    },
+    "type": "MeshSpec{int DiameterMm,double RequestedPitchMm}",
+    "unit": "mm",
+    "validation": "Parse DxxAyyy, positive; OFF only explicit rule",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-012",
+    "category": "Main",
+    "parse_kind": "Mesh",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "RoofBottomMesh",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!N{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!N{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!N{row>=4}"
+    },
+    "type": "MeshSpec{int DiameterMm,double RequestedPitchMm}",
+    "unit": "mm",
+    "validation": "Parse DxxAyyy, positive; OFF only explicit rule",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-013",
+    "category": "Main",
+    "parse_kind": "Mesh",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "PipeCodeT1",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!O{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!O{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!O{row>=4}"
+    },
+    "type": "string? catalogCode",
+    "unit": "none",
+    "validation": "Blank=None; otherwise exact catalog after declared alias",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-014",
+    "category": "Main",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "InvertT1",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!P{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!P{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!P{row>=4}"
+    },
+    "type": "double RelativeInternalInvertMm",
+    "unit": "mm",
+    "validation": "Nonnegative; convert to absolute elevation only using AA/1000 boundary",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-015",
+    "category": "Main",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "PipeCodeT2",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!Q{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!Q{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!Q{row>=4}"
+    },
+    "type": "string? catalogCode",
+    "unit": "none",
+    "validation": "Blank=None; otherwise exact catalog after declared alias",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-016",
+    "category": "Main",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "InvertT2",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!R{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!R{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!R{row>=4}"
+    },
+    "type": "double RelativeInternalInvertMm",
+    "unit": "mm",
+    "validation": "Nonnegative; convert to absolute elevation only using AA/1000 boundary",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-017",
+    "category": "Main",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "PipeCodeT3",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!S{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!S{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!S{row>=4}"
+    },
+    "type": "string? catalogCode",
+    "unit": "none",
+    "validation": "Blank=None; otherwise exact catalog after declared alias",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-018",
+    "category": "Main",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "InvertT3",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!T{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!T{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!T{row>=4}"
+    },
+    "type": "double RelativeInternalInvertMm",
+    "unit": "mm",
+    "validation": "Nonnegative; convert to absolute elevation only using AA/1000 boundary",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-019",
+    "category": "Main",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "PipeCodeT4",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!U{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!U{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!U{row>=4}"
+    },
+    "type": "string? catalogCode",
+    "unit": "none",
+    "validation": "Blank=None; otherwise exact catalog after declared alias",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-020",
+    "category": "Main",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "InvertT4",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!V{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!V{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!V{row>=4}"
+    },
+    "type": "double RelativeInternalInvertMm",
+    "unit": "mm",
+    "validation": "Nonnegative; convert to absolute elevation only using AA/1000 boundary",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-021",
+    "category": "Main",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "NeckHeight",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!W{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!W{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!W{row>=4}"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-022",
+    "category": "Main",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "NeckThickness",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!X{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!X{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!X{row>=4}"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-023",
+    "category": "Main",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "NeckOuterMesh",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!Y{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!Y{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!Y{row>=4}"
+    },
+    "type": "MeshSpec{int DiameterMm,double RequestedPitchMm}",
+    "unit": "mm",
+    "validation": "Parse DxxAyyy, positive; OFF only explicit rule",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-024",
+    "category": "Main",
+    "parse_kind": "Mesh",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "NeckHeight",
+      "NeckStructure"
+    ]
+  },
+  {
+    "field": "NeckInnerMesh",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!Z{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!Z{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!Z{row>=4}"
+    },
+    "type": "MeshSpec{int DiameterMm,double RequestedPitchMm}",
+    "unit": "mm",
+    "validation": "Parse DxxAyyy, positive; OFF only explicit rule",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-025",
+    "category": "Main",
+    "parse_kind": "Mesh",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "NeckHeight",
+      "NeckStructure"
+    ]
+  },
+  {
+    "field": "BaseElevationM",
+    "address_by_profile": {
+      "GaThamLienKhoi": "GaThamLienKhoi!AA{row>=4}",
+      "GaThamNapRoi": "GaThamNapRoi!AA{row>=4}",
+      "GaThamThuNapRoi": "GaThamThuNapRoi!AA{row>=4}"
+    },
+    "type": "decimal?",
+    "unit": "m",
+    "validation": "Required in Absolute; null allowed Symbolic",
+    "authority": "Vhg32Schema.MainColumns + main header notes",
+    "consumer": "S1 RawCell -> S2 EffectiveInput; see EX rules",
+    "input_id": "F-026",
+    "category": "Main",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "Elevation.C"
+    ]
+  },
+  {
+    "field": "Anchor",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!J11",
+      "GaThamNapRoi": "CF.Ga!J11",
+      "GaThamThuNapRoi": "CF.Ga!J11"
+    },
+    "type": "AnchorSpec?{int D,double A,double L}",
+    "unit": "mm",
+    "validation": "0=None; parse DxxAyyyLzzz",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-027",
+    "category": "Config",
+    "parse_kind": "Anchor",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "AngleCode",
+      "NeckHaunchFlag",
+      "NeckHeight"
+    ]
+  },
+  {
+    "field": "AngleCode",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!H11",
+      "GaThamNapRoi": "CF.Ga!H11",
+      "GaThamThuNapRoi": "CF.Ga!H11"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-028",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "AnglePosition",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!I11",
+      "GaThamNapRoi": "CF.Ga!I11",
+      "GaThamThuNapRoi": "CF.Ga!I11"
+    },
+    "type": "Set<AnglePosition>{TopConvex,MiddleConcave,InnerConvex}",
+    "unit": "none",
+    "validation": "Parse distinct1/2/3 from source, no duplicate frames",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-029",
+    "category": "Config",
+    "parse_kind": "TokenSet",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "AngleCode",
+      "NeckHaunchFlag",
+      "NeckHeight"
+    ]
+  },
+  {
+    "field": "BaseExpansion",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C5",
+      "GaThamNapRoi": "CF.Ga!C5",
+      "GaThamThuNapRoi": "CF.Ga!C5"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-030",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "BaseHaunch",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!D5",
+      "GaThamNapRoi": "CF.Ga!D5",
+      "GaThamThuNapRoi": "CF.Ga!D5"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-031",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "BeddingMortar",
+    "address_by_profile": {
+      "GaThamNapRoi": "CF.Ga!G9",
+      "GaThamThuNapRoi": "CF.Ga!G9"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-032",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catch.C",
+    "address_by_profile": {
+      "GaThamThuNapRoi": "CF.Ga!C17"
+    },
+    "type": "enum CatchBasinOwner Body/Neck",
+    "unit": "none",
+    "validation": "Map Thân ga/Cổ ga; selected host must exist",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-033",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "Thân ga",
+      "Cổ ga"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catch.D",
+    "address_by_profile": {
+      "GaThamThuNapRoi": "CF.Ga!D17"
+    },
+    "type": "CatchLocation{WallId Wall,HorizontalPosition Position}",
+    "unit": "none",
+    "validation": "Parse source direction+position; Neck Center override HDSD p13",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-034",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catch.E",
+    "address_by_profile": {
+      "GaThamThuNapRoi": "CF.Ga!E17"
+    },
+    "type": "enum CatchType Type1",
+    "unit": "none",
+    "validation": "Only Kiểu1 sourced; unknown type Unsupported",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-035",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "Kiểu 1"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catch.F",
+    "address_by_profile": {
+      "GaThamThuNapRoi": "CF.Ga!F17"
+    },
+    "type": "Size2Mm{OpeningWidthMm,OpeningHeightMm}",
+    "unit": "mm",
+    "validation": "Both positive, true host cutout dimensions",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-036",
+    "category": "Config",
+    "parse_kind": "Tuple",
+    "arity": 2,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [
+      "OpeningWidth",
+      "OpeningHeight"
+    ],
+    "dependencies": []
+  },
+  {
+    "field": "Catch.G",
+    "address_by_profile": {
+      "GaThamThuNapRoi": "CF.Ga!G17"
+    },
+    "type": "Size2Mm{ClearDepthMm,ClearHeightMm}",
+    "unit": "mm",
+    "validation": "Both positive; clearWidth derives from Catch.F.width",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-037",
+    "category": "Config",
+    "parse_kind": "Tuple",
+    "arity": 2,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [
+      "ClearDepth",
+      "ClearHeight"
+    ],
+    "dependencies": []
+  },
+  {
+    "field": "Catch.H",
+    "address_by_profile": {
+      "GaThamThuNapRoi": "CF.Ga!H17"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-038",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catch.I",
+    "address_by_profile": {
+      "GaThamThuNapRoi": "CF.Ga!I17"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-039",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catch.J",
+    "address_by_profile": {
+      "GaThamThuNapRoi": "CF.Ga!J17"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-040",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catch.K",
+    "address_by_profile": {
+      "GaThamThuNapRoi": "CF.Ga!K17"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-041",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catch.L",
+    "address_by_profile": {
+      "GaThamThuNapRoi": "CF.Ga!L17"
+    },
+    "type": "enum ConcreteStructure BTCT/Khác",
+    "unit": "none",
+    "validation": "Khác turns off catch steel only",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-042",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "BTCT",
+      "Khác"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catch.M",
+    "address_by_profile": {
+      "GaThamThuNapRoi": "CF.Ga!M17"
+    },
+    "type": "MeshSpec{int DiameterMm,double RequestedPitchMm}",
+    "unit": "mm",
+    "validation": "Parse DxxAyyy, positive; OFF only explicit rule",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-043",
+    "category": "Config",
+    "parse_kind": "Mesh",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "Catch.L"
+    ]
+  },
+  {
+    "field": "CoverBlock",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!E13",
+      "GaThamNapRoi": "CF.Ga!E13",
+      "GaThamThuNapRoi": "CF.Ga!E13"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-044",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType"
+    ]
+  },
+  {
+    "field": "CoverBottom",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C17",
+      "GaThamNapRoi": "CF.Ga!C17",
+      "GaThamThuNapRoi": "CF.Ga!C19"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-045",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "CoverCatch",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!I17",
+      "GaThamNapRoi": "CF.Ga!I17",
+      "GaThamThuNapRoi": "CF.Ga!I19"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-046",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "CoverHaunchFlag",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!F13",
+      "GaThamNapRoi": "CF.Ga!F13",
+      "GaThamThuNapRoi": "CF.Ga!F13"
+    },
+    "type": "bool",
+    "unit": "none",
+    "validation": "Exact Có/Không; unknown Invalid",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-047",
+    "category": "Config",
+    "parse_kind": "Bool",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType"
+    ]
+  },
+  {
+    "field": "CoverHaunchSize",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!G13",
+      "GaThamNapRoi": "CF.Ga!G13",
+      "GaThamThuNapRoi": "CF.Ga!G13"
+    },
+    "type": "DimensionTuple{double[] Values,string[] Roles}",
+    "unit": "mm",
+    "validation": "Full tuple parse; role order fixed by EX rules",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-048",
+    "category": "Config",
+    "parse_kind": "Tuple",
+    "arity": 2,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [
+      "Width",
+      "Height"
+    ],
+    "dependencies": [
+      "CoverHaunchFlag",
+      "CoverType"
+    ]
+  },
+  {
+    "field": "CoverHeight",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!D13",
+      "GaThamNapRoi": "CF.Ga!D13",
+      "GaThamThuNapRoi": "CF.Ga!D13"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-049",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType"
+    ]
+  },
+  {
+    "field": "CoverTop",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!E17",
+      "GaThamNapRoi": "CF.Ga!E17",
+      "GaThamThuNapRoi": "CF.Ga!E19"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-050",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "CoverType",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C13",
+      "GaThamNapRoi": "CF.Ga!C13",
+      "GaThamThuNapRoi": "CF.Ga!C13"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-051",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "CoverWall",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!D17",
+      "GaThamNapRoi": "CF.Ga!D17",
+      "GaThamThuNapRoi": "CF.Ga!D19"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-052",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Distribution",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!K19",
+      "GaThamNapRoi": "CF.Ga!K19",
+      "GaThamThuNapRoi": "CF.Ga!K21"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-053",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "Chia đều",
+      "Theo mật độ"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "DowelHoleDia",
+    "address_by_profile": {
+      "GaThamNapRoi": "CF.Ga!F9",
+      "GaThamThuNapRoi": "CF.Ga!F9"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-054",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": [
+      "HasDowel"
+    ]
+  },
+  {
+    "field": "DowelLength",
+    "address_by_profile": {
+      "GaThamNapRoi": "CF.Ga!E9",
+      "GaThamThuNapRoi": "CF.Ga!E9"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-055",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": [
+      "HasDowel"
+    ]
+  },
+  {
+    "field": "DowelSpec",
+    "address_by_profile": {
+      "GaThamNapRoi": "CF.Ga!D9",
+      "GaThamThuNapRoi": "CF.Ga!D9"
+    },
+    "type": "MeshSpec{int DiameterMm,double RequestedPitchMm}",
+    "unit": "mm",
+    "validation": "Parse DxxAyyy, positive; OFF only explicit rule",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-056",
+    "category": "Config",
+    "parse_kind": "Mesh",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "HasDowel"
+    ]
+  },
+  {
+    "field": "Elevation.C",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C32",
+      "GaThamNapRoi": "CF.Ga!C32",
+      "GaThamThuNapRoi": "CF.Ga!C34"
+    },
+    "type": "enum Absolute/Symbolic",
+    "unit": "none",
+    "validation": "Tuyệt đối requires AA; Tương đối uses D:I literal symbols",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-057",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "Tuyệt đối",
+      "Tương đối"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Elevation.D",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!D32",
+      "GaThamNapRoi": "CF.Ga!D32",
+      "GaThamThuNapRoi": "CF.Ga!D34"
+    },
+    "type": "string SurfaceSymbol",
+    "unit": "none",
+    "validation": "Use literal per datum/opening in Symbolic mode; not a numeric elevation",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-058",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "Elevation.C"
+    ]
+  },
+  {
+    "field": "Elevation.E",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!E32",
+      "GaThamNapRoi": "CF.Ga!E32",
+      "GaThamThuNapRoi": "CF.Ga!E34"
+    },
+    "type": "string SurfaceSymbol",
+    "unit": "none",
+    "validation": "Use literal per datum/opening in Symbolic mode; not a numeric elevation",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-059",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "Elevation.C"
+    ]
+  },
+  {
+    "field": "Elevation.F",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!F32",
+      "GaThamNapRoi": "CF.Ga!F32",
+      "GaThamThuNapRoi": "CF.Ga!F34"
+    },
+    "type": "string SurfaceSymbol",
+    "unit": "none",
+    "validation": "Use literal per datum/opening in Symbolic mode; not a numeric elevation",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-060",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "Elevation.C"
+    ]
+  },
+  {
+    "field": "Elevation.G",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!G32",
+      "GaThamNapRoi": "CF.Ga!G32",
+      "GaThamThuNapRoi": "CF.Ga!G34"
+    },
+    "type": "string SurfaceSymbol",
+    "unit": "none",
+    "validation": "Use literal per datum/opening in Symbolic mode; not a numeric elevation",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-061",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "Elevation.C"
+    ]
+  },
+  {
+    "field": "Elevation.H",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!H32",
+      "GaThamNapRoi": "CF.Ga!H32",
+      "GaThamThuNapRoi": "CF.Ga!H34"
+    },
+    "type": "string SurfaceSymbol",
+    "unit": "none",
+    "validation": "Use literal per datum/opening in Symbolic mode; not a numeric elevation",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-062",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "Elevation.C"
+    ]
+  },
+  {
+    "field": "Elevation.I",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!I32",
+      "GaThamNapRoi": "CF.Ga!I32",
+      "GaThamThuNapRoi": "CF.Ga!I34"
+    },
+    "type": "string SurfaceSymbol",
+    "unit": "none",
+    "validation": "Use literal per datum/opening in Symbolic mode; not a numeric elevation",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-063",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "Elevation.C"
+    ]
+  },
+  {
+    "field": "HasDowel",
+    "address_by_profile": {
+      "GaThamNapRoi": "CF.Ga!C9",
+      "GaThamThuNapRoi": "CF.Ga!C9"
+    },
+    "type": "bool",
+    "unit": "none",
+    "validation": "Exact Có/Không; unknown Invalid",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-064",
+    "category": "Config",
+    "parse_kind": "Bool",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Hatch.C",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C36",
+      "GaThamNapRoi": "CF.Ga!C36",
+      "GaThamThuNapRoi": "CF.Ga!C38"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-065",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType",
+      "NeckHeight",
+      "PadThickness"
+    ]
+  },
+  {
+    "field": "Hatch.D",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!D36",
+      "GaThamNapRoi": "CF.Ga!D36",
+      "GaThamThuNapRoi": "CF.Ga!D38"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-066",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType",
+      "NeckHeight",
+      "PadThickness"
+    ]
+  },
+  {
+    "field": "Hatch.E",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!E36",
+      "GaThamNapRoi": "CF.Ga!E36",
+      "GaThamThuNapRoi": "CF.Ga!E38"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-067",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType",
+      "NeckHeight",
+      "PadThickness"
+    ]
+  },
+  {
+    "field": "Hatch.F",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!F36",
+      "GaThamNapRoi": "CF.Ga!F36",
+      "GaThamThuNapRoi": "CF.Ga!F38"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-068",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType",
+      "NeckHeight",
+      "PadThickness"
+    ]
+  },
+  {
+    "field": "Hatch.G",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!G36",
+      "GaThamNapRoi": "CF.Ga!G36",
+      "GaThamThuNapRoi": "CF.Ga!G38"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-069",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType",
+      "NeckHeight",
+      "PadThickness"
+    ]
+  },
+  {
+    "field": "Hatch.H",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!H36",
+      "GaThamNapRoi": "CF.Ga!H36",
+      "GaThamThuNapRoi": "CF.Ga!H38"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-070",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType",
+      "NeckHeight",
+      "PadThickness"
+    ]
+  },
+  {
+    "field": "Hatch.I",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!I36",
+      "GaThamNapRoi": "CF.Ga!I36",
+      "GaThamThuNapRoi": "CF.Ga!I38"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-071",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType",
+      "NeckHeight",
+      "PadThickness"
+    ]
+  },
+  {
+    "field": "Hatch.J",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!J36",
+      "GaThamNapRoi": "CF.Ga!J36",
+      "GaThamThuNapRoi": "CF.Ga!J38"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-072",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType",
+      "NeckHeight",
+      "PadThickness"
+    ]
+  },
+  {
+    "field": "Hatch.K",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!K36",
+      "GaThamNapRoi": "CF.Ga!K36",
+      "GaThamThuNapRoi": "CF.Ga!K38"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-073",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType",
+      "NeckHeight",
+      "PadThickness"
+    ]
+  },
+  {
+    "field": "Hatch.L",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!L36",
+      "GaThamNapRoi": "CF.Ga!L36",
+      "GaThamThuNapRoi": "CF.Ga!L38"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-074",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType",
+      "NeckHeight",
+      "PadThickness"
+    ]
+  },
+  {
+    "field": "Hatch.M",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!M36",
+      "GaThamNapRoi": "CF.Ga!M36",
+      "GaThamThuNapRoi": "CF.Ga!M38"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-075",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType",
+      "NeckHeight",
+      "PadThickness"
+    ]
+  },
+  {
+    "field": "HookMode",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!L19",
+      "GaThamNapRoi": "CF.Ga!L19",
+      "GaThamThuNapRoi": "CF.Ga!L21"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-076",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "Theo KC",
+      "Theo ĐK"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "HookMultiple",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!L21",
+      "GaThamNapRoi": "CF.Ga!L21",
+      "GaThamThuNapRoi": "CF.Ga!L23"
+    },
+    "type": "double HookDiameterMultiple",
+    "unit": "dimensionless",
+    "validation": ">0 when ByDiameter",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-077",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": [
+      "HookMode"
+    ]
+  },
+  {
+    "field": "HookPattern.C",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C20",
+      "GaThamNapRoi": "CF.Ga!C20",
+      "GaThamThuNapRoi": "CF.Ga!C22"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-078",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "0M",
+      "1M",
+      "2M"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "HookPattern.D",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!D20",
+      "GaThamNapRoi": "CF.Ga!D20",
+      "GaThamThuNapRoi": "CF.Ga!D22"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-079",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "0M",
+      "1M",
+      "2M"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "HookPattern.E",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!E20",
+      "GaThamNapRoi": "CF.Ga!E20",
+      "GaThamThuNapRoi": "CF.Ga!E22"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-080",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "0M",
+      "1M",
+      "2M"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "HookPattern.F",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!F20",
+      "GaThamNapRoi": "CF.Ga!F20",
+      "GaThamThuNapRoi": "CF.Ga!F22"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-081",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "0M",
+      "1M",
+      "2M"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "HookPattern.G",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!G20",
+      "GaThamNapRoi": "CF.Ga!G20",
+      "GaThamThuNapRoi": "CF.Ga!G22"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-082",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "0M",
+      "1M",
+      "2M"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "HookPattern.H",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!H20",
+      "GaThamNapRoi": "CF.Ga!H20",
+      "GaThamThuNapRoi": "CF.Ga!H22"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-083",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "0M",
+      "1M",
+      "2M"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "HookPattern.I",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!I20",
+      "GaThamNapRoi": "CF.Ga!I20",
+      "GaThamThuNapRoi": "CF.Ga!I22"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-084",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "0M",
+      "1M",
+      "2M"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "NeckHeight",
+      "NeckStructure"
+    ]
+  },
+  {
+    "field": "HookPattern.J",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!J20",
+      "GaThamNapRoi": "CF.Ga!J20",
+      "GaThamThuNapRoi": "CF.Ga!J22"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-085",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "0M",
+      "1M",
+      "2M"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "NeckHeight",
+      "NeckStructure"
+    ]
+  },
+  {
+    "field": "Ladder.C",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C25",
+      "GaThamNapRoi": "CF.Ga!C25",
+      "GaThamThuNapRoi": "CF.Ga!C27"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-086",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Ladder.D",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!D25",
+      "GaThamNapRoi": "CF.Ga!D25",
+      "GaThamThuNapRoi": "CF.Ga!D27"
+    },
+    "type": "int DiameterMm",
+    "unit": "mm",
+    "validation": "Positive when ladder ON",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-087",
+    "category": "Config",
+    "parse_kind": "Integer",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": [
+      "Ladder.C"
+    ]
+  },
+  {
+    "field": "Ladder.E",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!E25",
+      "GaThamNapRoi": "CF.Ga!E25",
+      "GaThamThuNapRoi": "CF.Ga!E27"
+    },
+    "type": "DimensionTuple{double[] Values,string[] Roles}",
+    "unit": "mm",
+    "validation": "Full tuple parse; role order fixed by EX rules",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-088",
+    "category": "Config",
+    "parse_kind": "Tuple",
+    "arity": 2,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [
+      "FirstDrop",
+      "Pitch"
+    ],
+    "dependencies": [
+      "Ladder.C"
+    ]
+  },
+  {
+    "field": "Ladder.F",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!F25",
+      "GaThamNapRoi": "CF.Ga!F25",
+      "GaThamThuNapRoi": "CF.Ga!F27"
+    },
+    "type": "DimensionTuple{double[] Values,string[] Roles}",
+    "unit": "mm",
+    "validation": "Full tuple parse; role order fixed by EX rules",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-089",
+    "category": "Config",
+    "parse_kind": "Tuple",
+    "arity": 3,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [
+      "Foot",
+      "SideDepth",
+      "Bridge"
+    ],
+    "dependencies": [
+      "Ladder.C"
+    ]
+  },
+  {
+    "field": "Ladder.G",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!G25",
+      "GaThamNapRoi": "CF.Ga!G25",
+      "GaThamThuNapRoi": "CF.Ga!G27"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal; empty allowed for prefix only",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-090",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "Ladder.C"
+    ]
+  },
+  {
+    "field": "LiftingSize",
+    "address_by_profile": {
+      "GaThamNapRoi": "CF.Ga!I9",
+      "GaThamThuNapRoi": "CF.Ga!I9"
+    },
+    "type": "DimensionTuple{double[] Values,string[] Roles}",
+    "unit": "mm",
+    "validation": "Full tuple parse; role order fixed by EX rules",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-091",
+    "category": "Config",
+    "parse_kind": "Tuple",
+    "arity": 3,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [
+      "FootA",
+      "SideB",
+      "BridgeC"
+    ],
+    "dependencies": [
+      "LiftingSpec"
+    ]
+  },
+  {
+    "field": "LiftingSpec",
+    "address_by_profile": {
+      "GaThamNapRoi": "CF.Ga!H9",
+      "GaThamThuNapRoi": "CF.Ga!H9"
+    },
+    "type": "LiftingSpec{int Count,int DiameterMm}",
+    "unit": "count/mm",
+    "validation": "Roof type2/3 count allowed0/2/4;0=None",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-092",
+    "category": "Config",
+    "parse_kind": "Counted",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [
+      0,
+      2,
+      4
+    ],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Material.C",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C34",
+      "GaThamNapRoi": "CF.Ga!C34",
+      "GaThamThuNapRoi": "CF.Ga!C36"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal; empty allowed for prefix only",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-093",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType",
+      "NeckHeight",
+      "PadThickness"
+    ]
+  },
+  {
+    "field": "Material.D",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!D34",
+      "GaThamNapRoi": "CF.Ga!D34",
+      "GaThamThuNapRoi": "CF.Ga!D36"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal; empty allowed for prefix only",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-094",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType",
+      "NeckHeight",
+      "PadThickness"
+    ]
+  },
+  {
+    "field": "Material.E",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!E34",
+      "GaThamNapRoi": "CF.Ga!E34",
+      "GaThamThuNapRoi": "CF.Ga!E36"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal; empty allowed for prefix only",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-095",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType",
+      "NeckHeight",
+      "PadThickness"
+    ]
+  },
+  {
+    "field": "Material.F",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!F34",
+      "GaThamNapRoi": "CF.Ga!F34",
+      "GaThamThuNapRoi": "CF.Ga!F36"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal; empty allowed for prefix only",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-096",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType",
+      "NeckHeight",
+      "PadThickness"
+    ]
+  },
+  {
+    "field": "NeckDiaStepDown",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!M11",
+      "GaThamNapRoi": "CF.Ga!M11",
+      "GaThamThuNapRoi": "CF.Ga!M11"
+    },
+    "type": "int",
+    "unit": "count",
+    "validation": "Nonnegative/positive by active rule; no fractional truncation",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-097",
+    "category": "Config",
+    "parse_kind": "Integer",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": [
+      "NeckHeight",
+      "NeckStructure"
+    ]
+  },
+  {
+    "field": "NeckHaunchFlag",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!F11",
+      "GaThamNapRoi": "CF.Ga!F11",
+      "GaThamThuNapRoi": "CF.Ga!F11"
+    },
+    "type": "bool",
+    "unit": "none",
+    "validation": "Exact Có/Không; unknown Invalid",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-098",
+    "category": "Config",
+    "parse_kind": "Bool",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "NeckHeight"
+    ]
+  },
+  {
+    "field": "NeckHaunchSize",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!G11",
+      "GaThamNapRoi": "CF.Ga!G11",
+      "GaThamThuNapRoi": "CF.Ga!G11"
+    },
+    "type": "DimensionTuple{double[] Values,string[] Roles}",
+    "unit": "mm",
+    "validation": "Full tuple parse; role order fixed by EX rules",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-099",
+    "category": "Config",
+    "parse_kind": "Tuple",
+    "arity": 2,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [
+      "Width",
+      "Height"
+    ],
+    "dependencies": [
+      "NeckHaunchFlag",
+      "NeckHeight"
+    ]
+  },
+  {
+    "field": "NeckPosition",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!D11",
+      "GaThamNapRoi": "CF.Ga!D11",
+      "GaThamThuNapRoi": "CF.Ga!D11"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-100",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "NeckPrefix",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!K11",
+      "GaThamNapRoi": "CF.Ga!K11",
+      "GaThamThuNapRoi": "CF.Ga!K11"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal; empty allowed for prefix only",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-101",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "NeckHeight"
+    ]
+  },
+  {
+    "field": "NeckSize",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!E11",
+      "GaThamNapRoi": "CF.Ga!E11",
+      "GaThamThuNapRoi": "CF.Ga!E11"
+    },
+    "type": "DimensionTuple{double[] Values,string[] Roles}",
+    "unit": "mm",
+    "validation": "Full tuple parse; role order fixed by EX rules",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-102",
+    "category": "Config",
+    "parse_kind": "Tuple",
+    "arity": 2,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [
+      "ClearX",
+      "ClearY"
+    ],
+    "dependencies": []
+  },
+  {
+    "field": "NeckSpacingDelta",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!L11",
+      "GaThamNapRoi": "CF.Ga!L11",
+      "GaThamThuNapRoi": "CF.Ga!L11"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Signed; resulting pitch>0",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-103",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "NeckHeight",
+      "NeckStructure"
+    ]
+  },
+  {
+    "field": "NeckStructure",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C11",
+      "GaThamNapRoi": "CF.Ga!C11",
+      "GaThamThuNapRoi": "CF.Ga!C11"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-104",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "BTCT",
+      "Khác"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "NeckHeight"
+    ]
+  },
+  {
+    "field": "PadExpansion",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C3",
+      "GaThamNapRoi": "CF.Ga!C3",
+      "GaThamThuNapRoi": "CF.Ga!C3"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-105",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "PadThickness",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!D3",
+      "GaThamNapRoi": "CF.Ga!D3",
+      "GaThamThuNapRoi": "CF.Ga!D3"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-106",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Panel.AngleAnchorRebar",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!J15",
+      "GaThamNapRoi": "CF.Ga!J15",
+      "GaThamThuNapRoi": "CF.Ga!J15"
+    },
+    "type": "AnchorSpec?{int D,double A,double L}",
+    "unit": "mm",
+    "validation": "0=None; parse DxxAyyyLzzz",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-107",
+    "category": "Config",
+    "parse_kind": "Anchor",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType"
+    ]
+  },
+  {
+    "field": "Panel.AngleSteelCode",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!H15",
+      "GaThamNapRoi": "CF.Ga!H15",
+      "GaThamThuNapRoi": "CF.Ga!H15"
+    },
+    "type": "string? ExactAngleCode",
+    "unit": "none",
+    "validation": "Không=None; otherwise exact CF.Data B/C entry, V/Laxbxc",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-108",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType"
+    ]
+  },
+  {
+    "field": "Panel.AngleSteelQuantity",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!I15",
+      "GaThamNapRoi": "CF.Ga!I15",
+      "GaThamThuNapRoi": "CF.Ga!I15"
+    },
+    "type": "int AngleFrameCount",
+    "unit": "count",
+    "validation": "1=bottom,2=bottom+top; only when angle ON",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-109",
+    "category": "Config",
+    "parse_kind": "Integer",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType"
+    ]
+  },
+  {
+    "field": "Panel.BarSpacingMm",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!E15",
+      "GaThamNapRoi": "CF.Ga!E15",
+      "GaThamThuNapRoi": "CF.Ga!E15"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-110",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType"
+    ]
+  },
+  {
+    "field": "Panel.BottomLayerBarDiameter",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C15",
+      "GaThamNapRoi": "CF.Ga!C15",
+      "GaThamThuNapRoi": "CF.Ga!C15"
+    },
+    "type": "int DiameterMm",
+    "unit": "mm",
+    "validation": ">0 if BTCT panel",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-111",
+    "category": "Config",
+    "parse_kind": "Integer",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType"
+    ]
+  },
+  {
+    "field": "Panel.CoverRatioPercent",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!M15",
+      "GaThamNapRoi": "CF.Ga!M15",
+      "GaThamThuNapRoi": "CF.Ga!M15"
+    },
+    "type": "int PanelDetailScaleDenominator",
+    "unit": "1:S",
+    "validation": "Positive integer; replace wrong Percent name",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-112",
+    "category": "Config",
+    "parse_kind": "Integer",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType"
+    ]
+  },
+  {
+    "field": "Panel.LiftingHookSize",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!L15",
+      "GaThamNapRoi": "CF.Ga!L15",
+      "GaThamThuNapRoi": "CF.Ga!L15"
+    },
+    "type": "DimensionTuple{double[] Values,string[] Roles}",
+    "unit": "mm",
+    "validation": "Full tuple parse; role order fixed by EX rules",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-113",
+    "category": "Config",
+    "parse_kind": "Tuple",
+    "arity": 3,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [
+      "FootA",
+      "SideB",
+      "BridgeC"
+    ],
+    "dependencies": [
+      "CoverType"
+    ]
+  },
+  {
+    "field": "Panel.LiftingHookSpec",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!K15",
+      "GaThamNapRoi": "CF.Ga!K15",
+      "GaThamThuNapRoi": "CF.Ga!K15"
+    },
+    "type": "LiftingSpec{int Count,int DiameterMm}",
+    "unit": "count/mm",
+    "validation": "Panel count allowed1/2/4; active only BTCT panel",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-114",
+    "category": "Config",
+    "parse_kind": "Counted",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [
+      1,
+      2,
+      4
+    ],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType"
+    ]
+  },
+  {
+    "field": "Panel.TieRebar",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!F15",
+      "GaThamNapRoi": "CF.Ga!F15",
+      "GaThamThuNapRoi": "CF.Ga!F15"
+    },
+    "type": "MeshSpec{int DiameterMm,double RequestedPitchMm}",
+    "unit": "mm",
+    "validation": "Parse DxxAyyy, positive; OFF only explicit rule",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-115",
+    "category": "Config",
+    "parse_kind": "Mesh",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType",
+      "Panel.TopLayerBarDiameter"
+    ]
+  },
+  {
+    "field": "Panel.TieShape",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!G15",
+      "GaThamNapRoi": "CF.Ga!G15",
+      "GaThamThuNapRoi": "CF.Ga!G15"
+    },
+    "type": "enum C/U/Z",
+    "unit": "none",
+    "validation": "Active only two panel layers; unsupported shape RULE_UNAPPROVED",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-116",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "Chữ C",
+      "Chữ U",
+      "Chữ Z"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType",
+      "Panel.TopLayerBarDiameter"
+    ]
+  },
+  {
+    "field": "Panel.TopLayerBarDiameter",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!D15",
+      "GaThamNapRoi": "CF.Ga!D15",
+      "GaThamThuNapRoi": "CF.Ga!D15"
+    },
+    "type": "int DiameterMm",
+    "unit": "mm",
+    "validation": ">=0;0 no top layer",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-117",
+    "category": "Config",
+    "parse_kind": "Integer",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType"
+    ]
+  },
+  {
+    "field": "PanelCount",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!I13",
+      "GaThamNapRoi": "CF.Ga!I13",
+      "GaThamThuNapRoi": "CF.Ga!I13"
+    },
+    "type": "int",
+    "unit": "count",
+    "validation": "Nonnegative/positive by active rule; no fractional truncation",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-118",
+    "category": "Config",
+    "parse_kind": "Integer",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType"
+    ]
+  },
+  {
+    "field": "PanelDirection",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!K13",
+      "GaThamNapRoi": "CF.Ga!K13",
+      "GaThamThuNapRoi": "CF.Ga!K13"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-119",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "Ngang",
+      "Dọc"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType"
+    ]
+  },
+  {
+    "field": "PanelGap",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!J13",
+      "GaThamNapRoi": "CF.Ga!J13",
+      "GaThamThuNapRoi": "CF.Ga!J13"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-120",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType"
+    ]
+  },
+  {
+    "field": "Pipe.C",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C28",
+      "GaThamNapRoi": "CF.Ga!C28",
+      "GaThamThuNapRoi": "CF.Ga!C30"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-121",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Pipe.D",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!D28",
+      "GaThamNapRoi": "CF.Ga!D28",
+      "GaThamThuNapRoi": "CF.Ga!D30"
+    },
+    "type": "int ReinforcementDiameterMm",
+    "unit": "mm",
+    "validation": ">=0; 0 OFF",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-122",
+    "category": "Config",
+    "parse_kind": "Integer",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Pipe.E",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!E28",
+      "GaThamNapRoi": "CF.Ga!E28",
+      "GaThamThuNapRoi": "CF.Ga!E30"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-123",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "Pipe.D"
+    ]
+  },
+  {
+    "field": "Pipe.F",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!F28",
+      "GaThamNapRoi": "CF.Ga!F28",
+      "GaThamThuNapRoi": "CF.Ga!F30"
+    },
+    "type": "int Multiplicity",
+    "unit": "count",
+    "validation": "Positive when GC ON; per-layer accounting",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-124",
+    "category": "Config",
+    "parse_kind": "Integer",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": [
+      "Pipe.D"
+    ]
+  },
+  {
+    "field": "Pipe.G",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!G28",
+      "GaThamNapRoi": "CF.Ga!G28",
+      "GaThamThuNapRoi": "CF.Ga!G30"
+    },
+    "type": "double ExtensionMm",
+    "unit": "mm",
+    "validation": ">=0 and support/cover containment",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-125",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": [
+      "Pipe.D"
+    ]
+  },
+  {
+    "field": "Pipe.H",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!H28",
+      "GaThamNapRoi": "CF.Ga!H28",
+      "GaThamThuNapRoi": "CF.Ga!H30"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal; empty allowed for prefix only",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-126",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "Pipe.D"
+    ]
+  },
+  {
+    "field": "Pipe.I",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!I28",
+      "GaThamNapRoi": "CF.Ga!I28",
+      "GaThamThuNapRoi": "CF.Ga!I30"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-127",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Pipe.J",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!J28",
+      "GaThamNapRoi": "CF.Ga!J28",
+      "GaThamThuNapRoi": "CF.Ga!J30"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-128",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Pipe.K",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!K28",
+      "GaThamNapRoi": "CF.Ga!K28",
+      "GaThamThuNapRoi": "CF.Ga!K30"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-129",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Pipe.L",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!L28",
+      "GaThamNapRoi": "CF.Ga!L28",
+      "GaThamThuNapRoi": "CF.Ga!L30"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-130",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "PipeMortar",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C28",
+      "GaThamNapRoi": "CF.Ga!C28",
+      "GaThamThuNapRoi": "CF.Ga!C30"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-131",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "PipeOffsetT1",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!I28",
+      "GaThamNapRoi": "CF.Ga!I28",
+      "GaThamThuNapRoi": "CF.Ga!I30"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-132",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "PipeOffsetT2",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!J28",
+      "GaThamNapRoi": "CF.Ga!J28",
+      "GaThamThuNapRoi": "CF.Ga!J30"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-133",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "PipeOffsetT3",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!K28",
+      "GaThamNapRoi": "CF.Ga!K28",
+      "GaThamThuNapRoi": "CF.Ga!K30"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-134",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "PipeOffsetT4",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!L28",
+      "GaThamNapRoi": "CF.Ga!L28",
+      "GaThamThuNapRoi": "CF.Ga!L30"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-135",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Protect.C",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C17",
+      "GaThamNapRoi": "CF.Ga!C17",
+      "GaThamThuNapRoi": "CF.Ga!C19"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-136",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Protect.D",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!D17",
+      "GaThamNapRoi": "CF.Ga!D17",
+      "GaThamThuNapRoi": "CF.Ga!D19"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-137",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Protect.E",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!E17",
+      "GaThamNapRoi": "CF.Ga!E17",
+      "GaThamThuNapRoi": "CF.Ga!E19"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-138",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Protect.F",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!F17",
+      "GaThamNapRoi": "CF.Ga!F17",
+      "GaThamThuNapRoi": "CF.Ga!F19"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-139",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Protect.G",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!G17",
+      "GaThamNapRoi": "CF.Ga!G17",
+      "GaThamThuNapRoi": "CF.Ga!G19"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-140",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Protect.H",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!H17",
+      "GaThamNapRoi": "CF.Ga!H17",
+      "GaThamThuNapRoi": "CF.Ga!H19"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-141",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Protect.I",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!I17",
+      "GaThamNapRoi": "CF.Ga!I17",
+      "GaThamThuNapRoi": "CF.Ga!I19"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-142",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "RoofRebar.C",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C30",
+      "GaThamNapRoi": "CF.Ga!C30",
+      "GaThamThuNapRoi": "CF.Ga!C32"
+    },
+    "type": "int ReinforcementDiameterMm",
+    "unit": "mm",
+    "validation": ">=0;0 OFF",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-143",
+    "category": "Config",
+    "parse_kind": "Integer",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "RoofRebar.D",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!D30",
+      "GaThamNapRoi": "CF.Ga!D30",
+      "GaThamThuNapRoi": "CF.Ga!D32"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-144",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "RoofRebar.C"
+    ]
+  },
+  {
+    "field": "RoofRebar.E",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!E30",
+      "GaThamNapRoi": "CF.Ga!E30",
+      "GaThamThuNapRoi": "CF.Ga!E32"
+    },
+    "type": "int SquareMultiplicity",
+    "unit": "count",
+    "validation": "Positive when Square ON; does not multiply ring",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-145",
+    "category": "Config",
+    "parse_kind": "Integer",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": [
+      "RoofRebar.C"
+    ]
+  },
+  {
+    "field": "RoofRebar.F",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!F30",
+      "GaThamNapRoi": "CF.Ga!F30",
+      "GaThamThuNapRoi": "CF.Ga!F32"
+    },
+    "type": "double ExtensionMm",
+    "unit": "mm",
+    "validation": ">=0; cover containment",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-146",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": [
+      "RoofRebar.C"
+    ]
+  },
+  {
+    "field": "RoofRebar.G",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!G30",
+      "GaThamNapRoi": "CF.Ga!G30",
+      "GaThamThuNapRoi": "CF.Ga!G32"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal; empty allowed for prefix only",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-147",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "RoofRebar.C"
+    ]
+  },
+  {
+    "field": "Ties.C",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C23",
+      "GaThamNapRoi": "CF.Ga!C23",
+      "GaThamThuNapRoi": "CF.Ga!C25"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-148",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "Đều",
+      "Lệch"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Ties.D",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!D23",
+      "GaThamNapRoi": "CF.Ga!D23",
+      "GaThamThuNapRoi": "CF.Ga!D25"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-149",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "Chữ C",
+      "Chữ U",
+      "Chữ Z"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Ties.E",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!E23",
+      "GaThamNapRoi": "CF.Ga!E23",
+      "GaThamThuNapRoi": "CF.Ga!E25"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-150",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "Chữ C",
+      "Chữ U",
+      "Chữ Z"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Ties.F",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!F23",
+      "GaThamNapRoi": "CF.Ga!F23",
+      "GaThamThuNapRoi": "CF.Ga!F25"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-151",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "Chữ C",
+      "Chữ U",
+      "Chữ Z"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Ties.G",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!G23",
+      "GaThamNapRoi": "CF.Ga!G23",
+      "GaThamThuNapRoi": "CF.Ga!G25"
+    },
+    "type": "Typed enum/string with source literal",
+    "unit": "none",
+    "validation": "Explicit vocabulary; reject unsupported, no fallback",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-152",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "Chữ C",
+      "Chữ U",
+      "Chữ Z"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Ties.H",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!H23",
+      "GaThamNapRoi": "CF.Ga!H23",
+      "GaThamThuNapRoi": "CF.Ga!H25"
+    },
+    "type": "MeshSpec{int DiameterMm,double RequestedPitchMm}",
+    "unit": "mm",
+    "validation": "Parse DxxAyyy, positive; OFF only explicit rule",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-153",
+    "category": "Config",
+    "parse_kind": "Mesh",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": true,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Ties.I",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!I23",
+      "GaThamNapRoi": "CF.Ga!I23",
+      "GaThamThuNapRoi": "CF.Ga!I25"
+    },
+    "type": "double LapDiameterMultiple",
+    "unit": "dimensionless",
+    "validation": "n>=0; LapMm=n*Ø; not tie pitch",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-154",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Ties.J",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!J23",
+      "GaThamNapRoi": "CF.Ga!J23",
+      "GaThamThuNapRoi": "CF.Ga!J25"
+    },
+    "type": "double EndHookCMm",
+    "unit": "mm",
+    "validation": ">=0; active C shape",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-155",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Ties.K",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!K23",
+      "GaThamNapRoi": "CF.Ga!K23",
+      "GaThamThuNapRoi": "CF.Ga!K25"
+    },
+    "type": "double EndHookZUMm",
+    "unit": "mm",
+    "validation": ">=0; active Z/U",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-156",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Ties.L",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!L23",
+      "GaThamNapRoi": "CF.Ga!L23",
+      "GaThamThuNapRoi": "CF.Ga!L25"
+    },
+    "type": "double MiddleUMm",
+    "unit": "mm",
+    "validation": ">0; active U",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-157",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "TopHaunch",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C9"
+    },
+    "type": "double finite",
+    "unit": "mm",
+    "validation": "Active rule from EX; validate sign and range per field",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-158",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "WallDiaStepDown",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!D7",
+      "GaThamNapRoi": "CF.Ga!D7",
+      "GaThamThuNapRoi": "CF.Ga!D7"
+    },
+    "type": "int",
+    "unit": "count",
+    "validation": "Nonnegative/positive by active rule; no fractional truncation",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-159",
+    "category": "Config",
+    "parse_kind": "Integer",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "WallDimPrefix",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!E7",
+      "GaThamNapRoi": "CF.Ga!E7",
+      "GaThamThuNapRoi": "CF.Ga!E7"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal; empty allowed for prefix only",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-160",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "WallSpacingDelta",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C7",
+      "GaThamNapRoi": "CF.Ga!C7",
+      "GaThamThuNapRoi": "CF.Ga!C7"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Signed; resulting pitch>0",
+    "authority": "current-schema-runtime.json Config; meaning EX rules",
+    "consumer": "Existing address does not certify downstream consumer",
+    "input_id": "F-161",
+    "category": "Config",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Annotation.PitchSymbol",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!M19",
+      "GaThamNapRoi": "CF.Ga!M19",
+      "GaThamThuNapRoi": "CF.Ga!M21"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal/prefix; schema missing semantic key needs addition",
+    "authority": "EX-044/064/065/067; author note + actual cells",
+    "consumer": "WorkbookImporter already captures raw CF.Ga!addresses; add typed mapper -> S7 profile",
+    "input_id": "F-162",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Annotation.NoteStyle",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!K21",
+      "GaThamNapRoi": "CF.Ga!K21",
+      "GaThamThuNapRoi": "CF.Ga!K23"
+    },
+    "type": "enum NoteStyle1/2",
+    "unit": "none",
+    "validation": "Preserve literal/prefix; schema missing semantic key needs addition",
+    "authority": "EX-044/064/065/067; author note + actual cells",
+    "consumer": "WorkbookImporter already captures raw CF.Ga!addresses; add typed mapper -> S7 profile",
+    "input_id": "F-163",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [
+      "Kiểu 1",
+      "Kiểu 2"
+    ],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "CoverHatch",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!H13",
+      "GaThamNapRoi": "CF.Ga!H13",
+      "GaThamThuNapRoi": "CF.Ga!H13"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal/prefix; schema missing semantic key needs addition",
+    "authority": "EX-044/064/065/067; author note + actual cells",
+    "consumer": "WorkbookImporter already captures raw CF.Ga!addresses; add typed mapper -> S7 profile",
+    "input_id": "F-164",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "CoverType"
+    ]
+  },
+  {
+    "field": "Annotation.Prefix.C",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!C21",
+      "GaThamNapRoi": "CF.Ga!C21",
+      "GaThamThuNapRoi": "CF.Ga!C23"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal/prefix; schema missing semantic key needs addition",
+    "authority": "EX-044/064/065/067; author note + actual cells",
+    "consumer": "WorkbookImporter already captures raw CF.Ga!addresses; add typed mapper -> S7 profile",
+    "input_id": "F-165",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Annotation.Prefix.D",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!D21",
+      "GaThamNapRoi": "CF.Ga!D21",
+      "GaThamThuNapRoi": "CF.Ga!D23"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal/prefix; schema missing semantic key needs addition",
+    "authority": "EX-044/064/065/067; author note + actual cells",
+    "consumer": "WorkbookImporter already captures raw CF.Ga!addresses; add typed mapper -> S7 profile",
+    "input_id": "F-166",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Annotation.Prefix.E",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!E21",
+      "GaThamNapRoi": "CF.Ga!E21",
+      "GaThamThuNapRoi": "CF.Ga!E23"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal/prefix; schema missing semantic key needs addition",
+    "authority": "EX-044/064/065/067; author note + actual cells",
+    "consumer": "WorkbookImporter already captures raw CF.Ga!addresses; add typed mapper -> S7 profile",
+    "input_id": "F-167",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Annotation.Prefix.F",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!F21",
+      "GaThamNapRoi": "CF.Ga!F21",
+      "GaThamThuNapRoi": "CF.Ga!F23"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal/prefix; schema missing semantic key needs addition",
+    "authority": "EX-044/064/065/067; author note + actual cells",
+    "consumer": "WorkbookImporter already captures raw CF.Ga!addresses; add typed mapper -> S7 profile",
+    "input_id": "F-168",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Annotation.Prefix.G",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!G21",
+      "GaThamNapRoi": "CF.Ga!G21",
+      "GaThamThuNapRoi": "CF.Ga!G23"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal/prefix; schema missing semantic key needs addition",
+    "authority": "EX-044/064/065/067; author note + actual cells",
+    "consumer": "WorkbookImporter already captures raw CF.Ga!addresses; add typed mapper -> S7 profile",
+    "input_id": "F-169",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Annotation.Prefix.H",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!H21",
+      "GaThamNapRoi": "CF.Ga!H21",
+      "GaThamThuNapRoi": "CF.Ga!H23"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal/prefix; schema missing semantic key needs addition",
+    "authority": "EX-044/064/065/067; author note + actual cells",
+    "consumer": "WorkbookImporter already captures raw CF.Ga!addresses; add typed mapper -> S7 profile",
+    "input_id": "F-170",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Annotation.Prefix.I",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!I21",
+      "GaThamNapRoi": "CF.Ga!I21",
+      "GaThamThuNapRoi": "CF.Ga!I23"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal/prefix; schema missing semantic key needs addition",
+    "authority": "EX-044/064/065/067; author note + actual cells",
+    "consumer": "WorkbookImporter already captures raw CF.Ga!addresses; add typed mapper -> S7 profile",
+    "input_id": "F-171",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "NeckHeight",
+      "NeckStructure"
+    ]
+  },
+  {
+    "field": "Annotation.Prefix.J",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Ga!J21",
+      "GaThamNapRoi": "CF.Ga!J21",
+      "GaThamThuNapRoi": "CF.Ga!J23"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Preserve literal/prefix; schema missing semantic key needs addition",
+    "authority": "EX-044/064/065/067; author note + actual cells",
+    "consumer": "WorkbookImporter already captures raw CF.Ga!addresses; add typed mapper -> S7 profile",
+    "input_id": "F-172",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "NeckHeight",
+      "NeckStructure"
+    ]
+  },
+  {
+    "field": "Catalog.Pipe.RoundDiameter",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Cong!B{row>=4}",
+      "GaThamNapRoi": "CF.Cong!B{row>=4}",
+      "GaThamThuNapRoi": "CF.Cong!B{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Inner diameter>0",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-173",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Pipe.RoundThickness",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Cong!C{row>=4}",
+      "GaThamNapRoi": "CF.Cong!C{row>=4}",
+      "GaThamThuNapRoi": "CF.Cong!C{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Thickness>0, keyed with B",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-174",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Pipe.BoxWidth",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Cong!D{row>=4}",
+      "GaThamNapRoi": "CF.Cong!D{row>=4}",
+      "GaThamThuNapRoi": "CF.Cong!D{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Total inner width across both chambers when Double",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-175",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Pipe.BoxHeight",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Cong!E{row>=4}",
+      "GaThamNapRoi": "CF.Cong!E{row>=4}",
+      "GaThamThuNapRoi": "CF.Cong!E{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Inner height>0",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-176",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Pipe.BoxThickness",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Cong!F{row>=4}",
+      "GaThamNapRoi": "CF.Cong!F{row>=4}",
+      "GaThamThuNapRoi": "CF.Cong!F{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Thickness>0; distinct web needs sourced extension",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-177",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Pipe.BoxChamfer",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Cong!G{row>=4}",
+      "GaThamNapRoi": "CF.Cong!G{row>=4}",
+      "GaThamThuNapRoi": "CF.Cong!G{row>=4}"
+    },
+    "type": "Size2Mm",
+    "unit": "mm",
+    "validation": "Horizontal/vertical chamfer; contour validity",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-178",
+    "category": "Catalog",
+    "parse_kind": "Tuple",
+    "arity": 2,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [
+      "ChamferX",
+      "ChamferY"
+    ],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Pipe.DoubleFlag",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Cong!H{row>=4}",
+      "GaThamNapRoi": "CF.Cong!H{row>=4}",
+      "GaThamThuNapRoi": "CF.Cong!H{row>=4}"
+    },
+    "type": "bool",
+    "unit": "none",
+    "validation": "Declared two-chamber flag",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-179",
+    "category": "Catalog",
+    "parse_kind": "Bool",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Angle.Code",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Data!B{row>=4}",
+      "GaThamNapRoi": "CF.Data!B{row>=4}",
+      "GaThamThuNapRoi": "CF.Data!B{row>=4}"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Exact V/Laxbxc code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-180",
+    "category": "Catalog",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Angle.UnitMass",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Data!C{row>=4}",
+      "GaThamNapRoi": "CF.Data!C{row>=4}",
+      "GaThamThuNapRoi": "CF.Data!C{row>=4}"
+    },
+    "type": "double",
+    "unit": "kg/m",
+    "validation": "Positive unit mass, source row pairs with B",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-181",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Hatch.Name",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Data!D{row>=4}",
+      "GaThamNapRoi": "CF.Data!D{row>=4}",
+      "GaThamThuNapRoi": "CF.Data!D{row>=4}"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Exact pattern name",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-182",
+    "category": "Catalog",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Hatch.Scale",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Data!E{row>=4}",
+      "GaThamNapRoi": "CF.Data!E{row>=4}",
+      "GaThamThuNapRoi": "CF.Data!E{row>=4}"
+    },
+    "type": "double",
+    "unit": "dimensionless",
+    "validation": "Positive source scale; not physical product scale",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-183",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Hatch.Description",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Data!F{row>=4}",
+      "GaThamNapRoi": "CF.Data!F{row>=4}",
+      "GaThamThuNapRoi": "CF.Data!F{row>=4}"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Literal description",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-184",
+    "category": "Catalog",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": true,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Selection.Stage1",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Data!G{row>=4}",
+      "GaThamNapRoi": "CF.Data!G{row>=4}",
+      "GaThamThuNapRoi": "CF.Data!G{row>=4}"
+    },
+    "type": "Formula/string",
+    "unit": "none",
+    "validation": "UI helper only; preserve cache/raw",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-185",
+    "category": "Catalog",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Selection.Stage2",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Data!H{row>=4}",
+      "GaThamNapRoi": "CF.Data!H{row>=4}",
+      "GaThamThuNapRoi": "CF.Data!H{row>=4}"
+    },
+    "type": "Formula/string",
+    "unit": "none",
+    "validation": "UI helper only; not physical catalog",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-186",
+    "category": "Catalog",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.BaseCode",
+    "address_by_profile": {
+      "GaThamLienKhoi": "CF.Data!I{row>=4}",
+      "GaThamNapRoi": "CF.Data!I{row>=4}",
+      "GaThamThuNapRoi": "CF.Data!I{row>=4}"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Requires exact MB/AA/BB assets",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-187",
+    "category": "Catalog",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.Code",
+    "address_by_profile": {
+      "GaThamLienKhoi": "DBTool.Covers!A{row>=4}",
+      "GaThamNapRoi": "DBTool.Covers!A{row>=4}",
+      "GaThamThuNapRoi": "DBTool.Covers!A{row>=4}"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Optional versioned schema DBTool.Schema!B1; no size inference from code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-188",
+    "category": "Catalog",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.WidthMm",
+    "address_by_profile": {
+      "GaThamLienKhoi": "DBTool.Covers!B{row>=4}",
+      "GaThamNapRoi": "DBTool.Covers!B{row>=4}",
+      "GaThamThuNapRoi": "DBTool.Covers!B{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Optional versioned schema DBTool.Schema!B1; no size inference from code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-189",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.LengthMm",
+    "address_by_profile": {
+      "GaThamLienKhoi": "DBTool.Covers!C{row>=4}",
+      "GaThamNapRoi": "DBTool.Covers!C{row>=4}",
+      "GaThamThuNapRoi": "DBTool.Covers!C{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Optional versioned schema DBTool.Schema!B1; no size inference from code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-190",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.OffsetX",
+    "address_by_profile": {
+      "GaThamLienKhoi": "DBTool.Covers!D{row>=4}",
+      "GaThamNapRoi": "DBTool.Covers!D{row>=4}",
+      "GaThamThuNapRoi": "DBTool.Covers!D{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Optional versioned schema DBTool.Schema!B1; no size inference from code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-191",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.OffsetY",
+    "address_by_profile": {
+      "GaThamLienKhoi": "DBTool.Covers!E{row>=4}",
+      "GaThamNapRoi": "DBTool.Covers!E{row>=4}",
+      "GaThamThuNapRoi": "DBTool.Covers!E{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Optional versioned schema DBTool.Schema!B1; no size inference from code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-192",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.OffsetZ",
+    "address_by_profile": {
+      "GaThamLienKhoi": "DBTool.Covers!F{row>=4}",
+      "GaThamNapRoi": "DBTool.Covers!F{row>=4}",
+      "GaThamThuNapRoi": "DBTool.Covers!F{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Optional versioned schema DBTool.Schema!B1; no size inference from code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-193",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.RotationDegrees",
+    "address_by_profile": {
+      "GaThamLienKhoi": "DBTool.Covers!G{row>=4}",
+      "GaThamNapRoi": "DBTool.Covers!G{row>=4}",
+      "GaThamThuNapRoi": "DBTool.Covers!G{row>=4}"
+    },
+    "type": "double",
+    "unit": "degree",
+    "validation": "Optional versioned schema DBTool.Schema!B1; no size inference from code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-194",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.PlacementDatum",
+    "address_by_profile": {
+      "GaThamLienKhoi": "DBTool.Covers!H{row>=4}",
+      "GaThamNapRoi": "DBTool.Covers!H{row>=4}",
+      "GaThamThuNapRoi": "DBTool.Covers!H{row>=4}"
+    },
+    "type": "enum/string",
+    "unit": "none",
+    "validation": "Optional versioned schema DBTool.Schema!B1; no size inference from code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-195",
+    "category": "Catalog",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.Units",
+    "address_by_profile": {
+      "GaThamLienKhoi": "DBTool.Covers!I{row>=4}",
+      "GaThamNapRoi": "DBTool.Covers!I{row>=4}",
+      "GaThamThuNapRoi": "DBTool.Covers!I{row>=4}"
+    },
+    "type": "enum Unit",
+    "unit": "none",
+    "validation": "Optional versioned schema DBTool.Schema!B1; no size inference from code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-196",
+    "category": "Catalog",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.MinX",
+    "address_by_profile": {
+      "GaThamLienKhoi": "DBTool.Covers!J{row>=4}",
+      "GaThamNapRoi": "DBTool.Covers!J{row>=4}",
+      "GaThamThuNapRoi": "DBTool.Covers!J{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Optional versioned schema DBTool.Schema!B1; no size inference from code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-197",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.MinY",
+    "address_by_profile": {
+      "GaThamLienKhoi": "DBTool.Covers!K{row>=4}",
+      "GaThamNapRoi": "DBTool.Covers!K{row>=4}",
+      "GaThamThuNapRoi": "DBTool.Covers!K{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Optional versioned schema DBTool.Schema!B1; no size inference from code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-198",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.MaxX",
+    "address_by_profile": {
+      "GaThamLienKhoi": "DBTool.Covers!L{row>=4}",
+      "GaThamNapRoi": "DBTool.Covers!L{row>=4}",
+      "GaThamThuNapRoi": "DBTool.Covers!L{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Optional versioned schema DBTool.Schema!B1; no size inference from code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-199",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.MaxY",
+    "address_by_profile": {
+      "GaThamLienKhoi": "DBTool.Covers!M{row>=4}",
+      "GaThamNapRoi": "DBTool.Covers!M{row>=4}",
+      "GaThamThuNapRoi": "DBTool.Covers!M{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Optional versioned schema DBTool.Schema!B1; no size inference from code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-200",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.ClearMinX",
+    "address_by_profile": {
+      "GaThamLienKhoi": "DBTool.Covers!N{row>=4}",
+      "GaThamNapRoi": "DBTool.Covers!N{row>=4}",
+      "GaThamThuNapRoi": "DBTool.Covers!N{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Optional versioned schema DBTool.Schema!B1; no size inference from code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-201",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.ClearMinY",
+    "address_by_profile": {
+      "GaThamLienKhoi": "DBTool.Covers!O{row>=4}",
+      "GaThamNapRoi": "DBTool.Covers!O{row>=4}",
+      "GaThamThuNapRoi": "DBTool.Covers!O{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Optional versioned schema DBTool.Schema!B1; no size inference from code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-202",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.ClearMaxX",
+    "address_by_profile": {
+      "GaThamLienKhoi": "DBTool.Covers!P{row>=4}",
+      "GaThamNapRoi": "DBTool.Covers!P{row>=4}",
+      "GaThamThuNapRoi": "DBTool.Covers!P{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Optional versioned schema DBTool.Schema!B1; no size inference from code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-203",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.ClearMaxY",
+    "address_by_profile": {
+      "GaThamLienKhoi": "DBTool.Covers!Q{row>=4}",
+      "GaThamNapRoi": "DBTool.Covers!Q{row>=4}",
+      "GaThamThuNapRoi": "DBTool.Covers!Q{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Optional versioned schema DBTool.Schema!B1; no size inference from code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-204",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Catalog.Cover.MinimumBearingMm",
+    "address_by_profile": {
+      "GaThamLienKhoi": "DBTool.Covers!R{row>=4}",
+      "GaThamNapRoi": "DBTool.Covers!R{row>=4}",
+      "GaThamThuNapRoi": "DBTool.Covers!R{row>=4}"
+    },
+    "type": "double",
+    "unit": "mm",
+    "validation": "Optional versioned schema DBTool.Schema!B1; no size inference from code",
+    "authority": "Vhg32Schema catalog columns; EX104-121 / DBTool-Input-1A-v1 extension",
+    "consumer": "S1 CatalogReader -> S2 resolved authoritative records",
+    "input_id": "F-205",
+    "category": "Catalog",
+    "parse_kind": "Number",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": 0,
+    "tuple_roles": [],
+    "dependencies": []
+  },
+  {
+    "field": "Material.G",
+    "address_by_profile": {
+      "GaThamNapRoi": "CF.Ga!G34",
+      "GaThamThuNapRoi": "CF.Ga!G36"
+    },
+    "type": "string",
+    "unit": "none",
+    "validation": "Required only when BeddingMortar component exists; literal material grade, never M75 default",
+    "authority": "Original CF.Ga material headers C:G;source workbook readback;NR-IO-002",
+    "consumer": "S2 parsed field -> S7 material label",
+    "input_id": "F-206",
+    "category": "Config",
+    "parse_kind": "Text",
+    "arity": null,
+    "enum_values": [],
+    "allowed_counts": [],
+    "blank_allowed": false,
+    "strict_positive": false,
+    "min_inclusive": null,
+    "tuple_roles": [],
+    "dependencies": [
+      "BeddingMortar",
+      "CoverType",
+      "NeckHeight",
+      "PadThickness"
+    ]
+  }
+]

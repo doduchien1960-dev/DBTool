@@ -1,0 +1,167 @@
+{
+  "PackageId": "W11",
+  "Phase": "P7",
+  "Version": "leader-field-contracts-20261013-r2",
+  "DependencyReceiptHashes": {
+    "W10": "135C0AD0747870A2563295BB69B9BE9189D17D4196696BC59A1840C7964D3FA4"
+  },
+  "ChangedFiles": [
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+      "BeforeHash": "B6488B91FEDCF05EDB1FB1E4B1111AF35848BAB2AF33ADC81E65680AD392C877",
+      "AfterHash": "3FDB0BEBBDC36F71B669CF66E1AC2D0EB0F8FAC0ED0DD8D85CCF72B38A2A6AFF",
+      "Reason": "Triển khai IS9StageV2 trên DrawingStageAdapter cho thuật toán layout và pagination S9 (phân trang theo vai trò, bao bọc dòng, ngắt trang, kiểm tra fit, dung sai mép, phủ view và tạo sheet_hash)."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/DrawingPackage.cs",
+      "BeforeHash": "39BB69EE261D1E42A094762E2AD84D796D2B3E23C89F51A52228B13F30973CAF",
+      "AfterHash": "467B568068B1B1C09E128B154C43DABADB0A4685809BC00914C0996A6FA9F19C",
+      "Reason": "Bổ sung các thuộc tính bất biến SemanticIds, Targets, Groups, InkBounds, Frames và IntentManifest cho hợp đồng DrawingPackage."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/DrawingPackageValidator.cs",
+      "BeforeHash": "C3719F4BD7F0CBFF92E99E5C5C5948A19A576EF116503C70353C5C1848BD99C5",
+      "AfterHash": "D5F7F0580AA1B314E7D24A3798001DF2B73A31AA0BBBA8FC39A0A39474C2D0C9",
+      "Reason": "Triển khai ValidatePackageCompleteness xác thực đầy đủ vai trò khung nhìn, quan hệ collector, bao phủ nhóm và vai trò không xác định."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/Family21ManholeHelper.cs",
+      "BeforeHash": "277074132F659C990D55B10795E52A990AA041FC9E8F6931FD127C642D4B2091",
+      "AfterHash": "BC34F752AE5C97DEDEE107439757E7BFBD0204E55F8871FB6FB0172C74FACA6A",
+      "Reason": "Bổ sung record RecipeContext bất biến; lưu giữ các hàm xuất xứ CAD không làm hỏng regression callers."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetFourViews.cs",
+      "BeforeHash": "AFB670E19C0A13FFC8E5C26A353E2EDBE508FC7166A84DC573BE165335DB4BF3",
+      "AfterHash": "6A3719061BD5F05105A6DEDA033E5294A07F113EE3F5C94CC69DB10CCE8C2633",
+      "Reason": "Giữ 4 hằng số ViewId; loại bỏ các mock store tĩnh và bounds cố định không còn caller."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing/SheetPlan.cs",
+      "BeforeHash": "A0618A3404FF41CF1352C381F78FF0AEFB9D053167BAEA7D43F1A9D6E208AD3F",
+      "AfterHash": "87CD9345856A7D80D350F5874B5CB5F10B349F77045F576895A0BEBB01F1EDDC",
+      "Reason": "Bổ sung ManholeId, PageRole, PageIndex, ScaleDenominator, InkBounds, OwnedViewBundles cho SheetPlanPage và triển khai FrameRegistry hỗ trợ VerifyCoverage."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Application.Tests/W11StageAdapterTests.cs",
+      "BeforeHash": "",
+      "AfterHash": "4924D7710CAB8E307AD28BB682B35B6C33F32611DCC993CF075D44899182903A",
+      "Reason": "Unit tests xác thực DrawingStageAdapter triển khai IS9StageV2, giải thuật phân trang S9, chẩn đoán LAYOUT_REQUIRED_VIEW_COVERAGE, LAYOUT_SINGLE_VIEW_NO_FIT, LAYOUT_REBUILD_AT_SCALE."
+    },
+    {
+      "Path": "Ver 1/DBTool/DBTool.Drawing.Tests/W11LayoutAndPaginationTests.cs",
+      "BeforeHash": "",
+      "AfterHash": "5E6C2F90F114783E901A083784AE5A5813F5FAFD5BFC571B195C281D887EFFFB",
+      "Reason": "Unit tests cho FrameRegistry, RecipeContext, DrawingPackageValidator.ValidatePackageCompleteness và SheetPlanPage mở rộng."
+    }
+  ],
+  "InterfaceGate": "Passed",
+  "ImplementationStatus": "ImplementationComplete",
+  "NativeGate": "NotRun",
+  "BindingMissing": [],
+  "Commands": [
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Domain.Tests/DBTool.Domain.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Domain.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Drawing.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Application.Tests/DBTool.Application.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Application.Tests"
+    },
+    {
+      "Command": "dotnet test \"Ver 1/DBTool/DBTool.Excel.Tests/DBTool.Excel.Tests.csproj\"",
+      "ExitCode": 0,
+      "ArtifactPath": "Ver 1/DBTool/DBTool.Excel.Tests"
+    }
+  ],
+  "Checks": [
+    {
+      "Name": "DrawingStageAdapter_IS9_LayoutPagination",
+      "SubjectId": "DrawingStageAdapter",
+      "Expected": "DrawingStageAdapter triển khai IS9StageV2, giải thuật phân trang S9 chia trang theo vai trò, kiểm tra single-view fit, bao dòng theo lề nội dung, tách trang mới, kiểm tra dung sai mép ink, bao phủ khung nhìn bắt buộc, sinh canonical sheet_hash",
+      "Actual": "DrawingStageAdapter thực thi S9 với phân trang đầy đủ, ném chẩn đoán chuẩn xác cho fit/coverage và tạo SheetV2 hoàn chỉnh",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.07",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Application/StageAdapters.cs",
+        "Ver 1/DBTool/DBTool.Application.Tests/W11StageAdapterTests.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "DrawingPackage_ExpandedContract",
+      "SubjectId": "DrawingPackage",
+      "Expected": "DrawingPackage bổ sung các thuộc tính SemanticIds, Targets, Groups, InkBounds, Frames, IntentManifest với getter-only và tương thích ngược",
+      "Actual": "Các thuộc tính được bổ sung với getter-only, bất biến hoàn toàn, tương thích các constructor hiện có",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/DrawingPackage.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "DrawingPackageValidator_ValidatePackageCompleteness",
+      "SubjectId": "DrawingPackageValidator",
+      "Expected": "ValidatePackageCompleteness kiểm tra tính đầy đủ của vai trò khung nhìn, quan hệ collector, bao phủ nhóm và phát hiện vai trò không xác định",
+      "Actual": "Báo cáo chính xác khi thiếu nhóm hoặc góc nhìn primitive, trả về OperationResult<DrawingValidationReport>",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/DrawingPackageValidator.cs",
+        "Ver 1/DBTool/DBTool.Drawing.Tests/W11LayoutAndPaginationTests.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "SheetFourViews_RetainSemanticIds_DropMockBounds",
+      "SubjectId": "SheetFourViews",
+      "Expected": "SheetFourViews giữ 4 hằng số ViewId (PlanViewId, AAViewId, BBViewId, ScheduleViewId); loại bỏ các mock store tĩnh và bounds cố định",
+      "Actual": "4 hằng số ViewId được bảo toàn nguyên vẹn; các phương thức mock Build* và bounds cố định không còn tồn tại",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/SheetFourViews.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "SheetPlan_FrameRegistry_And_PageLedger",
+      "SubjectId": "SheetPlan",
+      "Expected": "SheetPlanPage bổ sung ManholeId, PageRole, PageIndex, ScaleDenominator, InkBounds, OwnedViewBundles; FrameRegistry hỗ trợ đăng ký, tra cứu và VerifyCoverage",
+      "Actual": "SheetPlanPage mở rộng lưu giữ đầy đủ dữ liệu phân trang; FrameRegistry kiểm tra coverage chuẩn xác và trả về OperationResult<FrameRegistry>",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Drawing/SheetPlan.cs",
+        "Ver 1/DBTool/DBTool.Drawing.Tests/W11LayoutAndPaginationTests.cs"
+      ],
+      "Verdict": "Passed"
+    },
+    {
+      "Name": "Architecture_TestSuiteZeroRegression",
+      "SubjectId": "FullTestSuite",
+      "Expected": "Toàn bộ test suites pass không có lỗi regression",
+      "Actual": "1,484 tests passed (Domain: 580, Drawing: 422, Application: 210, Excel: 272), 0 failed, 0 skipped",
+      "Unit": "none",
+      "ToleranceRuleId": "B3.03",
+      "EvidencePaths": [
+        "Ver 1/DBTool/DBTool.Domain.Tests",
+        "Ver 1/DBTool/DBTool.Drawing.Tests",
+        "Ver 1/DBTool/DBTool.Application.Tests",
+        "Ver 1/DBTool/DBTool.Excel.Tests"
+      ],
+      "Verdict": "Passed"
+    }
+  ],
+  "ActualDWG/PDFPaths": [],
+  "RecoveryState": "Clean",
+  "RollbackInstructions": "git checkout -- \"Ver 1/DBTool/DBTool.Application/StageAdapters.cs\" \"Ver 1/DBTool/DBTool.Drawing/DrawingPackage.cs\" \"Ver 1/DBTool/DBTool.Drawing/DrawingPackageValidator.cs\" \"Ver 1/DBTool/DBTool.Drawing/Family21ManholeHelper.cs\" \"Ver 1/DBTool/DBTool.Drawing/SheetFourViews.cs\" \"Ver 1/DBTool/DBTool.Drawing/SheetPlan.cs\"; Remove-Item \"Ver 1/DBTool/DBTool.Application.Tests/W11StageAdapterTests.cs\" \"Ver 1/DBTool/DBTool.Drawing.Tests/W11LayoutAndPaginationTests.cs\" -Force"
+}
