@@ -1,0 +1,450 @@
+{
+  "version": "leader-field-contracts-20261013-r2",
+  "scope": "Updated architecture/IO/work packages handover;not software release",
+  "owner_approval_id": "OWNER-APPROVAL-23-20261013",
+  "files": [
+    {
+      "path": "01-KNOWLEDGE.html",
+      "bytes": 121650,
+      "sha256": "2079ef0e26734794bb7cb92448d1a103756fda4cbbe0c6ea204c0398bb61080f"
+    },
+    {
+      "path": "01-KNOWLEDGE.md",
+      "bytes": 99481,
+      "sha256": "48b316c0a6154a1d4afb304d2b5c10ab24a7a7e7c69e1a6389a2dc7f42091079"
+    },
+    {
+      "path": "02-GAP-REPORT.html",
+      "bytes": 29522,
+      "sha256": "530ae40246b6220bff59673cd4be0fea1014da8ebd5ff0019cf2b0cfe22b0a3c"
+    },
+    {
+      "path": "02-GAP-REPORT.md",
+      "bytes": 23604,
+      "sha256": "d252e3c32e7a8b5590d2567d96c54f745d2fda7bb334b076599605eac09835c2"
+    },
+    {
+      "path": "03-MODULE-MATRIX.html",
+      "bytes": 257871,
+      "sha256": "f6d06936b8b896562ff8635fc001e96d08cad4dfbb4eba1b6821449c44cd177a"
+    },
+    {
+      "path": "03-MODULE-MATRIX.md",
+      "bytes": 233111,
+      "sha256": "c68dcbe73e987b7f05af6ff09c85b1993aa25d1bb99645a83d9bddd16cda5d30"
+    },
+    {
+      "path": "04-NEEDSRULE.html",
+      "bytes": 34914,
+      "sha256": "a50ad015ac92cdd04621a4ca930f1ad004085d9cd426f61cfdddf312d107182a"
+    },
+    {
+      "path": "04-NEEDSRULE.md",
+      "bytes": 29005,
+      "sha256": "cf3a5c4ab7a478b6146f7cac06683bee1b788365fd765ad54e7a375cc53426a8"
+    },
+    {
+      "path": "05-ARCHITECTURE.html",
+      "bytes": 5888945,
+      "sha256": "77e0531b1e3d5b9a54ea13c4fa995d8cc2d77481838f37f894183d421ff52389"
+    },
+    {
+      "path": "05-ARCHITECTURE.md",
+      "bytes": 5293037,
+      "sha256": "bb490f74af354271490de28c8bfc6e30acab0bbf7ad9d2bdb0f3f8c20d4ef586"
+    },
+    {
+      "path": "05A-INPUT-FIELDS.html",
+      "bytes": 86566,
+      "sha256": "8b6ce24a4aa376b6cc100899187fd0431bf5a2ead8c978b1ffea4ed729c3162d"
+    },
+    {
+      "path": "05A-INPUT-FIELDS.md",
+      "bytes": 75387,
+      "sha256": "26956f7bfe4695710e75acf7ac469a4b1df46b4108163df9413daeb37a1a7eed"
+    },
+    {
+      "path": "05B-FORMULAS.html",
+      "bytes": 23727,
+      "sha256": "c80cfb9b302037b89d9fbb7f25d477f323361bc1a4d1b0d1c4e4077238f07437"
+    },
+    {
+      "path": "05B-FORMULAS.md",
+      "bytes": 19881,
+      "sha256": "2c8e6527e662ff70001aec3fe3c7f38ad8081eb0dcb5b1cf103e153a794f6312"
+    },
+    {
+      "path": "05C-IMPLEMENTATION-CONTRACTS.html",
+      "bytes": 770099,
+      "sha256": "9e4967e1d328c3ac2c87de17f511442809f4287eada7a98e348b631b28b5a849"
+    },
+    {
+      "path": "05C-IMPLEMENTATION-CONTRACTS.md",
+      "bytes": 657568,
+      "sha256": "b60017fa4e5f2e096e7cdb337e8d4c0bb33052ed87440d129985c6011769542a"
+    },
+    {
+      "path": "05D-STAGE-IO-CONTRACT.html",
+      "bytes": 6683187,
+      "sha256": "7591f4e8c1bfe705bca1d13592ef482e6b8eb78e582a0ee2884e489c5c1fa205"
+    },
+    {
+      "path": "05D-STAGE-IO-CONTRACT.md",
+      "bytes": 5861357,
+      "sha256": "6969c39e4bfbceb30b923ad49d17a25387bf54978959c528a31335b8f41a3fae"
+    },
+    {
+      "path": "06-IMPLEMENTATION-PLAN.html",
+      "bytes": 17535,
+      "sha256": "cc6c7a8e9f7025b997312d31681c0a12bf1152e0598759b7f1d2be28c5ebb06f"
+    },
+    {
+      "path": "06-IMPLEMENTATION-PLAN.md",
+      "bytes": 13737,
+      "sha256": "4d71baa3019ab50b96069afd7f60b4202ff9c9605fee313bad45403feb28a502"
+    },
+    {
+      "path": "07-WORK-PACKAGES.html",
+      "bytes": 11095243,
+      "sha256": "f5a999b6e3b949a4ad3aab10701c5dbda4d2448c1c30d08ce00771bedfc52f83"
+    },
+    {
+      "path": "07-WORK-PACKAGES.md",
+      "bytes": 32456,
+      "sha256": "1ea41b8e48bb90cd8ebeca960cf92a08e8b44e714338748617d99eb4d0930bb6"
+    },
+    {
+      "path": "08-DELIVERY-REPORT.html",
+      "bytes": 20269,
+      "sha256": "101b890c03d8aae70cc533e13459816bdbfa2afdacb6f64f8ca0ce8e93ed7de6"
+    },
+    {
+      "path": "08-DELIVERY-REPORT.md",
+      "bytes": 15311,
+      "sha256": "2e3e0c5e354ebd719c27e3864be32cc75876a48ed512f6429060fa7f3da1e688"
+    },
+    {
+      "path": "data/approval-impact-map.json",
+      "bytes": 673,
+      "sha256": "affbf0241506e74c50a1fac5c67415c8e36565a3891bd107242637abcc168e91"
+    },
+    {
+      "path": "data/approved-rule-set-v2.json",
+      "bytes": 19436,
+      "sha256": "3f0771a82f9833d03e3e7ec02b7f06cab310befb2c8b3fc6950dfc513e5bd6a1"
+    },
+    {
+      "path": "data/asset-rules-104.json",
+      "bytes": 176730,
+      "sha256": "ff94bc8f9b46509499eb4281e462850f0acd700f4da9c80971f07674bc043786"
+    },
+    {
+      "path": "data/code-inventory.json",
+      "bytes": 5219351,
+      "sha256": "07f405178e258b77e7105e67bc5527f376aba87b9e6cfdd4e708dfdedff83c59"
+    },
+    {
+      "path": "data/dto-contract-build.log",
+      "bytes": 521,
+      "sha256": "cfd42f47c7f95fddd5bbcc412fa5728d58d5c44c242b96ebafd01048e4eb156a"
+    },
+    {
+      "path": "data/excel-191-unique.json",
+      "bytes": 2273994,
+      "sha256": "a3c04704b2f70c427252c943eef40bed1f6aef3ddda58af40e06354e8d1cf94f"
+    },
+    {
+      "path": "data/excel-528-reconciliation.json",
+      "bytes": 2095632,
+      "sha256": "1095e8fbe9bed1253cb06a5e6ef52b756de115e508a3990227c84b07f4da9344"
+    },
+    {
+      "path": "data/final-review.json",
+      "bytes": 534,
+      "sha256": "3846e298cca104f887f48bd5f8da0b4968eb42e651be987296b9ec4f0d3f081c"
+    },
+    {
+      "path": "data/formula-constant-register.json",
+      "bytes": 32455,
+      "sha256": "a9aed2cf10689804c0dee96f8f38336318bc8aab2f5d5f433ecd59053ce1644b"
+    },
+    {
+      "path": "data/input-field-contracts.json",
+      "bytes": 161970,
+      "sha256": "7c6eb6efc01689ed6031dcabe0f824e0163fc21fb165e9154fcdab2f39138e25"
+    },
+    {
+      "path": "data/knowledge-rules.json",
+      "bytes": 28574,
+      "sha256": "ced18f3d2f420485c6bb6e53394ba7f7b0df5fb46aeb4b8d2fb0d9bd8e1e6c08"
+    },
+    {
+      "path": "data/member-bindings-v2.json",
+      "bytes": 40635,
+      "sha256": "523c42a360607a4a00438f16913cdf45fd85d5a6e944882f6ae27628af62aa3a"
+    },
+    {
+      "path": "data/module-matrix.json",
+      "bytes": 789561,
+      "sha256": "ac1c08ac1f1c1d02f0288a24560dea493045b2c23c770ffdaf4089486a31b85c"
+    },
+    {
+      "path": "data/module-work-package-map.json",
+      "bytes": 805157,
+      "sha256": "997b0e91175da2463eed5ab648ffea6cbb65f8f7cbe0f5bb8fd825814249b414"
+    },
+    {
+      "path": "data/needsrule-io-register.json",
+      "bytes": 4529,
+      "sha256": "07aa9a5a66bda4da0da0126883cf3bf8aeb2c8a3f8d3f2fc5ad411f6ba911a1c"
+    },
+    {
+      "path": "data/needsrule-register.json",
+      "bytes": 42214,
+      "sha256": "0fc091d5dc06551edd97d4205daa183e94caf564d21e6f9293050a98645915e2"
+    },
+    {
+      "path": "data/needsrule-source-mentions.json",
+      "bytes": 53315,
+      "sha256": "f388ab000831382f0b507c895a6a9a7985cbc860beedc034fe6d677a72fd6a74"
+    },
+    {
+      "path": "data/owner-approval-23.json",
+      "bytes": 560,
+      "sha256": "feabfdc8307e170af11c46e1fbdee1f8067270969b6139c0bcc5f03434b678e3"
+    },
+    {
+      "path": "data/owner-sources-v2.json",
+      "bytes": 543,
+      "sha256": "f1b4f37c590feee5ebb699d492062ee71f2f654db05d390b97ba89fe70f581e5"
+    },
+    {
+      "path": "data/PDF-012-deep-evidence.json",
+      "bytes": 1122108,
+      "sha256": "54c4f68446a32251ca1cb0d76202268151bfa89f5775493b56ea65669b19a815"
+    },
+    {
+      "path": "data/PDF-040-deep-evidence.json",
+      "bytes": 1007383,
+      "sha256": "bf6625f73a9371fc087387dcc02020708969dd0e226cd2827281498455bf6d8b"
+    },
+    {
+      "path": "data/project-dependencies.json",
+      "bytes": 5315,
+      "sha256": "80b54dd2f85da953dd61074371850bc137256723cde0e799440d930d4a9693e4"
+    },
+    {
+      "path": "data/reading-manifest.json",
+      "bytes": 9397,
+      "sha256": "2b84c3ba4b54fc7e62677898bd3261722739235ccad088304dde1a6387be9fbe"
+    },
+    {
+      "path": "data/removal-caller-crossreferences.json",
+      "bytes": 39738,
+      "sha256": "01890de04e5c7ba95699641e23f523b86e32301199e0bfde4a0a14e5fe704c95"
+    },
+    {
+      "path": "data/rule-binding-key-schema-v2.json",
+      "bytes": 23961,
+      "sha256": "85b00796803957800fead478be9b4037ad9663371f04264d4ebc7c7e5b3fd2dc"
+    },
+    {
+      "path": "data/source-api-surface.json",
+      "bytes": 430069,
+      "sha256": "81703c5b6ee6449de4ee10011df37d81a996eabba2fa7912d021c446af4fd58e"
+    },
+    {
+      "path": "data/stage-contracts-v2/Application.ContractsV2.cs",
+      "bytes": 8763,
+      "sha256": "4488ae5b0146df674cf0af403651cccf14b40608651d208932507479187fe0db"
+    },
+    {
+      "path": "data/stage-contracts-v2/Domain.ContractsV2.cs",
+      "bytes": 19379,
+      "sha256": "87ca46b69958e4c0f574663cc1df852e6fecc904e2e8bb37005816dbe00b44e5"
+    },
+    {
+      "path": "data/stage-contracts-v2/Drawing.ContractsV2.cs",
+      "bytes": 11548,
+      "sha256": "2a98a4cf0dcf484dec0faf72baacd9e38b8fe58bb9652132f4c13a245be43597"
+    },
+    {
+      "path": "data/stage-io-contracts-v2.json",
+      "bytes": 14354537,
+      "sha256": "20a85e8e0581b953b2c51e346c1c05e7e717747b138143fba32da54bf098b701"
+    },
+    {
+      "path": "data/stage-type-registry-v2.json",
+      "bytes": 188977,
+      "sha256": "cd3cc9bc18c83dc584e72e102724a7c2a8ef173e0c239202e1752aa246b9c24b"
+    },
+    {
+      "path": "data/targeted-spec-review-v2.json",
+      "bytes": 402,
+      "sha256": "9e26a9ef1e7dbe43bacd4585fc7bf3fa5ce284a4a7535a60310d7c97e611636e"
+    },
+    {
+      "path": "data/verification-v2.json",
+      "bytes": 6985,
+      "sha256": "8b99ab069ff5a26d0b5c3fb084f0635999e81fb94b234afe31f7d98d35784433"
+    },
+    {
+      "path": "data/verification.json",
+      "bytes": 664,
+      "sha256": "a31905bae0214ee3937e003898a5f670af7775d1beb68d9715f8bda407627391"
+    },
+    {
+      "path": "data/work-package-manifest.json",
+      "bytes": 23309,
+      "sha256": "f16b75acfc96b232d061efc95dcd197e796f21204fe5c04aace70a30993e6a66"
+    },
+    {
+      "path": "data/workbook-comment-verification.json",
+      "bytes": 66,
+      "sha256": "3bbd38ba8c94d7e4607ee74ed94d549c9a0d64aaef2dec5de3af5e81df77df4c"
+    },
+    {
+      "path": "INDEX.html",
+      "bytes": 3604,
+      "sha256": "7d2d54369dc08cf296f553a5a85184f11f7d9a3c454fe9de10d13b12fc104faa"
+    },
+    {
+      "path": "INDEX.md",
+      "bytes": 1590,
+      "sha256": "ab201582f17c58cb877046f4656191020718904e4d8928363b5211822f9f5d5e"
+    },
+    {
+      "path": "PDF-012-joint-AA.png",
+      "bytes": 158876,
+      "sha256": "b532605e0714e1d282ab62bd2fb0e257db3f53cf40bc00f2cea4fa47e68be196"
+    },
+    {
+      "path": "PDF-012-joint-BB.png",
+      "bytes": 156381,
+      "sha256": "3f970c144af4110a1921e2f8168bdf17180639d955b3b34195f4b45736d169c0"
+    },
+    {
+      "path": "PDF-012-review.png",
+      "bytes": 700781,
+      "sha256": "699255ed61f813f67a2b4a6284e4880d560a45e5fa8df9399628664b6118599e"
+    },
+    {
+      "path": "PDF-012-steel-AA.png",
+      "bytes": 100802,
+      "sha256": "09e1242173b68e61dcf18117f0b235ad85c4b6f2fba78f2038a00719c99b5daa"
+    },
+    {
+      "path": "PDF-040-catch-11.png",
+      "bytes": 42355,
+      "sha256": "040b2484fcc9dc491defb215e193d6be9f84e064f1c7dbf0b92e5086525256bd"
+    },
+    {
+      "path": "PDF-040-catch-22.png",
+      "bytes": 52244,
+      "sha256": "2277e239f4e1be479403a6ee5d12bc8c1571b904e2a5083f6949c49f39e75bdb"
+    },
+    {
+      "path": "PDF-040-catch-plan.png",
+      "bytes": 69977,
+      "sha256": "910acca7dd4ec990bf82bec0d60cfd934d49793ff2b2531ebc12d00942eeb1f5"
+    },
+    {
+      "path": "PDF-040-neck-AA.png",
+      "bytes": 68918,
+      "sha256": "975da39cb272bf4d377f43c56bc7b433f333e3f5fcf3591e03155d5ac1188905"
+    },
+    {
+      "path": "PDF-040-review.png",
+      "bytes": 445928,
+      "sha256": "8dca40f33298e2b733bcc009d575a39ac5d1d919a592f5723eac151a9bae2e98"
+    },
+    {
+      "path": "pipeline.svg",
+      "bytes": 5336,
+      "sha256": "2881893fa8a5655cc1fa9617a17374a121b3a83149445808a7f3384f818c5b01"
+    },
+    {
+      "path": "REQUIREMENTS-AUDIT.html",
+      "bytes": 4449,
+      "sha256": "9c0a030c03ba82e1568f1b5f1fd16878e7d362313df3e72a78eada92568ed639"
+    },
+    {
+      "path": "REQUIREMENTS-AUDIT.md",
+      "bytes": 2473,
+      "sha256": "8bffcc6bd4e9a652ef6c6ee518017c716a71979afb0277076f5dadb236ccd183"
+    },
+    {
+      "path": "work-package-dependencies.svg",
+      "bytes": 6441,
+      "sha256": "50b60de1bac991249e3dbad5e6b1881dd3e82b8f0648724c6e349df14b79895a"
+    },
+    {
+      "path": "work-packages/W01-P0.txt",
+      "bytes": 501031,
+      "sha256": "3654c4e3e57384e907967e9fcd9502f578fa59b043dc2eb954a6443dd46746f6"
+    },
+    {
+      "path": "work-packages/W02-P1.txt",
+      "bytes": 577655,
+      "sha256": "928dacfaf6ff894cb3b92b526519ece96ec0061f19483cd92d5cb29c3ff459c1"
+    },
+    {
+      "path": "work-packages/W03-NEW-A.txt",
+      "bytes": 847567,
+      "sha256": "49c526647b779a26cac0b0de920c3498203c6e0e291d060b3afbed5ffa7480f0"
+    },
+    {
+      "path": "work-packages/W04-NEW-B.txt",
+      "bytes": 1137014,
+      "sha256": "db7727af203808e43030fe99ff4406e6c61dba2e238cc6d73f7cc199301718cc"
+    },
+    {
+      "path": "work-packages/W05-NEW-C.txt",
+      "bytes": 972584,
+      "sha256": "00dec9945aed019c839897d5bdeda53dd34d840c9e4caeaae8426073c503f48e"
+    },
+    {
+      "path": "work-packages/W06-P2.txt",
+      "bytes": 685463,
+      "sha256": "091293650b6cf7d49671e502a0f45dff9bcaa16d5d4830aeeedf3ffa3680989a"
+    },
+    {
+      "path": "work-packages/W07-P3.txt",
+      "bytes": 638896,
+      "sha256": "5fca70444b5ba5916184119f0ba7712f9a7ca9b6ea860e617cee94d56197db83"
+    },
+    {
+      "path": "work-packages/W08-P4.txt",
+      "bytes": 643665,
+      "sha256": "9d1087eb35828ca9d04daa3cff33510e5ba65cd392078a7900817f0817761313"
+    },
+    {
+      "path": "work-packages/W09-P5.txt",
+      "bytes": 696688,
+      "sha256": "121c91216ee42cf21555df0d7fe58f94b95ba0768b694b93527c26b7136b9486"
+    },
+    {
+      "path": "work-packages/W10-P6.txt",
+      "bytes": 907583,
+      "sha256": "9b85ceb95c908ddd98c82af0a8bf2ce8e89cc1402b69e75f27e0d0ea0ce46d58"
+    },
+    {
+      "path": "work-packages/W11-P7.txt",
+      "bytes": 715116,
+      "sha256": "4d2b33fbd40915f17fb54aaef4ec94159ce1411128e8a64f6c0d771c285679b8"
+    },
+    {
+      "path": "work-packages/W12-REMOVE.txt",
+      "bytes": 954486,
+      "sha256": "6f1bac9d0a530b098cd5be2af16a3925c101b6339abfa6c98722ef60ba08727c"
+    },
+    {
+      "path": "work-packages/W13-P8.txt",
+      "bytes": 979330,
+      "sha256": "0b32b16724760c5f389a7ca5c3c85c1dc03b6e7597a354a52f9ddf1887c5857a"
+    }
+  ],
+  "product_implementation": "NotRun",
+  "native_acceptance": "NotRun",
+  "source_root_addendum": "../OWNER-APPROVAL-NEEDSRULE-20261013-R2.html"
+}

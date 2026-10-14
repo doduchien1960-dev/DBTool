@@ -1,0 +1,2369 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>01-KNOWLEDGE</title><style>body{font:16px/1.65 system-ui,"Segoe UI",sans-serif;color:#142537;background:#f4f7fb;margin:0}main{max-width:1440px;margin:auto;padding:32px;background:white}h1,h2,h3{line-height:1.3;color:#153c5b}h2{margin-top:2.4em;border-bottom:2px solid #cee0ec;padding-bottom:8px}table{border-collapse:collapse;width:100%;font-size:13px;margin:20px 0;display:block;overflow:auto}td,th{border:1px solid #ccd7e2;padding:8px;vertical-align:top}th{background:#e9f1f8;position:sticky;top:0}tr:nth-child(even){background:#f7f9fb}pre{padding:20px;background:#112638;color:#e8f2fa;overflow:auto;line-height:1.5;font-size:13px}code{font-family:Consolas,monospace}a{color:#056d9f}button{background:#126688;color:white;border:0;padding:12px 24px;cursor:pointer;font-size:16px;border-radius:6px}details{border:1px solid #b9cbd8;padding:16px;margin:20px 0}summary{cursor:pointer;font-weight:700}textarea.prompt{width:100%;height:650px;font:13px/1.5 Consolas,monospace;box-sizing:border-box;white-space:pre;background:#102538;color:#f4f7fb;padding:20px}nav{padding:10px;background:#e9f1f8}svg{max-width:100%;height:auto} .notice{padding:16px;background:#fff3ce;border-left:5px solid #b38012}</style></head><body><main><nav><a href="INDEX.html">Mục lục bộ bàn giao</a></nav><h1 id="1-bang-tri-thuc-a-loc">1. Bảng tri thức đã lọc</h1>
+<blockquote>
+<p>Cập nhật leader-field-contracts-20261013-r2: 23/23 đề xuất NR01..23 đã được chủ nhiệm duyệt. Đọc 05/05C/05D bản mới và 07 — Gói việc. Những câu mô tả “chưa chốt” trong trích nguồn là trạng thái lịch sử. Binding nguồn chưa đủ vẫn có lỗi cụ thể theo schema; không đồng nghĩa chủ nhiệm chưa duyệt. Chưa có phase sản phẩm mới được đánh Passed trong lượt hoàn thiện tài liệu này.</p>
+</blockquote>
+<p>Ngày 13/10/2026. Hồ sơ kiến trúc; không phải chứng nhận DBTool đã sinh DWG đúng. Đọc theo thứ tự 01→06.</p>
+<p><strong>Nguồn đã đọc:</strong> 32 HTML nhóm A–E theo danh sách user; xem <a href="data/reading-manifest.json">reading-manifest</a>. Browser file:// bị chặn; dùng HTML parser từ filesystem, không mở gián tiếp để vượt chặn. Tra thêm hướng dẫn VHGpro, nguồn PDF012/040, catalog và code.</p>
+<p><strong>Phân loại:</strong> OwnerRule là quyết định người dùng; ScopedSourceRule chỉ có hiệu lực trong scope ghi rõ; SourceMeaningResolved nghĩa note đã được diễn giải, chưa chứng minh consumer; ObservationFixture là số đo nhận dạng mẫu, chỉ ở evidence; Proposal trong NeedsRule chưa được thực thi như rule. Nguồn ưu tiên owner chỉ giải mâu thuẫn có quyết định rõ; các xung đột khác giữ cả hai nguồn.</p>
+<p>528 ghi chú gồm 191 nội dung sau Trim và 337 lần xuất hiện lặp. Không có 337 nội dung mới chưa được đọc trong hồ sơ cũ. Đợt này bổ sung <strong>hợp đồng triển khai cho đủ 191 nội dung và ánh xạ đủ 528 occurrence</strong>, không báo đã nối đủ 528 consumer. Giữ khác biệt note/value cell và profile.</p>
+<h2 id="11-quy-tac-hop-nhat">1.1. Quy tắc hợp nhất</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Nội dung đủ rõ</th>
+<th>Scope</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K-001</td>
+<td>Input bất kỳ hợp lệ phải tạo kích thước theo Excel; không tên-ga/preset/fixture lookup</td>
+<td>Mọi loại</td>
+<td>['User brief 13/10/2026', 'CONTRACT-CHONG-HOI-QUY.html §3']</td>
+</tr>
+<tr>
+<td>K-002</td>
+<td>Quyết định owner có hiệu lực cao nhất; conflict giữ raw/source/version và ghi NeedsRule</td>
+<td>Mọi tầng</td>
+<td>['OWNER-RULES-THONG-KE-NHOM-20261013.html §1', 'SOURCE-CONFLICTS.html']</td>
+</tr>
+<tr>
+<td>K-003</td>
+<td>Geometry mm; elevation m; một lần đổi đơn vị ở boundary</td>
+<td>S1-S11</td>
+<td>['CONTRACT-CHONG-HOI-QUY.html C01/C06']</td>
+</tr>
+<tr>
+<td>K-004</td>
+<td>Rename chỉ đổi title/identity, không chọn geometry/layout preset</td>
+<td>S2-S9</td>
+<td>['QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL.html §2/3']</td>
+</tr>
+<tr>
+<td>K-005</td>
+<td>Raw→Effective→Geometry→PhysicalRebar→Groups→Projection→Annotation/TK→Sheets→Native→PDF, bước sau không đọc Excel lại</td>
+<td>Pipeline</td>
+<td>['QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL.html §2']</td>
+</tr>
+<tr>
+<td>K-006</td>
+<td>Snapshot/hash input, template, code/build, rule và selected rows đi cùng run</td>
+<td>Mọi case</td>
+<td>['CONTRACT-CHONG-HOI-QUY.html §3', 'KE-HOACH-SUA-CHO-JUNIOR.html J00']</td>
+</tr>
+<tr>
+<td>K-007</td>
+<td>Chọn cover trước resolve cổ; clear là aperture theo hướng, thickness cổ vẫn input</td>
+<td>Purchased cover</td>
+<td>['CONTRACT-CHONG-HOI-QUY.html C01']</td>
+</tr>
+<tr>
+<td>K-008</td>
+<td>Frame ngoài mỗi phương=clear cổ hiệu lực+2*t_cổ; frameHeight100mm riêng với thickness sản phẩm; không dùng clear thân</td>
+<td>Assembly owner</td>
+<td>['CONTRACT-CHONG-HOI-QUY.html C01 quyết định13/10']</td>
+</tr>
+<tr>
+<td>K-009</td>
+<td>FinishedCoverTop tại mặt trên nắp, NeckTop dưới frame; CT dùng SurfaceId, không chỉ đổi text</td>
+<td>S2/S6/S7</td>
+<td>['CONTRACT-CHONG-HOI-QUY.html C01']</td>
+</tr>
+<tr>
+<td>K-010</td>
+<td>Sản phẩm native1:1; annotation paper scale riêng; không lấy INSUNITS hoặc ảnh Properties làm hệ số vật lý</td>
+<td>S0/S6/S10</td>
+<td>['OWNER-RULES-THONG-KE-NHOM-20261013.html §1']</td>
+</tr>
+<tr>
+<td>K-011</td>
+<td>Loại1 assembly liền; loại 2 body+base khác roof+neck; loại 3 thêm catch</td>
+<td>Concrete topology</td>
+<td>['QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL.html §4']</td>
+</tr>
+<tr>
+<td>K-012</td>
+<td>Union theo assembly/material; outer+inner loops cùng cấp outline và hatch, giữ joint/vữa thật</td>
+<td>S3/S6</td>
+<td>['CAU-TAO-UNION-CHOT-VAT-CUA-THU.html §4/6']</td>
+</tr>
+<tr>
+<td>K-013</td>
+<td>Pad=0 là None, không zero-solid/epsilon; giữ BaseBottom và cống không dịch</td>
+<td>Mọi loại</td>
+<td>['EXCEL-CONSUMER-AUDIT.html STD16']</td>
+</tr>
+<tr>
+<td>K-014</td>
+<td>Pipe profile resolve catalog có inner/outer/cutout/mortar/chamfer/web riêng, thiếu không đoán</td>
+<td>S2/S3</td>
+<td>['EXCEL-CONSUMER-AUDIT.html STD17']</td>
+</tr>
+<tr>
+<td>K-015</td>
+<td>Một OpeningId/HostFrame cấp plan/AA/BB/tường/clip; offset trái+ trong-ra, không abs</td>
+<td>Mọi opening</td>
+<td>['EXCEL-RULES-REVIEW.html', 'CONTRACT-CHONG-HOI-QUY.html C02']</td>
+</tr>
+<tr>
+<td>K-016</td>
+<td>Cắt circle/polygon thật; không bbox tròn hoặc D/2 thay cutout/exclusion</td>
+<td>S4</td>
+<td>['pages/G500-CUT-MEMBERS-AUDIT.html §2']</td>
+</tr>
+<tr>
+<td>K-017</td>
+<td>Retained segments giữ ParentId/SegmentId/station/OpeningIds/end roles; union removed intervals tránh đếm đôi</td>
+<td>Nhiều opening</td>
+<td>['OWNER-RULES-THONG-KE-NHOM-20261013.html §4/5']</td>
+</tr>
+<tr>
+<td>K-018</td>
+<td>Lưới→clip→nominal hooks→supplemental/dowels; không bẻ chốt bằng wall hook policy</td>
+<td>S4</td>
+<td>['CAU-TAO-UNION-CHOT-VAT-CUA-THU.html §6']</td>
+</tr>
+<tr>
+<td>K-019</td>
+<td>ON cần physical path, support, projection, native; OFF khác unsupported, N/A cần reason</td>
+<td>Mọi phụ kiện</td>
+<td>['CONTRACT-CHONG-HOI-QUY.html C03']</td>
+</tr>
+<tr>
+<td>K-020</td>
+<td>C có5đoạn/4gócR8 theo owner; J/K/L controls khác nhau, không fixture lengths</td>
+<td>Ties</td>
+<td>['PROMPT-THUC-THI-QUY-TRINH-DBTOOL.html C', 'EXCEL-NOTES.html']</td>
+</tr>
+<tr>
+<td>K-021</td>
+<td>BLTC chỉ tie node có thật; view đại diện không nhân đôi physical count</td>
+<td>S6/S7</td>
+<td>['pages/PDF-005-PHAN-TICH-CHI-TIET.html §1/2']</td>
+</tr>
+<tr>
+<td>K-022</td>
+<td>Dowel/hole pair1:1, holeØ&gt;barØ, cùng XY hai assembly; giữ lỗ roof detailer đã có</td>
+<td>Loại2/3</td>
+<td>['CAU-TAO-UNION-CHOT-VAT-CUA-THU.html §2']</td>
+</tr>
+<tr>
+<td>K-023</td>
+<td>Catch geometry/void/frames phải compose trước steel; prototype PlanCatch không đủ chỉ vì gọi được</td>
+<td>Loại3</td>
+<td>['CAU-TAO-UNION-CHOT-VAT-CUA-THU.html §3']</td>
+</tr>
+<tr>
+<td>K-024</td>
+<td>Occurrence, canonical fabrication và presentation group là3lớp; không thay paths bằng mean</td>
+<td>S4/S5</td>
+<td>['OWNER-RULES-THONG-KE-NHOM-20261013.html §4']</td>
+</tr>
+<tr>
+<td>K-025</td>
+<td>Group key ga/component/face/layer/region/direction/shape/Ø/hook/basis/pitch; không chỉ SH hoặc asset</td>
+<td>S5</td>
+<td>['OWNER-RULES-THONG-KE-NHOM-20261013.html §3/4']</td>
+</tr>
+<tr>
+<td>K-026</td>
+<td>T1A trái,T1B phải,T2A trên,T2B dưới theo view convention đã lưu; mirror không đổi physical ownership</td>
+<td>Một lỗ/tường/lớp</td>
+<td>['OWNER-RULES-THONG-KE-NHOM-20261013.html §3']</td>
+</tr>
+<tr>
+<td>K-027</td>
+<td>Nhóm tương thích có nhiều canonical marks/Li; Count=N, Mean=rawSum/N, TDAI=rawSum/1000</td>
+<td>Nhóm chiều dài biến thiên</td>
+<td>['OWNER-RULES-THONG-KE-NHOM-20261013.html §3']</td>
+</tr>
+<tr>
+<td>K-028</td>
+<td>L/LT/LP/legs theo role riêng; không First(), không meanDAI điền mọi tag hoặc roundedMean*N</td>
+<td>S5/S8</td>
+<td>['OWNER-RULES-THONG-KE-NHOM-20261013.html §3/5']</td>
+</tr>
+<tr>
+<td>K-029</td>
+<td>Canonical invariant Quantity*SingleLength giữ nguyên trong canonical scope</td>
+<td>S4 canonical</td>
+<td>['THONG-KE-THEP-NATIVE-CACH-SUA.html §2']</td>
+</tr>
+<tr>
+<td>K-030</td>
+<td>Một member có một primary accounting group; lặp view không tăng SL</td>
+<td>S5/S8</td>
+<td>['QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL.html §6']</td>
+</tr>
+<tr>
+<td>K-031</td>
+<td>Group registry tạo trước annotation; mapper từ primitives chỉ validator/readback</td>
+<td>S5-S10</td>
+<td>['QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL.html §1/6']</td>
+</tr>
+<tr>
+<td>K-032</td>
+<td>T3 ngoài CØ6 khác T3/T4 trong VGØ10 trong bộ G500; role scoped, không nghĩa toàn cục</td>
+<td>Recipe nguồnG500</td>
+<td>['pages/PDF-007-PHAN-TICH-CHI-TIET.html §2']</td>
+</tr>
+<tr>
+<td>K-033</td>
+<td>U tie và ladder có thể cùng TK.M.U nhưng khác role/Ø/legs/members</td>
+<td>S5/S8</td>
+<td>['pages/PDF-002-PHAN-TICH-CHI-TIET.html §2']</td>
+</tr>
+<tr>
+<td>K-034</td>
+<td>Bảng TK chỉ native exact asset+ATT tiếng Việt; glyph không scale/stretch theo Li</td>
+<td>S8/S10</td>
+<td>['OWNER-RULES-THONG-KE-NHOM-20261013.html §1']</td>
+</tr>
+<tr>
+<td>K-035</td>
+<td>21TK schemas là hợp đồng; TK.M.C khác TK.MC; missing/extra/unbound tag chặn</td>
+<td>S0/S8/S10</td>
+<td>['catalog/SCHEDULE-ASSET-TABLE.html', 'THONG-KE-THEP-NATIVE-CACH-SUA.html §3']</td>
+</tr>
+<tr>
+<td>K-036</td>
+<td>TK.Tenluoi cùng hàng đầu nhóm; header8cột, không thêm generic group row/enum internal</td>
+<td>Native TK</td>
+<td>['pages/PDF-002-PHAN-TICH-CHI-TIET.html §1']</td>
+</tr>
+<tr>
+<td>K-037</td>
+<td>TDAI m đổi rawmm/1000 đúng một lần; DAI/legs/D mm,SL count,KL kg</td>
+<td>Round+angle TK</td>
+<td>['THONG-KE-THEP-NATIVE-CACH-SUA.html STD18']</td>
+</tr>
+<tr>
+<td>K-038</td>
+<td>Chuỗi D640/950x950/150x2 là typed display dimensions, không parse toàn bộ thành double</td>
+<td>GC native</td>
+<td>['OWNER-RULES-THONG-KE-NHOM-20261013.html §2']</td>
+</tr>
+<tr>
+<td>K-039</td>
+<td>TK.THKL buckets Ø&lt;=10/&gt;10, không upper/lower; panel/catch summaries schema riêng</td>
+<td>S8 summary</td>
+<td>['pdf/usage-guide.json', 'catalog/SCHEDULE-ASSET-TABLE.html']</td>
+</tr>
+<tr>
+<td>K-040</td>
+<td>Schematic và physical độc lập; nét900 ghi1490 chứng minh không đo schematic để tính length</td>
+<td>Bending</td>
+<td>['pages/PDF-003-PHAN-TICH-CHI-TIET.html §3']</td>
+</tr>
+<tr>
+<td>K-041</td>
+<td>Bending captions underline MTEXT mark-DØ,L/Ltb; Ltb chỉ policy mean; không bịa tagLTB</td>
+<td>S8 bending</td>
+<td>['pages/PDF-008-PHAN-TICH-CHI-TIET.html §1-3']</td>
+</tr>
+<tr>
+<td>K-042</td>
+<td>Bending order đáy,T1,T2,T3,T4,trần,cổ/thang; số row từ groups không82/88fixed</td>
+<td>S8/S9</td>
+<td>['pages/PDF-003-PHAN-TICH-CHI-TIET.html §1/4']</td>
+</tr>
+<tr>
+<td>K-043</td>
+<td>BLT1/2 SH/DK/A;BLT3/4 NOTE, không textmark/vòng tròn duplicate ngoài block</td>
+<td>S7</td>
+<td>['catalog/ASSET-STAGE-USAGE.html', 'EXCEL-RULES-REVIEW.html']</td>
+</tr>
+<tr>
+<td>K-044</td>
+<td>Collector giao projected member thật mới Gach; qua void được nhưng không Gach/thép trong void</td>
+<td>S7</td>
+<td>['pages/PDF-006-PHAN-TICH-CHI-TIET.html §4']</td>
+</tr>
+<tr>
+<td>K-045</td>
+<td>Leader có thể45°/góc khác/callout nội bộ; cấm nhầm target/đè chữ, không cấm vào bê tông</td>
+<td>S7</td>
+<td>['pages/PDF-001-PHAN-TICH-CHI-TIET.html §3']</td>
+</tr>
+<tr>
+<td>K-046</td>
+<td>Một allocator/view, đo ink sau formatATT, bundle text+route+ticks dịch đồng bộ</td>
+<td>S7/S9</td>
+<td>['CONTRACT-CHONG-HOI-QUY.html C06']</td>
+</tr>
+<tr>
+<td>K-047</td>
+<td>Bốn không gian:physicalmm/viewlocalmm/paperoffsetmm/sheet; modelOffset=S*paperOffset</td>
+<td>Projection/layout</td>
+<td>['CONTRACT-CHONG-HOI-QUY.html C06']</td>
+</tr>
+<tr>
+<td>K-048</td>
+<td>S/100 là annotation baseline của asset1:100; không áp cho sản phẩm hoặc ký hiệu có policy riêng</td>
+<td>S6-S10</td>
+<td>['QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL.html §7']</td>
+</tr>
+<tr>
+<td>K-049</td>
+<td>Title3mm/note2mm và TKrow5mm là recipe quan sát, không tọa độ fixture</td>
+<td>Recipe nominal</td>
+<td>['pages/PDF-001-PHAN-TICH-CHI-TIET.html §1', 'THONG-KE-THEP-NATIVE-CACH-SUA.html §6']</td>
+</tr>
+<tr>
+<td>K-050</td>
+<td>Panel scaleM15 độc lập body; CoverConstruction chỉ khi requested assembly cần chế tạo</td>
+<td>S8/S9</td>
+<td>['pages/PDF-004-PHAN-TICH-CHI-TIET.html §1/7']</td>
+</tr>
+<tr>
+<td>K-051</td>
+<td>Structure3x2 semantic roles giữ MB/AA trái,BB/wallmesh giữa,steelAA/BB phải</td>
+<td>Structure</td>
+<td>['pages/PDF-001-PHAN-TICH-CHI-TIET.html §1']</td>
+</tr>
+<tr>
+<td>K-052</td>
+<td>BaseWalls12, Walls34Roof giữ cột/lớp; loại 3 NeckCatch và ScheduleOnly riêng</td>
+<td>Recipes</td>
+<td>['KE-HOACH-SUA-CHO-JUNIOR.html §3']</td>
+</tr>
+<tr>
+<td>K-053</td>
+<td>Overflow từ cả geometry+ink; split có thứ tự, khôngcrop/shrinktext/thresholdbaseX</td>
+<td>S9</td>
+<td>['CURRENT-CODE-FINDINGS.html STD11']</td>
+</tr>
+<tr>
+<td>K-054</td>
+<td>OCS/WCS theo từng entity, full block matrix; không chỉ đổi dấuINSERT hoặc lấy rawLWPOLYLINE làmWCS</td>
+<td>S6/S10;research</td>
+<td>['pages/PDF-004-PHAN-TICH-CHI-TIET.html §6', 'PDF-040 handle78DD3']</td>
+</tr>
+<tr>
+<td>K-055</td>
+<td>Không mọi annotation là LEADER; LINE/LWPOLYLINE có label ở giữa segment</td>
+<td>S7/research</td>
+<td>['pages/PDF-002-PHAN-TICH-CHI-TIET.html §3/4', 'PDF-040 newtrace']</td>
+</tr>
+<tr>
+<td>K-056</td>
+<td>Import dependency đệ quy visited; HTemplate carrier không chèn nguyên mẫu; child product giữ</td>
+<td>S0</td>
+<td>['catalog/CONDITIONAL-ASSETS-AUDIT.html']</td>
+</tr>
+<tr>
+<td>K-057</td>
+<td>Tên block/layer/dim/textstyle không đổi; cùng tên khác hash cần migrationversion</td>
+<td>S0/S10</td>
+<td>['pdf/usage-guide.json', 'SOURCE-CONFLICTS.html']</td>
+</tr>
+<tr>
+<td>K-058</td>
+<td>Template lookup layer không chứng minh demo entity effective style; BYBLOCK/BYLAYER và override resolve</td>
+<td>S10/S11</td>
+<td>['CONTRACT-CHONG-HOI-QUY.html C05']</td>
+</tr>
+<tr>
+<td>K-059</td>
+<td>Danh định/annotation/measuredPDFscale riêng; source Fit khác nominal không sửa physical</td>
+<td>S6/S11</td>
+<td>['pages/PDF-001-PHAN-TICH-CHI-TIET.html §1', 'SOURCE-CONFLICTS.html']</td>
+</tr>
+<tr>
+<td>K-060</td>
+<td>ReferenceBundle theo sourcehash/nativeframe/identity/CT/dim, không Modelordinal/tờ liền</td>
+<td>Acceptance</td>
+<td>['CURRENT-CODE-FINDINGS.html STD15']</td>
+</tr>
+<tr>
+<td>K-061</td>
+<td>Batch5/10 rows thật,namespace theoManholeId; rowfailed có receipt, không bỏimlặng</td>
+<td>S11</td>
+<td>['QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL.html §9']</td>
+</tr>
+<tr>
+<td>K-062</td>
+<td>MộtDWG/hostplot, windowsKhung sorted identity+role+index; CTB/STB theoPSTYLEMODE</td>
+<td>S11</td>
+<td>['SOURCE-CONFLICTS.html', 'KE-HOACH-SUA-CHO-JUNIOR.html J08']</td>
+</tr>
+<tr>
+<td>K-063</td>
+<td>Save/reopen/native ATTreadback, UpdateB không đổi A; clone không chứng minh NOD/XData đúng</td>
+<td>S10/S11</td>
+<td>['QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL.html §9']</td>
+</tr>
+<tr>
+<td>K-064</td>
+<td>Engine/native/semantic/visual status riêng; testcount,exit0/filecount không acceptance</td>
+<td>Mọi gate</td>
+<td>['CONTRACT-CHONG-HOI-QUY.html §4']</td>
+</tr>
+<tr>
+<td>K-065</td>
+<td>Không reintroduce slot-reset đã sửa; giữ union/lỗ hiện có và angleTK.TG</td>
+<td>Migration</td>
+<td>['CURRENT-CODE-FINDINGS.html', 'CAU-TAO-UNION-CHOT-VAT-CUA-THU.html §6']</td>
+</tr>
+<tr>
+<td>K-066</td>
+<td>Loại2 joint vữa trong clearHeight, textChốt từ physical station; không union seam của roof rời</td>
+<td>Loại2</td>
+<td>['PDF-012 source', 'EX-164/173']</td>
+</tr>
+<tr>
+<td>K-067</td>
+<td>Cửa thu một lớpBTCT,ownerBody/Neck,hướng thật; C1A/B/C cổ không phải cutcốngT1suffix</td>
+<td>Loại3</td>
+<td>['PDF-040 source', 'EX-175..185', 'HDSD p13']</td>
+</tr>
+<tr>
+<td>K-068</td>
+<td>PDF012 glyph dấu hỏi không dùng làm literal chuẩn; giữ native text, kiểm encoding trước plot</td>
+<td>Loại2 font</td>
+<td>['PDF-012 source/native', 'SOURCE-CONFLICTS.html']</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-quy-tac-excel-u-191-noi-dung-moi-o-nguon">1.2. Quy tắc Excel — đủ 191 nội dung, mọi ô nguồn</h2>
+<p>Các field ứng viên cũ vẫn ở JSON để truy lịch sử. Cột dưới là hướng triển khai mới, không chứng nhận heuristic cũ đúng. Vùng KL HG được giữ và chỉ rõ không cấp geometry; đây là quyết định phạm vi minh bạch vì mục tiêu hiện tại là DWG, không xóa note.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hợp đồng phải triển khai</th>
+<th>Phạm vi</th>
+<th>Nguồn note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EX-001</td>
+<td>Giữ version marker nguyên trạng; thiếu/sai phiên bản trả VERSION_UNSUPPORTED, không sửa workbook.</td>
+<td>T1/VHGpro, T2/VHGpro, T3/VHGpro</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0001 T1 VHGpro!L2</a>; <a href="../EXCEL-NOTES.html">NOTE-0167 T2 VHGpro!L2</a>; <a href="../EXCEL-NOTES.html">NOTE-0340 T3 VHGpro!L2</a></td>
+</tr>
+<tr>
+<td>EX-002</td>
+<td>Đọc C/D/E từng dòng thành clearX/clearY/clearHeight mm; mapping C2 không được nuốt cả Width/Height nếu chưa kiểm header C3/D3/E3.</td>
+<td>T1/GaThamLienKhoi, T2/GaThamNapRoi, T3/GaThamThuNapRoi</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0002 T1 GaThamLienKhoi!C2</a>; <a href="../EXCEL-NOTES.html">NOTE-0168 T2 GaThamNapRoi!C2</a>; <a href="../EXCEL-NOTES.html">NOTE-0341 T3 GaThamThuNapRoi!C2</a></td>
+</tr>
+<tr>
+<td>EX-003</td>
+<td>Parse F thickness, G mesh dưới, H mesh trên; MeshSpec tách diameterMm và requestedPitchMm.</td>
+<td>T1/GaThamLienKhoi, T2/GaThamNapRoi, T3/GaThamThuNapRoi</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0003 T1 GaThamLienKhoi!F2</a>; <a href="../EXCEL-NOTES.html">NOTE-0169 T2 GaThamNapRoi!F2</a>; <a href="../EXCEL-NOTES.html">NOTE-0342 T3 GaThamThuNapRoi!F2</a></td>
+</tr>
+<tr>
+<td>EX-004</td>
+<td>Parse I thickness, J mesh ngoài, K mesh trong; không dùng một mesh chung cho hai mặt.</td>
+<td>T1/GaThamLienKhoi, T2/GaThamNapRoi, T3/GaThamThuNapRoi</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0004 T1 GaThamLienKhoi!I2</a>; <a href="../EXCEL-NOTES.html">NOTE-0170 T2 GaThamNapRoi!I2</a>; <a href="../EXCEL-NOTES.html">NOTE-0343 T3 GaThamThuNapRoi!I2</a></td>
+</tr>
+<tr>
+<td>EX-005</td>
+<td>Parse L thickness, M mesh trên, N mesh dưới; giữ HookPattern theo từng lớp.</td>
+<td>T1/GaThamLienKhoi, T2/GaThamNapRoi, T3/GaThamThuNapRoi</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0005 T1 GaThamLienKhoi!L2</a>; <a href="../EXCEL-NOTES.html">NOTE-0171 T2 GaThamNapRoi!L2</a>; <a href="../EXCEL-NOTES.html">NOTE-0344 T3 GaThamThuNapRoi!L2</a></td>
+</tr>
+<tr>
+<td>EX-006</td>
+<td>Đọc toàn bộ O:P/Q:R/S:T/U:V, không giới hạn R2 vào R/S; blank là không có opening; D hoặc X đứng riêng là Invalid.</td>
+<td>T1/GaThamLienKhoi, T2/GaThamNapRoi, T3/GaThamThuNapRoi</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0006 T1 GaThamLienKhoi!R2</a>; <a href="../EXCEL-NOTES.html">NOTE-0172 T2 GaThamNapRoi!R2</a>; <a href="../EXCEL-NOTES.html">NOTE-0345 T3 GaThamThuNapRoi!R2</a></td>
+</tr>
+<tr>
+<td>EX-007</td>
+<td>W là chiều cao BTCT cổ, X thickness, Y/Z meshes; không gộp chiều cao sản phẩm vào W.</td>
+<td>T1/GaThamLienKhoi, T2/GaThamNapRoi, T3/GaThamThuNapRoi</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0007 T1 GaThamLienKhoi!W2</a>; <a href="../EXCEL-NOTES.html">NOTE-0173 T2 GaThamNapRoi!W2</a>; <a href="../EXCEL-NOTES.html">NOTE-0346 T3 GaThamThuNapRoi!W2</a></td>
+</tr>
+<tr>
+<td>EX-008</td>
+<td>AA là BaseElevationM khi Tuyệt đối; Tương đối cho phép null và dùng ký hiệu, không mặc định 0.00.</td>
+<td>T1/GaThamLienKhoi, T2/GaThamNapRoi, T3/GaThamThuNapRoi</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0008 T1 GaThamLienKhoi!AA2</a>; <a href="../EXCEL-NOTES.html">NOTE-0174 T2 GaThamNapRoi!AA2</a>; <a href="../EXCEL-NOTES.html">NOTE-0347 T3 GaThamThuNapRoi!AA2</a></td>
+</tr>
+<tr>
+<td>EX-009</td>
+<td>O của main row gắn WallId.T1/hướng 12h; ghi WallFrame và chiều nhìn.</td>
+<td>T1/GaThamLienKhoi, T2/GaThamNapRoi, T3/GaThamThuNapRoi</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0009 T1 GaThamLienKhoi!O3</a>; <a href="../EXCEL-NOTES.html">NOTE-0175 T2 GaThamNapRoi!O3</a>; <a href="../EXCEL-NOTES.html">NOTE-0348 T3 GaThamThuNapRoi!O3</a></td>
+</tr>
+<tr>
+<td>EX-010</td>
+<td>Q của main row gắn WallId.T2/hướng 3h; giữ connection ID riêng.</td>
+<td>T1/GaThamLienKhoi, T2/GaThamNapRoi, T3/GaThamThuNapRoi</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0010 T1 GaThamLienKhoi!Q3</a>; <a href="../EXCEL-NOTES.html">NOTE-0176 T2 GaThamNapRoi!Q3</a>; <a href="../EXCEL-NOTES.html">NOTE-0349 T3 GaThamThuNapRoi!Q3</a></td>
+</tr>
+<tr>
+<td>EX-011</td>
+<td>S của main row gắn WallId.T3/hướng 6h.</td>
+<td>T1/GaThamLienKhoi, T2/GaThamNapRoi, T3/GaThamThuNapRoi</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0011 T1 GaThamLienKhoi!S3</a>; <a href="../EXCEL-NOTES.html">NOTE-0177 T2 GaThamNapRoi!S3</a>; <a href="../EXCEL-NOTES.html">NOTE-0350 T3 GaThamThuNapRoi!S3</a></td>
+</tr>
+<tr>
+<td>EX-012</td>
+<td>U của main row gắn WallId.T4/hướng 9h.</td>
+<td>T1/GaThamLienKhoi, T2/GaThamNapRoi, T3/GaThamThuNapRoi</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0012 T1 GaThamLienKhoi!U3</a>; <a href="../EXCEL-NOTES.html">NOTE-0178 T2 GaThamNapRoi!U3</a>; <a href="../EXCEL-NOTES.html">NOTE-0351 T3 GaThamThuNapRoi!U3</a></td>
+</tr>
+<tr>
+<td>EX-013</td>
+<td>W chỉ phần BTCT; datum sản phẩm/khung được giải riêng tại S2.</td>
+<td>T1/GaThamLienKhoi, T2/GaThamNapRoi, T3/GaThamThuNapRoi</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0013 T1 GaThamLienKhoi!W3</a>; <a href="../EXCEL-NOTES.html">NOTE-0179 T2 GaThamNapRoi!W3</a>; <a href="../EXCEL-NOTES.html">NOTE-0352 T3 GaThamThuNapRoi!W3</a></td>
+</tr>
+<tr>
+<td>EX-014</td>
+<td>Đọc đến hết data rows có dữ liệu, không chặn tại A24/A22; giữ công thức/hash; dòng trống không làm mất các dòng sau.</td>
+<td>T1/CF.Cong, T1/GaThamLienKhoi, T2/CF.Cong, T2/GaThamNapRoi, T3/CF.Cong, T3/GaThamThuNapRoi</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0014 T1 GaThamLienKhoi!A24</a>; <a href="../EXCEL-NOTES.html">NOTE-0112 T1 CF.Cong!A22</a>; <a href="../EXCEL-NOTES.html">NOTE-0180 T2 GaThamNapRoi!A24</a>; <a href="../EXCEL-NOTES.html">NOTE-0284 T2 CF.Cong!A22</a>; <a href="../EXCEL-NOTES.html">NOTE-0353 T3 GaThamThuNapRoi!A24</a>; <a href="../EXCEL-NOTES.html">NOTE-0469 T3 CF.Cong!A22</a></td>
+</tr>
+<tr>
+<td>EX-015</td>
+<td>CF.Ga nhóm lớp lót gồm C3 expansion và D3 thickness; validate riêng từng trường.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0015 T1 CF.Ga!B2</a>; <a href="../EXCEL-NOTES.html">NOTE-0181 T2 CF.Ga!B2</a>; <a href="../EXCEL-NOTES.html">NOTE-0354 T3 CF.Ga!B2</a></td>
+</tr>
+<tr>
+<td>EX-016</td>
+<td>C3&gt;=0; bằng 0 chỉ bỏ phần mở rộng, không bỏ lớp lót nếu D3&gt;0.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0016 T1 CF.Ga!C2</a>; <a href="../EXCEL-NOTES.html">NOTE-0182 T2 CF.Ga!C2</a>; <a href="../EXCEL-NOTES.html">NOTE-0355 T3 CF.Ga!C2</a></td>
+</tr>
+<tr>
+<td>EX-017</td>
+<td>D3&gt;=0; bằng 0 tạo Pad=None và bỏ geometry/hatch/dim/CT của Pad xuyên pipeline; âm chặn.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0017 T1 CF.Ga!D2</a>; <a href="../EXCEL-NOTES.html">NOTE-0183 T2 CF.Ga!D2</a>; <a href="../EXCEL-NOTES.html">NOTE-0356 T3 CF.Ga!D2</a></td>
+</tr>
+<tr>
+<td>EX-018</td>
+<td>Nhóm bản đáy: C5 expansion và D5 haunch độc lập; không suy một cờ từ cờ kia.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0018 T1 CF.Ga!B4</a>; <a href="../EXCEL-NOTES.html">NOTE-0184 T2 CF.Ga!B4</a>; <a href="../EXCEL-NOTES.html">NOTE-0357 T3 CF.Ga!B4</a></td>
+</tr>
+<tr>
+<td>EX-019</td>
+<td>C5&gt;=0; 0 không có chân ngoài thành, Base vẫn tồn tại.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0019 T1 CF.Ga!C4</a>; <a href="../EXCEL-NOTES.html">NOTE-0185 T2 CF.Ga!C4</a>; <a href="../EXCEL-NOTES.html">NOTE-0358 T3 CF.Ga!C4</a></td>
+</tr>
+<tr>
+<td>EX-020</td>
+<td>D5&gt;=0; 0 không có vạt đáy; dương phải có contour và kiểm steel support.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0020 T1 CF.Ga!D4</a>; <a href="../EXCEL-NOTES.html">NOTE-0186 T2 CF.Ga!D4</a>; <a href="../EXCEL-NOTES.html">NOTE-0359 T3 CF.Ga!D4</a></td>
+</tr>
+<tr>
+<td>EX-021</td>
+<td>Nhóm tường đọc delta bước/cấp Ø/prefix DIM, không dùng prefix DIM làm SH.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0021 T1 CF.Ga!B6</a>; <a href="../EXCEL-NOTES.html">NOTE-0187 T2 CF.Ga!B6</a>; <a href="../EXCEL-NOTES.html">NOTE-0360 T3 CF.Ga!B6</a></td>
+</tr>
+<tr>
+<td>EX-022</td>
+<td>PitchHorizontal=PitchVertical+DeltaMm cho tường/cổ đúng scope; &lt;=0 là Invalid, không clamp.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0022 T1 CF.Ga!C6</a>; <a href="../EXCEL-NOTES.html">NOTE-0037 T1 CF.Ga!L10</a>; <a href="../EXCEL-NOTES.html">NOTE-0188 T2 CF.Ga!C6</a>; <a href="../EXCEL-NOTES.html">NOTE-0209 T2 CF.Ga!L10</a>; <a href="../EXCEL-NOTES.html">NOTE-0361 T3 CF.Ga!C6</a>; <a href="../EXCEL-NOTES.html">NOTE-0382 T3 CF.Ga!L10</a></td>
+</tr>
+<tr>
+<td>EX-023</td>
+<td>Ø ngang lấy index giảm cấp trong catalog Ø đã sắp có nguồn; 0 giữ Ø đứng; thiếu cấp chặn, không trừ số mm.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0023 T1 CF.Ga!D6</a>; <a href="../EXCEL-NOTES.html">NOTE-0189 T2 CF.Ga!D6</a>; <a href="../EXCEL-NOTES.html">NOTE-0362 T3 CF.Ga!D6</a></td>
+</tr>
+<tr>
+<td>EX-024</td>
+<td>E7 là prefix DIM chiều cao tường; blank không prefix, measured value giữ nguyên.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0024 T1 CF.Ga!E6</a>; <a href="../EXCEL-NOTES.html">NOTE-0190 T2 CF.Ga!E6</a>; <a href="../EXCEL-NOTES.html">NOTE-0363 T3 CF.Ga!E6</a></td>
+</tr>
+<tr>
+<td>EX-025</td>
+<td>Loại1 có cấu hình trần C9 vạt dưới; loại 2/3 không lấy ô này làm vạt vì là vùng chốt.</td>
+<td>T1/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0025 T1 CF.Ga!B8</a></td>
+</tr>
+<tr>
+<td>EX-026</td>
+<td>Loại1 C9&gt;=0, 0 bỏ vạt trần; positive dựng dưới RoofBottom, không mirror quanh mặt sai.</td>
+<td>T1/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0026 T1 CF.Ga!C8</a></td>
+</tr>
+<tr>
+<td>EX-027</td>
+<td>Nhóm cổ C11:M11 được parse theo từng field, không dịch +2 hàng ở loại 3 cho nhóm này.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0027 T1 CF.Ga!B10</a>; <a href="../EXCEL-NOTES.html">NOTE-0199 T2 CF.Ga!B10</a>; <a href="../EXCEL-NOTES.html">NOTE-0372 T3 CF.Ga!B10</a></td>
+</tr>
+<tr>
+<td>EX-028</td>
+<td>NeckStructure=BTCT bật thép cổ, Khác tắt riêng thép cổ; tại loại 3 L17 áp cùng ngữ nghĩa cho cửa thu, không map thành NeckStructure.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0028 T1 CF.Ga!C10</a>; <a href="../EXCEL-NOTES.html">NOTE-0200 T2 CF.Ga!C10</a>; <a href="../EXCEL-NOTES.html">NOTE-0373 T3 CF.Ga!C10</a>; <a href="../EXCEL-NOTES.html">NOTE-0416 T3 CF.Ga!L16</a></td>
+</tr>
+<tr>
+<td>EX-029</td>
+<td>D11 lựa vị trí cổ theo T1..T4/hướng; chuyển trong WallFrame, không theo vị trí chữ trên giấy.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0029 T1 CF.Ga!D10</a>; <a href="../EXCEL-NOTES.html">NOTE-0201 T2 CF.Ga!D10</a>; <a href="../EXCEL-NOTES.html">NOTE-0374 T3 CF.Ga!D10</a></td>
+</tr>
+<tr>
+<td>EX-030</td>
+<td>E11 parse BxL mm và lưu raw; clear hiệu lực lấy catalog nắp theo owner, không sửa ô nguồn.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0030 T1 CF.Ga!E10</a>; <a href="../EXCEL-NOTES.html">NOTE-0202 T2 CF.Ga!E10</a>; <a href="../EXCEL-NOTES.html">NOTE-0375 T3 CF.Ga!E10</a></td>
+</tr>
+<tr>
+<td>EX-031</td>
+<td>F11 Có bật bậc/vát cổ; Không giữ G11 inactive, không dùng G11 để tạo hình.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0031 T1 CF.Ga!F10</a>; <a href="../EXCEL-NOTES.html">NOTE-0203 T2 CF.Ga!F10</a>; <a href="../EXCEL-NOTES.html">NOTE-0376 T3 CF.Ga!F10</a></td>
+</tr>
+<tr>
+<td>EX-032</td>
+<td>G11 parse WidthMm x HeightMm chỉ khi F11 Có; kiểm thành/support còn chỗ.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0032 T1 CF.Ga!G10</a>; <a href="../EXCEL-NOTES.html">NOTE-0204 T2 CF.Ga!G10</a>; <a href="../EXCEL-NOTES.html">NOTE-0377 T3 CF.Ga!G10</a></td>
+</tr>
+<tr>
+<td>EX-033</td>
+<td>H11 V/Laxbxc tra CF.Data B/C; Không là OFF; thiếu mã/unit mass không suy từ tên.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0033 T1 CF.Ga!H10</a>; <a href="../EXCEL-NOTES.html">NOTE-0205 T2 CF.Ga!H10</a>; <a href="../EXCEL-NOTES.html">NOTE-0378 T3 CF.Ga!H10</a></td>
+</tr>
+<tr>
+<td>EX-034</td>
+<td>I11 parse tập vị trí 1/2/3 không lặp: lồi trên/lõm giữa/lồi trong; mỗi vị trí gắn support edge ID.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0034 T1 CF.Ga!I10</a>; <a href="../EXCEL-NOTES.html">NOTE-0206 T2 CF.Ga!I10</a>; <a href="../EXCEL-NOTES.html">NOTE-0379 T3 CF.Ga!I10</a></td>
+</tr>
+<tr>
+<td>EX-035</td>
+<td>J11 parse DxxAyyyLzzz thành Ø/bước/chiều dài neo; 0 OFF; không lấy tie làm neo.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0035 T1 CF.Ga!J10</a>; <a href="../EXCEL-NOTES.html">NOTE-0207 T2 CF.Ga!J10</a>; <a href="../EXCEL-NOTES.html">NOTE-0380 T3 CF.Ga!J10</a></td>
+</tr>
+<tr>
+<td>EX-036</td>
+<td>K11 prefix DIM cổ; blank bỏ prefix, không đổi chiều cao hoặc mark thép.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0036 T1 CF.Ga!K10</a>; <a href="../EXCEL-NOTES.html">NOTE-0208 T2 CF.Ga!K10</a>; <a href="../EXCEL-NOTES.html">NOTE-0381 T3 CF.Ga!K10</a></td>
+</tr>
+<tr>
+<td>EX-037</td>
+<td>M11 giảm cấp Ø ngang cổ theo catalog, không trừ trực tiếp diameter.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0038 T1 CF.Ga!M10</a>; <a href="../EXCEL-NOTES.html">NOTE-0210 T2 CF.Ga!M10</a>; <a href="../EXCEL-NOTES.html">NOTE-0383 T3 CF.Ga!M10</a></td>
+</tr>
+<tr>
+<td>EX-038</td>
+<td>Nhóm nắp C13:K13 tách sản phẩm mua sẵn và panel thiết kế; không nhân số tấm vào sản phẩm Gang.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0039 T1 CF.Ga!B12</a>; <a href="../EXCEL-NOTES.html">NOTE-0211 T2 CF.Ga!B12</a>; <a href="../EXCEL-NOTES.html">NOTE-0384 T3 CF.Ga!B12</a></td>
+</tr>
+<tr>
+<td>EX-039</td>
+<td>C13 Gang/composite resolve native cover; BTCT dùng panel assembly từ thông số, không chọn sản phẩm giả.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0040 T1 CF.Ga!C12</a>; <a href="../EXCEL-NOTES.html">NOTE-0212 T2 CF.Ga!C12</a>; <a href="../EXCEL-NOTES.html">NOTE-0385 T3 CF.Ga!C12</a></td>
+</tr>
+<tr>
+<td>EX-040</td>
+<td>D13 giữ nghĩa theo CoverType và bậc cổ; frame owner100 là trường riêng; BTCT có bậc cộng chiều cao bậc đúng một lần.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0041 T1 CF.Ga!D12</a>; <a href="../EXCEL-NOTES.html">NOTE-0213 T2 CF.Ga!D12</a>; <a href="../EXCEL-NOTES.html">NOTE-0386 T3 CF.Ga!D12</a></td>
+</tr>
+<tr>
+<td>EX-041</td>
+<td>E13 basecode phải có MB/AA/BB exact trong manifest; không nối tên gần giống hoặc dùng bbox làm clear.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0042 T1 CF.Ga!E12</a>; <a href="../EXCEL-NOTES.html">NOTE-0214 T2 CF.Ga!E12</a>; <a href="../EXCEL-NOTES.html">NOTE-0387 T3 CF.Ga!E12</a></td>
+</tr>
+<tr>
+<td>EX-042</td>
+<td>F13 Có bật vát vai nắp phía trên cổ, độc lập F11; Không bỏ riêng vát nắp.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0043 T1 CF.Ga!F12</a>; <a href="../EXCEL-NOTES.html">NOTE-0215 T2 CF.Ga!F12</a>; <a href="../EXCEL-NOTES.html">NOTE-0388 T3 CF.Ga!F12</a></td>
+</tr>
+<tr>
+<td>EX-043</td>
+<td>G13 BxH thuộc vai/giằng phía trên cổ; không union nhầm vào bậc cổ hoặc đổi chiều dày sản phẩm.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0044 T1 CF.Ga!G12</a>; <a href="../EXCEL-NOTES.html">NOTE-0216 T2 CF.Ga!G12</a>; <a href="../EXCEL-NOTES.html">NOTE-0389 T3 CF.Ga!G12</a></td>
+</tr>
+<tr>
+<td>EX-044</td>
+<td>H13 giữ raw cấu hình hatch nắp; đưa vào hatch profile, không làm input kích thước.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0045 T1 CF.Ga!H12</a>; <a href="../EXCEL-NOTES.html">NOTE-0217 T2 CF.Ga!H12</a>; <a href="../EXCEL-NOTES.html">NOTE-0390 T3 CF.Ga!H12</a></td>
+</tr>
+<tr>
+<td>EX-045</td>
+<td>I13 positive integer số panel BTCT; không làm quantity của purchased cover.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0046 T1 CF.Ga!I12</a>; <a href="../EXCEL-NOTES.html">NOTE-0218 T2 CF.Ga!I12</a>; <a href="../EXCEL-NOTES.html">NOTE-0391 T3 CF.Ga!I12</a></td>
+</tr>
+<tr>
+<td>EX-046</td>
+<td>J13 gapMm&gt;=0 giữa cổ-panel và giữa panel-panel; chia một lần theo số panel và hướng.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0047 T1 CF.Ga!J12</a>; <a href="../EXCEL-NOTES.html">NOTE-0219 T2 CF.Ga!J12</a>; <a href="../EXCEL-NOTES.html">NOTE-0392 T3 CF.Ga!J12</a></td>
+</tr>
+<tr>
+<td>EX-047</td>
+<td>K13 Ngang/Dọc quyết định phương chia panel khi count&gt;1; count=1 lưu inactive direction.</td>
+<td>T1/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0048 T1 CF.Ga!K12</a></td>
+</tr>
+<tr>
+<td>EX-048</td>
+<td>Nhóm panel C15:M15 chỉ active khi BTCT; từng shape/thép góc/móc có source riêng.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0049 T1 CF.Ga!B14</a>; <a href="../EXCEL-NOTES.html">NOTE-0221 T2 CF.Ga!B14</a>; <a href="../EXCEL-NOTES.html">NOTE-0394 T3 CF.Ga!B14</a></td>
+</tr>
+<tr>
+<td>EX-049</td>
+<td>C15 Ø dưới &gt;0 khi panel BTCT; thiếu không tự tạo Ø10.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0050 T1 CF.Ga!C14</a>; <a href="../EXCEL-NOTES.html">NOTE-0222 T2 CF.Ga!C14</a>; <a href="../EXCEL-NOTES.html">NOTE-0395 T3 CF.Ga!C14</a></td>
+</tr>
+<tr>
+<td>EX-050</td>
+<td>D15&gt;=0; 0 không có lớp trên; không sinh upper tie/schedule giả.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0051 T1 CF.Ga!D14</a>; <a href="../EXCEL-NOTES.html">NOTE-0223 T2 CF.Ga!D14</a>; <a href="../EXCEL-NOTES.html">NOTE-0396 T3 CF.Ga!D14</a></td>
+</tr>
+<tr>
+<td>EX-051</td>
+<td>E15 pitch panel &gt;0; thực rải theo Distribution, không lấy bước body.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0052 T1 CF.Ga!E14</a>; <a href="../EXCEL-NOTES.html">NOTE-0224 T2 CF.Ga!E14</a>; <a href="../EXCEL-NOTES.html">NOTE-0397 T3 CF.Ga!E14</a></td>
+</tr>
+<tr>
+<td>EX-052</td>
+<td>F15 tie DxxAyyy chỉ active khi hai lớp panel; input mâu thuẫn trả diagnostic, không tạo lớp trên để vừa tie.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0053 T1 CF.Ga!F14</a>; <a href="../EXCEL-NOTES.html">NOTE-0225 T2 CF.Ga!F14</a>; <a href="../EXCEL-NOTES.html">NOTE-0398 T3 CF.Ga!F14</a></td>
+</tr>
+<tr>
+<td>EX-053</td>
+<td>G15 shape C/U/Z độc lập shape ties body; hỗ trợ theo capability cell, thiếu recipe giữ NeedsRule.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0054 T1 CF.Ga!G14</a>; <a href="../EXCEL-NOTES.html">NOTE-0226 T2 CF.Ga!G14</a>; <a href="../EXCEL-NOTES.html">NOTE-0399 T3 CF.Ga!G14</a></td>
+</tr>
+<tr>
+<td>EX-054</td>
+<td>H15 V/Laxbxc tra CF.Data; Không không tạo angle frame panel.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0055 T1 CF.Ga!H14</a>; <a href="../EXCEL-NOTES.html">NOTE-0227 T2 CF.Ga!H14</a>; <a href="../EXCEL-NOTES.html">NOTE-0400 T3 CF.Ga!H14</a></td>
+</tr>
+<tr>
+<td>EX-055</td>
+<td>I15 chỉ 1 hoặc 2 viền angle theo nguồn: dưới hoặc dưới+trên; kiểm mỗi viền có physical ID.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0056 T1 CF.Ga!I14</a>; <a href="../EXCEL-NOTES.html">NOTE-0228 T2 CF.Ga!I14</a>; <a href="../EXCEL-NOTES.html">NOTE-0401 T3 CF.Ga!I14</a></td>
+</tr>
+<tr>
+<td>EX-056</td>
+<td>J15 neo angle parse D/A/L, 0 OFF; không dùng công thức neo cổ mặc định mà mất source panel.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0057 T1 CF.Ga!J14</a>; <a href="../EXCEL-NOTES.html">NOTE-0229 T2 CF.Ga!J14</a>; <a href="../EXCEL-NOTES.html">NOTE-0402 T3 CF.Ga!J14</a></td>
+</tr>
+<tr>
+<td>EX-057</td>
+<td>K15 nDØ: số móc nâng panel cổ chỉ 1/2/4; không dùng enum 0/2/4 của trần rời.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0058 T1 CF.Ga!K14</a>; <a href="../EXCEL-NOTES.html">NOTE-0230 T2 CF.Ga!K14</a>; <a href="../EXCEL-NOTES.html">NOTE-0403 T3 CF.Ga!K14</a></td>
+</tr>
+<tr>
+<td>EX-058</td>
+<td>L15 hoặc I9 parse AxBxC theo hình note thành foot/side/bridge roles; I9 chỉ loại 2/3; basis uốn cần NR-07.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0059 T1 CF.Ga!L14</a>; <a href="../EXCEL-NOTES.html">NOTE-0195 T2 CF.Ga!I8</a>; <a href="../EXCEL-NOTES.html">NOTE-0231 T2 CF.Ga!L14</a>; <a href="../EXCEL-NOTES.html">NOTE-0368 T3 CF.Ga!I8</a>; <a href="../EXCEL-NOTES.html">NOTE-0404 T3 CF.Ga!L14</a></td>
+</tr>
+<tr>
+<td>EX-059</td>
+<td>M15 positive denominator chi tiết panel; đổi semantic CoverRatioPercent thành PanelDetailScaleDenominator, không phần trăm.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0060 T1 CF.Ga!M14</a>; <a href="../EXCEL-NOTES.html">NOTE-0232 T2 CF.Ga!M14</a>; <a href="../EXCEL-NOTES.html">NOTE-0405 T3 CF.Ga!M14</a></td>
+</tr>
+<tr>
+<td>EX-060</td>
+<td>Map C..I hàng17 loại 1/2 hoặc19 loại 3 tới đáy/tường/trần/cổ/nắp/lỗ/cửa thu; Protect.H tách wall cover; basis lỗ cần NR-01.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0061 T1 CF.Ga!B16</a>; <a href="../EXCEL-NOTES.html">NOTE-0233 T2 CF.Ga!B16</a>; <a href="../EXCEL-NOTES.html">NOTE-0418 T3 CF.Ga!B18</a></td>
+</tr>
+<tr>
+<td>EX-061</td>
+<td>HookPattern theo từng lớp 0M/1M/2M; không áp ngoài=2M cho mọi component.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0062 T1 CF.Ga!B18</a>; <a href="../EXCEL-NOTES.html">NOTE-0234 T2 CF.Ga!B18</a>; <a href="../EXCEL-NOTES.html">NOTE-0419 T3 CF.Ga!B20</a></td>
+</tr>
+<tr>
+<td>EX-062</td>
+<td>Chia đều có actualGap&lt;=requested; Theo mật độ giữ pitch, chia dư hai mép; lưu requested/actual riêng.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0063 T1 CF.Ga!K18</a>; <a href="../EXCEL-NOTES.html">NOTE-0235 T2 CF.Ga!K18</a>; <a href="../EXCEL-NOTES.html">NOTE-0420 T3 CF.Ga!K20</a></td>
+</tr>
+<tr>
+<td>EX-063</td>
+<td>Theo KC hookNominal=thickness-2<em>cover; Theo ĐK=n</em>Ø; kiểm path fit và basis, không cộng Ø hoặc R lần nữa tùy tiện.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0064 T1 CF.Ga!L18</a>; <a href="../EXCEL-NOTES.html">NOTE-0236 T2 CF.Ga!L18</a>; <a href="../EXCEL-NOTES.html">NOTE-0421 T3 CF.Ga!L20</a></td>
+</tr>
+<tr>
+<td>EX-064</td>
+<td>PitchSymbol là chuỗi chỉ hiển thị; parser vẫn DxxAyyy; đổi ký hiệu không đổi path.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0065 T1 CF.Ga!M18</a>; <a href="../EXCEL-NOTES.html">NOTE-0237 T2 CF.Ga!M18</a>; <a href="../EXCEL-NOTES.html">NOTE-0422 T3 CF.Ga!M20</a></td>
+</tr>
+<tr>
+<td>EX-065</td>
+<td>NoteStyle1 chọn BLT1/2 SH/DK/A; Style2 chọn BLT3/4 và format NOTE=mark-Ø, không bind tag không tồn tại.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0066 T1 CF.Ga!K20</a>; <a href="../EXCEL-NOTES.html">NOTE-0238 T2 CF.Ga!K20</a>; <a href="../EXCEL-NOTES.html">NOTE-0423 T3 CF.Ga!K22</a></td>
+</tr>
+<tr>
+<td>EX-066</td>
+<td>HookMultiple n&gt;0 chỉ dùng Theo ĐK; nếu inactive giữ raw, không thay chiều dài hook KC.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0067 T1 CF.Ga!L20</a>; <a href="../EXCEL-NOTES.html">NOTE-0239 T2 CF.Ga!L20</a>; <a href="../EXCEL-NOTES.html">NOTE-0424 T3 CF.Ga!L22</a></td>
+</tr>
+<tr>
+<td>EX-067</td>
+<td>Prefix theo từng cột lớp C..J (value row21 loại 1/2, row23 loại 3); blank là prefix rỗng hợp lệ, không ép D/T/N/C.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0068 T1 CF.Ga!B21</a>; <a href="../EXCEL-NOTES.html">NOTE-0240 T2 CF.Ga!B21</a>; <a href="../EXCEL-NOTES.html">NOTE-0425 T3 CF.Ga!B23</a></td>
+</tr>
+<tr>
+<td>EX-068</td>
+<td>Nhóm ties C..L value row23 loại 1/2,25 loại 3; field I là lap multiplier, không pitch.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0069 T1 CF.Ga!B22</a>; <a href="../EXCEL-NOTES.html">NOTE-0241 T2 CF.Ga!B22</a>; <a href="../EXCEL-NOTES.html">NOTE-0426 T3 CF.Ga!B24</a></td>
+</tr>
+<tr>
+<td>EX-069</td>
+<td>Distribution ties Đều/Lệch lưu enum; chọn stations arbitrary pitch/phase cần NR-03, không ép 2*pitch.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0070 T1 CF.Ga!C22</a>; <a href="../EXCEL-NOTES.html">NOTE-0242 T2 CF.Ga!C22</a>; <a href="../EXCEL-NOTES.html">NOTE-0427 T3 CF.Ga!C24</a></td>
+</tr>
+<tr>
+<td>EX-070</td>
+<td>Tie shape đáy riêng; C/U/Z unsupported giữ Partial, không đổi thành U.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0071 T1 CF.Ga!D22</a>; <a href="../EXCEL-NOTES.html">NOTE-0243 T2 CF.Ga!D22</a>; <a href="../EXCEL-NOTES.html">NOTE-0428 T3 CF.Ga!D24</a></td>
+</tr>
+<tr>
+<td>EX-071</td>
+<td>Tie shape tường riêng; physical C bốn góc R8 theo owner nhưng kích thước/basis cần NR-02/04.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0072 T1 CF.Ga!E22</a>; <a href="../EXCEL-NOTES.html">NOTE-0244 T2 CF.Ga!E22</a>; <a href="../EXCEL-NOTES.html">NOTE-0429 T3 CF.Ga!E24</a></td>
+</tr>
+<tr>
+<td>EX-072</td>
+<td>Tie shape trần riêng; tie có thể nối hai lớp nhưng chỉ một occurrence.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0073 T1 CF.Ga!F22</a>; <a href="../EXCEL-NOTES.html">NOTE-0245 T2 CF.Ga!F22</a>; <a href="../EXCEL-NOTES.html">NOTE-0430 T3 CF.Ga!F24</a></td>
+</tr>
+<tr>
+<td>EX-073</td>
+<td>Tie shape cổ riêng; không tuyên bố Supported từ WallC, cần NR-04 khi chưa có shape.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0074 T1 CF.Ga!G22</a>; <a href="../EXCEL-NOTES.html">NOTE-0246 T2 CF.Ga!G22</a>; <a href="../EXCEL-NOTES.html">NOTE-0431 T3 CF.Ga!G24</a></td>
+</tr>
+<tr>
+<td>EX-074</td>
+<td>Ties.H parse diameter/pitch; pitch vượt kích thước có thể OFF theo note, không sinh tối thiểu một tie; 0 không tự coi OFF.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0075 T1 CF.Ga!H22</a>; <a href="../EXCEL-NOTES.html">NOTE-0247 T2 CF.Ga!H22</a>; <a href="../EXCEL-NOTES.html">NOTE-0432 T3 CF.Ga!H24</a></td>
+</tr>
+<tr>
+<td>EX-075</td>
+<td>Ties.I=nD lap vòng cống/bo lỗ/đai cổ; không dùng vào móc C/U/Z.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0076 T1 CF.Ga!I22</a>; <a href="../EXCEL-NOTES.html">NOTE-0248 T2 CF.Ga!I22</a>; <a href="../EXCEL-NOTES.html">NOTE-0433 T3 CF.Ga!I24</a></td>
+</tr>
+<tr>
+<td>EX-076</td>
+<td>Ties.J là chiều dài hai đầu C, mm; hai đoạn depth của physical C không có tag này, cần NR-02.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0077 T1 CF.Ga!J22</a>; <a href="../EXCEL-NOTES.html">NOTE-0249 T2 CF.Ga!J22</a>; <a href="../EXCEL-NOTES.html">NOTE-0434 T3 CF.Ga!J24</a></td>
+</tr>
+<tr>
+<td>EX-077</td>
+<td>Ties.K là hai đoạn đầu U/Z, mm; không gộp với đoạn giữa U.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0078 T1 CF.Ga!K22</a>; <a href="../EXCEL-NOTES.html">NOTE-0250 T2 CF.Ga!K22</a>; <a href="../EXCEL-NOTES.html">NOTE-0435 T3 CF.Ga!K24</a></td>
+</tr>
+<tr>
+<td>EX-078</td>
+<td>Ties.L là đoạn giữa U, mm; span/layer stack phải kiểm tương thích NR-04.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0079 T1 CF.Ga!L22</a>; <a href="../EXCEL-NOTES.html">NOTE-0251 T2 CF.Ga!L22</a>; <a href="../EXCEL-NOTES.html">NOTE-0436 T3 CF.Ga!L24</a></td>
+</tr>
+<tr>
+<td>EX-079</td>
+<td>Nhóm thang C:G value row25 hoặc27; mỗi option có nguồn riêng.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0080 T1 CF.Ga!B24</a>; <a href="../EXCEL-NOTES.html">NOTE-0252 T2 CF.Ga!B24</a>; <a href="../EXCEL-NOTES.html">NOTE-0437 T3 CF.Ga!B26</a></td>
+</tr>
+<tr>
+<td>EX-080</td>
+<td>Không là OFF; Theo vị trí cổ resolve host cùng NeckPosition; va lỗ không tự dời rung.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0081 T1 CF.Ga!C24</a>; <a href="../EXCEL-NOTES.html">NOTE-0253 T2 CF.Ga!C24</a>; <a href="../EXCEL-NOTES.html">NOTE-0438 T3 CF.Ga!C26</a></td>
+</tr>
+<tr>
+<td>EX-081</td>
+<td>Ø thang positive integer khi ON; nhãn lấy số thật, không hardcode D18.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0082 T1 CF.Ga!D24</a>; <a href="../EXCEL-NOTES.html">NOTE-0254 T2 CF.Ga!D24</a>; <a href="../EXCEL-NOTES.html">NOTE-0439 T3 CF.Ga!D26</a></td>
+</tr>
+<tr>
+<td>EX-082</td>
+<td>Ladder.E AxB: firstDropMm=A và rungPitchMm=B; zFirst=TopDatum-A; rung kế tiếp trừ B đến usable bottom.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0083 T1 CF.Ga!E24</a>; <a href="../EXCEL-NOTES.html">NOTE-0255 T2 CF.Ga!E24</a>; <a href="../EXCEL-NOTES.html">NOTE-0440 T3 CF.Ga!E26</a></td>
+</tr>
+<tr>
+<td>EX-083</td>
+<td>Ladder.F MxHxB: footLeft=footRight=M, sideDepth=H, bridgeWidth=B; không đọc chuỗi thành một số.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0084 T1 CF.Ga!F24</a>; <a href="../EXCEL-NOTES.html">NOTE-0256 T2 CF.Ga!F24</a>; <a href="../EXCEL-NOTES.html">NOTE-0441 T3 CF.Ga!F26</a></td>
+</tr>
+<tr>
+<td>EX-084</td>
+<td>Ladder.G prefix riêng; đổi prefix không gộp với U dù cùng TK.M.U.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0085 T1 CF.Ga!G24</a>; <a href="../EXCEL-NOTES.html">NOTE-0257 T2 CF.Ga!G24</a>; <a href="../EXCEL-NOTES.html">NOTE-0442 T3 CF.Ga!G26</a></td>
+</tr>
+<tr>
+<td>EX-085</td>
+<td>Nhóm pipe vữa/GC/offset ở vùng cống; không áp một shift +2 cho toàn CF.Ga.</td>
+<td>T1/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0086 T1 CF.Ga!B26</a></td>
+</tr>
+<tr>
+<td>EX-086</td>
+<td>Pipe.C mortarThicknessMm&gt;=0; cutout=pipe outer+vữa, không thay hole cover.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0087 T1 CF.Ga!C26</a>; <a href="../EXCEL-NOTES.html">NOTE-0259 T2 CF.Ga!C26</a>; <a href="../EXCEL-NOTES.html">NOTE-0444 T3 CF.Ga!C28</a></td>
+</tr>
+<tr>
+<td>EX-087</td>
+<td>Pipe.D..H là cấu hình gia cường lỗ cống, không đồng nghĩa lưới tường bị cắt.</td>
+<td>T1/CF.Ga, T2/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0088 T1 CF.Ga!D26</a>; <a href="../EXCEL-NOTES.html">NOTE-0260 T2 CF.Ga!D26</a></td>
+</tr>
+<tr>
+<td>EX-088</td>
+<td>Offset T1..T4 nhìn trong ra: trái dương/phải âm và áp toàn workbook; world/view map phải ghi dấu, không abs.</td>
+<td>T1/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0089 T1 CF.Ga!I26</a></td>
+</tr>
+<tr>
+<td>EX-089</td>
+<td>Pipe.D gia cường Ø&gt;=0; 0 OFF riêng GC, vẫn cắt lưới theo opening.</td>
+<td>T1/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0090 T1 CF.Ga!D27</a></td>
+</tr>
+<tr>
+<td>EX-090</td>
+<td>Pipe.E enum Bo/Xiên/Vuông/Bo+Xiên/Bo+Vuông cho tròn; hộp chỉ bo cạnh; tổ hợp không có nguồn chặn.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0091 T1 CF.Ga!E27</a>; <a href="../EXCEL-NOTES.html">NOTE-0263 T2 CF.Ga!E27</a>; <a href="../EXCEL-NOTES.html">NOTE-0448 T3 CF.Ga!E29</a></td>
+</tr>
+<tr>
+<td>EX-091</td>
+<td>Pipe.F quantity: hộp n-&gt;4n thanh; tròn một vòng mỗi lớp khi chọn Bo và 4n thanh phụ khi chọn Xiên/Vuông, không nhân vòng theo n.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0092 T1 CF.Ga!F27</a>; <a href="../EXCEL-NOTES.html">NOTE-0264 T2 CF.Ga!F27</a>; <a href="../EXCEL-NOTES.html">NOTE-0449 T3 CF.Ga!F29</a></td>
+</tr>
+<tr>
+<td>EX-092</td>
+<td>Pipe.G extensionMm giữ riêng, chặn vượt cover envelope; không tùy clamp nếu thay cấu tạo mà không receipt.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0093 T1 CF.Ga!G27</a>; <a href="../EXCEL-NOTES.html">NOTE-0265 T2 CF.Ga!G27</a>; <a href="../EXCEL-NOTES.html">NOTE-0450 T3 CF.Ga!G29</a></td>
+</tr>
+<tr>
+<td>EX-093</td>
+<td>Pipe.H prefix GC theo lớp đánh lại chỉ số; scope không chỉ chuỗi mark.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0094 T1 CF.Ga!H27</a>; <a href="../EXCEL-NOTES.html">NOTE-0266 T2 CF.Ga!H27</a>; <a href="../EXCEL-NOTES.html">NOTE-0451 T3 CF.Ga!H29</a></td>
+</tr>
+<tr>
+<td>EX-094</td>
+<td>Nhóm RoofRebar C:G ở row30 hoặc32 thuộc lỗ thăm, độc lập Pipe GC.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0095 T1 CF.Ga!B29</a>; <a href="../EXCEL-NOTES.html">NOTE-0267 T2 CF.Ga!B29</a>; <a href="../EXCEL-NOTES.html">NOTE-0452 T3 CF.Ga!B31</a></td>
+</tr>
+<tr>
+<td>EX-095</td>
+<td>RoofRebar.C Ø&gt;=0, 0 OFF riêng bo/gia cường lỗ thăm.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0096 T1 CF.Ga!C29</a>; <a href="../EXCEL-NOTES.html">NOTE-0268 T2 CF.Ga!C29</a>; <a href="../EXCEL-NOTES.html">NOTE-0453 T3 CF.Ga!C31</a></td>
+</tr>
+<tr>
+<td>EX-096</td>
+<td>RoofRebar.D Bo/Vuông/Bo+Vuông; không thay bo chữ nhật thành bốn thanh xiên.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0097 T1 CF.Ga!D29</a>; <a href="../EXCEL-NOTES.html">NOTE-0269 T2 CF.Ga!D29</a>; <a href="../EXCEL-NOTES.html">NOTE-0454 T3 CF.Ga!D31</a></td>
+</tr>
+<tr>
+<td>EX-097</td>
+<td>RoofRebar.E quantity chỉ cho thanh vuông, bo một mỗi lưới; không nhân vòng hoặc đếm qua view.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0098 T1 CF.Ga!E29</a>; <a href="../EXCEL-NOTES.html">NOTE-0270 T2 CF.Ga!E29</a>; <a href="../EXCEL-NOTES.html">NOTE-0455 T3 CF.Ga!E31</a></td>
+</tr>
+<tr>
+<td>EX-098</td>
+<td>RoofRebar.F extension theo cạnh và cover envelope; không lấy kích thước nét schematic.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0099 T1 CF.Ga!F29</a>; <a href="../EXCEL-NOTES.html">NOTE-0271 T2 CF.Ga!F29</a>; <a href="../EXCEL-NOTES.html">NOTE-0456 T3 CF.Ga!F31</a></td>
+</tr>
+<tr>
+<td>EX-099</td>
+<td>RoofRebar.G prefix scope theo lớp; không gộp vòng cổ vì cùng GC1.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0100 T1 CF.Ga!G29</a>; <a href="../EXCEL-NOTES.html">NOTE-0272 T2 CF.Ga!G29</a>; <a href="../EXCEL-NOTES.html">NOTE-0457 T3 CF.Ga!G31</a></td>
+</tr>
+<tr>
+<td>EX-100</td>
+<td>Nhóm Elevation C:I giữ mode và ký hiệu cho từng surface/cống, không hardcode cao độ mẫu.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0101 T1 CF.Ga!B31</a>; <a href="../EXCEL-NOTES.html">NOTE-0273 T2 CF.Ga!B31</a>; <a href="../EXCEL-NOTES.html">NOTE-0458 T3 CF.Ga!B33</a></td>
+</tr>
+<tr>
+<td>EX-101</td>
+<td>Tuyệt đối lấy AA + localZ/1000; Tương đối lấy symbol; AA blank chỉ hợp lệ khi không cần tuyệt đối.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0102 T1 CF.Ga!C31</a>; <a href="../EXCEL-NOTES.html">NOTE-0274 T2 CF.Ga!C31</a>; <a href="../EXCEL-NOTES.html">NOTE-0459 T3 CF.Ga!C33</a></td>
+</tr>
+<tr>
+<td>EX-102</td>
+<td>Material.C:F là literal cấu hình; không ép M250/M100 hoặc dịch enum thành vật liệu.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0103 T1 CF.Ga!B33</a>; <a href="../EXCEL-NOTES.html">NOTE-0275 T2 CF.Ga!B33</a>; <a href="../EXCEL-NOTES.html">NOTE-0460 T3 CF.Ga!B35</a></td>
+</tr>
+<tr>
+<td>EX-103</td>
+<td>Hatch.C:M theo vật liệu/scale/angle; CF.Data bổ sung tên; fallback phải có receipt và profile rõ.</td>
+<td>T1/CF.Ga, T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0104 T1 CF.Ga!B35</a>; <a href="../EXCEL-NOTES.html">NOTE-0276 T2 CF.Ga!B35</a>; <a href="../EXCEL-NOTES.html">NOTE-0461 T3 CF.Ga!B37</a></td>
+</tr>
+<tr>
+<td>EX-104</td>
+<td>CF.Cong là catalog mở rộng; đọc đủ rows, giữ source/version và từ chối mã trùng khác hình học.</td>
+<td>T1/CF.Cong, T2/CF.Cong, T3/CF.Cong</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0105 T1 CF.Cong!A2</a>; <a href="../EXCEL-NOTES.html">NOTE-0277 T2 CF.Cong!A2</a>; <a href="../EXCEL-NOTES.html">NOTE-0462 T3 CF.Cong!A2</a></td>
+</tr>
+<tr>
+<td>EX-105</td>
+<td>B/C catalog tròn là innerDiameter/thickness mm; không chỉ đọc B hoặc suy thickness10%.</td>
+<td>T1/CF.Cong, T2/CF.Cong, T3/CF.Cong</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0106 T1 CF.Cong!B2</a>; <a href="../EXCEL-NOTES.html">NOTE-0278 T2 CF.Cong!B2</a>; <a href="../EXCEL-NOTES.html">NOTE-0463 T3 CF.Cong!B2</a></td>
+</tr>
+<tr>
+<td>EX-106</td>
+<td>Catalog hộp D width là khoảng hai mép trong tường ngoài cùng của cả cống đôi; không nhân đôi width.</td>
+<td>T1/CF.Cong, T2/CF.Cong, T3/CF.Cong</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0107 T1 CF.Cong!D3</a>; <a href="../EXCEL-NOTES.html">NOTE-0279 T2 CF.Cong!D3</a>; <a href="../EXCEL-NOTES.html">NOTE-0464 T3 CF.Cong!D3</a></td>
+</tr>
+<tr>
+<td>EX-107</td>
+<td>Catalog hộp E innerHeightMm; validate &gt;0.</td>
+<td>T1/CF.Cong, T2/CF.Cong, T3/CF.Cong</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0108 T1 CF.Cong!E3</a>; <a href="../EXCEL-NOTES.html">NOTE-0280 T2 CF.Cong!E3</a>; <a href="../EXCEL-NOTES.html">NOTE-0465 T3 CF.Cong!E3</a></td>
+</tr>
+<tr>
+<td>EX-108</td>
+<td>Catalog hộp F wallThicknessMm; web nếu khác cần typed entry, không đoán từ tên.</td>
+<td>T1/CF.Cong, T2/CF.Cong, T3/CF.Cong</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0109 T1 CF.Cong!F3</a>; <a href="../EXCEL-NOTES.html">NOTE-0281 T2 CF.Cong!F3</a>; <a href="../EXCEL-NOTES.html">NOTE-0466 T3 CF.Cong!F3</a></td>
+</tr>
+<tr>
+<td>EX-109</td>
+<td>Catalog hộp G chamfer horizontal/vertical; validate contour không tự giao và không thay bằng một giá trị tùy chọn.</td>
+<td>T1/CF.Cong, T2/CF.Cong, T3/CF.Cong</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0110 T1 CF.Cong!G3</a>; <a href="../EXCEL-NOTES.html">NOTE-0282 T2 CF.Cong!G3</a>; <a href="../EXCEL-NOTES.html">NOTE-0467 T3 CF.Cong!G3</a></td>
+</tr>
+<tr>
+<td>EX-110</td>
+<td>Catalog H DoubleFlag tạo web/voids đúng; một outer contour với hai inner loops, không hai cống chồng.</td>
+<td>T1/CF.Cong, T2/CF.Cong, T3/CF.Cong</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0111 T1 CF.Cong!H3</a>; <a href="../EXCEL-NOTES.html">NOTE-0283 T2 CF.Cong!H3</a>; <a href="../EXCEL-NOTES.html">NOTE-0468 T3 CF.Cong!H3</a></td>
+</tr>
+<tr>
+<td>EX-111</td>
+<td>CF.Data B/C angle code và kg/m; ví dụ link tác giả là provenance, không coi bảng kg/m đã tự được chuẩn hóa.</td>
+<td>T1/CF.Data, T2/CF.Data, T3/CF.Data</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0113 T1 CF.Data!B2</a>; <a href="../EXCEL-NOTES.html">NOTE-0285 T2 CF.Data!B2</a>; <a href="../EXCEL-NOTES.html">NOTE-0470 T3 CF.Data!B2</a></td>
+</tr>
+<tr>
+<td>EX-112</td>
+<td>CF.Data D/E/F hatch name/scale/description; role description không phải shape input.</td>
+<td>T1/CF.Data, T2/CF.Data, T3/CF.Data</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0114 T1 CF.Data!D2</a>; <a href="../EXCEL-NOTES.html">NOTE-0286 T2 CF.Data!D2</a>; <a href="../EXCEL-NOTES.html">NOTE-0471 T3 CF.Data!D2</a></td>
+</tr>
+<tr>
+<td>EX-113</td>
+<td>CF.Data F description được thay đổi; giữ literal, không suy hatch từ tên tiếng Việt.</td>
+<td>T1/CF.Data, T2/CF.Data, T3/CF.Data</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0115 T1 CF.Data!F2</a>; <a href="../EXCEL-NOTES.html">NOTE-0287 T2 CF.Data!F2</a>; <a href="../EXCEL-NOTES.html">NOTE-0472 T3 CF.Data!F2</a></td>
+</tr>
+<tr>
+<td>EX-114</td>
+<td>CF.Data G bảng lọc lựa chọn từ CF.Cong; không dùng cache thay catalog gốc.</td>
+<td>T1/CF.Data, T2/CF.Data, T3/CF.Data</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0116 T1 CF.Data!G2</a>; <a href="../EXCEL-NOTES.html">NOTE-0288 T2 CF.Data!G2</a>; <a href="../EXCEL-NOTES.html">NOTE-0473 T3 CF.Data!G2</a></td>
+</tr>
+<tr>
+<td>EX-115</td>
+<td>CF.Data I basecode sản phẩm không có .MB/.AA/.BB; validate đủ ba view.</td>
+<td>T1/CF.Data, T2/CF.Data, T3/CF.Data</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0117 T1 CF.Data!I2</a>; <a href="../EXCEL-NOTES.html">NOTE-0289 T2 CF.Data!I2</a>; <a href="../EXCEL-NOTES.html">NOTE-0474 T3 CF.Data!I2</a></td>
+</tr>
+<tr>
+<td>EX-116</td>
+<td>V/Laxbxc giữ ký tự x trong code; parse dimensions riêng, exact lookup catalogue.</td>
+<td>T1/CF.Data, T2/CF.Data, T3/CF.Data</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0118 T1 CF.Data!B3</a>; <a href="../EXCEL-NOTES.html">NOTE-0290 T2 CF.Data!B3</a>; <a href="../EXCEL-NOTES.html">NOTE-0475 T3 CF.Data!B3</a></td>
+</tr>
+<tr>
+<td>EX-117</td>
+<td>CF.Data C là kg/m, không kg/mm; angle Mass=rawLengthMm/1000*kgPerM.</td>
+<td>T1/CF.Data, T2/CF.Data, T3/CF.Data</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0119 T1 CF.Data!C3</a>; <a href="../EXCEL-NOTES.html">NOTE-0291 T2 CF.Data!C3</a>; <a href="../EXCEL-NOTES.html">NOTE-0476 T3 CF.Data!C3</a></td>
+</tr>
+<tr>
+<td>EX-118</td>
+<td>Hatch thiếu trong CAD: note cho fallback nhưng không chỉ định mẫu; profile default cần NR-17, luôn log requested/resolved.</td>
+<td>T1/CF.Data, T2/CF.Data, T3/CF.Data</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0120 T1 CF.Data!D3</a>; <a href="../EXCEL-NOTES.html">NOTE-0292 T2 CF.Data!D3</a>; <a href="../EXCEL-NOTES.html">NOTE-0477 T3 CF.Data!D3</a></td>
+</tr>
+<tr>
+<td>EX-119</td>
+<td>CF.Data E hatch scale ứng với tên cùng dòng; không lấy scale của dòng gần nhất.</td>
+<td>T1/CF.Data, T2/CF.Data, T3/CF.Data</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0121 T1 CF.Data!E3</a>; <a href="../EXCEL-NOTES.html">NOTE-0293 T2 CF.Data!E3</a>; <a href="../EXCEL-NOTES.html">NOTE-0478 T3 CF.Data!E3</a></td>
+</tr>
+<tr>
+<td>EX-120</td>
+<td>G công thức lọc lần1 chỉ hỗ trợ UI; không sinh physical profile.</td>
+<td>T1/CF.Data, T2/CF.Data, T3/CF.Data</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0122 T1 CF.Data!G3</a>; <a href="../EXCEL-NOTES.html">NOTE-0294 T2 CF.Data!G3</a>; <a href="../EXCEL-NOTES.html">NOTE-0479 T3 CF.Data!G3</a></td>
+</tr>
+<tr>
+<td>EX-121</td>
+<td>H lọc lần2 bỏ D/x phục vụ danh sách; giữ formula/cache; cache lỗi/thiếu không đoán size vật lý.</td>
+<td>T1/CF.Data, T2/CF.Data, T3/CF.Data</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0123 T1 CF.Data!H3</a>; <a href="../EXCEL-NOTES.html">NOTE-0295 T2 CF.Data!H3</a>; <a href="../EXCEL-NOTES.html">NOTE-0480 T3 CF.Data!H3</a></td>
+</tr>
+<tr>
+<td>EX-122</td>
+<td>Dòng A65/A66 là nơi chèn catalog, không giới hạn cuối bảng theo số hàng cứng.</td>
+<td>T1/CF.Data, T2/CF.Data, T3/CF.Data</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0124 T1 CF.Data!A65</a>; <a href="../EXCEL-NOTES.html">NOTE-0296 T2 CF.Data!A65</a>; <a href="../EXCEL-NOTES.html">NOTE-0481 T3 CF.Data!A66</a></td>
+</tr>
+<tr>
+<td>EX-123</td>
+<td>KL HG B2 là tham chiếu tên ga; chỉ kiểm consistency, không chọn geometry theo tên này.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0125 T1 KL HG!B2</a>; <a href="../EXCEL-NOTES.html">NOTE-0297 T2 KL HG!B2</a>; <a href="../EXCEL-NOTES.html">NOTE-0482 T3 KL HG!B2</a></td>
+</tr>
+<tr>
+<td>EX-124</td>
+<td>KL HG C2 là số ga phục vụ lượng; không nhân SL thép một ga khi vẽ.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0126 T1 KL HG!C2</a>; <a href="../EXCEL-NOTES.html">NOTE-0298 T2 KL HG!C2</a>; <a href="../EXCEL-NOTES.html">NOTE-0483 T3 KL HG!C2</a></td>
+</tr>
+<tr>
+<td>EX-125</td>
+<td>KL HG D/E cao độ phục vụ đào đắp; không override AA main input.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0127 T1 KL HG!D2</a>; <a href="../EXCEL-NOTES.html">NOTE-0299 T2 KL HG!D2</a>; <a href="../EXCEL-NOTES.html">NOTE-0484 T3 KL HG!D2</a></td>
+</tr>
+<tr>
+<td>EX-126</td>
+<td>KL HG F là chiều cao từ đỉnh panel tới đáy trong; giữ quantity scope, không lấy làm clearHeight body.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0128 T1 KL HG!F2</a>; <a href="../EXCEL-NOTES.html">NOTE-0300 T2 KL HG!F2</a>; <a href="../EXCEL-NOTES.html">NOTE-0485 T3 KL HG!F2</a></td>
+</tr>
+<tr>
+<td>EX-127</td>
+<td>KL HG G catalog cống tham chiếu; so nguồn main/CF, không lấy bảng lượng làm catalog có ưu tiên.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0129 T1 KL HG!G2</a>; <a href="../EXCEL-NOTES.html">NOTE-0301 T2 KL HG!G2</a>; <a href="../EXCEL-NOTES.html">NOTE-0486 T3 KL HG!G2</a></td>
+</tr>
+<tr>
+<td>EX-128</td>
+<td>KL HG O nhóm kích thước dẫn xuất; giữ formula/raw, không ghi đè input geometry.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0130 T1 KL HG!O2</a>; <a href="../EXCEL-NOTES.html">NOTE-0302 T2 KL HG!O2</a>; <a href="../EXCEL-NOTES.html">NOTE-0487 T3 KL HG!O2</a></td>
+</tr>
+<tr>
+<td>EX-129</td>
+<td>Công tác cát lót bổ sung thuộc quantity scope; không tự sinh Pad hoặc vật liệu chưa requested.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0131 T1 KL HG!W2</a>; <a href="../EXCEL-NOTES.html">NOTE-0303 T2 KL HG!W2</a>; <a href="../EXCEL-NOTES.html">NOTE-0488 T3 KL HG!W2</a></td>
+</tr>
+<tr>
+<td>EX-130</td>
+<td>Công thức đào đắp tùy dự án được giữ, không đưa vào DWG geometry; yêu cầu lượng riêng cần quantity policy có nguồn.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0132 T1 KL HG!BP2</a>; <a href="../EXCEL-NOTES.html">NOTE-0304 T2 KL HG!BQ2</a>; <a href="../EXCEL-NOTES.html">NOTE-0489 T3 KL HG!CH2</a></td>
+</tr>
+<tr>
+<td>EX-131</td>
+<td>KL HG U3 chiều cao BTCT cổ, chỉ đối chiếu W main; không tính cả CoverHeight.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0133 T1 KL HG!U3</a>; <a href="../EXCEL-NOTES.html">NOTE-0306 T2 KL HG!U3</a>; <a href="../EXCEL-NOTES.html">NOTE-0491 T3 KL HG!U3</a></td>
+</tr>
+<tr>
+<td>EX-132</td>
+<td>KL HG V3 dày cổ dẫn xuất; nếu khác X main ghi data difference, không tự chọn.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0134 T1 KL HG!V3</a>; <a href="../EXCEL-NOTES.html">NOTE-0307 T2 KL HG!V3</a>; <a href="../EXCEL-NOTES.html">NOTE-0492 T3 KL HG!V3</a></td>
+</tr>
+<tr>
+<td>EX-133</td>
+<td>KL HG AC3 bê tông tường là quantity output, không tạo shape từ volume.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0135 T1 KL HG!AC3</a>; <a href="../EXCEL-NOTES.html">NOTE-0308 T2 KL HG!AC3</a>; <a href="../EXCEL-NOTES.html">NOTE-0493 T3 KL HG!AC3</a></td>
+</tr>
+<tr>
+<td>EX-134</td>
+<td>KL HG AI/AJ3 ván khuôn tường ngoài mục tiêu DWG; giữ công thức, không thay diện tích support.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0136 T1 KL HG!AI3</a>; <a href="../EXCEL-NOTES.html">NOTE-0309 T2 KL HG!AI3</a>; <a href="../EXCEL-NOTES.html">NOTE-0494 T3 KL HG!AJ3</a></td>
+</tr>
+<tr>
+<td>EX-135</td>
+<td>KL HG BC/BD/BU3 dài panel phương ngang: giá trị đối chiếu từ panel effective, không importer authority.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0137 T1 KL HG!BC3</a>; <a href="../EXCEL-NOTES.html">NOTE-0310 T2 KL HG!BD3</a>; <a href="../EXCEL-NOTES.html">NOTE-0495 T3 KL HG!BU3</a></td>
+</tr>
+<tr>
+<td>EX-136</td>
+<td>KL HG BD/BE/BV3 rộng panel phương đứng; không đảo theo tên Length/Width.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0138 T1 KL HG!BD3</a>; <a href="../EXCEL-NOTES.html">NOTE-0311 T2 KL HG!BE3</a>; <a href="../EXCEL-NOTES.html">NOTE-0496 T3 KL HG!BV3</a></td>
+</tr>
+<tr>
+<td>EX-137</td>
+<td>Thể tích chóp cụt đào toàn ga thuộc quantity scope; không hardcode slope vào concrete model.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0139 T1 KL HG!BP3</a>; <a href="../EXCEL-NOTES.html">NOTE-0312 T2 KL HG!BQ3</a>; <a href="../EXCEL-NOTES.html">NOTE-0497 T3 KL HG!CH3</a></td>
+</tr>
+<tr>
+<td>EX-138</td>
+<td>Phần cống trong K98 thuộc đào đắp; giữ minh bạch out-of-DWG-scope, không xóa note.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0140 T1 KL HG!BS3</a>; <a href="../EXCEL-NOTES.html">NOTE-0313 T2 KL HG!BT3</a>; <a href="../EXCEL-NOTES.html">NOTE-0498 T3 KL HG!CK3</a></td>
+</tr>
+<tr>
+<td>EX-139</td>
+<td>Phần cổ trong K98 thuộc quantity scope; không tạo thêm cổ hoặc đổi surface.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0141 T1 KL HG!BU3</a>; <a href="../EXCEL-NOTES.html">NOTE-0314 T2 KL HG!BV3</a>; <a href="../EXCEL-NOTES.html">NOTE-0499 T3 KL HG!CM3</a></td>
+</tr>
+<tr>
+<td>EX-140</td>
+<td>KL HG M4/K4 expansionBase đối chiếu C5; source input vẫn CF.Ga.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0142 T1 KL HG!M4</a>; <a href="../EXCEL-NOTES.html">NOTE-0315 T2 KL HG!M4</a>; <a href="../EXCEL-NOTES.html">NOTE-0500 T3 KL HG!K4</a></td>
+</tr>
+<tr>
+<td>EX-141</td>
+<td>KL HG O4/M4 thicknessPad đối chiếu D3; 0 trong quantity không tự tắt Pad input dương.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0143 T1 KL HG!O4</a>; <a href="../EXCEL-NOTES.html">NOTE-0316 T2 KL HG!O4</a>; <a href="../EXCEL-NOTES.html">NOTE-0501 T3 KL HG!M4</a></td>
+</tr>
+<tr>
+<td>EX-142</td>
+<td>KL HG Q4/O4 clear cổ ngang đối chiếu EffectiveNeckClear; không override catalog.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0144 T1 KL HG!Q4</a>; <a href="../EXCEL-NOTES.html">NOTE-0317 T2 KL HG!Q4</a>; <a href="../EXCEL-NOTES.html">NOTE-0502 T3 KL HG!O4</a></td>
+</tr>
+<tr>
+<td>EX-143</td>
+<td>KL HG S4 height panel đối chiếu resolved panel, không owner frame100.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0145 T1 KL HG!S4</a>; <a href="../EXCEL-NOTES.html">NOTE-0318 T2 KL HG!S4</a>; <a href="../EXCEL-NOTES.html">NOTE-0504 T3 KL HG!S4</a></td>
+</tr>
+<tr>
+<td>EX-144</td>
+<td>STT công tác V4 dùng THKL, bảo toàn thứ tự ngoài DWG.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0146 T1 KL HG!V4</a>; <a href="../EXCEL-NOTES.html">NOTE-0319 T2 KL HG!V4</a>; <a href="../EXCEL-NOTES.html">NOTE-0505 T3 KL HG!V4</a></td>
+</tr>
+<tr>
+<td>EX-145</td>
+<td>KL HG BH/BI/BZ4 cát lót quantity riêng, không đổi lớp lót bê tông.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0147 T1 KL HG!BH4</a>; <a href="../EXCEL-NOTES.html">NOTE-0320 T2 KL HG!BI4</a>; <a href="../EXCEL-NOTES.html">NOTE-0506 T3 KL HG!BZ4</a></td>
+</tr>
+<tr>
+<td>EX-146</td>
+<td>KL HG BL/BM/CD4 expansion excavation so mép bê tông lót, không BaseExpansion.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0148 T1 KL HG!BL4</a>; <a href="../EXCEL-NOTES.html">NOTE-0321 T2 KL HG!BM4</a>; <a href="../EXCEL-NOTES.html">NOTE-0507 T3 KL HG!CD4</a></td>
+</tr>
+<tr>
+<td>EX-147</td>
+<td>KL HG M5/K5 vạt đáy dẫn xuất, đối chiếu D5; không tạo haunch khi raw OFF.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0149 T1 KL HG!M5</a>; <a href="../EXCEL-NOTES.html">NOTE-0322 T2 KL HG!M5</a>; <a href="../EXCEL-NOTES.html">NOTE-0508 T3 KL HG!K5</a></td>
+</tr>
+<tr>
+<td>EX-148</td>
+<td>KL HG O5/M5 expansionPad đối chiếu C3; không suy từ width volume.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0150 T1 KL HG!O5</a>; <a href="../EXCEL-NOTES.html">NOTE-0323 T2 KL HG!O5</a>; <a href="../EXCEL-NOTES.html">NOTE-0509 T3 KL HG!M5</a></td>
+</tr>
+<tr>
+<td>EX-149</td>
+<td>KL HG Q5/O5 clear cổ đứng; giữ trục giấy/cấu kiện rõ.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0151 T1 KL HG!Q5</a>; <a href="../EXCEL-NOTES.html">NOTE-0324 T2 KL HG!Q5</a>; <a href="../EXCEL-NOTES.html">NOTE-0510 T3 KL HG!O5</a></td>
+</tr>
+<tr>
+<td>EX-150</td>
+<td>KL HG S5 số panel dẫn xuất, không quantity vòng thép hoặc số ga.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0152 T1 KL HG!S5</a>; <a href="../EXCEL-NOTES.html">NOTE-0325 T2 KL HG!S5</a>; <a href="../EXCEL-NOTES.html">NOTE-0512 T3 KL HG!S5</a></td>
+</tr>
+<tr>
+<td>EX-151</td>
+<td>V5 tên công tác dùng THKL; không dùng text này làm material enum.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0153 T1 KL HG!V5</a>; <a href="../EXCEL-NOTES.html">NOTE-0326 T2 KL HG!V5</a>; <a href="../EXCEL-NOTES.html">NOTE-0513 T3 KL HG!V5</a></td>
+</tr>
+<tr>
+<td>EX-152</td>
+<td>BH/BI/BZ5 độ sâu bắt đầu đào từ đỉnh ga thuộc quantity; không dịch FinishedCoverTop.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0154 T1 KL HG!BH5</a>; <a href="../EXCEL-NOTES.html">NOTE-0327 T2 KL HG!BI5</a>; <a href="../EXCEL-NOTES.html">NOTE-0514 T3 KL HG!BZ5</a></td>
+</tr>
+<tr>
+<td>EX-153</td>
+<td>BL/BM/CD5 slope m=cot(angle); chỉ quantity, không gán góc tường ga.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0155 T1 KL HG!BL5</a>; <a href="../EXCEL-NOTES.html">NOTE-0328 T2 KL HG!BM5</a>; <a href="../EXCEL-NOTES.html">NOTE-0515 T3 KL HG!CD5</a></td>
+</tr>
+<tr>
+<td>EX-154</td>
+<td>KL HG M6 vạt trần loại 1 dẫn xuất, không chốt trần rời.</td>
+<td>T1/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0156 T1 KL HG!M6</a></td>
+</tr>
+<tr>
+<td>EX-155</td>
+<td>KL HG Q6/O6 rộng vát cổ đối chiếu G11 thành phần Width.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0157 T1 KL HG!Q6</a>; <a href="../EXCEL-NOTES.html">NOTE-0330 T2 KL HG!Q6</a>; <a href="../EXCEL-NOTES.html">NOTE-0517 T3 KL HG!O6</a></td>
+</tr>
+<tr>
+<td>EX-156</td>
+<td>KL HG S6 gap panel đối chiếu J13; không nhầm mối vữa trần.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0158 T1 KL HG!S6</a>; <a href="../EXCEL-NOTES.html">NOTE-0331 T2 KL HG!S6</a>; <a href="../EXCEL-NOTES.html">NOTE-0519 T3 KL HG!S6</a></td>
+</tr>
+<tr>
+<td>EX-157</td>
+<td>BH/BI/BZ6 cao bắt đầu đắp trừ áo đường thuộc quantity; không sửa datum ga.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0159 T1 KL HG!BH6</a>; <a href="../EXCEL-NOTES.html">NOTE-0332 T2 KL HG!BI6</a>; <a href="../EXCEL-NOTES.html">NOTE-0520 T3 KL HG!BZ6</a></td>
+</tr>
+<tr>
+<td>EX-158</td>
+<td>M7/K7 mortar pipe đối chiếu Pipe.C; không cover thép.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0160 T1 KL HG!M7</a>; <a href="../EXCEL-NOTES.html">NOTE-0333 T2 KL HG!M7</a>; <a href="../EXCEL-NOTES.html">NOTE-0521 T3 KL HG!K7</a></td>
+</tr>
+<tr>
+<td>EX-159</td>
+<td>Q7/O7 cao vát cổ đối chiếu G11 Height; không CoverHeight.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0161 T1 KL HG!Q7</a>; <a href="../EXCEL-NOTES.html">NOTE-0334 T2 KL HG!Q7</a>; <a href="../EXCEL-NOTES.html">NOTE-0522 T3 KL HG!O7</a></td>
+</tr>
+<tr>
+<td>EX-160</td>
+<td>AC7 tổng lượng gồm vạt đáy/trần; chống double count quantity, không union toàn ga.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0162 T1 KL HG!AC7</a>; <a href="../EXCEL-NOTES.html">NOTE-0335 T2 KL HG!AC7</a>; <a href="../EXCEL-NOTES.html">NOTE-0524 T3 KL HG!AC7</a></td>
+</tr>
+<tr>
+<td>EX-161</td>
+<td>Ctrl+Shift+Enter chỉ hướng dẫn Excel cũ; giữ OOXML formula/cache, không phải business rule gia công.</td>
+<td>T1/KL HG, T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0163 T1 KL HG!H8</a>; <a href="../EXCEL-NOTES.html">NOTE-0164 T1 KL HG!J8</a>; <a href="../EXCEL-NOTES.html">NOTE-0165 T1 KL HG!L8</a>; <a href="../EXCEL-NOTES.html">NOTE-0166 T1 KL HG!N8</a>; <a href="../EXCEL-NOTES.html">NOTE-0336 T2 KL HG!H8</a>; <a href="../EXCEL-NOTES.html">NOTE-0337 T2 KL HG!J8</a>; <a href="../EXCEL-NOTES.html">NOTE-0338 T2 KL HG!L8</a>; <a href="../EXCEL-NOTES.html">NOTE-0339 T2 KL HG!N8</a>; <a href="../EXCEL-NOTES.html">NOTE-0525 T3 KL HG!H8</a>; <a href="../EXCEL-NOTES.html">NOTE-0526 T3 KL HG!J8</a>; <a href="../EXCEL-NOTES.html">NOTE-0527 T3 KL HG!L8</a>; <a href="../EXCEL-NOTES.html">NOTE-0528 T3 KL HG!N8</a></td>
+</tr>
+<tr>
+<td>EX-162</td>
+<td>Loại2/3 C9:I9 thuộc trần đúc sẵn: chốt, vữa, lifting; không có TopHaunch C9 của loại 1.</td>
+<td>T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0191 T2 CF.Ga!B8</a>; <a href="../EXCEL-NOTES.html">NOTE-0364 T3 CF.Ga!B8</a></td>
+</tr>
+<tr>
+<td>EX-163</td>
+<td>F9 holeDiameterMm riêng &gt;Ø chốt; mỗi chốt đúng một hole tại interface.</td>
+<td>T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0192 T2 CF.Ga!F8</a>; <a href="../EXCEL-NOTES.html">NOTE-0365 T3 CF.Ga!F8</a></td>
+</tr>
+<tr>
+<td>EX-164</td>
+<td>G9 beddingMortarMm&gt;=0 nằm trong E clearHeight; wallTop=roofBottom-mortar, không cộng mortar lần nữa.</td>
+<td>T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0193 T2 CF.Ga!G8</a>; <a href="../EXCEL-NOTES.html">NOTE-0366 T3 CF.Ga!G8</a></td>
+</tr>
+<tr>
+<td>EX-165</td>
+<td>H9 lifting roof nDØ chỉ0/2/4; 0 OFF; khác panel cổ1/2/4.</td>
+<td>T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0194 T2 CF.Ga!H8</a>; <a href="../EXCEL-NOTES.html">NOTE-0367 T3 CF.Ga!H8</a></td>
+</tr>
+<tr>
+<td>EX-166</td>
+<td>C9 Có/Không chốt; Có cần spec/length/hole và collision model; Không không sinh hole/dowel.</td>
+<td>T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0196 T2 CF.Ga!C9</a>; <a href="../EXCEL-NOTES.html">NOTE-0369 T3 CF.Ga!C9</a></td>
+</tr>
+<tr>
+<td>EX-167</td>
+<td>D9 mesh chốt có pitch danh định; bố trí trung bình làm tròn50mm có nguồn, midpoint/first/end cần NR-06, không tự chọn.</td>
+<td>T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0197 T2 CF.Ga!D9</a>; <a href="../EXCEL-NOTES.html">NOTE-0370 T3 CF.Ga!D9</a></td>
+</tr>
+<tr>
+<td>EX-168</td>
+<td>E9 dowelLengthMm&gt;0 khi Có; phần neo hai assembly và holeDepth cần NR-06.</td>
+<td>T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0198 T2 CF.Ga!E9</a>; <a href="../EXCEL-NOTES.html">NOTE-0371 T3 CF.Ga!E9</a></td>
+</tr>
+<tr>
+<td>EX-169</td>
+<td>K13 direction Ngang/Dọc loại 2/3 cùng nghĩa panel; văn bản khác không phải rule mới.</td>
+<td>T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0220 T2 CF.Ga!K12</a>; <a href="../EXCEL-NOTES.html">NOTE-0393 T3 CF.Ga!K12</a></td>
+</tr>
+<tr>
+<td>EX-170</td>
+<td>Pipe nhóm vùng26/28 có vữa và GC, không gộp toàn bộ lỗ thăm vào Pipe khi RoofRebar riêng đã có.</td>
+<td>T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0258 T2 CF.Ga!B26</a>; <a href="../EXCEL-NOTES.html">NOTE-0443 T3 CF.Ga!B28</a></td>
+</tr>
+<tr>
+<td>EX-171</td>
+<td>Offset loại 2 nhìn trong ra trái+/phải- áp toàn dòng; source sheet name khác không đổi sign convention.</td>
+<td>T2/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0261 T2 CF.Ga!I26</a></td>
+</tr>
+<tr>
+<td>EX-172</td>
+<td>Ø GC note loại 2/3 nhắc cả lỗ thăm; giữ Pipe.D và RoofRebar.C tách theo schema, không đồng bộ âm thầm.</td>
+<td>T2/CF.Ga, T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0262 T2 CF.Ga!D27</a>; <a href="../EXCEL-NOTES.html">NOTE-0447 T3 CF.Ga!D29</a></td>
+</tr>
+<tr>
+<td>EX-173</td>
+<td>KL HG Q3 clearHeight đã trừ vữa đệm; E main gồm vữa; ghi reconciliation, không đọc Q3 thay E.</td>
+<td>T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0305 T2 KL HG!Q3</a>; <a href="../EXCEL-NOTES.html">NOTE-0490 T3 KL HG!Q3</a></td>
+</tr>
+<tr>
+<td>EX-174</td>
+<td>KL HG M6/K6 vữa đệm trần là quantity đối chiếu G9; không vạt trần.</td>
+<td>T2/KL HG, T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0329 T2 KL HG!M6</a>; <a href="../EXCEL-NOTES.html">NOTE-0516 T3 KL HG!K6</a></td>
+</tr>
+<tr>
+<td>EX-175</td>
+<td>Loại3 Catch C17:M17: cấu hình cửa thu riêng trước nhóm Protect; không shift nhóm này xuống19.</td>
+<td>T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0406 T3 CF.Ga!B16</a></td>
+</tr>
+<tr>
+<td>EX-176</td>
+<td>Catch.C owner Thân/Cổ; kiểm host tồn tại, không fallback Body/T1.</td>
+<td>T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0407 T3 CF.Ga!C16</a></td>
+</tr>
+<tr>
+<td>EX-177</td>
+<td>Catch.D hướng tường theo trong-ra; cổ mặc định Center theo HDSD p13, raw Left/Right giữ override có nguồn.</td>
+<td>T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0408 T3 CF.Ga!D16</a></td>
+</tr>
+<tr>
+<td>EX-178</td>
+<td>Catch.E Kiểu1 có nguồn hướng dẫn; kiểu khác Unsupported có field, không đổi sang1.</td>
+<td>T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0409 T3 CF.Ga!E16</a></td>
+</tr>
+<tr>
+<td>EX-179</td>
+<td>Catch.F openingWidth x openingHeight mm; lỗ trên đỉnh host theo HDSD p13; không lấy bbox grille.</td>
+<td>T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0410 T3 CF.Ga!F16</a></td>
+</tr>
+<tr>
+<td>EX-180</td>
+<td>Catch.G depth x clearHeight mm, clearWidth=Catch.F.width; giữ hai kích thước distinct.</td>
+<td>T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0411 T3 CF.Ga!G16</a></td>
+</tr>
+<tr>
+<td>EX-181</td>
+<td>Catch.H wallThicknessMm&gt;0; không reuse wall body thickness.</td>
+<td>T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0412 T3 CF.Ga!H16</a></td>
+</tr>
+<tr>
+<td>EX-182</td>
+<td>Catch.I baseThicknessMm&gt;0; không lấy dày đáy body.</td>
+<td>T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0413 T3 CF.Ga!I16</a></td>
+</tr>
+<tr>
+<td>EX-183</td>
+<td>Catch.J beddingThicknessMm&gt;=0; 0 optional catch pad, độc lập D3 body.</td>
+<td>T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0414 T3 CF.Ga!J16</a></td>
+</tr>
+<tr>
+<td>EX-184</td>
+<td>Catch.K expansionMm&gt;=0; inactive khi Catch.J=0; không mở rộng footprint chamber.</td>
+<td>T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0415 T3 CF.Ga!K16</a></td>
+</tr>
+<tr>
+<td>EX-185</td>
+<td>Catch.M mesh cửa thu một lớp khi BTCT; Khác OFF steel; chưa đủ shape 1..4 cần NR-08.</td>
+<td>T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0417 T3 CF.Ga!M16</a></td>
+</tr>
+<tr>
+<td>EX-186</td>
+<td>Pipe.D28 header loại 3 thuộc GC cống, không Catch; value D29.</td>
+<td>T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0445 T3 CF.Ga!D28</a></td>
+</tr>
+<tr>
+<td>EX-187</td>
+<td>Offset loại 3 value I30:L30 áp toàn workbook; sign theo trong-ra; không shift thêm ở renderer.</td>
+<td>T3/CF.Ga</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0446 T3 CF.Ga!I28</a></td>
+</tr>
+<tr>
+<td>EX-188</td>
+<td>KL HG Q4 loại 3 width opening cửa thu, quantity đối chiếu Catch.F.width.</td>
+<td>T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0503 T3 KL HG!Q4</a></td>
+</tr>
+<tr>
+<td>EX-189</td>
+<td>KL HG Q5 loại 3 height opening cửa thu, quantity đối chiếu Catch.F.height.</td>
+<td>T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0511 T3 KL HG!Q5</a></td>
+</tr>
+<tr>
+<td>EX-190</td>
+<td>KL HG Q6 loại 3 depth cửa thu, quantity đối chiếu Catch.G.depth.</td>
+<td>T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0518 T3 KL HG!Q6</a></td>
+</tr>
+<tr>
+<td>EX-191</td>
+<td>KL HG Q7 loại 3 clearHeight cửa thu, quantity đối chiếu Catch.G.height.</td>
+<td>T3/KL HG</td>
+<td><a href="../EXCEL-NOTES.html">NOTE-0523 T3 KL HG!Q7</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="13-toan-bo-104-definition">1.3. Toàn bộ 104 definition</h2>
+<p>Exact names và schema nguồn là bất biến. Condition chưa chứng minh không được tự coi Supported. 57 views sản phẩm là 19 mã, chỉ dùng sản phẩm đã chọn. Chi tiết ATTDEF/basepoint/bounds/parent trong JSON nguồn liên kết qua <code>catalog_source</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th>Stage/role</th>
+<th>Quy tắc và điều kiện</th>
+<th>Nguồn/status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_Oblique</td>
+<td>S0/Template; S7/Dimension / Phụ thuộc dim arrow</td>
+<td>Để native dimstyle tham chiếu; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #FD; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>_DotSmall</td>
+<td>S0/Template; S7/Dimension / Phụ thuộc dim arrow</td>
+<td>Để native dimstyle tham chiếu; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #109; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Khung</td>
+<td>S9/SheetPlan; S11/BatchPlot / Khung in</td>
+<td>Chọn plot window từ contract, không lấy text extents; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #1C; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>TenMC</td>
+<td>S7/Annotation / Tiêu đề hình và tỷ lệ</td>
+<td>TIEUDE/TYLE, neo title lane; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #2B; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>HTemplate</td>
+<td>S0/Template / LibrarySpecimenCarrier</td>
+<td>Chỉ lấy definitions/dependencies; không chèn cả khối mẫu có tọa độ toàn cục vào ga; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #17; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>BLT1</td>
+<td>S7/Annotation / Nhãn thép hướng 1</td>
+<td>SH/DK/A từ nhóm; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #3E; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>BLT2</td>
+<td>S7/Annotation / Nhãn thép hướng 2</td>
+<td>SH/DK/A từ nhóm; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #4E; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Gach</td>
+<td>S7/Collector / Đánh dấu giao collector/thanh</td>
+<td>Chỉ giao với path hiện hữu thuộc nhóm; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #5D; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>BLTC</td>
+<td>S6/Projection; S7/Annotation / Dấu vị trí tie</td>
+<td>Có physical tie ID; không tạo thép bằng dấu X; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #65; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>MC1</td>
+<td>S7/Annotation / Marker mặt cắt</td>
+<td>Hướng/trục theo section map; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #BB; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>MC2</td>
+<td>S7/Annotation / Marker mặt cắt</td>
+<td>Hướng/trục theo section map; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #C8; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>CT</td>
+<td>S7/Annotation / Cao độ surface/datum</td>
+<td>CT mét; không lấy đáy khung làm finished top; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #88; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>NotThep</td>
+<td>S6/Projection / RebarSectionDot</td>
+<td>CIRCLE R50 + solid hatch. View WallMeshPlan/SteelAA/SteelBB hiện dùng .09; view khác physicalRadius/50. Tách graphic policy khỏi Ø vật lý; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #9A; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>TK.Tieude</td>
+<td>S8/NativeSchedule / ScheduleHeader</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #2BA; ScopedSourceObservation_NotUniversalRule</td>
+</tr>
+<tr>
+<td>TK.Tenluoi</td>
+<td>S8/NativeSchedule / VietnameseGroupName</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #2DB; ScopedSourceObservation_NotUniversalRule</td>
+</tr>
+<tr>
+<td>TK.M.C</td>
+<td>S8/NativeSchedule / CShape</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #3D0; ScopedSourceObservation_NotUniversalRule</td>
+</tr>
+<tr>
+<td>TK.GC.T</td>
+<td>S8/NativeSchedule / CircularReinforcementWithLaps</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #385; ScopedSourceObservation_NotUniversalRule</td>
+</tr>
+<tr>
+<td>TK.VG</td>
+<td>S8/NativeSchedule / NeedsVerifiedShapeRecipe</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #269; NeedsRule</td>
+</tr>
+<tr>
+<td>TK.GC.H</td>
+<td>S8/NativeSchedule / ClosedRectangularWithLaps</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #3AA; ScopedSourceObservation_NotUniversalRule</td>
+</tr>
+<tr>
+<td>TK.THKL</td>
+<td>S8/NativeSchedule / ComponentDiameterSummary</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #2E5; ScopedSourceObservation_NotUniversalRule</td>
+</tr>
+<tr>
+<td>TK.MC</td>
+<td>S8/NativeSchedule / PanelLiftingHook</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #291; ScopedSourceObservation_NotUniversalRule</td>
+</tr>
+<tr>
+<td>SCR960x530</td>
+<td>S2/ProductResolve; S6/CatchPlan / CatchGrillePlan</td>
+<td>Hình học local X530/Y960; không suy trục từ tên. Giữ sản phẩm 1:1, transform theo cửa thu; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #1FBC; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>ThepGocLom</td>
+<td>S6/Section; S8/Detail / AngleProfileSectionInner</td>
+<td>Ký hiệu thép hình L khoảng50x50x5; không phải thép vạt góc. Chèn theo accessory frame và hướng cắt; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #201; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>ThepGocLoi</td>
+<td>S6/Section; S8/Detail / AngleProfileSectionOuter</td>
+<td>Ký hiệu thép hình L khoảng50x50x5; giữ hatch/bulge. Không đếm INSERT thành physical rebar; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #209; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>BLT4</td>
+<td>S7/Annotation / Ghi chú NOTE</td>
+<td>Không nhận tag SH/DK/A; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #22F; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>BLT3</td>
+<td>S7/Annotation / Ghi chú NOTE</td>
+<td>Không nhận tag SH/DK/A; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #238; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>TK.L2M</td>
+<td>S8/NativeSchedule / TwoEndHooks</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #31D; ScopedSourceObservation_NotUniversalRule</td>
+</tr>
+<tr>
+<td>TK.L1M</td>
+<td>S8/NativeSchedule / NeedsVerifiedShapeRecipe</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #342; NeedsRule</td>
+</tr>
+<tr>
+<td>TK.L0M</td>
+<td>S8/NativeSchedule / Straight</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #364; ScopedSourceObservation_NotUniversalRule</td>
+</tr>
+<tr>
+<td>TK.M.Z</td>
+<td>S8/NativeSchedule / PanelTieZ</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #242; ScopedSourceObservation_NotUniversalRule</td>
+</tr>
+<tr>
+<td>TK.M.U</td>
+<td>S8/NativeSchedule / UShape_RoleMustDistinguishTieAndLadder</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #3F5; ScopedSourceObservation_NotUniversalRule</td>
+</tr>
+<tr>
+<td>TK.NG</td>
+<td>S8/NativeSchedule / MouthOrPanelAnchor</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #42C; ScopedSourceObservation_NotUniversalRule</td>
+</tr>
+<tr>
+<td>TK.TG</td>
+<td>S8/NativeSchedule / AngleSteel</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #494; ScopedSourceObservation_NotUniversalRule</td>
+</tr>
+<tr>
+<td>TK.NA1</td>
+<td>S8/NativeSchedule / PanelMeshType1</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #44D; ScopedSourceObservation_NotUniversalRule</td>
+</tr>
+<tr>
+<td>TK.NA2</td>
+<td>S8/NativeSchedule / PanelMeshType2</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #471; ScopedSourceObservation_NotUniversalRule</td>
+</tr>
+<tr>
+<td>BLMC</td>
+<td>S7/PanelAnnotation / Ký hiệu mặt cắt/chi tiết tấm</td>
+<td>PDF004; không áp stretch ký hiệu lên sản phẩm; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #4B3; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>TK.THKLNAP</td>
+<td>S8/NativeSchedule / PanelMouthSummary</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #4B9; ScopedSourceObservation_NotUniversalRule</td>
+</tr>
+<tr>
+<td>TieudeMC</td>
+<td>S8/BendingHeading / BendingGroupTitle</td>
+<td>Chỉ ATT TIEUDE, không TYLE. Height300 × S/100 = 3mm giấy; neo theo nhóm hình uốn; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #4D9; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>NAPCUATHU1</td>
+<td>S6/CatchSection / CatchGrilleSection530</td>
+<td>Local X0..530, đỉnh Y0, sâu63.821449. Chọn đúng trục cắt, không stretch về bề rộng bê tông; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #2051; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>TK.CT.N</td>
+<td>S8/NativeSchedule / NeedsVerifiedShapeRecipe</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #4E2; NeedsRule</td>
+</tr>
+<tr>
+<td>TK.CT.T</td>
+<td>S8/NativeSchedule / NeedsVerifiedShapeRecipe</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #505; NeedsRule</td>
+</tr>
+<tr>
+<td>MC3</td>
+<td>S7/CatchSectionMarker / CatchCutMarker1</td>
+<td>TEXT literal 1 không ATT; hướng marker theo section1-1 và extents cửa thu; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #529; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>MC4</td>
+<td>S7/CatchSectionMarker / CatchCutMarker2</td>
+<td>TEXT literal 2 không ATT; hướng marker theo section2-2 và extents cửa thu; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #536; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>NAPCUATHU2</td>
+<td>S6/CatchSection / CatchGrilleSection960</td>
+<td>Local X0..960, đỉnh Y0, sâu63.821449. Không sao chép scale .7188 của nhánh static; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #2081; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>TK.THKL.CT</td>
+<td>S8/NativeSchedule / NeedsVerifiedShapeRecipe</td>
+<td>Bind đúng tag; glyph cố định; chọn theo topology/role, không theo chiều dài; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #544; NeedsRule</td>
+</tr>
+<tr>
+<td>EN-124C</td>
+<td>S0/DependencyImport; S6/ProductProjection / NestedProductPlanGeometry</td>
+<td>Dependency của VIN.TNM.LD.820x570.MB và 570x820.MB; không chèn độc lập, không suy chứng nhận từ tên; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #2176; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>34gagw4gs</td>
+<td>S0/DependencyImport; S6/ProductProjection / NestedProductSectionGeometry</td>
+<td>Dependency của VIN.TNM.LD.820x570.AA và 570x820.BB; giữ tên/definition, không chọn như mã sản phẩm; Khi recipe có role tương ứng</td>
+<td>catalog/acad-original/blocks.json #22E2; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNT.VH.700x700.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #300F; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNT.VH.700x700.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #302E; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNT.VH.700x700.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #3047; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNT.CX.700x700.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #66B; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNT.CX.700x700.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #67D; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNT.CX.700x700.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #692; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.LD.820x390.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #6A6; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.LD.820x390.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #85A; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.LD.820x390.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #93A; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.LD.820x570.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #2131; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.LD.820x570.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #227B; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.LD.820x570.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #22D3; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.CX.500x200.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #98B; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.CX.500x200.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #104E; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.CX.500x200.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #1067; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.CX.500x500.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #1073; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.CX.500x500.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #1DF3; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.CX.500x500.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #1E00; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.LD.700x700.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #1E0D; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.LD.700x700.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #1EA9; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.LD.700x700.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #1EEB; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.NBN.CX.800x800.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #1F2D; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.NBN.CX.800x800.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #1F41; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.NBN.CX.800x800.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #1F69; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.LD.570x820.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #2318; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.LD.570x820.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #2327; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.LD.570x820.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #236C; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.LD.390x820.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #23FD; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.LD.390x820.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #268E; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.LD.390x820.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #25AE; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.CX.200x500.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #27D9; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.CX.200x500.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #27E5; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>VIN.TNM.CX.200x500.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #2845; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap2.TNM.LD.700x700.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #311E; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap2.TNM.LD.700x700.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #30DB; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap2.TNM.LD.700x700.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #3110; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap1.TNM.LD.700x700.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #3B35; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap1.TNM.LD.700x700.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #40DC; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap1.TNM.LD.700x700.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #3AFB; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap3.TNM.LD.800x800.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #3ADA; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap3.TNM.LD.800x800.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #3A8B; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap3.TNM.LD.800x800.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #3A3C; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap4.TNM.LD.650x650.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #39C3; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap4.TNM.LD.650x650.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #38F1; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap4.TNM.LD.650x650.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #394D; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap5.TNM.LD.800x380.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #37B7; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap5.TNM.LD.800x380.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #3693; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap5.TNM.LD.800x380.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #370E; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap6.TNM.LD.380x800.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #35A7; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap6.TNM.LD.380x800.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #3509; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap6.TNM.LD.380x800.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #352C; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap7.TNM.LD.700x600.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #34CF; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap7.TNM.LD.700x600.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #33E0; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap7.TNM.LD.700x600.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #3476; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap8.TNM.LD.600x700.MB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #32E1; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap8.TNM.LD.600x700.BB</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #331B; ScopedSourceRole</td>
+</tr>
+<tr>
+<td>Nap8.TNM.LD.600x700.AA</td>
+<td>S2/ResolvedCover; S6/Projection / PurchasedCoverProduct</td>
+<td>Catalog 19 mã/57views; 1:1 vật lý; clear/datum/hướng theo catalog; Chỉ sản phẩm đã chọn; không chèn tất cả57 view</td>
+<td>catalog/acad-original/blocks.json #324B; ScopedSourceRole</td>
+</tr>
+</tbody>
+</table>
+<h2 id="14-schema-21-tk">1.4. Schema 21 TK</h2>
+<table>
+<thead>
+<tr>
+<th>Exact asset</th>
+<th>Tags</th>
+<th>Binding/đơn vị</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TK.Tieude</td>
+<td>Không ATT</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #B2F</td>
+</tr>
+<tr>
+<td>TK.Tenluoi</td>
+<td>TENLUOI</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #B4B</td>
+</tr>
+<tr>
+<td>TK.M.C</td>
+<td>KL, TDAI, SL, DAI, D, LP, LT, L, SH</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #B6B</td>
+</tr>
+<tr>
+<td>TK.GC.T</td>
+<td>SH, L, LT, D, DAI, SL, TDAI, KL</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #B85</td>
+</tr>
+<tr>
+<td>TK.VG</td>
+<td>KL, TDAI, SL, DAI, D, LP, LT, L, SH</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #B9E</td>
+</tr>
+<tr>
+<td>TK.GC.H</td>
+<td>KL, TDAI, SL, DAI, D, LT, L, SH</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #BB6</td>
+</tr>
+<tr>
+<td>TK.THKL</td>
+<td>TONG, CO2, CO1, TRAN2, TRAN1, TUONG2, TUONG1, DAY2, DAY1</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #BEB</td>
+</tr>
+<tr>
+<td>TK.MC</td>
+<td>KL, TDAI, SL, DAI, D, SH, L2T, L1T, L3, L1P, L2P</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #1209C</td>
+</tr>
+<tr>
+<td>TK.L2M</td>
+<td>KL, TDAI, SL, DAI, D, LP, LT, L, SH</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #21A16</td>
+</tr>
+<tr>
+<td>TK.L1M</td>
+<td>SH, L, LT, D, DAI, SL, TDAI, KL</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #21AB5</td>
+</tr>
+<tr>
+<td>TK.L0M</td>
+<td>KL, TDAI, SL, DAI, D, L, SH</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #21AF5</td>
+</tr>
+<tr>
+<td>TK.M.Z</td>
+<td>KL, TDAI, SL, DAI, D, LP, LT, L, SH</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #21E89</td>
+</tr>
+<tr>
+<td>TK.M.U</td>
+<td>L2P, L1P, L3, L1T, L2T, SH, D, DAI, SL, TDAI, KL</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #2223A</td>
+</tr>
+<tr>
+<td>TK.NG</td>
+<td>SH, L, D, DAI, SL, TDAI, KL</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #24C80</td>
+</tr>
+<tr>
+<td>TK.TG</td>
+<td>D, KL, TDAI, SL, DAI, SH, L</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #253D7</td>
+</tr>
+<tr>
+<td>TK.NA1</td>
+<td>SH, L, LT, LP, D, DAI, SL, TDAI, KL</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #25A97</td>
+</tr>
+<tr>
+<td>TK.NA2</td>
+<td>SH, L, LT, LP, D, DAI, SL, TDAI, KL</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #25ADB</td>
+</tr>
+<tr>
+<td>TK.THKLNAP</td>
+<td>NAP2, NAP1, THEPHINH, TONG</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #2706B</td>
+</tr>
+<tr>
+<td>TK.CT.N</td>
+<td>SH, L, LT, D, DAI, SL, TDAI, KL</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #29978</td>
+</tr>
+<tr>
+<td>TK.CT.T</td>
+<td>SH, L, LT, D, DAI, SL, TDAI, KL</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #2999A</td>
+</tr>
+<tr>
+<td>TK.THKL.CT</td>
+<td>CUATHU1, CUATHU2</td>
+<td>Theo S8: SH group; D/DAI/legs mm; SL count; TDAI m; KL kg. Header/summary chỉ tag tồn tại. TK.TG D là kg/m; L là code thép hình.</td>
+<td>catalog/schedule-assets-audit.json #2C092</td>
+</tr>
+</tbody>
+</table>
+<h2 id="15-nguon-so-lieu-va-gioi-han">1.5. Nguồn số liệu và giới hạn</h2>
+<p>Mọi R320/R375, tọa độ leader, SL4/5, 82/88 rows và 47/29 labels là ObservationFixture, không hằng số runtime. Truy từng số tại JSON PDF chi tiết gốc, <a href="data/PDF-012-deep-evidence.json">evidence012</a>, <a href="data/PDF-040-deep-evidence.json">evidence040</a>. Không trộn G500-2/PDF001,005–008 với G800-1/PDF002–004,009. Số lượng ledger không là bằng chứng nghiệm thu.</p>
+<p>Mâu thuẫn chưa chốt xem 04. Lỗi đã rõ nhưng chưa triển khai xem ma trận03 và phase06; không đưa lỗi implementation thành câu hỏi domain để trì hoãn sửa.</p></main></body></html>

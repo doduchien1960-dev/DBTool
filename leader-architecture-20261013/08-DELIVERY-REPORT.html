@@ -1,0 +1,494 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>08-DELIVERY-REPORT</title><style>body{font:16px/1.65 system-ui,"Segoe UI",sans-serif;color:#142537;background:#f4f7fb;margin:0}main{max-width:1440px;margin:auto;padding:32px;background:white}h1,h2,h3{line-height:1.3;color:#153c5b}h2{margin-top:2.4em;border-bottom:2px solid #cee0ec;padding-bottom:8px}table{border-collapse:collapse;width:100%;font-size:13px;margin:20px 0;display:block;overflow:auto}td,th{border:1px solid #ccd7e2;padding:8px;vertical-align:top}th{background:#e9f1f8;position:sticky;top:0}tr:nth-child(even){background:#f7f9fb}pre{padding:20px;background:#112638;color:#e8f2fa;overflow:auto;line-height:1.5;font-size:13px}code{font-family:Consolas,monospace}a{color:#056d9f}button{background:#126688;color:white;border:0;padding:12px 24px;cursor:pointer;font-size:16px;border-radius:6px}details{border:1px solid #b9cbd8;padding:16px;margin:20px 0}summary{cursor:pointer;font-weight:700}textarea.prompt{width:100%;height:650px;font:13px/1.5 Consolas,monospace;box-sizing:border-box;white-space:pre;background:#102538;color:#f4f7fb;padding:20px}nav{padding:10px;background:#e9f1f8}svg{max-width:100%;height:auto} .notice{padding:16px;background:#fff3ce;border-left:5px solid #b38012}</style></head><body><main><nav><a href="INDEX.html">Mục lục bộ bàn giao</a></nav><h1 id="08-bao-cao-ban-giao-tong-the">08 — Báo cáo bàn giao tổng thể</h1>
+<p><strong>Đã hoàn tất bản cập nhật hồ sơ kiến trúc và gói việc</strong> theo phạm vi tài liệu. Phiên bản <code>leader-field-contracts-20261013-r2</code>.</p>
+<p>Chủ nhiệm DucBao đã chấp thuận cả 23 đề xuất NeedsRule. Các quyết định đã được ghi nhận và áp dụng vào kiến trúc, hợp đồng dữ liệu, gói việc và báo cáo liên quan. S0–S11, 05C, 05D và 13 gói việc đã được xuất lại, tự rà soát và kiểm tra cơ học.</p>
+<p>Code sản phẩm chưa được triển khai theo đặc tả mới trong lượt này. Sinh DWG, save/reopen, plot và nghiệm thu DWG/PDF vẫn là <strong>NotRun</strong>; báo cáo này không chứng nhận DBTool đã đạt zero lỗi.</p>
+<h2 id="1-noi-dung-ban-giao">1. Nội dung bàn giao</h2>
+<table>
+<thead>
+<tr>
+<th>Hồ sơ</th>
+<th>Nội dung đã cập nhật</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01 — Bảng tri thức</td>
+<td>Giữ nội dung đã được review; thêm trạng thái phê duyệt hiện hành và liên kết đến hồ sơ sửa đổi.</td>
+</tr>
+<tr>
+<td>02 — Báo cáo gap</td>
+<td>Giữ bằng chứng nghiên cứu đã được review; cập nhật tác động của quyết định chủ nhiệm, không đánh đồng hồ sơ với sản phẩm đã nghiệm thu.</td>
+</tr>
+<tr>
+<td>03 — Ma trận module</td>
+<td>Giữ 300 quyết định; gắn 116 module BỔ SUNG, 10 VIẾT MỚI và 6 LOẠI BỎ vào gói cụ thể; 168 TÁI SỬ DỤNG không có gói sửa.</td>
+</tr>
+<tr>
+<td>04 — NeedsRule</td>
+<td>23/23 đề xuất chuyển thành ApprovedProposal, có nguyên văn quyết định, người phê duyệt, ngày và phiên bản. Tập hợp 11 vấn đề I/O cùng cách xử lý.</td>
+</tr>
+<tr>
+<td>05 — Kiến trúc</td>
+<td>Thay pseudocode cũ bằng S0–S11 và các helper có thân thuật toán; nhúng input, công thức, nguồn, I/O, interface và lỗi để tài liệu tự chứa spec.</td>
+</tr>
+<tr>
+<td>05A — Input</td>
+<td>206 bindings: giữ 205 field trước, thêm Material.G cho vữa đệm; ghi parser, range, enum, tuple arity và dependency.</td>
+</tr>
+<tr>
+<td>05B — Công thức</td>
+<td>49 công thức có ID 05B-F01..F49; giữ 24 ID cũ qua alias; ghi nguồn, phạm vi và dữ liệu cần binding.</td>
+</tr>
+<tr>
+<td>05C — Hợp đồng triển khai</td>
+<td>DTO C# và interfaces đồng bộ với registry và 05D; ghi namespace, project dependency, port contract và migration.</td>
+</tr>
+<tr>
+<td>05D — Stage I/O</td>
+<td>12 bảng riêng IN/OUT/FAIL đến field lá; kiểm 11 ranh giới liên tiếp về path, type, unit và nullability.</td>
+</tr>
+<tr>
+<td>06 — Kế hoạch</td>
+<td>Cập nhật quyết định đã duyệt, dependency và liên kết gói thực thi; giữ acceptance gate dựa trên DWG/PDF thực tế.</td>
+</tr>
+<tr>
+<td>07 — Gói việc</td>
+<td>13 prompt tự chứa, cùng format B3.01–B3.12; có TXT, ô Copy nguyên văn, dependency, ownership, token estimate và gate đo được.</td>
+</tr>
+<tr>
+<td>08 / INDEX / Audit</td>
+<td>Báo cáo tổng thể, mục lục và checklist hiện hành; liên kết bằng chứng kiểm tra và bản sao trước khi sửa.</td>
+</tr>
+<tr>
+<td>Tài liệu nguồn</td>
+<td>Thêm phụ lục phê duyệt r2 và thông báo điều hướng ở INDEX nguồn. Giữ nguyên nội dung nghiên cứu, Excel, PDF và template gốc.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-kien-truc-va-hop-ong-io">2. Kiến trúc và hợp đồng I/O</h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>IN type / số field lá</th>
+<th>OUT type / số field lá</th>
+<th>Số field lỗi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S0</td>
+<td>EntryStateV2 / 113</td>
+<td>S0StateV2 / 263</td>
+<td>18</td>
+</tr>
+<tr>
+<td>S1</td>
+<td>S0StateV2 / 263</td>
+<td>S1StateV2 / 314</td>
+<td>18</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>S1StateV2 / 314</td>
+<td>S2StateV2 / 441</td>
+<td>18</td>
+</tr>
+<tr>
+<td>S3</td>
+<td>S2StateV2 / 441</td>
+<td>S3StateV2 / 671</td>
+<td>18</td>
+</tr>
+<tr>
+<td>S4</td>
+<td>S3StateV2 / 671</td>
+<td>S4StateV2 / 786</td>
+<td>18</td>
+</tr>
+<tr>
+<td>S5</td>
+<td>S4StateV2 / 786</td>
+<td>S5StateV2 / 818</td>
+<td>18</td>
+</tr>
+<tr>
+<td>S6</td>
+<td>S5StateV2 / 818</td>
+<td>S6StateV2 / 929</td>
+<td>18</td>
+</tr>
+<tr>
+<td>S7</td>
+<td>S6StateV2 / 929</td>
+<td>S7StateV2 / 1000</td>
+<td>18</td>
+</tr>
+<tr>
+<td>S8</td>
+<td>S7StateV2 / 1000</td>
+<td>S8StateV2 / 1078</td>
+<td>18</td>
+</tr>
+<tr>
+<td>S9</td>
+<td>S8StateV2 / 1078</td>
+<td>S9StateV2 / 1107</td>
+<td>18</td>
+</tr>
+<tr>
+<td>S10</td>
+<td>S9StateV2 / 1107</td>
+<td>S10StateV2 / 1126</td>
+<td>18</td>
+</tr>
+<tr>
+<td>S11</td>
+<td>S10StateV2 / 1126</td>
+<td>S11StateV2 / 1171</td>
+<td>18</td>
+</tr>
+</tbody>
+</table>
+<p>Toàn bộ 11 ranh giới OUT→IN có cùng path, type, unit và nullability. Registry có 103 record, được đối chiếu 1-1 với các khai báo C# sinh ra. Ba project kiểm hợp đồng được biên dịch theo dependency Domain → Drawing và Domain/Drawing → Application; <a href="data/dto-contract-build.log">log build</a> ghi kết quả thực tế. Đây là kiểm DTO/interface, không phải build toàn bộ DBTool hoặc chạy thuật toán trong AutoCAD.</p>
+<p>05 nhúng bảng field, công thức, nguồn, helper, stage algorithm và type declaration. 05D giữ bảng I/O đầy đủ để tra cứu và kiểm liên tục. <a href="05C-IMPLEMENTATION-CONTRACTS.html">05C</a> ghi rõ migration và những thay đổi interface; người implement có thể dùng riêng <a href="05-ARCHITECTURE.html">05</a> hoặc một prompt trong 07 để đọc spec.</p>
+<h2 id="3-phe-duyet-va-du-lieu-van-hanh-con-thieu">3. Phê duyệt và dữ liệu vận hành còn thiếu</h2>
+<p>Không còn đề xuất nào trong 23 mục cũ chờ chủ nhiệm duyệt. Quyết định được lưu với ID <code>OWNER-APPROVAL-23-20261013</code>, phiên bản rule <code>owner-20261013-r2</code>, cùng nguyên văn đề xuất và nguồn phê duyệt.</p>
+<p>Một số đề xuất đã được duyệt yêu cầu dữ liệu nguồn nhưng chưa nêu giá trị cụ thể: radius basis và biểu thức hình dạng, layer stack, embed/hole depth, khẩu độ và tiếp xúc sản phẩm, font/plot hash, tolerance và khoảng hở ink. Phê duyệt phương án không tự tạo các giá trị đó. Runtime seed chỉ điền giá trị đã có nguồn; field chưa đủ dữ liệu giữ trạng thái thiếu binding.</p>
+<p>Các nhánh thiếu dữ liệu có schema, consumer, điều kiện kiểm, mã lỗi và debug payload. AI implement phải viết đầy đủ nhánh đó; khi chạy case thiếu binding, hệ thống trả lỗi cụ thể như <code>RULE_BINDING_DATA_MISSING</code> thay vì chọn số mặc định. Đây là điều kiện dữ liệu vận hành, không phải yêu cầu duyệt lại 23 đề xuất.</p>
+<p><a href="04-NEEDSRULE.html">Quyết định hiện hành</a> · <a href="data/owner-approval-23.json">Approval record</a> · <a href="data/approved-rule-set-v2.json">Runtime seed</a> · <a href="data/rule-binding-key-schema-v2.json">Binding key schema</a>.</p>
+<p>Các vấn đề I/O phát hiện khi sửa được ghi riêng để không trộn với 23 đề xuất đã duyệt:</p>
+<table>
+<thead>
+<tr>
+<th>Mismatch</th>
+<th>Cách xử lý</th>
+<th>Trạng thái</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NR-IO-001</td>
+<td>Dùng cumulative immutable stage envelopes; Application adapters wrap leaf payload, Drawing planners không tham chiếu Application. Output N==Input N+1 by generated schema.</td>
+<td>ResolvedArchitecture</td>
+</tr>
+<tr>
+<td>NR-IO-002</td>
+<td>Thêm F-206:CF.Ga!G34 loại2,!G36 loại3;only active BeddingMortar;không lấy Material.F hoặc M75 mẫu.</td>
+<td>ResolvedSourceCorrection</td>
+</tr>
+<tr>
+<td>NR-IO-003</td>
+<td>Giữ FrameBottom=NeckTop,FrameHeight100;contact equations của selected NR23 contract phải xác định NeckTop/PanelBottom/FinishedTop;thiếu field→DATUM_GRAPH_DISCONNECTED.</td>
+<td>ApprovedPolicyBindingRequired</td>
+</tr>
+<tr>
+<td>NR-IO-004</td>
+<td>floorTop=hostTop-clearHeight;floorBottom=floorTop-base;source clearHeight note NOTE0411,PDF040 clear250/base125 chỉ evidence.</td>
+<td>ResolvedSourceCorrection</td>
+</tr>
+<tr>
+<td>NR-IO-005</td>
+<td>Tách Recess/OverOuter theo CoverPanelBuilder;NoCover chỉ dùng explicit selected no-cover aperture/contact,không tự rawE11 authoritative.</td>
+<td>ResolvedContractWithBinding</td>
+</tr>
+<tr>
+<td>NR-IO-006</td>
+<td>NR19 binding ladder_top_surface_id+min_z_expr bắt buộc;missing→RULE_BINDING_DATA_MISSING;không tự RoofTop/FinishedTop.</td>
+<td>ApprovedPolicyBindingRequired</td>
+</tr>
+<tr>
+<td>NR-IO-007</td>
+<td>Bắt buộc width/height expressions NR05;recipe fabrication centreline and nominal schedule separately NR02;missing payload blocks active feature.</td>
+<td>ApprovedPolicyBindingRequired</td>
+</tr>
+<tr>
+<td>NR-IO-008</td>
+<td>Center invariant;Neck forced Center;Body Left/Right requires named side_basis in NR19 placement binding;both signs explicitly implemented.</td>
+<td>ApprovedPolicyBindingRequired</td>
+</tr>
+<tr>
+<td>NR-IO-009</td>
+<td>Outer là rectangle W+2t,H+2t;cut rectangle thêm2m;chamfer chỉ inner cells;surface cover clipping vẫn Euclidean offset riêng.</td>
+<td>ResolvedSourceCorrection</td>
+</tr>
+<tr>
+<td>NR-IO-010</td>
+<td>EX042 chỉ Gang/Purchased;G13 là collar phía trên cổ. Active collar phải có selected source-backed profile/contact expressions;không thay Frame100 hoặc bỏ feature.</td>
+<td>ResolvedSourceWithBinding</td>
+</tr>
+<tr>
+<td>NR-IO-011</td>
+<td>S6 đăng ký Target2V2 ViewTitle/Elevation có ID/frame/point từ biểu thức nguồn. S7 join đúng target, local lane có side; tính vùng cấm theo ink tương đối với port sau scale/rotation. Nhánh accessory không sinh Gach của lưới; helper finite allocator có thân đầy đủ.</td>
+<td>ResolvedArchitectureWithSourceBinding</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-goi-viec-va-thu-tu-trien-khai">4. Gói việc và thứ tự triển khai</h2>
+<p>Có 13 gói: 9 phase P0–P8 riêng, 3 nhóm chức năng viết mới và 1 gói gỡ code cùng caller. Ba nhóm viết mới chứa lần lượt 3/4/3 module. Ba file DTO nền tảng bổ sung ở W02 được ghi rõ lý do và phạm vi. Mỗi module cần sửa có một gói sở hữu chính; file dùng chung có quyền sửa đến method để tránh ghi đè code của gói trước.</p>
+<table>
+<thead>
+<tr>
+<th>Gói</th>
+<th>Phase</th>
+<th>Chờ</th>
+<th>Prompt tokens ước tính</th>
+<th>Code output tokens ước tính</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W01</td>
+<td>P0</td>
+<td>—</td>
+<td>123871–250516</td>
+<td>4000–32000</td>
+</tr>
+<tr>
+<td>W02</td>
+<td>P1</td>
+<td>W01</td>
+<td>142731–288828</td>
+<td>12000–46000</td>
+</tr>
+<tr>
+<td>W03</td>
+<td>NEW-A</td>
+<td>W02</td>
+<td>209746–423784</td>
+<td>28000–44000</td>
+</tr>
+<tr>
+<td>W04</td>
+<td>NEW-B</td>
+<td>W03</td>
+<td>281396–568507</td>
+<td>28000–46000</td>
+</tr>
+<tr>
+<td>W05</td>
+<td>NEW-C</td>
+<td>W02</td>
+<td>240772–486292</td>
+<td>24000–42000</td>
+</tr>
+<tr>
+<td>W06</td>
+<td>P2</td>
+<td>W02, W03</td>
+<td>169305–342732</td>
+<td>4000–32000</td>
+</tr>
+<tr>
+<td>W07</td>
+<td>P3</td>
+<td>W06</td>
+<td>158089–319448</td>
+<td>12000–46000</td>
+</tr>
+<tr>
+<td>W08</td>
+<td>P4</td>
+<td>W07, W03</td>
+<td>159333–321833</td>
+<td>4000–32000</td>
+</tr>
+<tr>
+<td>W09</td>
+<td>P5</td>
+<td>W08, W04</td>
+<td>172432–348344</td>
+<td>4000–32000</td>
+</tr>
+<tr>
+<td>W10</td>
+<td>P6</td>
+<td>W09, W04</td>
+<td>224431–453792</td>
+<td>12000–46000</td>
+</tr>
+<tr>
+<td>W11</td>
+<td>P7</td>
+<td>W10</td>
+<td>176953–357558</td>
+<td>4000–32000</td>
+</tr>
+<tr>
+<td>W12</td>
+<td>REMOVE</td>
+<td>W11, W03, W04</td>
+<td>236221–477243</td>
+<td>4000–32000</td>
+</tr>
+<tr>
+<td>W13</td>
+<td>P8</td>
+<td>W12, W05</td>
+<td>242418–489665</td>
+<td>12000–46000</td>
+</tr>
+</tbody>
+</table>
+<p>Google công bố Gemini 3.8 Flash có input 1,048,576 và output 65,536 tokens. <a href="https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash">Tài liệu model chính thức</a>. Các số token trong hồ sơ là ước tính theo ký tự/byte, chưa đo bằng <code>count_tokens</code>. Tổng ngân sách ước tính lớn nhất là 762,043 tokens, đã cộng phần đọc source 128,000, output 49,152 và thinking/headroom 16,384.</p>
+<p><img alt="Dependency giữa các gói" src="work-package-dependencies.svg" /></p>
+<p>Nếu làm tuần tự, thực hiện W01→W13. W03 và W05 có thể song song sau W02; W04 và W06 có thể song song sau W03 trên file riêng. W02 kiểm compile DTO/interface trước; module mới phải compile trước khi nối caller. W12 gỡ code sau khi có phần thay thế; W13 nối batch, save/reopen, plot và nghiệm thu thực tế.</p>
+<p>Giữ 9 phase riêng theo yêu cầu chủ nhiệm. Không gộp hai nhóm NEW vì ước tính code output của mỗi cặp vượt ngân sách output một lượt; đây là lý do lập kế hoạch, không phải phép đo tokenizer.</p>
+<h2 id="5-ket-qua-kiem-ho-so-va-gioi-han-bang-chung">5. Kết quả kiểm hồ sơ và giới hạn bằng chứng</h2>
+<table>
+<thead>
+<tr>
+<th>Kiểm tra hồ sơ</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Kết quả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stage_contract_coverage</td>
+<td>['S0', 'S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'S11']</td>
+<td>['S0', 'S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'S11']</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>eleven_output_input_boundaries</td>
+<td>same exact path/type/unit/nullability</td>
+<td>[]</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>all_field_types_resolve</td>
+<td>all primitive or declared record</td>
+<td>[]</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>output_leaf_derivation_present</td>
+<td>0</td>
+<td>0</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>csharp_records_one_to_one</td>
+<td>103</td>
+<td>103</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>pseudocode_record_constructors</td>
+<td>exact declared fields</td>
+<td>[]</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>formula_references_resolved</td>
+<td>all F references exist</td>
+<td>[]</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>pseudocode_stage_coverage</td>
+<td>['S0', 'S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'S11']</td>
+<td>['S0', 'S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'S11']</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>no_abstract_placeholder_in_pseudocode</td>
+<td>0</td>
+<td>0</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>carry_constructor_expanded</td>
+<td>0</td>
+<td>0</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>05D_twelve_tables_and_every_leaf</td>
+<td>[394, 595, 773, 1130, 1475, 1622, 1765, 1947, 2096, 2203, 2251, 2315]</td>
+<td>[394, 595, 773, 1130, 1475, 1622, 1765, 1947, 2096, 2203, 2251, 2315]</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>module_decision_counts</td>
+<td>{'BỔ SUNG': 116, 'TÁI SỬ DỤNG': 168, 'LOẠI BỎ': 6, 'VIẾT MỚI': 10}</td>
+<td>{'BỔ SUNG': 116, 'TÁI SỬ DỤNG': 168, 'LOẠI BỎ': 6, 'VIẾT MỚI': 10}</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>module_package_ownership_exact</td>
+<td>each changed module one package,reuse none</td>
+<td>[]</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>package_count_under_15</td>
+<td>13 &lt;15</td>
+<td>13</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>nine_phases_separate_in_order</td>
+<td>['P0', 'P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7', 'P8']</td>
+<td>['P0', 'P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7', 'P8']</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>one_copy_prompt_exact_and_B3_consistent</td>
+<td>0</td>
+<td>0</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>no_external_05_spec_dependency</td>
+<td>0</td>
+<td>0</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>token_planning_budget</td>
+<td>each below input1048576/outputallocation49152</td>
+<td>[]</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>all_23_proposals_approved</td>
+<td>23</td>
+<td>23</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>runtime_approval_seed_headers</td>
+<td>23</td>
+<td>23</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>approval_source_schema_exact</td>
+<td>SourceV2 fields,no missing required</td>
+<td>[]</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>production_source_unchanged</td>
+<td>290</td>
+<td>290</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>current_html_local_links_exist</td>
+<td>0</td>
+<td>0</td>
+<td>Passed</td>
+</tr>
+</tbody>
+</table>
+<p>Các kiểm tra trên xác nhận coverage, schema, constructor, tham chiếu công thức, liên kết local, nội dung Copy, ngân sách và hash của hồ sơ. Không dùng số kiểm tra đạt làm bằng chứng sản phẩm đạt chuẩn. Đây là tự rà soát và kiểm tra cơ học, không phải review độc lập. HTML đã được parse và kiểm link tĩnh; không tuyên bố đã kiểm render trong browser.</p>
+<p>Mapping VHGpro giữ từ bản trước; không verify độc lập theo yêu cầu chủ nhiệm. Đối chiếu 290 file C# sản phẩm với baseline không phát hiện file thay đổi. Chưa có DWG/PDF mới được đánh Passed trong lượt lập hồ sơ này.</p>
+<p>Acceptance thực thi phải ghi expected từ Excel/effective/rule hiện tại, actual từ entity native đã save/reopen hoặc vector PDF, đơn vị, tolerance rule, source IDs và đường dẫn/hash bằng chứng. Không có dữ liệu hoặc chưa chạy host thì ghi BindingMissing/NotRun theo hợp đồng; không tạo bản ghi Passed thay thế.</p>
+<h2 id="6-cach-su-dung-va-khoi-phuc">6. Cách sử dụng và khôi phục</h2>
+<p>Mở <a href="07-WORK-PACKAGES.html">07 — Gói việc</a>, copy nguyên W01, sau đó W02 và tiếp tục theo dependency. Mỗi prompt cần AI coding agent có quyền đọc/sửa workspace DBTool. Spec cần thiết đã được nhúng trong gói; không phải paste thêm các file 05. Kết quả implement gồm code hoàn chỉnh trong workspace, patch và receipt ghi đúng các gate đã chạy.</p>
+<p>Bản trước khi sửa nằm trong <a href="history/before-owner-approval-and-05-revision/snapshot.json">history snapshot</a>. Khôi phục đúng file hồ sơ cần thiết và đối chiếu hash; không reset repo hoặc xóa thư mục nguồn. Các script tái tạo hiện hành nằm trong <code>tmp/dbtool_v2_*</code>. Script leader cũ có thể ghi đè hồ sơ mới, nên không dùng chúng để tái tạo bản r2.</p>
+<p><a href="INDEX.html">Mục lục hiện hành</a> · <a href="REQUIREMENTS-AUDIT.html">Audit yêu cầu</a> · <a href="DELIVERY-MANIFEST.json">Manifest file/hash</a> · <a href="data/verification-v2.json">Kết quả kiểm tra chi tiết</a>.</p></main></body></html>

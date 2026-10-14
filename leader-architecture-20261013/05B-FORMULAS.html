@@ -1,183 +1,361 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Phụ lục 05B. Nguồn công thức và hằng số</title><style>body{margin:0;background:#eff3f5;color:#183345;font:16px/1.6 "Segoe UI",Arial,sans-serif}main{max-width:1380px;margin:auto;background:white;padding:32px}nav{position:sticky;top:0;background:#143e50;color:white;padding:10px 18px;z-index:5}nav a{color:white;margin-right:18px}a{color:#096c7b;overflow-wrap:anywhere}h1,h2,h3{color:#165b66;line-height:1.3;scroll-margin-top:60px}h1{font-size:30px}h2{margin-top:38px;border-bottom:1px solid #cddde3;padding-bottom:8px}p,li{max-width:1100px}table{border-collapse:collapse;width:100%;font-size:14px;margin:20px 0;table-layout:auto}th,td{border:1px solid #c4d4dc;padding:10px;vertical-align:top;overflow-wrap:anywhere}th{background:#e7f1f3;position:sticky;top:44px}td{min-width:90px}tr:nth-child(even){background:#f8fafb}pre{background:#132f40;color:#eff7fb;white-space:pre-wrap;overflow:auto;padding:18px;border-radius:8px;font-size:13px}code{font-family:Consolas,monospace}img{max-width:100%;height:auto;border:1px solid #d6e1e5}blockquote{border-left:4px solid #be862d;background:#fff7e9;padding:8px 20px}.diagram{max-width:1000px;margin:24px auto}.table-wrap{overflow-x:auto}footer{border-top:1px solid #d0dde3;padding-top:18px;color:#57707e;font-size:13px}@media(max-width:800px){main{padding:16px}body{font-size:15px}h1{font-size:25px}table{font-size:13px}nav{position:static}th{position:static}}</style></head><body><nav><a href="INDEX.html">Bàn giao</a><a href="01-KNOWLEDGE.html">Tri thức</a><a href="03-MODULE-MATRIX.html">Modules</a><a href="04-NEEDSRULE.html">NeedsRule</a><a href="05-ARCHITECTURE.html">Kiến trúc</a><a href="06-IMPLEMENTATION-PLAN.html">Kế hoạch</a></nav><main><article><h1 id="phu-luc-05b-nguon-cong-thuc-va-hang-so">Phụ lục 05B. Nguồn công thức và hằng số</h1>
-<p>Không lấy status Experimental/NeedsRule/Observation làm parameter sản xuất đã được duyệt. Mọi số fixture giữ ngoài runtime. Các công thức DerivedSpecification là đặc tả kiến trúc suy trực tiếp từ định nghĩa/note đã ghi; parameter/basis có NR vẫn bị approval gate.</p>
-<div class="table-wrap"><table>
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>05B-FORMULAS</title><style>body{font:16px/1.65 system-ui,"Segoe UI",sans-serif;color:#142537;background:#f4f7fb;margin:0}main{max-width:1440px;margin:auto;padding:32px;background:white}h1,h2,h3{line-height:1.3;color:#153c5b}h2{margin-top:2.4em;border-bottom:2px solid #cee0ec;padding-bottom:8px}table{border-collapse:collapse;width:100%;font-size:13px;margin:20px 0;display:block;overflow:auto}td,th{border:1px solid #ccd7e2;padding:8px;vertical-align:top}th{background:#e9f1f8;position:sticky;top:0}tr:nth-child(even){background:#f7f9fb}pre{padding:20px;background:#112638;color:#e8f2fa;overflow:auto;line-height:1.5;font-size:13px}code{font-family:Consolas,monospace}a{color:#056d9f}button{background:#126688;color:white;border:0;padding:12px 24px;cursor:pointer;font-size:16px;border-radius:6px}details{border:1px solid #b9cbd8;padding:16px;margin:20px 0}summary{cursor:pointer;font-weight:700}textarea.prompt{width:100%;height:650px;font:13px/1.5 Consolas,monospace;box-sizing:border-box;white-space:pre;background:#102538;color:#f4f7fb;padding:20px}nav{padding:10px;background:#e9f1f8}svg{max-width:100%;height:auto} .notice{padding:16px;background:#fff3ce;border-left:5px solid #b38012}</style></head><body><main><nav><a href="INDEX.html">Mục lục bộ bàn giao</a></nav><h1 id="05b-cong-thuc-hang-so-va-nguon">05B — Công thức, hằng số và nguồn</h1>
+<p>Phiên bản leader-field-contracts-20261013-r2. Đầu ra lần này là đặc tả triển khai và prompt, chưa phải bản phát hành DBTool đã nghiệm thu DWG/PDF.</p>
+<p>23 đề xuất NR-01..23 đã được DucBao chấp thuận trực tiếp ngày 13/10/2026 (OWNER-APPROVAL-23-20261013). Không yêu cầu duyệt lại các đề xuất này. ApprovedProposal xác nhận lựa chọn đã mô tả; không tạo ra giá trị nguồn chưa có trong đề xuất. Binding sản phẩm/shape/đơn vị/tolerance thiếu dữ liệu trả <code>RULE_BINDING_DATA_MISSING</code> có field/source/debug; không hỏi giữa chừng và không tự bịa.</p>
+<p>Pipeline có một chuỗi S0–S11. DTO envelope tích lũy giữ roots đã tính immutable; OUT của stage N bằng IN của N+1. Đây là thay đổi hợp đồng phần mềm được ghi trong NR-IO-001. Drawing chỉ nhận Domain/Drawing payload, Application adapter sở hữu envelope; không tạo dependency Drawing→Application. S8 dùng registry nhóm, không đo glyph để tính chiều dài; thứ tự thực thi chuẩn vẫn đặt S8 sau S7 để kiểm tính liên tục I/O.</p>
+<p>49 ID số hóa;24 ID cũ được giữ làm alias. Mọi ví dụ R320/R375/G500 giữ scope source evidence, không parameter runtime.</p>
+<table>
 <thead>
 <tr>
-<th>ID</th>
-<th>Công thức</th>
-<th>Parameter/constant</th>
+<th>ID / legacy alias</th>
+<th>Công thức đầy đủ</th>
+<th>Hằng số / field cần có</th>
 <th>Nguồn</th>
-<th>Status/scope</th>
+<th>Trạng thái</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>F-UNIT</td>
+<td>05B-F01 / F-UNIT</td>
 <td>mm_to_m = mm/1000; elevationM_to_mm = m*1000</td>
 <td>1000</td>
 <td>K003/K037; source unit contract</td>
-<td>UnitDefinition / All</td>
+<td>UnitDefinition</td>
 </tr>
 <tr>
-<td>F-FRAME</td>
+<td>05B-F02 / F-FRAME</td>
 <td>outerX=EffectiveNeck.ResolvedClear.X+2<em>tNeck;outerY=EffectiveNeck.ResolvedClear.Y+2</em>tNeck;frameHeight=100</td>
 <td>2 sides;100mm</td>
 <td>CONTRACT C01 owner13/10</td>
-<td>OwnerRule / Owner frame uses effective neck clear, not body clear or product thickness</td>
+<td>OwnerRule</td>
 </tr>
 <tr>
-<td>F-C</td>
+<td>05B-F03 / F-C</td>
 <td>5 segments;4 bends;R8</td>
 <td>5/4/8mm</td>
 <td>PROMPT-THUC-THI-QUY-TRINH-DBTOOL C;owner C rule</td>
-<td>OwnerTopology_BasisNeedsNR02 / C physical</td>
+<td>OwnerTopology_BasisBindingDataRequired_NR02</td>
 </tr>
 <tr>
-<td>F-GROUP</td>
+<td>05B-F04 / F-GROUP</td>
 <td>N=count;sum=sumLi;mean=sum/N;TDAI=sum/1000</td>
 <td>No fixture lengths</td>
 <td>OWNER §3/4</td>
-<td>OwnerRule_LengthBasisMustBeApproved / Compatible presentation group</td>
+<td>OwnerRule_LengthBasisMustBeApproved</td>
 </tr>
 <tr>
-<td>F-GROUP-LEGS</td>
+<td>05B-F05 / F-GROUP-LEGS</td>
 <td>mean each segment role separately</td>
 <td>No First()</td>
 <td>OWNER §3/5</td>
-<td>OwnerRule / Shape-compatible groups</td>
+<td>OwnerRule</td>
 </tr>
 <tr>
-<td>F-PIPE</td>
+<td>05B-F06 / F-PIPE</td>
 <td>innerR=D/2;outerR=innerR+pipeThickness;cutR=outerR+mortar</td>
 <td>2 from diameter definition</td>
 <td>PipeCrossSectionBuilder + catalog + G500 audit</td>
-<td>DerivedFromDefinitions / Round profile</td>
+<td>DerivedFromDefinitions</td>
 </tr>
 <tr>
-<td>F-CUT</td>
+<td>05B-F07 / F-CUT</td>
 <td>u=cu±sqrt(r²-(v-cv)²);removed intervals union</td>
 <td>No R320/R375 runtime constant</td>
 <td>pages/G500-CUT-MEMBERS-AUDIT §2</td>
-<td>AnalyticalDerived_ExclusionBasisNR01 / Round cut in host plane</td>
+<td>AnalyticalDerived_ExclusionBasisNR01</td>
 </tr>
 <tr>
-<td>F-STATION</td>
+<td>05B-F08 / F-STATION</td>
 <td>usable=span-2*(cover+Ø/2);ceil/floor by mode</td>
 <td>No fixture pitch</td>
 <td>EX062;BarDistributor algorithm</td>
-<td>DerivedSpecification_StackAndToleranceApprovalRequired / Main mesh</td>
+<td>DerivedSpecification_StackAndToleranceApprovalRequired</td>
 </tr>
 <tr>
-<td>F-HOOK</td>
+<td>05B-F09 / F-HOOK</td>
 <td>KC=t-2c;DK=n*Ø</td>
 <td>2 cover faces</td>
 <td>EX063/066;HDSD p14</td>
-<td>SourceNominalRule_BendBasisSeparate / Main hooks</td>
+<td>SourceNominalRule_BendBasisSeparate</td>
 </tr>
 <tr>
-<td>F-LAP</td>
+<td>05B-F10 / F-LAP</td>
 <td>lap=n*Ø</td>
 <td>n from Ties.I</td>
 <td>EX075;HDSD p15</td>
-<td>SourceRule / Opening/collar loops</td>
+<td>SourceRule</td>
 </tr>
 <tr>
-<td>F-LADDER</td>
+<td>05B-F11 / F-LADDER</td>
 <td>zFirst=TopDatum-firstDrop;rung(k)=zFirst-k*pitch</td>
 <td>Input A/B/M/H/B</td>
 <td>EX082/083</td>
-<td>DerivedSpecification_CollisionNR21 / Ladder</td>
+<td>DerivedSpecification_CollisionNR21</td>
 </tr>
 <tr>
-<td>F-PANEL</td>
-<td>usable split span=span-(n+1)*gap;panel=usable/n</td>
+<td>05B-F12 / F-PANEL</td>
+<td>Recess: gapCount=n+1, splitPiece=(supportSpan-gapCount*g)/n, crossPiece=crossSpan-2g, first=-supportSpan/2+g. OverOuter: gapCount=n-1,crossPiece=crossSpan,first=-supportSpan/2. thickness=CoverHeight+SeatHeight once; support from selected NR23 contract.</td>
 <td>n and gap input</td>
 <td>EX045/046/047;05 S2 derivation</td>
-<td>DerivedSpecification_ClearContractNR23 / BTCT designed panel</td>
+<td>DerivedSpecification_ClearContractNR23</td>
 </tr>
 <tr>
-<td>F-JOINT</td>
+<td>05B-F13 / F-JOINT</td>
 <td>WallTop=RoofBottom-BeddingMortar;RoofBottom=E clearHeight</td>
 <td>No 15mm runtime constant</td>
 <td>EX164/173;HDSD;PDF012</td>
-<td>DerivedDatumContract / Type2/3</td>
+<td>DerivedDatumContract</td>
 </tr>
 <tr>
-<td>F-ANNOTATION</td>
+<td>05B-F14 / F-ANNOTATION</td>
 <td>modelOffset=paperOffset*S;baseline scale=S/100</td>
 <td>100 source asset baseline</td>
 <td>CONTRACT C06;template assets</td>
-<td>SourcePresentationRule / Annotation assets only</td>
+<td>SourcePresentationRule</td>
 </tr>
 <tr>
-<td>F-TK</td>
+<td>05B-F15 / F-TK</td>
 <td>row500/header1000/width12500 native;paper5/10/125mm viaS/100</td>
 <td>500/1000/12500</td>
 <td>catalog/SCHEDULE-ASSET-TABLE + TK sourcebounds</td>
-<td>ScopedObservedRecipe / TK regular rows; actualink may exceed row</td>
+<td>ScopedObservedRecipe</td>
 </tr>
 <tr>
-<td>F-TEXT</td>
+<td>05B-F16 / F-TEXT</td>
 <td>title300/note200 native -&gt;3/2mm paper</td>
 <td>300/200</td>
 <td>TenMC/BLT/TieudeMC ATTDEF</td>
-<td>ScopedObservedRecipe / Source annotation policy</td>
+<td>ScopedObservedRecipe</td>
 </tr>
 <tr>
-<td>F-BENDING</td>
+<td>05B-F17 / F-BENDING</td>
 <td>column pitch54mm;row13mm;title-caption8mm paper in source1:30</td>
 <td>1620/390/240 source measurements</td>
 <td>PDF003 §4</td>
-<td>ScopedObservationNotUniversalFit / Bending recipe minimums requireNR22</td>
+<td>ScopedObservationNotUniversalFit</td>
 </tr>
 <tr>
-<td>F-DOWEL</td>
+<td>05B-F18 / F-DOWEL</td>
 <td>average spacing rounded50mm</td>
 <td>50mm</td>
 <td>EX167 noteD9</td>
-<td>SourceQuantum_RoundingAndEndpointsNR06 / Type2/3 dowels</td>
+<td>SourceQuantum_RoundingAndEndpointsNR06</td>
 </tr>
 <tr>
-<td>F-SUMMARY</td>
+<td>05B-F19 / F-SUMMARY</td>
 <td>diameter buckets&lt;=10/&gt;10</td>
 <td>10mm boundary</td>
 <td>Template TK headers;usage-guide</td>
-<td>SourceSchema / TK.THKL/CT/panel summary</td>
+<td>SourceSchema</td>
 </tr>
 <tr>
-<td>F-MASS</td>
+<td>05B-F20 / F-MASS</td>
 <td>either D²/162 or density<em>π</em>D²/4/1e6;kg=sumLengthM*unitMass</td>
 <td>162 or density7850 currently experimental</td>
 <td>SteelScheduleCalculator/CalculationPolicy</td>
-<td>NeedsNR14 / Round steel mass</td>
+<td>BindingDataRequired_NR14</td>
 </tr>
 <tr>
-<td>F-OLD-TOL</td>
+<td>05B-F21 / F-OLD-TOL</td>
 <td>1e-6mm/1e-9kg current numerical settings</td>
 <td>Current code values</td>
 <td>CalculationPolicy</td>
-<td>Experimental_NotAcceptanceUntilNR18 / Software/research calculations</td>
+<td>Experimental_NotAcceptanceUntilNR18</td>
 </tr>
 <tr>
-<td>F-SOURCE-R</td>
+<td>05B-F22 / F-SOURCE-R</td>
 <td>R320/R375 endpoints;R200/R250 clear</td>
 <td>Fixture observations</td>
 <td>G500-CUT-MEMBERS-AUDIT</td>
-<td>NeverProductionConstant / Source evidence</td>
+<td>NeverProductionConstant</td>
 </tr>
 <tr>
-<td>F-SOURCE-CATCH</td>
+<td>05B-F23 / F-SOURCE-CATCH</td>
 <td>SCR scaleY11/17;NAPCUATHU2 scaleX23/32</td>
 <td>0.6470588235294118;0.71875</td>
 <td>PDF040 native78AC7/78D2D</td>
-<td>SourceConflictNR09_NeverPhysicalStretchDefault / Source illustration</td>
+<td>SourceConflictNR09_NeverPhysicalStretchDefault</td>
 </tr>
 <tr>
-<td>F-REMOVE</td>
+<td>05B-F24 / F-REMOVE</td>
 <td>BaseX&gt;2200;defaultG400/G500;scale30/Symbolic;index*2500</td>
 <td>Existing fixture defaults</td>
 <td>CURRENT-CODE-FINDINGS;PaletteDrawingCalculation;Family21ManholeHelper</td>
-<td>RemoveFromProductionPerMatrix / Old presentation/harness</td>
+<td>RemoveFromProductionPerMatrix</td>
+</tr>
+<tr>
+<td>05B-F25 /</td>
+<td>0 origin/empty count;1 identity/unit vector;2 two sides, midpoint=(a+b)/2; rectangle4vertices, triangle3vertices;pi geometric circle constant;degree→rad=degree*pi/180;mm²→m²=/1000²;min/max/floor/ceil defined over finite values.</td>
+<td>No engineering size default</td>
+<td>SI/unit definitions; directed geometry definitions; architecture decision 2026-10-13</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F26 /</td>
+<td>world=o+u<em>U+v</em>V+w*N;local=(dot(p-o,U),dot(p-o,V),dot(p-o,N));project=(local.u,local.v);handedness=sign(dot(cross(U,V),N)). FRAME-001 T1:o(0,B/2,0),U(-1,0,0),V(0,1,0);T2:o(L/2,0,0),U(0,1,0),V(1,0,0);T3:o(0,-B/2,0),U(1,0,0),V(0,-1,0);T4:o(-L/2,0,0),U(0,-1,0),V(-1,0,0);Zup.</td>
+<td>Only orthonormal bases; basis tolerance own dimensionless field</td>
+<td>DBTool.Domain/Geometry/WallFrame.cs; FRAME-001; source convention</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F27 /</td>
+<td>hx=L/2,hy=B/2,ox=hx+t,oy=hy+t,bx=ox+baseExpansion,by=oy+baseExpansion,px=bx+padExpansion,py=by+padExpansion;occupied prism=local region×[d0,d1],d1&gt;d0. Base[-base,0],Pad[-base-pad,-base] only pad&gt;0. T1/T3 full outerX strips;T2/T4 innerY strips. Haunch cross-section triangle(width,height), both supplied by source-backed expressions; no implicit equal legs.</td>
+<td>Topological counts only</td>
+<td>ChamberGeometryBuilder;HaunchProfileBuilder;EX020/026;NR05 approved proposal</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F28 /</td>
+<td>z(surface_a)=z(surface_b)+delta_mm. BaseTop=0;BaseBottom=-base;RoofBottom=H;RoofTop=H+roof;WallTop=H-mortar;NeckBottom=RoofTop;FrameBottom=NeckTop;FrameTop=FrameBottom+100. NeckTop/PanelBottom/FinishedCoverTop from full source-backed contact equations. BFS forward/backward; any inconsistent cycle exceeds length tolerance→DATUM_EQUATIONS_CONTRADICT.</td>
+<td>100 from CONTRACT C01, not a product thickness</td>
+<td>EX164/173;CONTRACT C01;selected product/NR23 contact contract</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F29 /</td>
+<td>Ax=(L-clearX)/2;Ay=(B-clearY)/2. Center=(0,0);N=(0,+Ay);E=(+Ax,0);S=(0,-Ay);W=(-Ax,0);NE=(+Ax,+Ay);SE=(+Ax,-Ay);SW=(-Ax,-Ay);NW=(-Ax,+Ay). Rotate actual aperture once about source datum; extentX=max transformed X-min X, extentY analogous; raw E11 retained separately.</td>
+<td>No outside bbox or product-code digit inference</td>
+<td>NeckPositionResolver;EX029;CONTRACT C01</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F30 /</td>
+<td>open u bounds=centerU±openW/2;openingBottom=hostTop-openH;floorTop=hostTop-clearHeight;floorBottom=floorTop-base;externalFront=hostWall+clearDepth+catchWall. Clearwidth=openW. NonCenter observer basis explicit; FRAME-001 inside-looking-out:Left=+(hostClearSpan-openW)/2,Right negative;outside-looking-in reverses sign. Neck owner always Center.</td>
+<td>NOTE-0411 proves clearHeight excludes base thickness</td>
+<td>CF.Ga G16/G17 type3;HDSD p13;PDF040;CatchBasinBuilder conflict</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F31 /</td>
+<td>Line: p=a+t<em>d. Line-line t=cross(b-a,e)/cross(d,e);u=cross(b-a,d)/den. Line-circle A=dot(d,d),tc=-dot(a-center,d)/A,h²=r²-&#124;a+tc</em>d-center&#124;²;roots=tc±sqrt(max(0,h²)/A). Tangency bound h²:±(2r<em>geomTol+geomTol²), never compare mm4 discriminant with mm epsilon. Circle-circle x=(ra²-rb²+d²)/(2d),h²=ra²-x²;base=ca+x</em>(cb-ca)/d;hits=base±sqrt(h²)*perp(unit(cb-ca));filter signed arc sweep and segment[0,1]. Collinear/coincident intervals preserve both endpoints.</td>
+<td>ParameterTol=lengthTol/nonzeroCurveLength; same unit for comparisons</td>
+<td>OpeningClipper;G500 cut audit;analytic geometry derived definitions</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F32 /</td>
+<td>Clip each [a,b] to support[s0,s1],sort by start/end;merge when next.start&lt;=last.end+lengthTol;retain complement. error=parentLength-sum(removedLengths)-sum(retainedLengths). Require &#124;error&#124;&lt;=lengthTol;IDs and opening sets preserved through merges.</td>
+<td>No R320/R375 constant</td>
+<td>OpeningClipper/ClipResult;owner four regions;05C prior accepted invariant</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F33 /</td>
+<td>effective horizontal wall/neck pitch=requested+delta; vertical pitch unchanged. DiameterCatalog ascending positive integers;horizontalD=catalog[index(verticalD)-stepCount];index&lt;0 rejects. stepCount is not millimetres.</td>
+<td>Catalog contents require explicit source-backed binding</td>
+<td>CF.Ga C7/D7/L11/M11 notes;WallRebarPlanner/NeckRebarPlanner</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F34 /</td>
+<td>pitchEffective=50*Round(requestedPitch/50,selected midpoint mode);stationDistance(i) from approved expression;z0=WallTop-lowerEmbed,z1=RoofBottom+upperEmbed;require z1-z0=inputDowelLength;hole starts RoofBottom,ends +holeDepth;holeDia&gt;dowelDia;holeDepth&gt;=upperEmbed. Same station/transform for bar+hole.</td>
+<td>50mm from EX167;all embeds/depth/endpoints require sourced payload</td>
+<td>EX167;PDF012;NR06 proposal approved</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F35 /</td>
+<td>turn=atan2(&#124;cross(tBefore,tAfter)&#124;,dot(tBefore,tAfter));rCentre=rInner+D/2 or explicitly rCentre;trim=rCentre<em>tan(turn/2);tangentA=corner-tBefore</em>trim;tangentB=corner+tAfter<em>trim;centre=tangentA+cross(normal,tBefore)</em>rCentre. L=sumLine(distance(start,end))+sumArc(rCentre*abs(sweep)). Nominal roles/schedule expression kept separately. Adjacent trims must fit same segment.</td>
+<td>R8 topology observation does not select inner/centreline basis</td>
+<td>BarLengthResolver;BendDetail;NR02/04/07/19 accepted separate-path proposal</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F36 /</td>
+<td>surface cover exclusion q=Protect.H+D/2 by approved NR01. Signed-distance d(x) positive inside concrete. For curve interval midpoint,halfArcLength h: signedDistance(mid)±h bounds whole interval by 1-Lipschitz. Accept cover if lower&gt;=requiredCover-geomTol;reject if upper&lt;requiredCover-geomTol;otherwise bisect until certified or resource/precision error. Void distance=sqrt(outsideProfileDistance²+outsideDepthDistance²). Euclidean offset boundary:distance to region&lt;=q; analytic line/arc arrangement, not bbox or fitted circle.</td>
+<td>Resource cap is request.max_numeric_count;not an engineering tolerance</td>
+<td>NR01/19/21 approved proposals;exact distance definition;source full-path invariant</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F37 /</td>
+<td>Split every line/arc at analytic crossings;classify each directed piece by occupied-left/right winding;keep where Boolean result differs;orient occupied-left;stitch closed loops. AreaLine=0.5<em>cross(start,end);AreaArc=0.5</em>(cross(center,end-start)+r²*signedSweep). netArea=sum directed pieces,inner loops negative. SectionCSG:ordered Union/Subtract parts then subtract owned openings once.</td>
+<td>Polygon footprints for cast concrete;oblique curved surfaces produce explicit capability error</td>
+<td>ChamberGeometryBuilder occupied blank+void;AssemblyBoundaryEmitter architecture;Green theorem</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F38 /</td>
+<td>Line projected by Frame dot products. Arc normal parallel view normal→circle same radius with signed sweep transform;edge-on→analytic line extrema splitting;oblique→explicit unsupported ellipse diagnostic,never fitted circle. Section extrusion:plane coefficients a=n·U,b=n·V,c=n·N,d=n·(o-viewO)-offset;parallel cap gives same footprint at depth=-d/c;vertical section intersects footprint line a<em>u+b</em>v+d=0 and extrudes depth. Composite AA/BB retain per-component frame IDs.</td>
+<td>Projection does not change source world paths</td>
+<td>PlanProjector/SectionProjector/SheetOneSectionViews;05B-F26</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F39 /</td>
+<td>Collector intersection per exact projected GroupId/member curve;split collector intervals where openings remove members. Forbidden insertion rectangle=obstacle minus relative label ink plus paperGap*S. Subtract forbidden lane intervals;try preferred target projection and free endpoints in fixed order;one declared extension set only. Route endpoints must coincide with real target and native label port.</td>
+<td>All offsets/gap/side order supplied by scoped source recipe</td>
+<td>PDF001 callout/leader tables;CONTRACT C06;NR22 approved finite-fit proposal</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F40 /</td>
+<td>glyphScale=ATTDEF.height/referenceGlyphHeight;advanceX=sum glyphAdvance<em>glyphScale</em>widthFactor+kerning;union actual glyph ink after pen translation;alignment shift Left0,Center=-advance/2,Right=-advance;Baseline0,Bottom=-minY,Middle=-(minY+maxY)/2,Top=-maxY;then rotate and translate native insertion/alignment point. Asset ink excludes ATTDEF specimen text and includes fixed strokes.</td>
+<td>Font bytes/style/encoding/normalization explicit</td>
+<td>165 ATTDEF catalog;NR16 approved FontPolicy proposal;native ink metrics</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F41 /</td>
+<td>bundleWidth=maxX-minX,height=maxY-minY. translation=(cursorX-minX,cursorY-maxY). Wrap row when cursorX+width&gt;content.maxX;new page when cursorY-height&lt;content.minY. Single bundle larger than content→LAYOUT_SINGLE_VIEW_NO_FIT in Fixed;Auto finite source scale list triggers fresh S0..S9 computation. Page frame offset=max prior full frame ink+approved manhole/page gap.</td>
+<td>No static sheet coordinates;frame dimensions from native asset</td>
+<td>SheetLayoutPlanner;CONTRACT C06;NR22 fixed-scale pagination proposal</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F42 /</td>
+<td>Line bbox includes endpoints;Arc bbox includes endpoints and cardinal angles inside signed sweep;stroke expands by effective stroke/2;insert transforms all four local bounds corners;union glyph/text/DIM/leader/tick/hatch outline/material/title/TK/bending. Empty ink stays absent, not zero-sized fake origin.</td>
+<td>Stroke width from layer/plot profile</td>
+<td>CONTRACT C06;native assets;NR16/18/22</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F43 /</td>
+<td>Measured_mm=abs(dot(worldB-worldA,dimensionAxis));native RotatedDimension uses actual endpoints,DimensionText=literalPrefix+&lt;&gt;;readback Dimension.Measurement compared with expected Effective value;never numeric override.</td>
+<td>Source unit mm;format is separate</td>
+<td>CONTRACT C01/C06;dimension planner source</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F44 /</td>
+<td>NR13 accepted:DAI and nominal leg mm precision0;TDAI m precision2;KL kg precision2;AwayFromZero only at final text boundary. CT/DIM/pitch/culture/trailing-zero rules explicit per role binding. Raw quantities remain full precision.</td>
+<td>Precision0/2 and midpoint from accepted proposal</td>
+<td>NR13 OWNER-APPROVAL-23-20261013;native schedule source</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F45 /</td>
+<td>CONST/REF/ADD/SUB/MUL/DIV/MIN/MAX/SQRT/SIN/COS/TAN/ATAN2/CEIL/FLOOR/ROUND/MOD/EQ/NE/LT/LE/GT/GE/AND/OR/NOT only;verify arity,dimensional units,source IDs,finite results,zero divisor,acyclic DAG. MOD=a-floor(a/b)*b for dimensionless integers b&gt;0;Boolean numeric values0/1.</td>
+<td>CONST must carry source;no expression eval/script injection</td>
+<td>Architecture decision20261013;approved typed NR payloads</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F46 /</td>
+<td>Encode(strings)=concat(UTF8ByteLength(s)+":"+s). Hash=SHA256 UTF8 canonical JSON,ordinal keys;unordered collections sort by stable ID;ordered paths/corners retain order;double use invariant round-trip representation;null explicit. Physical hash excludes display/layout/handles;native normalized2D hash is not a reconstruction of fabrication3D. Receipts exclude their own output_hash/timestamps from stateHash to avoid recursion. State hash excludes the entire context.receipts array;receipt hashes are separate. Root self-hash slots excluded only for their own payload:Geometry.physical_hash,Rebar.physical_hash,Groups.registry_hash,Sheet.sheet_hash,Rules.snapshot_hash;dependent source/build/workbook/native hashes remain included. JSON strings UTF8 without Unicode normalization/HTML escaping;escape quote,backslash,control characters exactly.</td>
+<td>Hash/serialization protocol is software decision</td>
+<td>Owner three-layer model;05C prior identity contract;architecture20261013</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F47 /</td>
+<td>OOXML numeric invariant;text numeric declared culture only;no thousands separator/no magnitude-unit inference. Mesh D<int>A<number>;Anchor0 or DdAaLl;Counted nDd;Tuple exactarity;Bool Có/Không;explicit enums only. Parse dependency DAG discriminators first;Inactive stores null typed slots and raw SourceId. Formula physical value requires matching recalculation receipt.</td>
+<td>Main row&gt;=4 from schema;not a numerical fixture</td>
+<td>Vhg32Schema;EX001/058/061/062/068;05A field bindings</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F48 /</td>
+<td>Expected measurement from Excel/effective/rules of current row. Vector page mapping pPdf=A*pModel+t;derive independent non-collinear mapped controls,check residual and actual scale by approved unit tolerance. Numerical fixture equality only when ReferenceBundle identity/hash/inputs match;otherwise PDF tests presentation recipe. Visual Passed requires actual reviewer+required named regions.</td>
+<td>No test-pass count substitutes for actual DWG/PDF measurements; 72 PDF points/inch and25.4mm/inch are unit definitions,not plot fixture dimensions.</td>
+<td>CONTRACT C01..C06;06 acceptance records;NR18 approved proposal</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
+</tr>
+<tr>
+<td>05B-F49 /</td>
+<td>Group key=(physical host,assembly,panel scope,face,layer,direction,family,topology,D,angleCode,basis,pitch,hookRule,regionRole,sortedOpeningSet,orderedRoleNames). One member→one primary group;sum/count/role means only over that member set. Multi-opening region ordinal from host coordinate order,not projected mirror or display prefix. Alias only explicit member-set evidence.</td>
+<td>No fuzzy grouping or name-based fixture selection</td>
+<td>OWNER §3..5;NR10/11/12 approved proposals</td>
+<td>SourceDerivedOrArchitectureDefinition; engineering payload still source-bound</td>
 </tr>
 </tbody>
-</table></div></article><footer>DBTool · Hồ sơ project leader 13/10/2026 · Nguồn/approval/evidence theo scope. Không chứng nhận phần mềm từ tài liệu hoặc số test.</footer></main></body></html>
+</table></main></body></html>

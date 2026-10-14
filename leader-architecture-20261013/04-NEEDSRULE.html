@@ -1,157 +1,237 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>4. NeedsRule tổng hợp duy nhất</title><style>body{margin:0;background:#eff3f5;color:#183345;font:16px/1.6 "Segoe UI",Arial,sans-serif}main{max-width:1380px;margin:auto;background:white;padding:32px}nav{position:sticky;top:0;background:#143e50;color:white;padding:10px 18px;z-index:5}nav a{color:white;margin-right:18px}a{color:#096c7b;overflow-wrap:anywhere}h1,h2,h3{color:#165b66;line-height:1.3;scroll-margin-top:60px}h1{font-size:30px}h2{margin-top:38px;border-bottom:1px solid #cddde3;padding-bottom:8px}p,li{max-width:1100px}table{border-collapse:collapse;width:100%;font-size:14px;margin:20px 0;table-layout:auto}th,td{border:1px solid #c4d4dc;padding:10px;vertical-align:top;overflow-wrap:anywhere}th{background:#e7f1f3;position:sticky;top:44px}td{min-width:90px}tr:nth-child(even){background:#f8fafb}pre{background:#132f40;color:#eff7fb;white-space:pre-wrap;overflow:auto;padding:18px;border-radius:8px;font-size:13px}code{font-family:Consolas,monospace}img{max-width:100%;height:auto;border:1px solid #d6e1e5}blockquote{border-left:4px solid #be862d;background:#fff7e9;padding:8px 20px}.diagram{max-width:1000px;margin:24px auto}.table-wrap{overflow-x:auto}footer{border-top:1px solid #d0dde3;padding-top:18px;color:#57707e;font-size:13px}@media(max-width:800px){main{padding:16px}body{font-size:15px}h1{font-size:25px}table{font-size:13px}nav{position:static}th{position:static}}</style></head><body><nav><a href="INDEX.html">Bàn giao</a><a href="01-KNOWLEDGE.html">Tri thức</a><a href="03-MODULE-MATRIX.html">Modules</a><a href="04-NEEDSRULE.html">NeedsRule</a><a href="05-ARCHITECTURE.html">Kiến trúc</a><a href="06-IMPLEMENTATION-PLAN.html">Kế hoạch</a></nav><main><article><h1 id="4-needsrule-tong-hop-duy-nhat">4. NeedsRule tổng hợp duy nhất</h1>
-<p><strong>23 quyết định mở</strong>, chưa tự chốt. Đề xuất dưới đây là phương án cụ thể để chủ nhiệm duyệt; <code>decision=null</code> là dữ liệu có ý nghĩa, không TODO. Khi chưa duyệt, hàm phụ thuộc phải trả <code>RULE_UNAPPROVED</code> chứa NR-ID/SourceRef và chặn Final của case đó. Preview liên quan giữ Partial; không giả số hoặc tắt feature.</p>
-<div class="table-wrap"><table>
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>04-NEEDSRULE</title><style>body{font:16px/1.65 system-ui,"Segoe UI",sans-serif;color:#142537;background:#f4f7fb;margin:0}main{max-width:1440px;margin:auto;padding:32px;background:white}h1,h2,h3{line-height:1.3;color:#153c5b}h2{margin-top:2.4em;border-bottom:2px solid #cee0ec;padding-bottom:8px}table{border-collapse:collapse;width:100%;font-size:13px;margin:20px 0;display:block;overflow:auto}td,th{border:1px solid #ccd7e2;padding:8px;vertical-align:top}th{background:#e9f1f8;position:sticky;top:0}tr:nth-child(even){background:#f7f9fb}pre{padding:20px;background:#112638;color:#e8f2fa;overflow:auto;line-height:1.5;font-size:13px}code{font-family:Consolas,monospace}a{color:#056d9f}button{background:#126688;color:white;border:0;padding:12px 24px;cursor:pointer;font-size:16px;border-radius:6px}details{border:1px solid #b9cbd8;padding:16px;margin:20px 0}summary{cursor:pointer;font-weight:700}textarea.prompt{width:100%;height:650px;font:13px/1.5 Consolas,monospace;box-sizing:border-box;white-space:pre;background:#102538;color:#f4f7fb;padding:20px}nav{padding:10px;background:#e9f1f8}svg{max-width:100%;height:auto} .notice{padding:16px;background:#fff3ce;border-left:5px solid #b38012}</style></head><body><main><nav><a href="INDEX.html">Mục lục bộ bàn giao</a></nav><h1 id="04-quyet-inh-chu-nhiem-va-needsrule-hop-nhat">04 — Quyết định chủ nhiệm và NeedsRule hợp nhất</h1>
+<p><strong>23/23 đề xuất đã được chủ nhiệm DucBao chấp thuận</strong>, hiệu lực 13/10/2026, phiên bản <code>owner-20261013-r2</code>. Nguồn là chỉ thị trực tiếp: “23 needs rule: tôi đồng ý toàn bộ đề xuất của bạn, bạn hãy cập nhật mọi thứ liên quan”. Không yêu cầu duyệt lại 23 đề xuất. Bản trước khi duyệt được giữ trong history.</p>
+<p>ApprovedProposal xác nhận phương án được chọn. Runtime vẫn phải kiểm các field dữ liệu số, sản phẩm và hình dạng bắt buộc cùng SourceRef. Thiếu dữ liệu báo <code>RULE_BINDING_DATA_MISSING</code> kèm field cụ thể; không trả <code>RULE_UNAPPROVED</code> cho 23 đề xuất đã ký hoặc tự tạo số fixture mặc định. Phê duyệt hồ sơ không phải nghiệm thu DWG/PDF.</p>
+<table>
 <thead>
 <tr>
 <th>ID</th>
-<th>Vấn đề/nguồn</th>
-<th>Đề xuất để chốt</th>
-<th>Bước bị chặn/đầu ra quyết định</th>
+<th>Vấn đề</th>
+<th>Đề xuất đã duyệt nguyên văn</th>
+<th>Trạng thái / scope</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>NR-01</td>
-<td>Khoảng bảo vệ lỗ: tim hay bề mặt<br>pages/G500-CUT-MEMBERS-AUDIT.html; SOURCE-CONFLICTS.html; excel/hole-clearance-source-audit.json</td>
+<td>Khoảng bảo vệ lỗ: tim hay bề mặt</td>
 <td>Chốt Protect.H là surface cover hoặc nominal centerline riêng. Đề xuất giữ physical surface cover+Ø/2, cho presentation nominal adapter chỉ khi owner xác nhận; không đổi H17=15 về10.</td>
-<td>S4 cut mesh và Li<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S4 cut mesh và Li</td>
 </tr>
 <tr>
 <td>NR-02</td>
-<td>C năm đoạn/R8 và chiều dài thống kê<br>OWNER-RULES-THONG-KE-NHOM-20261013.html; pages/PDF-002-PHAN-TICH-CHI-TIET.html; SOURCE-CONFLICTS.html</td>
+<td>C năm đoạn/R8 và chiều dài thống kê</td>
 <td>Chốt nominal/tangent/centerline cho 5 cạnh, R8 là inner hay centerline và công thức DAI; đề xuất lưu riêng path fabrication và nominal schedule, không dùng DAI190 thay path.</td>
-<td>S4 C;S8 C quantity<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S4 C;S8 C quantity</td>
 </tr>
 <tr>
 <td>NR-03</td>
-<td>Ties Đều/Lệch với pitch bất kỳ<br>EXCEL-NOTES.html; CURRENT-CODE-FINDINGS.html; SO-TAY-CACH-SUA-CHI-TIET-20261013.html</td>
+<td>Ties Đều/Lệch với pitch bất kỳ</td>
 <td>Chốt quy tắc chọn station khi pitch hai phương khác, pha hàng/cột và tiePitch không bằng2meshPitch. Đề xuất chọn station có ràng buộc maximum pitch, không snapping âm thầm; cần sơ đồ owner phê chuẩn.</td>
-<td>S4 tie station<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S4 tie station</td>
 </tr>
 <tr>
 <td>NR-04</td>
-<td>Shape C/U/Z theo đáy/tường/trần/cổ/panel<br>EXCEL-RULES-REVIEW.html; CAU-TAO-UNION-CHOT-VAT-CUA-THU.html</td>
+<td>Shape C/U/Z theo đáy/tường/trần/cổ/panel</td>
 <td>Chốt bảng cạnh fixed/input/derived cùng lớp đỡ từng component×shape. Đề xuất đầu/giữa lấy J/K/L đúng role, chiều nối lớp lấy stack có cover; shape chưa có nguồn không fallback.</td>
-<td>S4 tie shape;S8 binding<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S4 tie shape;S8 binding</td>
 </tr>
 <tr>
 <td>NR-05</td>
-<td>Thép vạt và neo phân bố<br>CAU-TAO-UNION-CHOT-VAT-CUA-THU.html</td>
+<td>Thép vạt và neo phân bố</td>
 <td>Cần typed spec Ø/phân bố/neo/bend/basis cho đáy/trần; đề xuất giữ occurrences hiện có Partial và kiểm toàn path trong slab+haunch+wall union trước cấp fabrication length.</td>
-<td>S4 haunch<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S4 haunch</td>
 </tr>
 <tr>
 <td>NR-06</td>
-<td>Chốt: tròn50, phân neo và lỗ sâu<br>EXCEL-NOTES.html; CAU-TAO-UNION-CHOT-VAT-CUA-THU.html; PDF-012 source</td>
+<td>Chốt: tròn50, phân neo và lỗ sâu</td>
 <td>Chốt midpoint rounding50, điểm đầu/cuối, chiều neo mỗi assembly và holeDepth. Đề xuất pair station chung, không tự chia length/2 nếu không nguồn; collision trả ID, không tự xóa/dời.</td>
-<td>S4 dowel;S6 hole<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S4 dowel;S6 hole</td>
 </tr>
 <tr>
 <td>NR-07</td>
-<td>Móc nâng trần/panel: hình và length basis<br>EXCEL-NOTES.html; EXCEL-CONSUMER-AUDIT.html</td>
+<td>Móc nâng trần/panel: hình và length basis</td>
 <td>Chốt role A/B/C, bend radii/anchorage cho hai scope; đề xuất roof0/2/4, panel1/2/4 giữ khác nhau; dùng TK.MC khi shape được xác minh, không TK.M.C.</td>
-<td>S4 lifting;S8<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S4 lifting;S8</td>
 </tr>
 <tr>
 <td>NR-08</td>
-<td>Cửa thu: physical shape 1..4 và TK.CT<br>PDF-040 source; catalog/SCHEDULE-ASSET-TABLE.html; CAU-TAO-UNION-CHOT-VAT-CUA-THU.html</td>
+<td>Cửa thu: physical shape1..4 và TK.CT</td>
 <td>Chốt mapping marks1..4 tới floor/side/front, bend và TK.CT.N/T. Đề xuất dựng mesh một lớp theo từng mặt support, annotate theo GroupId; số/Ø/pitch từ M17, không Ø10@150 mẫu.</td>
-<td>S4 catch;S8 CT<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S4 catch;S8 CT</td>
 </tr>
 <tr>
 <td>NR-09</td>
-<td>Sản phẩm cửa thu bị co trong nguồn<br>PDF-040 source; catalog/CONDITIONAL-ASSETS-AUDIT.html</td>
-<td>SCR scale Y=0.6470588235294118, NAPCUATHU2 X=0.71875; đề xuất chọn sản phẩm/catalog extension đúng aperture, giữ1:1. Owner chốt cho source schematic exception nếu muốn; tuyệt đối không tự stretch vật lý.</td>
-<td>S2 catch product;S6<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>Sản phẩm cửa thu bị co trong nguồn</td>
+<td>SCR Y=0.6470588235294118, NAPCUATHU2 X=0.71875; đề xuất chọn sản phẩm/catalog extension đúng aperture, giữ1:1. Owner chốt cho source schematic exception nếu muốn; tuyệt đối không tự stretch vật lý.</td>
+<td>ApprovedProposal; S2 catch product;S6</td>
 </tr>
 <tr>
 <td>NR-10</td>
-<td>C3 ở nhãn, C3A ở TK<br>pages/PDF-002-PHAN-TICH-CHI-TIET.html; pages/PDF-007-PHAN-TICH-CHI-TIET.html; SOURCE-CONFLICTS.html</td>
+<td>C3 ở nhãn, C3A ở TK</td>
 <td>Đề xuất alias explicit theo Neck/role/face và source handles sau khi xác nhận cùng members; owner chốt alias hoặc sửa lỗi source. Trước đó giữ hai identities, không fuzzy join.</td>
-<td>S5 neck mark;S8<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S5 neck mark;S8</td>
 </tr>
 <tr>
 <td>NR-11</td>
-<td>Alias tấm nắp tại685CE/685D5<br>pages/PDF-004-PHAN-TICH-CHI-TIET.html; SOURCE-CONFLICTS.html</td>
+<td>Alias tấm nắp tại685CE/685D5</td>
 <td>Owner xác nhận target và SH/Ø của hai nhãn BB so với1A/2A. Đề xuất regenerate nhãn từ members/Ø đã resolve, lưu source exception thay sao lỗi hoặc rename toàn cục.</td>
-<td>S7 panel source-equivalence<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S7 panel source-equivalence</td>
 </tr>
 <tr>
 <td>NR-12</td>
-<td>Đoạn giữa nhiều lỗ và suffix mở rộng<br>QUY-TRINH-CODE-BIEN-THIEN-VA-SUA-DBTOOL.html; OWNER-RULES-THONG-KE-NHOM-20261013.html</td>
+<td>Đoạn giữa nhiều lỗ và suffix mở rộng</td>
 <td>Chốt DisplayMark cho Middle/MultipleOpenings và nhiều vùng cùng role. Đề xuất key chứa OpeningRegionSet và ordinal theo tọa độ ổn định, chỉ đặt suffix sau phê chuẩn; không T1C/D tự duyệt.</td>
-<td>S5 multi-opening naming<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S5 multi-opening naming</td>
 </tr>
 <tr>
 <td>NR-13</td>
-<td>DAI, TDAI, KL: rounding midpoint và precision<br>pages/G500-CUT-MEMBERS-AUDIT.html; THONG-KE-THEP-NATIVE-CACH-SUA.html</td>
+<td>DAI, TDAI, KL: rounding midpoint và precision</td>
 <td>Nguồn chứng minh nhiều DAI nguyên và TDAI/KL hai số lẻ, chưa phân biệt midpoint. Đề xuất mm0, m/kg2, AwayFromZero lúc hiển thị; owner phải chốt, raw sums không đổi.</td>
-<td>S8 final formatting<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S8 final formatting</td>
 </tr>
 <tr>
 <td>NR-14</td>
-<td>Mass policy và bucket thang/chốt<br>pages/PDF-007-PHAN-TICH-CHI-TIET.html; THONG-KE-THEP-NATIVE-CACH-SUA.html; DBTool.Domain/Policies/CalculationPolicy.cs</td>
+<td>Mass policy và bucket thang/chốt</td>
 <td>Chốt D²/162 hay density, quantity basis và component bucket của thang/chốt/lifting; header Ø&lt;=10/&gt;10 đã rõ. Đề xuất physical owner bucket, explicit legacy mapping nếu cần nguồn; không cộng formatted cells.</td>
-<td>S8 KL/summaries<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S8 KL/summaries</td>
 </tr>
 <tr>
 <td>NR-15</td>
-<td>Template canonical và migration cùng tên<br>SOURCE-CONFLICTS.html; CATALOG-TEMPLATE.html; catalog/template-source-index.json</td>
+<td>Template canonical và migration cùng tên</td>
 <td>Chốt một bundle definition/symbol canonical. Đề xuất acad-original giữ signature gốc và migration version có hash; native-current có khác font/style nên không trộn chỉ vì cùng tên.</td>
-<td>S0 production import<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S0 production import</td>
 </tr>
 <tr>
 <td>NR-16</td>
-<td>Font/encoding và glyph có dấu trong nguồn<br>SOURCE-CONFLICTS.html; CATALOG-TEMPLATE.html; PDF-012 source</td>
+<td>Font/encoding và glyph có dấu trong nguồn</td>
 <td>Original Regular SHX, native-current bảng HTML Arial; PDF012 có glyph hiện dấu hỏi. Đề xuất FontPolicy khai báo nguồn/alias/encoding, output Việt đúng literal, đo ink; owner chốt tương đương font thay thế, không âm thầm sửa shared style.</td>
-<td>S0/S10 visual<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S0/S10 visual</td>
 </tr>
 <tr>
 <td>NR-17</td>
-<td>Hatch default khi thiếu pattern<br>EXCEL-NOTES.html; EXCEL-RULES-REVIEW.html</td>
+<td>Hatch default khi thiếu pattern</td>
 <td>Note cho fallback nhưng không đặt tên default. Đề xuất chỉ fallback được named trong project profile đã duyệt; thiếu cả default thì Block, log requested/resolved/pattern scale.</td>
-<td>S0/S7 material<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S0/S7 material</td>
 </tr>
 <tr>
 <td>NR-18</td>
-<td>Plot profile và dung sai nghiệm thu<br>CONTRACT-CHONG-HOI-QUY.html; SOURCE-CONFLICTS.html; pdf/plot-policy-observed.json</td>
+<td>Plot profile và dung sai nghiệm thu</td>
 <td>Chốt profile CTB/STB và numerical/visual tolerances theo đơn vị; phân biệt nguồn hairline và profile cải thiện. Đề xuất exact semantic dims theo Excel và numeric policy tách paper glyph/endpoint; chưa ký tolerance không gọi toàn diện Passed.</td>
-<td>S10/S11 acceptance<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S10/S11 acceptance</td>
 </tr>
 <tr>
 <td>NR-19</td>
-<td>Thứ tự lớp chồng/móc/neo khi va biên<br>DBTool.Domain/Policies/CalculationPolicy.cs; EXCEL-RULES-REVIEW.html</td>
+<td>Thứ tự lớp chồng/móc/neo khi va biên</td>
 <td>Policy hiện ghi TwoDirectionsTouchingTestOnly/UniformBaseTestOnly, chưa là rule chủ nhiệm. Đề xuất bảng stack theo component/layer/Ø và mặt đỡ; thiếu không tự thu ngắn hook hoặc đổi cover.</td>
-<td>S4 physical stack<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S4 physical stack</td>
 </tr>
 <tr>
 <td>NR-20</td>
-<td>Cống đôi: web, contour và overlap assembly<br>EXCEL-NOTES.html; EXCEL-CONSUMER-AUDIT.html; CURRENT-CODE-FINDINGS.html</td>
+<td>Cống đôi: web, contour và overlap assembly</td>
 <td>CF.Cong cho width/thickness/chamfer/DoubleFlag; khi web khác thickness hoặc opening cắt qua nhiều host cần entry/spec có nguồn. Đề xuất reject thông số chưa đủ và giải ownership theo contour thật, không gán tường tùy ý.</td>
-<td>S2/S3 complex openings<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S2/S3 complex openings</td>
 </tr>
 <tr>
 <td>NR-21</td>
-<td>Vị trí ladder/chốt va cửa thu hoặc cống<br>CAU-TAO-UNION-CHOT-VAT-CUA-THU.html; EXCEL-CONSUMER-AUDIT.html</td>
-<td>Chốt dời/loại/thay cấu tạo cho station va. Đề xuất Block đúng station+SourceRef cho tới khi có relocation rule; vẫn xử lý stations độc lập, không blanket loại 3 unsupported và không tự bỏ thanh.</td>
-<td>S4 collision<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>Vị trí ladder/chốt va cửa thu hoặc cống</td>
+<td>Chốt dời/loại/thay cấu tạo cho station va. Đề xuất Block đúng station+SourceRef cho tới khi có relocation rule; vẫn xử lý stations độc lập, không blanket loại3 unsupported và không tự bỏ thanh.</td>
+<td>ApprovedProposal; S4 collision</td>
 </tr>
 <tr>
 <td>NR-22</td>
-<td>Khoảng hở chữ và scale tự chọn<br>CONTRACT-CHONG-HOI-QUY.html; HDSD VHGpro 3.2.pdf p25; pages/PDF-001-PHAN-TICH-CHI-TIET.html</td>
+<td>Khoảng hở chữ và scale tự chọn</td>
 <td>Source offsets5/1mm chỉ scoped recipe; chốt min ink gap, scale auto candidates và overflow single-view. Đề xuất fixed scale phân trang giữ role, view đơn quá lớn trả LAYOUT_SINGLE_VIEW_NO_FIT, chỉ auto đổi scale khi request cho phép.</td>
-<td>S7/S9 large pages<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S7/S9 large pages</td>
 </tr>
 <tr>
 <td>NR-23</td>
-<td>Phạm vi khóa clear cho nắp BTCT tự thiết kế<br>CONTRACT-CHONG-HOI-QUY.html C01; EXCEL-NOTES.html EX039/040/041/045/046</td>
+<td>Phạm vi khóa clear cho nắp BTCT tự thiết kế</td>
 <td>Owner chốt cách chọn nắp trước khi khóa clear nếu BTCT panel tự thiết kế chưa có sản phẩm/aperture catalog độc lập. Đề xuất selected PanelAssemblyContract có aperture/quantity/support được duyệt; không lấy rawE11 làm authoritative âm thầm để né khóa clear.</td>
-<td>S2 BTCT custom panel<br>Ghi chosenConvention, scope, ruleVersion, sourceRefs, approver, approvedAt</td>
+<td>ApprovedProposal; S2 BTCT custom panel</td>
 </tr>
 </tbody>
 </table>
-</div><h2 id="41-cac-xung-ot-co-quyet-inh-ro-hoac-a-sua-nghien-cuu">4.1. Các xung đột có quyết định rõ hoặc đã sửa nghiên cứu</h2>
-<div class="table-wrap"><table>
+<h2 id="40a-mismatch-moi-va-disposition-lien-quan">4.0a. Mismatch mới và disposition liên quan</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Mâu thuẫn phát hiện</th>
+<th>Cách xử lý cụ thể</th>
+<th>Status / nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NR-IO-001</td>
+<td>Stage payload/05C chưa cùng schema;hai nhánh S7/S8 thiếu carrier rõ</td>
+<td>Dùng cumulative immutable stage envelopes; Application adapters wrap leaf payload, Drawing planners không tham chiếu Application. Output N==Input N+1 by generated schema.</td>
+<td>ResolvedArchitecture; Source05C/StageAdapters;leader software decision</td>
+</tr>
+<tr>
+<td>NR-IO-002</td>
+<td>205 input fields thiếu Material.G vữa đệm</td>
+<td>Thêm F-206:CF.Ga!G34 loại2,!G36 loại3;only active BeddingMortar;không lấy Material.F hoặc M75 mẫu.</td>
+<td>ResolvedSourceCorrection; Original CF.Ga material C:G headers</td>
+</tr>
+<tr>
+<td>NR-IO-003</td>
+<td>W/bậc cổ/khung100/FinishedTop chưa khép kín cao độ</td>
+<td>Giữ FrameBottom=NeckTop,FrameHeight100;contact equations của selected NR23 contract phải xác định NeckTop/PanelBottom/FinishedTop;thiếu field→DATUM_GRAPH_DISCONNECTED.</td>
+<td>ApprovedPolicyBindingRequired; CONTRACT C01;NR23 accepted selected contact contract</td>
+</tr>
+<tr>
+<td>NR-IO-004</td>
+<td>Legacy cửa thu dùng clearHeight như externalHeight</td>
+<td>floorTop=hostTop-clearHeight;floorBottom=floorTop-base;source clearHeight note NOTE0411,PDF040 clear250/base125 chỉ evidence.</td>
+<td>ResolvedSourceCorrection; CF.Ga G16/G17 type3;PDF040</td>
+</tr>
+<tr>
+<td>NR-IO-005</td>
+<td>Panel formula cũ luôn n+1 gaps;Cover=None chưa có aperture contract</td>
+<td>Tách Recess/OverOuter theo CoverPanelBuilder;NoCover chỉ dùng explicit selected no-cover aperture/contact,không tự rawE11 authoritative.</td>
+<td>ResolvedContractWithBinding; CoverPanelBuilder;NR23 approved proposal</td>
+</tr>
+<tr>
+<td>NR-IO-006</td>
+<td>LadderTop legacy nhiều cao độ;note chỉ đỉnh ga</td>
+<td>NR19 binding ladder_top_surface_id+min_z_expr bắt buộc;missing→RULE_BINDING_DATA_MISSING;không tự RoofTop/FinishedTop.</td>
+<td>ApprovedPolicyBindingRequired; EX083;LadderPlanner;NR19</td>
+</tr>
+<tr>
+<td>NR-IO-007</td>
+<td>Haunch scalar chưa chứng minh b=h;C/R8 chưa chứng minh radius basis</td>
+<td>Bắt buộc width/height expressions NR05;recipe fabrication centreline and nominal schedule separately NR02;missing payload blocks active feature.</td>
+<td>ApprovedPolicyBindingRequired; EX020/026;NR02/05 approved proposals</td>
+</tr>
+<tr>
+<td>NR-IO-008</td>
+<td>Catch Left/Right legacy sign so FRAME-001 khác observer</td>
+<td>Center invariant;Neck forced Center;Body Left/Right requires named side_basis in NR19 placement binding;both signs explicitly implemented.</td>
+<td>ApprovedPolicyBindingRequired; WallFrame FRAME001;CatchBasinBuilder;EX177</td>
+</tr>
+<tr>
+<td>NR-IO-009</td>
+<td>Draft box outer contour dùng offset Euclidean của inner chamfer</td>
+<td>Outer là rectangle W+2t,H+2t;cut rectangle thêm2m;chamfer chỉ inner cells;surface cover clipping vẫn Euclidean offset riêng.</td>
+<td>ResolvedSourceCorrection; PipeCrossSectionBuilder.BuildBox</td>
+</tr>
+<tr>
+<td>NR-IO-010</td>
+<td>Draft activity F13/G13 gắn nhầm BTCT panel</td>
+<td>EX042 chỉ Gang/Purchased;G13 là collar phía trên cổ. Active collar phải có selected source-backed profile/contact expressions;không thay Frame100 hoặc bỏ feature.</td>
+<td>ResolvedSourceWithBinding; EX042/043;ManholeValidator collar branch;NR23 contact contract</td>
+</tr>
+<tr>
+<td>NR-IO-011</td>
+<td>S7 cần anchor title/cao độ nhưng registry S6 chưa khai báo; lane thiếu side và nhầm port với insertion</td>
+<td>S6 đăng ký Target2V2 ViewTitle/Elevation có ID/frame/point từ biểu thức nguồn. S7 join đúng target, local lane có side; tính vùng cấm theo ink tương đối với port sau scale/rotation. Nhánh accessory không sinh Gach của lưới; helper finite allocator có thân đầy đủ.</td>
+<td>ResolvedArchitectureWithSourceBinding; 05C Target2V2;CONTRACT C06;NR16/22 đã duyệt;leader software correction</td>
+</tr>
+</tbody>
+</table>
+<h2 id="41-cac-xung-ot-co-quyet-inh-ro-hoac-a-sua-nghien-cuu">4.1. Các xung đột có quyết định rõ hoặc đã sửa nghiên cứu</h2>
+<table>
 <thead>
 <tr>
 <th>ID</th>
@@ -223,12 +303,12 @@
 </tr>
 </tbody>
 </table>
-</div><h2 id="42-oi-soat-moi-cho-needsrule-cu">4.2. Đối soát mọi chỗ NeedsRule cũ</h2>
+<h2 id="42-oi-soat-moi-cho-needsrule-cu">4.2. Đối soát mọi chỗ NeedsRule cũ</h2>
 <p><a href="data/needsrule-source-mentions.json">data/needsrule-source-mentions.json</a> giữ 60 đoạn HTML tìm được với source/element/text, có disposition cho từng đoạn. Các nhắc chung “không gọi Final”, “chưa native reproduced”, “chưa đọc từng glyph” là yêu cầu bằng chứng, không tạo thêm quyết định kết cấu. Nhiệm vụ kiểm Li/membership của nhóm chưa audit thuộc phase06; alias/mass/basis tương ứng NR02/10/14.</p>
 <p>Không dùng bảng này để gắn mọi feature hiện experimental thành approved. Tại runtime, RuleBinding không có source/approval vẫn bị gate kể cả khi NR không nhắc tên riêng đó; phải bổ sung register với case/field khi phát hiện trong implementation. Không được tự đổi ExperimentalSoftwareFixture thành Approved.</p>
 <h2 id="43-disposition-sau-khi-oc-tung-oan-nguon">4.3. Disposition sau khi đọc từng đoạn nguồn</h2>
 <p>60 đoạn là các vị trí nguồn, có đoạn lặp; không phải 60 quyết định mở. Bảng này giải thích cách gom vào register 23 mục phía trên hoặc đưa thành công việc kiểm chứng. Nội dung nguyên văn và vị trí element vẫn ở JSON liên kết trong 4.2. Mapping dưới đây đã được rà theo nghĩa, thay cho candidate từ tìm từ khóa.</p>
-<div class="table-wrap"><table>
+<table>
 <thead>
 <tr>
 <th>Vị trí</th>
@@ -599,4 +679,4 @@
 <td>Quyết định mở đã gom theo đúng topic tại NR-02, NR-04, NR-05, NR-07, NR-08. Các kiểm native/member/visual đi cùng vẫn thuộc phase triển khai, chưa được đánh Passed.</td>
 </tr>
 </tbody>
-</table></div></article><footer>DBTool · Hồ sơ project leader 13/10/2026 · Nguồn/approval/evidence theo scope. Không chứng nhận phần mềm từ tài liệu hoặc số test.</footer></main></body></html>
+</table></main></body></html>
