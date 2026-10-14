@@ -1,0 +1,49 @@
+BRIEF-W05 — SỬA SAU REVIEW, KHÔNG PHẢI THÔNG BÁO ĐÃ ĐẠT
+ROOT=C:/Users/DucBao/Desktop/Dbtool/Ver 1. Mọi path code dưới đây tính từ ROOT; dòng là mốc review, khi đã dịch dòng phải tìm đúng class/method/predicate, không thay theo số dòng mù.
+Receipt cần version hóa: C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W05/receipt.json
+
+1. VIỆC BẠN ĐÃ LÀM / PHẠM VI
+ChangedFiles (chuẩn hóa prefix Ver 1 về ROOT; liệt kê đủ, không cấp quyền sửa mọi file):
+A=ROOT/DBTool/DBTool.Application: BatchGenerationOrchestrator.cs; AcceptanceEvidenceAssembler.cs.
+C=ROOT/DBTool/DBTool.AutoCAD: NativeReadbackVerifier.cs.
+Bạn đã tách BatchGenerationOrchestrator theo row/cancel/host ports; tạo NativeReadbackVerifier save/reopen; dùng AcceptanceEvidenceAssembler cho S11 và dự định giữ visual NotRun khi chưa review.
+Bạn sửa đúng ba module của mình; command/CadGenerationWriter/CadRenderer và composition W13 sửa sau. N01/N02/N08 của bạn là contract/orchestrator/verification phía consumer, không tự sửa file host ngoài gói.
+
+2. FINDINGS BẮT BUỘC
+N01 [P1] DBTool/DBTool/App/HoGaCommands.cs:167 — Spec: S0–S11 composition; W13 B3.07.
+Lỗi: Command/palette/headless dùng CalculationPipeline cũ; dispatcher/batch/verifier không caller sản phẩm; chưa có plot/review/session/context ports thật. Sửa: Composition root thực sự dùng một request qua S0–S11 và đủ native/plot/evidence ports; giữ UI chính. Đóng khi: Transcript một run command/palette thật có đủ stage/source/build IDs, native handles, save/reopen, plot và row receipts.
+
+N02 [P1] DBTool/DBTool.AutoCAD/CadGenerationWriter.cs:95 — Spec: S10 write/readback.
+Lỗi: handleMap rỗng, không dựng native intents hoặc TagOwned; có thể xóa Replace rồi không tạo hình thay thế; vẫn readback Passed. Sửa: Flatten/render đủ intents trong transaction; ownership/handle coverage; reopen đo trước khi Passed. Đóng khi: Input S9 có curve/label/TK/frame phải ra entity thật đúng coverage; sửa một entity/ATTRIB phải NATIVE_READBACK_MISMATCH.
+
+N04 [P1] DBTool/DBTool.AutoCAD/NativeReadbackVerifier.cs:105 — Spec: S10 actual native equality.
+Lỗi: Không so geometry/ATTRIB/OCS/style/scale/owner với expected; thiếu attributes lấy dữ liệu caller; hash copy input; handles rỗng vẫn pass. Sửa: Đọc lại DB đã đóng/mở, đủ native fields và actual normalized hash; kiểm coverage và ownership thật. Đóng khi: Di chuyển vertex, đổi block/tag/style/owner/rotation/scale hoặc thiếu handle: fail kèm expected/actual/unit/handle.
+
+N05 [P1] DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs:331 — Spec: S11; NR18; F48.
+Lỗi: Dim/group/opening/owner dùng cùng DTO cho hai phía; GetUnitTolerance thay null bằng literal. Sửa: Actual chỉ từ readback/vector PDF có handle/hash; thiếu measurement NotRun, thiếu tolerance Blocked. Đóng khi: Native sai số thật phải được báo đúng actual và Failed; null tolerance không thể Passed; không tự lấy expected làm actual.
+
+N06 [P1] DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs:153 — Spec: S11; mandatory DucBao review.
+Lỗi: Chỉ kiểm reference IDs không rỗng; copy visual_status, không bắt reviewer, PDF hash/frame và required regions; chưa port thật. Sửa: Khóa reference identity và PDF hash/page/frame; mọi vùng phải được DucBao xem; validate file/plot transcript trước verdict. Đóng khi: Đổi PDF hash/frame/reference, thiếu reviewer/vùng hoặc chưa xem: không visual Passed/Complete.
+
+N08 [P1] DBTool/DBTool/App/PaletteDrawingCalculation.cs:90 — Spec: S11 batch row isolation; H17.
+Lỗi: Loop có receipt nhưng any failure trả Value=null; command gate cả workbook; calculation Complete bị hiểu như delivery; export không xử failed rows. Sửa: Giữ một final receipt cho mỗi row; tiếp tục rows tốt khi host khỏe; tách CalculationReady với DeliveryComplete. Đóng khi: Batch A tốt/B lỗi/C tốt: A,C có artifact; A/B/C có final receipt; cancel/savefail giữ bằng chứng đã commit và không mất dòng.
+
+N11 [P2] DBTool/DBTool.Application/BatchGenerationOrchestrator.cs:248 — Spec: S11/H17 artifact manifest.
+Lỗi: Assembler ghi nguồn/receipts rồi orchestrator ghi raw BatchV2 cùng tên; catch persist rỗng; session/context exception có thể mất row receipt. Sửa: Một finalizer/schema manifest đầy đủ; I/O failure rõ; bảo đảm accounting/cleanup mọi target kể cả pre-row fault. Đóng khi: Inject lỗi store/session/context: receipt thất bại đúng và cleanup; manifest cuối giữ đủ source/build/rule/receipt/artifact hashes.
+
+3. CÁCH TRIỂN KHAI VÀ LỖI CŨ PHẢI BỎ
+Lỗi cũ: readback chỉ kiểm handle và lấy expected làm actual; manifest bị ghi đè, lỗi persist bị nuốt. N03 fake S10 thuộc W13: bạn phải từ chối receipt đó, không biến nó thành evidence thật.
+Expected=S9/Excel/effective/rule; actual=reopened native fields hoặc vector PDF có handle/page/hash. PDF pPdf=A*pModel+t từ control độc lập không thẳng hàng, kiểm residual/scale theo tolerance NR18; null tolerance Blocked. One finalizer giữ source/build/rule/receipt/artifact hashes. Visual chỉ khi DucBao thật xem đủ named regions; triển khai validator không đồng nghĩa visual gate Passed.
+
+4. THỨ TỰ / DEPENDENCY
+Thứ 12/13; chờ W12 bàn giao code + receipt sửa và kiểm upstream interface cần dùng. Lỗi chung chờ gói sau vẫn not-closed, không ép gói trước giả đóng.
+
+5. LUẬT BẮT BUỘC
+- Trước sửa: snapshot exact paths code/input/receipt, kiểm SHA256 với bàn giao. Không reset repo.
+- Cấm bịa số: thiếu dữ liệu → StageFault/Blocked; không default, không chọn dòng khác, không tắt feature. 23 phê duyệt NR giữ nguyên. Cấm fuzzy grouping/đo schematic tính chiều dài.
+- Cấm Passed giả: gate chưa chạy thật giữ NotRun. Không dùng số test pass/build exit0 đóng finding.
+- Closure đủ Before/After hashes, predicate input, command + exit code, output/log, expected/actual/unit/tolerance/source, closed/not-closed; actual độc lập expected, thiếu tolerance nguồn thì Blocked.
+- Chỉ sửa file thuộc phạm vi gói, patch phần sở hữu trên bản mới nhất. Không sửa UI sản phẩm chính. Không làm 3D. Giữ frozen review.
+
+6. OUTPUT
+Code sửa + receipt.json cập nhật + chứng cứ closed/not-closed từng ID. Giữ snapshot receipt cũ/PreviousReceiptHash/dependency hashes; lưu evidence tại receipt-folder/rework. Finding chung chỉ LocalPartDone, chưa đủ tích hợp thì not-closed. Gói trước còn lỗi interface cần dùng: Blocked, cấm giả Passed đi tiếp. Không sửa được ghi lý do/field/owner. DWG/PDF chưa chạy: NotRun; AI không ký visual thay DucBao.

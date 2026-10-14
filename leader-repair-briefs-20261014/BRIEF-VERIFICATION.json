@@ -1,0 +1,773 @@
+{
+  "Scope": "Document checks only; not product acceptance",
+  "Checks": [
+    {
+      "check": "exact execution order and 13 code blocks",
+      "passed": true,
+      "actual": [
+        "W01",
+        "W02",
+        "W03",
+        "W06",
+        "W07",
+        "W04",
+        "W08",
+        "W09",
+        "W10",
+        "W11",
+        "W12",
+        "W05",
+        "W13"
+      ]
+    },
+    {
+      "check": "W01 exact finding assignment",
+      "passed": true,
+      "actual": [
+        "R01"
+      ]
+    },
+    {
+      "check": "W01 R01 exact source content",
+      "passed": true,
+      "actual": "R01"
+    },
+    {
+      "check": "W01 all ChangedFiles named",
+      "passed": true,
+      "actual": 3
+    },
+    {
+      "check": "W01 mandatory rules repeated",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W01 no external spec lookup command",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W01 receipt unchanged after writing briefs",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W02 exact finding assignment",
+      "passed": true,
+      "actual": [
+        "G08",
+        "G09",
+        "G10",
+        "R02"
+      ]
+    },
+    {
+      "check": "W02 G08 exact source content",
+      "passed": true,
+      "actual": "G08"
+    },
+    {
+      "check": "W02 G09 exact source content",
+      "passed": true,
+      "actual": "G09"
+    },
+    {
+      "check": "W02 G10 exact source content",
+      "passed": true,
+      "actual": "G10"
+    },
+    {
+      "check": "W02 R02 exact source content",
+      "passed": true,
+      "actual": "R02"
+    },
+    {
+      "check": "W02 all ChangedFiles named",
+      "passed": true,
+      "actual": 17
+    },
+    {
+      "check": "W02 mandatory rules repeated",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W02 no external spec lookup command",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W02 receipt unchanged after writing briefs",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W03 exact finding assignment",
+      "passed": true,
+      "actual": [
+        "D08",
+        "D11"
+      ]
+    },
+    {
+      "check": "W03 D08 exact source content",
+      "passed": true,
+      "actual": "D08"
+    },
+    {
+      "check": "W03 D11 exact source content",
+      "passed": true,
+      "actual": "D11"
+    },
+    {
+      "check": "W03 all ChangedFiles named",
+      "passed": true,
+      "actual": 3
+    },
+    {
+      "check": "W03 mandatory rules repeated",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W03 no external spec lookup command",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W03 receipt unchanged after writing briefs",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W06 exact finding assignment",
+      "passed": true,
+      "actual": [
+        "G01",
+        "G02",
+        "G03",
+        "G05",
+        "G07",
+        "G10",
+        "G12"
+      ]
+    },
+    {
+      "check": "W06 G01 exact source content",
+      "passed": true,
+      "actual": "G01"
+    },
+    {
+      "check": "W06 G02 exact source content",
+      "passed": true,
+      "actual": "G02"
+    },
+    {
+      "check": "W06 G03 exact source content",
+      "passed": true,
+      "actual": "G03"
+    },
+    {
+      "check": "W06 G05 exact source content",
+      "passed": true,
+      "actual": "G05"
+    },
+    {
+      "check": "W06 G07 exact source content",
+      "passed": true,
+      "actual": "G07"
+    },
+    {
+      "check": "W06 G10 exact source content",
+      "passed": true,
+      "actual": "G10"
+    },
+    {
+      "check": "W06 G12 exact source content",
+      "passed": true,
+      "actual": "G12"
+    },
+    {
+      "check": "W06 all ChangedFiles named",
+      "passed": true,
+      "actual": 13
+    },
+    {
+      "check": "W06 mandatory rules repeated",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W06 no external spec lookup command",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W06 receipt unchanged after writing briefs",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W07 exact finding assignment",
+      "passed": true,
+      "actual": [
+        "G02",
+        "G04",
+        "G05",
+        "G06",
+        "G07",
+        "G11",
+        "G12",
+        "R02"
+      ]
+    },
+    {
+      "check": "W07 G02 exact source content",
+      "passed": true,
+      "actual": "G02"
+    },
+    {
+      "check": "W07 G04 exact source content",
+      "passed": true,
+      "actual": "G04"
+    },
+    {
+      "check": "W07 G05 exact source content",
+      "passed": true,
+      "actual": "G05"
+    },
+    {
+      "check": "W07 G06 exact source content",
+      "passed": true,
+      "actual": "G06"
+    },
+    {
+      "check": "W07 G07 exact source content",
+      "passed": true,
+      "actual": "G07"
+    },
+    {
+      "check": "W07 G11 exact source content",
+      "passed": true,
+      "actual": "G11"
+    },
+    {
+      "check": "W07 G12 exact source content",
+      "passed": true,
+      "actual": "G12"
+    },
+    {
+      "check": "W07 R02 exact source content",
+      "passed": true,
+      "actual": "R02"
+    },
+    {
+      "check": "W07 all ChangedFiles named",
+      "passed": true,
+      "actual": 16
+    },
+    {
+      "check": "W07 mandatory rules repeated",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W07 no external spec lookup command",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W07 receipt unchanged after writing briefs",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W04 exact finding assignment",
+      "passed": true,
+      "actual": [
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D09"
+      ]
+    },
+    {
+      "check": "W04 D03 exact source content",
+      "passed": true,
+      "actual": "D03"
+    },
+    {
+      "check": "W04 D04 exact source content",
+      "passed": true,
+      "actual": "D04"
+    },
+    {
+      "check": "W04 D05 exact source content",
+      "passed": true,
+      "actual": "D05"
+    },
+    {
+      "check": "W04 D06 exact source content",
+      "passed": true,
+      "actual": "D06"
+    },
+    {
+      "check": "W04 D07 exact source content",
+      "passed": true,
+      "actual": "D07"
+    },
+    {
+      "check": "W04 D09 exact source content",
+      "passed": true,
+      "actual": "D09"
+    },
+    {
+      "check": "W04 all ChangedFiles named",
+      "passed": true,
+      "actual": 4
+    },
+    {
+      "check": "W04 mandatory rules repeated",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W04 no external spec lookup command",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W04 receipt unchanged after writing briefs",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W08 exact finding assignment",
+      "passed": true,
+      "actual": [
+        "D10",
+        "D11"
+      ]
+    },
+    {
+      "check": "W08 D10 exact source content",
+      "passed": true,
+      "actual": "D10"
+    },
+    {
+      "check": "W08 D11 exact source content",
+      "passed": true,
+      "actual": "D11"
+    },
+    {
+      "check": "W08 all ChangedFiles named",
+      "passed": true,
+      "actual": 5
+    },
+    {
+      "check": "W08 mandatory rules repeated",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W08 no external spec lookup command",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W08 receipt unchanged after writing briefs",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W09 exact finding assignment",
+      "passed": true,
+      "actual": [
+        "D03",
+        "D04",
+        "D05",
+        "D09",
+        "D10",
+        "N10"
+      ]
+    },
+    {
+      "check": "W09 D03 exact source content",
+      "passed": true,
+      "actual": "D03"
+    },
+    {
+      "check": "W09 D04 exact source content",
+      "passed": true,
+      "actual": "D04"
+    },
+    {
+      "check": "W09 D05 exact source content",
+      "passed": true,
+      "actual": "D05"
+    },
+    {
+      "check": "W09 D09 exact source content",
+      "passed": true,
+      "actual": "D09"
+    },
+    {
+      "check": "W09 D10 exact source content",
+      "passed": true,
+      "actual": "D10"
+    },
+    {
+      "check": "W09 N10 exact source content",
+      "passed": true,
+      "actual": "N10"
+    },
+    {
+      "check": "W09 all ChangedFiles named",
+      "passed": true,
+      "actual": 8
+    },
+    {
+      "check": "W09 mandatory rules repeated",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W09 no external spec lookup command",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W09 receipt unchanged after writing briefs",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W10 exact finding assignment",
+      "passed": true,
+      "actual": [
+        "D01",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D10",
+        "D12"
+      ]
+    },
+    {
+      "check": "W10 D01 exact source content",
+      "passed": true,
+      "actual": "D01"
+    },
+    {
+      "check": "W10 D04 exact source content",
+      "passed": true,
+      "actual": "D04"
+    },
+    {
+      "check": "W10 D05 exact source content",
+      "passed": true,
+      "actual": "D05"
+    },
+    {
+      "check": "W10 D06 exact source content",
+      "passed": true,
+      "actual": "D06"
+    },
+    {
+      "check": "W10 D07 exact source content",
+      "passed": true,
+      "actual": "D07"
+    },
+    {
+      "check": "W10 D08 exact source content",
+      "passed": true,
+      "actual": "D08"
+    },
+    {
+      "check": "W10 D10 exact source content",
+      "passed": true,
+      "actual": "D10"
+    },
+    {
+      "check": "W10 D12 exact source content",
+      "passed": true,
+      "actual": "D12"
+    },
+    {
+      "check": "W10 all ChangedFiles named",
+      "passed": true,
+      "actual": 7
+    },
+    {
+      "check": "W10 mandatory rules repeated",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W10 no external spec lookup command",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W10 receipt unchanged after writing briefs",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W11 exact finding assignment",
+      "passed": true,
+      "actual": [
+        "D02",
+        "D13"
+      ]
+    },
+    {
+      "check": "W11 D02 exact source content",
+      "passed": true,
+      "actual": "D02"
+    },
+    {
+      "check": "W11 D13 exact source content",
+      "passed": true,
+      "actual": "D13"
+    },
+    {
+      "check": "W11 all ChangedFiles named",
+      "passed": true,
+      "actual": 8
+    },
+    {
+      "check": "W11 mandatory rules repeated",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W11 no external spec lookup command",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W11 receipt unchanged after writing briefs",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W12 exact finding assignment",
+      "passed": true,
+      "actual": [
+        "D12"
+      ]
+    },
+    {
+      "check": "W12 D12 exact source content",
+      "passed": true,
+      "actual": "D12"
+    },
+    {
+      "check": "W12 all ChangedFiles named",
+      "passed": true,
+      "actual": 10
+    },
+    {
+      "check": "W12 mandatory rules repeated",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W12 no external spec lookup command",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W12 receipt unchanged after writing briefs",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W05 exact finding assignment",
+      "passed": true,
+      "actual": [
+        "N01",
+        "N02",
+        "N04",
+        "N05",
+        "N06",
+        "N08",
+        "N11"
+      ]
+    },
+    {
+      "check": "W05 N01 exact source content",
+      "passed": true,
+      "actual": "N01"
+    },
+    {
+      "check": "W05 N02 exact source content",
+      "passed": true,
+      "actual": "N02"
+    },
+    {
+      "check": "W05 N04 exact source content",
+      "passed": true,
+      "actual": "N04"
+    },
+    {
+      "check": "W05 N05 exact source content",
+      "passed": true,
+      "actual": "N05"
+    },
+    {
+      "check": "W05 N06 exact source content",
+      "passed": true,
+      "actual": "N06"
+    },
+    {
+      "check": "W05 N08 exact source content",
+      "passed": true,
+      "actual": "N08"
+    },
+    {
+      "check": "W05 N11 exact source content",
+      "passed": true,
+      "actual": "N11"
+    },
+    {
+      "check": "W05 all ChangedFiles named",
+      "passed": true,
+      "actual": 3
+    },
+    {
+      "check": "W05 mandatory rules repeated",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W05 no external spec lookup command",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W05 receipt unchanged after writing briefs",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W13 exact finding assignment",
+      "passed": true,
+      "actual": [
+        "D01",
+        "D10",
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N05",
+        "N06",
+        "N07",
+        "N08",
+        "N09",
+        "N10",
+        "N12"
+      ]
+    },
+    {
+      "check": "W13 D01 exact source content",
+      "passed": true,
+      "actual": "D01"
+    },
+    {
+      "check": "W13 D10 exact source content",
+      "passed": true,
+      "actual": "D10"
+    },
+    {
+      "check": "W13 N01 exact source content",
+      "passed": true,
+      "actual": "N01"
+    },
+    {
+      "check": "W13 N02 exact source content",
+      "passed": true,
+      "actual": "N02"
+    },
+    {
+      "check": "W13 N03 exact source content",
+      "passed": true,
+      "actual": "N03"
+    },
+    {
+      "check": "W13 N04 exact source content",
+      "passed": true,
+      "actual": "N04"
+    },
+    {
+      "check": "W13 N05 exact source content",
+      "passed": true,
+      "actual": "N05"
+    },
+    {
+      "check": "W13 N06 exact source content",
+      "passed": true,
+      "actual": "N06"
+    },
+    {
+      "check": "W13 N07 exact source content",
+      "passed": true,
+      "actual": "N07"
+    },
+    {
+      "check": "W13 N08 exact source content",
+      "passed": true,
+      "actual": "N08"
+    },
+    {
+      "check": "W13 N09 exact source content",
+      "passed": true,
+      "actual": "N09"
+    },
+    {
+      "check": "W13 N10 exact source content",
+      "passed": true,
+      "actual": "N10"
+    },
+    {
+      "check": "W13 N12 exact source content",
+      "passed": true,
+      "actual": "N12"
+    },
+    {
+      "check": "W13 all ChangedFiles named",
+      "passed": true,
+      "actual": 14
+    },
+    {
+      "check": "W13 mandatory rules repeated",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W13 no external spec lookup command",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "W13 receipt unchanged after writing briefs",
+      "passed": true,
+      "actual": true
+    },
+    {
+      "check": "39 unique findings / 67 package assignments",
+      "passed": true,
+      "actual": {
+        "findings": 39,
+        "assignments": 67
+      }
+    }
+  ],
+  "Failures": []
+}

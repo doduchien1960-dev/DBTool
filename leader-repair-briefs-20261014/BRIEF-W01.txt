@@ -1,0 +1,31 @@
+BRIEF-W01 — SỬA SAU REVIEW, KHÔNG PHẢI THÔNG BÁO ĐÃ ĐẠT
+ROOT=C:/Users/DucBao/Desktop/Dbtool/Ver 1. Mọi path code dưới đây tính từ ROOT; dòng là mốc review, khi đã dịch dòng phải tìm đúng class/method/predicate, không thay theo số dòng mù.
+Receipt cần version hóa: C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W01/receipt.json
+
+1. VIỆC BẠN ĐÃ LÀM / PHẠM VI
+ChangedFiles (chuẩn hóa prefix Ver 1 về ROOT; liệt kê đủ, không cấp quyền sửa mọi file):
+A=ROOT/DBTool/DBTool.Application: ReferenceComparisonService.cs; ReleaseEvidence.cs.
+V=ROOT/DBTool/DBTool.Drawing: SemanticDiff.cs.
+Bạn đã tách expected theo EffectiveInput/nguồn PDF; thêm verdict stage/row/page để chặn nâng NotRun thành Passed; chọn diff physical manifest thay DWG bytes.
+Sửa SemanticDiff và các consumer evidence trong ba file của bạn; không thay geometry/planners/native writer.
+
+2. FINDINGS BẮT BUỘC
+R01 [P1] DBTool/DBTool.Drawing/SemanticDiff.cs:52 — Spec: W01 evidence integrity; physical semantic diff.
+Lỗi: {} và {} thành snapshot rỗng rồi NoDifference=true; Start.X line đổi10mm bị phân loại LayoutOnly. Hai counterexamples đã chạy thật. Sửa: Validate schema/expected entity coverage và semantic ID trước diff; phân biệt world geometry với sheet placement bằng kind/frame/space. Đóng khi: P-EMPTY-PHYSICAL-MANIFEST và P-PHYSICAL-COORDINATE-CLASSIFICATION hết tái hiện; đổi physical endpoint không được là LayoutOnly.
+
+3. CÁCH TRIỂN KHAI VÀ LỖI CŨ PHẢI BỎ
+Lỗi cũ: chấp nhận manifest rỗng là không khác và coi tọa độ vật lý là layout. Đừng dùng việc không đọc được dữ liệu làm bằng chứng không có sai khác.
+Phân loại world geometry trước sheet placement; LayoutOnly chỉ khi physical payload giữ nguyên. Manifest phải có schema/version, IDs duy nhất và coverage contract độc lập actual. {}→diagnostic; Start.X+10 mm→physical difference (10 mm là probe input, không hằng số sản phẩm).
+
+4. THỨ TỰ / DEPENDENCY
+Thứ 1/13; không chờ gói trước. Snapshot baseline trước sửa; bàn giao integrity contract đã kiểm cho W02/downstream.
+
+5. LUẬT BẮT BUỘC
+- Trước sửa: snapshot exact paths code/input/receipt, kiểm SHA256 với bàn giao. Không reset repo.
+- Cấm bịa số: thiếu dữ liệu → StageFault/Blocked; không default, không chọn dòng khác, không tắt feature. 23 phê duyệt NR giữ nguyên. Cấm fuzzy grouping/đo schematic tính chiều dài.
+- Cấm Passed giả: gate chưa chạy thật giữ NotRun. Không dùng số test pass/build exit0 đóng finding.
+- Closure đủ Before/After hashes, predicate input, command + exit code, output/log, expected/actual/unit/tolerance/source, closed/not-closed; actual độc lập expected, thiếu tolerance nguồn thì Blocked.
+- Chỉ sửa file thuộc phạm vi gói, patch phần sở hữu trên bản mới nhất. Không sửa UI sản phẩm chính. Không làm 3D. Giữ frozen review.
+
+6. OUTPUT
+Code sửa + receipt.json cập nhật + chứng cứ closed/not-closed từng ID. Giữ snapshot receipt cũ/PreviousReceiptHash/dependency hashes; lưu evidence tại receipt-folder/rework. Finding chung chỉ LocalPartDone, chưa đủ tích hợp thì not-closed. Gói trước còn lỗi interface cần dùng: Blocked, cấm giả Passed đi tiếp. Không sửa được ghi lý do/field/owner. DWG/PDF chưa chạy: NotRun; AI không ký visual thay DucBao.

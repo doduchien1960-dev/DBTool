@@ -1,0 +1,45 @@
+BRIEF-W04 — SỬA SAU REVIEW, KHÔNG PHẢI THÔNG BÁO ĐÃ ĐẠT
+ROOT=C:/Users/DucBao/Desktop/Dbtool/Ver 1. Mọi path code dưới đây tính từ ROOT; dòng là mốc review, khi đã dịch dòng phải tìm đúng class/method/predicate, không thay theo số dòng mù.
+Receipt cần version hóa: C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W04/receipt.json
+
+1. VIỆC BẠN ĐÃ LÀM / PHẠM VI
+ChangedFiles (chuẩn hóa prefix Ver 1 về ROOT; liệt kê đủ, không cấp quyền sửa mọi file):
+V=ROOT/DBTool/DBTool.Drawing: NativeSteelSchedulePlanner.cs; SchematicPresentationPlanner.cs; AnnotationLaneAllocator.cs; CatchAssemblyProjector.cs.
+Bạn đã tạo bốn engine riêng: native TK, schematic glyph, annotation lanes và catch projection; chọn native block rows/headings/summaries; đưa collector/tick/BLTC vào S7.
+Bạn sửa bốn engine trong ChangedFiles; W09 nối S8 callers, W10 nối S6/S7; không sửa StageAdapters hoặc native writer ngoài gói.
+
+2. FINDINGS BẮT BUỘC
+D03 [P1] DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs:309 — Spec: S8; TagBindingV2.operation.
+Lỗi: Code nhận RoleMean/RawSumM/MassKg, spec dùng MeanRole/RawSumMetres/Mass; Pitch/FixedRole/SizePair thiếu; unknown trả literal/empty. Sửa: Dùng đúng closed operation set; nhánh unknown raise; bind typed raw/unit/source trước format. Đóng khi: Mỗi operation hợp lệ có raw/text đúng; unknown Block; reopen ATTRIB đủ tag và giá trị, không ô rỗng thay số.
+
+D04 [P1] DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs:564 — Spec: S7/S8; exact asset gate.
+Lỗi: ExactAsset sinh handle0/default_hash/default_label_hash và extents; schematic tự tạo glyph bounds; chọn shape bằng heuristic. Sửa: Chỉ exact asset/recipe có nguồn; thiếu active asset/field phải Block, không dựng definition giả. Đóng khi: Xóa từng TK/BLT/glyph active phải báo tên/source đúng trước native write; không có fake handle/hash trong output.
+
+D05 [P1] DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs:517 — Spec: S7/S8; H12; NR16.
+Lỗi: Nhãn/bảng/caption dùng text.Length×hằng số; bỏ glyph/font/kerning/escape/alignment/rotation. Sửa: Đo glyph và native style thật; transform đầy đủ ink/strokes; missing metric phải lỗi. Đóng khi: Các chữ tiếng Việt, %%c, căn giữa/phải, quay/mirror và font khác: ink tính và native quan sát khớp tolerance nguồn.
+
+D06 [P1] DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs:429 — Spec: S7; H28; NR22; NR-IO-011.
+Lỗi: Ba lane cố định; thất bại thì dùng anchor+(300,200) không kiểm; recipe luôn Right và port bị coi là insertion. Sửa: Duyệt hữu hạn lane/extension từ source, đúng side/extent/gap và port; hết phải LAYOUT_ANNOTATION_NO_FIT. Đóng khi: Che kín mọi lane phải NoFit với rejected candidates; case có chỗ phải đúng min gap và native port transform.
+
+D07 [P1] DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs:167 — Spec: S7; H11; physical target association.
+Lỗi: Một leader từ anchor đầu nhưng mọi target được khai là giao điểm; BLTC occurrence_id=group.id; view ink thiếu route/tick. Sửa: Tính analytic intersections trên member đúng group; tie join physical occurrence; union ink đầy đủ. Đóng khi: Mỗi claimed point nằm trên collector và member; BLTC ID là tie thật; routes/ticks đều nằm trong certified envelope.
+
+D09 [P1] DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs:434 — Spec: S8; NR14 physical owner buckets.
+Lỗi: StartsWith(Base/Wall/Roof/Neck) trên ID đã scope như MH1:Base đều false; TONG vẫn cộng mass. Sửa: Join exact component/assembly ownership từ registry, không parse tên/prefix gần giống. Đóng khi: Đổi tên/prefix ga tùy ý: DAY/TUONG/TRAN/CO và TONG phải khớp raw rows cho cả hai bucket Ø.
+
+3. CÁCH TRIỂN KHAI VÀ LỖI CŨ PHẢI BỎ
+Lỗi cũ: thiếu asset thì tự dựng hash/schema, đo ink bằng số ký tự và hết lane vẫn đẩy nhãn sang vị trí đoán. Không đổi một fallback giả thành fallback giả khác.
+Closed operations: Mark/Diameter/Pitch/MeanLength/RawSumMetres/Count/Mass/MeanRole/FixedRole/Literal/SizePair. MeanLength=raw_sum_mm/N; RawSumMetres=raw_sum_mm/1000; MeanRole từ đúng role/member set, FixedRole từ sourced recipe, SizePair đủ hai role nguồn; Literal không làm quantity. Format sau raw/unit/source. Collector/tick/BLTC và native ink phải được chứng minh, không suy theo tên/character count.
+
+4. THỨ TỰ / DEPENDENCY
+Thứ 6/13; chờ W07 bàn giao code + receipt sửa và kiểm upstream interface cần dùng. Lỗi chung chờ gói sau vẫn not-closed, không ép gói trước giả đóng.
+
+5. LUẬT BẮT BUỘC
+- Trước sửa: snapshot exact paths code/input/receipt, kiểm SHA256 với bàn giao. Không reset repo.
+- Cấm bịa số: thiếu dữ liệu → StageFault/Blocked; không default, không chọn dòng khác, không tắt feature. 23 phê duyệt NR giữ nguyên. Cấm fuzzy grouping/đo schematic tính chiều dài.
+- Cấm Passed giả: gate chưa chạy thật giữ NotRun. Không dùng số test pass/build exit0 đóng finding.
+- Closure đủ Before/After hashes, predicate input, command + exit code, output/log, expected/actual/unit/tolerance/source, closed/not-closed; actual độc lập expected, thiếu tolerance nguồn thì Blocked.
+- Chỉ sửa file thuộc phạm vi gói, patch phần sở hữu trên bản mới nhất. Không sửa UI sản phẩm chính. Không làm 3D. Giữ frozen review.
+
+6. OUTPUT
+Code sửa + receipt.json cập nhật + chứng cứ closed/not-closed từng ID. Giữ snapshot receipt cũ/PreviousReceiptHash/dependency hashes; lưu evidence tại receipt-folder/rework. Finding chung chỉ LocalPartDone, chưa đủ tích hợp thì not-closed. Gói trước còn lỗi interface cần dùng: Blocked, cấm giả Passed đi tiếp. Không sửa được ghi lý do/field/owner. DWG/PDF chưa chạy: NotRun; AI không ký visual thay DucBao.

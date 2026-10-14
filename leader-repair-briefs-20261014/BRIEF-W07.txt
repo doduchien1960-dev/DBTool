@@ -1,0 +1,52 @@
+BRIEF-W07 — SỬA SAU REVIEW, KHÔNG PHẢI THÔNG BÁO ĐÃ ĐẠT
+ROOT=C:/Users/DucBao/Desktop/Dbtool/Ver 1. Mọi path code dưới đây tính từ ROOT; dòng là mốc review, khi đã dịch dòng phải tìm đúng class/method/predicate, không thay theo số dòng mù.
+Receipt cần version hóa: C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W07/receipt.json
+
+1. VIỆC BẠN ĐÃ LÀM / PHẠM VI
+ChangedFiles (chuẩn hóa prefix Ver 1 về ROOT; liệt kê đủ, không cấp quyền sửa mọi file):
+A=ROOT/DBTool/DBTool.Application: FeatureSupportValidator.cs; StageAdapters.cs.
+D=ROOT/DBTool/DBTool.Domain: Rebar/BarLengthResolver.cs; Rebar/BarOccurrence.cs; Rebar/CatchBasinRebarPlanner.cs; Rebar/DowelPlanner.cs; Rebar/HaunchRebarPlanner.cs; Rebar/LiftingHookPlanner.cs; Rebar/NeckRebarPlanner.cs; Rebar/NominalFabricationLength.cs; Rebar/NominalHookPlanner.cs; Rebar/OpeningClipper.cs; Rebar/PanelRebarPlanner.cs; Rebar/ShapeSignature.cs; Rebar/TiePlanner.cs; Rebar/WallRebarPlanner.cs.
+Bạn đã mở rộng occurrence provenance/length basis; thêm planners catch/dowel/haunch/lifting/neck/panel/tie và clipper; nối FullRebarStage S4 với canonical/group outputs.
+Trong StageAdapters chỉ sửa FullRebarStage/S4 và consumer catch legacy thuộc gói; W06 giữ S2/S3. G02 kiểm consume effective features không mất dữ liệu; G05 dùng joint W06; G07 hash rebar/dowel; G12 sửa WallRebarPlanner; R02 sửa ledger của lượt W07.
+
+2. FINDINGS BẮT BUỘC
+G02 [P1] DBTool/DBTool.Application/StageAdapters.cs:166 — Spec: S2; H14; NR23.
+Lỗi: members/pipes/source_ids/parsed_fields luôn rỗng; catch/panel null; cổ bị giới hạn 700 và luôn ở giữa. Sửa: Map đủ 206 bindings và mọi feature đang ON; giải aperture/contact/position từ nguồn; không tắt feature để qua gate. Đóng khi: Bật riêng từng family, 4 tường cống, catch, panel và vị trí cổ; OUT có đúng giá trị/source hoặc diagnostic cụ thể.
+
+G04 [P1] DBTool/DBTool.Application/StageAdapters.cs:572 — Spec: S4; H07/H08; F32/F36.
+Lỗi: count mặc định 5, bước150, D10, run lấy pitch; mọi đường thanh trùng origin→run; Angle dùng giá trị mass/path không tương thích. Sửa: Nối physical planners thật; validate recipe/stack/support; phân station, clip/hook và giữ provenance, length basis. Đóng khi: Thanh nằm đúng host và cover; station khác nhau; conservation khi clip; thiếu recipe phải Block, không Known/Ready.
+
+G05 [P1] DBTool/DBTool.Application/StageAdapters.cs:611 — Spec: S4; H09; NR06; F34.
+Lỗi: Dowel dài500, hole25/depth100, mọi center tại origin; thiếu joint dùng chuỗi Joint; station chỉ nằm trong metadata. Sửa: Dùng joint thật và NR06 bindings cho station/embed/depth/diameter; một bar/hole cùng transform. Đóng khi: Tâm bar/hole khớp từng pair, khác nhau theo station; chiều dài/đường kính theo input; thiếu joint/binding phải Block.
+
+G06 [P1] DBTool/DBTool.Application/StageAdapters.cs:565 — Spec: S4 required-feature gate; H00.
+Lỗi: Host không tồn tại chỉ thêm FeatureState rồi continue; cuối hàm vẫn canonical và trả S4StateV2. Sửa: Giữ partial preview riêng; tổng hợp diagnostic rồi RAISE REBAR_REQUIRED_FEATURE_BLOCKED trước accounting. Đóng khi: Một member thiếu host cùng một member hợp lệ: không được có Ready S4; receipt và partial output phải đủ nguồn lỗi.
+
+G07 [P1] DBTool/DBTool.Application/StageAdapters.cs:307 — Spec: S3/S4; F46.
+Lỗi: Geometry bỏ XY/loops/frames/void ownership; rebar bỏ path/station; hole hash bỏ center/axis. Đổi L1000→1137 vẫn cùng hash. Sửa: Canonical JSON bất biến culture, đúng thứ tự topology; hash đủ physical leaves, loại riêng display/layout/handles. Đóng khi: Probe P-GEOMETRY-HASH hết tái hiện; đổi từng endpoint, hole center, aperture, product rotation phải đổi hash.
+
+G11 [P1] DBTool/DBTool.Application/StageAdapters.cs:490 — Spec: S4; NR08; Catch.M/Protect.I.
+Lỗi: CatchRebarSpec cố định D8@150 cover25; truyền clearHeight vào FloorDepth; không consumer CatchMesh và không transform host thật. Sửa: Lấy Ø/pitch/cover từ input; depth đúng trường; compose floor/side/front theo frame body/neck và rule đã duyệt. Đóng khi: Đổi Catch.M, Protect.I, depth khác height, đổi tường và offset: mỗi path/length/count đúng support và nguồn.
+
+G12 [P1] DBTool/DBTool.Domain/Rebar/WallRebarPlanner.cs:137 — Spec: S4; NR01; Protect.H.
+Lỗi: Pipe.D OFF khiến Accessories.Pipe=null; clipping mesh dùng cover tường thay Protect.H. Sửa: Tách clearance lỗ của mesh khỏi activity phụ kiện; dùng surface cover Protect.H + D/2 theo NR01. Đóng khi: Giữ Pipe.D=0, thay riêng Protect.H: endpoint mesh phải đổi đúng q; ON/OFF phụ kiện không đổi clearance mesh.
+
+R02 [P2] DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs:1 — Spec: B3.12 evidence/BeforeHash chain.
+Lỗi: Drawing DTO current hash khác W02 AfterHash (nội dung khác whitespace, schema103 vẫn khớp); StageAdapters W07 BeforeHash khác W06 AfterHash. Sửa: Bổ sung amendment có hash/source/actor/thời điểm cho thay đổi chưa ghi; không sửa receipts cũ làm gãy dependency hashes. Đóng khi: Hash snapshot hiện tại và chuỗi sửa được giải thích đầy đủ; 19 dependency links hiện khớp không thay thế bằng chứng execution order.
+
+3. CÁCH TRIỂN KHAI VÀ LỖI CŨ PHẢI BỎ
+Lỗi cũ: S4 dùng count5/pitch150/D10 và đường thanh trùng origin; thiếu host vẫn trả Ready. Phải bỏ thép giả, không chỉ thêm metadata hoặc tests xác nhận giá trị giả.
+Dùng support→station→path→clip→hooks/lifting→dowel→accounting, giữ provenance. F32: parent length=removed union+retained trong tolerance nguồn. F34: pitchEffective=50×Round(pitch/50,approved midpoint mode), 50 mm nguồn EX167; z0=WallTop-lowerEmbed,z1=RoofBottom+upperEmbed,z1-z0=inputDowelLength; holeDepth>=upperEmbed,holeDia>dowelDia; thiếu binding Block. Angle mass=path_mm/1000×catalog kg/m. R02 không bịa actor/time. Hash paths/stations/holes đầy đủ bằng canonical JSON invariant, không hash count thay nội dung.
+
+4. THỨ TỰ / DEPENDENCY
+Thứ 5/13; chờ W06 bàn giao code + receipt sửa và kiểm upstream interface cần dùng. Lỗi chung chờ gói sau vẫn not-closed, không ép gói trước giả đóng.
+
+5. LUẬT BẮT BUỘC
+- Trước sửa: snapshot exact paths code/input/receipt, kiểm SHA256 với bàn giao. Không reset repo.
+- Cấm bịa số: thiếu dữ liệu → StageFault/Blocked; không default, không chọn dòng khác, không tắt feature. 23 phê duyệt NR giữ nguyên. Cấm fuzzy grouping/đo schematic tính chiều dài.
+- Cấm Passed giả: gate chưa chạy thật giữ NotRun. Không dùng số test pass/build exit0 đóng finding.
+- Closure đủ Before/After hashes, predicate input, command + exit code, output/log, expected/actual/unit/tolerance/source, closed/not-closed; actual độc lập expected, thiếu tolerance nguồn thì Blocked.
+- Chỉ sửa file thuộc phạm vi gói, patch phần sở hữu trên bản mới nhất. Không sửa UI sản phẩm chính. Không làm 3D. Giữ frozen review.
+
+6. OUTPUT
+Code sửa + receipt.json cập nhật + chứng cứ closed/not-closed từng ID. Giữ snapshot receipt cũ/PreviousReceiptHash/dependency hashes; lưu evidence tại receipt-folder/rework. Finding chung chỉ LocalPartDone, chưa đủ tích hợp thì not-closed. Gói trước còn lỗi interface cần dùng: Blocked, cấm giả Passed đi tiếp. Không sửa được ghi lý do/field/owner. DWG/PDF chưa chạy: NotRun; AI không ký visual thay DucBao.

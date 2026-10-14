@@ -1,0 +1,43 @@
+BRIEF-W02 — SỬA SAU REVIEW, KHÔNG PHẢI THÔNG BÁO ĐÃ ĐẠT
+ROOT=C:/Users/DucBao/Desktop/Dbtool/Ver 1. Mọi path code dưới đây tính từ ROOT; dòng là mốc review, khi đã dịch dòng phải tìm đúng class/method/predicate, không thay theo số dòng mù.
+Receipt cần version hóa: C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W02/receipt.json
+
+1. VIỆC BẠN ĐÃ LÀM / PHẠM VI
+ChangedFiles (chuẩn hóa prefix Ver 1 về ROOT; liệt kê đủ, không cấp quyền sửa mọi file):
+A=ROOT/DBTool/DBTool.Application: Templates/VhgTemplateRoles.cs; Templates/TemplateContractValidator.cs; StageContractsV2/Application.ContractsV2.cs.
+D=ROOT/DBTool/DBTool.Domain: Common/Diagnostic.cs; Common/SourceRef.cs; Input/ManholeInput.cs; Input/ValidatedManholeSpec.cs; Policies/CalculationPolicy.cs; StageContractsV2/Domain.ContractsV2.cs.
+V=ROOT/DBTool/DBTool.Drawing: PresentationProfile.cs; PresentationRequest.cs; StageContractsV2/Drawing.ContractsV2.cs.
+C=ROOT/DBTool/DBTool.AutoCAD: NativeAssetSignatures.cs; TemplateAssetImporter.cs; TemplateManifestReader.cs.
+X=ROOT/DBTool/DBTool.Infrastructure.Excel: Vhg32Schema.cs; WorkbookImporter.cs.
+Bạn đã tạo ba bộ DTO bất biến, bổ sung provenance/206 field mappings; thêm roles Geometry/DowelHole và CatchSummary; đưa ToAssetsV2 vào native manifest reader và kiểm INSUNITS khi import.
+Bạn sở hữu model PadThickness, reader/validator/importer và DTO foundation; không sửa S2/S3 của W06 hoặc S4 của W07. G10 bàn giao invariant cho W06. R02 chỉ bổ sung audit trail, không viết lại lịch sử.
+
+2. FINDINGS BẮT BUỘC
+G08 [P1] DBTool/DBTool.AutoCAD/TemplateManifestReader.cs:315 — Spec: S0; AssetsV2/AttributeDefV2; NR16.
+Lỗi: ToAssetsV2 dùng bounds0, height200,width1, basepoint chung; glyphs/products/layers/font_styles rỗng; source_ids chưa đúng descriptor. Sửa: Đọc metrics/ATTDEF/dependency/font/product thật trong transaction; thiếu dữ liệu bắt buộc phải Block. Đóng khi: So từng field của ít nhất hai block có alignment/style khác nhau với native; mọi source_id giải được trong registry.
+
+G09 [P1] DBTool/DBTool.AutoCAD/TemplateManifestReader.cs:211 — Spec: S0; exact native role/tag schema.
+Lỗi: RequiredRoles yêu cầu CatchSummary/Geometry-DowelHole nhưng MapBlockRole không map hai role đó; CatchSummary đòi TONG trái CUATHU1/CUATHU2 nguồn. Sửa: Map đúng block/tag thật và scope feature; không buộc asset ngoài phạm vi mọi case; round-trip reader→validator→import. Đóng khi: Template gốc phải qua round-trip với role/tag đúng; xóa asset active phải lỗi chính xác, không thiếu role giả toàn cục.
+
+G10 [P1] DBTool/DBTool.Domain/Input/ManholeInput.cs:21 — Spec: S3 padOFF; input PadThickness.
+Lỗi: Validator cho NonNegative nhưng ManholeInput vẫn Positive; ca padOFF hợp lệ ném ArgumentOutOfRangeException. Sửa: Đồng bộ invariant >=0 và không tạo pad degenerate trong builder; giữ base datum. Đóng khi: Chỉ đổi pad dương→0: validate được, không Pad/hatch/PadBottom; pad âm trả diagnostic theo field.
+
+R02 [P2] DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs:1 — Spec: B3.12 evidence/BeforeHash chain.
+Lỗi: Drawing DTO current hash khác W02 AfterHash (nội dung khác whitespace, schema103 vẫn khớp); StageAdapters W07 BeforeHash khác W06 AfterHash. Sửa: Bổ sung amendment có hash/source/actor/thời điểm cho thay đổi chưa ghi; không sửa receipts cũ làm gãy dependency hashes. Đóng khi: Hash snapshot hiện tại và chuỗi sửa được giải thích đầy đủ; 19 dependency links hiện khớp không thay thế bằng chứng execution order.
+
+3. CÁCH TRIỂN KHAI VÀ LỖI CŨ PHẢI BỎ
+Lỗi cũ: khai báo role/DTO như đã có dữ liệu thật, rồi tự cấp ATTDEF metrics để lấp chỗ trống. Hash/schema đúng không chứng minh native asset đúng.
+Đọc ATTDEF tag/default/height/width/style/alignment/position/rotation và block origin/extents/dependencies thật. CatchSummary dùng CUATHU1/CUATHU2 nguồn. G08 converter chưa được chứng minh trên entrypoint: không báo đã sửa DWG. R02 chỉ amendment dựa bằng chứng; 103 schema vẫn khớp, không bịa actor/time hoặc viết lại receipt lịch sử.
+
+4. THỨ TỰ / DEPENDENCY
+Thứ 2/13; chờ W01 bàn giao code + receipt sửa và kiểm upstream interface cần dùng. Lỗi chung chờ gói sau vẫn not-closed, không ép gói trước giả đóng.
+
+5. LUẬT BẮT BUỘC
+- Trước sửa: snapshot exact paths code/input/receipt, kiểm SHA256 với bàn giao. Không reset repo.
+- Cấm bịa số: thiếu dữ liệu → StageFault/Blocked; không default, không chọn dòng khác, không tắt feature. 23 phê duyệt NR giữ nguyên. Cấm fuzzy grouping/đo schematic tính chiều dài.
+- Cấm Passed giả: gate chưa chạy thật giữ NotRun. Không dùng số test pass/build exit0 đóng finding.
+- Closure đủ Before/After hashes, predicate input, command + exit code, output/log, expected/actual/unit/tolerance/source, closed/not-closed; actual độc lập expected, thiếu tolerance nguồn thì Blocked.
+- Chỉ sửa file thuộc phạm vi gói, patch phần sở hữu trên bản mới nhất. Không sửa UI sản phẩm chính. Không làm 3D. Giữ frozen review.
+
+6. OUTPUT
+Code sửa + receipt.json cập nhật + chứng cứ closed/not-closed từng ID. Giữ snapshot receipt cũ/PreviousReceiptHash/dependency hashes; lưu evidence tại receipt-folder/rework. Finding chung chỉ LocalPartDone, chưa đủ tích hợp thì not-closed. Gói trước còn lỗi interface cần dùng: Blocked, cấm giả Passed đi tiếp. Không sửa được ghi lý do/field/owner. DWG/PDF chưa chạy: NotRun; AI không ký visual thay DucBao.

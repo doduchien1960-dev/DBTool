@@ -1,0 +1,70 @@
+BRIEF-W13 — SỬA SAU REVIEW, KHÔNG PHẢI THÔNG BÁO ĐÃ ĐẠT
+ROOT=C:/Users/DucBao/Desktop/Dbtool/Ver 1. Mọi path code dưới đây tính từ ROOT; dòng là mốc review, khi đã dịch dòng phải tìm đúng class/method/predicate, không thay theo số dòng mù.
+Receipt cần version hóa: C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W13/receipt.json
+
+1. VIỆC BẠN ĐÃ LÀM / PHẠM VI
+ChangedFiles (chuẩn hóa prefix Ver 1 về ROOT; liệt kê đủ, không cấp quyền sửa mọi file):
+A=ROOT/DBTool/DBTool.Application: ExportCalculationUseCase.cs; GenerateDrawingUseCase.cs; StageAdapters.cs.
+C=ROOT/DBTool/DBTool.AutoCAD: BlockAttributeWriter.cs; CadGenerationWriter.cs; CadRenderer.cs; GenerationRepository.cs.
+AT=ROOT/DBTool/DBTool.Application.Tests: W13StageAdapterTests.cs.
+H=ROOT/DBTool/DBTool.Headless: Program.cs.
+P=ROOT/DBTool/DBTool: App/HoGaCommands.cs; App/PaletteDrawingCalculation.cs; App/SchedulePackageExport.cs; UI/MainPaletteControl.xaml.cs; UI/MainViewModel.cs.
+Bạn đã thêm S10/S11/ProductionDispatcher; thêm INativeGenerationPort và TagOwned/repository; nhận typed scale/elevation và row statuses từ request nhưng entrypoint còn dùng pipeline cũ.
+Sửa composition/backend/host writer/renderer/repository/S10-S11 trong file thuộc gói; W05 giữ verifier/assembler/orchestrator, W10 giữ S6/S7. Hai UI files trong receipt chỉ được nhắc lịch sử, không thuộc quyền sửa lần này: cấm sửa UI sản phẩm chính. Request mapping sửa ở backend hiện có; nếu thiếu control thật thì ghi NotClosed thay vì thêm UI.
+
+2. FINDINGS BẮT BUỘC
+D01 [P1] DBTool/DBTool.Application/StageAdapters.cs:765 — Spec: S6; EXPAND_VIEW_ROLE_TABLE.
+Lỗi: Execute chỉ gọi CatchAssemblyProjector; case không catch trả CatchPlan/11/22 required=false, không có body/base/wall/roof. Sửa: Expand toàn bộ role table và chiếu physical components/members; catch là nhánh thêm, không thay kết cấu. Đóng khi: Probe P-STRUCTURE-VIEWS hết tái hiện; role và target coverage khớp chính xác cho cả 3 profile.
+
+D10 [P1] DBTool/DBTool.Drawing/ViewBuilder.cs:39 — Spec: S5; F49; shared registry.
+Lỗi: ViewBuilder tiếp tục markByOccurrence canonical; FromPlannedGroups không caller; PlanPreDrawing gộp ComponentKind và tự mass D²×0.006165. Sửa: Nối một registry nhóm exact xuyên annotation/TK/bending; mass theo source basis; bỏ đường dựng danh tính riêng. Đóng khi: Trace từ command thật; group marks khác canonical vẫn xuất nhất quán; host/panel/opening scopes không bị trộn.
+
+N01 [P1] DBTool/DBTool/App/HoGaCommands.cs:167 — Spec: S0–S11 composition; W13 B3.07.
+Lỗi: Command/palette/headless dùng CalculationPipeline cũ; dispatcher/batch/verifier không caller sản phẩm; chưa có plot/review/session/context ports thật. Sửa: Composition root thực sự dùng một request qua S0–S11 và đủ native/plot/evidence ports; giữ UI chính. Đóng khi: Transcript một run command/palette thật có đủ stage/source/build IDs, native handles, save/reopen, plot và row receipts.
+
+N02 [P1] DBTool/DBTool.AutoCAD/CadGenerationWriter.cs:95 — Spec: S10 write/readback.
+Lỗi: handleMap rỗng, không dựng native intents hoặc TagOwned; có thể xóa Replace rồi không tạo hình thay thế; vẫn readback Passed. Sửa: Flatten/render đủ intents trong transaction; ownership/handle coverage; reopen đo trước khi Passed. Đóng khi: Input S9 có curve/label/TK/frame phải ra entity thật đúng coverage; sửa một entity/ATTRIB phải NATIVE_READBACK_MISMATCH.
+
+N03 [P1] DBTool/DBTool.Application/StageAdapters.cs:1074 — Spec: H00; S0/S1/S10; no simulated Passed.
+Lỗi: Default S10 trả SIMULATED_SAVED_NATIVE_HASH, handles[] và hash input; S0/S1 mặc định cũng tự dựng dữ liệu rỗng. Test hiện tại bắt phải có trạng thái giả này. Sửa: Production không có fallback fake; thiếu port/reader trả Blocked/NotRun; fakes chỉ ở test assembly. Đóng khi: Probe P-DEFAULT-NATIVE hết tái hiện; không có DWG thật không thể Passed; command composition test không chỉ IsAssignableFrom.
+
+N04 [P1] DBTool/DBTool.AutoCAD/NativeReadbackVerifier.cs:105 — Spec: S10 actual native equality.
+Lỗi: Không so geometry/ATTRIB/OCS/style/scale/owner với expected; thiếu attributes lấy dữ liệu caller; hash copy input; handles rỗng vẫn pass. Sửa: Đọc lại DB đã đóng/mở, đủ native fields và actual normalized hash; kiểm coverage và ownership thật. Đóng khi: Di chuyển vertex, đổi block/tag/style/owner/rotation/scale hoặc thiếu handle: fail kèm expected/actual/unit/handle.
+
+N05 [P1] DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs:331 — Spec: S11; NR18; F48.
+Lỗi: Dim/group/opening/owner dùng cùng DTO cho hai phía; GetUnitTolerance thay null bằng literal. Sửa: Actual chỉ từ readback/vector PDF có handle/hash; thiếu measurement NotRun, thiếu tolerance Blocked. Đóng khi: Native sai số thật phải được báo đúng actual và Failed; null tolerance không thể Passed; không tự lấy expected làm actual.
+
+N06 [P1] DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs:153 — Spec: S11; mandatory DucBao review.
+Lỗi: Chỉ kiểm reference IDs không rỗng; copy visual_status, không bắt reviewer, PDF hash/frame và required regions; chưa port thật. Sửa: Khóa reference identity và PDF hash/page/frame; mọi vùng phải được DucBao xem; validate file/plot transcript trước verdict. Đóng khi: Đổi PDF hash/frame/reference, thiếu reviewer/vùng hoặc chưa xem: không visual Passed/Complete.
+
+N07 [P1] DBTool/DBTool.AutoCAD/CadGenerationWriter.cs:90 — Spec: S10 output guard/Create/Replace.
+Lỗi: Chỉ chặn path rỗng; SaveAs có thể ghi nguồn/ngoài output; không đọc expected_generation/input/document token; mode lạ vẫn đi tiếp. Sửa: Canonical output allowlist, cấm source; exact mode và stale target checks trước transaction; Create chống trùng. Đóng khi: Path nguồn/ngoài root, stale Replace/mode lạ/duplicate Create phải fail trước mutation; Replace B giữ A nguyên vẹn.
+
+N08 [P1] DBTool/DBTool/App/PaletteDrawingCalculation.cs:90 — Spec: S11 batch row isolation; H17.
+Lỗi: Loop có receipt nhưng any failure trả Value=null; command gate cả workbook; calculation Complete bị hiểu như delivery; export không xử failed rows. Sửa: Giữ một final receipt cho mỗi row; tiếp tục rows tốt khi host khỏe; tách CalculationReady với DeliveryComplete. Đóng khi: Batch A tốt/B lỗi/C tốt: A,C có artifact; A/B/C có final receipt; cancel/savefail giữ bằng chứng đã commit và không mất dòng.
+
+N09 [P2] DBTool/DBTool/UI/MainViewModel.cs:159 — Spec: W13 shared request; preserve main UI.
+Lỗi: XAML không bind các field mới; RunBatch cố định 30/Symbolic; Relative không thuộc enum, fallback Symbolic; CLI chỉ 20/30/40 và một ID. Sửa: Map từ controls/request hiện có, không đổi hình thức UI; enum/scale đúng nguồn; command documentation trùng parser thật. Đóng khi: Trace từng lựa chọn đến immutable request; giá trị unsupported phải lỗi; script hiện tại chỉ truyền đúng một workbook path.
+
+N10 [P1] DBTool/DBTool.AutoCAD/CadRenderer.cs:298 — Spec: S8/S10 exact native TK.
+Lỗi: Thiếu block hoặc mark rơi xuống AppendText; length/count/total/mass/diameter thiếu dùng 0. Sửa: Preflight toàn row/block/tag/raw value; thiếu active TK/number phải Block, không text thay native INSERT. Đóng khi: Xóa required block/number phải lỗi trước write; mỗi row hợp lệ reopen đúng block và ATTRIB, không DBText rời.
+
+N12 [P2] DBTool/DBTool.AutoCAD/GenerationRepository.cs:131 — Spec: S10 versioned ownership.
+Lỗi: XData mới generation/semantic/run/build/version bị decoder hiểu semantic là InputHash, run là TemplateHash, build là Version. Sửa: Schema có version discriminator rõ; round-trip/upgrade explicit; không giải nghĩa lại index âm thầm. Đóng khi: Ghi/đọc/save/reopen cả schema được hỗ trợ; unknown version phải Block; owner/input/template/semantic/run/build không lẫn.
+
+3. CÁCH TRIỂN KHAI VÀ LỖI CŨ PHẢI BỎ
+Lỗi cũ: mặc định S10 trả SIMULATED_SAVED_NATIVE_HASH/Passed/Reopened khi không có DWG; test còn bắt buộc hành vi giả. Không thay chuỗi fake bằng GUID/hash trông thật; phải có native write, save, reopen và actual độc lập.
+N02 render đủ curves/products/labels/DIM/hatch/TK/headings/summaries/bending/frames, TagOwned→save→close/reopen→verifier W05. Không actual=expected. N07 exact Create/Replace, canonical output allowlist+cấm nguồn, kiểm stale generation/input/document token trước mutation; Replace B giữ A. N09 không sửa UI; dùng backend request/Excel có nguồn, thiếu control thật ghi NotClosed; script VEHOGABATCH hiện nhận một workbook path. N12 version discriminator/migration rõ, unknown schema Block. Plot/visual phải có file/hash/reviewer thật; không giả ports/status.
+
+4. THỨ TỰ / DEPENDENCY
+Thứ 13/13; chờ W05 bàn giao code + receipt sửa và kiểm upstream interface cần dùng. Lỗi chung chờ gói sau vẫn not-closed, không ép gói trước giả đóng.
+
+5. LUẬT BẮT BUỘC
+- Trước sửa: snapshot exact paths code/input/receipt, kiểm SHA256 với bàn giao. Không reset repo.
+- Cấm bịa số: thiếu dữ liệu → StageFault/Blocked; không default, không chọn dòng khác, không tắt feature. 23 phê duyệt NR giữ nguyên. Cấm fuzzy grouping/đo schematic tính chiều dài.
+- Cấm Passed giả: gate chưa chạy thật giữ NotRun. Không dùng số test pass/build exit0 đóng finding.
+- Closure đủ Before/After hashes, predicate input, command + exit code, output/log, expected/actual/unit/tolerance/source, closed/not-closed; actual độc lập expected, thiếu tolerance nguồn thì Blocked.
+- Chỉ sửa file thuộc phạm vi gói, patch phần sở hữu trên bản mới nhất. Không sửa UI sản phẩm chính. Không làm 3D. Giữ frozen review.
+
+6. OUTPUT
+Code sửa + receipt.json cập nhật + chứng cứ closed/not-closed từng ID. Giữ snapshot receipt cũ/PreviousReceiptHash/dependency hashes; lưu evidence tại receipt-folder/rework. Finding chung chỉ LocalPartDone, chưa đủ tích hợp thì not-closed. Gói trước còn lỗi interface cần dùng: Blocked, cấm giả Passed đi tiếp. Không sửa được ghi lý do/field/owner. DWG/PDF chưa chạy: NotRun; AI không ký visual thay DucBao.

@@ -1,0 +1,34 @@
+BRIEF-W03 — SỬA SAU REVIEW, KHÔNG PHẢI THÔNG BÁO ĐÃ ĐẠT
+ROOT=C:/Users/DucBao/Desktop/Dbtool/Ver 1. Mọi path code dưới đây tính từ ROOT; dòng là mốc review, khi đã dịch dòng phải tìm đúng class/method/predicate, không thay theo số dòng mù.
+Receipt cần version hóa: C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W03/receipt.json
+
+1. VIỆC BẠN ĐÃ LÀM / PHẠM VI
+ChangedFiles (chuẩn hóa prefix Ver 1 về ROOT; liệt kê đủ, không cấp quyền sửa mọi file):
+A=ROOT/DBTool/DBTool.Application: RuleApprovalRegistry.cs.
+V=ROOT/DBTool/DBTool.Drawing: PresentationGroupPlanner.cs; AssemblyBoundaryEmitter.cs.
+Bạn đã tách PresentationGroupPlanner theo F49, có coverage/collision checks; tạo AssemblyBoundaryEmitter cho outline/hatch; nạp 23 phê duyệt qua RuleApprovalRegistry với kiểm AST.
+Sửa hai planner của bạn; RuleApprovalRegistry chỉ được sửa phần đọc/validate khi cần, không đổi 23 quyết định. D08 bàn giao analytic regions cho W10; D11 bàn giao exact groups cho W08.
+
+2. FINDINGS BẮT BUỘC
+D08 [P1] DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs:488 — Spec: S6; H06/H26; F37/F38.
+Lỗi: Union nối list; Difference thêm nguyên inner loop kể cả vượt biên; projection biến arc thành line endpoint. Sửa: Analytic split/classify/stitch, union/difference đúng và giữ line/arc; lỗi capability phải rõ. Đóng khi: Union hình chồng, void cắt mép, seam cùng vật liệu, lỗ tròn: topology/area/orientation theo tolerance nguồn và native/PDF.
+
+D11 [P1] DBTool/DBTool.Drawing/PresentationGroupPlanner.cs:114 — Spec: S5; F49; scoped aliases.
+Lỗi: Thiếu basis mặc định Fabrication; search sau bỏ profile/component/family; prefix 1..8/D1; global alias không chứng minh member set. Sửa: Validate exact scope/basis/prefix và alias member-set evidence; thiếu phải Block. Đóng khi: Recipe sai profile/thiếu prefix/alias sai member set phải lỗi; cùng chữ mark ở host khác không cross-join.
+
+3. CÁCH TRIỂN KHAI VÀ LỖI CŨ PHẢI BỎ
+Lỗi cũ: đặt tên thao tác Union/Difference nhưng thực tế chỉ ghép danh sách; thiếu recipe lại chọn Fabrication/prefix tự sinh. Tên API và assertions không thay được thuật toán đúng.
+CSG: split line/arc tại giao điểm→classify inside/outside→giữ đoạn boolean→stitch vòng và kiểm topology/area/orientation; giữ center/radius/sweep. F49 key=(host,assembly,panel scope,face,layer,direction,family,topology,D,angleCode,basis,pitch,hookRule,regionRole,sortedOpeningSet,orderedRoleNames). Một member/một primary group; raw_sum=sum(member lengths), mean=raw_sum/N. Alias phải chứng minh đúng member set.
+
+4. THỨ TỰ / DEPENDENCY
+Thứ 3/13; chờ W02 bàn giao code + receipt sửa và kiểm upstream interface cần dùng. Lỗi chung chờ gói sau vẫn not-closed, không ép gói trước giả đóng.
+
+5. LUẬT BẮT BUỘC
+- Trước sửa: snapshot exact paths code/input/receipt, kiểm SHA256 với bàn giao. Không reset repo.
+- Cấm bịa số: thiếu dữ liệu → StageFault/Blocked; không default, không chọn dòng khác, không tắt feature. 23 phê duyệt NR giữ nguyên. Cấm fuzzy grouping/đo schematic tính chiều dài.
+- Cấm Passed giả: gate chưa chạy thật giữ NotRun. Không dùng số test pass/build exit0 đóng finding.
+- Closure đủ Before/After hashes, predicate input, command + exit code, output/log, expected/actual/unit/tolerance/source, closed/not-closed; actual độc lập expected, thiếu tolerance nguồn thì Blocked.
+- Chỉ sửa file thuộc phạm vi gói, patch phần sở hữu trên bản mới nhất. Không sửa UI sản phẩm chính. Không làm 3D. Giữ frozen review.
+
+6. OUTPUT
+Code sửa + receipt.json cập nhật + chứng cứ closed/not-closed từng ID. Giữ snapshot receipt cũ/PreviousReceiptHash/dependency hashes; lưu evidence tại receipt-folder/rework. Finding chung chỉ LocalPartDone, chưa đủ tích hợp thì not-closed. Gói trước còn lỗi interface cần dùng: Blocked, cấm giả Passed đi tiếp. Không sửa được ghi lý do/field/owner. DWG/PDF chưa chạy: NotRun; AI không ký visual thay DucBao.

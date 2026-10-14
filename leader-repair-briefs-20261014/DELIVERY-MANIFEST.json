@@ -1,0 +1,92 @@
+[
+  {
+    "Path": "13-BRIEFS.md",
+    "SHA256": "72d09aeea04cff48ceb4c0a26e797512199dde51bddd8e45077e385d6d796d0e",
+    "Bytes": 81109
+  },
+  {
+    "Path": "BRIEF-INVENTORY.json",
+    "SHA256": "ecedd0c811a0a6e2f9017705d77ac53b2b737f2c516e93b72130579e8f78138c",
+    "Bytes": 26727
+  },
+  {
+    "Path": "BRIEF-VERIFICATION.json",
+    "SHA256": "d873c6fc2646abfa88342018b5c5f5f9b9ef6e35eff5080fb6bdaaa1065fa602",
+    "Bytes": 16291
+  },
+  {
+    "Path": "BRIEF-W01.txt",
+    "SHA256": "8cb32038fd0fee80eb87c5207273e7e4ec0d87769b2c295e9ccdd039091b0a70",
+    "Bytes": 3687
+  },
+  {
+    "Path": "BRIEF-W02.txt",
+    "SHA256": "f8100750609d616d1c252089d2b94c5492ae9227ed4f785805cb73f63e8f10e9",
+    "Bytes": 6036
+  },
+  {
+    "Path": "BRIEF-W03.txt",
+    "SHA256": "84a7df1a1efe2ee3deaf06d9e667e88ba5aa0cca86ed85afa3ec09ae9ddc0145",
+    "Bytes": 4411
+  },
+  {
+    "Path": "BRIEF-W04.txt",
+    "SHA256": "6fc1c8ca93600162b261aa21018d048e5b1d5c422c460a252c669042a8d865e0",
+    "Bytes": 6264
+  },
+  {
+    "Path": "BRIEF-W05.txt",
+    "SHA256": "138547e2dc785015cd8666fd350f5826a57930be662bc9869bad49724e41d9ad",
+    "Bytes": 7177
+  },
+  {
+    "Path": "BRIEF-W06.txt",
+    "SHA256": "f169303e5b8e3b27ee69be08a88a839278be242626cc77ef80827f2a4d692ce4",
+    "Bytes": 7256
+  },
+  {
+    "Path": "BRIEF-W07.txt",
+    "SHA256": "548c22015b3223342eadf1a0e66ec0db893f93f593213f1f31567fcf5745b45a",
+    "Bytes": 8021
+  },
+  {
+    "Path": "BRIEF-W08.txt",
+    "SHA256": "1e0f3c7c53a64414d07884d294ac38baf2c645573cdb9e83d88a834bfeb0648b",
+    "Bytes": 4353
+  },
+  {
+    "Path": "BRIEF-W09.txt",
+    "SHA256": "1c5fbd69b6b0d93d0e9a09fb3e111e19f4713605ffe7ea98e832bad378fc440a",
+    "Bytes": 6471
+  },
+  {
+    "Path": "BRIEF-W10.txt",
+    "SHA256": "e3597b6117d58d71064ef9c9d5ff179352a586408bd416009a254ab39a7d62a4",
+    "Bytes": 7609
+  },
+  {
+    "Path": "BRIEF-W11.txt",
+    "SHA256": "e79262ece1a05df13daf24675f63ac8e86ce7b8ed4b124cf4eedd860ce2ab061",
+    "Bytes": 4424
+  },
+  {
+    "Path": "BRIEF-W12.txt",
+    "SHA256": "e7797c2b946179ff8cf34dc290bf477ea16740eeea257a3b0a53f4cc56c8f07d",
+    "Bytes": 3979
+  },
+  {
+    "Path": "BRIEF-W13.txt",
+    "SHA256": "ca85c3fd29bcb156c184d838df36183f5e09d246bf90ac988d7311ce0269ca7f",
+    "Bytes": 10971
+  },
+  {
+    "Path": "INDEX.html",
+    "SHA256": "e20456b46d5e74437fd56a5264da81581a99da77e774759e63008031168cddef",
+    "Bytes": 83622
+  },
+  {
+    "Path": "PRESERVATION-CHECK.json",
+    "SHA256": "7578d656364a6c709b90d79cb646d945586741279c94970c96bd074b0aba0764",
+    "Bytes": 220
+  }
+]

@@ -1,0 +1,50 @@
+BRIEF-W06 — SỬA SAU REVIEW, KHÔNG PHẢI THÔNG BÁO ĐÃ ĐẠT
+ROOT=C:/Users/DucBao/Desktop/Dbtool/Ver 1. Mọi path code dưới đây tính từ ROOT; dòng là mốc review, khi đã dịch dòng phải tìm đúng class/method/predicate, không thay theo số dòng mù.
+Receipt cần version hóa: C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W06/receipt.json
+
+1. VIỆC BẠN ĐÃ LÀM / PHẠM VI
+ChangedFiles (chuẩn hóa prefix Ver 1 về ROOT; liệt kê đủ, không cấp quyền sửa mọi file):
+A=ROOT/DBTool/DBTool.Application: AccessoryInputMapper.cs; ManholeValidator.cs; StageAdapters.cs.
+D=ROOT/DBTool/DBTool.Domain: Geometry/CatchBasinBuilder.cs; Geometry/GeometryModel.cs; Input/CatchBasinSpec.cs.
+V=ROOT/DBTool/DBTool.Drawing: SheetOneConcreteAssembly.cs; SheetOneHatchRegions.cs; SheetOneNeckAssembly.cs; SheetOnePipeViews.cs; SheetOnePlanBaseOutlinePolicy.cs; SheetOnePlanOutlinePolicy.cs; SheetOneSectionOutlinePolicy.cs.
+Bạn đã cho validator nhận pad=0 và resolve cover trước fit; thêm catch pad/datums/frames/topology; triển khai GeometryStageAdapter S2/S3 để cấp aperture, assemblies và physical hash.
+Trong StageAdapters chỉ sửa GeometryStageAdapter S2/S3 và mapping của bạn. W02 sửa invariant model; W07 sửa S4/WallRebarPlanner. Bạn cấp đủ effective features, joint/clearance và geometry hash, không ghi đè methods của các gói khác.
+
+2. FINDINGS BẮT BUỘC
+G01 [P1] DBTool/DBTool.Application/StageAdapters.cs:70 — Spec: S2; H14; F47.
+Lỗi: GetNum dùng mặc định 1000/1500/200/150; mất row_index thì chọn rows[0]; bỏ kiểm kiểu và formula cache. Sửa: Lookup đúng dòng; parse từng field, unit, activity và cache; thiếu bắt buộc trả StageFault/receipt Blocked. Đóng khi: Input trống, dòng không tồn tại, số lỗi và cache chưa xác minh phải Block; probe P-MISSING-INPUT phải hết tái hiện.
+
+G02 [P1] DBTool/DBTool.Application/StageAdapters.cs:166 — Spec: S2; H14; NR23.
+Lỗi: members/pipes/source_ids/parsed_fields luôn rỗng; catch/panel null; cổ bị giới hạn 700 và luôn ở giữa. Sửa: Map đủ 206 bindings và mọi feature đang ON; giải aperture/contact/position từ nguồn; không tắt feature để qua gate. Đóng khi: Bật riêng từng family, 4 tường cống, catch, panel và vị trí cổ; OUT có đúng giá trị/source hoặc diagnostic cụ thể.
+
+G03 [P1] DBTool/DBTool.Application/StageAdapters.cs:223 — Spec: S3; H03/H04/H05; F27/F28.
+Lỗi: Không compose pipe/catch/panel/haunch/seat/collar/frame thật; RoofAccess không gắn Roof.void_ids; joint.dowel_required=false. Sửa: Dựng đủ solid/void/host/contact theo từng nhánh; feature ON chưa dựng phải Block. Đóng khi: Đối chiếu contour/depth/owner từng component; roof hole trừ đúng một lần; type3 không catch phải lỗi; pad0 không có Pad.
+
+G05 [P1] DBTool/DBTool.Application/StageAdapters.cs:611 — Spec: S4; H09; NR06; F34.
+Lỗi: Dowel dài500, hole25/depth100, mọi center tại origin; thiếu joint dùng chuỗi Joint; station chỉ nằm trong metadata. Sửa: Dùng joint thật và NR06 bindings cho station/embed/depth/diameter; một bar/hole cùng transform. Đóng khi: Tâm bar/hole khớp từng pair, khác nhau theo station; chiều dài/đường kính theo input; thiếu joint/binding phải Block.
+
+G07 [P1] DBTool/DBTool.Application/StageAdapters.cs:307 — Spec: S3/S4; F46.
+Lỗi: Geometry bỏ XY/loops/frames/void ownership; rebar bỏ path/station; hole hash bỏ center/axis. Đổi L1000→1137 vẫn cùng hash. Sửa: Canonical JSON bất biến culture, đúng thứ tự topology; hash đủ physical leaves, loại riêng display/layout/handles. Đóng khi: Probe P-GEOMETRY-HASH hết tái hiện; đổi từng endpoint, hole center, aperture, product rotation phải đổi hash.
+
+G10 [P1] DBTool/DBTool.Domain/Input/ManholeInput.cs:21 — Spec: S3 padOFF; input PadThickness.
+Lỗi: Validator cho NonNegative nhưng ManholeInput vẫn Positive; ca padOFF hợp lệ ném ArgumentOutOfRangeException. Sửa: Đồng bộ invariant >=0 và không tạo pad degenerate trong builder; giữ base datum. Đóng khi: Chỉ đổi pad dương→0: validate được, không Pad/hatch/PadBottom; pad âm trả diagnostic theo field.
+
+G12 [P1] DBTool/DBTool.Domain/Rebar/WallRebarPlanner.cs:137 — Spec: S4; NR01; Protect.H.
+Lỗi: Pipe.D OFF khiến Accessories.Pipe=null; clipping mesh dùng cover tường thay Protect.H. Sửa: Tách clearance lỗ của mesh khỏi activity phụ kiện; dùng surface cover Protect.H + D/2 theo NR01. Đóng khi: Giữ Pipe.D=0, thay riêng Protect.H: endpoint mesh phải đổi đúng q; ON/OFF phụ kiện không đổi clearance mesh.
+
+3. CÁCH TRIỂN KHAI VÀ LỖI CŨ PHẢI BỎ
+Lỗi cũ: S2 tự điền 1000/1500/200/150, chọn rows[0] khi mất row và S3 bỏ feature. Lần này thiếu nguồn phải Block; không dựng một ga tối giản để gọi Ready.
+Parse discriminators trước dependent fields; formula physical value cần recalculation receipt khớp workbook/cell/formula. Accounting đủ 206 bindings, inactive giữ raw source/typed null; không bắt inactive có số. G05 cấp joint/contact/frame/WallTop/RoofBottom cho W07. G12 giữ Protect.H độc lập Pipe.D, q=Protect.H+D/2. F46: SHA256 UTF8 canonical JSON, ordinal keys, unordered sort stable IDs, ordered paths giữ thứ tự, số invariant round-trip/null explicit; hash đủ physical leaves, loại display/layout/handles và self-hash.
+
+4. THỨ TỰ / DEPENDENCY
+Thứ 4/13; chờ W03 bàn giao code + receipt sửa và kiểm upstream interface cần dùng. Lỗi chung chờ gói sau vẫn not-closed, không ép gói trước giả đóng.
+
+5. LUẬT BẮT BUỘC
+- Trước sửa: snapshot exact paths code/input/receipt, kiểm SHA256 với bàn giao. Không reset repo.
+- Cấm bịa số: thiếu dữ liệu → StageFault/Blocked; không default, không chọn dòng khác, không tắt feature. 23 phê duyệt NR giữ nguyên. Cấm fuzzy grouping/đo schematic tính chiều dài.
+- Cấm Passed giả: gate chưa chạy thật giữ NotRun. Không dùng số test pass/build exit0 đóng finding.
+- Closure đủ Before/After hashes, predicate input, command + exit code, output/log, expected/actual/unit/tolerance/source, closed/not-closed; actual độc lập expected, thiếu tolerance nguồn thì Blocked.
+- Chỉ sửa file thuộc phạm vi gói, patch phần sở hữu trên bản mới nhất. Không sửa UI sản phẩm chính. Không làm 3D. Giữ frozen review.
+
+6. OUTPUT
+Code sửa + receipt.json cập nhật + chứng cứ closed/not-closed từng ID. Giữ snapshot receipt cũ/PreviousReceiptHash/dependency hashes; lưu evidence tại receipt-folder/rework. Finding chung chỉ LocalPartDone, chưa đủ tích hợp thì not-closed. Gói trước còn lỗi interface cần dùng: Blocked, cấm giả Passed đi tiếp. Không sửa được ghi lý do/field/owner. DWG/PDF chưa chạy: NotRun; AI không ký visual thay DucBao.

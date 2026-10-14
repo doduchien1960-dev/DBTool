@@ -1,0 +1,764 @@
+[
+  {
+    "PackageId": "W01",
+    "ExecutionPosition": 1,
+    "Predecessor": null,
+    "ReceiptPath": "C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W01/receipt.json",
+    "ReceiptSHA256": "88ef0c2bff47dab14ed469f80982e0136f24b64c056a7ca51f861632cc977edf",
+    "ChangedFiles": [
+      "DBTool/DBTool.Application/ReferenceComparisonService.cs",
+      "DBTool/DBTool.Application/ReleaseEvidence.cs",
+      "DBTool/DBTool.Drawing/SemanticDiff.cs"
+    ],
+    "Findings": [
+      {
+        "id": "R01",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/SemanticDiff.cs",
+        "line": 52,
+        "spec": "W01 evidence integrity; physical semantic diff"
+      }
+    ],
+    "BriefCharacters": 3203,
+    "BriefUTF8Bytes": 3655,
+    "BriefSHA256": "8cb32038fd0fee80eb87c5207273e7e4ec0d87769b2c295e9ccdd039091b0a70"
+  },
+  {
+    "PackageId": "W02",
+    "ExecutionPosition": 2,
+    "Predecessor": "W01",
+    "ReceiptPath": "C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W02/receipt.json",
+    "ReceiptSHA256": "9109421973a2367b66c171f19ba95505cb1458e0a6c6ade3149cd5019034ccd9",
+    "ChangedFiles": [
+      "DBTool/DBTool.Domain/Common/Diagnostic.cs",
+      "DBTool/DBTool.Domain/Common/SourceRef.cs",
+      "DBTool/DBTool.Domain/Input/ManholeInput.cs",
+      "DBTool/DBTool.Domain/Input/ValidatedManholeSpec.cs",
+      "DBTool/DBTool.Domain/Policies/CalculationPolicy.cs",
+      "DBTool/DBTool.Drawing/PresentationProfile.cs",
+      "DBTool/DBTool.Drawing/PresentationRequest.cs",
+      "DBTool/DBTool.Infrastructure.Excel/Vhg32Schema.cs",
+      "DBTool/DBTool.Infrastructure.Excel/WorkbookImporter.cs",
+      "DBTool/DBTool.Application/Templates/VhgTemplateRoles.cs",
+      "DBTool/DBTool.Application/Templates/TemplateContractValidator.cs",
+      "DBTool/DBTool.AutoCAD/NativeAssetSignatures.cs",
+      "DBTool/DBTool.AutoCAD/TemplateAssetImporter.cs",
+      "DBTool/DBTool.AutoCAD/TemplateManifestReader.cs",
+      "DBTool/DBTool.Domain/StageContractsV2/Domain.ContractsV2.cs",
+      "DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs",
+      "DBTool/DBTool.Application/StageContractsV2/Application.ContractsV2.cs"
+    ],
+    "Findings": [
+      {
+        "id": "G08",
+        "severity": "P1",
+        "file": "DBTool/DBTool.AutoCAD/TemplateManifestReader.cs",
+        "line": 315,
+        "spec": "S0; AssetsV2/AttributeDefV2; NR16"
+      },
+      {
+        "id": "G09",
+        "severity": "P1",
+        "file": "DBTool/DBTool.AutoCAD/TemplateManifestReader.cs",
+        "line": 211,
+        "spec": "S0; exact native role/tag schema"
+      },
+      {
+        "id": "G10",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Domain/Input/ManholeInput.cs",
+        "line": 21,
+        "spec": "S3 padOFF; input PadThickness"
+      },
+      {
+        "id": "R02",
+        "severity": "P2",
+        "file": "DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs",
+        "line": 1,
+        "spec": "B3.12 evidence/BeforeHash chain"
+      }
+    ],
+    "BriefCharacters": 5335,
+    "BriefUTF8Bytes": 5992,
+    "BriefSHA256": "f8100750609d616d1c252089d2b94c5492ae9227ed4f785805cb73f63e8f10e9"
+  },
+  {
+    "PackageId": "W03",
+    "ExecutionPosition": 3,
+    "Predecessor": "W02",
+    "ReceiptPath": "C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W03/receipt.json",
+    "ReceiptSHA256": "88d2b84615f8c5121fa51a4955b6180c75d73629697b8251d1cea7629b31bc59",
+    "ChangedFiles": [
+      "DBTool/DBTool.Drawing/PresentationGroupPlanner.cs",
+      "DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs",
+      "DBTool/DBTool.Application/RuleApprovalRegistry.cs"
+    ],
+    "Findings": [
+      {
+        "id": "D08",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs",
+        "line": 488,
+        "spec": "S6; H06/H26; F37/F38"
+      },
+      {
+        "id": "D11",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/PresentationGroupPlanner.cs",
+        "line": 114,
+        "spec": "S5; F49; scoped aliases"
+      }
+    ],
+    "BriefCharacters": 3871,
+    "BriefUTF8Bytes": 4376,
+    "BriefSHA256": "84a7df1a1efe2ee3deaf06d9e667e88ba5aa0cca86ed85afa3ec09ae9ddc0145"
+  },
+  {
+    "PackageId": "W06",
+    "ExecutionPosition": 4,
+    "Predecessor": "W03",
+    "ReceiptPath": "C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W06/receipt.json",
+    "ReceiptSHA256": "eed9d643a96086799c471af6baf1ae180bdc6d7823c45df5222ba84480540622",
+    "ChangedFiles": [
+      "DBTool/DBTool.Application/AccessoryInputMapper.cs",
+      "DBTool/DBTool.Application/ManholeValidator.cs",
+      "DBTool/DBTool.Domain/Geometry/CatchBasinBuilder.cs",
+      "DBTool/DBTool.Domain/Geometry/GeometryModel.cs",
+      "DBTool/DBTool.Domain/Input/CatchBasinSpec.cs",
+      "DBTool/DBTool.Drawing/SheetOneConcreteAssembly.cs",
+      "DBTool/DBTool.Drawing/SheetOneHatchRegions.cs",
+      "DBTool/DBTool.Drawing/SheetOneNeckAssembly.cs",
+      "DBTool/DBTool.Drawing/SheetOnePipeViews.cs",
+      "DBTool/DBTool.Drawing/SheetOnePlanBaseOutlinePolicy.cs",
+      "DBTool/DBTool.Drawing/SheetOnePlanOutlinePolicy.cs",
+      "DBTool/DBTool.Drawing/SheetOneSectionOutlinePolicy.cs",
+      "DBTool/DBTool.Application/StageAdapters.cs"
+    ],
+    "Findings": [
+      {
+        "id": "G01",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/StageAdapters.cs",
+        "line": 70,
+        "spec": "S2; H14; F47"
+      },
+      {
+        "id": "G02",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/StageAdapters.cs",
+        "line": 166,
+        "spec": "S2; H14; NR23"
+      },
+      {
+        "id": "G03",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/StageAdapters.cs",
+        "line": 223,
+        "spec": "S3; H03/H04/H05; F27/F28"
+      },
+      {
+        "id": "G05",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/StageAdapters.cs",
+        "line": 611,
+        "spec": "S4; H09; NR06; F34"
+      },
+      {
+        "id": "G07",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/StageAdapters.cs",
+        "line": 307,
+        "spec": "S3/S4; F46"
+      },
+      {
+        "id": "G10",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Domain/Input/ManholeInput.cs",
+        "line": 21,
+        "spec": "S3 padOFF; input PadThickness"
+      },
+      {
+        "id": "G12",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Domain/Rebar/WallRebarPlanner.cs",
+        "line": 137,
+        "spec": "S4; NR01; Protect.H"
+      }
+    ],
+    "BriefCharacters": 6406,
+    "BriefUTF8Bytes": 7205,
+    "BriefSHA256": "f169303e5b8e3b27ee69be08a88a839278be242626cc77ef80827f2a4d692ce4"
+  },
+  {
+    "PackageId": "W07",
+    "ExecutionPosition": 5,
+    "Predecessor": "W06",
+    "ReceiptPath": "C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W07/receipt.json",
+    "ReceiptSHA256": "acf5f456807d0a2ad25232bc492282d36ded34b546262c78a9b08a12456afbac",
+    "ChangedFiles": [
+      "DBTool/DBTool.Application/FeatureSupportValidator.cs",
+      "DBTool/DBTool.Application/StageAdapters.cs",
+      "DBTool/DBTool.Domain/Rebar/BarLengthResolver.cs",
+      "DBTool/DBTool.Domain/Rebar/BarOccurrence.cs",
+      "DBTool/DBTool.Domain/Rebar/CatchBasinRebarPlanner.cs",
+      "DBTool/DBTool.Domain/Rebar/DowelPlanner.cs",
+      "DBTool/DBTool.Domain/Rebar/HaunchRebarPlanner.cs",
+      "DBTool/DBTool.Domain/Rebar/LiftingHookPlanner.cs",
+      "DBTool/DBTool.Domain/Rebar/NeckRebarPlanner.cs",
+      "DBTool/DBTool.Domain/Rebar/NominalFabricationLength.cs",
+      "DBTool/DBTool.Domain/Rebar/NominalHookPlanner.cs",
+      "DBTool/DBTool.Domain/Rebar/OpeningClipper.cs",
+      "DBTool/DBTool.Domain/Rebar/PanelRebarPlanner.cs",
+      "DBTool/DBTool.Domain/Rebar/ShapeSignature.cs",
+      "DBTool/DBTool.Domain/Rebar/TiePlanner.cs",
+      "DBTool/DBTool.Domain/Rebar/WallRebarPlanner.cs"
+    ],
+    "Findings": [
+      {
+        "id": "G02",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/StageAdapters.cs",
+        "line": 166,
+        "spec": "S2; H14; NR23"
+      },
+      {
+        "id": "G04",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/StageAdapters.cs",
+        "line": 572,
+        "spec": "S4; H07/H08; F32/F36"
+      },
+      {
+        "id": "G05",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/StageAdapters.cs",
+        "line": 611,
+        "spec": "S4; H09; NR06; F34"
+      },
+      {
+        "id": "G06",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/StageAdapters.cs",
+        "line": 565,
+        "spec": "S4 required-feature gate; H00"
+      },
+      {
+        "id": "G07",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/StageAdapters.cs",
+        "line": 307,
+        "spec": "S3/S4; F46"
+      },
+      {
+        "id": "G11",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/StageAdapters.cs",
+        "line": 490,
+        "spec": "S4; NR08; Catch.M/Protect.I"
+      },
+      {
+        "id": "G12",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Domain/Rebar/WallRebarPlanner.cs",
+        "line": 137,
+        "spec": "S4; NR01; Protect.H"
+      },
+      {
+        "id": "R02",
+        "severity": "P2",
+        "file": "DBTool/DBTool.Drawing/StageContractsV2/Drawing.ContractsV2.cs",
+        "line": 1,
+        "spec": "B3.12 evidence/BeforeHash chain"
+      }
+    ],
+    "BriefCharacters": 7095,
+    "BriefUTF8Bytes": 7968,
+    "BriefSHA256": "548c22015b3223342eadf1a0e66ec0db893f93f593213f1f31567fcf5745b45a"
+  },
+  {
+    "PackageId": "W04",
+    "ExecutionPosition": 6,
+    "Predecessor": "W07",
+    "ReceiptPath": "C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W04/receipt.json",
+    "ReceiptSHA256": "06b2800e33b337c913aaed1c1bc7669a95a3ebc47fd5bb78759e1da25e04b7cc",
+    "ChangedFiles": [
+      "DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+      "DBTool/DBTool.Drawing/SchematicPresentationPlanner.cs",
+      "DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+      "DBTool/DBTool.Drawing/CatchAssemblyProjector.cs"
+    ],
+    "Findings": [
+      {
+        "id": "D03",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+        "line": 309,
+        "spec": "S8; TagBindingV2.operation"
+      },
+      {
+        "id": "D04",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+        "line": 564,
+        "spec": "S7/S8; exact asset gate"
+      },
+      {
+        "id": "D05",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+        "line": 517,
+        "spec": "S7/S8; H12; NR16"
+      },
+      {
+        "id": "D06",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+        "line": 429,
+        "spec": "S7; H28; NR22; NR-IO-011"
+      },
+      {
+        "id": "D07",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+        "line": 167,
+        "spec": "S7; H11; physical target association"
+      },
+      {
+        "id": "D09",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+        "line": 434,
+        "spec": "S8; NR14 physical owner buckets"
+      }
+    ],
+    "BriefCharacters": 5526,
+    "BriefUTF8Bytes": 6218,
+    "BriefSHA256": "6fc1c8ca93600162b261aa21018d048e5b1d5c422c460a252c669042a8d865e0"
+  },
+  {
+    "PackageId": "W08",
+    "ExecutionPosition": 7,
+    "Predecessor": "W04",
+    "ReceiptPath": "C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W08/receipt.json",
+    "ReceiptSHA256": "43a92b7a9d33072638432133728aae2aa6b9665d09e56869f8c9e6d0f492673f",
+    "ChangedFiles": [
+      "DBTool/DBTool.Application/CalculationPipeline.cs",
+      "DBTool/DBTool.Drawing/DrawingInputs.cs",
+      "DBTool/DBTool.Drawing/PresentationGroup.cs",
+      "DBTool/DBTool.Drawing/ScheduleNativeAttributes.cs",
+      "DBTool/DBTool.Application/StageAdapters.cs"
+    ],
+    "Findings": [
+      {
+        "id": "D10",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/ViewBuilder.cs",
+        "line": 39,
+        "spec": "S5; F49; shared registry"
+      },
+      {
+        "id": "D11",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/PresentationGroupPlanner.cs",
+        "line": 114,
+        "spec": "S5; F49; scoped aliases"
+      }
+    ],
+    "BriefCharacters": 3843,
+    "BriefUTF8Bytes": 4318,
+    "BriefSHA256": "1e0f3c7c53a64414d07884d294ac38baf2c645573cdb9e83d88a834bfeb0648b"
+  },
+  {
+    "PackageId": "W09",
+    "ExecutionPosition": 8,
+    "Predecessor": "W08",
+    "ReceiptPath": "C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W09/receipt.json",
+    "ReceiptSHA256": "7f0db787b8819d6f01645a19dc386a9be69d54a93848ea0435ebeef42b8f46e8",
+    "ChangedFiles": [
+      "DBTool/DBTool.Drawing/BendingSchematicPlanner.cs",
+      "DBTool/DBTool.Drawing/ScheduleTablePlanner.cs",
+      "DBTool/DBTool.Drawing/SheetFiveViews.cs",
+      "DBTool/DBTool.Drawing/SheetFivePlacement.cs",
+      "DBTool/DBTool.Application/StageAdapters.cs",
+      "DBTool/DBTool.AutoCAD.Tests/Phase6GenerationCommands.cs",
+      "DBTool/DBTool.Drawing.Tests/W09NativeScheduleAndBendingTests.cs",
+      "DBTool/DBTool.Application.Tests/W09StageAdapterTests.cs"
+    ],
+    "Findings": [
+      {
+        "id": "D03",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+        "line": 309,
+        "spec": "S8; TagBindingV2.operation"
+      },
+      {
+        "id": "D04",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+        "line": 564,
+        "spec": "S7/S8; exact asset gate"
+      },
+      {
+        "id": "D05",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+        "line": 517,
+        "spec": "S7/S8; H12; NR16"
+      },
+      {
+        "id": "D09",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+        "line": 434,
+        "spec": "S8; NR14 physical owner buckets"
+      },
+      {
+        "id": "D10",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/ViewBuilder.cs",
+        "line": 39,
+        "spec": "S5; F49; shared registry"
+      },
+      {
+        "id": "N10",
+        "severity": "P1",
+        "file": "DBTool/DBTool.AutoCAD/CadRenderer.cs",
+        "line": 298,
+        "spec": "S8/S10 exact native TK"
+      }
+    ],
+    "BriefCharacters": 5741,
+    "BriefUTF8Bytes": 6421,
+    "BriefSHA256": "1c5fbd69b6b0d93d0e9a09fb3e111e19f4713605ffe7ea98e832bad378fc440a"
+  },
+  {
+    "PackageId": "W10",
+    "ExecutionPosition": 9,
+    "Predecessor": "W09",
+    "ReceiptPath": "C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W10/receipt.json",
+    "ReceiptSHA256": "135c0ad0747870a2563295bb69b9be9189d17d4196696bc59a1840c7964d3fa4",
+    "ChangedFiles": [
+      "DBTool/DBTool.Application/StageAdapters.cs",
+      "DBTool/DBTool.Drawing/SheetThreeRoofViews.cs",
+      "DBTool/DBTool.Drawing/RoofJointDowelProjection.cs",
+      "DBTool/DBTool.Drawing/SheetThreeRoofDetailer.cs",
+      "DBTool/DBTool.Drawing/ViewBuilder.cs",
+      "DBTool/DBTool.Application.Tests/W10StageAdapterTests.cs",
+      "DBTool/DBTool.Drawing.Tests/W10ProjectionAndWiringTests.cs"
+    ],
+    "Findings": [
+      {
+        "id": "D01",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/StageAdapters.cs",
+        "line": 765,
+        "spec": "S6; EXPAND_VIEW_ROLE_TABLE"
+      },
+      {
+        "id": "D04",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/NativeSteelSchedulePlanner.cs",
+        "line": 564,
+        "spec": "S7/S8; exact asset gate"
+      },
+      {
+        "id": "D05",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+        "line": 517,
+        "spec": "S7/S8; H12; NR16"
+      },
+      {
+        "id": "D06",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+        "line": 429,
+        "spec": "S7; H28; NR22; NR-IO-011"
+      },
+      {
+        "id": "D07",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/AnnotationLaneAllocator.cs",
+        "line": 167,
+        "spec": "S7; H11; physical target association"
+      },
+      {
+        "id": "D08",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs",
+        "line": 488,
+        "spec": "S6; H06/H26; F37/F38"
+      },
+      {
+        "id": "D10",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/ViewBuilder.cs",
+        "line": 39,
+        "spec": "S5; F49; shared registry"
+      },
+      {
+        "id": "D12",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/ViewBuilder.cs",
+        "line": 398,
+        "spec": "S6 active Catch; W12 replacement gate"
+      }
+    ],
+    "BriefCharacters": 6736,
+    "BriefUTF8Bytes": 7554,
+    "BriefSHA256": "e3597b6117d58d71064ef9c9d5ff179352a586408bd416009a254ab39a7d62a4"
+  },
+  {
+    "PackageId": "W11",
+    "ExecutionPosition": 10,
+    "Predecessor": "W10",
+    "ReceiptPath": "C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W11/receipt.json",
+    "ReceiptSHA256": "923d3ad45a21a61abbb64a73a91d11c7d9c42c816d7a5bf26eb3bc230040b6bc",
+    "ChangedFiles": [
+      "DBTool/DBTool.Application/StageAdapters.cs",
+      "DBTool/DBTool.Drawing/DrawingPackage.cs",
+      "DBTool/DBTool.Drawing/DrawingPackageValidator.cs",
+      "DBTool/DBTool.Drawing/Family21ManholeHelper.cs",
+      "DBTool/DBTool.Drawing/SheetFourViews.cs",
+      "DBTool/DBTool.Drawing/SheetPlan.cs",
+      "DBTool/DBTool.Application.Tests/W11StageAdapterTests.cs",
+      "DBTool/DBTool.Drawing.Tests/W11LayoutAndPaginationTests.cs"
+    ],
+    "Findings": [
+      {
+        "id": "D02",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/StageAdapters.cs",
+        "line": 831,
+        "spec": "S9; EXACT_VIEW_BUNDLES; F41"
+      },
+      {
+        "id": "D13",
+        "severity": "P2",
+        "file": "DBTool/DBTool.Application/StageAdapters.cs",
+        "line": 994,
+        "spec": "S9; F46"
+      }
+    ],
+    "BriefCharacters": 3890,
+    "BriefUTF8Bytes": 4387,
+    "BriefSHA256": "e79262ece1a05df13daf24675f63ac8e86ce7b8ed4b124cf4eedd860ce2ab061"
+  },
+  {
+    "PackageId": "W12",
+    "ExecutionPosition": 11,
+    "Predecessor": "W11",
+    "ReceiptPath": "C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W12/receipt.json",
+    "ReceiptSHA256": "46911c6aedb4e11dceca304387ffd825630d941314fc1736d8670f60bf5005b1",
+    "ChangedFiles": [
+      "DBTool/DBTool.Drawing/Family21SheetFiveStore.cs",
+      "DBTool/DBTool.Drawing/Family21SheetFourStore.cs",
+      "DBTool/DBTool.Drawing/Family21SheetThreeStore.cs",
+      "DBTool/DBTool.Drawing/Family21SheetTwoStore.cs",
+      "DBTool/DBTool.Drawing/SheetFourCatchBasinViews.cs",
+      "DBTool/DBTool.Drawing/SheetTwoViews.cs",
+      "DBTool/DBTool.Drawing/SheetFourViews.cs",
+      "DBTool/DBTool.Drawing/SheetFiveViews.cs",
+      "DBTool/DBTool.Drawing/ViewBuilder.cs",
+      "DBTool/DBTool.Drawing.Tests/W12ModuleRemovalTests.cs"
+    ],
+    "Findings": [
+      {
+        "id": "D12",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/ViewBuilder.cs",
+        "line": 398,
+        "spec": "S6 active Catch; W12 replacement gate"
+      }
+    ],
+    "BriefCharacters": 3486,
+    "BriefUTF8Bytes": 3947,
+    "BriefSHA256": "e7797c2b946179ff8cf34dc290bf477ea16740eeea257a3b0a53f4cc56c8f07d"
+  },
+  {
+    "PackageId": "W05",
+    "ExecutionPosition": 12,
+    "Predecessor": "W12",
+    "ReceiptPath": "C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W05/receipt.json",
+    "ReceiptSHA256": "23325dc8cdc092c0cbf743fc3d092ef6b751548c5ac358e42b4844bb86529333",
+    "ChangedFiles": [
+      "DBTool/DBTool.Application/BatchGenerationOrchestrator.cs",
+      "DBTool/DBTool.AutoCAD/NativeReadbackVerifier.cs",
+      "DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs"
+    ],
+    "Findings": [
+      {
+        "id": "N01",
+        "severity": "P1",
+        "file": "DBTool/DBTool/App/HoGaCommands.cs",
+        "line": 167,
+        "spec": "S0–S11 composition; W13 B3.07"
+      },
+      {
+        "id": "N02",
+        "severity": "P1",
+        "file": "DBTool/DBTool.AutoCAD/CadGenerationWriter.cs",
+        "line": 95,
+        "spec": "S10 write/readback"
+      },
+      {
+        "id": "N04",
+        "severity": "P1",
+        "file": "DBTool/DBTool.AutoCAD/NativeReadbackVerifier.cs",
+        "line": 105,
+        "spec": "S10 actual native equality"
+      },
+      {
+        "id": "N05",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs",
+        "line": 331,
+        "spec": "S11; NR18; F48"
+      },
+      {
+        "id": "N06",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs",
+        "line": 153,
+        "spec": "S11; mandatory DucBao review"
+      },
+      {
+        "id": "N08",
+        "severity": "P1",
+        "file": "DBTool/DBTool/App/PaletteDrawingCalculation.cs",
+        "line": 90,
+        "spec": "S11 batch row isolation; H17"
+      },
+      {
+        "id": "N11",
+        "severity": "P2",
+        "file": "DBTool/DBTool.Application/BatchGenerationOrchestrator.cs",
+        "line": 248,
+        "spec": "S11/H17 artifact manifest"
+      }
+    ],
+    "BriefCharacters": 6358,
+    "BriefUTF8Bytes": 7127,
+    "BriefSHA256": "138547e2dc785015cd8666fd350f5826a57930be662bc9869bad49724e41d9ad"
+  },
+  {
+    "PackageId": "W13",
+    "ExecutionPosition": 13,
+    "Predecessor": "W05",
+    "ReceiptPath": "C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W13/receipt.json",
+    "ReceiptSHA256": "a686fa20048c121247581af89f56aa1081f0374825fd3036a64a21f6f9d6e907",
+    "ChangedFiles": [
+      "DBTool/DBTool/App/HoGaCommands.cs",
+      "DBTool/DBTool/App/PaletteDrawingCalculation.cs",
+      "DBTool/DBTool/App/SchedulePackageExport.cs",
+      "DBTool/DBTool/UI/MainPaletteControl.xaml.cs",
+      "DBTool/DBTool/UI/MainViewModel.cs",
+      "DBTool/DBTool.Application/ExportCalculationUseCase.cs",
+      "DBTool/DBTool.Application/GenerateDrawingUseCase.cs",
+      "DBTool/DBTool.AutoCAD/BlockAttributeWriter.cs",
+      "DBTool/DBTool.AutoCAD/CadGenerationWriter.cs",
+      "DBTool/DBTool.AutoCAD/CadRenderer.cs",
+      "DBTool/DBTool.AutoCAD/GenerationRepository.cs",
+      "DBTool/DBTool.Headless/Program.cs",
+      "DBTool/DBTool.Application/StageAdapters.cs",
+      "DBTool/DBTool.Application.Tests/W13StageAdapterTests.cs"
+    ],
+    "Findings": [
+      {
+        "id": "D01",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/StageAdapters.cs",
+        "line": 765,
+        "spec": "S6; EXPAND_VIEW_ROLE_TABLE"
+      },
+      {
+        "id": "D10",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Drawing/ViewBuilder.cs",
+        "line": 39,
+        "spec": "S5; F49; shared registry"
+      },
+      {
+        "id": "N01",
+        "severity": "P1",
+        "file": "DBTool/DBTool/App/HoGaCommands.cs",
+        "line": 167,
+        "spec": "S0–S11 composition; W13 B3.07"
+      },
+      {
+        "id": "N02",
+        "severity": "P1",
+        "file": "DBTool/DBTool.AutoCAD/CadGenerationWriter.cs",
+        "line": 95,
+        "spec": "S10 write/readback"
+      },
+      {
+        "id": "N03",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/StageAdapters.cs",
+        "line": 1074,
+        "spec": "H00; S0/S1/S10; no simulated Passed"
+      },
+      {
+        "id": "N04",
+        "severity": "P1",
+        "file": "DBTool/DBTool.AutoCAD/NativeReadbackVerifier.cs",
+        "line": 105,
+        "spec": "S10 actual native equality"
+      },
+      {
+        "id": "N05",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs",
+        "line": 331,
+        "spec": "S11; NR18; F48"
+      },
+      {
+        "id": "N06",
+        "severity": "P1",
+        "file": "DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs",
+        "line": 153,
+        "spec": "S11; mandatory DucBao review"
+      },
+      {
+        "id": "N07",
+        "severity": "P1",
+        "file": "DBTool/DBTool.AutoCAD/CadGenerationWriter.cs",
+        "line": 90,
+        "spec": "S10 output guard/Create/Replace"
+      },
+      {
+        "id": "N08",
+        "severity": "P1",
+        "file": "DBTool/DBTool/App/PaletteDrawingCalculation.cs",
+        "line": 90,
+        "spec": "S11 batch row isolation; H17"
+      },
+      {
+        "id": "N09",
+        "severity": "P2",
+        "file": "DBTool/DBTool/UI/MainViewModel.cs",
+        "line": 159,
+        "spec": "W13 shared request; preserve main UI"
+      },
+      {
+        "id": "N10",
+        "severity": "P1",
+        "file": "DBTool/DBTool.AutoCAD/CadRenderer.cs",
+        "line": 298,
+        "spec": "S8/S10 exact native TK"
+      },
+      {
+        "id": "N12",
+        "severity": "P2",
+        "file": "DBTool/DBTool.AutoCAD/GenerationRepository.cs",
+        "line": 131,
+        "spec": "S10 versioned ownership"
+      }
+    ],
+    "BriefCharacters": 9766,
+    "BriefUTF8Bytes": 10900,
+    "BriefSHA256": "ca85c3fd29bcb156c184d838df36183f5e09d246bf90ac988d7311ce0269ca7f"
+  }
+]

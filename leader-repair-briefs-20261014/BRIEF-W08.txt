@@ -1,0 +1,34 @@
+BRIEF-W08 — SỬA SAU REVIEW, KHÔNG PHẢI THÔNG BÁO ĐÃ ĐẠT
+ROOT=C:/Users/DucBao/Desktop/Dbtool/Ver 1. Mọi path code dưới đây tính từ ROOT; dòng là mốc review, khi đã dịch dòng phải tìm đúng class/method/predicate, không thay theo số dòng mù.
+Receipt cần version hóa: C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W08/receipt.json
+
+1. VIỆC BẠN ĐÃ LÀM / PHẠM VI
+ChangedFiles (chuẩn hóa prefix Ver 1 về ROOT; liệt kê đủ, không cấp quyền sửa mọi file):
+A=ROOT/DBTool/DBTool.Application: CalculationPipeline.cs; StageAdapters.cs.
+V=ROOT/DBTool/DBTool.Drawing: DrawingInputs.cs; PresentationGroup.cs; ScheduleNativeAttributes.cs.
+Bạn đã gọi PlanPreDrawing trong CalculationPipeline; dùng DrawingInputs làm carrier của registry/hash/sources; tạo FromPlannedGroups và 21 native schedule schemas.
+Bạn sửa S5/carriers/CalculationPipeline và PresentationGroup; ViewBuilder thuộc W10, native composition thuộc W13. Không sửa planner W03 ngoài scope; nếu contract W03 sai thì ghi dependency Blocked.
+
+2. FINDINGS BẮT BUỘC
+D10 [P1] DBTool/DBTool.Drawing/ViewBuilder.cs:39 — Spec: S5; F49; shared registry.
+Lỗi: ViewBuilder tiếp tục markByOccurrence canonical; FromPlannedGroups không caller; PlanPreDrawing gộp ComponentKind và tự mass D²×0.006165. Sửa: Nối một registry nhóm exact xuyên annotation/TK/bending; mass theo source basis; bỏ đường dựng danh tính riêng. Đóng khi: Trace từ command thật; group marks khác canonical vẫn xuất nhất quán; host/panel/opening scopes không bị trộn.
+
+D11 [P1] DBTool/DBTool.Drawing/PresentationGroupPlanner.cs:114 — Spec: S5; F49; scoped aliases.
+Lỗi: Thiếu basis mặc định Fabrication; search sau bỏ profile/component/family; prefix 1..8/D1; global alias không chứng minh member set. Sửa: Validate exact scope/basis/prefix và alias member-set evidence; thiếu phải Block. Đóng khi: Recipe sai profile/thiếu prefix/alias sai member set phải lỗi; cùng chữ mark ở host khác không cross-join.
+
+3. CÁCH TRIỂN KHAI VÀ LỖI CŨ PHẢI BỎ
+Lỗi cũ: mang registry mà đường chạy thật vẫn tự nhóm, tự mark, tự tính mass; FromPlannedGroups không có caller. Carrier tồn tại không chứng minh dùng đúng dữ liệu.
+F49 key=(host,assembly,panel scope,face,layer,direction,family,topology,D,angleCode,basis,pitch,hookRule,regionRole,sortedOpeningSet,orderedRoleNames). Gọi planner W03 thật→FromPlannedGroups→một immutable registry/hash cho downstream. Dump member IDs/hash mỗi boundary. Không retry scope rộng khi thiếu recipe/basis/prefix; không fuzzy join C3/C3A.
+
+4. THỨ TỰ / DEPENDENCY
+Thứ 7/13; chờ W04 bàn giao code + receipt sửa và kiểm upstream interface cần dùng. Lỗi chung chờ gói sau vẫn not-closed, không ép gói trước giả đóng.
+
+5. LUẬT BẮT BUỘC
+- Trước sửa: snapshot exact paths code/input/receipt, kiểm SHA256 với bàn giao. Không reset repo.
+- Cấm bịa số: thiếu dữ liệu → StageFault/Blocked; không default, không chọn dòng khác, không tắt feature. 23 phê duyệt NR giữ nguyên. Cấm fuzzy grouping/đo schematic tính chiều dài.
+- Cấm Passed giả: gate chưa chạy thật giữ NotRun. Không dùng số test pass/build exit0 đóng finding.
+- Closure đủ Before/After hashes, predicate input, command + exit code, output/log, expected/actual/unit/tolerance/source, closed/not-closed; actual độc lập expected, thiếu tolerance nguồn thì Blocked.
+- Chỉ sửa file thuộc phạm vi gói, patch phần sở hữu trên bản mới nhất. Không sửa UI sản phẩm chính. Không làm 3D. Giữ frozen review.
+
+6. OUTPUT
+Code sửa + receipt.json cập nhật + chứng cứ closed/not-closed từng ID. Giữ snapshot receipt cũ/PreviousReceiptHash/dependency hashes; lưu evidence tại receipt-folder/rework. Finding chung chỉ LocalPartDone, chưa đủ tích hợp thì not-closed. Gói trước còn lỗi interface cần dùng: Blocked, cấm giả Passed đi tiếp. Không sửa được ghi lý do/field/owner. DWG/PDF chưa chạy: NotRun; AI không ký visual thay DucBao.

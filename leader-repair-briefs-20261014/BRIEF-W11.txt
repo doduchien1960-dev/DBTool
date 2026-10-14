@@ -1,0 +1,36 @@
+BRIEF-W11 — SỬA SAU REVIEW, KHÔNG PHẢI THÔNG BÁO ĐÃ ĐẠT
+ROOT=C:/Users/DucBao/Desktop/Dbtool/Ver 1. Mọi path code dưới đây tính từ ROOT; dòng là mốc review, khi đã dịch dòng phải tìm đúng class/method/predicate, không thay theo số dòng mù.
+Receipt cần version hóa: C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W11/receipt.json
+
+1. VIỆC BẠN ĐÃ LÀM / PHẠM VI
+ChangedFiles (chuẩn hóa prefix Ver 1 về ROOT; liệt kê đủ, không cấp quyền sửa mọi file):
+A=ROOT/DBTool/DBTool.Application: StageAdapters.cs.
+V=ROOT/DBTool/DBTool.Drawing: DrawingPackage.cs; DrawingPackageValidator.cs; Family21ManholeHelper.cs; SheetFourViews.cs; SheetPlan.cs.
+AT=ROOT/DBTool/DBTool.Application.Tests: W11StageAdapterTests.cs.
+VT=ROOT/DBTool/DBTool.Drawing.Tests: W11LayoutAndPaginationTests.cs.
+Bạn đã triển khai S9 pagination/fit và sheet_hash; thêm DrawingPackage semantic/groups/ink/frames manifest; tạo FrameRegistry với VerifyCoverage.
+Chỉ sửa S9 trong StageAdapters và package/layout/frame validators thuộc gói. W09 cấp named S8 bundles, W10 cấp S6/S7 views/ink; không sửa payload upstream để làm fit dễ hơn.
+
+2. FINDINGS BẮT BUỘC
+D02 [P1] DBTool/DBTool.Application/StageAdapters.cs:831 — Spec: S9; EXACT_VIEW_BUNDLES; F41.
+Lỗi: Bundles chỉ duyệt projection.views; Schedule/Bending mới trong S8 không được placement; coverage cũng chỉ so S6. Sửa: Hợp required view IDs của projection và S8; đặt mỗi bundle đúng một lần và kiểm cả heading/summary/caption. Đóng khi: Multiset required IDs == placements; mỗi TK/bending có frame và native ink nằm trong frame sau reopen.
+
+D13 [P2] DBTool/DBTool.Application/StageAdapters.cs:994 — Spec: S9; F46.
+Lỗi: Chỉ hash frame.id và placements.Length, nên thay vị trí/scale/bounds vẫn cùng hash. Sửa: Canonical HASH_STATE của payload sheet đầy đủ, không hash count thay nội dung. Đóng khi: Đổi riêng scale, translation, bounds, ink phải đổi hash; replay cùng state/culture phải giữ hash.
+
+3. CÁCH TRIỂN KHAI VÀ LỖI CŨ PHẢI BỎ
+Lỗi cũ: kiểm coverage trên tập projection bị thiếu S8, rồi hash bằng frame ID+số placement. Tập bị rút gọn không phải tập required, số lượng không thay được nội dung.
+Hợp S6 và S8 phải kiểm duplicate ID/payload conflict; so multiset required IDs với placements và content coverage. Scale đổi phải rebuild annotation/ink theo sourced request, không bỏ view. F46 hash đủ frame/page/placements/content IDs/transforms/scale/ink, canonical JSON ordinal/invariant/null explicit, sort unordered IDs, giữ ordered geometry, loại self-hash. Native/PDF chưa chạy giữ NotRun.
+
+4. THỨ TỰ / DEPENDENCY
+Thứ 10/13; chờ W10 bàn giao code + receipt sửa và kiểm upstream interface cần dùng. Lỗi chung chờ gói sau vẫn not-closed, không ép gói trước giả đóng.
+
+5. LUẬT BẮT BUỘC
+- Trước sửa: snapshot exact paths code/input/receipt, kiểm SHA256 với bàn giao. Không reset repo.
+- Cấm bịa số: thiếu dữ liệu → StageFault/Blocked; không default, không chọn dòng khác, không tắt feature. 23 phê duyệt NR giữ nguyên. Cấm fuzzy grouping/đo schematic tính chiều dài.
+- Cấm Passed giả: gate chưa chạy thật giữ NotRun. Không dùng số test pass/build exit0 đóng finding.
+- Closure đủ Before/After hashes, predicate input, command + exit code, output/log, expected/actual/unit/tolerance/source, closed/not-closed; actual độc lập expected, thiếu tolerance nguồn thì Blocked.
+- Chỉ sửa file thuộc phạm vi gói, patch phần sở hữu trên bản mới nhất. Không sửa UI sản phẩm chính. Không làm 3D. Giữ frozen review.
+
+6. OUTPUT
+Code sửa + receipt.json cập nhật + chứng cứ closed/not-closed từng ID. Giữ snapshot receipt cũ/PreviousReceiptHash/dependency hashes; lưu evidence tại receipt-folder/rework. Finding chung chỉ LocalPartDone, chưa đủ tích hợp thì not-closed. Gói trước còn lỗi interface cần dùng: Blocked, cấm giả Passed đi tiếp. Không sửa được ghi lý do/field/owner. DWG/PDF chưa chạy: NotRun; AI không ký visual thay DucBao.

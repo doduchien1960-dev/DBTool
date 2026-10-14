@@ -1,0 +1,31 @@
+BRIEF-W12 — SỬA SAU REVIEW, KHÔNG PHẢI THÔNG BÁO ĐÃ ĐẠT
+ROOT=C:/Users/DucBao/Desktop/Dbtool/Ver 1. Mọi path code dưới đây tính từ ROOT; dòng là mốc review, khi đã dịch dòng phải tìm đúng class/method/predicate, không thay theo số dòng mù.
+Receipt cần version hóa: C:/Users/DucBao/Desktop/Dbtool/outputs/leader-implementation/leader-field-contracts-20261013-r2/packages/W12/receipt.json
+
+1. VIỆC BẠN ĐÃ LÀM / PHẠM VI
+ChangedFiles (chuẩn hóa prefix Ver 1 về ROOT; liệt kê đủ, không cấp quyền sửa mọi file):
+V=ROOT/DBTool/DBTool.Drawing: Family21SheetFiveStore.cs; Family21SheetFourStore.cs; Family21SheetThreeStore.cs; Family21SheetTwoStore.cs; SheetFourCatchBasinViews.cs; SheetTwoViews.cs; SheetFourViews.cs; SheetFiveViews.cs; ViewBuilder.cs.
+VT=ROOT/DBTool/DBTool.Drawing.Tests: W12ModuleRemovalTests.cs.
+Bạn đã xóa sáu static modules và lưu archive/hash; chuyển catch ViewIds sang SheetFourViews; thay static catch/if(false) bằng dynamic ViewBuilder và giữ bending APIs.
+Sáu file đã xóa phải tiếp tục absent ở runtime; archive giữ nguyên. ViewBuilder chỉ sửa phần removal/replacement thuộc gói sau khi nhận patch W10, không overwrite ViewBuilder nguyên file hoặc S6/S7.
+
+2. FINDINGS BẮT BUỘC
+D12 [P1] DBTool/DBTool.Drawing/ViewBuilder.cs:398 — Spec: S6 active Catch; W12 replacement gate.
+Lỗi: Nhánh catch động nằm trong điều kiện có Neck và view /Neck/; catch active với cổ không BTCT mất cả 3 view. Sửa: Tách predicate catch khỏi neck reinforcement; chiếu chung assembly cửa thu theo activity đúng. Đóng khi: Cross-product catch ON/OFF, neck0/có và BTCT/không: các view bắt buộc có đủ hoặc diagnostic có nguồn.
+
+3. CÁCH TRIỂN KHAI VÀ LỖI CŨ PHẢI BỎ
+Lỗi cũ: xem xóa class/không còn reflection reference là đã có replacement; nhánh thay thế vẫn mất catch khi không có thép cổ. Không phục hồi fixture để làm regression hết đỏ.
+Kiểm required view IDs/curves/targets/owners, không chỉ class absence. Giữ sáu module deleted absent runtime; archive hashes không đổi, không active source/project/runtime references. OFF không phantom view; domain-invalid case phải diagnostic. Nếu predicate W10 còn sai, ghi dependency NotClosed, không bỏ view/khôi phục fixture.
+
+4. THỨ TỰ / DEPENDENCY
+Thứ 11/13; chờ W11 bàn giao code + receipt sửa và kiểm upstream interface cần dùng. Lỗi chung chờ gói sau vẫn not-closed, không ép gói trước giả đóng.
+
+5. LUẬT BẮT BUỘC
+- Trước sửa: snapshot exact paths code/input/receipt, kiểm SHA256 với bàn giao. Không reset repo.
+- Cấm bịa số: thiếu dữ liệu → StageFault/Blocked; không default, không chọn dòng khác, không tắt feature. 23 phê duyệt NR giữ nguyên. Cấm fuzzy grouping/đo schematic tính chiều dài.
+- Cấm Passed giả: gate chưa chạy thật giữ NotRun. Không dùng số test pass/build exit0 đóng finding.
+- Closure đủ Before/After hashes, predicate input, command + exit code, output/log, expected/actual/unit/tolerance/source, closed/not-closed; actual độc lập expected, thiếu tolerance nguồn thì Blocked.
+- Chỉ sửa file thuộc phạm vi gói, patch phần sở hữu trên bản mới nhất. Không sửa UI sản phẩm chính. Không làm 3D. Giữ frozen review.
+
+6. OUTPUT
+Code sửa + receipt.json cập nhật + chứng cứ closed/not-closed từng ID. Giữ snapshot receipt cũ/PreviousReceiptHash/dependency hashes; lưu evidence tại receipt-folder/rework. Finding chung chỉ LocalPartDone, chưa đủ tích hợp thì not-closed. Gói trước còn lỗi interface cần dùng: Blocked, cấm giả Passed đi tiếp. Không sửa được ghi lý do/field/owner. DWG/PDF chưa chạy: NotRun; AI không ký visual thay DucBao.
