@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data/native-cover-catalog.json" LogicalName="DBTool.NativeCoverCatalog.json" />
+    <PackageReference Include="ClosedXML" Version="0.105.1" />
+    <ProjectReference Include="../DBTool.Application/DBTool.Application.csproj" />
+  </ItemGroup>
+</Project>

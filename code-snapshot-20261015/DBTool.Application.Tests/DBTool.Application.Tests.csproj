@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../DBTool.Application/DBTool.Application.csproj" />
+    <Compile Include="../DBTool/Core/Models.cs" Link="Legacy/Models.cs" />
+    <Compile Include="../DBTool/Core/ManholeSpec.cs" Link="Legacy/ManholeSpec.cs" />
+    <Compile Include="../DBTool/Core/DrawingInputGate.cs" Link="Legacy/DrawingInputGate.cs" />
+    <Compile Include="../DBTool.Infrastructure.Excel/NumericCellReader.cs" Link="Adapters/NumericCellReader.cs" />
+    <Content Include="../Tests/Fixtures/template-manifest.synthetic.json" Link="Tests/Fixtures/template-manifest.synthetic.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.1" />
+  </ItemGroup>
+</Project>

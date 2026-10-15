@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <PlatformTarget>x64</PlatformTarget>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../DBTool/DBTool.csproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.1" />
+    <Content Include="../DBTool/UI/MainPaletteControl.xaml" Link="MainPaletteControl.xaml" CopyToOutputDirectory="PreserveNewest" />
+    <Compile Include="../DBTool.Excel.Tests/TestWorkbookFactory.cs" Link="Fixtures/TestWorkbookFactory.cs" />
+  </ItemGroup>
+</Project>

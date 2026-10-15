@@ -1,0 +1,10 @@
+<Solution>
+  <Project Path="DBTool.Application/DBTool.Application.csproj" />
+  <Project Path="DBTool.Application.Tests/DBTool.Application.Tests.csproj" />
+  <Project Path="DBTool.Drawing/DBTool.Drawing.csproj" />
+  <Project Path="DBTool.Drawing.Tests/DBTool.Drawing.Tests.csproj" />
+  <Project Path="DBTool.Domain.Tests/DBTool.Domain.Tests.csproj" />
+  <Project Path="DBTool.Domain/DBTool.Domain.csproj" />
+  <Project Path="DBTool.TestRunner/DBTool.TestRunner.csproj" />
+  <Project Path="DBTool/DBTool.csproj" />
+</Solution>

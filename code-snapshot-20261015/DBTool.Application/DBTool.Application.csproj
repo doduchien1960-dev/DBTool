@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../DBTool.Domain/DBTool.Domain.csproj" />
+    <ProjectReference Include="../DBTool.Drawing/DBTool.Drawing.csproj" />
+  </ItemGroup>
+</Project>
+

@@ -1,0 +1,647 @@
+{
+  "updated_utc": "2026-10-15T13:06:45.289552+00:00",
+  "status": "InProgress",
+  "self_signed_GO": false,
+  "full_pipeline_native_gate": "NotRun",
+  "independent_final_acceptance": "NotRun",
+  "batch_A": "NotReleased",
+  "live_files": [
+    {
+      "package": "L06",
+      "path": "DBTool/DBTool.Domain/Geometry/ChamberGeometryBuilder.cs",
+      "before_sha256": "44fe243355710810498808a86097d96f3ad1d117c5009f85772338e90a5751bd",
+      "after_sha256": "f8347a1d6d1041c79f8bf1fb2b8b640d7dd76d7acdee1b8b8740dfb38c9de602",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\L06\\DBTool\\DBTool.Domain\\Geometry\\ChamberGeometryBuilder.cs"
+    },
+    {
+      "package": "L06",
+      "path": "DBTool/DBTool.Drawing/AnnotationPlanner.cs",
+      "before_sha256": "8448e7e2baf11817b0f26c6c100949c06c05ed2cd6e60d5925d779cc9c3f8e88",
+      "after_sha256": "a63ee33911b0ec18a12122ad095ca809804c4ebc927ad262b2505e916d596b02",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\L06\\DBTool\\DBTool.Drawing\\AnnotationPlanner.cs"
+    },
+    {
+      "package": "L06",
+      "path": "DBTool/DBTool.Drawing/ViewBuilder.cs",
+      "before_sha256": "854a97c40fb11ed51ea876a919e7e7089e40953608372add80c82874835fc641",
+      "after_sha256": "a34ce1454b577b21c4f17025c7457153d3783ac383ef5718868d1f206fea9536",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\L06\\DBTool\\DBTool.Drawing\\ViewBuilder.cs"
+    },
+    {
+      "package": "L06",
+      "path": "DBTool/DBTool.Drawing/SheetOneDimensionPlanner.cs",
+      "before_sha256": "1e97ca3f5fb774c8298cf451f0c1c7a0730df78a449dcac507ae030a510b7866",
+      "after_sha256": "f7c8eb8b2d426929612fb8f5a414ce0237be92d50a12eae99c9b82b5479ded6d",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\L06\\DBTool\\DBTool.Drawing\\SheetOneDimensionPlanner.cs"
+    },
+    {
+      "package": "L06",
+      "path": "DBTool/DBTool.Application.Tests/LeaderPadBridgeTests.cs",
+      "before_sha256": null,
+      "after_sha256": "ae7dc4f09e1925e24ae2e7ae39b34f54300dff4d6c676f07c5b33a0ea1c34ba9",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\L06\\DBTool\\DBTool.Application.Tests\\LeaderPadBridgeTests.cs"
+    },
+    {
+      "package": "NativeCore",
+      "path": "DBTool/DBTool.Application/StageAdapters.cs",
+      "before_sha256": "cf24b17e29c930941b15a5bbee777732155f5d6abb59349d215e3059883ac5cd",
+      "after_sha256": "efe766e704a113e640f93ef6af81ca118cd0c83ab0fefdceca05fa47258db3e8",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\NativeCore\\DBTool\\DBTool.Application\\StageAdapters.cs"
+    },
+    {
+      "package": "NativeCore",
+      "path": "DBTool/DBTool.Application.Tests/W13StageAdapterTests.cs",
+      "before_sha256": "fe2f3bf073a1a0ea31a59c02877cf7b608b566352149ae0c080e145a0d799c0f",
+      "after_sha256": "921d167eb92b94d818d91291feb6d6be08607f2c667a90f1f2603d33bcdb4df7",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\NativeCore\\DBTool\\DBTool.Application.Tests\\W13StageAdapterTests.cs"
+    },
+    {
+      "package": "AcceptanceGuard",
+      "path": "DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs",
+      "before_sha256": "c6c388fef5dd6bbec1be194541b5e44435c7dc7388ac0bee3f58dffbf05ec995",
+      "after_sha256": "3739c2903af45cb98e3573ccfdc49685372b7f3dd36b74b1ceb8b728201f9710",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\AcceptanceGuard\\DBTool\\DBTool.Application\\AcceptanceEvidenceAssembler.cs"
+    },
+    {
+      "package": "AcceptanceGuard",
+      "path": "DBTool/DBTool.Application.Tests/LeaderAcceptanceIntegrityTests.cs",
+      "before_sha256": null,
+      "after_sha256": "0a6cf2cbc3df22b5ae287d828b4f5dd3920071272f7402df5989f3e581a20959",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\AcceptanceGuard\\DBTool\\DBTool.Application.Tests\\LeaderAcceptanceIntegrityTests.cs"
+    },
+    {
+      "package": "CanonicalReview",
+      "path": "DBTool/DBTool.Application/ReferenceComparisonService.cs",
+      "before_sha256": "350b1cc8122dab92268ee493b9efeb4592fbf89626dbd7aa0bbfdb6e4a1e609d",
+      "after_sha256": "0684a7b768fd55d80f403efc5f5d7f8552176ea5777fa07648d1892c2dc94443",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\CanonicalReview\\DBTool\\DBTool.Application\\ReferenceComparisonService.cs"
+    },
+    {
+      "package": "CanonicalReview",
+      "path": "DBTool/DBTool.Application/ReleaseEvidence.cs",
+      "before_sha256": "49ec1f2f2190202bfe1430255c1078bc6155c73d61a1216957e5aa9642d1414a",
+      "after_sha256": "9f80c131c420db4f86b02e161cb12629d290d2237329177233ad6a56aad98c97",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\CanonicalReview\\DBTool\\DBTool.Application\\ReleaseEvidence.cs"
+    },
+    {
+      "package": "CanonicalReview",
+      "path": "DBTool/DBTool.Application.Tests/CanonicalAcceptanceFixtures.cs",
+      "before_sha256": null,
+      "after_sha256": "6f3e81479f135a423157bc773933f40d8fc4a381600b7389e36fe82b170cd367",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\CanonicalReview\\DBTool\\DBTool.Application.Tests\\CanonicalAcceptanceFixtures.cs"
+    },
+    {
+      "package": "CanonicalReview",
+      "path": "DBTool/DBTool.Application.Tests/ReleaseEvidenceTests.cs",
+      "before_sha256": "6dcaaa8cf304da0800da92bc34aaa3afa45ee423683eaaa1345476b01763c042",
+      "after_sha256": "037d82828a2153763e8dbdfad096802b749693d148063806f35d117b8620a43b",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\CanonicalReview\\DBTool\\DBTool.Application.Tests\\ReleaseEvidenceTests.cs"
+    },
+    {
+      "package": "CanonicalReview",
+      "path": "DBTool/DBTool.AutoCAD.Tests/DrawingRegressionCommand.cs",
+      "before_sha256": "5eedcdbcf228a0a68dd8b07b43610531f86e9b3acd7a3e994dd011e0149035df",
+      "after_sha256": "41b071a49d1c911fbbeeed46a2ebd177a040c60cda6a69486ca5795c08a8f858",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\CanonicalReview\\DBTool\\DBTool.AutoCAD.Tests\\DrawingRegressionCommand.cs"
+    },
+    {
+      "package": "CanonicalReview",
+      "path": "DBTool/DBTool.AutoCAD.Tests/SemanticSnapshotReader.cs",
+      "before_sha256": "e53b4a16266f12c6d1a1a1f2992bf66d81dcf40fd731ed3bfc249b2f3c51cd6f",
+      "after_sha256": "82b8365cee2d54fa330385dee6d2262165e11ff22b7e068684d52b01538d751e",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\CanonicalReview\\DBTool\\DBTool.AutoCAD.Tests\\SemanticSnapshotReader.cs"
+    },
+    {
+      "package": "CanonicalReview",
+      "path": "DBTool/DBTool.Drawing/CanonicalPhysicalSnapshot.cs",
+      "before_sha256": null,
+      "after_sha256": "433ca55b716aeb47c0270660e42924205e3c49e012c7fc74b9292d8863887060",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\CanonicalReview\\DBTool\\DBTool.Drawing\\CanonicalPhysicalSnapshot.cs"
+    },
+    {
+      "package": "CanonicalReview",
+      "path": "DBTool/DBTool.Drawing/NativePhysicalCaptureAdapter.cs",
+      "before_sha256": null,
+      "after_sha256": "ae1e33f93f1f216e05a3c59422a8c372443fd1c5575b2755f0bc8f0bc4333649",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\CanonicalReview\\DBTool\\DBTool.Drawing\\NativePhysicalCaptureAdapter.cs"
+    },
+    {
+      "package": "CanonicalReview",
+      "path": "DBTool/DBTool.Drawing/SemanticDiff.cs",
+      "before_sha256": "9e333935dd8639ef2bf17ffc1fc47a6f135b50fbbea443f918791eedfecb8789",
+      "after_sha256": "a577dd8b562f992fbd7f98f747651b5631789b00d89486d4a52bd07b7556a9d8",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\CanonicalReview\\DBTool\\DBTool.Drawing\\SemanticDiff.cs"
+    },
+    {
+      "package": "CanonicalReview",
+      "path": "DBTool/DBTool.Drawing.Tests/CanonicalAcceptanceTests.cs",
+      "before_sha256": null,
+      "after_sha256": "fccc8adec8e8a4bbb05541d11406bb26f34df778b56135c34c383ee839f9f102",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\CanonicalReview\\DBTool\\DBTool.Drawing.Tests\\CanonicalAcceptanceTests.cs"
+    },
+    {
+      "package": "CanonicalReview",
+      "path": "DBTool/DBTool.Drawing.Tests/CanonicalR04Tests.cs",
+      "before_sha256": null,
+      "after_sha256": "3f0fe5ea13d9f8106e54cc4a8fc4e1d04bca821f9db767b4cad5d76f35445976",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\CanonicalReview\\DBTool\\DBTool.Drawing.Tests\\CanonicalR04Tests.cs"
+    },
+    {
+      "package": "CanonicalReview",
+      "path": "DBTool/DBTool.Drawing.Tests/SemanticDiffTests.cs",
+      "before_sha256": "459860063cc118b70f47b366d0c1fe26d84797365c1234d4861582f65ebb3431",
+      "after_sha256": "83c0df99b5263528a1c511f25ed0eb6a8395d104433419d05b8978e6ea22ec53",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\CanonicalReview\\DBTool\\DBTool.Drawing.Tests\\SemanticDiffTests.cs"
+    },
+    {
+      "package": "CanonicalReview",
+      "path": "DBTool/DBTool.Drawing.Tests/LeaderCanonicalDomainTests.cs",
+      "before_sha256": null,
+      "after_sha256": "85e426fb6b91fad90011a97a5fe2e25aa8b05d2445926c4da3a697bc9d538e8f",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\CanonicalReview\\DBTool\\DBTool.Drawing.Tests\\LeaderCanonicalDomainTests.cs"
+    },
+    {
+      "package": "RegionReview",
+      "path": "DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs",
+      "before_sha256": "309df1570800f09092f696b6ac3b33ba5d6cfcd198addab85b41b3bc74332bb6",
+      "after_sha256": "35242169057a27ddecbc2ab6360ed0efe2b36aa56433e8746cbbd74c990f1b8c",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\RegionReview\\DBTool\\DBTool.Drawing\\AssemblyBoundaryEmitter.cs"
+    },
+    {
+      "package": "RegionReview",
+      "path": "DBTool/DBTool.Drawing/AnalyticPlanarOccupiedRegionKernel.cs",
+      "before_sha256": null,
+      "after_sha256": "a761174c83858d50aaa10dbf6c0cfd114a0de31db8cc4c7e5ef078850ae626ff",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\RegionReview\\DBTool\\DBTool.Drawing\\AnalyticPlanarOccupiedRegionKernel.cs"
+    },
+    {
+      "package": "RegionReview",
+      "path": "DBTool/DBTool.Drawing/PlanarOccupiedRegionContracts.cs",
+      "before_sha256": null,
+      "after_sha256": "dfb18caa4057ee2ca5d3168a98ed3fcbee99b0fc4e8f135d75c211f43d79eb3d",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\RegionReview\\DBTool\\DBTool.Drawing\\PlanarOccupiedRegionContracts.cs"
+    },
+    {
+      "package": "RegionReview",
+      "path": "DBTool/DBTool.Drawing.Tests/L03OccupiedRegionAcceptanceTests.cs",
+      "before_sha256": null,
+      "after_sha256": "9b9795555e224466344de4d1d5b32d4c62ab6fe64624f8a40074da10fe1b2261",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\RegionReview\\DBTool\\DBTool.Drawing.Tests\\L03OccupiedRegionAcceptanceTests.cs"
+    },
+    {
+      "package": "RegionReview",
+      "path": "DBTool/DBTool.Application.Tests/W10StageAdapterTests.cs",
+      "before_sha256": "a7e8307c4352d4a328dec12053bd6b5202a587524e9c96204e4772df1ef54d6e",
+      "after_sha256": "db8869df72a21be4cf8ee0514b25c9af135aa6d27eb800d68c68f5803fd1ed61",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\RegionReview\\DBTool\\DBTool.Application.Tests\\W10StageAdapterTests.cs"
+    },
+    {
+      "package": "RegionReview",
+      "path": "DBTool/DBTool.Drawing.Tests/LeaderRegionReviewTests.cs",
+      "before_sha256": null,
+      "after_sha256": "bc5d0856c6b9bcc0f5394d961093e6fd5a5c52e1e6deb3efb490bb394d932d9f",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\RegionReview\\DBTool\\DBTool.Drawing.Tests\\LeaderRegionReviewTests.cs"
+    },
+    {
+      "package": "RegionReview",
+      "path": "DBTool/DBTool.Drawing.Tests/W04PlannerAndProjectorTests.cs",
+      "before_sha256": "10d57b87a884b4c3cf9267469518f0b223129768d638f33b918887fdcc2878e1",
+      "after_sha256": "2cf6416f28b4c49dc3b805d41c674db6f1639cb77216db4d16aa504e449bdd91",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\RegionReview\\DBTool\\DBTool.Drawing.Tests\\W04PlannerAndProjectorTests.cs"
+    },
+    {
+      "package": "NativeAssetsReview",
+      "path": "DBTool/DBTool.Application.Tests/L02NativeContextTests.cs",
+      "before_sha256": null,
+      "after_sha256": "33098914a714a1f0a0c7b51f154a0c6d356838e7c4e5ad069ddbc16dd1b7fe39",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\NativeAssetsReview\\DBTool\\DBTool.Application.Tests\\L02NativeContextTests.cs"
+    },
+    {
+      "package": "NativeAssetsReview",
+      "path": "DBTool/DBTool.Application.Tests/L02NativeContractTests.cs",
+      "before_sha256": null,
+      "after_sha256": "0092be8d7462573e9241424998fa7b95508f174ec345e0a788ceb5334621d7a9",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\NativeAssetsReview\\DBTool\\DBTool.Application.Tests\\L02NativeContractTests.cs"
+    },
+    {
+      "package": "NativeAssetsReview",
+      "path": "DBTool/DBTool.Application.Tests/LeaderTrueTypeCoverageTests.cs",
+      "before_sha256": null,
+      "after_sha256": "8973072a8f5a432e5b44ce1cb60a4215dffa1b2035ed147244a4fd6ee7acac7d",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\NativeAssetsReview\\DBTool\\DBTool.Application.Tests\\LeaderTrueTypeCoverageTests.cs"
+    },
+    {
+      "package": "NativeAssetsReview",
+      "path": "DBTool/DBTool.Application.Tests/W02RemediationTests.cs",
+      "before_sha256": "4bb9141d79917ca206a0243894994c939b2427756d4d718b886babe499921ea1",
+      "after_sha256": "2c919e5e6375bf7806aae8cb58a022d0855c4045141cc61286e4155b7c4ac322",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\NativeAssetsReview\\DBTool\\DBTool.Application.Tests\\W02RemediationTests.cs"
+    },
+    {
+      "package": "NativeAssetsReview",
+      "path": "DBTool/DBTool.Application/Templates/NativeAssetContextR03.cs",
+      "before_sha256": null,
+      "after_sha256": "b874840a557820990bed7bf9e3246b9935f75b7b754df230633ee66e6bc1c632",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\NativeAssetsReview\\DBTool\\DBTool.Application\\Templates\\NativeAssetContextR03.cs"
+    },
+    {
+      "package": "NativeAssetsReview",
+      "path": "DBTool/DBTool.Application/Templates/TemplateContractValidator.cs",
+      "before_sha256": "2aecc8a981c060bc46cc1f9c3b881187845494a8e94abf072a3e7df9087ba713",
+      "after_sha256": "7dfbd3e9ddc813666aeffc3833f5c49259e0b6ac55cdc57c8234efcf72cd2570",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\NativeAssetsReview\\DBTool\\DBTool.Application\\Templates\\TemplateContractValidator.cs"
+    },
+    {
+      "package": "NativeAssetsReview",
+      "path": "DBTool/DBTool.Application/Templates/TrueTypeTextCoverage.cs",
+      "before_sha256": null,
+      "after_sha256": "36b259d2de025be69acc622e07dfb5c2c4393a281018336ab0a2aef91f10a8a3",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\NativeAssetsReview\\DBTool\\DBTool.Application\\Templates\\TrueTypeTextCoverage.cs"
+    },
+    {
+      "package": "NativeAssetsReview",
+      "path": "DBTool/DBTool.AutoCAD.Tests/L02NativeSignatureCommands.cs",
+      "before_sha256": null,
+      "after_sha256": "2af2110af7d7eeb96bd680a92ce571a3589a936590f9e9cd91bde13c86715b26",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\NativeAssetsReview\\DBTool\\DBTool.AutoCAD.Tests\\L02NativeSignatureCommands.cs"
+    },
+    {
+      "package": "NativeAssetsReview",
+      "path": "DBTool/DBTool.AutoCAD.Tests/L02NativeWholeTextCommands.cs",
+      "before_sha256": null,
+      "after_sha256": "5f4e0c71efee11efa15efcf8a733df4a9b923cac0142bc322d44dc3b695b93ad",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\NativeAssetsReview\\DBTool\\DBTool.AutoCAD.Tests\\L02NativeWholeTextCommands.cs"
+    },
+    {
+      "package": "NativeAssetsReview",
+      "path": "DBTool/DBTool.AutoCAD.Tests/W02NativeRemediationCommands.cs",
+      "before_sha256": "06e242edb70c875c69271f1ccc2515268f1820b8c016bf3777cf0b0e3b142092",
+      "after_sha256": "b867291fefef552d7af62116a04aa9d77361884ba119076be7f8f937b647ad40",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\NativeAssetsReview\\DBTool\\DBTool.AutoCAD.Tests\\W02NativeRemediationCommands.cs"
+    },
+    {
+      "package": "NativeAssetsReview",
+      "path": "DBTool/DBTool.AutoCAD/NativeAssetSignatures.cs",
+      "before_sha256": "7d52489bfe5a950ceeb26b6d3b84522841fe6be925bfc9342dfcc16d6014b0fd",
+      "after_sha256": "976cf0a70b9649b8ace726b8c705538416c134e1960a2b5139897467f82a41d7",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\NativeAssetsReview\\DBTool\\DBTool.AutoCAD\\NativeAssetSignatures.cs"
+    },
+    {
+      "package": "NativeAssetsReview",
+      "path": "DBTool/DBTool.AutoCAD/NativeWholeTextMeasurementR03.cs",
+      "before_sha256": null,
+      "after_sha256": "cba6e1740bab96f995fd0aa589fc39f9b182241e78d5b997b0f953bac6652e0e",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\NativeAssetsReview\\DBTool\\DBTool.AutoCAD\\NativeWholeTextMeasurementR03.cs"
+    },
+    {
+      "package": "NativeAssetsReview",
+      "path": "DBTool/DBTool.AutoCAD/TemplateAssetImporter.cs",
+      "before_sha256": "c5690bab0533e534cafc73205e8e0c04f2452e4e5f53d2c48a044b0cba02e1d9",
+      "after_sha256": "15f5111a96d0caf6d08bccfda4d81b8a925bba82ce8c70e95a640628523425d7",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\NativeAssetsReview\\DBTool\\DBTool.AutoCAD\\TemplateAssetImporter.cs"
+    },
+    {
+      "package": "NativeAssetsReview",
+      "path": "DBTool/DBTool.AutoCAD/TemplateManifestReader.cs",
+      "before_sha256": "fad1ba1655f04fdafb2bd589962e9a8bca8653e20307c92bf0875a5ea98bf2b4",
+      "after_sha256": "b7b34dbfbd21ab54188461f1ecf477098922ebef0f31806c9bfb6002766b4f7e",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\NativeAssetsReview\\DBTool\\DBTool.AutoCAD\\TemplateManifestReader.cs"
+    },
+    {
+      "package": "InputScalarReview",
+      "path": "DBTool/DBTool.Application/StageAdapters.cs",
+      "before_sha256": "efe766e704a113e640f93ef6af81ca118cd0c83ab0fefdceca05fa47258db3e8",
+      "after_sha256": "ac975f4ed8740f813b5e30a5c98db2fb10626fa1aee6a9f4ed0527e7e6013ece",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\InputScalarReview\\DBTool\\DBTool.Application\\StageAdapters.cs"
+    },
+    {
+      "package": "InputScalarReview",
+      "path": "DBTool/DBTool.Application/FormulaRecalculationProofV2.cs",
+      "before_sha256": null,
+      "after_sha256": "12f02056dc2ad5a86f7a60178264fa932532491f7e180dab8ef35b11ee8d8ad4",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\InputScalarReview\\DBTool\\DBTool.Application\\FormulaRecalculationProofV2.cs"
+    },
+    {
+      "package": "InputScalarReview",
+      "path": "DBTool/DBTool.Application.Tests/LeaderS2ScalarIntegrityTests.cs",
+      "before_sha256": null,
+      "after_sha256": "d7628642e19a0bd77b4b83967c837455dfa562fe56570eac61916c9639c6ca02",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\InputScalarReview\\DBTool\\DBTool.Application.Tests\\LeaderS2ScalarIntegrityTests.cs"
+    },
+    {
+      "package": "InputScalarReview",
+      "path": "DBTool/DBTool.Application.Tests/LeaderFormulaProofTests.cs",
+      "before_sha256": null,
+      "after_sha256": "48f09a2165610f52b2b65d9d82fa06a6875d446a97a741bfc1fdf5a779a1b014",
+      "candidate": "C:\\Users\\DucBao\\Desktop\\Dbtool\\Ver 1\\outputs\\leader-acceptance\\leader-field-contracts-20261013-r2\\20261015-project-completion-05\\candidates\\InputScalarReview\\DBTool\\DBTool.Application.Tests\\LeaderFormulaProofTests.cs"
+    }
+  ],
+  "live_hash_reconciliation": [
+    {
+      "path": "DBTool/DBTool.Domain/Geometry/ChamberGeometryBuilder.cs",
+      "expected": "f8347a1d6d1041c79f8bf1fb2b8b640d7dd76d7acdee1b8b8740dfb38c9de602",
+      "actual": "f8347a1d6d1041c79f8bf1fb2b8b640d7dd76d7acdee1b8b8740dfb38c9de602",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Drawing/AnnotationPlanner.cs",
+      "expected": "a63ee33911b0ec18a12122ad095ca809804c4ebc927ad262b2505e916d596b02",
+      "actual": "a63ee33911b0ec18a12122ad095ca809804c4ebc927ad262b2505e916d596b02",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Drawing/ViewBuilder.cs",
+      "expected": "a34ce1454b577b21c4f17025c7457153d3783ac383ef5718868d1f206fea9536",
+      "actual": "a34ce1454b577b21c4f17025c7457153d3783ac383ef5718868d1f206fea9536",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Drawing/SheetOneDimensionPlanner.cs",
+      "expected": "f7c8eb8b2d426929612fb8f5a414ce0237be92d50a12eae99c9b82b5479ded6d",
+      "actual": "f7c8eb8b2d426929612fb8f5a414ce0237be92d50a12eae99c9b82b5479ded6d",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application.Tests/LeaderPadBridgeTests.cs",
+      "expected": "ae7dc4f09e1925e24ae2e7ae39b34f54300dff4d6c676f07c5b33a0ea1c34ba9",
+      "actual": "ae7dc4f09e1925e24ae2e7ae39b34f54300dff4d6c676f07c5b33a0ea1c34ba9",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application/StageAdapters.cs",
+      "expected": "ac975f4ed8740f813b5e30a5c98db2fb10626fa1aee6a9f4ed0527e7e6013ece",
+      "actual": "ac975f4ed8740f813b5e30a5c98db2fb10626fa1aee6a9f4ed0527e7e6013ece",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application.Tests/W13StageAdapterTests.cs",
+      "expected": "921d167eb92b94d818d91291feb6d6be08607f2c667a90f1f2603d33bcdb4df7",
+      "actual": "921d167eb92b94d818d91291feb6d6be08607f2c667a90f1f2603d33bcdb4df7",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application/AcceptanceEvidenceAssembler.cs",
+      "expected": "3739c2903af45cb98e3573ccfdc49685372b7f3dd36b74b1ceb8b728201f9710",
+      "actual": "3739c2903af45cb98e3573ccfdc49685372b7f3dd36b74b1ceb8b728201f9710",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application.Tests/LeaderAcceptanceIntegrityTests.cs",
+      "expected": "0a6cf2cbc3df22b5ae287d828b4f5dd3920071272f7402df5989f3e581a20959",
+      "actual": "0a6cf2cbc3df22b5ae287d828b4f5dd3920071272f7402df5989f3e581a20959",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application/ReferenceComparisonService.cs",
+      "expected": "0684a7b768fd55d80f403efc5f5d7f8552176ea5777fa07648d1892c2dc94443",
+      "actual": "0684a7b768fd55d80f403efc5f5d7f8552176ea5777fa07648d1892c2dc94443",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application/ReleaseEvidence.cs",
+      "expected": "9f80c131c420db4f86b02e161cb12629d290d2237329177233ad6a56aad98c97",
+      "actual": "9f80c131c420db4f86b02e161cb12629d290d2237329177233ad6a56aad98c97",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application.Tests/CanonicalAcceptanceFixtures.cs",
+      "expected": "6f3e81479f135a423157bc773933f40d8fc4a381600b7389e36fe82b170cd367",
+      "actual": "6f3e81479f135a423157bc773933f40d8fc4a381600b7389e36fe82b170cd367",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application.Tests/ReleaseEvidenceTests.cs",
+      "expected": "037d82828a2153763e8dbdfad096802b749693d148063806f35d117b8620a43b",
+      "actual": "037d82828a2153763e8dbdfad096802b749693d148063806f35d117b8620a43b",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.AutoCAD.Tests/DrawingRegressionCommand.cs",
+      "expected": "41b071a49d1c911fbbeeed46a2ebd177a040c60cda6a69486ca5795c08a8f858",
+      "actual": "41b071a49d1c911fbbeeed46a2ebd177a040c60cda6a69486ca5795c08a8f858",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.AutoCAD.Tests/SemanticSnapshotReader.cs",
+      "expected": "82b8365cee2d54fa330385dee6d2262165e11ff22b7e068684d52b01538d751e",
+      "actual": "82b8365cee2d54fa330385dee6d2262165e11ff22b7e068684d52b01538d751e",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Drawing/CanonicalPhysicalSnapshot.cs",
+      "expected": "433ca55b716aeb47c0270660e42924205e3c49e012c7fc74b9292d8863887060",
+      "actual": "433ca55b716aeb47c0270660e42924205e3c49e012c7fc74b9292d8863887060",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Drawing/NativePhysicalCaptureAdapter.cs",
+      "expected": "ae1e33f93f1f216e05a3c59422a8c372443fd1c5575b2755f0bc8f0bc4333649",
+      "actual": "ae1e33f93f1f216e05a3c59422a8c372443fd1c5575b2755f0bc8f0bc4333649",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Drawing/SemanticDiff.cs",
+      "expected": "a577dd8b562f992fbd7f98f747651b5631789b00d89486d4a52bd07b7556a9d8",
+      "actual": "a577dd8b562f992fbd7f98f747651b5631789b00d89486d4a52bd07b7556a9d8",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Drawing.Tests/CanonicalAcceptanceTests.cs",
+      "expected": "fccc8adec8e8a4bbb05541d11406bb26f34df778b56135c34c383ee839f9f102",
+      "actual": "fccc8adec8e8a4bbb05541d11406bb26f34df778b56135c34c383ee839f9f102",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Drawing.Tests/CanonicalR04Tests.cs",
+      "expected": "3f0fe5ea13d9f8106e54cc4a8fc4e1d04bca821f9db767b4cad5d76f35445976",
+      "actual": "3f0fe5ea13d9f8106e54cc4a8fc4e1d04bca821f9db767b4cad5d76f35445976",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Drawing.Tests/SemanticDiffTests.cs",
+      "expected": "83c0df99b5263528a1c511f25ed0eb6a8395d104433419d05b8978e6ea22ec53",
+      "actual": "83c0df99b5263528a1c511f25ed0eb6a8395d104433419d05b8978e6ea22ec53",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Drawing.Tests/LeaderCanonicalDomainTests.cs",
+      "expected": "85e426fb6b91fad90011a97a5fe2e25aa8b05d2445926c4da3a697bc9d538e8f",
+      "actual": "85e426fb6b91fad90011a97a5fe2e25aa8b05d2445926c4da3a697bc9d538e8f",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Drawing/AssemblyBoundaryEmitter.cs",
+      "expected": "35242169057a27ddecbc2ab6360ed0efe2b36aa56433e8746cbbd74c990f1b8c",
+      "actual": "35242169057a27ddecbc2ab6360ed0efe2b36aa56433e8746cbbd74c990f1b8c",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Drawing/AnalyticPlanarOccupiedRegionKernel.cs",
+      "expected": "a761174c83858d50aaa10dbf6c0cfd114a0de31db8cc4c7e5ef078850ae626ff",
+      "actual": "a761174c83858d50aaa10dbf6c0cfd114a0de31db8cc4c7e5ef078850ae626ff",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Drawing/PlanarOccupiedRegionContracts.cs",
+      "expected": "dfb18caa4057ee2ca5d3168a98ed3fcbee99b0fc4e8f135d75c211f43d79eb3d",
+      "actual": "dfb18caa4057ee2ca5d3168a98ed3fcbee99b0fc4e8f135d75c211f43d79eb3d",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Drawing.Tests/L03OccupiedRegionAcceptanceTests.cs",
+      "expected": "9b9795555e224466344de4d1d5b32d4c62ab6fe64624f8a40074da10fe1b2261",
+      "actual": "9b9795555e224466344de4d1d5b32d4c62ab6fe64624f8a40074da10fe1b2261",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application.Tests/W10StageAdapterTests.cs",
+      "expected": "db8869df72a21be4cf8ee0514b25c9af135aa6d27eb800d68c68f5803fd1ed61",
+      "actual": "db8869df72a21be4cf8ee0514b25c9af135aa6d27eb800d68c68f5803fd1ed61",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Drawing.Tests/LeaderRegionReviewTests.cs",
+      "expected": "bc5d0856c6b9bcc0f5394d961093e6fd5a5c52e1e6deb3efb490bb394d932d9f",
+      "actual": "bc5d0856c6b9bcc0f5394d961093e6fd5a5c52e1e6deb3efb490bb394d932d9f",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Drawing.Tests/W04PlannerAndProjectorTests.cs",
+      "expected": "2cf6416f28b4c49dc3b805d41c674db6f1639cb77216db4d16aa504e449bdd91",
+      "actual": "2cf6416f28b4c49dc3b805d41c674db6f1639cb77216db4d16aa504e449bdd91",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application.Tests/L02NativeContextTests.cs",
+      "expected": "33098914a714a1f0a0c7b51f154a0c6d356838e7c4e5ad069ddbc16dd1b7fe39",
+      "actual": "33098914a714a1f0a0c7b51f154a0c6d356838e7c4e5ad069ddbc16dd1b7fe39",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application.Tests/L02NativeContractTests.cs",
+      "expected": "0092be8d7462573e9241424998fa7b95508f174ec345e0a788ceb5334621d7a9",
+      "actual": "0092be8d7462573e9241424998fa7b95508f174ec345e0a788ceb5334621d7a9",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application.Tests/LeaderTrueTypeCoverageTests.cs",
+      "expected": "8973072a8f5a432e5b44ce1cb60a4215dffa1b2035ed147244a4fd6ee7acac7d",
+      "actual": "8973072a8f5a432e5b44ce1cb60a4215dffa1b2035ed147244a4fd6ee7acac7d",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application.Tests/W02RemediationTests.cs",
+      "expected": "2c919e5e6375bf7806aae8cb58a022d0855c4045141cc61286e4155b7c4ac322",
+      "actual": "2c919e5e6375bf7806aae8cb58a022d0855c4045141cc61286e4155b7c4ac322",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application/Templates/NativeAssetContextR03.cs",
+      "expected": "b874840a557820990bed7bf9e3246b9935f75b7b754df230633ee66e6bc1c632",
+      "actual": "b874840a557820990bed7bf9e3246b9935f75b7b754df230633ee66e6bc1c632",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application/Templates/TemplateContractValidator.cs",
+      "expected": "7dfbd3e9ddc813666aeffc3833f5c49259e0b6ac55cdc57c8234efcf72cd2570",
+      "actual": "7dfbd3e9ddc813666aeffc3833f5c49259e0b6ac55cdc57c8234efcf72cd2570",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application/Templates/TrueTypeTextCoverage.cs",
+      "expected": "36b259d2de025be69acc622e07dfb5c2c4393a281018336ab0a2aef91f10a8a3",
+      "actual": "36b259d2de025be69acc622e07dfb5c2c4393a281018336ab0a2aef91f10a8a3",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.AutoCAD.Tests/L02NativeSignatureCommands.cs",
+      "expected": "2af2110af7d7eeb96bd680a92ce571a3589a936590f9e9cd91bde13c86715b26",
+      "actual": "2af2110af7d7eeb96bd680a92ce571a3589a936590f9e9cd91bde13c86715b26",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.AutoCAD.Tests/L02NativeWholeTextCommands.cs",
+      "expected": "5f4e0c71efee11efa15efcf8a733df4a9b923cac0142bc322d44dc3b695b93ad",
+      "actual": "5f4e0c71efee11efa15efcf8a733df4a9b923cac0142bc322d44dc3b695b93ad",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.AutoCAD.Tests/W02NativeRemediationCommands.cs",
+      "expected": "b867291fefef552d7af62116a04aa9d77361884ba119076be7f8f937b647ad40",
+      "actual": "b867291fefef552d7af62116a04aa9d77361884ba119076be7f8f937b647ad40",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.AutoCAD/NativeAssetSignatures.cs",
+      "expected": "976cf0a70b9649b8ace726b8c705538416c134e1960a2b5139897467f82a41d7",
+      "actual": "976cf0a70b9649b8ace726b8c705538416c134e1960a2b5139897467f82a41d7",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.AutoCAD/NativeWholeTextMeasurementR03.cs",
+      "expected": "cba6e1740bab96f995fd0aa589fc39f9b182241e78d5b997b0f953bac6652e0e",
+      "actual": "cba6e1740bab96f995fd0aa589fc39f9b182241e78d5b997b0f953bac6652e0e",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.AutoCAD/TemplateAssetImporter.cs",
+      "expected": "15f5111a96d0caf6d08bccfda4d81b8a925bba82ce8c70e95a640628523425d7",
+      "actual": "15f5111a96d0caf6d08bccfda4d81b8a925bba82ce8c70e95a640628523425d7",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.AutoCAD/TemplateManifestReader.cs",
+      "expected": "b7b34dbfbd21ab54188461f1ecf477098922ebef0f31806c9bfb6002766b4f7e",
+      "actual": "b7b34dbfbd21ab54188461f1ecf477098922ebef0f31806c9bfb6002766b4f7e",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application/FormulaRecalculationProofV2.cs",
+      "expected": "12f02056dc2ad5a86f7a60178264fa932532491f7e180dab8ef35b11ee8d8ad4",
+      "actual": "12f02056dc2ad5a86f7a60178264fa932532491f7e180dab8ef35b11ee8d8ad4",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application.Tests/LeaderS2ScalarIntegrityTests.cs",
+      "expected": "d7628642e19a0bd77b4b83967c837455dfa562fe56570eac61916c9639c6ca02",
+      "actual": "d7628642e19a0bd77b4b83967c837455dfa562fe56570eac61916c9639c6ca02",
+      "matched": true
+    },
+    {
+      "path": "DBTool/DBTool.Application.Tests/LeaderFormulaProofTests.cs",
+      "expected": "48f09a2165610f52b2b65d9d82fa06a6875d446a97a741bfc1fdf5a779a1b014",
+      "actual": "48f09a2165610f52b2b65d9d82fa06a6875d446a97a741bfc1fdf5a779a1b014",
+      "matched": true
+    }
+  ],
+  "nr_registry_unchanged": true,
+  "packages": {
+    "L01": "AppliedLive_CoreVerified_NativeCapturePending",
+    "L02": "AppliedLive_NativeTextAndSignatureOraclesVerified_ProductionContextBlocked",
+    "L03": "AppliedLive_AnalyticOraclesVerified_ProductionTolerancesAndProjectionCapabilitiesPending",
+    "L04": "AppliedLive_R04",
+    "L05": "AppliedLive_R04",
+    "L06": "AppliedLive_PureVerified_NativeExecutedBlocked",
+    "L07": "R05CurrentByteChainVerified_PreR05HistoryUnverified",
+    "NativeCore": "AppliedLive_MissingPortAndStageGuardsVerified",
+    "AcceptanceGuard": "AppliedLive_NoExpectedAsActual_NoImplicitTolerances",
+    "InputScalarReview": "AppliedLive_ScalarOraclesVerified_G01StillOpenForCompleteBindings"
+  },
+  "open_native_blockers": [
+    "G10 native production render blocked before writing: VHG-Unicode.Regular font differs between current DWG and VHG presentation contract/DXF sources.",
+    "UnitBinding/encoding/font/provider source context requires evidence; no guessed binding or feature disabling.",
+    "Native S10 port still manifest-only and NativeReadbackVerifier insufficient; N02/N04 open.",
+    "Numeric NR18 tolerance fields in approved registry remain null; no approval for a numeric value inferred from23proposal approvals.",
+    "Historical R02 receipt transitions have not been proven by retained commands/bytes/actor/time.",
+    "L03 exposed-layer/oblique projection capabilities and native/PDF validation incomplete; D08 remains open."
+  ],
+  "owner_S_R04_01": "Approved directly by DucBao; owner-decisions/S-R04-01-owner-approval.json",
+  "receipt_updates": "All 13 receipts guarded/snapshotted; downstream StaleNeedsReverify; dependency hashes not silently rebound",
+  "current_byte_ledger": "current-byte-ledger.json",
+  "distinct_changed_files": 46,
+  "file_apply_operations": 47,
+  "s2_scalar_live": "evidence/S2-scalar-measured-live/results.json",
+  "pad_reverification_after_s2": "evidence/L06-postS2-explicit-measured-live/results.json",
+  "native_whole_text_live": "native/L02-live-wholetext/5b2f4266eb944bd6b7526a4923cd4d6c/execution.json",
+  "native_signature_live": "native/L02-live-signatures/111e89c2dffd421cb0bea694de4b9551/execution.json"
+}

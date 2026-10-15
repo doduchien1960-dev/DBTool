@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputType>Library</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../DBTool.AutoCAD/DBTool.AutoCAD.csproj" />
+    <ProjectReference Include="../DBTool.Application/DBTool.Application.csproj" />
+    <ProjectReference Include="../DBTool.Domain/DBTool.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AcMgd" HintPath="$(AutoCADManagedPath)\acmgd.dll" Private="False" />
+    <Reference Include="AcDbMgd" HintPath="$(AutoCADManagedPath)\acdbmgd.dll" Private="False" />
+    <Reference Include="AcCoreMgd" HintPath="$(AutoCADManagedPath)\accoremgd.dll" Private="False" />
+  </ItemGroup>
+
+  <Target Name="ValidateAutoCADManagedPath" BeforeTargets="ResolveReferences">
+    <Error Condition="'$(AutoCADManagedPath)' == ''" Text="AutoCADManagedPath must be supplied by the local/trusted resolver." />
+    <Error Condition="'$(AutoCADManagedPath)' != '' and !Exists('$(AutoCADManagedPath)\acmgd.dll')" Text="AutoCADManagedPath does not contain acmgd.dll: $(AutoCADManagedPath)" />
+    <Error Condition="'$(AutoCADManagedPath)' != '' and !Exists('$(AutoCADManagedPath)\acdbmgd.dll')" Text="AutoCADManagedPath does not contain acdbmgd.dll: $(AutoCADManagedPath)" />
+    <Error Condition="'$(AutoCADManagedPath)' != '' and !Exists('$(AutoCADManagedPath)\accoremgd.dll')" Text="AutoCADManagedPath does not contain accoremgd.dll: $(AutoCADManagedPath)" />
+  </Target>
+</Project>
